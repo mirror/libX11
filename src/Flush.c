@@ -24,12 +24,14 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Flush.c,v 1.4 2001/12/14 19:54:00 dawes Exp $ */
 
 #include "Xlibint.h"
 
 /* Flush all buffered output requests. */
 /* NOTE: NOT necessary when calling any of the Xlib routines. */
 
+int
 XFlush (dpy)
     register Display *dpy;
     {

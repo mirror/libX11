@@ -41,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XAWMHints.man,v 1.3 2001/02/07 22:35:20 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -140,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XAllocWMHints 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XAllocWMHints 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocWMHints, XSetWMHints, XGetWMHints, XWMHints \- allocate window manager hints structure and set or read a window's WM_HINTS property
 .SH SYNTAX
@@ -228,63 +230,63 @@ structure contains:
 .TS
 lw(.5i) lw(2.5i) lw(2.5i).
 T{
-#define
+\&#define
 T}	T{
 .ZN InputHint
 T}	T{
 (1L << 0)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN StateHint
 T}	T{
 (1L << 1)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN IconPixmapHint
 T}	T{
 (1L << 2)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN IconWindowHint
 T}	T{
 (1L << 3)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN IconPositionHint
 T}	T{
 (1L << 4)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN IconMaskHint
 T}	T{
 (1L << 5)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN WindowGroupHint
 T}	T{
 (1L << 6)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN UrgencyHint
 T}	T{
 (1L << 8)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN AllHints
 T}	T{
@@ -351,7 +353,7 @@ The definitions for the initial_state flag are:
 .TS
 lw(.5i) lw(2i) lw(.2i) lw(2.8i).
 T{
-#define
+\&#define
 T}	T{
 .ZN WithdrawnState
 T}	T{
@@ -359,7 +361,7 @@ T}	T{
 T}	T{
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN NormalState
 T}	T{
@@ -368,7 +370,7 @@ T}	T{
 /* most applications start this way */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN IconicState
 T}	T{

@@ -41,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XCreGC.man,v 1.5 2001/02/09 03:47:45 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -140,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XCreateGC 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XCreateGC 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateGC, XCopyGC, XChangeGC, XGetGCValues, XFreeGC, XGContextFromGC, XGCValues \- create or free graphics contexts and graphics context structure
 .SH SYNTAX
@@ -172,7 +174,7 @@ XChangeGC\^(\^\fIdisplay\fP, \fIgc\fP\^, \fIvaluemask\fP\^, \fIvalues\fP\^)
 .br
       XGCValues *\^\fIvalues\fP\^;
 .LP
-Status XGetGCValues\^(\^\fIdisplay\fP, \fIgc\fP, \fIvaluemask\fP, \
+Status XGetGCValues\^(\^\fIdisplay\fP, \fIgc\fP, \fIvaluemask\fP,
 \fIvalues_return\fP\^)
 .br
       Display *\fIdisplay\fP\^;
@@ -343,140 +345,163 @@ structure contains:
 /* GC attribute value mask bits */
 .TS
 lw(.5i) lw(2.5i) lw(.75i).
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCFunction
 T}	T{
 (1L<<0)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCPlaneMask
 T}	T{
 (1L<<1)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCForeground
 T}	T{
 (1L<<2)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCBackground
 T}	T{
 (1L<<3)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCLineWidth
 T}	T{
 (1L<<4)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCLineStyle
 T}	T{
 (1L<<5)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCCapStyle
 T}	T{
 (1L<<6)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCJoinStyle
 T}	T{
 (1L<<7)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCFillStyle
 T}	T{
 (1L<<8)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCFillRule
 T}	T{
 (1L<<9)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCTile
 T}	T{
 (1L<<10)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCStipple
 T}	T{
 (1L<<11)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCTileStipXOrigin
 T}	T{
 (1L<<12)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCTileStipYOrigin
 T}	T{
 (1L<<13)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCFont
 T}	T{
 (1L<<14)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCSubwindowMode
 T}	T{
 (1L<<15)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCGraphicsExposures
 T}	T{
 (1L<<16)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCClipXOrigin
 T}	T{
 (1L<<17)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCClipYOrigin
 T}	T{
 (1L<<18)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCClipMask
 T}	T{
 (1L<<19)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCDashOffset
 T}	T{
 (1L<<20)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCDashList
 T}	T{
 (1L<<21)
 T}
-#define\
-	T{
+T{
+\&#define
+T}	T{
 .ZN GCArcMode
 T}	T{
 (1L<<22)

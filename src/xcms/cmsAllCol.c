@@ -32,9 +32,15 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsAllCol.c,v 1.3 2001/01/17 19:41:50 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+
+/* EXTERNS */
+
+/* SetGetCols.c */
+extern Status _XcmsSetGetColors();
 
 
 /*

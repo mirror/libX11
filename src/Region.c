@@ -45,6 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ************************************************************************/
+/* $XFree86: xc/lib/X11/Region.c,v 1.9 2002/06/04 22:19:57 dawes Exp $ */
 /*
  * The functions in this file implement the Region abstraction, similar to one
  * used in the X11 sample server. A Region is simply an area, as the name
@@ -108,6 +109,7 @@ XCreateRegion()
     return( temp );
 }
 
+int
 XClipBox( r, rect )
     Region r;
     XRectangle *rect;
@@ -119,6 +121,7 @@ XClipBox( r, rect )
     return 1;
 }
 
+int
 XUnionRectWithRegion(rect, source, dest)
     register XRectangle *rect;
     Region source, dest;
@@ -202,6 +205,9 @@ miSetExtents (pReg)
     assert(pExtents->x1 < pExtents->x2);
 }
 
+extern void _XSetClipRectangles();
+
+int
 XSetRegion( dpy, gc, r )
     Display *dpy;
     GC gc;
@@ -211,7 +217,6 @@ XSetRegion( dpy, gc, r )
     register XRectangle *xr, *pr;
     register BOX *pb;
     unsigned long total;
-    extern void _XSetClipRectangles();
 
     LockDisplay (dpy);
     total = r->numRects * sizeof (XRectangle);
@@ -232,6 +237,7 @@ XSetRegion( dpy, gc, r )
     return 1;
 }
 
+int
 XDestroyRegion( r )
     Region r;
 {
@@ -246,6 +252,7 @@ XDestroyRegion( r )
    added by raymond
 */
 
+int
 XOffsetRegion(pRegion, x, y)
     register Region pRegion;
     register int x;
@@ -325,6 +332,7 @@ Compress(r, s, t, dx, xdir, grow)
 #undef ZShiftRegion
 #undef ZCopyRegion
 
+int
 XShrinkRegion(r, dx, dy)
     Region r;
     int dx, dy;
@@ -379,7 +387,7 @@ static BOX
  *-----------------------------------------------------------------------
  */
 /* static void*/
-static
+static int
 miIntersectO (pReg, r1, r1End, r2, r2End, y1, y2)
     register Region	pReg;
     register BoxPtr	r1;
@@ -443,6 +451,7 @@ miIntersectO (pReg, r1, r1End, r2, r2End, y1, y2)
     return 0;	/* lint */
 }
 
+int
 XIntersectRegion(reg1, reg2, newReg)
     Region 	  	reg1;
     Region	  	reg2;          /* source regions     */
@@ -653,7 +662,7 @@ TopRects(newReg, rects, reg1, reg2, FirstRect)
  *-----------------------------------------------------------------------
  */
 /* static int*/
-static
+static int
 miCoalesce (pReg, prevStart, curStart)
     register Region	pReg;	    	/* Region to coalesce */
     int	    	  	prevStart;  	/* Index of start of previous band */
@@ -1095,7 +1104,7 @@ miRegionOp(newReg, reg1, reg2, overlapFunc,  nonOverlap1Func, nonOverlap2Func)
  *-----------------------------------------------------------------------
  */
 /* static void*/
-static
+static int
 miUnionNonO (pReg, r, rEnd, y1, y2)
     register Region	pReg;
     register BoxPtr	r;
@@ -1144,7 +1153,7 @@ miUnionNonO (pReg, r, rEnd, y1, y2)
  */
 
 /* static void*/
-static
+static int
 miUnionO (pReg, r1, r1End, r2, r2End, y1, y2)
     register Region	pReg;
     register BoxPtr	r1;
@@ -1210,6 +1219,7 @@ miUnionO (pReg, r1, r1End, r2, r2End, y1, y2)
     return 0;	/* lint */
 }
 
+int
 XUnionRegion(reg1, reg2, newReg)
     Region 	  reg1;
     Region	  reg2;             /* source regions     */
@@ -1296,7 +1306,7 @@ XUnionRegion(reg1, reg2, newReg)
  *-----------------------------------------------------------------------
  */
 /* static void*/
-static
+static int
 miSubtractNonO1 (pReg, r, rEnd, y1, y2)
     register Region	pReg;
     register BoxPtr	r;
@@ -1343,7 +1353,7 @@ miSubtractNonO1 (pReg, r, rEnd, y1, y2)
  *-----------------------------------------------------------------------
  */
 /* static void*/
-static
+static int
 miSubtractO (pReg, r1, r1End, r2, r2End, y1, y2)
     register Region	pReg;
     register BoxPtr	r1;
@@ -1447,7 +1457,8 @@ miSubtractO (pReg, r1, r1End, r2, r2End, y1, y2)
 		assert(pReg->numRects<=pReg->size);
 	    }
 	    r1++;
-	    x1 = r1->x1;
+	    if (r1 != r1End)
+		x1 = r1->x1;
 	}
     }
 
@@ -1491,6 +1502,7 @@ miSubtractO (pReg, r1, r1End, r2, r2End, y1, y2)
  *-----------------------------------------------------------------------
  */
 
+int
 XSubtractRegion(regM, regS, regD)
     Region 	  	regM;
     Region	  	regS;          

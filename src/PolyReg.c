@@ -45,6 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ************************************************************************/
+/* $XFree86: xc/lib/X11/PolyReg.c,v 1.6 2001/12/14 19:54:03 dawes Exp $ */
 
 #define LARGE_COORDINATE 1000000
 #define SMALL_COORDINATE -LARGE_COORDINATE
@@ -401,7 +402,7 @@ static int PtsToRegion(numFullPtBlocks, iCurPtBlock, FirstPtBlock, reg)
     register BOX *extents;
     register int numRects;
     BOX *prevRects = reg->rects;
- 
+
     extents = &reg->extents;
  
     numRects = ((numFullPtBlocks * NUMPTSTOBUFFER) + iCurPtBlock) >> 1;

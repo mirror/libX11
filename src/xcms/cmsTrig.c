@@ -24,6 +24,7 @@
  * CONNECTION WITH THE USE OR THE PERFORMANCE OF THIS SOFTWARE.
  */
 
+/* $XFree86: xc/lib/X11/cmsTrig.c,v 3.8 2001/10/28 03:32:34 tsi Exp $ */
 /*
  *	It should be pointed out that for simplicity's sake, the
  *	environment parameters are defined as floating point constants,
@@ -63,11 +64,6 @@ double _XcmsArcTangent();
  *	DEFINES
  */
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
 #define XCMS_MAXERROR       	0.000001
 #define XCMS_MAXITER       	10000
 #define XCMS_PI       		3.14159265358979323846264338327950
@@ -90,35 +86,35 @@ double _XcmsArcTangent();
 #define XCMS_DMAXPOWTWO	((double)(1 < 47))
 #else
 #define XCMS_DMAXPOWTWO	((double)(XCMS_LONG_MAX) * \
-	    (1L << (XCMS_NBITS(double)-XCMS_DEXPLEN) - XCMS_NBITS(long) + 1))
+	    (1L << ((XCMS_NBITS(double)-XCMS_DEXPLEN) - XCMS_NBITS(int) + 1)))
 #endif
 
 /*
  *	LOCAL VARIABLES
  */
 
-static double Const cos_pcoeffs[] = {
+static double const cos_pcoeffs[] = {
     0.12905394659037374438e7,
    -0.37456703915723204710e6,
     0.13432300986539084285e5,
    -0.11231450823340933092e3
 };
 
-static double Const cos_qcoeffs[] = {
+static double const cos_qcoeffs[] = {
     0.12905394659037373590e7,
     0.23467773107245835052e5,
     0.20969518196726306286e3,
     1.0
 };
 
-static double Const sin_pcoeffs[] = {
+static double const sin_pcoeffs[] = {
     0.20664343336995858240e7,
    -0.18160398797407332550e6,
     0.35999306949636188317e4,
    -0.20107483294588615719e2
 };
 
-static double Const sin_qcoeffs[] = {
+static double const sin_qcoeffs[] = {
     0.26310659102647698963e7,
     0.39270242774649000308e5,
     0.27811919481083844087e3,
@@ -321,7 +317,11 @@ double val;
 register double *dp;
 {
 	register double abs;
-	register double ip;
+	/*
+	 * Don't use a register for this.  The extra precision this results
+	 * in on some systems causes problems.
+	 */
+	double ip;
 
 	/* should check for illegal values here - nan, inf, etc */
 	abs = XCMS_FABS(val);
@@ -379,7 +379,7 @@ register double *dp;
 
 static double _XcmsPolynomial (order, coeffs, x)
 register int order;
-double Const *coeffs;
+double const *coeffs;
 double x;
 {
     auto double rtn_value;
@@ -567,7 +567,7 @@ _XcmsArcTangent(x)
  *		Returns the arctangent 
  */
 {
-    double ai, a1, bi, b1, l, d;
+    double ai, a1 = 0.0, bi, b1 = 0.0, l, d;
     double maxerror;
     int i;
 

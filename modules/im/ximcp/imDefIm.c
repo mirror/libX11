@@ -31,14 +31,21 @@ OF THIS SOFTWARE.
                                makoto@sm.sony.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDefIm.c,v 1.11 2002/12/14 01:53:56 dawes Exp $ */
 
 #include <X11/Xatom.h>
 #define NEED_EVENTS
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "XlcPublic.h"
+#include "XlcPubI.h"
 #include "XimTrInt.h"
 #include "Ximint.h"
+
+
+/* EXTERNS */
+/* imTransR.c */
+extern Bool _XimRegisterDispatcher();
 
 Public int
 _XimCheckDataSize(buf, len)
@@ -158,7 +165,7 @@ _XimCheckLocaleName(im, address, address_len, locale_name, len)
 	*p = '\0';
 
 	for( n = 0; n < len; n++ )
-	    if( locale_name[n] && !strcmp( pp, locale_name[n] ) )
+	    if( locale_name[n] && !_XlcCompareISOLatin1( pp, locale_name[n] ) )
 		return locale_name[n];
 	if (finish)
 	    break;
@@ -384,7 +391,7 @@ _XimPreConnect(im)
     unsigned long   bytes_after;
     unsigned char  *prop_return;
     Atom	   *atoms;
-    Window	    im_window;
+    Window	    im_window = 0;
     register int    i;
 
     if((imserver = XInternAtom(display, XIM_SERVERS, True)) == (Atom)None)
@@ -1030,6 +1037,30 @@ _XimProtoIMFree(im)
 	_XlcCloseConverter(im->private.proto.ctow_conv);
 	im->private.proto.ctow_conv = NULL;
     }
+    if (im->private.proto.ctoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.ctoutf8_conv);
+	im->private.proto.ctoutf8_conv = NULL;
+    }
+    if (im->private.proto.cstomb_conv) {
+	_XlcCloseConverter(im->private.proto.cstomb_conv);
+	im->private.proto.cstomb_conv = NULL;
+    }
+    if (im->private.proto.cstowc_conv) {
+	_XlcCloseConverter(im->private.proto.cstowc_conv);
+	im->private.proto.cstowc_conv = NULL;
+    }
+    if (im->private.proto.cstoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.cstoutf8_conv);
+	im->private.proto.cstoutf8_conv = NULL;
+    }
+    if (im->private.proto.ucstoc_conv) {
+	_XlcCloseConverter(im->private.proto.ucstoc_conv);
+	im->private.proto.ucstoc_conv = NULL;
+    }
+    if (im->private.proto.ucstoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.ucstoutf8_conv);
+	im->private.proto.ucstoutf8_conv = NULL;
+    }
 
 #ifdef XIM_CONNECTABLE
     if (!IS_SERVER_CONNECTED(im) && IS_RECONNECTABLE(im)) {
@@ -1105,6 +1136,13 @@ _XimProtoCloseIM(xim)
 #endif /* XIM_CONNECTABLE */
 	ic = next;
     }
+#ifdef XIM_CONNECTABLE
+    if (!(!IS_SERVER_CONNECTED(im) && IS_RECONNECTABLE(im)))
+	im->core.ic_chain = NULL;
+#else
+    im->core.ic_chain = NULL;
+#endif
+
     _XimUnregisterServerFilter(im);
     _XimResetIMInstantiateCallback(im);
     status = (Status)_XimClose(im);
@@ -1429,7 +1467,7 @@ _XimProtoGetIMValues(xim, arg)
     INT16		 len;
     CARD32		 reply32[BUFSIZE/4];
     char		*reply = (char *)reply32;
-    XPointer		 preply;
+    XPointer		 preply = NULL;
     int			 buf_size;
     int			 ret_code;
     char		*makeid_name;
@@ -1534,7 +1572,8 @@ Private XIMMethodsRec     im_methods = {
     _XimProtoGetIMValues,       /* get_values */
     _XimProtoCreateIC,          /* create_ic */
     _Ximctstombs,		/* ctstombs */
-    _Ximctstowcs		/* ctstowcs */
+    _Ximctstowcs,		/* ctstowcs */
+    _Ximctstoutf8		/* ctstoutf8 */
 };
 
 Private Bool
@@ -1594,8 +1633,11 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
     CARD16	 category = buf[0];
     CARD16	 idx = buf[1];
     int		 len;
-    XlcConv	 ctom_conv;
-    XlcConv	 ctow_conv;
+    XlcConv	 ctom_conv = NULL;
+    XlcConv	 ctow_conv = NULL;
+    XlcConv	 ctoutf8_conv = NULL;
+    XlcConv	 conv;
+    XimProtoPrivateRec *private = &im->private.proto;
 
     if (idx == (CARD16)XIM_Default_Encoding_IDX) { /* XXX */
 	if (!(ctom_conv = _XlcOpenConverter(lcd,
@@ -1603,6 +1645,9 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
 	    return False;
 	if (!(ctow_conv = _XlcOpenConverter(lcd,
 				 XlcNCompoundText, lcd, XlcNWideChar)))
+	    return False;
+	if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 	    return False;
     }
 
@@ -1615,6 +1660,9 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
 		    return False;
 		if (!(ctow_conv = _XlcOpenConverter(lcd,
 				 XlcNCompoundText, lcd, XlcNWideChar)))
+		    return False;
+		if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 		    return False;
 		break;
 	    } else {
@@ -1633,8 +1681,31 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
     } else {
 	return False;
     }
-    im->private.proto.ctom_conv = ctom_conv;
-    im->private.proto.ctow_conv = ctow_conv;
+
+    private->ctom_conv = ctom_conv;
+    private->ctow_conv = ctow_conv;
+    private->ctoutf8_conv = ctoutf8_conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNMultiByte)))
+	return False;
+    private->cstomb_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNWideChar)))
+	return False;
+    private->cstowc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNUtf8String)))
+	return False;
+    private->cstoutf8_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNChar)))
+	return False;
+    private->ucstoc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
+	return False;
+    private->ucstoutf8_conv = conv;
+
     return True;
 }
 

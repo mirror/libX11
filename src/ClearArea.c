@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ClearArea.c,v 1.4 2001/12/14 19:53:58 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XClearArea (dpy, w, x, y, width, height, exposures)
     register Display *dpy;
     Window w;

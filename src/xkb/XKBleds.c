@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBleds.c,v 1.3 2001/02/21 15:18:03 tsi Exp $ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
@@ -340,8 +341,7 @@ XkbSetNamedDeviceIndicator(dpy,device,class,id,name,changeState,
     XkbInfoPtr xkbi;
 
     if ((dpy->flags & XlibDisplayNoXkb) || (name==None) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)) ||
-	(pMap==NULL))
+ 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
 	return False;
     LockDisplay(dpy);
     xkbi = dpy->xkb_info;

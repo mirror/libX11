@@ -36,9 +36,11 @@
  *
  *		Note that the range for L* is 0 to 1.
  */
+/* $XFree86: xc/lib/X11/Lab.c,v 1.3 2001/01/17 19:41:38 dawes Exp $ */
 
 
 #include <X11/Xos.h>
+#include <stdio.h> /* sscanf */
 #include "Xlibint.h"
 #include "Xcmsint.h"
 
@@ -59,6 +61,11 @@
  */
 extern char	_XcmsCIELab_prefix[];
 
+/* CvCols.c */
+extern Status _XcmsDIConvertColors();
+
+/* XYZ.c */
+extern Status _XcmsCIEXYZ_ValidSpec();
 
 /*
  *	FORWARD DECLARATIONS

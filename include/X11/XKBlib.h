@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBlib.h,v 3.3 2001/08/01 00:44:38 tsi Exp $ */
 
 #ifndef _XKBLIB_H_
 #define _XKBLIB_H_
@@ -1343,6 +1344,14 @@ extern	Bool XkbSetDebuggingFlags(
     unsigned int	/* ctrls */,
     unsigned int *	/* rtrn_flags */,
     unsigned int *	/* rtrn_ctrls */
+#endif
+);
+
+extern	Bool XkbApplyVirtualModChanges(
+#if NeedFunctionPrototypes
+   XkbDescPtr		/* xkb */,
+   unsigned int		/* changed */,
+   XkbChangesPtr	/* changes */
 #endif
 );
 

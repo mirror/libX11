@@ -1,4 +1,4 @@
- /* $Xorg: UnldFont.c,v 1.4 2001/02/09 02:03:37 xorgcvs Exp $
+/* $Xorg: UnldFont.c,v 1.4 2001/02/09 02:03:37 xorgcvs Exp $ */
 /*
 
 Copyright 1986, 1998  The Open Group
@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/UnldFont.c,v 1.6 2001/12/19 15:37:57 tsi Exp $ */
 
 #include "Xlibint.h"
 
+int
 XUnloadFont(dpy, font)
      register Display *dpy;
      Font font;

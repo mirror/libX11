@@ -1,11 +1,13 @@
-# $Xorg: iso8859-2,v 1.3 2000/08/17 19:46:59 cpqbld Exp $
-#
-# ISO 8859-2 (Latin2) Compose Sequence
-#
-# Sequence Definition
-#
-# <Multi_key> Means <Compose>
-# Special Character
+XCOMM $Xorg: iso8859-2,v 1.3 2000/08/17 19:46:59 cpqbld Exp $
+XCOMM
+XCOMM ISO 8859-2 (Latin2) Compose Sequence
+XCOMM
+XCOMM $XFree86: xc/nls/Compose/iso8859-2,v 1.7 2001/08/13 17:46:02 dawes Exp $
+XCOMM
+XCOMM Sequence Definition
+XCOMM
+XCOMM <Multi_key> Means <Compose>
+XCOMM Special Character
 <Multi_key> <plus> <plus>		: "#"	numbersign
 <Multi_key> <apostrophe> <space>	: "'"	apostrophe
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
@@ -51,10 +53,10 @@
 <Multi_key> <exclam> <p>		: "\266"	paragraph
 <Multi_key> <P> <exclam>		: "\266"	paragraph
 <Multi_key> <exclam> <P>		: "\266"	paragraph
-# Right-hand side (Accented Alphabet)
-# These compose sequences are pure supposition on my part.
-# It would be nice to know what the real cultural conventions
-# are for compose sequences.
+XCOMM Right-hand side (Accented Alphabet)
+XCOMM These compose sequences are pure supposition on my part.
+XCOMM It would be nice to know what the real cultural conventions
+XCOMM are for compose sequences.
 <Multi_key> <A> <comma>			: "\241"	Aogonek
 <Multi_key> <comma> <A>			: "\241"	Aogonek
 <Multi_key> <A> <ogonek>		: "\241"	Aogonek
@@ -332,10 +334,10 @@
 <Multi_key> <less> <n>			: "\362"	ncaron
 <Multi_key> <n> <caron>			: "\362"	ncaron
 <Multi_key> <caron> <n>			: "\362"	ncaron
-<Multi_key> <o> <acute>			: "\363"	nacute
-<Multi_key> <acute> <o>			: "\363"	nacute
-<Multi_key> <o> <apostrophe>		: "\363"	nacute
-<Multi_key> <apostrophe> <o>		: "\363"	nacute
+<Multi_key> <o> <acute>			: "\363"	oacute
+<Multi_key> <acute> <o>			: "\363"	oacute
+<Multi_key> <o> <apostrophe>		: "\363"	oacute
+<Multi_key> <apostrophe> <o>		: "\363"	oacute
 <Multi_key> <o> <asciicircum>		: "\364"	ocircumflex
 <Multi_key> <asciicircum> <o>		: "\364"	ocircumflex
 <Multi_key> <o> <greater>		: "\364"	ocircumflex
@@ -387,7 +389,7 @@
 <dead_acute> <i>			: "\355"	iacute
 <dead_acute> <l>			: "\345"	lacute
 <dead_acute> <n>			: "\361"	nacute
-<dead_acute> <o>			: "\363"	nacute
+<dead_acute> <o>			: "\363"	oacute
 <dead_acute> <r>			: "\340"	racute
 <dead_acute> <s>			: "\266"	sacute
 <dead_acute> <u>			: "\372"	uacute
@@ -447,4 +449,120 @@
 <dead_ogonek> <E>			: "\312"	Eogonek
 <dead_ogonek> <a>			: "\261"	aogonek
 <dead_ogonek> <e>			: "\352"	eogonek
-# End of Sequence Definition
+XCOMM those are for ease of use
+<dead_abovedot> <U>			: "\331"	Uring
+<dead_abovedot> <u>			: "\371"	uring
+<dead_caron> <U>			: "\331"	Uring
+<dead_caron> <u>			: "\371"	uring
+XCOMM traditional sequences
+<Multi_key> <O> <E>			: "\274"	OE
+<Multi_key> <o> <e>			: "\275"	oe
+<dead_abovering> <A>			: "\305"        Aring
+<dead_abovering> <a>                    : "\345"        aring
+<dead_abovering> <dead_abovering>       : "\260"	degree
+<dead_abovering> <degree>               : "\260"	degree
+<dead_abovering> <space>                : "\260"	degree
+<dead_abovering> <nobreakspace>         : "\260"	degree
+<dead_tilde> <I>                        : "\245"        Itilde
+<dead_tilde> <i>                        : "\265"        itilde
+<dead_tilde> <A>                        : "\303"        Atilde
+<dead_tilde> <O>                        : "\325"        Otilde
+<dead_tilde> <U>                        : "\335"        Utilde
+<dead_tilde> <a>                        : "\343"        atilde
+<dead_tilde> <o>                        : "\365"        otilde
+<dead_tilde> <u>                        : "\375"        utilde
+<dead_tilde> <N>			: "\321"	Ntilde
+<dead_tilde> <n>			: "\361"	ntilde
+<dead_tilde> <dead_tilde>               : "~"           asciitilde
+<dead_tilde> <asciitilde>               : "~"           asciitilde
+<dead_tilde> <space>                    : "~"           asciitilde
+<dead_tilde> <nobreakspace>             : "~"           asciitilde
+<dead_caron> <caron>                    : "\267"        caron
+<dead_caron> <dead_caron>               : "\267"        caron
+<dead_caron> <space>                    : "\267"        caron
+<dead_caron> <nobreakspace>             : "\267"        caron
+<dead_circumflex> <A>                   : "\302"        Acircumflex
+<dead_circumflex> <I>                   : "\316"        Icircumflex
+<dead_circumflex> <O>                   : "\324"        Ocircumflex
+<dead_circumflex> <U>                   : "\333"        Ucircumflex
+<dead_circumflex> <a>                   : "\342"        acircumflex
+<dead_circumflex> <i>                   : "\356"        icircumflex
+<dead_circumflex> <o>                   : "\364"        ocircumflex
+<dead_circumflex> <u>                   : "\373"        ucircumflex      
+<dead_circumflex> <u>                   : "\373"        ucircumflex      
+<dead_circumflex> <dead_circumflex>	: "\136"	asciicircum
+<dead_circumflex> <asciicircum>		: "\136"	asciicircum
+<dead_circumflex> <space>		: "\136"	asciicircum
+<dead_circumflex> <nobreakspace>	: "\136"	asciicircum
+<dead_breve> <G>                        : "\253"        Gbreve
+<dead_breve> <g>                        : "\273"        gbreve
+<dead_breve> <U>                        : "\335"        Ubreve
+<dead_breve> <u>                        : "\375"        ubreve
+<dead_breve> <dead_breve>		: "\242"	breve
+<dead_breve> <breve>			: "\242"	breve
+<dead_breve> <space>			: "\242"	breve
+<dead_breve> <nobreakspace>		: "\242"	breve
+<dead_ogonek> <A>                       : "\241"        Aogonek
+<dead_ogonek> <a>                       : "\261"        aogonek
+<dead_ogonek> <ogonek>                  : "\262"        ogonek
+<dead_ogonek> <dead_ogonek>             : "\262"        ogonek
+<dead_ogonek> <I>                       : "\307"        Iogonek
+<dead_ogonek> <E>                       : "\312"        Eogonek
+<dead_ogonek> <U>                       : "\331"        Uogonek
+<dead_ogonek> <i>                       : "\347"        iogonek
+<dead_ogonek> <e>                       : "\352"        eogonek
+<dead_ogonek> <u>                       : "\371"        uogonek          
+<dead_ogonek> <dead_ogonek>		: "\662"	ogonek
+<dead_ogonek> <ogonek>			: "\662"	ogonek
+<dead_ogonek> <space>			: "\662"	ogonek
+<dead_ogonek> <nobreakspace>		: "\662"	ogonek
+<dead_grave> <A>			: "\300"	Agrave
+<dead_grave> <a>			: "\340"	agrave
+<dead_grave> <E>			: "\310"	Egrave
+<dead_grave> <e>			: "\350"	egrave
+<dead_grave> <I>			: "\314"	Igrave
+<dead_grave> <i>			: "\354"	igrave
+<dead_grave> <O>			: "\322"	Ograve
+<dead_grave> <o>			: "\362"	ograve
+<dead_grave> <U>			: "\331"	Ugrave
+<dead_grave> <u>			: "\371"	ugrave
+<dead_grave> <dead_grave>		: "`"		grave
+<dead_grave> <grave>			: "`"		grave
+<dead_grave> <space>			: "`"		grave
+<dead_grave> <nobreakspace>		: "`"		grave
+<dead_abovedot> <C>			: "\305"	Cabovedot
+<dead_abovedot> <c>			: "\345"	cabovedot
+<dead_abovedot> <I>			: "\251"	Iabovedot
+<dead_abovedot> <i>			: "\271"	idotless
+<dead_abovedot> <Z>			: "\257"	Zabovedot
+<dead_abovedot> <z>			: "\277"	zabovedot
+<dead_abovedot> <E> 			: "\314"	Eabovedot
+<dead_abovedot> <e>			: "\354"	eabovedot
+<dead_abovedot> <dead_abovedot>		: "\377" 	abovedot
+<dead_abovedot> <abovedot>		: "\377"	abovedot
+<dead_abovedot> <space>			: "\377" 	abovedot
+<dead_abovedot> <nobreakspace>		: "\377" 	abovedot
+<dead_acute> <dead_acute>		: "\264"	acute
+<dead_acute> <acute>			: "\264"	acute
+<dead_acute> <space>			: "\264"	acute
+<dead_acute> <nobreakspace>		: "\264"	acute
+<dead_doubleacute> <dead_doubleacute>	: "\675"	doubleacute
+<dead_doubleacute> <doubleacute>	: "\675"	doubleacute
+<dead_doubleacute> <space>		: "\675"	doubleacute
+<dead_doubleacute> <nobreakspace>	: "\675"	doubleacute
+<dead_diaeresis> <I>			: "\317"	Idiaeresis
+<dead_diaeresis> <i>			: "\357"	idiaeresis
+<dead_diaeresis> <y>			: "\377"	ydiaeresis
+<dead_diaeresis> <dead_diaeresis>	: "\250"	diaeresis
+<dead_diaeresis> <diaeresis>		: "\250"	diaeresis
+<dead_diaeresis> <space>		: "\250"	diaeresis
+<dead_diaeresis> <nobreakspace>		: "\250"	diaeresis
+<dead_cedilla> <dead_cedilla>		: "\270"	cedilla
+<dead_cedilla> <cedilla>		: "\270"	cedilla
+<dead_cedilla> <space>			: "\270"	cedilla
+<dead_cedilla> <nobreakspace>		: "\270"	cedilla
+<dead_macron> <dead_macron>		: "\257"	macron
+<dead_macron> <macron>			: "\257"	macron
+<dead_macron> <space>			: "\257"	macron
+<dead_macron> <nobreakspace>		: "\257"	macron
+XCOMM End of Sequence Definition

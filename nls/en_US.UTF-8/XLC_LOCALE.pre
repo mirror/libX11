@@ -1,365 +1,142 @@
-XCOMM
-XCOMM Copyright (c) 1996-1998 by Sun Microsystems, Inc.
-XCOMM All rights reserved.
-XCOMM
-#ident	"@(#)en_US.UTF-8	1.26 98/11/17 SMI"
+XCOMM  $XFree86: xc/nls/XLC_LOCALE/en_US.UTF-8,v 1.3 2000/12/01 17:43:02 dawes Exp $
+XCOMM  XLocale Database Sample for en_US.UTF-8
+XCOMM 
+
 XCOMM 
 XCOMM 	XLC_FONTSET category
 XCOMM 
 XLC_FONTSET
 
-XCOMM 	fs0 class 
+on_demand_loading	True
+
+object_name		generic
+
+XCOMM	fs0 class
 fs0	{
-	charset		ISO8859-1:GL
-	font {
-	    primary	ISO8859-1:GL
+	charset	{
+		name	ISO10646-1
+	}
+	font	{
+		primary	ISO10646-1
 	}
 }
-
-XCOMM 	fs1 class 
+XCOMM	We leave the legacy encodings in for the moment, because we don't
+XCOMM	have that many ISO10646 fonts yet.
+XCOMM 	fs1 class (7 bit ASCII)
 fs1	{
-	charset		ISO8859-1:GR
-	font {
-	    primary	ISO8859-1:GR
+	charset	{
+		name	ISO8859-1:GL
+	}
+	font	{
+		primary		ISO8859-1:GL
+		vertical_rotate	all
 	}
 }
-
-XCOMM 	fs2 class 
+XCOMM	fs2 class (ISO8859 families)
 fs2	{
-	charset		ISO8859-5:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-5:GR
+	charset	{
+		name	ISO8859-1:GR
+	}
+	font	{
+		primary	ISO8859-1:GR
 	}
 }
-XCOMM 	fs3 class 
+XCOMM 	fs3 class (Kanji)
 fs3	{
-	charset		ISO8859-7:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-7:GR
+	charset	{
+		name	JISX0208.1983-0:GL
+	}
+	font	{
+		primary	JISX0208.1983-0:GL
 	}
 }
-
-XCOMM 	fs4 class 
+XCOMM   fs4 class (Korean Character)
 fs4	{
-	charset		ISO8859-2:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-2:GR
+	charset	{
+		name	KSC5601.1987-0:GL
+	}
+	font	{
+		primary	KSC5601.1987-0:GL
 	}
 }
-
-XCOMM 	fs5 class 
+XCOMM   fs5 class (Chinese Han Character)
 fs5	{
-	charset		ISO8859-4:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-4:GR
+	charset	{
+		name	GB2312.1980-0:GL
+	}
+	font	{
+		primary	GB2312.1980-0:GL
 	}
 }
-
-XCOMM 	fs6 class 
+XCOMM	fs6 class (Half Kana)
 fs6	{
-	charset		ISO8859-9:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-9:GR
+	charset	{
+		name	JISX0201.1976-0:GR
+	}
+	font	{
+		primary		JISX0201.1976-0:GR
+		vertical_rotate	all
 	}
 }
-
-XCOMM 	fs7 class 
-fs7	{
-	charset		ISO8859-15:GR
-	font {
-	    load_option delay_nocheck
-	    primary	ISO8859-15:GR
-	}
-}
-
-XCOMM 	fs8 class for JISX0208
-fs8	{
-	charset		JISX0208.1983-0:GR
-	font {
-	    load_option delay_nocheck
-	    primary	JISX0208.1983-0:GL
-	}
-}
-
-XCOMM 	fs9 class for JISX0201 kana
-fs9	{
-	charset		JISX0201.1976-0:GR
-	font {
-	    load_option delay_nocheck
-	    primary	JISX0201.1976-0:GR
-	}
-}
-
-XCOMM       fs10 calss for KS C 5601-1992 Supplementary Codes 3
-fs10	{
-        charset         KSC5601.1992-3:GLGR
-        font {
-            primary     KSC5601.1992-3:GLGR
-        }
-}
-
-XCOMM       fs11 class
-fs11	{
-        charset         GB2312.1980-0:GR
-        font {
-            load_option delay_nocheck
-            primary     GB2312.1980-0:GL
-        }
-}
-
-XCOMM       fs12 class
-fs12	{
-        charset         BIG5-1:GLGR
-        font {
-            load_option delay_nocheck
-            primary     BIG5-1:GLGR
-        }
-}
-
-XCOMM 	fs13 class (Thai)
-fs13	{
-	charset		TIS620.2533-0:GR
-	font {
-	    primary	TIS620.2533-0:GR
-	}
-}
-
-XCOMM       fs14 class (ISO8859-6) (Arabic)
-fs14	{
-	charset		ISO8859-6:GLGR
-	font {
-	    primary	ISO8859-6:GLGR
-	}
-}
-
-XCOMM       fs15 class (ISO8859-8) (Hebrew)
-fs15	{
-	charset		ISO8859-8:GR
-	font {
-	    primary	ISO8859-8:GR
-	}
-}
-
-XCOMM       fs16 (Last, fallback) class (unicode-fontspecific)
-fs16 {
-	charset		UNICODE-FONTSPECIFIC:GLGR
-	font {
-            load_option delay_nocheck
-	    primary	UNICODE-FONTSPECIFIC:GLGR
-	}
-}
-
 END XLC_FONTSET
-
 
 XCOMM 
 XCOMM 	XLC_XLOCALE category
 XCOMM 
 XLC_XLOCALE
 
-encoding_name		en_US.UTF-8
-mb_cur_max		8
+encoding_name		UTF-8
+mb_cur_max		6
 state_depend_encoding	False
 
-mb_encoding_name	UTF-8
-wc_encoding_name	UCS-4
-wc_valid_length		2
-wc_conversion_table	conv_tables/UCS_TO_CS
-
-
-XCOMM 	cs0 class
+XCOMM	cs0 class
 cs0	{
 	side		GL:Default
 	length		1
 	ct_encoding	ISO8859-1:GL
-	byte1		\x00,\x7f
-	cs_range	\x00,\x7f
-	cs_conversion	[\x00,\x7f]->\x00
-	cs_conversion_table	conv_tables/ISO8859-1.GL
 }
 
-
-XCOMM 	cs1 class
-cs1	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-1:GR
-	byte1		\x80,\xff
-	cs_range	\x80,\xff
-	cs_conversion	[\x80,\xff]->\x80
-	cs_conversion_table	conv_tables/ISO8859-1.GR
-}
-
-XCOMM 	cs2 class
-cs2	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-5:GR
-	byte1		\xa0,\xff
-	cs_range	\xa0,\xff
-	cs_conversion_file	conv_tables/ISO8859-5.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-5.GR
-}
-
-XCOMM 	cs3 class
-cs3	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-7:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-7.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-7.GR
-}
-
-XCOMM 	cs4 class
-cs4	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-2:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-2.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-2.GR
-}
-
-XCOMM 	cs5 class
-cs5	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-4:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-4.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-4.GR
-}
-
-XCOMM 	cs6 class
-cs6	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-9:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-9.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-9.GR
-}
-
-XCOMM 	cs7 class
-cs7	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-15:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-15.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-15.GR
-}
-
-XCOMM 	cs8 class
-cs8	{
-	side		GR:Default
-	length		2
-	ct_encoding	JISX0208.1983-0:GR;
-	byte1		\xa1,\xfe
-	byte2		\xa1,\xfe
-	cs_conversion_file      conv_tables/JISX0208-0.GR.txt
-	cs_conversion_table	conv_tables/JISX0208-0.GR
-}
-
-XCOMM 	cs9 class
-cs9     {
+XCOMM	cs1 class
+cs1     {
         side            GR:Default
         length          1
-        ct_encoding     JISX0201.1976-0:GR
-        byte1           \xa0,\xfe
-        cs_range        \xa0,\xfe
-        cs_conversion_file      conv_tables/JISX0201-0.GR.txt
-        cs_conversion_table     conv_tables/JISX0201-0.GR
+        ct_encoding     ISO8859-1:GR
+}
+ 
+XCOMM	cs2 class
+cs2	{
+	side		GR
+	length		2
+	ct_encoding	JISX0208.1983-0:GL; JISX0208.1983-0:GR;\
+			JISX0208.1983-1:GL; JISX0208.1983-1:GR
 }
 
-XCOMM       cs10 class
-cs10     {
-        side            GR:Default
+XCOMM	cs3 class
+cs3     {
+        side            GL
         length          2
-        ct_encoding     KSC5601.1992-3:GLGR
-        byte1           \x88,\xf9
-        byte2           \x31,\xfe
-        cs_conversion_file      conv_tables/KSC-JOHAP.GLGR.txt
-        cs_conversion_table     conv_tables/KSC-JOHAP.GLGR
-
+        ct_encoding     KSC5601.1987-0:GL; KSC5601.1987-0:GR;\
+                        KSC5601.1987-1:GL; KSC5601.1987-1:GR
 }
-
-XCOMM 	cs11 class
-cs11	{
-	side		GR:Default
-	length		2
-	ct_encoding	GB2312.1980-0:GR
-	byte1		\xa1,\xfe
-	byte2		\xa1,\xfe
-	cs_conversion_file      conv_tables/GB2312-0.GR.txt
-	cs_conversion_table	conv_tables/GB2312-0.GR
-}
-
-XCOMM       cs12 class
-cs12     {
-        side            GR:Default
+ 
+XCOMM	cs4 class
+cs4     {
+        side            GR
         length          2
-        ct_encoding     BIG5-1:GLGR
-        byte1           \xa1,\xf9
-        byte2           \x31,\xfe
-        cs_conversion_file      conv_tables/BIG5-1.GLGR.txt
-        cs_conversion_table     conv_tables/BIG5-1.GLGR
-
+        ct_encoding     GB2312.1980-0:GL; GB2312.1980-0:GR
 }
-
-XCOMM 	cs13 class
-cs13	{
-	side		GR:Default
+ 
+XCOMM	cs5 class
+cs5	{
+	side		GR
 	length		1
-	ct_encoding	TIS620.2533-0:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/TIS620.2533-0.GR.txt
-	cs_conversion_table	conv_tables/TIS620.2533-0.GR
+	ct_encoding	JISX0201.1976-0:GR
 }
 
-XCOMM 	cs14 class
-cs14	{
-	side		GR:Default
-	length		2
-	ct_encoding	ISO8859-6:GLGR
-	byte1		\x00,\xff
-	byte2		\x00,\xff
-	cs_conversion_file	conv_tables/ISO8859-6.GLGR.txt
-	cs_conversion_table	conv_tables/ISO8859-6.GLGR
-}
-
-XCOMM 	cs15 class
-cs15	{
-	side		GR:Default
-	length		1
-	ct_encoding	ISO8859-8:GR
-	byte1		\xa0,\xfe
-	cs_range	\xa0,\xfe
-	cs_conversion_file	conv_tables/ISO8859-8.GR.txt
-	cs_conversion_table	conv_tables/ISO8859-8.GR
-}
-
-XCOMM 	Last, fallback class
-cs16	{
-	side		GR:Default
-	length		2
-	ct_encoding	UNICODE-FONTSPECIFIC:GLGR
-	byte1		\x00,\xff
-	byte2		\x00,\xff
-	cs_conversion	[\x0000,\xffff]->\x0000
-	cs_conversion_table	conv_tables/UNICODE-FONTSPECIFIC.GLGR
+XCOMM	cs6 class
+cs6	{
+	side		none
+	ct_encoding	ISO10646-1
 }
 
 END XLC_XLOCALE

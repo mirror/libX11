@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XLookKsym.man,v 1.4 2003/02/15 17:48:39 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,9 +140,9 @@
 .el .sp 10p
 ..
 .ny0
-.TH XLookupKeysym 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XLookupKeysym 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XLookupKeysym, XRefreshKeyboardMapping, XLookupString, XRebindKeySym \- handle keyboard input events in Latin-1
+XLookupKeysym, XRefreshKeyboardMapping, XLookupString, XRebindKeysym \- handle keyboard input events in Latin-1
 .SH SYNTAX
 KeySym XLookupKeysym(\^\fIkey_event\fP, \fIindex\fP\^)
 .br
@@ -152,7 +154,7 @@ XRefreshKeyboardMapping(\^\fIevent_map\fP\^)
 .br
       XMappingEvent *\fIevent_map\fP\^;
 .LP
-int XLookupString(\^\fIevent_struct\fP, \fIbuffer_return\fP,\
+int XLookupString(\^\fIevent_struct\fP, \fIbuffer_return\fP,
  \fIbytes_buffer\fP, \fIkeysym_return\fP, \fIstatus_in_out\fP\^)
 .br
       XKeyEvent *\fIevent_struct\fP\^;

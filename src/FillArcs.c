@@ -24,11 +24,13 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/FillArcs.c,v 1.4 2001/12/14 19:54:00 dawes Exp $ */
 
 #include "Xlibint.h"
 
 #define arc_scale (SIZEOF(xArc) / 4)
 
+int
 XFillArcs(dpy, d, gc, arcs, n_arcs)
 register Display *dpy;
 Drawable d;

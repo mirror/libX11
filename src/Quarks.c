@@ -49,6 +49,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Quarks.c,v 1.5 2001/12/14 19:54:04 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xresource.h>
@@ -111,8 +112,7 @@ static XrmQuark nextUniq = -1;	/* next quark from XrmUniqueQuark */
 static char *neverFreeTable = NULL;
 static int  neverFreeTableSize = 0;
 
-static char *permalloc(length)
-    register unsigned int length;
+static char *permalloc(unsigned int length)
 {
     char *ret;
 
@@ -136,10 +136,9 @@ typedef struct {char a; unsigned long b;} TestType2;
 #endif
 
 #ifdef XTHREADS
-static char *_Xpermalloc();
+static char *_Xpermalloc(unsigned int length);
 
-char *Xpermalloc(length)
-    unsigned int length;
+char *Xpermalloc(unsigned int length)
 {
     char *p;
 
@@ -152,8 +151,7 @@ char *Xpermalloc(length)
 
 static
 #endif /* XTHREADS */
-char *Xpermalloc(length)
-    unsigned int length;
+char *Xpermalloc(unsigned int length)
 {
     int i;
 
@@ -176,7 +174,7 @@ char *Xpermalloc(length)
 }
 
 static Bool
-ExpandQuarkTable()
+ExpandQuarkTable(void)
 {
     unsigned long oldmask, newmask;
     register char c, *s;

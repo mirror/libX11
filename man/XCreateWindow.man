@@ -41,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XCreWin.man,v 1.4 2001/02/09 03:47:45 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -140,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XCreateWindow 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XCreateWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateWindow, XCreateSimpleWindow, XSetWindowAttributes \- create windows and window attributes structure
 .SH SYNTAX
@@ -230,14 +232,14 @@ A visual of
 .ZN CopyFromParent 
 means the visual type is taken from the 
 parent.
-.ds Wh , which are the created window's inside dimensions \
+.ds Wh , which are the created window's inside dimensions
 and do not include the created window's borders
 .IP \fIwidth\fP 1i
 .br
 .ns
 .IP \fIheight\fP 1i
 Specify the width and height\*(Wh.
-.ds Xy , which are the top-left outside corner of the window's \
+.ds Xy , which are the top-left outside corner of the window's
 borders and are relative to the inside of the parent window's borders
 .IP \fIx\fP 1i
 .br
@@ -357,105 +359,105 @@ structure contains:
 .TS
 lw(.5i) lw(2.5i) lw(.8i).
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBackPixmap
 T}	T{
 (1L<<0)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBackPixel
 T}	T{
 (1L<<1)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBorderPixmap
 T}	T{
 (1L<<2)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBorderPixel
 T}	T{
 (1L<<3)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBitGravity
 T}	T{
 (1L<<4)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWWinGravity
 T}	T{
 (1L<<5)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBackingStore
 T}	T{
 (1L<<6)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBackingPlanes
 T}	T{
 (1L<<7)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWBackingPixel
 T}	T{
 (1L<<8)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWOverrideRedirect
 T}	T{
 (1L<<9)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWSaveUnder
 T}	T{
 (1L<<10)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWEventMask
 T}	T{
 (1L<<11)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWDontPropagate
 T}	T{
 (1L<<12)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWColormap
 T}	T{
 (1L<<13)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN CWCursor
 T}	T{

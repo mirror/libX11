@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Xlcint.h,v 3.14 2002/11/01 13:43:31 alanh Exp $ */
 
 /*
  * Copyright 1990, 1991 by OMRON Corporation, NTT Software Corporation,
@@ -71,9 +72,11 @@ from The Open Group.
 #ifndef	_XLCINT_H_
 #define	_XLCINT_H_
 
+#ifndef _XP_PRINT_SERVER_
+
 #include <X11/Xresource.h>
 #include <X11/Xutil.h>
-#include "Xvarargs.h"
+#include <stdarg.h>
 
 typedef Bool (*XFilterEventProc)(
 #if NeedFunctionPrototypes
@@ -135,12 +138,12 @@ typedef struct {
     XFontSet            fontset;
     int	       		line_spacing;
     Cursor		cursor;
-    XIMCallback		start_callback;
-    XIMCallback		done_callback;
-    XIMCallback		draw_callback;
-    XIMCallback		caret_callback;
+    XICCallback		start_callback;
+    XICCallback		done_callback;
+    XICCallback		draw_callback;
+    XICCallback		caret_callback;
     XIMPreeditState	preedit_state;
-    XIMCallback		state_notify_callback;
+    XICCallback		state_notify_callback;
 } ICPreeditAttributes, *ICPreeditAttributesPtr;
 
 typedef struct {
@@ -154,54 +157,62 @@ typedef struct {
     XFontSet            fontset;
     int	       		line_spacing;
     Cursor		cursor;
-    XIMCallback		start_callback;
-    XIMCallback		done_callback;
-    XIMCallback		draw_callback;
+    XICCallback		start_callback;
+    XICCallback		done_callback;
+    XICCallback		draw_callback;
 } ICStatusAttributes, *ICStatusAttributesPtr;
+
+#endif /* !_XP_PRINT_SERVER_ */
 
 /*
  * Methods for Xrm parsing
  */
 
+/* The state is a pointer to an object created by the locale's
+   init_parse_info function (default: _XrmDefaultInitParseInfo). */
+
+/* Sets the state to the initial state.
+   Initiates a sequence of calls to the XmbCharProc. */
 typedef void (*XmbInitProc)(
-#if NeedFunctionPrototypes
-    XPointer		/* state */
-#endif
+    XPointer		state
 );
 
+/* Transforms one multibyte character, starting at str, and return a 'char'
+   in the same parsing class (not a wide character!). Returns the number of
+   consumed bytes in *lenp. */
 typedef char (*XmbCharProc)(
-#if NeedFunctionPrototypes
-    XPointer		/* state */,
-    char*		/* str */,
-    int*		/* lenp */
-#endif
+    XPointer		state,
+    const char *	str,
+    int*		lenp
 );
 
+/* Terminates a sequence of calls to the XmbCharProc. */
 typedef void (*XmbFinishProc)(
-#if NeedFunctionPrototypes
-    XPointer		/* state */
-#endif
+    XPointer		state
 );
 
-typedef char* (*XlcNameProc)(
-#if NeedFunctionPrototypes
-    XPointer		/* state */
-#endif
+/* Returns the name of the state's locale, as a static string. */
+typedef const char* (*XlcNameProc)(
+    XPointer		state
 );
 
+/* Frees the state, which was allocated by the locale's init_parse_info
+   function. */
 typedef void (*XrmDestroyProc)(
-#if NeedFunctionPrototypes
-    XPointer		/* state */
-#endif
+    XPointer		state
 );
 
+/* Set of methods for Xrm parsing. */
 typedef struct {
     XmbInitProc		mbinit;
     XmbCharProc		mbchar;
     XmbFinishProc	mbfinish;
     XlcNameProc		lcname;
     XrmDestroyProc	destroy;
-} XrmMethodsRec, *XrmMethods;
+} XrmMethodsRec;
+typedef const XrmMethodsRec *XrmMethods;
+
+#ifndef _XP_PRINT_SERVER_
 
 typedef struct _XLCd *XLCd; /* need forward reference */
 
@@ -218,8 +229,8 @@ typedef void (*XCloseLCProc)(
 typedef char* (*XlcMapModifiersProc)(
 #if NeedFunctionPrototypes
     XLCd		/* lcd */,
-    char*		/* user_mods */,
-    char*		/* prog_mods */
+    _Xconst char*	/* user_mods */,
+    _Xconst char*	/* prog_mods */
 #endif
 );
 
@@ -250,8 +261,8 @@ typedef Bool (*XRegisterIMInstantiateCBProc)(
     XrmDatabase		/* rdb */,
     char*		/* res_name */,
     char*		/* res_class */,
-    XIMProc		/* callback */,
-    XPointer*		/* client_data */
+    XIDProc		/* callback */,
+    XPointer		/* client_data */
 #endif
 );
 
@@ -262,8 +273,8 @@ typedef Bool (*XUnregisterIMInstantiateCBProc)(
     XrmDatabase		/* rdb */,
     char*		/* res_name */,
     char*		/* res_class */,
-    XIMProc		/* callback */,
-    XPointer*		/* client_data */
+    XIDProc		/* callback */,
+    XPointer		/* client_data */
 #endif
 );
 
@@ -275,58 +286,46 @@ typedef XrmMethods (*XrmInitParseInfoProc)(
 );
 
 typedef int (*XmbTextPropertyToTextListProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* display */,
-    XTextProperty*	/* text_prop */,
-    char***		/* list_return */,
-    int*		/* count_return */
-#endif
+    XLCd		lcd,
+    Display*		display,
+    const XTextProperty* text_prop,
+    char***		list_return,
+    int*		count_return
 );
 
 typedef int (*XwcTextPropertyToTextListProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* display */,
-    XTextProperty*	/* text_prop */,
-    wchar_t***		/* list_return */,
-    int*		/* count_return */
-#endif
+    XLCd		lcd,
+    Display*		display,
+    const XTextProperty* text_prop,
+    wchar_t***		list_return,
+    int*		count_return
 );
 
 typedef int (*XmbTextListToTextPropertyProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* display */,
-    char**		/* list */,
-    int			/* count */,
-    XICCEncodingStyle	/* style */,
-    XTextProperty*	/* text_prop_return */
-#endif
+    XLCd		lcd,
+    Display*		display,
+    char**		list,
+    int			count,
+    XICCEncodingStyle	style,
+    XTextProperty*	text_prop_return
 );
 
 typedef int (*XwcTextListToTextPropertyProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* display */,
-    wchar_t**		/* list */,
-    int			/* count */,
-    XICCEncodingStyle	/* style */,
-    XTextProperty*	/* text_prop_return */
-#endif
+    XLCd		lcd,
+    Display*		display,
+    wchar_t**		list,
+    int			count,
+    XICCEncodingStyle	style,
+    XTextProperty*	text_prop_return
 );
 
 typedef void (*XwcFreeStringListProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    wchar_t**		/* list */
-#endif
+    XLCd		lcd,
+    wchar_t**		list
 );
 
-typedef char* (*XDefaultStringProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+typedef const char* (*XDefaultStringProc)(
+    XLCd		lcd
 );
 
 typedef struct {
@@ -337,8 +336,10 @@ typedef struct {
     XrmInitParseInfoProc		init_parse_info;
     XmbTextPropertyToTextListProc	mb_text_prop_to_list;
     XwcTextPropertyToTextListProc	wc_text_prop_to_list;
+    XmbTextPropertyToTextListProc	utf8_text_prop_to_list;
     XmbTextListToTextPropertyProc	mb_text_list_to_prop;
     XwcTextListToTextPropertyProc	wc_text_list_to_prop;
+    XmbTextListToTextPropertyProc	utf8_text_list_to_prop;
     XwcFreeStringListProc		wc_free_string_list;
     XDefaultStringProc			default_string;
     XRegisterIMInstantiateCBProc	register_callback;
@@ -609,6 +610,14 @@ typedef struct {
     XwcTextPerCharExtentsProc	wc_extents_per_char;
     XwcDrawStringProc		wc_draw_string;
     XwcDrawImageStringProc	wc_draw_image_string;
+
+    /* UTF-8 text drawing methods */
+
+    XmbTextEscapementProc	utf8_escapement;
+    XmbTextExtentsProc		utf8_extents;
+    XmbTextPerCharExtentsProc	utf8_extents_per_char;
+    XmbDrawStringProc		utf8_draw_string;
+    XmbDrawImageStringProc	utf8_draw_image_string;
 } XOCMethodsRec, *XOCMethods;
 
 
@@ -681,6 +690,11 @@ typedef struct {
     int (*ctstowcs)(
 #if NeedFunctionPrototypes
 	XIM, char*, int, wchar_t*, int, Status *
+#endif
+	);
+    int (*ctstoutf8)(
+#if NeedFunctionPrototypes
+	XIM, char*, int, char*, int, Status *
 #endif
 	);
 } XIMMethodsRec, *XIMMethods;
@@ -766,6 +780,11 @@ typedef struct {
 	XIC
 #endif
 	);
+    char* (*utf8_reset)(
+#if NeedFunctionPrototypes
+	XIC
+#endif
+	);
     int (*mb_lookup_string)(
 #if NeedFunctionPrototypes
 	XIC, XKeyEvent*, char*, int, KeySym*, Status*
@@ -774,6 +793,11 @@ typedef struct {
     int (*wc_lookup_string)(
 #if NeedFunctionPrototypes
 	XIC, XKeyEvent*, wchar_t*, int, KeySym*, Status*
+#endif
+	);
+    int (*utf8_lookup_string)(
+#if NeedFunctionPrototypes
+	XIC, XKeyEvent*, char*, int, KeySym*, Status*
 #endif
 	);
 } XICMethodsRec, *XICMethods;
@@ -791,12 +815,12 @@ typedef struct {
     XIMStyle		input_style;		/* IM's input style */
     Window		focus_window;		/* where key events go */
     unsigned long	filter_events;		/* event mask from IM */
-    XIMCallback		geometry_callback;	/* client callback */
+    XICCallback		geometry_callback;	/* client callback */
     char *		res_name;
     char *		res_class;
 
-    XIMCallback		destroy_callback;
-    XIMCallback		string_conversion_callback;
+    XICCallback		destroy_callback;
+    XICCallback		string_conversion_callback;
     XIMStringConversionText	 string_conversion;
     XIMResetState	reset_state;
     XIMHotKeyTriggers  *hotkey;
@@ -821,45 +845,34 @@ typedef struct _XIC {
 #define NeedFunctionPrototypes 1
 #endif
 
+/* If the argument 'name' is appropriate for this loader, it instantiates an
+   XLCd object with appropriate locale methods and returns it. May return
+   NULL; in this case, the remaining loaders are tried. */
 typedef XLCd (*XLCdLoadProc)(
-#if NeedFunctionPrototypes
-    char*
-#endif
+    const char*		name
 );
 
 _XFUNCPROTOBEGIN
 
 extern XLCd _XOpenLC(
-#if NeedFunctionPrototypes
-    char*		/* name */
-#endif
+    const char*		name
 );
 
 extern void _XCloseLC(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
-extern XLCd _XlcCurrentLC(
-#if NeedFunctionPrototypes
-    void
-#endif
-);
+extern XLCd _XlcCurrentLC (void);
 
 extern Bool _XlcValidModSyntax(
-#if NeedFunctionPrototypes
-    char*	/* mods */,
-    char**	/* valid */
-#endif
+    const char*		mods,
+    const char* const *	valid
 );
 
 extern char *_XlcDefaultMapModifiers(
-#if NeedFunctionPrototypes
-    XLCd	/* lcd */,
-    char*	/* user_mods */,
-    char*	/* prog_mods */
-#endif
+    XLCd		lcd,
+    _Xconst char*		user_mods,
+    _Xconst char*		prog_mods
 );
 
 extern void _XIMCompileResourceList(
@@ -885,9 +898,7 @@ extern char ** _XParseBaseFontNameList(
 );
 
 extern XrmMethods _XrmInitParseInfo(
-#if NeedFunctionPrototypes
-	XPointer*	/* statep */
-#endif
+	XPointer*	statep
 );
 
 extern void _XRegisterFilterByMask(
@@ -942,62 +953,125 @@ extern void _XUnregisterFilter(
 );
 
 extern void _XlcCountVaList(
-#if NeedFunctionPrototypes
-    va_list		/* var */,
-    int*		/* count_return */
-#endif
+    va_list		var,
+    int*		count_return
 );
 
 extern void _XlcVaToArgList(
-#if NeedFunctionPrototypes
-    va_list		/* var */,
-    int			/* count */,
-    XlcArgList*		/* args_return */
-#endif
+    va_list		var,
+    int			count,
+    XlcArgList*		args_return
 );
 
 extern void _XlcCompileResourceList(
-#if NeedFunctionPrototypes
-    XlcResourceList	/* resources */,
-    int			/* num_resources */
-#endif
+    XlcResourceList	resources,
+    int			num_resources
 );
 
 extern char *_XlcGetValues(
-#if NeedFunctionPrototypes
-    XPointer		/* base */,
-    XlcResourceList	/* resources */,
-    int			/* num_resources */,
-    XlcArgList		/* args */,
-    int			/* num_args */,
-    unsigned long	/* mask */
-#endif
+    XPointer		base,
+    XlcResourceList	resources,
+    int			num_resources,
+    XlcArgList		args,
+    int			num_args,
+    unsigned long	mask
 );
 
 extern char *_XlcSetValues(
-#if NeedFunctionPrototypes
-    XPointer		/* base */,
-    XlcResourceList	/* resources */,
-    int			/* num_resources */,
-    XlcArgList		/* args */,
-    int			/* num_args */,
-    unsigned long	/* mask */
-#endif
+    XPointer		base,
+    XlcResourceList	resources,
+    int			num_resources,
+    XlcArgList		args,
+    int			num_args,
+    unsigned long	mask
 );
 
+/* documented in i18n/Framework.PS */
+extern void _XlcInitLoader (void);
+
+extern void _XlcDeInitLoader (void);
+
+/* documented in i18n/Framework.PS */
+/* Returns True on success, False on failure. */
 extern Bool _XlcAddLoader(
-#if NeedFunctionPrototypes
-    XLCdLoadProc	/* proc */,
-    XlcPosition		/* position */
-#endif
+    XLCdLoadProc	proc,
+    XlcPosition		position
 );
 
+/* documented in i18n/Framework.PS */
 extern void _XlcRemoveLoader(
-#if NeedFunctionPrototypes
-    XLCdLoadProc	/* proc */
-#endif
+    XLCdLoadProc	proc
+);
+
+/* Registers UTF-8 converters for a non-UTF-8 locale. */
+extern void _XlcAddUtf8Converters(
+    XLCd		lcd
+);
+
+/* Registers UTF-8 converters for a UTF-8 locale. */
+extern void _XlcAddUtf8LocaleConverters(
+    XLCd		lcd
+);
+
+/* The default locale loader. Assumes an ASCII encoding. */
+extern XLCd _XlcDefaultLoader(
+    const char*		name
+);
+
+/* The generic locale loader. Suitable for all encodings except UTF-8.
+   Uses an XLC_LOCALE configuration file. */
+extern XLCd _XlcGenericLoader(
+    const char*		name
+);
+
+/* The UTF-8 locale loader. Suitable for UTF-8 encoding.
+   Uses an XLC_LOCALE configuration file. */
+extern XLCd _XlcUtf8Loader(
+    const char*		name
+);
+
+/* The old EUC locale loader. */
+extern XLCd _XlcEucLoader(
+    const char*		name
+);
+
+/* The old SJIS locale loader. */
+extern XLCd _XlcSjisLoader(
+    const char*		name
+);
+
+/* The old ISO-2022-JP locale loader. */
+extern XLCd _XlcJisLoader(
+    const char*		name
+);
+
+extern XLCd _XlcDynamicLoad(
+    const char*		name
+);
+
+/* The old dynamic loader. */
+extern XLCd _XlcDynamicLoader(
+    const char*		name
+);
+
+extern Bool _XInitDefaultIM(
+    XLCd		lcd
+);
+
+extern Bool _XInitDefaultOM(
+    XLCd		lcd
+);
+
+extern Bool _XInitDynamicIM(
+    XLCd		lcd
+);
+
+extern Bool _XInitDynamicOM(
+    XLCd		lcd
 );
 
 _XFUNCPROTOEND
+
+#endif /* !_XP_PRINT_SERVER_ */
 
 #endif	/* _XLCINT_H_ */

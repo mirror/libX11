@@ -51,10 +51,22 @@ from The Open Group.
  * 
  *		 M. Collins		OSF  
  */				
+/* $XFree86: xc/lib/X11/wcWrap.c,v 1.6 2001/12/14 19:54:11 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 
+#if NeedFunctionPrototypes
+void
+XwcDrawText(
+    Display            *dpy,
+    Drawable            d,
+    GC                  gc,
+    int                 x,
+    int                 y,
+    XwcTextItem        *text_items,
+    int                 nitems)
+#else
 void
 XwcDrawText(dpy, d, gc, x, y, text_items, nitems)
     Display            *dpy;
@@ -63,8 +75,9 @@ XwcDrawText(dpy, d, gc, x, y, text_items, nitems)
     int                 x, y;
     XwcTextItem        *text_items;
     int                 nitems;
+#endif
 {
-    register XFontSet fs;
+    register XFontSet fs = NULL;
     register XwcTextItem *p = text_items;
     register int i = nitems;
     register int esc;
@@ -106,7 +119,7 @@ XwcDrawString(dpy, d, font_set, gc, x, y, text, text_len)
     XFontSet            font_set;
     GC                  gc;
     int                 x, y;
-    wchar_t            *text;
+    _Xconst wchar_t    *text;
     int                 text_len;
 #endif
 {
@@ -133,7 +146,7 @@ XwcDrawImageString(dpy, d, font_set, gc, x, y, text, text_len)
     XFontSet            font_set;
     GC                  gc;
     int                 x, y;
-    wchar_t            *text;
+    _Xconst wchar_t    *text;
     int                 text_len;
 #endif
 {
@@ -151,7 +164,7 @@ XwcTextEscapement(
 int 
 XwcTextEscapement(font_set, text, text_len)
     XFontSet            font_set;
-    wchar_t            *text;
+    _Xconst wchar_t    *text;
     int                 text_len;
 #endif
 {
@@ -171,7 +184,7 @@ int
 XwcTextExtents(font_set, text, text_len,
 	       overall_ink_extents, overall_logical_extents)
     XFontSet            font_set;
-    wchar_t            *text;
+    _Xconst wchar_t    *text;
     int                 text_len;
     XRectangle         *overall_ink_extents;
     XRectangle         *overall_logical_extents;
@@ -201,7 +214,7 @@ XwcTextPerCharExtents(font_set, text, text_len,
 		      buffer_size, num_chars,
 		      max_ink_extents, max_logical_extents)
     XFontSet            font_set;
-    wchar_t            *text;
+    _Xconst wchar_t    *text;
     int                 text_len;
     XRectangle         *ink_extents_buffer;
     XRectangle         *logical_extents_buffer;

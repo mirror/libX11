@@ -46,6 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/Xutil.h,v 3.5 2003/01/26 02:40:10 dawes Exp $ */
 
 #ifndef _XUTIL_H_
 #define _XUTIL_H_
@@ -167,7 +168,9 @@ typedef enum {
     XStringStyle,		/* STRING */
     XCompoundTextStyle,		/* COMPOUND_TEXT */
     XTextStyle,			/* text in owner's encoding (current locale)*/
-    XStdICCTextStyle		/* STRING, else COMPOUND_TEXT */
+    XStdICCTextStyle,		/* STRING, else COMPOUND_TEXT */
+    /* The following is an XFree86 extension, introduced in November 2000 */
+    XUTF8StringStyle		/* UTF8_STRING */
 } XICCEncodingStyle;
 
 typedef struct {
@@ -227,6 +230,8 @@ typedef struct _XComposeStatus {
 
 #define IsModifierKey(keysym) \
   ((((KeySym)(keysym) >= XK_Shift_L) && ((KeySym)(keysym) <= XK_Hyper_R)) \
+   || (((KeySym)(keysym) >= XK_ISO_Lock) && \
+       ((KeySym)(keysym) <= XK_ISO_Last_Group_Lock)) \
    || ((KeySym)(keysym) == XK_Mode_switch) \
    || ((KeySym)(keysym) == XK_Num_Lock))
 /*
@@ -368,11 +373,7 @@ extern Region XCreateRegion(
 #endif
 );
 
-extern char *XDefaultString(
-#if NeedFunctionPrototypes
-    void
-#endif
-);
+extern const char *XDefaultString (void);
 
 extern int XDeleteContext(
 #if NeedFunctionPrototypes
@@ -752,6 +753,20 @@ extern void XmbSetWMProperties(
 #endif
 );
 
+extern void Xutf8SetWMProperties(
+#if NeedFunctionPrototypes
+    Display*		/* display */,
+    Window		/* w */,
+    _Xconst char*	/* window_name */,
+    _Xconst char*	/* icon_name */,
+    char**		/* argv */,
+    int			/* argc */,
+    XSizeHints*		/* normal_hints */,
+    XWMHints*		/* wm_hints */,
+    XClassHint*		/* class_hints */
+#endif
+);
+
 extern void XSetWMSizeHints(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -811,29 +826,31 @@ extern int XSubtractRegion(
 );
 
 extern int XmbTextListToTextProperty(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    char**		/* list */,
-    int			/* count */,
-    XICCEncodingStyle	/* style */,
-    XTextProperty*	/* text_prop_return */
-#endif
+    Display*		display,
+    char**		list,
+    int			count,
+    XICCEncodingStyle	style,
+    XTextProperty*	text_prop_return
 );
 
 extern int XwcTextListToTextProperty(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    wchar_t**		/* list */,
-    int			/* count */,
-    XICCEncodingStyle	/* style */,
-    XTextProperty*	/* text_prop_return */
-#endif
+    Display*		display,
+    wchar_t**		list,
+    int			count,
+    XICCEncodingStyle	style,
+    XTextProperty*	text_prop_return
+);
+
+extern int Xutf8TextListToTextProperty(
+    Display*		display,
+    char**		list,
+    int			count,
+    XICCEncodingStyle	style,
+    XTextProperty*	text_prop_return
 );
 
 extern void XwcFreeStringList(
-#if NeedFunctionPrototypes
-    wchar_t**		/* list */
-#endif
+    wchar_t**		list
 );
 
 extern Status XTextPropertyToStringList(
@@ -845,21 +862,24 @@ extern Status XTextPropertyToStringList(
 );
 
 extern int XmbTextPropertyToTextList(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    XTextProperty*	/* text_prop */,
-    char***		/* list_return */,
-    int*		/* count_return */
-#endif
+    Display*		display,
+    const XTextProperty* text_prop,
+    char***		list_return,
+    int*		count_return
 );
 
 extern int XwcTextPropertyToTextList(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    XTextProperty*	/* text_prop */,
-    wchar_t***		/* list_return */,
-    int*		/* count_return */
-#endif
+    Display*		display,
+    const XTextProperty* text_prop,
+    wchar_t***		list_return,
+    int*		count_return
+);
+
+extern int Xutf8TextPropertyToTextList(
+    Display*		display,
+    const XTextProperty* text_prop,
+    char***		list_return,
+    int*		count_return
 );
 
 extern int XUnionRectWithRegion(

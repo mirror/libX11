@@ -25,6 +25,8 @@ in this Software without prior written authorization from The Open Group.
 
 */
 
+/* $XFree86: xc/lib/X11/FontNames.c,v 1.6 2001/12/14 19:54:00 dawes Exp $ */
+
 #define NEED_REPLIES
 #include "Xlibint.h"
 
@@ -102,6 +104,7 @@ int *actualCount;	/* RETURN */
     return (flist);
 }
 
+int
 XFreeFontNames(list)
 char **list;
 {       

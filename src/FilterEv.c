@@ -53,17 +53,13 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/FilterEv.c,v 3.5 2001/12/14 19:54:00 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
 #include "Xlcint.h"
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-extern long Const _Xevent_to_mask[];
+extern long const _Xevent_to_mask[];
 
 /*
  * Look up if there is a specified filter for the event.

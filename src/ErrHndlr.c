@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ErrHndlr.c,v 1.5 2001/12/14 19:53:59 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -67,7 +68,6 @@ XErrorHandler XSetErrorHandler(handler)
  * the original error handler is restored.
  */
  
-extern int _XIOError();
 #if NeedFunctionPrototypes
 XIOErrorHandler XSetIOErrorHandler(XIOErrorHandler handler)
 #else

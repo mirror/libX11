@@ -30,6 +30,7 @@ PERFORMANCE OF THIS SOFTWARE.
 			       makoto@sm.sony.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imRm.c,v 3.11 2001/01/22 21:32:32 dawes Exp $ */
 
 #include <stdio.h>
 #include <X11/Xlib.h>
@@ -258,7 +259,7 @@ static char *supported_local_ic_values_list[] = {
     (char *)NULL
 };
 
-static XIMStyle supported_local_styles[] = {
+static XIMStyle const supported_local_styles[] = {
     XIMPreeditNone	| XIMStatusNone,
     XIMPreeditNothing	| XIMStatusNothing,
     0						/* dummy */
@@ -945,7 +946,7 @@ _XimEncodeLineSpace(info, top, val)
     int			*out;
 
     out = (int *)((char *)top + info->offset);
-    *out = (int)val;
+    *out = (long)val;
     return True;
 }
 

@@ -24,31 +24,16 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetAtomNm.c,v 3.5 2001/12/14 19:54:00 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
-
-extern void _XFreeAtomTable();
-
-/* XXX this table def is duplicated in IntAtom.c, keep them consistent! */
-
-#define TABLESIZE 64
-
-typedef struct _Entry {
-    unsigned long sig;
-    Atom atom;
-} EntryRec, *Entry;
-
-#define EntryName(e) ((char *)(e+1))
-
-typedef struct _XDisplayAtoms {
-    Entry table[TABLESIZE];
-} AtomTable;
+#include "Xintatom.h"
 
 static
-char *_XGetAtomName(dpy, atom)
-    Display *dpy;
-    Atom atom;
+char *_XGetAtomName(
+    Display *dpy,
+    Atom atom)
 {
     xResourceReq *req;
     char *name;
@@ -112,12 +97,12 @@ typedef struct {
 } _XGetAtomNameState;
 
 static
-Bool _XGetAtomNameHandler(dpy, rep, buf, len, data)
-    register Display *dpy;
-    register xReply *rep;
-    char *buf;
-    int len;
-    XPointer data;
+Bool _XGetAtomNameHandler(
+    register Display *dpy,
+    register xReply *rep,
+    char *buf,
+    int len,
+    XPointer data)
 {
     register _XGetAtomNameState *state;
     xGetAtomNameReply replbuf;

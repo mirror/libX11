@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ChkTypWEv.c,v 1.3 2001/12/14 19:53:58 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
@@ -41,7 +42,7 @@ Bool XCheckTypedWindowEvent (dpy, w, type, event)
 	register XEvent *event;	/* XEvent to be filled in. */
 {
 	register _XQEvent *prev, *qelt;
-	unsigned long qe_serial;
+	unsigned long qe_serial = 0;
 	int n;			/* time through count */
 
         LockDisplay(dpy);

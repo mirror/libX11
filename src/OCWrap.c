@@ -23,30 +23,24 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/OCWrap.c,v 1.4 2001/07/25 15:04:44 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 
-#if NeedVarargsPrototypes
 XOC
 XCreateOC(XOM om, ...)
-#else
-XOC
-XCreateOC(om, va_alist)
-    XOM om;
-    va_dcl
-#endif
 {
     va_list var;
     XlcArgList args;
     XOC oc;
     int num_args;
 
-    Va_start(var, om);
+    va_start(var, om);
     _XlcCountVaList(var, &num_args);
     va_end(var);
 
-    Va_start(var, om);
+    va_start(var, om);
     _XlcVaToArgList(var, num_args, &args);
     va_end(var);
 
@@ -94,26 +88,19 @@ XOMOfOC(oc)
     return oc->core.om;
 }
 
-#if NeedVarargsPrototypes
 char *
 XSetOCValues(XOC oc, ...)
-#else
-char *
-XSetOCValues(oc, va_alist)
-    XOC oc;
-    va_dcl
-#endif
 {
     va_list var;
     XlcArgList args;
     char *ret;
     int num_args;
 
-    Va_start(var, oc);
+    va_start(var, oc);
     _XlcCountVaList(var, &num_args);
     va_end(var);
 
-    Va_start(var, oc);
+    va_start(var, oc);
     _XlcVaToArgList(var, num_args, &args);
     va_end(var);
 
@@ -127,26 +114,19 @@ XSetOCValues(oc, va_alist)
     return ret;
 }
 
-#if NeedVarargsPrototypes
 char *
 XGetOCValues(XOC oc, ...)
-#else
-char *
-XGetOCValues(oc, va_alist)
-    XOC oc;
-    va_dcl
-#endif
 {
     va_list var;
     XlcArgList args;
     char *ret;
     int num_args;
 
-    Va_start(var, oc);
+    va_start(var, oc);
     _XlcCountVaList(var, &num_args);
     va_end(var);
 
-    Va_start(var, oc);
+    va_start(var, oc);
     _XlcVaToArgList(var, num_args, &args);
     va_end(var);
 

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/DrArc.c,v 1.4 2001/12/14 19:53:59 dawes Exp $ */
 
 /* Note to future maintainers:  XDrawArc does NOT batch successive PolyArc
    requests into a single request like XDrawLine, XDrawPoint, etc.
@@ -33,6 +34,7 @@ in this Software without prior written authorization from The Open Group.
    
 #include "Xlibint.h"
 
+int
 XDrawArc(dpy, d, gc, x, y, width, height, angle1, angle2)
     register Display *dpy;
     Drawable d;

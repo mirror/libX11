@@ -32,9 +32,15 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/StCols.c,v 1.3 2001/01/17 19:41:44 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+
+/* EXTERN */
+
+/* SetGetCols.c */
+extern Status _XcmsSetGetColors();
 
 
 /************************************************************************

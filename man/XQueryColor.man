@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XQColor.man,v 1.4 2001/02/09 03:47:46 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XQueryColor 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XQueryColor 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XQueryColor, XQueryColors, XLookupColor, XParseColor \- obtain color values
 .SH SYNTAX
@@ -160,7 +162,7 @@ XQueryColors\^(\^\fIdisplay\fP, \fIcolormap\fP\^, \fIdefs_in_out\fP\^, \fIncolor
 .br
       int \fIncolors\fP\^;
 .LP
-Status XLookupColor\^(\^\fIdisplay\fP, \fIcolormap\fP, \fIcolor_name\fP, \
+Status XLookupColor\^(\^\fIdisplay\fP, \fIcolormap\fP, \fIcolor_name\fP,
 \fIexact_def_return\fP\^, \fIscreen_def_return\fP\^)
 .br
       Display *\fIdisplay\fP\^;
@@ -303,10 +305,10 @@ a numeric specification, in one of the following formats:
 .Ds 0
 .TA 2i
 .ta 2i
-#RGB	(4 bits each)
-#RRGGBB	(8 bits each)
-#RRRGGGBBB	(12 bits each)
-#RRRRGGGGBBBB	(16 bits each)
+\&#RGB	(4 bits each)
+\&#RRGGBB	(8 bits each)
+\&#RRRGGGBBB	(12 bits each)
+\&#RRRRGGGGBBBB	(16 bits each)
 .De
 .\" End marker code here
 .LP

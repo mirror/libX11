@@ -27,10 +27,14 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ClDisplay.c,v 1.4 2001/12/14 19:53:58 dawes Exp $ */
 
 #include "Xlibint.h"
 
 extern void _XFreeDisplayStructure();
+
+/* ConnDis.c */
+extern int _XDisconnectDisplay();
 
 /* 
  * XCloseDisplay - XSync the connection to the X Server, close the connection,
@@ -38,6 +42,7 @@ extern void _XFreeDisplayStructure();
  * memory and must be careful about the types of requests they generate.
  */
 
+int
 XCloseDisplay (dpy)
 	register Display *dpy;
 {

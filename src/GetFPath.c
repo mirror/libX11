@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetFPath.c,v 1.4 2001/12/14 19:54:00 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -79,6 +80,7 @@ int *npaths;	/* RETURN */
 	return (flist);
 }
 
+int
 XFreeFontPath (list)
 char **list;
 {

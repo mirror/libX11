@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/mbWMProps.c,v 1.5 2001/12/14 19:54:10 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
@@ -48,8 +49,8 @@ void XmbSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
 			 wmHints, classHints)
      Display *dpy;
      Window w;			/* window to decorate */
-     char *windowName;		/* name of application */
-     char *iconName;		/* name string for icon */
+     _Xconst char *windowName;	/* name of application */
+     _Xconst char *iconName;	/* name string for icon */
      char **argv;		/* command line */
      int argc;			/* size of command line */
      XSizeHints *sizeHints;	/* size hints for window in its normal state */
@@ -60,15 +61,14 @@ void XmbSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
     XTextProperty wname, iname;
     XTextProperty *wprop = NULL;
     XTextProperty *iprop = NULL;
-    char *locale;
 
     if (windowName &&
 	XmbTextListToTextProperty(dpy, (char**)&windowName, 1,
-				   XStdICCTextStyle, &wname) >= Success)
+				  XStdICCTextStyle, &wname) >= Success)
 	wprop = &wname;
     if (iconName &&
 	XmbTextListToTextProperty(dpy, (char**)&iconName, 1,
-				   XStdICCTextStyle, &iname) >= Success)
+				  XStdICCTextStyle, &iname) >= Success)
 	iprop = &iname;
     XSetWMProperties(dpy, w, wprop, iprop, argv, argc,
 		     sizeHints, wmHints, classHints);
@@ -76,9 +76,6 @@ void XmbSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
 	Xfree((char *)wname.value);
     if (iprop)
 	Xfree((char *)iname.value);
-    locale = setlocale(LC_CTYPE, (char *)NULL);
-    if (locale)
-	XChangeProperty (dpy, w, XInternAtom(dpy, "WM_LOCALE_NAME", False),
-			 XA_STRING, 8, PropModeReplace,
-			 (unsigned char *)locale, strlen(locale));
+
+    /* Note: The WM_LOCALE_NAME property is set by XSetWMProperties. */
 }

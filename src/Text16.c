@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Text16.c,v 1.5 2001/12/14 19:54:07 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 #if NeedFunctionPrototypes
 XDrawString16(
     register Display *dpy,
@@ -99,7 +101,7 @@ XDrawString16(dpy, d, gc, x, y, string, length)
 		}
 	    }
 #else
-            memcpy ((char *) (elt + 1), (char *)CharacterOffset, 254 * 2);
+            memcpy (((char *) elt) + 2, (char *)CharacterOffset, 254 * 2);
 #endif
 	    PartialNChars = PartialNChars - 254;
 	    CharacterOffset += 254;
@@ -122,7 +124,7 @@ XDrawString16(dpy, d, gc, x, y, string, length)
 		}
 	    }
 #else
-            memcpy((char *)(elt + 1), (char *)CharacterOffset, PartialNChars * 2);
+            memcpy(((char *)elt) + 2, (char *)CharacterOffset, PartialNChars * 2);
 #endif
 	 }
     }

@@ -26,6 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                makoto@sm.sony.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imInsClbk.c,v 3.1 2001/01/17 19:41:51 dawes Exp $ */
 
 #include	<X11/Xatom.h>
 #define NEED_EVENTS
@@ -45,14 +46,8 @@ typedef struct _XimInstCallback {
     XrmDatabase			 rdb;
     char			*res_name;
     char			*res_class;
-    void			(*callback)(
-#if NeedNestedPrototype
-				    Display*	/* display */,
-				    XPointer	/* client_data */,
-				    XPointer	/* call_data */
-#endif
-				);
-    XPointer			*client_data;
+    XIDProc			 callback;
+    XPointer			 client_data;
     struct _XimInstCallback	*next;
 } XimInstCallbackRec, *XimInstCallback;
 
@@ -88,11 +83,19 @@ MakeLocale( lcd, locale )
 
 
 Private Bool
+#if NeedFunctionPrototypes
+_XimFilterPropertyNotify(
+    Display	*display,
+    Window	 window,
+    XEvent	*event,
+    XPointer	 client_data)
+#else
 _XimFilterPropertyNotify( display, window, event, client_data )
     Display	*display;
     Window	 window;
     XEvent	*event;
     XPointer	 client_data;
+#endif
 {
     Atom		ims, actual_type, *atoms;
     int			actual_format;
@@ -163,14 +166,25 @@ _XimFilterPropertyNotify( display, window, event, client_data )
 
 
 Public Bool
+#if NeedFunctionPrototypes
+_XimRegisterIMInstantiateCallback(
+    XLCd	 lcd,
+    Display	*display,
+    XrmDatabase	 rdb,
+    char	*res_name,
+    char	*res_class,
+    XIDProc	 callback,
+    XPointer	 client_data)
+#else
 _XimRegisterIMInstantiateCallback( lcd, display, rdb, res_name, res_class,
 				   callback, client_data )
     XLCd	 lcd;
     Display	*display;
     XrmDatabase	 rdb;
     char	*res_name, *res_class;
-    XIMProc	 callback;
-    XPointer	*client_data;
+    XIDProc	 callback;
+    XPointer	 client_data;
+#endif
 {
     XimInstCallback	icb, tmp;
     XIM			xim;
@@ -226,14 +240,25 @@ _XimRegisterIMInstantiateCallback( lcd, display, rdb, res_name, res_class,
 
 
 Public Bool
+#if NeedFunctionPrototypes
+_XimUnRegisterIMInstantiateCallback(
+    XLCd	 lcd,
+    Display	*display,
+    XrmDatabase	 rdb,
+    char	*res_name,
+    char	*res_class,
+    XIDProc	 callback,
+    XPointer	 client_data)
+#else
 _XimUnRegisterIMInstantiateCallback( lcd, display, rdb, res_name, res_class,
 				     callback, client_data )
     XLCd	 lcd;
     Display	*display;
     XrmDatabase	 rdb;
     char	*res_name, *res_class;
-    XIMProc	 callback;
-    XPointer	*client_data;
+    XIDProc	 callback;
+    XPointer	 client_data;
+#endif
 {
     char		locale[XIM_MAXLCNAMELEN];
     XimInstCallback	icb, picb;

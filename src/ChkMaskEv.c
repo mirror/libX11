@@ -24,16 +24,12 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ChkMaskEv.c,v 3.6 2001/12/14 19:53:58 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-extern long Const _Xevent_to_mask[];
+extern long const _Xevent_to_mask[];
 
 #define AllPointers (PointerMotionMask|PointerMotionHintMask|ButtonMotionMask)
 #define AllButtons (Button1MotionMask|Button2MotionMask|Button3MotionMask|\
@@ -51,7 +47,7 @@ Bool XCheckMaskEvent (dpy, mask, event)
  	register XEvent *event;	/* XEvent to be filled in. */
 {
 	register _XQEvent *prev, *qelt;
-	unsigned long qe_serial;
+	unsigned long qe_serial = 0;
 	int n;			/* time through count */
 
         LockDisplay(dpy);

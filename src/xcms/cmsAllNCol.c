@@ -32,6 +32,7 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsAllNCol.c,v 1.3 2001/01/17 19:41:50 dawes Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
@@ -43,6 +44,9 @@
  */
 extern void _XColor_to_XcmsRGB();
 extern void _XcmsRGB_to_XColor();
+
+/* cmsColNm.c */
+extern Status _XcmsResolveColorString();
 
 
 /*

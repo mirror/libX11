@@ -45,6 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imThaiFlt.c,v 3.18 2003/02/21 03:13:30 dawes Exp $ */
 
 /*
 **++ 
@@ -73,12 +74,36 @@ SOFTWARE.
 #include "Ximint.h"
 #include "XimThai.h"
 
+/* EXTERNS */
+/* KeyBind.c */
+extern int _XKeyInitialize();
+
+/* lcStd.c */
+extern int _Xlcmbstowcs(
+    XLCd	lcd,
+    wchar_t	*wstr,
+    char	*str,
+    int		len
+);
+extern int _Xlcwcstombs(
+    XLCd	lcd,
+    char	*str,
+    wchar_t	*wstr,
+    int		len
+);
+extern int _Xlcmbstoutf8(
+    XLCd	lcd,
+    char	*ustr,
+    const char	*str,
+    int		len
+);
+
 #define SPACE   32
 
 /* character classification table */
 #define TACTIS_CHARS 256
 Private
-char tactis_chtype[TACTIS_CHARS] = {
+char const tactis_chtype[TACTIS_CHARS] = {
     CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL,  /*  0 -  7 */
     CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL,  /*  8 - 15 */
     CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL, CTRL,  /* 16 - 23 */
@@ -124,7 +149,7 @@ char tactis_chtype[TACTIS_CHARS] = {
 #define CH_CLASSES      17  /* 17 classes of chars */
 
 Private
-char write_rules_lookup[CH_CLASSES][CH_CLASSES] = {
+char const write_rules_lookup[CH_CLASSES][CH_CLASSES] = {
         /* Table 0: writing/outputing rules */
         /* row: leading char,  column: following char */
 /* CTRL NON CONS LV FV1 FV2 FV3 BV1 BV2 BD TONE AD1 AD2 AD3 AV1 AV2 AV3 */
@@ -148,7 +173,7 @@ char write_rules_lookup[CH_CLASSES][CH_CLASSES] = {
 };
 
 Private
-char wtt_isc1_lookup[CH_CLASSES][CH_CLASSES] = {
+char const wtt_isc1_lookup[CH_CLASSES][CH_CLASSES] = {
       /* Table 1: WTT default input sequence check rules */
       /* row: leading char,  column: following char */
 /* CTRL NON CONS LV FV1 FV2 FV3 BV1 BV2 BD TONE AD1 AD2 AD3 AV1 AV2 AV3 */
@@ -172,7 +197,7 @@ char wtt_isc1_lookup[CH_CLASSES][CH_CLASSES] = {
 };
 
 Private
-char wtt_isc2_lookup[CH_CLASSES][CH_CLASSES] = {
+char const wtt_isc2_lookup[CH_CLASSES][CH_CLASSES] = {
       /* Table 2: WTT strict input sequence check rules */
       /* row: leading char,  column: following char */
 /* CTRL NON CONS LV FV1 FV2 FV3 BV1 BV2 BD TONE AD1 AD2 AD3 AV1 AV2 AV3 */
@@ -196,7 +221,7 @@ char wtt_isc2_lookup[CH_CLASSES][CH_CLASSES] = {
 };
 
 Private
-char thaicat_isc_lookup[CH_CLASSES][CH_CLASSES] = {
+char const thaicat_isc_lookup[CH_CLASSES][CH_CLASSES] = {
       /* Table 3: Thaicat input sequence check rules */
       /* row: leading char,  column: following char */
 /* CTRL NON CONS LV FV1 FV2 FV3 BV1 BV2 BD TONE AD1 AD2 AD3 AV1 AV2 AV3 */
@@ -393,6 +418,7 @@ THAI_isaccepted (follow_ch, lead_ch, mode)
     return iskeyvalid;
 }
 
+#if 0
 Private void 
 #if NeedFunctionPrototypes
 THAI_apply_write_rules(
@@ -480,7 +506,7 @@ Output parameters:
     }
     return position;
 }
-
+#endif
 
 Private int 
 #if NeedFunctionPrototypes
@@ -526,15 +552,19 @@ THAI_apply_scm(instr, outstr, spec_ch, num_sp, insert_ch)
 
 /* The following functions are copied from XKeyBind.c */
 
+#if 0
 Private void ComputeMaskFromKeytrans();
+#endif
 Private int IsCancelComposeKey();
 Private void SetLed();
 Private CARD8 FindKeyCode();
 
 /* The following functions are specific to this module */ 
 
+#if 0
 Private int XThaiTranslateKey();
 Private int XThaiTranslateKeySym();
+#endif
 
 Private KeySym HexIMNormalKey();
 Private KeySym HexIMFirstComposeKey();
@@ -549,13 +579,121 @@ Private Bool ThaiComposeConvert();
 
 #define BellVolume 		0
 
+#define ucs2tis(wc)  \
+ (unsigned char) ( \
+   (0<=(wc)&&(wc)<=0x7F) ? \
+     (wc) : \
+     ((0x0E01<=(wc)&&(wc)<=0x0E5F) ? ((wc)-0x0E00+0xA0) : 0))
+#define tis2ucs(c)  \
+  ( \
+   ((c)<=0x7F) ? \
+     (wchar_t)(c) : \
+     ((0x0A1<=(c)&&(c)<=0x0FF) ? ((wchar_t)(c)-0xA0+0x0E00) : 0))
+
 /*
  * Macros to save and recall last input character in XIC
  */
 #define IC_SavePreviousChar(ic,ch) \
-		*((ic)->private.local.context->mb) = (char) (ch)
-#define IC_GetPreviousChar(ic,ch) \
-		(ch) = (unsigned char) *((ic)->private.local.context->mb)
+		(*((ic)->private.local.context->mb) = (char) (ch))
+#define IC_ClearPreviousChar(ic) \
+		(*((ic)->private.local.context->mb) = 0)
+#define IC_GetPreviousChar(ic) \
+		(IC_RealGetPreviousChar(ic,1))
+#define IC_GetContextChar(ic) \
+		(IC_RealGetPreviousChar(ic,2))
+#define IC_DeletePreviousChar(ic) \
+		(IC_RealDeletePreviousChar(ic))
+
+Private unsigned char
+#if NeedFunctionPrototypes
+IC_RealGetPreviousChar(Xic ic, unsigned short pos)
+#else
+IC_RealGetPreviousChar(ic, pos)
+  Xic ic;
+  XIMStringConversionPosition pos;
+#endif
+{
+    XICCallback* cb = &ic->core.string_conversion_callback;
+
+    if (cb && cb->callback) {
+        XIMStringConversionCallbackStruct screc;
+        unsigned char c;
+
+        /* Use a safe value of position = 0 and stretch the range to desired
+         * place, as XIM protocol is unclear here whether it could be negative
+         */
+        screc.position = 0;
+        screc.direction = XIMBackwardChar;
+        screc.operation = XIMStringConversionRetrieval;
+        screc.factor = pos;
+        screc.text = 0;
+
+        (cb->callback)((XIC)ic, cb->client_data, (XPointer)&screc);
+        if (!screc.text)
+            return (unsigned char) *((ic)->private.local.context->mb);
+        if ((screc.text->feedback &&
+             *screc.text->feedback == XIMStringConversionLeftEdge) ||
+            screc.text->length < 1)
+        {
+            c = 0;
+        } else {
+            if (screc.text->encoding_is_wchar) {
+                c = ucs2tis(screc.text->string.wcs[0]);
+                XFree(screc.text->string.wcs);
+            } else {
+                c = screc.text->string.mbs[0];
+                XFree(screc.text->string.mbs);
+            }
+        }
+        XFree(screc.text);
+        return c;
+    } else {
+        return (unsigned char) *((ic)->private.local.context->mb);
+    }
+}
+
+Private unsigned char
+#if NeedFunctionPrototypes
+IC_RealDeletePreviousChar(Xic ic)
+#else
+IC_RealDeletePreviousChar(ic)
+  Xic ic;
+#endif
+{
+    XICCallback* cb = &ic->core.string_conversion_callback;
+
+    if (cb && cb->callback) {
+        XIMStringConversionCallbackStruct screc;
+        unsigned char c;
+
+        screc.position = 0;
+        screc.direction = XIMBackwardChar;
+        screc.operation = XIMStringConversionSubstitution;
+        screc.factor = 1;
+        screc.text = 0;
+
+        (cb->callback)((XIC)ic, cb->client_data, (XPointer)&screc);
+        if (!screc.text) { return 0; }
+        if ((screc.text->feedback &&
+             *screc.text->feedback == XIMStringConversionLeftEdge) ||
+            screc.text->length < 1)
+        {
+            c = 0;
+        } else {
+            if (screc.text->encoding_is_wchar) {
+                c = ucs2tis(screc.text->string.wcs[0]);
+                XFree(screc.text->string.wcs);
+            } else {
+                c = screc.text->string.mbs[0];
+                XFree(screc.text->string.mbs);
+            }
+        }
+        XFree(screc.text);
+        return c;
+    } else {
+        return 0;
+    }
+}
 /*
  * Input sequence check mode in XIC
  */
@@ -582,9 +720,9 @@ Private Bool ThaiComposeConvert();
 
 #define IsISOControlKey(ks) ((ks) >= XK_2 && (ks) <= XK_8)
 
-#define IsValidControlKey(ks)   (((ks)>=XK_A && (ks)<=XK_asciitilde || \
+#define IsValidControlKey(ks)   (((((ks)>=XK_A && (ks)<=XK_asciitilde) || \
                 (ks)==XK_space || (ks)==XK_Delete) && \
-                ((ks)!=0))
+                ((ks)!=0)))
 
 #define COMPOSE_LED 2
 
@@ -613,16 +751,18 @@ typedef KeySym (*StateProc)();
 	   !IsShift((event)->state))	\
 	 ? True : False)
 
+#if 0
 /*
  *  State handler to implement the Thai hex input method.
  */
 
-Private int nstate_handlers = 3;
+Private int const nstate_handlers = 3;
 Private StateProc state_handler[] = {
 	HexIMNormalKey,
 	HexIMFirstComposeKey,
 	HexIMSecondComposeKey
 };
+#endif
 
 /*
  *  Table for 'Thai Compose' character input.
@@ -633,7 +773,7 @@ struct _XMapThaiKey {
 	KeySym to;
 };
 
-Private struct _XMapThaiKey ThaiComposeTable[] = {
+Private struct _XMapThaiKey const ThaiComposeTable[] = {
 	{ /* 0xa4 */ XK_currency,	/* 0xa5 */ XK_yen },
 	{ /* 0xa2 */ XK_cent,		/* 0xa3 */ XK_sterling },
 	{ /* 0xe6 */ XK_ae,		/* 0xef */ XK_idiaeresis },
@@ -662,7 +802,7 @@ ThaiComposeConvert(dpy, insym, outsym ,lower, upper)
     KeySym insym;
     KeySym *outsym,*lower,*upper;
 {
-    struct _XMapThaiKey *table_entry = ThaiComposeTable;
+    struct _XMapThaiKey const *table_entry = ThaiComposeTable;
 
     while (table_entry->from != XK_VoidSymbol) {
 	if (table_entry->from == insym) {
@@ -676,6 +816,7 @@ ThaiComposeConvert(dpy, insym, outsym ,lower, upper)
     return False;
 }
 
+#if 0
 Private int
 XThaiTranslateKey(dpy, keycode, modifiers, modifiers_return, keysym_return,
 	      lsym_return, usym_return)
@@ -765,10 +906,10 @@ XThaiTranslateKeySym(dpy, symbol, lsym, usym, modifiers, buffer, nbytes)
     Display *dpy;
     register KeySym symbol, lsym, usym;
     unsigned int modifiers;
-    char *buffer;
+    unsigned char *buffer;
     int nbytes;
 {
-    KeySym ckey;
+    KeySym ckey = 0;
     register struct _XKeytrans *p; 
     int length;
     unsigned long hiBytes;
@@ -863,6 +1004,7 @@ XThaiTranslateKeySym(dpy, symbol, lsym, usym, modifiers, buffer, nbytes)
         return 1;
     }
 }
+#endif
 
 /*
  * given a KeySym, returns the first keycode containing it, if any.
@@ -885,7 +1027,7 @@ FindKeyCode(dpy, code)
     return 0;
 }
 
-	
+#if 0
 /*
  * given a list of modifiers, computes the mask necessary for later matching.
  * This routine must lookup the key in the Keymap and then search to see
@@ -919,7 +1061,7 @@ ComputeMaskFromKeytrans(dpy, p)
     }
     p->state &= AllMods;
 }
-
+#endif
 
 /************************************************************************
  *
@@ -1071,7 +1213,7 @@ int IsCancelComposeKey(symbol, event)
 #endif
 	IsPFKey (*symbol) ||
 	IsCursorKey (*symbol) ||
-	*symbol >= XK_Tab && *symbol < XK_Multi_key
+	(*symbol >= XK_Tab && *symbol < XK_Multi_key)
 		? True : False);	/* cancel compose sequence and pass */
 					/* cancelling key through	    */
 }
@@ -1130,6 +1272,71 @@ Xic ic;
 }
     
 /*
+ * Helper functions for _XimThaiFilter()
+ */
+Private Bool
+#if NeedFunctionPrototypes
+ThaiFltAcceptInput(Xic ic, unsigned char new_char, KeySym symbol)
+#else
+ThaiFltAcceptInput(ic, new_char, symbol)
+    Xic           ic;
+    unsigned char new_char;
+    KeySym        symbol;
+#endif
+{
+    ic->private.local.composed->wc[0] = tis2ucs(new_char);
+    ic->private.local.composed->wc[1] = '\0';
+
+    if ((new_char <= 0x1f) || (new_char == 0x7f))
+        ic->private.local.composed->keysym = symbol;
+    else
+        ic->private.local.composed->keysym = NoSymbol;
+
+    return True;
+}
+
+Private Bool
+#if NeedFunctionPrototypes
+ThaiFltReorderInput(Xic ic, unsigned char previous_char, unsigned char new_char)
+#else
+ThaiFltReorderInput(ic, previous_char, new_char)
+    Xic           ic;
+    unsigned char previous_char, new_char;
+#endif
+{
+    if (!IC_DeletePreviousChar(ic)) return False;
+    ic->private.local.composed->wc[0] = tis2ucs(new_char);
+    ic->private.local.composed->wc[1] = tis2ucs(previous_char);
+    ic->private.local.composed->wc[2] = '\0';
+
+    ic->private.local.composed->keysym = NoSymbol;
+
+    return True;
+}
+
+Private Bool
+#if NeedFunctionPrototypes
+ThaiFltReplaceInput(Xic ic, unsigned char new_char, KeySym symbol)
+#else
+ThaiFltReplaceInput(ic, new_char, symbol)
+    Xic           ic;
+    unsigned char new_char;
+    KeySym        symbol;
+#endif
+{
+    if (!IC_DeletePreviousChar(ic)) return False;
+    ic->private.local.composed->wc[0] = tis2ucs(new_char);
+    ic->private.local.composed->wc[1] = '\0';
+
+    if ((new_char <= 0x1f) || (new_char == 0x7f))
+        ic->private.local.composed->keysym = symbol;
+    else
+        ic->private.local.composed->keysym = NoSymbol;
+
+    return True;
+}
+
+/*
  * Filter function for TACTIS
  */
 Bool
@@ -1140,16 +1347,20 @@ XEvent		*ev;
 XPointer	client_data;
 {
     Xic		    ic = (Xic)client_data;
-    unsigned int    modifiers;
     KeySym 	    symbol;
-    KeySym	    lsym,usym;
-    int 	    count;
+    int 	    wcount;
     int 	    isc_mode; /* Thai Input Sequence Check mode */
     unsigned char   previous_char; /* Last inputted Thai char */
+    unsigned char   new_char;
+#if 0
+    unsigned int    modifiers;
+    KeySym	    lsym,usym;
     int		    state;
     XicThaiPart     *thai_part;
     char	    buf[10];
-    int	            i;
+#endif
+    wchar_t	    wbuf[10];
+    Bool            isReject;
 
     if ((ev->type != KeyPress)
         || (ev->xkey.keycode == 0))
@@ -1157,6 +1368,37 @@ XPointer	client_data;
 
     if (!IC_IscMode(ic)) InitIscMode(ic);
 
+    wcount = XwcLookupString((XIC)ic, &ev->xkey,
+                            wbuf, sizeof(wbuf)/sizeof(wbuf[0]), &symbol, NULL);
+
+    if ((ev->xkey.state & (AllMods & ~ShiftMask)) ||
+         ((symbol >> 8 == 0xFF) &&
+         ((XK_BackSpace <= symbol && symbol <= XK_Clear) ||
+           (symbol == XK_Return) ||
+           (symbol == XK_Pause) ||
+           (symbol == XK_Scroll_Lock) ||
+           (symbol == XK_Sys_Req) ||
+           (symbol == XK_Escape) ||
+           (symbol == XK_Delete) ||
+           IsCursorKey(symbol) ||
+           IsKeypadKey(symbol) ||
+           IsMiscFunctionKey(symbol) ||
+           IsFunctionKey(symbol))))
+        {
+            IC_ClearPreviousChar(ic); 
+            return False;
+        }
+    if (((symbol >> 8 == 0xFF) &&
+         IsModifierKey(symbol)) ||
+#ifdef XK_XKB_KEYS
+        ((symbol >> 8 == 0xFE) &&
+         (XK_ISO_Lock <= symbol && symbol <= XK_ISO_Last_Group_Lock)) ||
+#endif
+        (symbol == NoSymbol))
+    {
+        return False;
+    }
+#if 0
     if (! XThaiTranslateKey(ev->xkey.display, ev->xkey.keycode, ev->xkey.state,
 	 		&modifiers, &symbol, &lsym, &usym))
 	return False;
@@ -1184,31 +1426,54 @@ XPointer	client_data;
     /* Return symbol if cannot convert to character */
     if (!count)
 	return False;
+#endif
 
     /*
      *  Thai Input sequence check
      */
     isc_mode = IC_IscMode(ic);
-    if ((IC_GetPreviousChar(ic, previous_char))) {
-	if (!THAI_isaccepted(buf[0],previous_char, isc_mode)) {
-	    /* reject character */
-            XBell(ev->xkey.display, BellVolume);
-    	    return True;
+    if (!(previous_char = IC_GetPreviousChar(ic))) previous_char = ' ';
+    new_char = ucs2tis(wbuf[0]);
+    isReject = True;
+    if (THAI_isaccepted(new_char, previous_char, isc_mode)) {
+        ThaiFltAcceptInput(ic, new_char, symbol);
+        isReject = False;
+    } else {
+        unsigned char context_char;
+
+        context_char = IC_GetContextChar(ic);
+        if (context_char) {
+            if (THAI_iscomposible(new_char, context_char)) {
+                if (THAI_iscomposible(previous_char, new_char)) {
+                    isReject = !ThaiFltReorderInput(ic, previous_char, new_char);
+                } else if (THAI_iscomposible(previous_char, context_char)) {
+                    isReject = !ThaiFltReplaceInput(ic, new_char, symbol);
+                } else if (THAI_chtype(previous_char) == FV1
+                           && THAI_chtype(new_char) == TONE) {
+                    isReject = !ThaiFltReorderInput(ic, previous_char, new_char);
+                }
+            } else if (THAI_isaccepted(new_char, context_char, isc_mode)) {
+                isReject = !ThaiFltReplaceInput(ic, new_char, symbol);
+            }
         }
     }
-    /* Remember the last character inputted. */
-    IC_SavePreviousChar(ic, buf[count-1]);
-    for (i=0; i<count; i++)
-        ic->private.local.composed->mb[i] = buf[i];
-    ic->private.local.composed->mb[count] = '\0';
+    if (isReject) {
+        /* reject character */
+        XBell(ev->xkey.display, BellVolume);
+        return True;
+    }
 
-    i = _Xlcmbstowcs(ic->core.im->core.lcd, ic->private.local.composed->wc,
-			ic->private.local.composed->mb, count);
-    
-    if (!((buf[0] > 0 && buf[0] <= 0x1f) || (buf[0] == 0) || (buf[0] == 0x7f)))
-        ic->private.local.composed->keysym = NoSymbol;
-    else
-        ic->private.local.composed->keysym = symbol;
+    _Xlcwcstombs(ic->core.im->core.lcd, ic->private.local.composed->mb,
+		 ic->private.local.composed->wc, 10);
+
+    _Xlcmbstoutf8(ic->core.im->core.lcd, ic->private.local.composed->utf8,
+		  ic->private.local.composed->mb, 10);
+
+    /* Remember the last character inputted
+     * (as fallback in case StringConversionCallback is not provided)
+     */
+    IC_SavePreviousChar(ic, new_char);
+
     ev->xkey.keycode = 0;
     XPutBackEvent(d, ev);
     return True;

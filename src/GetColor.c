@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetColor.c,v 1.5 2002/12/04 23:18:32 paulo Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
@@ -31,6 +32,16 @@ in this Software without prior written authorization from The Open Group.
 #include "Xcmsint.h"
 
 extern void _XcmsRGB_to_XColor();
+
+/* cmsColNm.c */
+extern Status _XcmsResolveColorString(
+#if NeedFunctionPrototypes
+				      XcmsCCC ccc,
+				      _Xconst char **color_string,
+				      XcmsColor *pColor_exact_return,
+				      XcmsColorFormat result_format
+#endif
+);
 
 #if NeedFunctionPrototypes
 Status XAllocNamedColor(
@@ -60,20 +71,27 @@ XColor *exact_def; /* RETURN */
     /*
      * Let's Attempt to use Xcms and i18n approach to Parse Color
      */
-    /* copy string to allow overwrite by _XcmsResolveColorString() */
     if ((ccc = XcmsCCCOfColormap(dpy, cmap)) != (XcmsCCC)NULL) {
-	if (_XcmsResolveColorString(ccc, &colorname, &cmsColor_exact,
-		XcmsRGBFormat) >= XcmsSuccess) {
+	const char *tmpName = colorname;
+
+	switch (_XcmsResolveColorString(ccc, &tmpName, &cmsColor_exact,
+					XcmsRGBFormat)) {
+	case XcmsSuccess:
+	case XcmsSuccessWithCompression:
 	    _XcmsRGB_to_XColor(&cmsColor_exact, exact_def, 1);
 	    memcpy((char *)hard_def, (char *)exact_def, sizeof(XColor));
 	    ret = XAllocColor(dpy, cmap, hard_def);
 	    exact_def->pixel = hard_def->pixel;
 	    return(ret);
+	case XcmsFailure:
+	case _XCMS_NEWNAME:
+	    /*
+	     * if the result was _XCMS_NEWNAME tmpName points to
+	     * a string in cmsColNm.c:pairs table, for example,
+	     * gray70 would become tekhvc:0.0/70.0/0.0
+	     */
+	    break;
 	}
-	/*
-	 * Otherwise we failed; or colorname was changed with yet another
-	 * name.  Thus pass name to the X Server.
-	 */
     }
 
     /*

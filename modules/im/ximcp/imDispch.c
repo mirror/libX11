@@ -26,12 +26,17 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDispch.c,v 1.3 2001/01/17 19:41:51 dawes Exp $ */
 
 #include <X11/Xlib.h>
 #include "Xlibint.h"
 #include "Xutil.h"
 #include "Xlcint.h"
 #include "Ximint.h"
+
+/* EXTERNS */
+/* imTransR.c */
+extern Bool _XimRegisterDispatcher();
 
 Public Bool
 #if NeedFunctionPrototypes

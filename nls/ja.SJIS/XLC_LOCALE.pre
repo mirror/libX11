@@ -1,4 +1,9 @@
+XCOMM  $XFree86: xc/nls/XLC_LOCALE/ja.SJIS,v 1.4 2001/01/17 19:37:05 dawes Exp $
+XCOMM 
+XCOMM 
+XCOMM 
 XCOMM  $Xorg: ja.SJIS,v 1.3 2000/08/17 19:47:00 cpqbld Exp $
+XCOMM 
 XCOMM  XLocale Database Sample for ja_JP.sjis
 XCOMM 
 
@@ -36,6 +41,7 @@ fs2	{
 	}
 	font	{
 		primary		JISX0201.1976-0:GR
+		substitute      JISX0201.1976-0:GR
 		vertical_rotate	all
 	}
 }

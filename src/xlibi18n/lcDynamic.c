@@ -32,10 +32,22 @@ from The Open Group.
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
+/* $XFree86: xc/lib/X11/lcDynamic.c,v 1.5 2001/12/14 19:54:10 dawes Exp $ */
+
+/*
+ * A dynamically loaded locale.
+ * Supports: All locale names.
+ * How: Loads $(XLOCALEDIR)/xi18n.so and forwards the request to that library.
+ * Platforms: Only those defining USE_DYNAMIC_LOADER (none known).
+ */
+
 #ifdef USE_DYNAMIC_LOADER
 #include <stdio.h>
 #include <string.h>
+#include <dlfcn.h>
+
 #include "Xlibint.h"
+#include "Xlcint.h"
 
 #ifndef XLOCALEDIR
 #define XLOCALEDIR "/usr/lib/X11/locale"
@@ -43,18 +55,9 @@ from The Open Group.
 
 #define LCLIBNAME    "xi18n.so"
 
-extern void *dlopen();
-extern void *dlsym();
-extern int dlclose();
-extern char *dlerror();
-
-#define LAZY       1
-#define NOW        2
-#define GLOBAL     0x100
-
 XLCd
-_XlcDynamicLoader(name)
-    char *name;
+_XlcDynamicLoader(
+    const char *name)
 {
     char libpath[1024];
     XLCdMethods _XlcGenericMethods;
@@ -64,11 +67,11 @@ _XlcDynamicLoader(name)
     sprintf(libpath,"%s/%s/%s",
 		XLOCALEDIR,name,LCLIBNAME);
     nlshandler = dlopen(libpath,LAZY);
-    _XlcGenericMethods = (XLCdMethods)dlsym(nlshandler,
-				"genericMethods");
+    _XlcGenericMethods = (XLCdMethods)dlsym(nlshandler,"genericMethods");
     lcd = _XlcCreateLC(name,_XlcGenericMethods);
-    
 
     return lcd;
 }
+#else
+typedef int dummy;
 #endif /* USE_DYNAMIC_LOADER */

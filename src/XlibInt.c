@@ -1,7 +1,7 @@
-/* $Xorg: XlibInt.c,v 1.10 2001/02/20 02:13:26 coskrey Exp $ */
+/* $Xorg: XlibInt.c,v 1.8 2001/02/09 02:03:38 xorgcvs Exp $ */
 /*
 
-Copyright 1985, 1986, 1987, 1998, 2001  The Open Group
+Copyright 1985, 1986, 1987, 1998  The Open Group
 
 Permission to use, copy, modify, distribute, and sell this software and its
 documentation for any purpose is hereby granted without fee, provided that
@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/XlibInt.c,v 3.34 2003/02/18 05:15:27 dawes Exp $ */
 
 /*
  *	XlibInt.c - Internal support routines for the C subroutine
@@ -33,13 +34,11 @@ from The Open Group.
  */
 #define NEED_EVENTS
 #define NEED_REPLIES
-  
-#define GENERIC_LENGTH_LIMIT (1 << 29)
 
 #include "Xlibint.h"
 #include <X11/Xpoll.h>
 #include <X11/Xtrans.h>
-#include "xcmiscstr.h"
+#include <X11/extensions/xcmiscstr.h>
 #include <stdio.h>
 
 #ifdef XTHREADS
@@ -86,6 +85,9 @@ xthread_t (*_Xthread_self_fn)() = NULL;
 #ifdef WIN32
 #define ETEST() (WSAGetLastError() == WSAEWOULDBLOCK)
 #else
+#ifdef __CYGWIN__ /* Cygwin uses ENOBUFS to signal socket is full */
+#define ETEST() (errno == EAGAIN || errno == EWOULDBLOCK || errno == ENOBUFS)
+#else
 #if defined(EAGAIN) && defined(EWOULDBLOCK)
 #define ETEST() (errno == EAGAIN || errno == EWOULDBLOCK)
 #else
@@ -93,15 +95,26 @@ xthread_t (*_Xthread_self_fn)() = NULL;
 #define ETEST() (errno == EAGAIN)
 #else
 #define ETEST() (errno == EWOULDBLOCK)
-#endif
-#endif
-#endif
+#endif /* EAGAIN */
+#endif /* EAGAIN && EWOULDBLOCK */
+#endif /* __CYGWIN__ */
+#endif /* WIN32 */
+
 #ifdef WIN32
 #define ECHECK(err) (WSAGetLastError() == err)
 #define ESET(val) WSASetLastError(val)
 #else
+#ifdef __UNIXOS2__
 #define ECHECK(err) (errno == err)
+#define ESET(val)
+#else
+#ifdef ISC
+#define ECHECK(err) ((errno == err) || ETEST())
+#else
+#define ECHECK(err) (errno == err)
+#endif
 #define ESET(val) errno = val
+#endif
 #endif
 
 #if defined(LOCALCONN) || defined(LACHMAN)
@@ -114,6 +127,12 @@ xthread_t (*_Xthread_self_fn)() = NULL;
 #ifdef EMSGSIZE
 #define ESZTEST() ECHECK(EMSGSIZE)
 #endif
+#endif
+
+#ifdef __UNIXOS2__
+#define select(n,r,w,x,t) os2ClientSelect(n,r,w,x,t)
+#include <limits.h>
+#define MAX_PATH _POSIX_PATH_MAX
 #endif
 
 #ifdef MUSTCOPY
@@ -165,10 +184,6 @@ static void _XProcessInternalConnection();
  * return anything.  Whenever possible routines that create objects return
  * the object they have created.
  */
-
-static int padlength[4] = {0, 3, 2, 1};
-    /* lookup table for adding padding bytes to data that is read from
-    	or written to the X socket.  */
 
 static xReq _dummy_request = {
 	0, 0, 0
@@ -410,8 +425,8 @@ _XWaitForReadable(dpy)
     int result;
     int fd = dpy->fd;
     struct _XConnectionInfo *ilist;  
-    register int saved_event_serial;
-    int in_read_events;
+    register int saved_event_serial = 0;
+    int in_read_events = 0;
     register Bool did_proc_conni = False;
 #ifdef USE_POLL
     struct pollfd *filedes;
@@ -560,7 +575,6 @@ static void _XFlushInt (dpy, cv)
 	register Display *dpy;
         register xcondition_t cv;
 {
-	char *nextindex;
 #endif /* XTHREADS*/
 	register long size, todo;
 	register int write_stat;
@@ -581,7 +595,11 @@ static void _XFlushInt (dpy, cv)
 
 #ifdef XTHREADS
 	while (dpy->flags & XlibDisplayWriting) {
-	    ConditionWait(dpy, dpy->lock->writers);
+	    if (dpy->lock) {
+		ConditionWait(dpy, dpy->lock->writers);
+	    } else {
+		_XWaitForWritable (dpy, cv);
+	    }
 	}
 #endif
 	size = todo = dpy->bufptr - dpy->buffer;
@@ -726,6 +744,7 @@ _XEventsQueued (dpy, mode)
 	 */
 	if (!pend && !dpy->qlen && ++dpy->conn_checker >= XCONN_CHECK_FREQ)
 	{
+	    int	result;
 #ifdef USE_POLL
 	    struct pollfd filedes;
 #else
@@ -737,14 +756,14 @@ _XEventsQueued (dpy, mode)
 #ifdef USE_POLL
 	    filedes.fd = dpy->fd;
 	    filedes.events = POLLIN;
-	    if ((pend = poll(&filedes, 1, 0)))
+	    if ((result = poll(&filedes, 1, 0)))
 #else
 	    FD_ZERO(&r_mask);
 	    FD_SET(dpy->fd, &r_mask);
-	    if ((pend = Select(dpy->fd + 1, &r_mask, NULL, NULL, &zero_time)))
+	    if ((result = Select(dpy->fd + 1, &r_mask, NULL, NULL, &zero_time)))
 #endif
 	    {
-		if (pend > 0)
+		if (result > 0)
 		{
 		    if (_X11TransBytesReadable(dpy->trans_conn, &pend) < 0)
 			_XIOError(dpy);
@@ -752,14 +771,19 @@ _XEventsQueued (dpy, mode)
 		    if (!pend)
 			pend = SIZEOF(xReply);
 		}
-		else if (pend < 0 && !ECHECK(EINTR))
+		else if (result < 0 && !ECHECK(EINTR))
 		    _XIOError(dpy);
 	    }
 	}
 #endif /* XCONN_CHECK_FREQ */
 	if (!(len = pend)) {
 	    /* _XFlush can enqueue events */
-	    UnlockNextEventReader(dpy);
+#ifdef XTHREADS
+	    if (cvl)
+#endif
+	    {
+		UnlockNextEventReader(dpy);
+	    }
 	    return(dpy->qlen);
 	}
       /* Force a read if there is not enough data.  Otherwise,
@@ -803,7 +827,9 @@ _XEventsQueued (dpy, mode)
 		if (read_buf != (char *)dpy->lock->reply_awaiters->buf)
 		    memcpy(dpy->lock->reply_awaiters->buf, read_buf,
 			   len);
-		UnlockNextEventReader(dpy);
+		if (cvl) {
+		    UnlockNextEventReader(dpy);
+		}
 		return(dpy->qlen); /* we read, so we can return */
 	    } else if (read_buf != buf.buf)
 		memcpy(buf.buf, read_buf, len);
@@ -827,7 +853,12 @@ _XEventsQueued (dpy, mode)
 	    }
 	} ENDITERATE
 
-	UnlockNextEventReader(dpy);
+#ifdef XTHREADS
+	if (cvl)
+#endif
+	{
+	    UnlockNextEventReader(dpy);
+	}
 	return(dpy->qlen);
 }
 
@@ -1216,7 +1247,7 @@ void _XReadPad (dpy, data, size)
 	 * whatever is needed.
 	 */
 
-	iov[1].iov_len = padlength[size & 3];
+	iov[1].iov_len = -size & 3;
 	iov[1].iov_base = pad;
 	size += iov[1].iov_len;
 #ifdef XTHREADS
@@ -1287,7 +1318,7 @@ _XSend (dpy, data, size)
 #endif
 {
 	struct iovec iov[3];
-	static char pad[3] = {0, 0, 0};
+	static char const pad[3] = {0, 0, 0};
            /* XText8 and XText16 require that the padding bytes be zero! */
 
 	long skip, dbufsize, padsize, total, todo;
@@ -1300,7 +1331,7 @@ _XSend (dpy, data, size)
 	/* make sure no one else can put in data */
 	dpy->bufptr = dpy->bufmax;
 #endif
-	padsize = padlength[size & 3];
+	padsize = -size & 3;
 	for (ext = dpy->flushes; ext; ext = ext->next_flush) {
 	    (*ext->before_flush)(dpy, &ext->codes, dpy->buffer, dbufsize);
 	    (*ext->before_flush)(dpy, &ext->codes, (char *)data, size);
@@ -1355,7 +1386,7 @@ _XSend (dpy, data, size)
 
 	    InsertIOV (dpy->buffer, dbufsize)
 	    InsertIOV ((char *)data, size)
-	    InsertIOV (pad, padsize)
+	    InsertIOV ((char *)pad, padsize)
     
 	    ESET(0);
 	    if ((len = _X11TransWritev(dpy->trans_conn, iov, i)) >= 0) {
@@ -1670,17 +1701,6 @@ _XReply (dpy, rep, extra, discard)
 			!= (char *)rep)
 			continue;
 		}
-                /*
-                 * Don't accept ridiculously large values for
-                 * generic.length; doing so could cause stack-scribbling
-                 * problems elsewhere.
-                 */
-                if (rep->generic.length > GENERIC_LENGTH_LIMIT) {
-                    rep->generic.length = GENERIC_LENGTH_LIMIT;
-                    (void) fprintf(stderr,
-                                   "Xlib: suspiciously long reply length %d set to %d",
-                                   rep->generic.length, GENERIC_LENGTH_LIMIT);
-		}
 		if (extra <= rep->generic.length) {
 		    if (extra > 0)
 			/* 
@@ -1800,7 +1820,13 @@ _XAsyncReply(dpy, rep, buf, lenp, discard)
 
     (void) _XSetLastRequestRead(dpy, &rep->generic);
     len = SIZEOF(xReply) + (rep->generic.length << 2);
-
+    if (len < SIZEOF(xReply)) {
+	_XIOError (dpy);
+	buf += *lenp;
+	*lenp = 0;
+	return buf;
+    }
+    
     for (async = dpy->async_handlers; async; async = next) {
 	next = async->next;
 	if ((consumed = (*async->handler)(dpy, rep, buf, *lenp, async->data)))
@@ -1822,7 +1848,6 @@ _XAsyncReply(dpy, rep, buf, lenp, discard)
     }
     if (len < SIZEOF(xReply))
     {
-	ESET(EINVAL);
 	_XIOError (dpy);
 	buf += *lenp;
 	*lenp = 0;
@@ -1856,7 +1881,7 @@ _XAsyncReply(dpy, rep, buf, lenp, discard)
 
 /*
  * Support for internal connections, such as an IM might use.
- * By Stephen Gildea, The Open Group, September 1993
+ * By Stephen Gildea, X Consortium, September 1993
  */
 
 /* _XRegisterInternalConnection
@@ -1952,7 +1977,8 @@ _XUnregisterInternalConnection(dpy, fd)
     struct _XConnWatchInfo *watch;
     XPointer *wd;
 
-    for (prev = &dpy->im_fd_info; (info_list = *prev); prev = &info_list->next) {
+    for (prev = &dpy->im_fd_info; (info_list = *prev);
+	 prev = &info_list->next) {
 	if (info_list->fd == fd) {
 	    *prev = info_list->next;
 	    dpy->im_fd_length--;
@@ -2671,19 +2697,6 @@ register xEvent *event;	/* wire protocol event */
 }
 
 
-#ifndef USL_SHARELIB
-
-static char *_SysErrorMsg (n)
-    int n;
-{
-    char *s = strerror(n);
-
-    return (s ? s : "no such error");
-}
-
-#endif 	/* USL sharedlibs in don't define for SVR3.2 */
-
-
 /*
  * _XDefaultIOError - Default fatal system error reporting routine.  Called 
  * when an X internal system error is encountered.
@@ -2701,7 +2714,7 @@ void _XDefaultIOError (dpy)
 #ifdef WIN32
 			WSAGetLastError(), strerror(WSAGetLastError()),
 #else
-			errno, _SysErrorMsg (errno),
+			errno, strerror (errno),
 #endif
 			DisplayString (dpy));
 	    (void) fprintf (stderr, 
@@ -2897,6 +2910,7 @@ int _XError (dpy, rep)
 /*
  * _XIOError - call user connection error handler and exit
  */
+int
 _XIOError (dpy)
     Display *dpy;
 {
@@ -2910,6 +2924,7 @@ _XIOError (dpy)
     else
 	_XDefaultIOError(dpy);
     exit (1);
+    return 0;
 }
 
 
@@ -2985,6 +3000,7 @@ Visual *_XVIDtoVisual (dpy, id)
 	return (NULL);
 }
 
+int
 #if NeedFunctionPrototypes
 XFree (void *data)
 #else
@@ -3030,6 +3046,7 @@ void Data (dpy, data, len)
 
 
 #ifdef LONG64
+int
 _XData32 (dpy, data, len)
     Display *dpy;
     register long *data;
@@ -3053,6 +3070,7 @@ _XData32 (dpy, data, len)
 	while (--i >= 0)
 	    *buf++ = *data++;
     }
+    return 0;
 }
 #endif /* LONG64 */
 
@@ -3182,7 +3200,7 @@ _XData32 (dpy, data, len)
  *       and so, you may be better off using gethostname (if it exists).
  */
 
-#if (defined(_POSIX_SOURCE) && !defined(AIXV3)) || defined(hpux) || defined(USG) || defined(SVR4)
+#if (defined(_POSIX_SOURCE) && !defined(AIXV3) && !defined(__QNX__)) || defined(hpux) || defined(USG) || defined(SVR4)
 #define NEED_UTSNAME
 #include <sys/utsname.h>
 #endif
@@ -3246,23 +3264,7 @@ Screen *_XScreenOfWindow (dpy, w)
 }
 
 
-#if (MSKCNT > 4)
-/*
- * This is a macro if MSKCNT <= 4
- */
-_XANYSET(src)
-    long	*src;
-{
-    int i;
-
-    for (i=0; i<MSKCNT; i++)
-	if (src[ i ])
-	    return (1);
-    return (0);
-}
-#endif
-
-#if defined(WIN32) || defined(__EMX__) /* || defined(OS2) */
+#if defined(WIN32)
 
 /*
  * These functions are intended to be used internally to Xlib only.
@@ -3310,7 +3312,7 @@ static int AccessFile (path, pathbuf, len_pathbuf, pathret)
 
     /* try the places set in the environment */
     drive = getenv ("_XBASEDRIVE");
-#ifdef __EMX__
+#ifdef __UNIXOS2__
     if (!drive)
 	drive = getenv ("X11ROOT");
 #endif
@@ -3326,7 +3328,7 @@ static int AccessFile (path, pathbuf, len_pathbuf, pathret)
 	return 1;
     }
 
-#ifndef __EMX__ 
+#ifndef __UNIXOS2__ 
     /* one last place to look */
     drive = getenv ("HOMEDRIVE");
     if (drive) {
@@ -3366,7 +3368,7 @@ static int AccessFile (path, pathbuf, len_pathbuf, pathret)
 }
 
 int _XOpenFile(path, flags)
-    char* path;
+    _Xconst char* path;
     int flags;
 {
     char buf[MAX_PATH];
@@ -3385,8 +3387,8 @@ int _XOpenFile(path, flags)
 }
 
 void* _XFopenFile(path, mode)
-    char* path;
-    char* mode;
+    _Xconst char* path;
+    _Xconst char* mode;
 {
     char buf[MAX_PATH];
     char* bufp;
@@ -3404,7 +3406,7 @@ void* _XFopenFile(path, mode)
 }
 
 int _XAccessFile(path)
-    char* path;
+    _Xconst char* path;
 {
     char buf[MAX_PATH];
     char* bufp;

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBUse.c,v 3.6 2001/08/13 17:46:02 dawes Exp $ */
 
 #include <stdio.h>
 #include <ctype.h>
@@ -32,10 +33,6 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "Xlibint.h"
 #include <X11/extensions/XKBproto.h>
 #include "XKBlibint.h"
-
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
 
 static Bool	_XkbIgnoreExtension = False;
 
@@ -672,7 +669,7 @@ XkbUseExtension(dpy,major_rtrn,minor_rtrn)
     static int debugMsg;
     static int been_here= 0;
 
-    if ( dpy->xkb_info ) {
+    if ( dpy->xkb_info && (!dpy->flags&XlibDisplayNoXkb)) {
 	if (major_rtrn)	*major_rtrn= dpy->xkb_info->srv_major;
 	if (minor_rtrn)	*minor_rtrn= dpy->xkb_info->srv_minor;
 	return True;
@@ -685,8 +682,78 @@ XkbUseExtension(dpy,major_rtrn,minor_rtrn)
     if (major_rtrn)	*major_rtrn= 0;
     if (minor_rtrn)	*minor_rtrn= 0;
 
+    if (!dpy->xkb_info) {
+        xkbi = _XkbTypedCalloc(1, XkbInfoRec);
+        if ( !xkbi )
+	    return False;
+        dpy->xkb_info = xkbi;
+        dpy->free_funcs->xkb = _XkbFreeInfo;
+
+        xkbi->xlib_ctrls|= (XkbLC_ControlFallback|XkbLC_ConsumeLookupMods);
+        if ((str=getenv("_XKB_OPTIONS_ENABLE"))!=NULL) {
+	    if ((str=getenv("_XKB_LATIN1_LOOKUP"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_ForceLatin1Lookup;
+	        else xkbi->xlib_ctrls|= XkbLC_ForceLatin1Lookup;
+	    }
+	    if ((str=getenv("_XKB_CONSUME_LOOKUP_MODS"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_ConsumeLookupMods;
+	        else xkbi->xlib_ctrls|= XkbLC_ConsumeLookupMods;
+	    }
+	    if ((str=getenv("_XKB_CONSUME_SHIFT_AND_LOCK"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_AlwaysConsumeShiftAndLock;
+	        else xkbi->xlib_ctrls|= XkbLC_AlwaysConsumeShiftAndLock;
+	    }
+	    if ((str=getenv("_XKB_IGNORE_NEW_KEYBOARDS"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_IgnoreNewKeyboards;
+	        else xkbi->xlib_ctrls|= XkbLC_IgnoreNewKeyboards;
+	    }
+	    if ((str=getenv("_XKB_CONTROL_FALLBACK"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_ControlFallback;
+	        else xkbi->xlib_ctrls|= XkbLC_ControlFallback;
+	    }
+	    if ((str=getenv("_XKB_COMP_LED"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		    xkbi->xlib_ctrls&= ~XkbLC_ComposeLED;
+	        else {
+		    xkbi->xlib_ctrls|= XkbLC_ComposeLED;
+		    if (strlen(str)>0)
+		        xkbi->composeLED= XInternAtom(dpy,str,False);
+	        }
+	    }
+	    if ((str=getenv("_XKB_COMP_FAIL_BEEP"))!=NULL) {
+	        if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
+		     xkbi->xlib_ctrls&= ~XkbLC_BeepOnComposeFail;
+	        else xkbi->xlib_ctrls|= XkbLC_BeepOnComposeFail;
+	    }
+        }
+        if ((xkbi->composeLED==None)&&((xkbi->xlib_ctrls&XkbLC_ComposeLED)!=0))
+	    xkbi->composeLED= XInternAtom(dpy,"Compose",False);
+#ifdef DEBUG
+        if (debugMsg) {
+	    register unsigned c= xkbi->xlib_ctrls;
+	    fprintf(stderr,"XKEYBOARD compose: beep on failure is %s, LED is %s\n",
+		((c&XkbLC_BeepOnComposeFail)?"on":"off"),
+		((c&XkbLC_ComposeLED)?"on":"off"));
+	    fprintf(stderr,"XKEYBOARD XLookupString: %slatin-1, %s lookup modifiers\n",
+		((c&XkbLC_ForceLatin1Lookup)?"allow non-":"force "),
+		((c&XkbLC_ConsumeLookupMods)?"consume":"re-use"));
+	    fprintf(stderr,
+	        "XKEYBOARD XLookupString: %sconsume shift and lock, %scontrol fallback\n",
+	        ((c&XkbLC_AlwaysConsumeShiftAndLock)?"always ":"don't "),
+	        ((c&XkbLC_ControlFallback)?"":"no "));
+
+        }
+#endif
+    } else
+        xkbi = dpy->xkb_info;
+
     forceIgnore= (dpy->flags&XlibDisplayNoXkb)||dpy->keysyms;
-    forceIgnore= forceIgnore&(major_rtrn==NULL)&&(minor_rtrn==NULL);
+    forceIgnore= forceIgnore&&(major_rtrn==NULL)&&(minor_rtrn==NULL);
     if ( forceIgnore || _XkbIgnoreExtension || getenv("XKB_DISABLE")) {
 	LockDisplay(dpy);
 	dpy->flags |= XlibDisplayNoXkb;
@@ -696,15 +763,10 @@ XkbUseExtension(dpy,major_rtrn,minor_rtrn)
 	return False;
     }
 
-    xkbi = _XkbTypedCalloc(1, XkbInfoRec);
-    if ( !xkbi )
-	return False;
-
     if ( (codes=XInitExtension(dpy,XkbName))==NULL ) {
 	LockDisplay(dpy);
 	dpy->flags |= XlibDisplayNoXkb;
 	UnlockDisplay(dpy);
-	Xfree(xkbi);
 	if (debugMsg)
 	    fprintf(stderr,"XKEYBOARD extension not present\n");
 	return False;
@@ -746,8 +808,7 @@ XkbUseExtension(dpy,major_rtrn,minor_rtrn)
 	    dpy->flags |= XlibDisplayNoXkb;
 	    UnlockDisplay(dpy);
 	    SyncHandle();
-	    Xfree(xkbi);
-	    if (major_rtrn)	*major_rtrn= rep.serverMajor;
+	    if (major_rtrn) *major_rtrn= rep.serverMajor;
 	    if (minor_rtrn) *minor_rtrn= rep.serverMinor;
 	    return False;
 	}
@@ -766,70 +827,8 @@ XkbUseExtension(dpy,major_rtrn,minor_rtrn)
 	fprintf(stderr,"XKEYBOARD (version %d.%02d/%d.%02d) OK!\n",
 				XkbMajorVersion,XkbMinorVersion,
 				rep.serverMajor,rep.serverMinor);
-    dpy->xkb_info = xkbi;
-    dpy->free_funcs->xkb = _XkbFreeInfo;
-    ev_base = codes->first_event;
-    xkbi->xlib_ctrls|= 
-	(XkbLC_BeepOnComposeFail|XkbLC_ComposeLED|XkbLC_ControlFallback);
-    if ((str=getenv("_XKB_OPTIONS_ENABLE"))!=NULL) {
-	if ((str=getenv("_XKB_LATIN1_LOOKUP"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_ForceLatin1Lookup;
-	    else xkbi->xlib_ctrls|= XkbLC_ForceLatin1Lookup;
-	}
-	if ((str=getenv("_XKB_CONSUME_LOOKUP_MODS"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_ConsumeLookupMods;
-	    else xkbi->xlib_ctrls|= XkbLC_ConsumeLookupMods;
-	}
-	if ((str=getenv("_XKB_CONSUME_SHIFT_AND_LOCK"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_AlwaysConsumeShiftAndLock;
-	    else xkbi->xlib_ctrls|= XkbLC_AlwaysConsumeShiftAndLock;
-	}
-	if ((str=getenv("_XKB_IGNORE_NEW_KEYBOARDS"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_IgnoreNewKeyboards;
-	    else xkbi->xlib_ctrls|= XkbLC_IgnoreNewKeyboards;
-	}
-	if ((str=getenv("_XKB_CONTROL_FALLBACK"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_ControlFallback;
-	    else xkbi->xlib_ctrls|= XkbLC_ControlFallback;
-	}
-	if ((str=getenv("_XKB_COMP_LED"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_ComposeLED;
-	    else {
-		xkbi->xlib_ctrls|= XkbLC_ComposeLED;
-		if (strlen(str)>0)
-		    xkbi->composeLED= XInternAtom(dpy,str,False);
-	    }
-	}
-	if ((str=getenv("_XKB_COMP_FAIL_BEEP"))!=NULL) {
-	    if ((strcmp(str,"off")==0)||(strcmp(str,"0")==0))
-		 xkbi->xlib_ctrls&= ~XkbLC_BeepOnComposeFail;
-	    else xkbi->xlib_ctrls|= XkbLC_BeepOnComposeFail;
-	}
-    }
-    if ((xkbi->composeLED==None)&&((xkbi->xlib_ctrls&XkbLC_ComposeLED)!=0))
-	xkbi->composeLED= XInternAtom(dpy,"Compose",False);
-#ifdef DEBUG
-    if (debugMsg) {
-	register unsigned c= xkbi->xlib_ctrls;
-	fprintf(stderr,"XKEYBOARD compose: beep on failure is %s, LED is %s\n",
-		((c&XkbLC_BeepOnComposeFail)?"on":"off"),
-		((c&XkbLC_ComposeLED)?"on":"off"));
-	fprintf(stderr,"XKEYBOARD XLookupString: %slatin-1, %s lookup modifiers\n",
-		((c&XkbLC_ForceLatin1Lookup)?"allow non-":"force "),
-		((c&XkbLC_ConsumeLookupMods)?"consume":"re-use"));
-	fprintf(stderr,
-	    "XKEYBOARD XLookupString: %sconsume shift and lock, %scontrol fallback\n",
-	    ((c&XkbLC_AlwaysConsumeShiftAndLock)?"always ":"don't "),
-	    ((c&XkbLC_ControlFallback)?"":"no "));
 
-    }
-#endif
+    ev_base = codes->first_event;
     XESetWireToEvent(dpy,ev_base+XkbEventCode,wire_to_event);
     SyncHandle();
     return True;

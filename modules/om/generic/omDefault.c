@@ -28,6 +28,7 @@
  *  This is source code modified by FUJITSU LIMITED under the Joint
  *  Development Agreement for the CDE/Motif PST.
  */
+/* $XFree86: xc/lib/X11/omDefault.c,v 1.5 2001/01/17 19:41:56 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XomGeneric.h"
@@ -43,27 +44,45 @@ static Bool
 wcs_to_mbs(oc, to, from, length)
     XOC oc;
     char *to;
-    wchar_t *from;
+    _Xconst wchar_t *from;
     int length;
 {
-    XlcConv conv = XOC_GENERIC(oc)->wcs_to_cs;
-    XLCd lcd;
-    int ret, to_left = length;
+    XlcConv conv;
+    int to_left, ret;
 
-    if (conv == NULL) {
-	lcd = oc->core.om->core.lcd;
-	conv = _XlcOpenConverter(lcd, XlcNWideChar, lcd, XlcNMultiByte);
-	if (conv == NULL)
-	    return False;
-	XOC_GENERIC(oc)->wcs_to_cs = conv;
-    } else
-	_XlcResetConverter(conv);
+    conv = _XomInitConverter(oc, XOMWideChar);
+    if (conv == NULL)
+	return False;
 
+    to_left = length;
     ret = _XlcConvert(conv, (XPointer *) &from, &length, (XPointer *) &to,
 		      &to_left, NULL, 0);
     if (ret != 0 || length > 0)
 	return False;
-    
+
+    return True;
+}
+
+static Bool
+utf8_to_mbs(oc, to, from, length)
+    XOC oc;
+    char *to;
+    _Xconst char *from;
+    int length;
+{
+    XlcConv conv;
+    int to_left, ret;
+
+    conv = _XomInitConverter(oc, XOMUtf8String);
+    if (conv == NULL)
+	return False;
+
+    to_left = length;
+    ret = _XlcConvert(conv, (XPointer *) &from, &length, (XPointer *) &to,
+		      &to_left, NULL, 0);
+    if (ret != 0 || length > 0)
+	return False;
+
     return True;
 }
 
@@ -73,7 +92,7 @@ _XmbDefaultTextEscapement(XOC oc, _Xconst char *text, int length)
 #else
 _XmbDefaultTextEscapement(oc, text, length)
     XOC oc;
-    char *text;
+    _Xconst char *text;
     int length;
 #endif
 {
@@ -86,7 +105,7 @@ _XwcDefaultTextEscapement(XOC oc, _Xconst wchar_t *text, int length)
 #else
 _XwcDefaultTextEscapement(oc, text, length)
     XOC oc;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
 #endif
 {
@@ -97,8 +116,40 @@ _XwcDefaultTextEscapement(oc, text, length)
     if (buf == NULL)
 	return 0;
 
-    if (wcs_to_mbs(oc, buf, text, length) == False)
+    if (wcs_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
 	goto err;
+    }
+
+    ret = _XmbDefaultTextEscapement(oc, buf, length);
+
+err:
+    FreeLocalBuf(buf);
+
+    return ret;
+}
+
+int
+#if NeedFunctionPrototypes
+_Xutf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length)
+#else
+_Xutf8DefaultTextEscapement(oc, text, length)
+    XOC oc;
+    _Xconst char *text;
+    int length;
+#endif
+{
+    DefineLocalBuf;
+    char *buf = AllocLocalBuf(length);
+    int ret;
+
+    if (buf == NULL)
+	return 0;
+
+    if (utf8_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
+	goto err;
+    }
 
     ret = _XmbDefaultTextEscapement(oc, buf, length);
 
@@ -115,7 +166,7 @@ _XmbDefaultTextExtents(XOC oc, _Xconst char *text, int length,
 #else
 _XmbDefaultTextExtents(oc, text, length, overall_ink, overall_logical)
     XOC oc;
-    char *text;
+    _Xconst char *text;
     int length;
     XRectangle *overall_ink;
     XRectangle *overall_logical;
@@ -151,7 +202,7 @@ _XwcDefaultTextExtents(XOC oc, _Xconst wchar_t *text, int length,
 #else
 _XwcDefaultTextExtents(oc, text, length, overall_ink, overall_logical)
     XOC oc;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
     XRectangle *overall_ink;
     XRectangle *overall_logical;
@@ -164,8 +215,43 @@ _XwcDefaultTextExtents(oc, text, length, overall_ink, overall_logical)
     if (buf == NULL)
 	return 0;
 
-    if (wcs_to_mbs(oc, buf, text, length) == False)
+    if (wcs_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
 	goto err;
+    }
+
+    ret = _XmbDefaultTextExtents(oc, buf, length, overall_ink, overall_logical);
+
+err:
+    FreeLocalBuf(buf);
+
+    return ret;
+}
+
+int
+#if NeedFunctionPrototypes
+_Xutf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
+			 XRectangle *overall_ink, XRectangle *overall_logical)
+#else
+_Xutf8DefaultTextExtents(oc, text, length, overall_ink, overall_logical)
+    XOC oc;
+    _Xconst char *text;
+    int length;
+    XRectangle *overall_ink;
+    XRectangle *overall_logical;
+#endif
+{
+    DefineLocalBuf;
+    char *buf = AllocLocalBuf(length);
+    int ret;
+
+    if (buf == NULL)
+	return 0;
+
+    if (utf8_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
+	goto err;
+    }
 
     ret = _XmbDefaultTextExtents(oc, buf, length, overall_ink, overall_logical);
 
@@ -186,7 +272,7 @@ _XmbDefaultTextPerCharExtents(XOC oc, _Xconst char *text, int length,
 _XmbDefaultTextPerCharExtents(oc, text, length, ink_buf, logical_buf, buf_size,
 			      num_chars, overall_ink, overall_logical)
     XOC oc;
-    char *text;	
+    _Xconst char *text;	
     int length;
     XRectangle *ink_buf;
     XRectangle *logical_buf;
@@ -270,7 +356,7 @@ _XwcDefaultTextPerCharExtents(XOC oc, _Xconst wchar_t *text, int length,
 _XwcDefaultTextPerCharExtents(oc, text, length, ink_buf, logical_buf, buf_size,
 			      num_chars, overall_ink, overall_logical)
     XOC oc;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
     XRectangle *ink_buf;
     XRectangle *logical_buf;
@@ -287,8 +373,54 @@ _XwcDefaultTextPerCharExtents(oc, text, length, ink_buf, logical_buf, buf_size,
     if (buf == NULL)
 	return 0;
 
-    if (wcs_to_mbs(oc, buf, text, length) == False)
+    if (wcs_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
 	goto err;
+    }
+
+    ret = _XmbDefaultTextPerCharExtents(oc, buf, length, ink_buf, logical_buf,
+					buf_size, num_chars, overall_ink,
+					overall_logical);
+
+err:
+    FreeLocalBuf(buf);
+
+    return ret;
+}
+
+Status
+#if NeedFunctionPrototypes
+_Xutf8DefaultTextPerCharExtents(XOC oc, _Xconst char *text, int length,
+				XRectangle *ink_buf, XRectangle *logical_buf,
+				int buf_size, int *num_chars,
+				XRectangle *overall_ink,
+				XRectangle *overall_logical)
+#else
+_Xutf8DefaultTextPerCharExtents(oc, text, length, ink_buf, logical_buf,
+				buf_size, num_chars, overall_ink,
+				overall_logical)
+    XOC oc;
+    _Xconst char *text;
+    int length;
+    XRectangle *ink_buf;
+    XRectangle *logical_buf;
+    int buf_size;
+    int *num_chars;
+    XRectangle *overall_ink;
+    XRectangle *overall_logical;
+#endif
+{
+    DefineLocalBuf;
+    char *buf = AllocLocalBuf(length);
+    Status ret;
+
+    if (buf == NULL)
+	return 0;
+
+    if (utf8_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
+	goto err;
+    }
 
     ret = _XmbDefaultTextPerCharExtents(oc, buf, length, ink_buf, logical_buf,
 					buf_size, num_chars, overall_ink,
@@ -311,7 +443,7 @@ _XmbDefaultDrawString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    char *text;
+    _Xconst char *text;
     int length;
 #endif
 {
@@ -334,7 +466,7 @@ _XwcDefaultDrawString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
 #endif
 {
@@ -345,8 +477,45 @@ _XwcDefaultDrawString(dpy, d, oc, gc, x, y, text, length)
     if (buf == NULL)
 	return 0;
 
-    if (wcs_to_mbs(oc, buf, text, length) == False)
+    if (wcs_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
 	goto err;
+    }
+
+    ret = _XmbDefaultDrawString(dpy, d, oc, gc, x, y, buf, length);
+
+err:
+    FreeLocalBuf(buf);
+
+    return ret;
+}
+
+int
+#if NeedFunctionPrototypes
+_Xutf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+			_Xconst char *text, int length)
+#else
+_Xutf8DefaultDrawString(dpy, d, oc, gc, x, y, text, length)
+    Display *dpy;
+    Drawable d;
+    XOC oc;
+    GC gc;
+    int x, y;
+    _Xconst char *text;
+    int length;
+#endif
+{
+    DefineLocalBuf;
+    char *buf = AllocLocalBuf(length);
+    int ret;
+
+    if (buf == NULL)
+	return 0;
+
+    if (utf8_to_mbs(oc, buf, text, length) == False) {
+	ret = 0;
+	goto err;
+    }
 
     ret = _XmbDefaultDrawString(dpy, d, oc, gc, x, y, buf, length);
 
@@ -367,7 +536,7 @@ _XmbDefaultDrawImageString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    char *text;
+    _Xconst char *text;
     int length;
 #endif
 {
@@ -386,7 +555,7 @@ _XwcDefaultDrawImageString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
 #endif
 {
@@ -397,6 +566,36 @@ _XwcDefaultDrawImageString(dpy, d, oc, gc, x, y, text, length)
 	return;
 
     if (wcs_to_mbs(oc, buf, text, length) == False)
+	goto err;
+
+    _XmbDefaultDrawImageString(dpy, d, oc, gc, x, y, buf, length);
+
+err:
+    FreeLocalBuf(buf);
+}
+
+void
+#if NeedFunctionPrototypes
+_Xutf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+			     int y, _Xconst char *text, int length)
+#else
+_Xutf8DefaultDrawImageString(dpy, d, oc, gc, x, y, text, length)
+    Display *dpy;
+    Drawable d;
+    XOC oc;
+    GC gc;
+    int x, y;
+    _Xconst char *text;
+    int length;
+#endif
+{
+    DefineLocalBuf;
+    char *buf = AllocLocalBuf(length);
+
+    if (buf == NULL)
+	return;
+
+    if (utf8_to_mbs(oc, buf, text, length) == False)
 	goto err;
 
     _XmbDefaultDrawImageString(dpy, d, oc, gc, x, y, buf, length);

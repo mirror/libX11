@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Xlib.h,v 3.23 2002/05/31 18:45:42 dawes Exp $ */
 
 
 /*
@@ -59,16 +60,36 @@ in this Software without prior written authorization from The Open Group.
 
 #ifndef X_WCHAR
 #ifdef X_NOT_STDC_ENV
+#ifndef SCO324
+#ifndef ISC
 #define X_WCHAR
+#endif
+#endif
 #endif
 #endif
 
 #ifndef X_WCHAR
 #include <stddef.h>
 #else
+#ifdef __UNIXOS2__
+#include <stdlib.h>
+#else
 /* replace this with #include or typedef appropriate for your system */
 typedef unsigned long wchar_t;
 #endif
+#endif
+
+#if defined(ISC) && defined(USE_XMBTOWC)
+#define wctomb(a,b)	_Xwctomb(a,b)
+#define mblen(a,b)	_Xmblen(a,b) 
+#ifndef USE_XWCHAR_STRING
+#define mbtowc(a,b,c)	_Xmbtowc(a,b,c)
+#endif
+#endif
+
+/* API mentioning "UTF8" or "utf8" is an XFree86 extension, introduced in
+   November 2000. Its presence is indicated through the following macro. */
+#define X_HAVE_UTF8_STRING 1
 
 typedef char *XPointer;
 
@@ -145,7 +166,11 @@ typedef char *XPointer;
 typedef struct _XExtData {
 	int number;		/* number returned by XRegisterExtension */
 	struct _XExtData *next;	/* next item on list of data for structure */
-	int (*free_private)();	/* called to free private storage */
+	int (*free_private)(	/* called to free private storage */
+#if NeedFunctionPrototypes
+	struct _XExtData *extension
+#endif
+	);
 	XPointer private_data;	/* data private to this extension. */
 } XExtData;
 
@@ -359,14 +384,25 @@ typedef struct _XImage {
     unsigned long blue_mask;
     XPointer obdata;		/* hook for the object routines to hang on */
     struct funcs {		/* image manipulation routines */
-	struct _XImage *(*create_image)();
 #if NeedFunctionPrototypes
+	struct _XImage *(*create_image)(
+		struct _XDisplay* /* display */,
+		Visual*		/* visual */,
+		unsigned int	/* depth */,
+		int		/* format */,
+		int		/* offset */,
+		char*		/* data */,
+		unsigned int	/* width */,
+		unsigned int	/* height */,
+		int		/* bitmap_pad */,
+		int		/* bytes_per_line */);
 	int (*destroy_image)        (struct _XImage *);
 	unsigned long (*get_pixel)  (struct _XImage *, int, int);
 	int (*put_pixel)            (struct _XImage *, int, int, unsigned long);
 	struct _XImage *(*sub_image)(struct _XImage *, int, int, unsigned int, unsigned int);
 	int (*add_pixel)            (struct _XImage *, long);
 #else
+	struct _XImage *(*create_image)();
 	int (*destroy_image)();
 	unsigned long (*get_pixel)();
 	int (*put_pixel)();
@@ -489,7 +525,11 @@ _XDisplay
 	XID private4;
 	XID private5;
 	int private6;
-	XID (*resource_alloc)();/* allocator function */
+	XID (*resource_alloc)(	/* allocator function */
+#if NeedFunctionPrototypes
+		struct _XDisplay*
+#endif
+	);
 	int byte_order;		/* screen byte order, LSBFirst, MSBFirst */
 	int bitmap_unit;	/* padding and data requirements */
 	int bitmap_pad;		/* padding requirements on bitmaps */
@@ -508,7 +548,11 @@ _XDisplay
 	XPointer private14;
 	unsigned max_request_size; /* maximum number 32 bit words in request*/
 	struct _XrmHashBucketRec *db;
-	int (*private15)();
+	int (*private15)(
+#if NeedFunctionPrototypes
+		struct _XDisplay*
+#endif
+		);
 	char *display_name;	/* "host:display" string used on this connect*/
 	int default_screen;	/* default screen for operations */
 	int nscreens;		/* number of screens on this server*/
@@ -541,7 +585,7 @@ typedef struct {
 	Bool send_event;	/* true if this came from a SendEvent request */
 	Display *display;	/* Display the event was read from */
 	Window window;	        /* "event" window it is reported relative to */
-	Window root;	        /* root window that the event occured on */
+	Window root;	        /* root window that the event occurred on */
 	Window subwindow;	/* child window */
 	Time time;		/* milliseconds */
 	int x, y;		/* pointer x, y coordinates in event window */
@@ -559,7 +603,7 @@ typedef struct {
 	Bool send_event;	/* true if this came from a SendEvent request */
 	Display *display;	/* Display the event was read from */
 	Window window;	        /* "event" window it is reported relative to */
-	Window root;	        /* root window that the event occured on */
+	Window root;	        /* root window that the event occurred on */
 	Window subwindow;	/* child window */
 	Time time;		/* milliseconds */
 	int x, y;		/* pointer x, y coordinates in event window */
@@ -577,7 +621,7 @@ typedef struct {
 	Bool send_event;	/* true if this came from a SendEvent request */
 	Display *display;	/* Display the event was read from */
 	Window window;	        /* "event" window reported relative to */
-	Window root;	        /* root window that the event occured on */
+	Window root;	        /* root window that the event occurred on */
 	Window subwindow;	/* child window */
 	Time time;		/* milliseconds */
 	int x, y;		/* pointer x, y coordinates in event window */
@@ -594,7 +638,7 @@ typedef struct {
 	Bool send_event;	/* true if this came from a SendEvent request */
 	Display *display;	/* Display the event was read from */
 	Window window;	        /* "event" window reported relative to */
-	Window root;	        /* root window that the event occured on */
+	Window root;	        /* root window that the event occurred on */
 	Window subwindow;	/* child window */
 	Time time;		/* milliseconds */
 	int x, y;		/* pointer x, y coordinates in event window */
@@ -1037,7 +1081,9 @@ typedef struct {
     XRectangle      max_logical_extent;
 } XFontSetExtents;
 
+/* unused:
 typedef void (*XOMProc)();
+ */
 
 typedef struct _XOM *XOM;
 typedef struct _XOC *XOC, *XFontSet;
@@ -1091,10 +1137,32 @@ typedef struct {
     char **font_name_list;
 } XOMFontInfo;
 
-typedef void (*XIMProc)();
-
 typedef struct _XIM *XIM;
 typedef struct _XIC *XIC;
+
+typedef void (*XIMProc)(
+#if NeedFunctionPrototypes
+    XIM,
+    XPointer,
+    XPointer
+#endif
+);
+
+typedef Bool (*XICProc)(
+#if NeedFunctionPrototypes
+    XIC,
+    XPointer,
+    XPointer
+#endif
+);
+
+typedef void (*XIDProc)(
+#if NeedFunctionPrototypes
+    Display*,
+    XPointer,
+    XPointer
+#endif
+);
 
 typedef unsigned long XIMStyle;
 
@@ -1173,6 +1241,11 @@ typedef struct {
     XPointer client_data;
     XIMProc callback;
 } XIMCallback;
+
+typedef struct {
+    XPointer client_data;
+    XICProc callback;
+} XICCallback;
 
 typedef unsigned long XIMFeedback;
 
@@ -1496,7 +1569,11 @@ extern int (*XSynchronize(
     Display*		/* display */,
     Bool		/* onoff */
 #endif
-))();
+))(
+#if NeedNestedPrototypes
+    Display*		/* display */
+#endif
+);
 extern int (*XSetAfterFunction(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -1506,7 +1583,11 @@ extern int (*XSetAfterFunction(
 #endif
             )		/* procedure */
 #endif
-))();
+))(
+#if NeedNestedPrototypes
+    Display*		/* display */
+#endif
+);
 extern Atom XInternAtom(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -1555,8 +1636,8 @@ extern Cursor XCreateGlyphCursor(
     Font		/* mask_font */,
     unsigned int	/* source_char */,
     unsigned int	/* mask_char */,
-    XColor*		/* foreground_color */,
-    XColor*		/* background_color */
+    XColor _Xconst *	/* foreground_color */,
+    XColor _Xconst *	/* background_color */
 #endif
 );
 extern Cursor XCreateFontCursor(
@@ -4166,16 +4247,10 @@ extern int XWriteBitmapFile(
 #endif
 );
 
-extern Bool XSupportsLocale(
-#if NeedFunctionPrototypes
-    void
-#endif
-);
+extern Bool XSupportsLocale (void);
 
 extern char *XSetLocaleModifiers(
-#if NeedFunctionPrototypes
-    _Xconst char*	/* modifier_list */
-#endif
+    const char*		/* modifier_list */
 );
 
 extern XOM XOpenOM(
@@ -4329,6 +4404,14 @@ extern int XwcTextEscapement(
 #endif
 );
 
+extern int Xutf8TextEscapement(
+#if NeedFunctionPrototypes
+    XFontSet		/* font_set */,
+    _Xconst char*	/* text */,
+    int			/* bytes_text */
+#endif
+);
+
 extern int XmbTextExtents(
 #if NeedFunctionPrototypes
     XFontSet		/* font_set */,
@@ -4344,6 +4427,16 @@ extern int XwcTextExtents(
     XFontSet		/* font_set */,
     _Xconst wchar_t*	/* text */,
     int			/* num_wchars */,
+    XRectangle*		/* overall_ink_return */,
+    XRectangle*		/* overall_logical_return */
+#endif
+);
+
+extern int Xutf8TextExtents(
+#if NeedFunctionPrototypes
+    XFontSet		/* font_set */,
+    _Xconst char*	/* text */,
+    int			/* bytes_text */,
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
 #endif
@@ -4377,6 +4470,20 @@ extern Status XwcTextPerCharExtents(
 #endif
 );
 
+extern Status Xutf8TextPerCharExtents(
+#if NeedFunctionPrototypes
+    XFontSet		/* font_set */,
+    _Xconst char*	/* text */,
+    int			/* bytes_text */,
+    XRectangle*		/* ink_extents_buffer */,
+    XRectangle*		/* logical_extents_buffer */,
+    int			/* buffer_size */,
+    int*		/* num_chars */,
+    XRectangle*		/* overall_ink_return */,
+    XRectangle*		/* overall_logical_return */
+#endif
+);
+
 extern void XmbDrawText(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -4397,6 +4504,18 @@ extern void XwcDrawText(
     int			/* x */,
     int			/* y */,
     XwcTextItem*	/* text_items */,
+    int			/* nitems */
+#endif
+);
+
+extern void Xutf8DrawText(
+#if NeedFunctionPrototypes
+    Display*		/* display */,
+    Drawable		/* d */,
+    GC			/* gc */,
+    int			/* x */,
+    int			/* y */,
+    XmbTextItem*	/* text_items */,
     int			/* nitems */
 #endif
 );
@@ -4427,6 +4546,19 @@ extern void XwcDrawString(
 #endif
 );
 
+extern void Xutf8DrawString(
+#if NeedFunctionPrototypes
+    Display*		/* display */,
+    Drawable		/* d */,
+    XFontSet		/* font_set */,
+    GC			/* gc */,
+    int			/* x */,
+    int			/* y */,
+    _Xconst char*	/* text */,
+    int			/* bytes_text */
+#endif
+);
+
 extern void XmbDrawImageString(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -4453,6 +4585,19 @@ extern void XwcDrawImageString(
 #endif
 );
 
+extern void Xutf8DrawImageString(
+#if NeedFunctionPrototypes
+    Display*		/* display */,
+    Drawable		/* d */,
+    XFontSet		/* font_set */,
+    GC			/* gc */,
+    int			/* x */,
+    int			/* y */,
+    _Xconst char*	/* text */,
+    int			/* bytes_text */
+#endif
+);
+
 extern XIM XOpenIM(
 #if NeedFunctionPrototypes
     Display*			/* dpy */,
@@ -4469,6 +4614,12 @@ extern Status XCloseIM(
 );
 
 extern char *XGetIMValues(
+#if NeedVarargsPrototypes
+    XIM /* im */, ...
+#endif
+);
+
+extern char *XSetIMValues(
 #if NeedVarargsPrototypes
     XIM /* im */, ...
 #endif
@@ -4522,6 +4673,12 @@ extern char *XmbResetIC(
 #endif
 );
 
+extern char *Xutf8ResetIC(
+#if NeedFunctionPrototypes
+    XIC /* ic */
+#endif
+);
+
 extern char *XSetICValues(
 #if NeedVarargsPrototypes
     XIC /* ic */, ...
@@ -4569,6 +4726,17 @@ extern int XwcLookupString(
 #endif
 );
 
+extern int Xutf8LookupString(
+#if NeedFunctionPrototypes
+    XIC			/* ic */,
+    XKeyPressedEvent*	/* event */,
+    char*		/* buffer_return */,
+    int			/* bytes_buffer */,
+    KeySym*		/* keysym_return */,
+    Status*		/* status_return */
+#endif
+);
+
 extern XVaNestedList XVaCreateNestedList(
 #if NeedVarargsPrototypes
     int /*unused*/, ...
@@ -4583,8 +4751,8 @@ extern Bool XRegisterIMInstantiateCallback(
     struct _XrmHashBucketRec*	/* rdb */,
     char*			/* res_name */,
     char*			/* res_class */,
-    XIMProc			/* callback */,
-    XPointer*			/* client_data */
+    XIDProc			/* callback */,
+    XPointer			/* client_data */
 #endif
 );
 
@@ -4594,8 +4762,8 @@ extern Bool XUnregisterIMInstantiateCallback(
     struct _XrmHashBucketRec*	/* rdb */,
     char*			/* res_name */,
     char*			/* res_class */,
-    XIMProc			/* callback */,
-    XPointer*			/* client_data */
+    XIDProc			/* callback */,
+    XPointer			/* client_data */
 #endif
 );
 
@@ -4638,6 +4806,35 @@ extern void XRemoveConnectionWatch(
     Display*			/* dpy */,
     XConnectionWatchProc	/* callback */,
     XPointer			/* client_data */
+#endif
+);
+
+extern void XSetAuthorization(
+#if NeedFunctionPrototypes
+    char *			/* name */,
+    int				/* namelen */, 
+    char *			/* data */,
+    int				/* datalen */
+#endif
+);
+
+extern int _Xmbtowc(
+#if NeedFunctionPrototypes
+    wchar_t *			/* wstr */,
+#ifdef ISC
+    char const *		/* str */,
+    size_t			/* len */
+#else
+    char *			/* str */,
+    int				/* len */
+#endif
+#endif
+);
+
+extern int _Xwctomb(
+#if NeedFunctionPrototypes
+    char *			/* str */,
+    wchar_t			/* wc */
 #endif
 );
 

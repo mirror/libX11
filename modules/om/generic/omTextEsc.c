@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/omTextEsc.c,v 1.5 2001/01/17 19:41:56 dawes Exp $ */
 /*
  * Copyright 1995 by FUJITSU LIMITED
  * This is source code modified by FUJITSU LIMITED under the Joint
@@ -150,10 +151,29 @@ TextWidthWithFontSet(font_set, oc, text, length)
 					       is_xchar2b, FONTSCOPE);
 	if(ptr_len <= 0)
 	    break;
-	if(fd == (FontData) NULL ||
-	   (font = fd->font) == (XFontStruct *) NULL) {
 
-	    if((font = font_set->font) == (XFontStruct *) NULL)
+	/*
+	 * First, see if the "Best Match" font for the FontSet was set.
+	 * If it was, use that font.  If it was not set, then use the
+	 * font defined by font_set->font_data[0] (which is what
+	 * _XomGetFontDataFromFontSet() always seems to return for
+	 * non-VW text).  Note that given the new algorithm in
+	 * parse_fontname() and parse_fontdata(), fs->font will
+	 * *always* contain good data.   We should probably remove
+	 * the check for "fd->font", but we won't :-) -- jjw/pma (HP)
+	 *
+	 * Above comment and way this is done propagated from omText.c
+	 * Note that fd->font is junk so using the result of the
+	 * above call /needs/ to be ignored.
+	 *
+	 * Owen Taylor <otaylor@redhat.com>     12 Jul 2000
+	 *
+	 */
+
+	if(fd == (FontData) NULL ||
+	   (font = font_set->font) == (XFontStruct *) NULL) {
+
+	    if((font = fd->font) == (XFontStruct *) NULL)
 		break;
 	}
 
@@ -198,6 +218,11 @@ TextWidthWithFontSet(font_set, oc, text, length)
 		char_len = ptr_len;
 	    escapement += escapement_vertical(oc, font, is_xchar2b,
 					      (XPointer) ptr, char_len);
+	    break;
+
+	  case XOMOrientation_Context:
+	    /* not used? */
+            break;
 	}
 
 	if(char_len <= 0)
@@ -262,7 +287,7 @@ _XmbGenericTextEscapement(XOC oc, _Xconst char *text, int length)
 #else
 _XmbGenericTextEscapement(oc, text, length)
     XOC oc;
-    char *text;
+    _Xconst char *text;
     int length;
 #endif
 {
@@ -275,9 +300,23 @@ _XwcGenericTextEscapement(XOC oc, _Xconst wchar_t *text, int length)
 #else
 _XwcGenericTextEscapement(oc, text, length)
     XOC oc;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
 #endif
 {
     return _XomGenericTextEscapement(oc, XOMWideChar, (XPointer) text, length);
+}
+
+int
+#if NeedFunctionPrototypes
+_Xutf8GenericTextEscapement(XOC oc, _Xconst char *text, int length)
+#else
+_Xutf8GenericTextEscapement(oc, text, length)
+    XOC oc;
+    _Xconst char *text;
+    int length;
+#endif
+{
+    return _XomGenericTextEscapement(oc, XOMUtf8String, (XPointer) text,
+				     length);
 }

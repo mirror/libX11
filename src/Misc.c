@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Misc.c,v 1.4 2001/12/14 19:54:03 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -45,6 +46,7 @@ unsigned long XDisplayMotionBufferSize(dpy)
     return dpy->motion_buffer;
 }
 
+int
 XDisplayKeycodes(dpy, min_keycode_return, max_keycode_return)
     Display *dpy;
     int *min_keycode_return, *max_keycode_return;

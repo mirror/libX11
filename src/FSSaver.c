@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/FSSaver.c,v 1.4 2001/12/14 19:54:00 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XActivateScreenSaver(dpy) 
     register Display *dpy;
 
@@ -35,6 +37,7 @@ XActivateScreenSaver(dpy)
     return 1;
 }
 
+int
 XResetScreenSaver(dpy) 
     register Display *dpy;
 
@@ -43,6 +46,7 @@ XResetScreenSaver(dpy)
     return 1;
 }
 
+int
 XForceScreenSaver(dpy, mode)
     register Display *dpy; 
     int mode;

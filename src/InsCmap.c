@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/InsCmap.c,v 1.4 2001/12/14 19:54:02 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XInstallColormap(dpy, cmap)
 register Display *dpy;
 Colormap cmap;

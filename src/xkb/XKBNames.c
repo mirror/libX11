@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBNames.c,v 1.4 2001/10/28 03:32:33 tsi Exp $ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
@@ -369,12 +370,12 @@ XkbSetNames(dpy,which,firstType,nTypes,xkb)
 #endif
 {
     register xkbSetNamesReq *req;
-    int  nLvlNames;
+    int  nLvlNames = 0;
     XkbInfoPtr xkbi;
     XkbNamesPtr names;
     unsigned firstLvlType,nLvlTypes;
     int	nVMods,nLEDs,nRG,nKA,nGroups;
-    int nKeys,firstKey,nAtoms;
+    int nKeys=0,firstKey=0,nAtoms;
     CARD32 leds,vmods,groups;
 
     if ((dpy->flags & XlibDisplayNoXkb) ||
@@ -598,14 +599,14 @@ XkbChangeNames(dpy,xkb,changes)
 #endif
 {
     register xkbSetNamesReq *req;
-    int  nLvlNames;
+    int  nLvlNames = 0;
     XkbInfoPtr xkbi;
     XkbNamesPtr names;
     unsigned which,firstType,nTypes;
     unsigned firstLvlType,nLvlTypes;
     int	nVMods,nLEDs,nRG,nKA,nGroups;
-    int nKeys,firstKey,nAtoms;
-    CARD32 leds,vmods,groups;
+    int nKeys=0,firstKey=0,nAtoms;
+    CARD32 leds=0,vmods=0,groups=0;
 
     if ((dpy->flags & XlibDisplayNoXkb) ||
 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))

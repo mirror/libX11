@@ -1,5 +1,4 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
-.\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
 .\" a copy of this software and associated documentation files (the
 .\" "Software"), to deal in the Software without restriction, including
@@ -40,6 +39,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XcmsClr.man,v 3.4 2001/01/27 18:20:06 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +139,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsColor 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XcmsColor 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsColor, XcmsRGB, XcmsRGBi, XcmsCIEXYZ, XcmsCIEuvY, XcmsCIExyY, XcmsCIELab, XcmsCIELuv, XcmsTekHVC, XcmsPad \- Xcms color struture
 .SH STRUCTURES

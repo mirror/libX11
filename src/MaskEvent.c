@@ -24,17 +24,12 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/MaskEvent.c,v 3.6 2001/12/14 19:54:03 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-
-extern long Const _Xevent_to_mask[];
+extern long const _Xevent_to_mask[];
 #define AllPointers (PointerMotionMask|PointerMotionHintMask|ButtonMotionMask)
 #define AllButtons (Button1MotionMask|Button2MotionMask|Button3MotionMask|\
 		    Button4MotionMask|Button5MotionMask)
@@ -45,13 +40,14 @@ extern long Const _Xevent_to_mask[];
  * Events earlier in the queue are not discarded.
  */
 
+int
 XMaskEvent (dpy, mask, event)
 	register Display *dpy;
 	long mask;		/* Selected event mask. */
 	register XEvent *event;	/* XEvent to be filled in. */
 {
 	register _XQEvent *prev, *qelt;
-	unsigned long qe_serial;
+	unsigned long qe_serial = 0;
 
         LockDisplay(dpy);
 	prev = NULL;

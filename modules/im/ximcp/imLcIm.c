@@ -32,6 +32,7 @@ THIS SOFTWARE.
 	                          frankyling@hgrd01.enet.dec.com
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imLcIm.c,v 1.10 2002/09/21 02:46:04 dawes Exp $ */
 
 #include <stdio.h>
 /*
@@ -43,6 +44,7 @@ THIS SOFTWARE.
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "XlcPublic.h"
+#include "XlcPubI.h"
 #include "Ximint.h"
 #include <ctype.h>
 
@@ -80,6 +82,7 @@ XimFreeDefaultTree(top)
     if (top->next) XimFreeDefaultTree(top->next);
     if (top->mb) Xfree(top->mb);
     if (top->wc) Xfree(top->wc);
+    if (top->utf8) Xfree(top->utf8);
     Xfree(top);
 }
 
@@ -120,6 +123,38 @@ _XimLocalIMFree(im)
 	Xfree(im->core.im_name);
 	im->core.im_name = NULL;
     }
+    if (im->private.local.ctom_conv) {
+	_XlcCloseConverter(im->private.local.ctom_conv);
+        im->private.local.ctom_conv = NULL;
+    }
+    if (im->private.local.ctow_conv) {
+	_XlcCloseConverter(im->private.local.ctow_conv);
+	im->private.local.ctow_conv = NULL;
+    }
+    if (im->private.local.ctoutf8_conv) {
+	_XlcCloseConverter(im->private.local.ctoutf8_conv);
+	im->private.local.ctoutf8_conv = NULL;
+    }
+    if (im->private.local.cstomb_conv) {
+	_XlcCloseConverter(im->private.local.cstomb_conv);
+        im->private.local.cstomb_conv = NULL;
+    }
+    if (im->private.local.cstowc_conv) {
+	_XlcCloseConverter(im->private.local.cstowc_conv);
+	im->private.local.cstowc_conv = NULL;
+    }
+    if (im->private.local.cstoutf8_conv) {
+	_XlcCloseConverter(im->private.local.cstoutf8_conv);
+	im->private.local.cstoutf8_conv = NULL;
+    }
+    if (im->private.local.ucstoc_conv) {
+	_XlcCloseConverter(im->private.local.ucstoc_conv);
+	im->private.local.ucstoc_conv = NULL;
+    }
+    if (im->private.local.ucstoutf8_conv) {
+	_XlcCloseConverter(im->private.local.ucstoutf8_conv);
+	im->private.local.ucstoutf8_conv = NULL;
+    }
     return;
 }
 
@@ -132,6 +167,7 @@ _XimLocalCloseIM(xim)
     XIC		next;
 
     ic = im->core.ic_chain;
+    im->core.ic_chain = NULL;
     while (ic) {
 	(*ic->methods->destroy) (ic);
 	next = ic->core.next;
@@ -196,7 +232,8 @@ Private XIMMethodsRec      Xim_im_local_methods = {
     _XimLocalGetIMValues,       /* get_values */
     _XimLocalCreateIC,          /* create_ic */
     _XimLcctstombs,		/* ctstombs */
-    _XimLcctstowcs		/* ctstowcs */
+    _XimLcctstowcs,		/* ctstowcs */
+    _XimLcctstoutf8		/* ctstoutf8 */
 };
 
 Public Bool
@@ -204,9 +241,9 @@ _XimLocalOpenIM(im)
     Xim			 im;
 {
     XLCd		 lcd = im->core.lcd;
-    XlcConv		 ctom_conv;
-    XlcConv		 ctow_conv;
+    XlcConv		 conv;
     XimDefIMValues	 im_values;
+    XimLocalPrivateRec*  private = &im->private.local;
 
     _XimInitialResourceInfo();
     if(_XimSetIMResourceList(&im->core.im_resources,
@@ -229,46 +266,44 @@ _XimLocalOpenIM(im)
 
     _XimCreateDefaultTree(im);
 
-    if (!(ctom_conv = _XlcOpenConverter(lcd,
-					XlcNCompoundText, lcd, XlcNMultiByte)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCompoundText, lcd, XlcNMultiByte)))
 	goto Open_Error;
-    if (!(ctow_conv = _XlcOpenConverter(lcd,
-					XlcNCompoundText, lcd, XlcNWideChar)))
+    private->ctom_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCompoundText, lcd, XlcNWideChar)))
 	goto Open_Error;
+    private->ctow_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCompoundText, lcd, XlcNUtf8String)))
+	goto Open_Error;
+    private->ctoutf8_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNMultiByte)))
+	goto Open_Error;
+    private->cstomb_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNWideChar)))
+	goto Open_Error;
+    private->cstowc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNUtf8String)))
+	goto Open_Error;
+    private->cstoutf8_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNChar)))
+	goto Open_Error;
+    private->ucstoc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
+	goto Open_Error;
+    private->ucstoutf8_conv = conv;
 
     im->methods = &Xim_im_local_methods;
-    im->private.local.current_ic = (XIC)NULL;
-    im->private.local.ctom_conv = ctom_conv;
-    im->private.local.ctow_conv = ctow_conv;
+    private->current_ic = (XIC)NULL;
 
     return(True);
 
 Open_Error :
-    if (im->core.im_resources) {
-	Xfree(im->core.im_resources);
-	im->core.im_resources = NULL;
-    }
-    if (im->core.ic_resources) {
-	Xfree(im->core.ic_resources);
-	im->core.ic_resources = NULL;
-    }
-    if (im->core.im_values_list) {
-	Xfree(im->core.im_values_list);
-	im->core.im_values_list = NULL;
-    }
-    if (im->core.ic_values_list) {
-	Xfree(im->core.ic_values_list);
-	im->core.ic_values_list = NULL;
-    }
-    if (im->core.styles) {
-	Xfree(im->core.styles);
-	im->core.styles = NULL;
-    }
-    if (im->private.local.ctom_conv) {
-	_XlcCloseConverter(im->private.local.ctom_conv);
-    }
-    if (im->private.local.ctow_conv) {
-	_XlcCloseConverter(im->private.local.ctow_conv);
-    }
+    _XimLocalIMFree(im);
     return(False);
 }

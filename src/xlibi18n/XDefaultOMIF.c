@@ -41,6 +41,8 @@ interest in or to any trademark, service mark, logo or trade name of
 Sun Microsystems, Inc. or its licensors is granted.
 
 */
+/* $XFree86: xc/lib/X11/XDefaultOMIF.c,v 1.3 2002/09/18 17:11:42 tsi Exp $ */
+
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "XlcPublic.h"
@@ -161,6 +163,7 @@ check_charset(font_set, font_name)
     return (FontData) NULL;
 }
 
+#if 0 /* Unused */
 static int
 check_fontname(oc, name)
 XOC oc;
@@ -214,6 +217,7 @@ char *name;
     XFreeFontNames(fn_list);
     return found_num;
 }
+#endif
 
 static Bool
 load_font(oc)
@@ -395,7 +399,7 @@ parse_fontname(oc)
     ssize_t length;
     int count, num_fields;
     char *base_name, *font_name, **name_list, **cur_name_list;
-    char *charset_p;
+    char *charset_p = NULL;
     Bool append_charset;
     /*
        append_charset flag should be set to True when the XLFD fontname
@@ -591,7 +595,6 @@ static Bool
 create_fontset(oc)
     XOC oc;
 {
-    XOMGenericPart *gen = XOM_GENERIC(oc->core.om);
     int found_num;
 
     if (init_fontset(oc) == False)
@@ -633,8 +636,8 @@ destroy_oc(oc)
     if (oc->core.font_info.font_name_list)
 	XFreeStringList(oc->core.font_info.font_name_list);
 
-    if (font_list = oc->core.font_info.font_struct_list) {
-	if (font = *font_list) {
+    if ((font_list = oc->core.font_info.font_struct_list)) {
+	if ((font = *font_list)) {
 	    if (font->fid)
 		XFreeFont(dpy, font);
 	    else
@@ -686,7 +689,7 @@ static Bool
 wcs_to_mbs(oc, to, from, length)
     XOC oc;
     char *to;
-    wchar_t *from;
+    _Xconst wchar_t *from;
     int length;
 {
     XlcConv conv = XOC_GENERIC(oc)->wcs_to_cs;
@@ -735,7 +738,7 @@ _XwcDefaultTextEscapement(oc, text, length)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
-    int ret;
+    int ret = 0;
 
     if (buf == NULL)
 	return 0;
@@ -802,7 +805,7 @@ _XwcDefaultTextExtents(oc, text, length, overall_ink, overall_logical)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
-    int ret;
+    int ret = 0;
 
     if (buf == NULL)
 	return 0;
@@ -924,7 +927,7 @@ _XwcDefaultTextPerCharExtents(oc, text, length, ink_buf, logical_buf, buf_size,
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
-    Status ret;
+    Status ret = 0;
 
     if (buf == NULL)
 	return 0;
@@ -982,7 +985,7 @@ _XwcDefaultDrawString(dpy, d, oc, gc, x, y, text, length)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
-    int ret;
+    int ret = 0;
 
     if (buf == NULL)
 	return 0;
@@ -1089,7 +1092,6 @@ create_oc(om, args, num_args)
     int num_args;
 {
     XOC oc;
-    XOMGenericPart *gen = XOM_GENERIC(om);
 
     oc = (XOC) Xmalloc(sizeof(XOCGenericRec));
     if (oc == NULL)
@@ -1133,7 +1135,7 @@ close_om(om)
     FontData font_data;
     int count;
 
-    if (data = gen->data) {
+    if ((data = gen->data)) {
 	if (data->font_data) {
 	  for (font_data = data->font_data, count = data->font_data_count;
 	       count-- > 0 ; font_data++) { 
@@ -1239,7 +1241,6 @@ static Bool
 init_om(om)
     XOM om;
 {
-    XLCd lcd = om->core.lcd;
     XOMGenericPart *gen = XOM_GENERIC(om);
     OMData data;
     FontData font_data;

@@ -24,9 +24,21 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/CrCursor.c,v 1.4 2002/11/23 19:27:48 tsi Exp $ */
 
 #include "Xlibint.h"
 
+#ifdef USE_DYNAMIC_XCURSOR
+Cursor
+_XTryShapeBitmapCursor (Display		*dpy,
+			Pixmap		source,
+			Pixmap		mask,
+			XColor		*foreground,
+			XColor		*background,
+			unsigned int	x,
+			unsigned int	y);
+#endif
+    
 Cursor XCreatePixmapCursor(dpy, source, mask, foreground, background, x, y)
      register Display *dpy;
      Pixmap source, mask;
@@ -37,6 +49,12 @@ Cursor XCreatePixmapCursor(dpy, source, mask, foreground, background, x, y)
     register xCreateCursorReq *req;
     Cursor cid;
 
+#ifdef USE_DYNAMIC_XCURSOR
+    cid = _XTryShapeBitmapCursor (dpy, source, mask, 
+				  foreground, background, x, y);
+    if (cid)
+	return cid;
+#endif
     LockDisplay(dpy);
     GetReq(CreateCursor, req);
     req->cid = cid = XAllocID(dpy);

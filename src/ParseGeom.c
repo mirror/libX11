@@ -27,6 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ParseGeom.c,v 1.3 2001/12/14 19:54:03 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xutil.h"
@@ -62,9 +63,7 @@ char *search, *what;
  */
 
 static int
-ReadInteger(string, NextString)
-register char *string;
-char **NextString;
+ReadInteger(char *string, char **NextString)
 {
     register int Result = 0;
     int Sign = 1;
@@ -103,8 +102,8 @@ unsigned int *width, *height;    /* RETURN */
 {
 	int mask = NoValue;
 	register char *strind;
-	unsigned int tempWidth, tempHeight;
-	int tempX, tempY;
+	unsigned int tempWidth = 0, tempHeight = 0;
+	int tempX = 0, tempY = 0;
 	char *nextCharacter;
 
 	if ( (string == NULL) || (*string == '\0')) return(mask);

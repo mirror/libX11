@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/QuKeybd.c,v 1.4 2001/12/14 19:54:04 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -32,6 +33,7 @@ struct kmap {
   char map[32];
 };
 
+int
 XQueryKeymap(dpy, keys)
     register Display *dpy;
     char keys[32];

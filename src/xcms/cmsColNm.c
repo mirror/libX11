@@ -31,6 +31,7 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsColNm.c,v 3.10 2002/05/31 18:45:42 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
@@ -48,14 +49,17 @@
  *              that are not already declared in any of the included header
  *		files (external includes or internal includes).
  */
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-extern void qsort();
-extern char *bsearch();
-#endif
 extern XcmsColorSpace **_XcmsDIColorSpaces;
+
+/* CvCols.c */
+extern Status _XcmsDDConvertColors();
+extern int _XcmsEqualWhitePts();
+extern Status _XcmsDIConvertColors();
+
+
 static Status LoadColornameDB();
 void _XcmsCopyISOLatin1Lowered();
+
 
 /*
  *      LOCAL DEFINES
@@ -89,8 +93,8 @@ void _XcmsCopyISOLatin1Lowered();
  *      LOCAL TYPEDEFS
  */
 typedef struct _XcmsPair {
-    char *first;
-    char *second;
+    const char *first;
+    const char *second;
     int flag;
 } XcmsPair;
 
@@ -101,7 +105,7 @@ static int XcmsColorDbState = XcmsDbInitNone;
 static int nEntries;
 static char *strings;
 static XcmsPair *pairs;
-static char whitePtStr[] = "WhitePoint";
+static const char whitePtStr[] = "WhitePoint";
 
 
 /************************************************************************
@@ -119,7 +123,7 @@ static char whitePtStr[] = "WhitePoint";
 static XcmsColorSpace *
 _XcmsColorSpaceOfString(ccc, color_string)
     XcmsCCC ccc;
-    char *color_string;
+    const char *color_string;
 /*
  *	DESCRIPTION
  *		Returns a pointer to the color space structure
@@ -187,7 +191,7 @@ _XcmsColorSpaceOfString(ccc, color_string)
 static int
 _XcmsParseColorString(ccc, color_string, pColor)
     XcmsCCC ccc;
-    char *color_string;
+    const char *color_string;
     XcmsColor *pColor;
 /*
  *	DESCRIPTION
@@ -251,11 +255,7 @@ _XcmsParseColorString(ccc, color_string, pColor)
  */
 static int
 FirstCmp(p1, p2)
-#ifdef __STDC__
     const void *p1, *p2;
-#else
-    XcmsPair *p1, *p2;
-#endif
 /*
  *	DESCRIPTION
  *		Compares the color names of XcmsColorTuples.
@@ -381,7 +381,7 @@ field2(pBuf, delim, p1, p2)
 static Status
 _XcmsLookupColorName(ccc, name, pColor)
     XcmsCCC ccc;
-    char **name;
+    const char **name;
     XcmsColor *pColor;
 /*
  *	DESCRIPTION
@@ -403,8 +403,8 @@ _XcmsLookupColorName(ccc, name, pColor)
     char		*name_lowered;
     register int	i, j, left, right;
     int			len;
-    char		*tmpName;
-    XcmsPair		*pair;
+    const char		*tmpName;
+    XcmsPair		*pair = NULL;
 
     /*
      * Check state of Database:
@@ -729,6 +729,9 @@ LoadColornameDB()
     if ((pathname = getenv("XCMSDB")) == NULL) {
 	pathname = XCMSDB;
     }
+#ifdef __UNIXOS2__
+    pathname = __XOS2RedirRoot(pathname);
+#endif
 
     length = strlen(pathname);
     if ((length == 0) || (length >= (BUFSIZ - 5))){
@@ -779,7 +782,8 @@ LoadColornameDB()
  */
 void
 _XcmsCopyISOLatin1Lowered(dst, src)
-    char *dst, *src;
+    char *dst;
+    const char *src;
 /*
  *	DESCRIPTION
  *		ISO Latin-1 case conversion routine
@@ -794,9 +798,10 @@ _XcmsCopyISOLatin1Lowered(dst, src)
  *
  */
 {
-    register unsigned char *dest, *source;
+    register unsigned char *dest;
+    register const unsigned char *source;
 
-    for (dest = (unsigned char *)dst, source = (unsigned char *)src;
+    for (dest = (unsigned char *)dst, source = (const unsigned char *)src;
 	 *source;
 	 source++, dest++)
     {
@@ -823,14 +828,14 @@ _XcmsCopyISOLatin1Lowered(dst, src)
 Status
 _XcmsResolveColorString (
     XcmsCCC ccc,
-    _Xconst char **color_string,
+    const char **color_string,
     XcmsColor *pColor_exact_return,
     XcmsColorFormat result_format)
 #else
 Status
 _XcmsResolveColorString(ccc, color_string, pColor_exact_return, result_format)
     XcmsCCC ccc;
-    char **color_string;
+    const char **color_string;
     XcmsColor *pColor_exact_return;
     XcmsColorFormat result_format;
 #endif
@@ -861,7 +866,7 @@ _XcmsResolveColorString(ccc, color_string, pColor_exact_return, result_format)
 				/*    the screen's white point */
     XcmsColor *pClientWhitePt;
     int retval;
-    char *strptr = whitePtStr;
+    const char *strptr = whitePtStr;
 
 /*
  * 0. Check for invalid arguments.

@@ -254,18 +254,6 @@ _XimUnRegisterIMInstantiateCallback(
 		    _XUnregisterFilter( display, RootWindow(display, 0),
 					_XimFilterPropertyNotify,
 					(XPointer)NULL );
-#if 0
-		    /*
-		     * don't unregister the event mask
-		     * (not even the PropertyNotify mask)
-		     * as others may be interested.
-		     * It shouldn't matter if we don't unregister
-		     * as we are in the root window anyway so the
-		     * event won't be propagated any further.
-		     */
-		    XSelectInput( display, RootWindow(display, 0),
-				  NoEventMask );
-#endif
 		}
 		else
 		    picb->next = icb->next;

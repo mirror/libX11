@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.1.4.3 2003-12-06 13:24:22 kaleb Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.1.4.4 2003-12-20 00:28:22 kaleb Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -25,7 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ConnDis.c,v 3.28 2003/12/02 23:33:17 herrb Exp $ */
+/* $XFree86: xc/lib/X11/ConnDis.c,v 3.29 2003/12/19 02:05:37 dawes Exp $ */
 
 /* 
  * This file contains operating system dependencies.
@@ -36,6 +36,7 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xlibint.h>
 #include <X11/Xtrans.h>
 #include <X11/Xauth.h>
+#include <X11/Xdmcp.h>
 #include <stdio.h>
 #include <ctype.h>
 

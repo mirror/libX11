@@ -51,7 +51,7 @@ from The Open Group.
  * 
  *		 M. Collins		OSF  
  */				
-/* $XFree86: xc/lib/X11/wcWrap.c,v 1.6 2001/12/14 19:54:11 dawes Exp $ */
+/* $XFree86: xc/lib/X11/wcWrap.c,v 1.7 2003/11/17 22:20:12 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
@@ -68,14 +68,14 @@ XwcDrawText(
     int                 nitems)
 #else
 void
-XwcDrawText(dpy, d, gc, x, y, text_items, nitems)
-    Display            *dpy;
-    Drawable            d;
-    GC                  gc;
-    int                 x, y;
-    XwcTextItem        *text_items;
-    int                 nitems;
-#endif
+XwcDrawText(
+    Display            *dpy,
+    Drawable            d,
+    GC                  gc,
+    int                 x,
+    int                 y,
+    XwcTextItem        *text_items,
+    int                 nitems)
 {
     register XFontSet fs = NULL;
     register XwcTextItem *p = text_items;
@@ -100,7 +100,6 @@ XwcDrawText(dpy, d, gc, x, y, text_items, nitems)
     }
 }
 
-#if NeedFunctionPrototypes
 void
 XwcDrawString(
     Display            *dpy,
@@ -111,23 +110,11 @@ XwcDrawString(
     int                 y,
     _Xconst wchar_t    *text,
     int                 text_len)
-#else
-void
-XwcDrawString(dpy, d, font_set, gc, x, y, text, text_len)
-    Display            *dpy;
-    Drawable            d;
-    XFontSet            font_set;
-    GC                  gc;
-    int                 x, y;
-    _Xconst wchar_t    *text;
-    int                 text_len;
-#endif
 {
     (void)(*font_set->methods->wc_draw_string) (dpy, d, font_set, gc, x, y,
 						text, text_len);
 }
 
-#if NeedFunctionPrototypes
 void
 XwcDrawImageString(
     Display            *dpy,
@@ -138,40 +125,20 @@ XwcDrawImageString(
     int                 y,
     _Xconst wchar_t    *text,
     int                 text_len)
-#else
-void
-XwcDrawImageString(dpy, d, font_set, gc, x, y, text, text_len)
-    Display            *dpy;
-    Drawable            d;
-    XFontSet            font_set;
-    GC                  gc;
-    int                 x, y;
-    _Xconst wchar_t    *text;
-    int                 text_len;
-#endif
 {
     (*font_set->methods->wc_draw_image_string) (dpy, d, font_set, gc, x, y,
 						text, text_len);
 }
 
-#if NeedFunctionPrototypes
 int 
 XwcTextEscapement(
     XFontSet            font_set,
     _Xconst wchar_t    *text,
     int                 text_len)
-#else
-int 
-XwcTextEscapement(font_set, text, text_len)
-    XFontSet            font_set;
-    _Xconst wchar_t    *text;
-    int                 text_len;
-#endif
 {
     return (*font_set->methods->wc_escapement) (font_set, text, text_len);
 }
 
-#if NeedFunctionPrototypes
 int
 XwcTextExtents(
     XFontSet            font_set,
@@ -179,23 +146,12 @@ XwcTextExtents(
     int                 text_len,
     XRectangle         *overall_ink_extents,
     XRectangle         *overall_logical_extents)
-#else
-int
-XwcTextExtents(font_set, text, text_len,
-	       overall_ink_extents, overall_logical_extents)
-    XFontSet            font_set;
-    _Xconst wchar_t    *text;
-    int                 text_len;
-    XRectangle         *overall_ink_extents;
-    XRectangle         *overall_logical_extents;
-#endif
 {
     return (*font_set->methods->wc_extents) (font_set, text, text_len,
 					     overall_ink_extents,
 					     overall_logical_extents);
 }
 
-#if NeedFunctionPrototypes
 Status
 XwcTextPerCharExtents(
     XFontSet            font_set,
@@ -207,22 +163,6 @@ XwcTextPerCharExtents(
     int                *num_chars,
     XRectangle         *max_ink_extents,
     XRectangle         *max_logical_extents)
-#else
-Status
-XwcTextPerCharExtents(font_set, text, text_len,
-		      ink_extents_buffer, logical_extents_buffer,
-		      buffer_size, num_chars,
-		      max_ink_extents, max_logical_extents)
-    XFontSet            font_set;
-    _Xconst wchar_t    *text;
-    int                 text_len;
-    XRectangle         *ink_extents_buffer;
-    XRectangle         *logical_extents_buffer;
-    int                 buffer_size;
-    int                *num_chars;
-    XRectangle         *max_ink_extents;
-    XRectangle         *max_logical_extents;
-#endif
 {
     return (*font_set->methods->wc_extents_per_char) 
 	      (font_set, text, text_len, 

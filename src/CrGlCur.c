@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/CrGlCur.c,v 1.6 2002/09/05 18:17:31 keithp Exp $ */
+/* $XFree86: xc/lib/X11/CrGlCur.c,v 1.7 2003/04/13 19:22:15 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -37,6 +37,7 @@ in this Software without prior written authorization from The Open Group.
 #else
 #include <dlfcn.h>
 #endif
+#include "Cr.h"
 
 #if defined(hpux)
 typedef shl_dt	XModuleType;
@@ -151,7 +152,7 @@ static Bool	    _XcursorModuleTried;
     _XUnlockMutex (_Xglobal_lock); \
 }
 
-Cursor
+static Cursor
 _XTryShapeCursor (Display	    *dpy,
 		  Font		    source_font,
 		  Font		    mask_font,

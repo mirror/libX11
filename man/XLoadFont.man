@@ -40,7 +40,7 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XLoadFont.man,v 1.2 2001/01/27 18:20:01 dawes Exp $
+.\" $XFree86: xc/doc/man/X11/XLoadFont.man,v 1.3 2003/04/28 22:17:55 herrb Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -144,43 +144,20 @@
 .SH NAME
 XLoadFont, XQueryFont, XLoadQueryFont, XFreeFont, XGetFontProperty, XUnloadFont, XCharStruct, XFontProp, XChar2b, XFontStruct \- load or unload fonts and font metric structures
 .SH SYNTAX
-Font XLoadFont\^(\^\fIdisplay\fP, \fIname\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      char *\fIname\fP\^;
-.LP
-XFontStruct *XQueryFont\^(\^\fIdisplay\fP, \fIfont_ID\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XID \fIfont_ID\fP\^;
-.LP
-XFontStruct *XLoadQueryFont\^(\^\fIdisplay\fP, \fIname\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      char *\fIname\fP\^;
-.LP
-XFreeFont\^(\^\fIdisplay\fP, \fIfont_struct\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XFontStruct *\fIfont_struct\fP\^;
-.LP
-Bool XGetFontProperty\^(\^\fIfont_struct\fP\^, \^\fIatom\fP\^, \^\fIvalue_return\fP\^)
-.br
-      XFontStruct *\fIfont_struct\fP\^;
-.br
-      Atom \fIatom\fP\^;
-.br
-      unsigned long *\fIvalue_return\fP\^;
-.LP
-XUnloadFont\^(\^\fIdisplay\fP, \fIfont\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Font \fIfont\fP\^;
+.HP
+Font XLoadFont\^(\^Display *\fIdisplay\fP\^, char *\fIname\fP\^); 
+.HP
+XFontStruct *XQueryFont\^(\^Display *\fIdisplay\fP\^, XID \fIfont_ID\fP\^); 
+.HP
+XFontStruct *XLoadQueryFont\^(\^Display *\fIdisplay\fP\^, char
+*\fIname\fP\^); 
+.HP
+int XFreeFont\^(\^Display *\fIdisplay\fP\^, XFontStruct *\fIfont_struct\fP\^);
+.HP
+Bool XGetFontProperty\^(\^XFontStruct *\fIfont_struct\fP\^, Atom \fIatom\fP\^,
+unsigned long *\fIvalue_return\fP\^); 
+.HP
+int XUnloadFont\^(\^Display *\fIdisplay\fP\^, Font \fIfont\fP\^); 
 .SH ARGUMENTS
 .IP \fIatom\fP 1i
 Specifies the atom for the property name you want returned.

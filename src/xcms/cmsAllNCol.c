@@ -32,18 +32,13 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/cmsAllNCol.c,v 1.3 2001/01/17 19:41:50 dawes Exp $ */
+/* $XFree86: xc/lib/X11/cmsAllNCol.c,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-/*
- *      EXTERNS
- */
-extern void _XColor_to_XcmsRGB();
-extern void _XcmsRGB_to_XColor();
+#include "Cv.h"
 
 /* cmsColNm.c */
 extern Status _XcmsResolveColorString();
@@ -55,7 +50,6 @@ extern Status _XcmsResolveColorString();
  *
  *	SYNOPSIS
  */
-#if NeedFunctionPrototypes
 Status
 XcmsAllocNamedColor (
     Display *dpy,
@@ -64,17 +58,6 @@ XcmsAllocNamedColor (
     XcmsColor *pColor_scrn_return,
     XcmsColor *pColor_exact_return,
     XcmsColorFormat result_format)
-#else
-Status
-XcmsAllocNamedColor(dpy, cmap, colorname, pColor_scrn_return,
-	pColor_exact_return, result_format)
-    Display *dpy;
-    Colormap cmap;
-    char *colorname;
-    XcmsColor *pColor_scrn_return;
-    XcmsColor *pColor_exact_return;
-    XcmsColorFormat result_format;
-#endif
 /*
  *	DESCRIPTION
  *		Finds the color specification associated with the color

@@ -40,7 +40,7 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XIfEvent.man,v 1.2 2001/01/27 18:20:00 dawes Exp $
+.\" $XFree86: xc/doc/man/X11/XIfEvent.man,v 1.3 2003/04/28 22:17:55 herrb Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -144,35 +144,15 @@
 .SH NAME
 XIfEvent, XCheckIfEvent, XPeekIfEvent \- check the event queue with a predicate procedure
 .SH SYNTAX
-XIfEvent\^(\^\fIdisplay\fP, \fIevent_return\fP, \fIpredicate\fP, \fIarg\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XEvent *\fIevent_return\fP\^;
-.br
-      Bool (\^*\fIpredicate\fP\^)\^(\^)\^;
-.br
-      XPointer \fIarg\fP\^;
-.LP
-Bool XCheckIfEvent\^(\^\fIdisplay\fP, \fIevent_return\fP, \fIpredicate\fP, \fIarg\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XEvent *\fIevent_return\fP\^;
-.br
-      Bool (\^*\fIpredicate\fP\^)\^(\^)\^;
-.br
-      XPointer \fIarg\fP\^;
-.LP
-XPeekIfEvent\^(\^\fIdisplay\fP, \fIevent_return\fP, \fIpredicate\fP, \fIarg\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XEvent *\fIevent_return\fP\^;
-.br
-      Bool (\^*\fIpredicate\fP\^)\^(\^)\^;
-.br
-      XPointer \fIarg\fP\^;
+.HP
+int XIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^, Bool
+(\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
+.HP
+Bool XCheckIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^,
+Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
+.HP
+int XPeekIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^,
+Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
 .SH ARGUMENTS
 .IP \fIarg\fP 1i
 Specifies the user-supplied argument that will be passed to the predicate procedure.

@@ -33,10 +33,11 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/CvColW.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
+/* $XFree86: xc/lib/X11/CvColW.c,v 1.4 2003/04/13 19:22:15 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
 /* EXTERNS */
 /* CvCols.c */
@@ -59,14 +60,13 @@ extern Status _XcmsDIConvertColors();
  *	SYNOPSIS
  */
 Status
-_XcmsConvertColorsWithWhitePt(ccc, pColors_in_out, pWhitePt, nColors,
-	newFormat, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    XcmsColor *pWhitePt;
-    unsigned int nColors;
-    XcmsColorFormat newFormat;
-    Bool *pCompressed;
+_XcmsConvertColorsWithWhitePt(
+    XcmsCCC ccc,
+    XcmsColor *pColors_in_out,
+    XcmsColor *pWhitePt,
+    unsigned int nColors,
+    XcmsColorFormat newFormat,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Convert XcmsColor structures between device-independent

@@ -1,7 +1,7 @@
 XCOMM UTF-8 (Unicode) compose sequence
 XCOMM David.Monniaux@ens.fr
 XCOMM
-XCOMM $XFree86: xc/nls/Compose/en_US.UTF-8,v 1.8 2003/02/25 04:38:32 dawes Exp $
+XCOMM $XFree86: xc/nls/Compose/en_US.UTF-8,v 1.9 2003/04/03 22:24:53 dawes Exp $
 
 XCOMM Part 1 - Manual definitions
 
@@ -23,7 +23,7 @@ XCOMM Spacing versions of dead accents
 <dead_abovedot> <space>			: "˙"	abovedot
 <dead_abovedot> <dead_abovedot>		: "˙"	abovedot
 <dead_diaeresis> <dead_diaeresis>	: "¨"	diaeresis
-<dead_diaeresis> <space>		: "¨"	diaeresis
+<dead_diaeresis> <space>		: "\""	quotedbl
 <dead_doubleacute> <space>		: "˝"	U2dd
 <dead_doubleacute> <dead_doubleacute>	: "˝"	U2dd
 <dead_caron> <space>			: "ˇ"	caron
@@ -54,6 +54,9 @@ XCOMM on some keyboards.
 
 <Multi_key> <grave> <space>		: "`"	grave
 <Multi_key> <space> <grave>		: "`"	grave
+
+<Multi_key> <comma> <space>		: "¸"	cedilla
+<Multi_key> <space> <comma>		: "¸"	cedilla
 
 <Multi_key> <parenleft> <minus>		: "{"	braceleft
 <Multi_key> <minus> <parenleft>		: "{"	braceleft

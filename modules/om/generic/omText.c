@@ -236,10 +236,6 @@ DrawStringWithFontSet(
 		       (font = fd->font) == (XFontStruct *) NULL)
 			break;
 		}
-
-	    case XOMOrientation_Context:
-	      /* never used? */
-	      break;
 	    }
 
 	    if(is_xchar2b)

@@ -138,12 +138,14 @@ XStringToKeysym(_Xconst char *s)
 	    else if ('a' <= c && c <= 'f') val = (val<<4)+c-'a'+10;
 	    else if ('A' <= c && c <= 'F') val = (val<<4)+c-'A'+10;
 	    else return NoSymbol;
+	    if (val > 0x10ffff)
+		return NoSymbol;
 	}
+	if (val < 0x20 || (val > 0x7e && val < 0xa0))
+	    return NoSymbol;
 	if (val < 0x100)
 	    return val;
-	if (val > 0x10ffff || val < 0x100)
-	    return NoSymbol;
         return val | 0x01000000;
     }
-    return (NoSymbol);
+    return NoSymbol;
 }

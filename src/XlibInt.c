@@ -1281,9 +1281,9 @@ void _XReadPad(
 	    if (bytes_read > 0) {
 		size -= bytes_read;
 		if (iov[0].iov_len < bytes_read) {
-		    iov[1].iov_len += iov[0].iov_len - bytes_read;
+		    iov[1].iov_len -= (bytes_read - iov[0].iov_len);
 		    iov[1].iov_base =
-			(char *)iov[1].iov_base + bytes_read - iov[0].iov_len;
+			(char *)iov[1].iov_base + (bytes_read - iov[0].iov_len);
 		    iov[0].iov_len = 0;
 		    }
 	    	else {

@@ -23,7 +23,7 @@
  * SOFTWARE.
  *
 */
-/* $XFree86: xc/lib/X11/lcFile.c,v 3.30.2.1 2003/03/11 23:18:49 herrb Exp $ */
+/* $XFree86: xc/lib/X11/lcFile.c,v 3.33 2003/07/16 01:38:26 dawes Exp $ */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -31,9 +31,17 @@
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <X11/Xos.h>
+#if 0
+#include <unistd.h>  /* in theory delivers getresuid/gid prototypes,
+		      * in practice only the Linux syscall wrapper is there. */
+#endif
+
 
 /************************************************************************/
 
+#ifdef __UNIXOS2__
+# define seteuid setuid
+#endif
 #define	iscomment(ch)	((ch) == '#' || (ch) == '\0')
 #if defined(WIN32)
 #define isreadable(f)	(_XAccessFile(f))
@@ -109,6 +117,41 @@ parse_line(
     return argc;
 }
 
+#ifdef __UNIXOS2__
+
+/* fg021216: entries in locale files are separated by colons while under
+   OS/2, path entries are separated by semicolon, so we need two functions */
+
+static int
+parse_line1(
+    char *line,
+    char **argv,
+    int argsize)
+{
+    int argc = 0;
+    char *p = line;
+
+    while (argc < argsize) {
+	while (isspace(*p)) {
+	    ++p;
+	}
+	if (*p == '\0') {
+	    break;
+	}
+	argv[argc++] = p;
+	while (*p != ';' && *p != '\n' && *p != '\0') {
+	    ++p;
+	}
+	if (*p == '\0') {
+	    break;
+	}
+	*p++ = '\0';
+    }
+
+    return argc;
+}
+#endif   /* __UNIXOS2__ */
+
 /* Splits a colon separated list of directories, and returns the constituent
    paths (without trailing slash). At most argsize constituents are stored
    at argv[0..argsize-1]. The number of stored constituents is returned. */
@@ -121,7 +164,11 @@ _XlcParsePath(
     char *p = path;
     int n, i;
 
+#ifndef __UNIXOS2__
     n = parse_line(path, argv, argsize);
+#else
+    n = parse_line1(path, argv, argsize);
+#endif
     for (i = 0; i < n; ++i) {
 	int len;
 	p = argv[i];

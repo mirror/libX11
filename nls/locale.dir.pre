@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.6 2005-01-14 04:59:05 gisburn Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.7 2005-01-19 01:53:55 gisburn Exp $
 XCOMM	$Xorg: locale.dir,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains locale database file names
@@ -361,7 +361,7 @@ en_US.UTF-8/XLC_LOCALE:			pd_US.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ph_PH.UTF-8
 en_US.UTF-8/XLC_LOCALE:			pl_PL.UTF-8
 en_US.UTF-8/XLC_LOCALE:			pp_AN.UTF-8
-en_US.UTF-8/XLC_LOCALE:			pt_BR.UTF-8
+pt_BR.UTF-8/XLC_LOCALE:			pt_BR.UTF-8
 en_US.UTF-8/XLC_LOCALE:			pt_PT.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ro_RO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ru_RU.UTF-8

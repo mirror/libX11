@@ -363,7 +363,7 @@ XkbRefreshKeyboardMapping(register XkbMapNotifyEvent *event)
 
 	if (xkbi->flags&XkbMapPending)
 	     changes= xkbi->changes;
-	else bzero(&changes,sizeof(XkbChangesRec));
+	else bzero(&changes,sizeof(changes));
 	XkbNoteMapChanges(&changes,event,XKB_XLIB_MAP_MASK);
 	LockDisplay(dpy);
 	if ((rtrn=XkbGetMapChanges(dpy,xkbi->desc,&changes))!=Success) {

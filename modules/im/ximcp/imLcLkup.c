@@ -161,7 +161,7 @@ _XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
 }
 
 Public int
-_XFree86imLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
+_XimLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
     XIC		  xic;
     XKeyEvent	 *ev;
     char	 *buffer;
@@ -199,7 +199,7 @@ _XFree86imLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
 	}
 	return (ret);
     } else { /* Throughed Event */
-	ret = _XFree86imLookupUtf8Text(ic, ev, buffer, bytes, keysym, NULL);
+	ret = _XimLookupUTF8Text(ic, ev, buffer, bytes, keysym, NULL);
 	if(ret > 0) {
 	    if (ret > bytes) {
 		if (status) *status = XBufferOverflow;

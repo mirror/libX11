@@ -448,9 +448,9 @@ _XomInitConverter(
 	convp = &gen->mbs_to_cs;
 	conv_type = XlcNMultiByte;
 	break;
-    case XFree86OMUtf8String:
+    case XOMUtf8String:
 	convp = &gen->utf8_to_cs;
-	conv_type = XFree86lcNUtf8String;
+	conv_type = XlcNUtf8String;
 	break;
     default:
 	return (XlcConv) NULL;

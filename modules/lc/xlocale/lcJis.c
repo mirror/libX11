@@ -934,7 +934,7 @@ _XlcJisLoader(
     }
 #endif
 
-    _XFree86lcAddUtf8Converters(lcd);
+    _XlcAddUtf8Converters(lcd);
 
     return lcd;
 }

@@ -1587,7 +1587,7 @@ _XimGetEncoding(
 				 XlcNCompoundText, lcd, XlcNWideChar)))
 	    return False;
 	if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
-				 XlcNCompoundText, lcd, XFree86lcNUtf8String)))
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 	    return False;
     }
 
@@ -1602,7 +1602,7 @@ _XimGetEncoding(
 				 XlcNCompoundText, lcd, XlcNWideChar)))
 		    return False;
 		if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
-				 XlcNCompoundText, lcd, XFree86lcNUtf8String)))
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 		    return False;
 		break;
 	    } else {
@@ -1634,7 +1634,7 @@ _XimGetEncoding(
 	return False;
     private->cstowc_conv = conv;
 
-    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XFree86lcNUtf8String)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNUtf8String)))
 	return False;
     private->cstoutf8_conv = conv;
 
@@ -1642,7 +1642,7 @@ _XimGetEncoding(
 	return False;
     private->ucstoc_conv = conv;
 
-    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XFree86lcNUtf8String)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
 	return False;
     private->ucstoutf8_conv = conv;
 

@@ -54,8 +54,8 @@ _XlcUtf8Loader(
 	return (XLCd) NULL;
     }
 
-    _XFree86lcAddUtf8LocaleConverters(lcd);
-    _XFree86lcAddUtf8Converters(lcd);
+    _XlcAddUtf8LocaleConverters(lcd);
+    _XlcAddUtf8Converters(lcd);
 
     return lcd;
 }

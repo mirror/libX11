@@ -1,3 +1,4 @@
+.\" $XdotOrg: lib/X11/man/IsCursorKey.man,v 1.1.4.4 2004-04-15 10:13:24 eich Exp $ 
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
@@ -142,7 +143,7 @@
 .ny0
 .TH IsCursorKey 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-IsCursorKey, IsFunctionKey, IsKeypadKey, IsMiscFunctionKey, IsModiferKey, IsPFKey, IsPrivateKeypadKey \- keysym classification macros
+IsCursorKey, IsFunctionKey, IsKeypadKey, IsMiscFunctionKey, IsModifierKey, IsPFKey, IsPrivateKeypadKey \- keysym classification macros
 .SH SYNTAX
 int IsCursorKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
@@ -187,7 +188,7 @@ macro returns
 if the specified KeySym is a miscellaneous function key.
 .LP
 The
-.ZN IsModiferKey
+.ZN IsModifierKey
 macro returns
 .ZN True
 if the specified KeySym is a modifier key.

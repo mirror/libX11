@@ -47,7 +47,7 @@ extern int _Xmbstowcs(
     int		len
 );
 
-extern int _XFree86mbstoutf8(
+extern int _Xmbstoutf8(
     char	*ustr,
     const char	*str,
     int		len
@@ -584,7 +584,7 @@ parseline(
     }
     memcpy((char *)rhs_string_wc, (char *)local_wc_buf, (l + 1) * sizeof(wchar_t) );
 
-    l = _XFree86mbstoutf8(local_utf8_buf, rhs_string_mb, LOCAL_UTF8_BUFSIZE - 1);
+    l = _Xmbstoutf8(local_utf8_buf, rhs_string_mb, LOCAL_UTF8_BUFSIZE - 1);
     if (l == LOCAL_UTF8_BUFSIZE - 1) {
 	local_wc_buf[l] = '\0';
     }

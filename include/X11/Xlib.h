@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.8 2004-03-05 13:39:08 eich Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.9 2004-04-15 10:14:54 eich Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -377,6 +377,16 @@ typedef struct {
 	int length;		/* length of address, in bytes */
 	char *address;		/* pointer to where to find the bytes */
 } XHostAddress;
+
+/*
+ * Data structure for ServerFamilyInterpreted addresses in host routines
+ */
+typedef struct {
+	int typelength;		/* length of type string, in bytes */
+	int valuelength;	/* length of value string, in bytes */
+	char *type;		/* pointer to where to find the type string */
+	char *value;		/* pointer to where to find the address */
+} XServerInterpretedAddress;
 
 /*
  * Data structure for "image" data, used by image manipulation routines.
@@ -3654,14 +3664,11 @@ extern int XwcTextEscapement(
     int			/* num_wchars */
 );
 
-extern int XFree86utf8TextEscapement(
+extern int Xutf8TextEscapement(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8TextEscapement XFree86utf8TextEscapement
-#endif
 
 extern int XmbTextExtents(
     XFontSet		/* font_set */,
@@ -3679,16 +3686,13 @@ extern int XwcTextExtents(
     XRectangle*		/* overall_logical_return */
 );
 
-extern int XFree86utf8TextExtents(
+extern int Xutf8TextExtents(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */,
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8TextExtents XFree86utf8TextExtents
-#endif
 
 extern Status XmbTextPerCharExtents(
     XFontSet		/* font_set */,
@@ -3714,7 +3718,7 @@ extern Status XwcTextPerCharExtents(
     XRectangle*		/* overall_logical_return */
 );
 
-extern Status XFree86utf8TextPerCharExtents(
+extern Status Xutf8TextPerCharExtents(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */,
@@ -3725,9 +3729,6 @@ extern Status XFree86utf8TextPerCharExtents(
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8TextPerCharExtents XFree86utf8TextPerCharExtents
-#endif
 
 extern void XmbDrawText(
     Display*		/* display */,
@@ -3749,7 +3750,7 @@ extern void XwcDrawText(
     int			/* nitems */
 );
 
-extern void XFree86utf8DrawText(
+extern void Xutf8DrawText(
     Display*		/* display */,
     Drawable		/* d */,
     GC			/* gc */,
@@ -3758,9 +3759,6 @@ extern void XFree86utf8DrawText(
     XmbTextItem*	/* text_items */,
     int			/* nitems */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8DrawText XFree86utf8DrawText
-#endif
 
 extern void XmbDrawString(
     Display*		/* display */,
@@ -3784,7 +3782,7 @@ extern void XwcDrawString(
     int			/* num_wchars */
 );
 
-extern void XFree86utf8DrawString(
+extern void Xutf8DrawString(
     Display*		/* display */,
     Drawable		/* d */,
     XFontSet		/* font_set */,
@@ -3794,9 +3792,6 @@ extern void XFree86utf8DrawString(
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8DrawString XFree86utf8DrawString
-#endif
 
 extern void XmbDrawImageString(
     Display*		/* display */,
@@ -3820,7 +3815,7 @@ extern void XwcDrawImageString(
     int			/* num_wchars */
 );
 
-extern void XFree86utf8DrawImageString(
+extern void Xutf8DrawImageString(
     Display*		/* display */,
     Drawable		/* d */,
     XFontSet		/* font_set */,
@@ -3830,9 +3825,6 @@ extern void XFree86utf8DrawImageString(
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8DrawImageString XFree86utf8DrawImageString
-#endif
 
 extern XIM XOpenIM(
     Display*			/* dpy */,
@@ -3885,12 +3877,9 @@ extern char *XmbResetIC(
     XIC /* ic */
 );
 
-extern char *XFree86utf8ResetIC(
+extern char *Xutf8ResetIC(
     XIC /* ic */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8ResetIC XFree86utf8ResetIC
-#endif
 
 extern char *XSetICValues(
     XIC /* ic */, ...
@@ -3927,7 +3916,7 @@ extern int XwcLookupString(
     Status*		/* status_return */
 );
 
-extern int XFree86utf8LookupString(
+extern int Xutf8LookupString(
     XIC			/* ic */,
     XKeyPressedEvent*	/* event */,
     char*		/* buffer_return */,
@@ -3935,9 +3924,6 @@ extern int XFree86utf8LookupString(
     KeySym*		/* keysym_return */,
     Status*		/* status_return */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8LookupString XFree86utf8LookupString
-#endif
 
 extern XVaNestedList XVaCreateNestedList(
     int /*unused*/, ...

@@ -31,10 +31,6 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xutil.h>		/* for XDestroyImage */
 #include "ImUtil.h"
 
-/* ImUtil.c */
-extern int _XGetScanlinePad();
-extern int _XSetImage();
-
 #define ROUNDUP(nbytes, pad) (((((nbytes) - 1) + (pad)) / (pad)) * (pad))
 
 static unsigned int Ones(                /* HACKMEM 169 */

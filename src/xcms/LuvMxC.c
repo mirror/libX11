@@ -48,9 +48,6 @@
 #define START_CHROMA	(XcmsFloat)2.2
 #define TOPL		(XcmsFloat)100.0
 
-/* CvColW.c */
-extern Status _XcmsConvertColorsWithWhitePt();
-
 
 /************************************************************************
  *									*

@@ -36,8 +36,6 @@
 #include "Xcmsint.h"
 #include "Cv.h"
 
-extern Status _XcmsDIConvertColors();
-
 
 /************************************************************************
  *									*

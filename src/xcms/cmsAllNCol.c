@@ -40,9 +40,6 @@
 #include "Xcmsint.h"
 #include "Cv.h"
 
-/* cmsColNm.c */
-extern Status _XcmsResolveColorString();
-
 
 /*
  *	NAME

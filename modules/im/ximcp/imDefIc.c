@@ -34,11 +34,6 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "Xlcint.h"
 #include "Ximint.h"
 
-/* EXTERNS */
-
-/* imRm.c */
-extern Bool _XimCheckCreateICValues();
-
 Private Bool
 _XimCreateICCheck(
     Xim          im,

@@ -39,12 +39,6 @@
 #include "Xcmsint.h"
 #include "Cv.h"
 
-/* EXTERNS */
-/* CvCols.c */
-extern Status _XcmsDDConvertColors();
-extern Status _XcmsDIConvertColors();
-
-
 
 /************************************************************************
  *									*

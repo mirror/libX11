@@ -34,9 +34,6 @@ from The Open Group.
 #include "Xlibint.h"
 #include "Xintconn.h"
 
-/* ConnDis.c */
-extern int _XDisconnectDisplay();
-
 /* 
  * XCloseDisplay - XSync the connection to the X Server, close the connection,
  * and free all associated storage.  Extension close procs should only free

@@ -28,8 +28,6 @@ in this Software without prior written authorization from The Open Group.
 
 #include "Xlibint.h"
 
-extern void _XProcessWindowAttributes();
-
 #define AllMaskBits (CWBackPixmap|CWBackPixel|CWBorderPixmap|\
 		     CWBorderPixel|CWBitGravity|CWWinGravity|\
 		     CWBackingStore|CWBackingPlanes|CWBackingPixel|\

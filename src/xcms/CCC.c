@@ -68,12 +68,6 @@ from The Open Group.
 #include "Xcmsint.h"
 #include "Cv.h"
 
-/* cmsInt.c */
-extern int _XcmsInitDefaultCCCs();
-extern int _XcmsInitScrnInfo();
-
-
-
 
 
 /************************************************************************

@@ -38,11 +38,6 @@
 #include "Xcmsint.h"
 #include "Cv.h"
 
-/* EXTERN */
-
-/* SetGetCols.c */
-extern Status _XcmsSetGetColors();
-
 
 /************************************************************************
  *									*

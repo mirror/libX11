@@ -47,12 +47,6 @@
 
 #include <stdio.h> /* sscanf */
 
-/* CvCols.c */
-extern Status _XcmsDIConvertColors();
-
-/* uvY.c */
-Status _XcmsCIEuvY_ValidSpec();
-
 
 /*
  *	FORWARD DECLARATIONS

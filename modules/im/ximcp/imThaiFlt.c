@@ -76,30 +76,6 @@ SOFTWARE.
 #include "XlcPubI.h"
 
 
-/* EXTERNS */
-/* KeyBind.c */
-extern int _XKeyInitialize();
-
-/* lcStd.c */
-extern int _Xlcmbstowcs(
-    XLCd	lcd,
-    wchar_t	*wstr,
-    char	*str,
-    int		len
-);
-extern int _Xlcwcstombs(
-    XLCd	lcd,
-    char	*str,
-    wchar_t	*wstr,
-    int		len
-);
-extern int _Xlcmbstoutf8(
-    XLCd	lcd,
-    char	*ustr,
-    const char	*str,
-    int		len
-);
-
 #define SPACE   32
 
 /* character classification table */

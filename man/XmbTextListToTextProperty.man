@@ -43,7 +43,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\"
 .\" $XFree86: xc/doc/man/X11/XTLTTProp.man,v 1.6 2003/04/28 22:17:57 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XmbTextListToTextProperty.man,v 1.1.4.4.4.3 2004-04-02 21:47:10 eich Exp $
+.\" $XdotOrg: lib/X11/man/XmbTextListToTextProperty.man,v 1.1.4.4.4.2.6.1 2004-04-10 09:03:40 gisburn Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface

@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.4 2004-10-18 17:29:03 eich Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.5 2004-11-05 00:58:49 gisburn Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -86,6 +86,8 @@ bg_BG.MICROSOFT-CP1251:				bg_BG.CP1251
 bg_BG.iso88595:					bg_BG.ISO8859-5
 bg_BG.koi8r:					bg_BG.KOI8-R
 be_BG.utf8:					be_BG.UTF-8
+bn_IN.utf8:					bn_IN.UTF-8
+bn_IN.UTF-8:					bn_IN.UTF-8
 br:						br_FR.ISO8859-1
 br_FR:						br_FR.ISO8859-1
 br_FR.iso88591:					br_FR.ISO8859-1
@@ -428,6 +430,8 @@ gl_ES.ISO-8859-1:				gl_ES.ISO8859-1
 gl_ES.iso885915:				gl_ES.ISO8859-15
 gl_ES@euro:					gl_ES.ISO8859-15
 gl_ES.utf8:					gl_ES.UTF-8
+gu_IN.utf8:					gu_IN.UTF-8
+gu_IN.UTF-8:					gu_IN.UTF-8
 gv:						gv_GB.ISO8859-1
 gv_GB:						gv_GB.ISO8859-1
 gv_GB.iso88591:					gv_GB.ISO8859-1
@@ -638,6 +642,8 @@ oc_FR:						oc_FR.ISO8859-1
 oc_FR.iso88591:					oc_FR.ISO8859-1
 oc_FR.iso885915:				oc_FR.ISO8859-15
 oc_FR@euro:					oc_FR.ISO8859-15
+pa_IN.utf8:					pa_IN.UTF-8
+pa_IN.UTF-8:					pa_IN.UTF-8
 pd:						pd_US.ISO8859-1
 pd_DE:						pd_DE.ISO8859-1
 pd_US:						pd_US.ISO8859-1

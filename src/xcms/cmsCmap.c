@@ -33,7 +33,7 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/cmsCmap.c,v 3.2 2003/04/13 19:22:20 dawes Exp $ */
+/* $XFree86$ */
 
 #define NEED_EVENTS
 #define NEED_REPLIES

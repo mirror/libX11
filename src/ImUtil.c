@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ImUtil.c,v 3.13 2003/11/17 22:20:07 dawes Exp $ */
+/* $XFree86: xc/lib/X11/ImUtil.c,v 3.12 2003/04/15 22:10:06 herrb Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>

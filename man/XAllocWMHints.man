@@ -41,8 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XAWMHints.man,v 1.5 2003/11/23 05:40:33 dawes Exp $
-.\" $XdotOrg: lib/X11/man/XAllocWMHints.man,v 1.1.4.3 2003-12-06 13:22:41 kaleb Exp $
+.\" $XFree86: xc/doc/man/X11/XAWMHints.man,v 1.4 2003/04/28 22:17:54 herrb Exp $
+.\" $XdotOrg: lib/X11/man/XAllocWMHints.man,v 1.1.4.4 2004-03-05 13:38:15 eich Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface

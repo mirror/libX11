@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.1.4.4 2004-02-23 21:34:20 kaleb Exp $ */
+/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.1.4.5 2004-03-05 13:39:07 eich Exp $ */
 /* $Xorg: SetLocale.c,v 1.4 2001/02/09 02:03:36 xorgcvs Exp $ */
 
 /*
@@ -56,7 +56,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/SetLocale.c,v 3.21 2004/02/11 00:30:44 torrey Exp $ */
+/* $XFree86: xc/lib/X11/SetLocale.c,v 3.20 2003/11/17 22:20:08 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

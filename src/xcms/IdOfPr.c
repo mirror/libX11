@@ -32,7 +32,7 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/IdOfPr.c,v 1.2 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/Xintatom.h,v 1.1 2001/08/18 02:41:28 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _XINTATOM_H_
 #define _XINTATOM_H_ 1

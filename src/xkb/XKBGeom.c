@@ -24,7 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
-/* $XFree86: xc/lib/X11/XKBGeom.c,v 1.6 2003/11/17 22:20:09 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XKBGeom.c,v 1.5 2003/04/13 19:22:18 dawes Exp $ */
 
 #ifdef DEBUG
 #include <stdio.h>

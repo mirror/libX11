@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ChWindow.c,v 1.6 2001/12/14 19:53:58 dawes Exp $ */
+/* $XFree86: xc/lib/X11/ChWindow.c,v 1.5 2001/01/17 19:41:32 dawes Exp $ */
 
 #include "Xlibint.h"
 

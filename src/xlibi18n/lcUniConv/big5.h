@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/big5.h,v 1.2 2003/05/27 22:26:28 tsi Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/big5.h,v 1.1tsi Exp $ */
 
 /*
  * BIG5

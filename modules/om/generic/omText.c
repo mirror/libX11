@@ -23,7 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
-/* $XFree86: xc/lib/X11/omText.c,v 1.10 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/omText.c,v 1.9 2003/04/22 13:57:45 pascal Exp $ */
 /*
  * Copyright 1995 by FUJITSU LIMITED
  * This is source code modified by FUJITSU LIMITED under the Joint

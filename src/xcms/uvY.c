@@ -35,7 +35,7 @@
  *	DOCUMENTATION
  *		"TekColor Color Management System, System Implementor's Manual"
  */
-/* $XFree86: xc/lib/X11/uvY.c,v 1.4 2003/04/13 19:22:22 dawes Exp $ */
+/* $XFree86: xc/lib/X11/uvY.c,v 1.3 2001/01/17 19:41:57 dawes Exp $ */
 
 #include <X11/Xos.h>
 #include "Xlibint.h"

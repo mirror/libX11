@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ChkMaskEv.c,v 3.6 2001/12/14 19:53:58 dawes Exp $ */
+/* $XFree86: xc/lib/X11/ChkMaskEv.c,v 3.5 2001/10/28 03:32:29 tsi Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"

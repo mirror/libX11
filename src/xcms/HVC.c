@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.1.4.3 2003-12-06 13:24:22 kaleb Exp $ */
+/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.1.4.4 2004-03-05 13:39:07 eich Exp $ */
 /* $Xorg: HVC.c,v 1.3 2000/08/17 19:44:36 cpqbld Exp $ */
 
 /*
@@ -48,7 +48,7 @@
  *	DOCUMENTATION
  *		"TekColor Color Management System, System Implementor's Manual"
  */
-/* $XFree86: xc/lib/X11/HVC.c,v 1.4 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86: xc/lib/X11/HVC.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

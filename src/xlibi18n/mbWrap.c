@@ -50,7 +50,7 @@ from The Open Group.
  * 
  *		 M. Collins		OSF  
  */				
-/* $XFree86: xc/lib/X11/mbWrap.c,v 1.7 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/mbWrap.c,v 1.6 2001/12/14 19:54:10 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

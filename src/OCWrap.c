@@ -23,7 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
-/* $XFree86: xc/lib/X11/OCWrap.c,v 1.4 2001/07/25 15:04:44 dawes Exp $ */
+/* $XFree86: xc/lib/X11/OCWrap.c,v 1.3 2001/01/17 19:41:40 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

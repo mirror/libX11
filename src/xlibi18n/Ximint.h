@@ -30,7 +30,7 @@ PERFORMANCE OF THIS SOFTWARE.
 			       makoto@sm.sony.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/Ximint.h,v 3.14 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86: xc/lib/X11/Ximint.h,v 3.13 2003/09/06 14:06:32 pascal Exp $ */
 
 #ifndef _XIMINT_H
 #define _XIMINT_H

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/cjk_tab_to_h.c,v 1.2 2000/12/04 18:49:31 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * Generates a CJK character set table from a .TXT table as found on

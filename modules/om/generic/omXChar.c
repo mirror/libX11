@@ -34,7 +34,7 @@
 /*
  * Modifiers: Jeff Walls, Paul Anderson (HEWLETT-PACKARD)
  */
-/* $XFree86: xc/lib/X11/omXChar.c,v 1.7 2003/05/27 22:26:27 tsi Exp $ */
+/* $XFree86: xc/lib/X11/omXChar.c,v 1.6tsi Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPublic.h"

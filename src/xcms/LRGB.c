@@ -35,7 +35,7 @@
  *		    4. RGB intensity to CIE XYZ
  *
  */
-/* $XFree86: xc/lib/X11/LRGB.c,v 3.7 2003/11/03 03:46:26 dawes Exp $ */
+/* $XFree86: xc/lib/X11/LRGB.c,v 3.6 2003/04/13 19:22:16 dawes Exp $ */
 
 #include <stdio.h>
 #include <X11/Xos.h>

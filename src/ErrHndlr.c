@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ErrHndlr.c,v 1.7 2003/11/17 22:20:06 dawes Exp $ */
+/* $XFree86: xc/lib/X11/ErrHndlr.c,v 1.6 2003/04/13 19:22:15 dawes Exp $ */
 
 #include "Xlibint.h"
 

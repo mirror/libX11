@@ -32,7 +32,7 @@
  * Modifier:  Takanori Tateno   FUJITSU LIMITED
  *
  */
-/* $XFree86: xc/lib/X11/omGeneric.c,v 3.28 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/omGeneric.c,v 3.27 2003/05/27 22:26:27 tsi Exp $ */
 
 /*
  * Fixed the algorithms in parse_fontname() and parse_fontdata()

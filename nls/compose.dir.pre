@@ -306,8 +306,10 @@ en_US.UTF-8/Compose:		is_IS.UTF-8
 en_US.UTF-8/Compose:		it_CH.UTF-8
 en_US.UTF-8/Compose:		it_IT.UTF-8
 en_US.UTF-8/Compose:		iu_CA.UTF-8
+en_US.UTF-8/Compose:		ja_JP.UTF-8
 en_US.UTF-8/Compose:		ka_GE.UTF-8
 en_US.UTF-8/Compose:		kl_GL.UTF-8
+en_US.UTF-8/Compose:		ko_KR.UTF-8
 en_US.UTF-8/Compose:		kw_GB.UTF-8
 en_US.UTF-8/Compose:		lo_LA.UTF-8
 en_US.UTF-8/Compose:		lt_LT.UTF-8
@@ -349,3 +351,4 @@ en_US.UTF-8/Compose:		uz_UZ.UTF-8
 en_US.UTF-8/Compose:		vi_VN.UTF-8
 en_US.UTF-8/Compose:		wa_BE.UTF-8
 en_US.UTF-8/Compose:		yi_US.UTF-8
+en_US.UTF-8/Compose:		zh_TW.UTF-8

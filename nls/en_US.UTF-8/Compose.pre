@@ -151,6 +151,8 @@ XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <d> <minus>			: "₫" U20ab # DONG SIGN
 <Multi_key> <C> <equal>			: "€" EuroSign # EURO SIGN
 <Multi_key> <equal> <C>			: "€" EuroSign # EURO SIGN
+<Multi_key> <c> <equal>			: "€" EuroSign # EURO SIGN
+<Multi_key> <equal> <c>			: "€" EuroSign # EURO SIGN
 <Multi_key> <E> <equal>			: "€" EuroSign # EURO SIGN
 <Multi_key> <equal> <E>			: "€" EuroSign # EURO SIGN
 

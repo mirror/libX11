@@ -1,11 +1,11 @@
-# UTF-8 (Unicode) compose sequence
-# David.Monniaux@ens.fr
-#
-# Modified for Brazilian Portuguese by Gustavo Noronha Silva <kov@debian.org>
+XCOMM UTF-8 (Unicode) compose sequence
+XCOMM David.Monniaux@ens.fr
+XCOMM
+XCOMM Modified for Brazilian Portuguese by Gustavo Noronha Silva <kov@debian.org>
 
-# Part 1 - Manual definitions
+XCOMM Part 1 - Manual definitions
 
-# Spacing versions of dead accents
+XCOMM Spacing versions of dead accents
 <dead_tilde> <space>			: "~"	asciitilde
 <dead_tilde> <dead_tilde>		: "~"	asciitilde
 <dead_acute> <space>			: "'"	apostrophe
@@ -35,8 +35,8 @@
 <dead_iota> <dead_space>		: "ͺ"	U37a
 <dead_iota> <dead_iota>			: "ͺ"	U37a
 
-# ASCII characters that may be difficult to access
-# on some keyboards.
+XCOMM ASCII characters that may be difficult to access
+XCOMM on some keyboards.
 <Multi_key> <plus> <plus>		: "#"	numbersign
 <Multi_key> <apostrophe> <space>	: "'"	apostrophe
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
@@ -73,7 +73,7 @@
 <Multi_key> <minus> <space>		: "~"	asciitilde
 <Multi_key> <space> <minus>		: "~"	asciitilde
 
-# Spaces
+XCOMM Spaces
 <Multi_key> <space> <space> : " " nobreakspace # NO-BREAK SPACE
 <Multi_key> <space> <period>: " " U2008 # PUNCTUATION SPACE
 
@@ -108,7 +108,7 @@
 
 <Multi_key> <o> <o> : "°" degree # ^0 already taken
 
-# Quotation marks
+XCOMM Quotation marks
 <Multi_key> <quotedbl> <backslash>	: "〝" U301d # REVERSED DOUBLE PRIME QUOTATION MARK
 <Multi_key> <quotedbl> <slash>		: "〞" U301e # DOUBLE PRIME QUOTATION MARK
 <Multi_key> <less> <less>		: "«" guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
@@ -126,10 +126,10 @@
 <Multi_key> <comma> <quotedbl>          : "„" U201e # DOUBLE LOW-9 QUOTATION MARK
 <Multi_key> <quotedbl> <comma>          : "„" U201e # DOUBLE LOW-9 QUOTATION MARK
 
-# Per xxx
+XCOMM Per xxx
 <Multi_key> <percent> <o>		: "‰" U2030 # PER MILLE SIGN
 
-# Currencies
+XCOMM Currencies
 <Multi_key> <C> <E>			: "₠" U20a0 # EURO-CURRENCY SIGN
 <Multi_key> <C> <slash>			: "₡" U20a1 # COLON SIGN
 <Multi_key> <slash> <C>			: "₡" U20a1 # COLON SIGN
@@ -145,7 +145,7 @@
 <Multi_key> <R> <s>			: "₨" U20a8 # RUPEE SIGN
 <Multi_key> <W> <equal>			: "₩" U20a9 # WON SIGN
 <Multi_key> <equal> <W>			: "₩" U20a9 # WON SIGN
-# "₪" U20aa NEW SHEQEL SIGN
+XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <d> <minus>			: "₫" U20ab # DONG SIGN
 <Multi_key> <C> <equal>			: "€" EuroSign # EURO SIGN
 <Multi_key> <equal> <C>			: "€" EuroSign # EURO SIGN
@@ -157,20 +157,20 @@
 <Multi_key> <Y> <equal>			: "¥" yen
 <Multi_key> <equal><Y>			: "¥" yen
 
-# Long S
+XCOMM Long S
 <Multi_key> <f> <s>	: "ſ" U017f # LONG S
 <Multi_key> <f> <S>	: "ſ" U017f # LONG S
 
-# Dashes
+XCOMM Dashes
 <Multi_key> <minus> <minus> <period> : "–" U2013 # EN DASH
 <Multi_key> <minus> <minus> <minus>  : "—" U2014 # EM DASH
 
-# Musical alterations
+XCOMM Musical alterations
 <Multi_key> <numbersign> <b>		: "♭" U266d # MUSIC FLAT SIGN
 <Multi_key> <numbersign> <f>		: "♮" U266e # MUSIC NATURAL SIGN
 <Multi_key> <numbersign> <numbersign>	: "♯" U266f # MUSIC SHARP SIGN
 
-# Other symbols
+XCOMM Other symbols
 <Multi_key> <s> <o>             : "§" section # SECTION SIGN
 <Multi_key> <o> <s>             : "§" section # SECTION SIGN
 
@@ -179,15 +179,15 @@
 
 <Multi_key> <P> <P>		: "¶" paragraph # PILCROW SIGN (PARAGRAPH SIGN)
 
-# Part 2
+XCOMM Part 2
 
-# Compose map for Korean Hangul(Choseongul) Conjoining Jamos  automatically
-# generated  from UnicodeData-2.0.14.txt at
-#    ftp://ftp.unicode.org/Public/2.0-Update/UnicodeData-2.0.14.txt
-#   by Jungshik Shin <jshin@jshin.net>  2002-10-17
-# There are some conflicts among sequences, but I left them alone.
-#
-# group 1: cluster jamos made of three basic jamos
+XCOMM Compose map for Korean Hangul(Choseongul) Conjoining Jamos  automatically
+XCOMM generated  from UnicodeData-2.0.14.txt at
+XCOMM    ftp://ftp.unicode.org/Public/2.0-Update/UnicodeData-2.0.14.txt
+XCOMM   by Jungshik Shin <jshin@jshin.net>  2002-10-17
+XCOMM There are some conflicts among sequences, but I left them alone.
+XCOMM
+XCOMM group 1: cluster jamos made of three basic jamos
 
   <Multi_key> <U1107> <U1109> <U1100> : "ᄢ"  	U1122	 : ᄇᅠ ᄉᅠ ᄀᅠ  = ᄢᅠ
   <Multi_key> <U1107> <U1109> <U1103> : "ᄣ"  	U1123	 : ᄇᅠ ᄉᅠ ᄃᅠ  = ᄣᅠ

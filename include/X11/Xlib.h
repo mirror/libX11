@@ -3655,14 +3655,6 @@ extern int Xutf8TextEscapement(
     int			/* bytes_text */
 );
 
-extern int Xutf8TextEscapement(
-#if NeedFunctionPrototypes
-    XFontSet		/* font_set */,
-    _Xconst char*	/* text */,
-    int			/* bytes_text */
-#endif
-);
-
 extern int XmbTextExtents(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
@@ -3685,16 +3677,6 @@ extern int Xutf8TextExtents(
     int			/* bytes_text */,
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
-);
-
-extern int Xutf8TextExtents(
-#if NeedFunctionPrototypes
-    XFontSet		/* font_set */,
-    _Xconst char*	/* text */,
-    int			/* bytes_text */,
-    XRectangle*		/* overall_ink_return */,
-    XRectangle*		/* overall_logical_return */
-#endif
 );
 
 extern Status XmbTextPerCharExtents(
@@ -3733,20 +3715,6 @@ extern Status Xutf8TextPerCharExtents(
     XRectangle*		/* overall_logical_return */
 );
 
-extern Status Xutf8TextPerCharExtents(
-#if NeedFunctionPrototypes
-    XFontSet		/* font_set */,
-    _Xconst char*	/* text */,
-    int			/* bytes_text */,
-    XRectangle*		/* ink_extents_buffer */,
-    XRectangle*		/* logical_extents_buffer */,
-    int			/* buffer_size */,
-    int*		/* num_chars */,
-    XRectangle*		/* overall_ink_return */,
-    XRectangle*		/* overall_logical_return */
-#endif
-);
-
 extern void XmbDrawText(
     Display*		/* display */,
     Drawable		/* d */,
@@ -3775,18 +3743,6 @@ extern void Xutf8DrawText(
     int			/* y */,
     XmbTextItem*	/* text_items */,
     int			/* nitems */
-);
-
-extern void Xutf8DrawText(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    Drawable		/* d */,
-    GC			/* gc */,
-    int			/* x */,
-    int			/* y */,
-    XmbTextItem*	/* text_items */,
-    int			/* nitems */
-#endif
 );
 
 extern void XmbDrawString(
@@ -3822,19 +3778,6 @@ extern void Xutf8DrawString(
     int			/* bytes_text */
 );
 
-extern void Xutf8DrawString(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    Drawable		/* d */,
-    XFontSet		/* font_set */,
-    GC			/* gc */,
-    int			/* x */,
-    int			/* y */,
-    _Xconst char*	/* text */,
-    int			/* bytes_text */
-#endif
-);
-
 extern void XmbDrawImageString(
     Display*		/* display */,
     Drawable		/* d */,
@@ -3866,19 +3809,6 @@ extern void Xutf8DrawImageString(
     int			/* y */,
     _Xconst char*	/* text */,
     int			/* bytes_text */
-);
-
-extern void Xutf8DrawImageString(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    Drawable		/* d */,
-    XFontSet		/* font_set */,
-    GC			/* gc */,
-    int			/* x */,
-    int			/* y */,
-    _Xconst char*	/* text */,
-    int			/* bytes_text */
-#endif
 );
 
 extern XIM XOpenIM(
@@ -3942,12 +3872,6 @@ extern char *Xutf8ResetIC(
     XIC /* ic */
 );
 
-extern char *Xutf8ResetIC(
-#if NeedFunctionPrototypes
-    XIC /* ic */
-#endif
-);
-
 extern char *XSetICValues(
     XIC /* ic */, ...
 );
@@ -3990,17 +3914,6 @@ extern int Xutf8LookupString(
     int			/* bytes_buffer */,
     KeySym*		/* keysym_return */,
     Status*		/* status_return */
-);
-
-extern int Xutf8LookupString(
-#if NeedFunctionPrototypes
-    XIC			/* ic */,
-    XKeyPressedEvent*	/* event */,
-    char*		/* buffer_return */,
-    int			/* bytes_buffer */,
-    KeySym*		/* keysym_return */,
-    Status*		/* status_return */
-#endif
 );
 
 extern XVaNestedList XVaCreateNestedList(

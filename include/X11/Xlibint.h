@@ -956,17 +956,6 @@ extern void _XGetAsyncData(
     int		/* datalen */,
     int		/* discardtotal */
 );
-extern void _XGetAsyncData(
-#if NeedFunctionPrototypes
-    Display*	/* dpy */,
-    char *	/* data */,
-    char *	/* buf */,
-    int		/* len */,
-    int		/* skip */,
-    int		/* datalen */,
-    int		/* discardtotal */
-#endif
-);
 extern void _XFlush(
     Display*	/* dpy */
 );
@@ -1031,32 +1020,11 @@ extern int _XFreeExtData(
     XExtData*	/* extension */
 );
 
-extern Bool _XUnknownWireEvent(
-#if NeedFunctionPrototypes
-    Display*	/* dpy */,
-    XEvent*	/* re */,
-    xEvent*	/* event */
-#endif
-);
-extern Status _XUnknownNativeEvent(
-#if NeedFunctionPrototypes
-    Display*	/* dpy */,
-    XEvent*	/* re */,
-    xEvent*	/* event */
-#endif
-);
-
 extern Bool _XWireToEvent(Display *dpy, XEvent *re, xEvent *event);
 extern Bool _XDefaultWireError(Display *display, XErrorEvent *he, xError *we);
 extern Bool _XPollfdCacheInit(Display *dpy);
 extern XID _XAllocID(Display *dpy);
 extern void _XAllocIDs(Display *dpy, XID *ids, int count);
-
-extern int _XFreeExtData(
-#if NeedFunctionPrototypes
-    XExtData*	/* extension */
-#endif
-);
 
 extern int (*XESetCreateGC(
     Display*		/* display */,

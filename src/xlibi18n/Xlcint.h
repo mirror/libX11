@@ -627,11 +627,6 @@ typedef struct {
     int (*ctstoutf8)(
 	XIM, char*, int, char*, int, Status *
 	);
-    int (*ctstoutf8)(
-#if NeedFunctionPrototypes
-	XIM, char*, int, char*, int, Status *
-#endif
-	);
 } XIMMethodsRec, *XIMMethods;
 
 /*
@@ -704,11 +699,6 @@ typedef struct {
     char* (*utf8_reset)(
 	XIC
 	);
-    char* (*utf8_reset)(
-#if NeedFunctionPrototypes
-	XIC
-#endif
-	);
     int (*mb_lookup_string)(
 	XIC, XKeyEvent*, char*, int, KeySym*, Status*
 	);
@@ -717,11 +707,6 @@ typedef struct {
 	);
     int (*utf8_lookup_string)(
 	XIC, XKeyEvent*, char*, int, KeySym*, Status*
-	);
-    int (*utf8_lookup_string)(
-#if NeedFunctionPrototypes
-	XIC, XKeyEvent*, char*, int, KeySym*, Status*
-#endif
 	);
 } XICMethodsRec, *XICMethods;
 

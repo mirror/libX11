@@ -1146,14 +1146,6 @@ extern void XkbUpdateKeyTypeVirtualMods(
 	XkbChangesPtr		/* changes */
 );
 
-extern	Bool XkbApplyVirtualModChanges(
-#if NeedFunctionPrototypes
-   XkbDescPtr		/* xkb */,
-   unsigned int		/* changed */,
-   XkbChangesPtr	/* changes */
-#endif
-);
-
 _XFUNCPROTOEND
 
 #endif /* _XKBLIB_H_ */

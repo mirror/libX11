@@ -496,17 +496,6 @@ extern Bool	_XimError(
     char	*detail
 );
 
-extern Bool	_XimError(
-#if NeedFunctionPrototypes
-    Xim		 im,
-    Xic		 ic,
-    CARD16	 error_code,
-    INT16	 detail_length,
-    CARD16	 type,
-    char	*detail
-#endif
-);
-
 extern Bool	_XimRegisterTriggerKeysCallback(
     Xim		 im,
     INT16	 len,
@@ -654,17 +643,6 @@ extern int	_Ximctstoutf8(
     Status	*state
 );
 
-extern int	_Ximctstoutf8(
-#if NeedFunctionPrototypes
-    XIM		 im,
-    char	*from,
-    int		 from_len,
-    char	*to,
-    int		 to_len,
-    Status	*state
-#endif
-);
-
 extern int	_XimLcctstombs(
     XIM		 im,
     char	*from,
@@ -695,17 +673,6 @@ extern int	_XimLcctstoutf8(
 extern int	_XimCheckDataSize(
     XPointer	 buf,
     int		 len
-);
-
-extern int	_XimLcctstoutf8(
-#if NeedFunctionPrototypes
-    XIM		 im,
-    char	*from,
-    int		 from_len,
-    char	*to,
-    int		 to_len,
-    Status	*state
-#endif
 );
 
 extern void	_XimSetHeader(
@@ -745,17 +712,6 @@ extern int	_XimProtoUtf8LookupString(
     int		 bytes,
     KeySym	*keysym,
     Status	*state
-);
-
-extern int	_XimProtoUtf8LookupString(
-#if NeedFunctionPrototypes
-    XIC		 xic,
-    XKeyEvent	*ev,
-    char	*buffer,
-    int		 bytes,
-    KeySym	*keysym,
-    Status	*state
-#endif
 );
 
 extern void	_XimRegisterFilter(
@@ -815,17 +771,6 @@ extern int	_XimLookupUTF8Text(
     int			 nbytes,
     KeySym		*keysym,
     XComposeStatus	*status
-);
-
-extern int	_XimLookupUTF8Text(
-#if NeedFunctionPrototypes
-    Xic			 ic,
-    XKeyEvent		*event,
-    char		*buffer,
-    int			 nbytes,
-    KeySym		*keysym,
-    XComposeStatus	*status
-#endif
 );
 
 extern EVENTMASK	_XimGetWindowEventmask(
@@ -977,17 +922,6 @@ extern int _XimLocalUtf8LookupString(
     int			 bytes,
     KeySym		*keysym,
     Status		*status
-);
-
-extern int _XimLocalUtf8LookupString(
-#if NeedFunctionPrototypes
-    XIC			 ic,
-    XKeyEvent		*ev,
-    char		*buffer,
-    int			 bytes,
-    KeySym		*keysym,
-    Status		*status
-#endif
 );
 
 extern Bool _XimThaiFilter(

@@ -53,10 +53,6 @@ typedef struct {
     int opcode;
 } _XBigReqState;
 
-#ifdef WIN32
-int *_Xdebug_p = &_Xdebug;
-#endif
-
 #ifdef XTHREADS
 #include "locking.h"
 int  (*_XInitDisplayLock_fn)(Display *dpy) = NULL;

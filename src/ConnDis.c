@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.5 2004-07-27 06:06:05 herrb Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.6 2004-11-15 15:06:54 ago Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -46,6 +46,8 @@ in this Software without prior written authorization from The Open Group.
 #else
 #include <socket.h>
 #endif
+#else
+#include <X11/Xwindows.h>
 #endif
 
 #ifndef X_CONNECTION_RETRIES		/* number retries on ECONNREFUSED */

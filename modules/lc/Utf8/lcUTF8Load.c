@@ -38,7 +38,7 @@ OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "XlcGeneric.h"
 
 XLCd
-_XFree86lcUtf8Loader(
+_XlcUtf8Loader(
     const char *name)
 {
     XLCd lcd;

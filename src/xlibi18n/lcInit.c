@@ -116,7 +116,7 @@ _XlcInitLoader()
 #endif
 
 #ifdef USE_UTF8_LOADER
-    _XlcAddLoader(_XFree86lcUtf8Loader, XlcHead);
+    _XlcAddLoader(_XlcUtf8Loader, XlcHead);
 #endif
 
 #ifdef USE_EUC_LOADER
@@ -155,7 +155,7 @@ _XlcDeInitLoader()
 #endif
 
 #ifdef USE_UTF8_LOADER
-    _XlcRemoveLoader(_XFree86lcUtf8Loader);
+    _XlcRemoveLoader(_XlcUtf8Loader);
 #endif
 
 #ifdef USE_EUC_LOADER

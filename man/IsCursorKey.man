@@ -1,4 +1,4 @@
-.\" $XdotOrg: lib/X11/man/IsCursorKey.man,v 1.1.4.4 2004-04-15 10:13:24 eich Exp $ 
+.\" $XdotOrg: lib/X11/man/IsCursorKey.man,v 1.1.4.3.4.1 2004-05-04 19:41:18 ewalsh Exp $ 
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining

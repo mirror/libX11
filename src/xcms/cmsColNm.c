@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/xcms/cmsColNm.c,v 1.1.4.4 2004-03-05 13:39:08 eich Exp $ */
+/* $XdotOrg: lib/X11/src/xcms/cmsColNm.c,v 1.1.4.4.4.1 2004-05-04 19:42:43 ewalsh Exp $ */
 /* $Xorg: cmsColNm.c,v 1.3 2000/08/17 19:45:09 cpqbld Exp $ */
 
 /*

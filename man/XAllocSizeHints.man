@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
 .\" $XFree86: xc/doc/man/X11/XASHints.man,v 1.5 2003/04/28 22:17:54 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XAllocSizeHints.man,v 1.1.4.4 2004-03-05 13:38:15 eich Exp $
+.\" $XdotOrg: lib/X11/man/XAllocSizeHints.man,v 1.1.4.4.4.1 2004-05-04 19:41:18 ewalsh Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface

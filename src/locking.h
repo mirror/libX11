@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/locking.h,v 1.4 2001/12/14 19:54:10 dawes Exp $ */
 
 /*
  * Author: Stephen Gildea, MIT X Consortium
@@ -169,5 +170,9 @@ struct _XLockInfo {
 typedef struct _LockInfoRec {
 	xmutex_t	lock;
 } LockInfoRec;
+
+/* XOpenDis.c */
+extern int (*_XInitDisplayLock_fn)(Display *dpy);
+extern void (*_XFreeDisplayLock_fn)(Display *dpy);
 
 #endif /* _X_locking_H_ */

@@ -1,5 +1,5 @@
 /*
- * $Xorg: IMWrap.c,v 1.4 2001/02/09 02:03:33 xorgcvs Exp $
+ * $Xorg: IMWrap.c,v 1.3 2000/08/17 19:44:37 cpqbld Exp $
  */
 
 /*
@@ -57,6 +57,8 @@ from The Open Group.
 
 */
 
+/* $XFree86: xc/lib/X11/IMWrap.c,v 3.8 2001/12/14 19:54:01 dawes Exp $ */
+
 #include "Xlibint.h"
 #include "Xlcint.h"
 
@@ -96,7 +98,7 @@ _XCopyToArg(src, dst, size)
 	    memcpy((char *)&u, (char *)src, (int)size);
 	    if (size == sizeof(long))	       *dst = (XPointer)u.longval;
 #ifdef LONG64
-	    else if (size == sizeof(int))      *dst = (XPointer)u.intval;
+	    else if (size == sizeof(int))      *dst = (XPointer)(long)u.intval;
 #endif
 	    else if (size == sizeof(short))    *dst = (XPointer)(long)u.shortval;
 	    else if (size == sizeof(char))     *dst = (XPointer)(long)u.charval;
@@ -174,14 +176,24 @@ XLocaleOfIM(im)
  * on-demand input method instantiation.
  */
 Bool
+#if NeedFunctionPrototypes
+XRegisterIMInstantiateCallback(
+    Display	*display,
+    XrmDatabase	 rdb,
+    char	*res_name,
+    char	*res_class,
+    XIDProc	 callback,
+    XPointer	 client_data)
+#else
 XRegisterIMInstantiateCallback( display, rdb, res_name, res_class, callback,
 				client_data)
     Display	*display;
     XrmDatabase	 rdb;
     char	*res_name;
     char	*res_class;
-    XIMProc	 callback;
-    XPointer	*client_data;
+    XIDProc	 callback;
+    XPointer	 client_data;
+#endif
 {
     XLCd	lcd = _XOpenLC( (char *)NULL );
 
@@ -196,14 +208,24 @@ XRegisterIMInstantiateCallback( display, rdb, res_name, res_class, callback,
  * Unregister to a input method instantiation callback.
  */
 Bool
+#if NeedFunctionPrototypes
+XUnregisterIMInstantiateCallback(
+    Display	*display,
+    XrmDatabase	 rdb,
+    char	*res_name,
+    char	*res_class,
+    XIDProc	 callback,
+    XPointer	 client_data)
+#else
 XUnregisterIMInstantiateCallback( display, rdb, res_name, res_class, callback,
 				  client_data )
     Display	*display;
     XrmDatabase	 rdb;
     char	*res_name;
     char	*res_class;
-    XIMProc	 callback;
-    XPointer	*client_data;
+    XIDProc	 callback;
+    XPointer	 client_data;
+#endif
 {
     XLCd	lcd = _XlcCurrentLC();
 

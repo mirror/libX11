@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ChSaveSet.c,v 1.4 2001/12/14 19:53:57 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XChangeSaveSet(dpy, win, mode)
 register Display *dpy;
 Window win;
@@ -43,6 +45,7 @@ int mode;
     return 1;
 }
 
+int
 XAddToSaveSet(dpy, win)
     register Display *dpy;
     Window win;
@@ -50,6 +53,7 @@ XAddToSaveSet(dpy, win)
     return XChangeSaveSet(dpy,win,SetModeInsert);
 }
 
+int
 XRemoveFromSaveSet (dpy, win)
     register Display *dpy;
     Window win;

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBRdBuf.c,v 1.2 2001/10/28 03:32:33 tsi Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -301,7 +302,7 @@ _XkbGetReadBufferCountedString(buf,rtrn)
 {
 CARD16	len,*pLen;
 int	left;
-char *	str;
+char *	str = NULL;
 
     if ((buf==NULL)||(buf->error)||((left=(int)_XkbReadBufferDataLeft(buf))<4))
 	return False;

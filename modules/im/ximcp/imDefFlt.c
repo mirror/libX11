@@ -26,6 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDefFlt.c,v 1.4 2001/01/17 19:41:51 dawes Exp $ */
 
 #include <X11/Xatom.h>
 #define NEED_EVENTS

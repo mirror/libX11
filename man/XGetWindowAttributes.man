@@ -41,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XGetWAttr.man,v 1.2 2001/01/27 18:19:59 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -140,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XGetWindowAttributes 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XGetWindowAttributes 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGetWindowAttributes, XGetGeometry, XWindowAttributes \- get current window attribute or geometry and current window attributes structure
 .SH SYNTAX

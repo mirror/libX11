@@ -31,6 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
+/* $XFree86: xc/lib/X11/XomGeneric.h,v 1.4 2001/01/17 19:41:50 dawes Exp $ */
 
 #ifndef _XOMGENERIC_H_
 #define _XOMGENERIC_H_
@@ -59,7 +60,8 @@ typedef struct _VRotateRec {
 
 typedef enum {
     XOMMultiByte,
-    XOMWideChar
+    XOMWideChar,
+    XOMUtf8String
 } XOMTextType;
 
 typedef struct _FontDataRec {
@@ -134,6 +136,7 @@ typedef struct _FontSetRec {
 typedef struct _XOCGenericPart {
     XlcConv 		mbs_to_cs;
     XlcConv 		wcs_to_cs;
+    XlcConv 		utf8_to_cs;
     int 		font_set_num;
     FontSet 		font_set;
 } XOCGenericPart;

@@ -33,9 +33,16 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/CvColW.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+
+/* EXTERNS */
+/* CvCols.c */
+extern Status _XcmsDDConvertColors();
+extern Status _XcmsDIConvertColors();
+
 
 
 /************************************************************************

@@ -34,6 +34,7 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsInt.c,v 1.3 2001/01/17 19:41:51 dawes Exp $ */
 
 /* #define NEED_EVENTS */
 #include <stdio.h>
@@ -49,6 +50,9 @@
  */
 extern XcmsColorSpace **_XcmsDIColorSpaces;
 extern XcmsFunctionSet **_XcmsSCCFuncSets;
+
+/* LRGB.c */
+extern int _XcmsLRGB_InitScrnDefault();
 
 static void _XcmsFreeDefaultCCCs();
 

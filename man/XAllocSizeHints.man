@@ -41,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XASHints.man,v 1.4 2001/02/09 03:47:44 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -140,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XAllocSizeHints 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XAllocSizeHints 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocSizeHints, XSetWMNormalHints, XGetWMNormalHints, XSetWMSizeHints, XGetWMSizeHints, XSizeHints \- allocate size hints structure and set or read a window's WM_NORMAL_HINTS property
 .SH SYNTAX
@@ -154,7 +156,7 @@ void XSetWMNormalHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints\fP\^)
 .br
       XSizeHints *\fIhints\fP\^;
 .LP
-Status XGetWMNormalHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints_return\fP, \
+Status XGetWMNormalHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints_return\fP,
 \fIsupplied_return\fP\^)
 .br
       Display *\fIdisplay\fP\^;
@@ -175,7 +177,7 @@ void XSetWMSizeHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints\fP, \fIproperty\fP\^)
 .br
       Atom \fIproperty\fP\^;
 .LP
-Status XGetWMSizeHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints_return\fP, \
+Status XGetWMSizeHints\^(\^\fIdisplay\fP, \fIw\fP, \fIhints_return\fP,
 \fIsupplied_return\fP, \fIproperty\fP\^)
 .br
       Display *\fIdisplay\fP\^;
@@ -355,7 +357,7 @@ structure contains:
 .TS
 lw(.5i) lw(1.1i) lw(1.5i) lw(3.1i).
 T{
-#define
+\&#define
 T}	T{
 .ZN USPosition
 T}	T{
@@ -364,7 +366,7 @@ T}	T{
 /* user specified x, y */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN USSize
 T}	T{
@@ -373,7 +375,7 @@ T}	T{
 /* user specified width, height */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PPosition
 T}	T{
@@ -382,7 +384,7 @@ T}	T{
 /* program specified position */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PSize
 T}	T{
@@ -391,7 +393,7 @@ T}	T{
 /* program specified size */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PMinSize
 T}	T{
@@ -400,7 +402,7 @@ T}	T{
 /* program specified minimum size */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PMaxSize
 T}	T{
@@ -409,7 +411,7 @@ T}	T{
 /* program specified maximum size */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PResizeInc
 T}	T{
@@ -418,7 +420,7 @@ T}	T{
 /* program specified resize increments */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PAspect
 T}	T{
@@ -427,21 +429,21 @@ T}	T{
 /* program specified min and max aspect ratios */
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PBaseSize
 T}	T{
 (1L << 8)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PWinGravity
 T}	T{
 (1L << 9)
 T}
 T{
-#define
+\&#define
 T}	T{
 .ZN PAllHints
 T}	T{

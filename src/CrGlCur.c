@@ -24,8 +24,193 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/CrGlCur.c,v 1.6 2002/09/05 18:17:31 keithp Exp $ */
 
 #include "Xlibint.h"
+
+#ifdef USE_DYNAMIC_XCURSOR
+
+#include <stdio.h>
+#include <string.h>
+#if defined(hpux)
+#include <dl.h>
+#else
+#include <dlfcn.h>
+#endif
+
+#if defined(hpux)
+typedef shl_dt	XModuleType;
+#else
+typedef void *XModuleType;
+#endif
+
+#ifndef LIBXCURSOR
+#define LIBXCURSOR "libXcursor.so"
+#endif
+
+static char libraryName[] = LIBXCURSOR;
+
+static XModuleType
+open_library (void)
+{
+    char	*library = libraryName;
+    char	*dot;
+    XModuleType	module;
+    for (;;)
+    {
+#if defined(hpux)
+	module = shl_load(library, BIND_DEFERRED, 0L);
+#else
+	module =  dlopen(library, RTLD_LAZY);
+#endif
+	if (module)
+	    return module;
+	dot = strrchr (library, '.');
+	if (!dot)
+	    break;
+	*dot = '\0';
+    }
+    return 0;
+}
+
+static void *
+fetch_symbol (XModuleType module, char *under_symbol)
+{
+    void *result = NULL;
+    char *symbol = under_symbol + 1;
+#if defined(hpux)
+    int getsyms_cnt, i;
+    struct shl_symbol *symbols;
+    
+    getsyms_cnt = shl_getsymbols(module, TYPE_PROCEDURE,
+				 EXPORT_SYMBOLS, malloc, &symbols);
+
+    for(i=0; i<getsyms_cnt; i++) {
+        if(!strcmp(symbols[i].name, symbol)) {
+	    result = symbols[i].value;
+	    break;
+         }
+    }
+
+    if(getsyms_cnt > 0) {
+        free(symbols);
+    }
+#else
+    result = dlsym (module, symbol);
+    if (!result)
+	result = dlsym (module, under_symbol);
+#endif
+    return result;
+}
+
+typedef void	(*NoticeCreateBitmapFunc) (Display	    *dpy,
+					   Pixmap	    pid,
+					   unsigned int width,
+					   unsigned int height);
+
+typedef void	(*NoticePutBitmapFunc) (Display	    *dpy,
+					Drawable    draw,
+					XImage	    *image);
+
+typedef Cursor	(*TryShapeBitmapCursorFunc) (Display	    *dpy,
+					     Pixmap	    source,
+					     Pixmap	    mask,
+					     XColor	    *foreground,
+					     XColor	    *background,
+					     unsigned int   x,
+					     unsigned int   y);
+
+typedef Cursor	(*TryShapeCursorFunc) (Display	    *dpy,
+				       Font	    source_font,
+				       Font	    mask_font,
+				       unsigned int source_char,
+				       unsigned int mask_char,
+				       XColor _Xconst *foreground,
+				       XColor _Xconst *background);
+
+static XModuleType  _XcursorModule;
+static Bool	    _XcursorModuleTried;
+
+#define GetFunc(type,name,ret) {\
+    static Bool	    been_here; \
+    static type	    staticFunc; \
+     \
+    _XLockMutex (_Xglobal_lock); \
+    if (!been_here) \
+    { \
+	been_here = True; \
+	if (!_XcursorModuleTried) \
+	{ \
+	    _XcursorModuleTried = True; \
+	    _XcursorModule = open_library (); \
+	} \
+	if (_XcursorModule) \
+	    staticFunc = (type) fetch_symbol (_XcursorModule, "_" name); \
+    } \
+    ret = staticFunc; \
+    _XUnlockMutex (_Xglobal_lock); \
+}
+
+Cursor
+_XTryShapeCursor (Display	    *dpy,
+		  Font		    source_font,
+		  Font		    mask_font,
+		  unsigned int	    source_char,
+		  unsigned int	    mask_char,
+		  XColor _Xconst    *foreground,
+		  XColor _Xconst    *background)
+{
+    TryShapeCursorFunc		func;
+
+    GetFunc (TryShapeCursorFunc, "XcursorTryShapeCursor", func);
+    if (func)
+	return (*func) (dpy, source_font, mask_font, source_char, mask_char,
+			foreground, background);
+    return None;
+}
+
+void
+_XNoticeCreateBitmap (Display	    *dpy,
+		      Pixmap	    pid,
+		      unsigned int  width,
+		      unsigned int  height)
+{
+    NoticeCreateBitmapFunc  func;
+
+    GetFunc (NoticeCreateBitmapFunc, "XcursorNoticeCreateBitmap", func);
+    if (func)
+	(*func) (dpy, pid, width, height);
+}
+
+void
+_XNoticePutBitmap (Display	*dpy,
+		   Drawable	draw,
+		   XImage	*image)
+{
+    NoticePutBitmapFunc	func;
+
+    GetFunc (NoticePutBitmapFunc, "XcursorNoticePutBitmap", func);
+    if (func)
+	(*func) (dpy, draw, image);
+}
+
+Cursor
+_XTryShapeBitmapCursor (Display		*dpy,
+			Pixmap		source,
+			Pixmap		mask,
+			XColor		*foreground,
+			XColor		*background,
+			unsigned int	x,
+			unsigned int	y)
+{
+    TryShapeBitmapCursorFunc	func;
+
+    GetFunc (TryShapeBitmapCursorFunc, "XcursorTryShapeBitmapCursor", func);
+    if (func)
+	return (*func) (dpy, source, mask, foreground, background, x, y);
+    return None;
+}
+#endif
 
 Cursor XCreateGlyphCursor(dpy, source_font, mask_font,
 		   source_char, mask_char,
@@ -33,12 +218,18 @@ Cursor XCreateGlyphCursor(dpy, source_font, mask_font,
      register Display *dpy;
      Font source_font, mask_font;
      unsigned int source_char, mask_char;
-     XColor *foreground, *background;
+     XColor _Xconst *foreground, *background;
 
 {       
     Cursor cid;
     register xCreateGlyphCursorReq *req;
 
+#ifdef USE_DYNAMIC_XCURSOR
+    cid = _XTryShapeCursor (dpy, source_font, mask_font, 
+			    source_char, mask_char, foreground, background);
+    if (cid)
+	return cid;
+#endif
     LockDisplay(dpy);
     GetReq(CreateGlyphCursor, req);
     cid = req->cid = XAllocID(dpy);

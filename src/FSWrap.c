@@ -56,6 +56,8 @@ from The Open Group.
 
 */
 
+/* $XFree86: xc/lib/X11/FSWrap.c,v 1.6 2001/12/14 19:54:00 dawes Exp $ */
+
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include <ctype.h>

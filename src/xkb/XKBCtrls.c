@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBCtrls.c,v 1.4 2002/12/10 04:33:48 dawes Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -303,6 +304,14 @@ XkbGetControls(dpy, which, xkb)
     }
     if (which&XkbAccessXKeysMask)
 	ctrls->ax_options= rep.axOptions;
+    if (which&XkbStickyKeysMask) {
+	ctrls->ax_options &= ~XkbAX_SKOptionsMask;
+	ctrls->ax_options |= rep.axOptions & XkbAX_SKOptionsMask;
+    }
+    if (which&XkbAccessXFeedbackMask) {
+	ctrls->ax_options &= ~XkbAX_FBOptionsMask;
+	ctrls->ax_options |= rep.axOptions & XkbAX_FBOptionsMask;
+    }
     if (which&XkbAccessXTimeoutMask) {
 	ctrls->ax_timeout = rep.axTimeout;
 	ctrls->axt_ctrls_mask = rep.axtCtrlsMask;
@@ -393,7 +402,7 @@ XkbSetControls(dpy, which, xkb)
     }
     UnlockDisplay(dpy);
     SyncHandle();
-    return False;
+    return True;
 }
 
 /***====================================================================***/

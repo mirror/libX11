@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/KeyBind.c,v 1.5 2001/12/14 19:54:02 dawes Exp $ */
 
 /* Beware, here be monsters (still under construction... - JG */
 
@@ -37,12 +38,16 @@ in this Software without prior written authorization from The Open Group.
 #define XK_LATIN4
 #define XK_CYRILLIC
 #define XK_GREEK
+#define XK_ARMENIAN
 #define XK_XKB_KEYS
 #include <X11/keysymdef.h>
 #include <stdio.h>
 
+#include "XKBlib.h"
+
 #ifdef USE_OWN_COMPOSE
 #include "imComp.h"
+
 #endif
 
 #ifdef XKB
@@ -51,6 +56,7 @@ in this Software without prior written authorization from The Open Group.
 #define	XLookupKeysym		_XLookupKeysym
 #define	XRefreshKeyboardMapping	_XRefreshKeyboardMapping
 #define	XLookupString		_XLookupString
+/* XKBBind.c */
 #else
 #define	XkbKeysymToModifiers	_XKeysymToModifiers
 #endif
@@ -59,6 +65,7 @@ in this Software without prior written authorization from The Open Group.
 		 Mod1Mask|Mod2Mask|Mod3Mask|Mod4Mask|Mod5Mask)
 
 static void ComputeMaskFromKeytrans();
+int _XKeyInitialize();
 
 struct _XKeytrans {
 	struct _XKeytrans *next;/* next on list */
@@ -227,6 +234,7 @@ InitModMap(dpy)
     return 1;
 }
 
+int
 XRefreshKeyboardMapping(event)
     register XMappingEvent *event;
 {
@@ -387,6 +395,12 @@ XConvertCase(sym, lower, upper)
 	else if (sym >= XK_Greek_alpha && sym <= XK_Greek_omega &&
 		 sym != XK_Greek_finalsmallsigma)
 	    *upper -= (XK_Greek_alpha - XK_Greek_ALPHA);
+        break;
+    case 0x14: /* Armenian */
+	if (sym >= XK_Armenian_AYB && sym <= XK_Armenian_fe) {
+	    *lower = sym | 1;
+	    *upper = sym & ~1;
+	}
         break;
     }
 }
@@ -623,6 +637,7 @@ _XFreeKeyBindings (dpy)
     }   
 }
 
+int
 #if NeedFunctionPrototypes
 XRebindKeysym (
     Display *dpy,

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBExtDev.c,v 3.4 2001/10/28 03:32:33 tsi Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -589,8 +590,10 @@ Bool		match;
 	match= ((class==devli->led_class)||(class==XkbAllXIClasses));
 	if (devli->led_class==KbdFeedbackClass)	dflt= stuff->dflt_kbd_fb;
 	else					dflt= stuff->dflt_led_fb;
-	match= match && (id==devli->led_id) || (id==XkbAllXIIds) ||
-					((id==XkbDfltXIId)&&(linfo==dflt));
+	match = (match && (id == devli->led_id)) ||
+	  (id == XkbAllXIIds) ||
+	  ((id == XkbDfltXIId) &&
+	   (linfo == dflt));
 	if (match) {
 	    if (!linfo->used) {
 		*sz_rtrn+= _XkbSizeLedInfo(stuff->wanted,devli);
@@ -768,7 +771,7 @@ XkbSetDeviceInfo(dpy,which,devi)
 #endif
 {
     register xkbSetDeviceInfoReq *req;
-    Status		     	ok;
+    Status		     	ok = 0;
     int				size,nLeds;
     XkbInfoPtr 			xkbi;
     XkbDeviceChangesRec		changes;
@@ -830,7 +833,7 @@ XkbChangeDeviceInfo(dpy,devi,changes)
 #endif
 {
     register xkbSetDeviceInfoReq *req;
-    Status		     	ok;
+    Status		     	ok = 0;
     int				size,nLeds;
     XkbInfoPtr 			xkbi;
     SetLedStuff			lstuff;
@@ -906,7 +909,7 @@ XkbSetDeviceButtonActions(dpy,devi,first,nBtns)
 #endif
 {
     register xkbSetDeviceInfoReq *req;
-    Status		     	ok;
+    Status		     	ok = 0;
     int				size,nLeds;
     XkbInfoPtr 			xkbi;
     XkbDeviceChangesRec		changes;

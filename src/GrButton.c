@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GrButton.c,v 1.4 2001/12/14 19:54:01 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XGrabButton(dpy, button, modifiers, grab_window, owner_events, event_mask,
 	    pointer_mode, keyboard_mode, confine_to, curs)
 register Display *dpy;

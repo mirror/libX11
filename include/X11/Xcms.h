@@ -27,6 +27,7 @@
  *	DESCRIPTION
  *		Public include file for X Color Management System
  */
+/* $XFree86: xc/lib/X11/Xcms.h,v 1.5 2001/01/17 19:41:49 dawes Exp $ */
 #ifndef _XCMS_H_
 #define _XCMS_H_
 
@@ -255,6 +256,21 @@ typedef void (*XcmsScreenFreeProc)(
      * Function List Pointer -- pointer to an array of function pointers.
      *    The end of list is indicated by a NULL pointer.
      */
+/*
+ * XXX:  The use of the XcmsConversionProc type is broken.  The
+ *       device-independent colour conversion code uses it as:
+
+typedef Status (*XcmsConversionProc)(XcmsCCC, XcmsColor *, XcmsColor *, 
+				     unsigned int);
+
+ *       while the device-dependent code uses it as:
+
+typedef Status (*XcmsConversionProc)(XcmsCCC, XcmsColor *, unsigned int,
+				     Bool *);
+
+ *       Until this is reworked, it's probably best to leave it unprotoized.
+ *       The code works regardless.
+ */
 typedef Status (*XcmsConversionProc)();
 typedef XcmsConversionProc *XcmsFuncListPtr;
 

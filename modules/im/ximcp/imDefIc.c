@@ -28,10 +28,16 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDefIc.c,v 3.8 2001/01/17 19:41:51 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "Ximint.h"
+
+/* EXTERNS */
+
+/* imRm.c */
+extern Bool _XimCheckCreateICValues();
 
 Private Bool
 #if NeedFunctionPrototypes
@@ -181,17 +187,17 @@ _XimReCreateIC(ic)
     buf_size = BUFSIZE;
     ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
 						 _XimCreateICCheck, 0);
-    if(ret_code == XIM_TRUE) {
+    if (ret_code == XIM_TRUE) {
 	preply = reply;
-    } else if(ret_code == XIM_OVERFLOW) {
-	if(len <= 0) {
+    } else if (ret_code == XIM_OVERFLOW) {
+	if (len <= 0) {
 	    preply = reply;
 	} else {
 	    buf_size = (int)len;
 	    preply = (XPointer)Xmalloc(buf_size);
 	    ret_code = _XimRead(im, &len, preply, buf_size,
 						 _XimCreateICCheck, 0);
-	    if(ret_code != XIM_TRUE) {
+	    if (ret_code != XIM_TRUE) {
 		Xfree(preply);
 		ic->private.proto.waitCallback = False;
 		goto ErrorOnReCreateIC;
@@ -205,13 +211,13 @@ _XimReCreateIC(ic)
     buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
     if (*((CARD8 *)preply) == XIM_ERROR) {
 	_XimProcError(im, 0, (XPointer)&buf_s[3]);
-	if(reply != preply)
+	if (reply != preply)
 	    Xfree(preply);
 	goto ErrorOnReCreateIC;
     }
 
     ic->private.proto.icid = buf_s[1];		/* icid */
-    if(reply != preply)
+    if (reply != preply)
 	Xfree(preply);
 
     _XimRegisterFilter(ic);
@@ -371,17 +377,17 @@ _XimProtoGetICValues(xic, arg)
 	buf_size = BUFSIZE;
 	ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
 				 _XimGetICValuesCheck, (XPointer)ic);
-	if(ret_code == XIM_TRUE) {
+	if (ret_code == XIM_TRUE) {
 	    preply = reply;
-	} else if(ret_code == XIM_OVERFLOW) {
-	    if(len <= 0) {
+	} else if (ret_code == XIM_OVERFLOW) {
+	    if (len <= 0) {
 		preply = reply;
 	    } else {
 		buf_size = (int)len;
 		preply = (XPointer)Xmalloc(len);
 		ret_code = _XimRead(im, &len, preply, buf_size,
 				_XimGetICValuesCheck, (XPointer)ic);
-		if(ret_code != XIM_TRUE) {
+		if (ret_code != XIM_TRUE) {
 		    if (preply != reply)
 		        Xfree(preply);
 		    return arg->name;
@@ -393,7 +399,7 @@ _XimProtoGetICValues(xic, arg)
 	buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
 	if (*((CARD8 *)preply) == XIM_ERROR) {
 	    _XimProcError(im, 0, (XPointer)&buf_s[3]);
-	    if(reply != preply)
+	    if (reply != preply)
 		Xfree(preply);
 	    return arg->name;
 	}
@@ -778,14 +784,14 @@ _XimProtoSetICValues(xic, arg)
     buf_size = BUFSIZE;
     ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
 					_XimSetICValuesCheck, (XPointer)ic);
-    if(ret_code == XIM_TRUE) {
+    if (ret_code == XIM_TRUE) {
 	preply = reply;
-    } else if(ret_code == XIM_OVERFLOW) {
+    } else if (ret_code == XIM_OVERFLOW) {
 	buf_size = (int)len;
 	preply = (XPointer)Xmalloc(buf_size);
 	ret_code = _XimRead(im, &len, preply, buf_size,
 					_XimSetICValuesCheck, (XPointer)ic);
-	if(ret_code != XIM_TRUE) {
+	if (ret_code != XIM_TRUE) {
 	    Xfree(preply);
 	    ic->private.proto.waitCallback = False;
 	    return tmp_name;
@@ -798,11 +804,11 @@ _XimProtoSetICValues(xic, arg)
     buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
     if (*((CARD8 *)preply) == XIM_ERROR) {
 	_XimProcError(im, 0, (XPointer)&buf_s[3]);
-	if(reply != preply)
+	if (reply != preply)
 	    Xfree(preply);
 	return tmp_name;
     }
-    if(reply != preply)
+    if (reply != preply)
 	Xfree(preply);
 
     return name;
@@ -922,7 +928,7 @@ _XimProtoDestroyIC(xic)
 	buf_size = BUFSIZE;
 	ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
 					_XimDestroyICCheck, (XPointer)ic);
-	if(ret_code == XIM_OVERFLOW) {
+	if (ret_code == XIM_OVERFLOW) {
 	    buf_size = len;
 	    preply = (XPointer)Xmalloc(buf_size);
 	    (void)_XimRead(im, &len, preply, buf_size,
@@ -1064,6 +1070,77 @@ _XimResetICCheck(im, len, data, arg)
 }
 
 Private char *
+_XimProtoReset(xic, retfunc)
+    XIC		 xic;
+    char *     (*retfunc) (Xim im, Xic ic, XPointer buf);
+{
+    Xic		 ic = (Xic)xic;
+    Xim	 	 im = (Xim)ic->core.im;
+    CARD32	 buf32[BUFSIZE/4];
+    CARD8	*buf = (CARD8 *)buf32;
+    CARD16	*buf_s = (CARD16 *)&buf[XIM_HEADER_SIZE];
+    INT16	 len;
+    CARD32	 reply32[BUFSIZE/4];
+    char	*reply = (char *)reply32;
+    XPointer	 preply;
+    int		 buf_size;
+    int		 ret_code;
+    char	*commit;
+
+    if (!IS_IC_CONNECTED(ic))
+	return (char *)NULL;
+
+    buf_s[0] = im->private.proto.imid;		/* imid */
+    buf_s[1] = ic->private.proto.icid;		/* icid */
+
+    len = sizeof(CARD16)			/* sizeof imid */
+	+ sizeof(CARD16);			/* sizeof icid */
+
+    _XimSetHeader((XPointer)buf, XIM_RESET_IC, 0, &len);
+    if (!(_XimWrite(im, len, (XPointer)buf)))
+	return NULL;
+    _XimFlush(im);
+    ic->private.proto.waitCallback = True;
+    buf_size = BUFSIZE;
+    ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
+    					_XimResetICCheck, (XPointer)ic);
+    if (ret_code == XIM_TRUE) {
+    	preply = reply;
+    } else if (ret_code == XIM_OVERFLOW) {
+    	if (len < 0) {
+    	    preply = reply;
+    	} else {
+    	    buf_size = len;
+    	    preply = (XPointer)Xmalloc(buf_size);
+    	    ret_code = _XimRead(im, &len, preply, buf_size,
+    					_XimResetICCheck, (XPointer)ic);
+    	    if (ret_code != XIM_TRUE) {
+		Xfree(preply);
+    		ic->private.proto.waitCallback = False;
+    		return NULL;
+    	    }
+    	}
+    } else {
+	ic->private.proto.waitCallback = False;
+	return NULL;
+    }
+    ic->private.proto.waitCallback = False;
+    buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
+    if (*((CARD8 *)preply) == XIM_ERROR) {
+	_XimProcError(im, 0, (XPointer)&buf_s[3]);
+    	if (reply != preply)
+    	    free(preply);
+	return NULL;
+    }
+
+    commit = retfunc(im, ic, (XPointer)&buf_s[2]);
+
+    if (reply != preply)
+    	Xfree(preply);
+    return commit;
+}
+
+Private char *
 _XimCommitedMbString(im, ic, buf)
     Xim			 im;
     Xic			 ic;
@@ -1082,7 +1159,7 @@ _XimCommitedMbString(im, ic, buf)
     for (info = ic->private.proto.commit_info; info; info = info->next)
 	len += info->string_len;
     len += buf_s[0];
-    if( len == 0 )
+    if ( len == 0 )
 	return( NULL );
 
     if (!(commit = (char *)Xmalloc(len + 1)))
@@ -1117,70 +1194,7 @@ Private char *
 _XimProtoMbReset(xic)
     XIC		 xic;
 {
-    Xic		 ic = (Xic)xic;
-    Xim	 	 im = (Xim)ic->core.im;
-    CARD32	 buf32[BUFSIZE/4];
-    CARD8	*buf = (CARD8 *)buf32;
-    CARD16	*buf_s = (CARD16 *)&buf[XIM_HEADER_SIZE];
-    INT16	 len;
-    CARD32	 reply32[BUFSIZE/4];
-    char	*reply = (char *)reply32;
-    XPointer	 preply;
-    int		 buf_size;
-    int		 ret_code;
-    char	*commit;
-
-    if (!IS_IC_CONNECTED(ic))
-	return (char *)NULL;
-
-    buf_s[0] = im->private.proto.imid;		/* imid */
-    buf_s[1] = ic->private.proto.icid;		/* icid */
-
-    len = sizeof(CARD16)			/* sizeof imid */
-	+ sizeof(CARD16);			/* sizeof icid */
-
-    _XimSetHeader((XPointer)buf, XIM_RESET_IC, 0, &len);
-    if (!(_XimWrite(im, len, (XPointer)buf)))
-	return NULL;
-    _XimFlush(im);
-    ic->private.proto.waitCallback = True;
-    buf_size = BUFSIZE;
-    ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
-    					_XimResetICCheck, (XPointer)ic);
-    if(ret_code == XIM_TRUE) {
-    	preply = reply;
-    } else if(ret_code == XIM_OVERFLOW) {
-    	if(len < 0) {
-    	    preply = reply;
-    	} else {
-    	    buf_size = len;
-    	    preply = (XPointer)Xmalloc(buf_size);
-    	    ret_code = _XimRead(im, &len, preply, buf_size,
-    					_XimResetICCheck, (XPointer)ic);
-    	    if(ret_code != XIM_TRUE) {
-		Xfree(preply);
-    		ic->private.proto.waitCallback = False;
-    		return NULL;
-    	    }
-    	}
-    } else {
-	ic->private.proto.waitCallback = False;
-	return NULL;
-    }
-    ic->private.proto.waitCallback = False;
-    buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
-    if (*((CARD8 *)preply) == XIM_ERROR) {
-	_XimProcError(im, 0, (XPointer)&buf_s[3]);
-    	if(reply != preply)
-    	    free(preply);
-	return NULL;
-    }
-
-    commit = _XimCommitedMbString(im, ic, (XPointer)&buf_s[2]);
-
-    if(reply != preply)
-    	Xfree(preply);
-    return commit;
+    return _XimProtoReset(xic, _XimCommitedMbString);
 }
 
 Private wchar_t *
@@ -1202,7 +1216,7 @@ _XimCommitedWcString(im, ic, buf)
     for (info = ic->private.proto.commit_info; info; info = info->next)
 	len += info->string_len;
     len += buf_s[0];
-    if( len == 0 )
+    if ( len == 0 )
 	return( (wchar_t *)NULL );
 
     if (!(commit = (char *)Xmalloc(len + 1)))
@@ -1238,69 +1252,65 @@ Private wchar_t *
 _XimProtoWcReset(xic)
     XIC		 xic;
 {
-    Xic		 ic = (Xic)xic;
-    Xim	 	 im = (Xim)ic->core.im;
-    CARD32	 buf32[BUFSIZE/4];
-    CARD8	*buf = (CARD8 *)buf32;
-    CARD16	*buf_s = (CARD16 *)&buf[XIM_HEADER_SIZE];
-    INT16	 len;
-    CARD32	 reply32[BUFSIZE/4];
-    char	*reply = (char *)reply32;
-    XPointer	 preply;
-    int		 buf_size;
-    int		 ret_code;
-    wchar_t	*commit;
+    return (wchar_t *) _XimProtoReset(xic,
+			(char * (*) (Xim, Xic, XPointer)) _XimCommitedWcString);
+}
 
-    if (!IS_IC_CONNECTED(ic))
-	return (wchar_t *)NULL;
+Private char *
+_XimCommitedUtf8String(im, ic, buf)
+    Xim			 im;
+    Xic			 ic;
+    XPointer		 buf;
+{
+    CARD16		*buf_s = (CARD16 *)buf;
+    XimCommitInfo	 info;
+    int			 len;
+    int			 new_len;
+    char		*commit;
+    char		*new_commit = NULL;
+    char		*str;
+    Status		 status;
 
-    buf_s[0] = im->private.proto.imid;		/* imid */
-    buf_s[1] = ic->private.proto.icid;		/* icid */
+    len = 0;
+    for (info = ic->private.proto.commit_info; info; info = info->next)
+	len += info->string_len;
+    len += buf_s[0];
+    if ( len == 0 )
+	return( NULL );
 
-    len = sizeof(CARD16)			/* sizeof imid */
-	+ sizeof(CARD16);			/* sizeof icid */
+    if (!(commit = (char *)Xmalloc(len + 1)))
+	goto Error_On_Reset;
 
-    _XimSetHeader((XPointer)buf, XIM_RESET_IC, 0, &len);
-    if (!(_XimWrite(im, len, (XPointer)buf)))
-	return NULL;
-    _XimFlush(im);
-    ic->private.proto.waitCallback = True;
-    buf_size = BUFSIZE;
-    ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
-    					_XimResetICCheck, (XPointer)ic);
-    if(ret_code == XIM_TRUE) {
-    	preply = reply;
-    } else if(ret_code == XIM_OVERFLOW) {
-    	if(len <= 0) {
-    	    preply = reply;
-    	} else {
-    	    buf_size = len;
-    	    preply = (XPointer)Xmalloc(buf_size);
-    	    ret_code = _XimRead(im, &len, preply, buf_size,
-    					_XimResetICCheck, (XPointer)ic);
-	    if(ret_code != XIM_TRUE) {
-		Xfree(preply);
-		ic->private.proto.waitCallback = False;
-		return NULL;
-	    }
-    	}
-    } else {
-	ic->private.proto.waitCallback = False;
-	return NULL;
+    str = commit;
+    for (info = ic->private.proto.commit_info; info; info = info->next) {
+	(void)memcpy(str, info->string, info->string_len);
+	str += info->string_len;
     }
-    ic->private.proto.waitCallback = False;
-    buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
-    if (*((CARD8 *)preply) == XIM_ERROR) {
-	_XimProcError(im, 0, (XPointer)&buf_s[3]);
-    	if(reply != preply)
-    	    free(preply);
-	return NULL;
+    (void)memcpy(str, (char *)&buf_s[1], buf_s[0]);
+    commit[len] = '\0';
+
+    new_len = im->methods->ctstoutf8((XIM)im, commit, len, NULL, 0, &status);
+    if (status != XLookupNone) {
+	if (!(new_commit = Xmalloc(new_len + 1))) {
+	    Xfree(commit);
+	    goto Error_On_Reset;
+	}
+	(void)im->methods->ctstoutf8((XIM)im, commit, len,
+						new_commit, new_len, NULL);
+	new_commit[new_len] = '\0';
     }
+    Xfree(commit);
 
-    commit = _XimCommitedWcString(im, ic, (XPointer)&buf_s[2]);
+Error_On_Reset:
+    _XimFreeCommitInfo( ic );
+    return new_commit;
+}
 
-    Xfree(preply);
-    return commit;
+Private char *
+_XimProtoUtf8Reset(xic)
+    XIC		 xic;
+{
+    return _XimProtoReset(xic, _XimCommitedUtf8String);
 }
 
 Private XICMethodsRec ic_methods = {
@@ -1311,8 +1321,10 @@ Private XICMethodsRec ic_methods = {
     _XimProtoGetICValues,	/* get_values */
     _XimProtoMbReset,		/* mb_reset */
     _XimProtoWcReset,		/* wc_reset */
+    _XimProtoUtf8Reset,		/* utf8_reset */
     _XimProtoMbLookupString,	/* mb_lookup_string */
     _XimProtoWcLookupString,	/* wc_lookup_string */
+    _XimProtoUtf8LookupString	/* utf8_lookup_string */
 };
 
 Private Bool
@@ -1351,12 +1363,12 @@ _XimDelayModeCreateIC(ic, values, res, num)
 
     _XimSetICMode(res, num, input_style);
 
-    if(_XimSetICValueData(ic, (XPointer)&ic_values, res, num,
+    if (_XimSetICValueData(ic, (XPointer)&ic_values, res, num,
 					values, XIM_CREATEIC, False)) {
 	return False;
     }
     _XimSetCurrentICValues(ic, &ic_values);
-    if(!_XimSetICDefaults(ic, (XPointer)&ic_values,
+    if (!_XimSetICDefaults(ic, (XPointer)&ic_values,
 					XIM_SETICDEFAULTS, res, num)) {
 	return False;
     }
@@ -1543,17 +1555,17 @@ _XimProtoCreateIC(xim, arg)
     buf_size = BUFSIZE;
     ret_code = _XimRead(im, &len, (XPointer)reply, buf_size,
 						 _XimCreateICCheck, 0);
-    if(ret_code == XIM_TRUE) {
+    if (ret_code == XIM_TRUE) {
 	preply = reply;
-    } else if(ret_code == XIM_OVERFLOW) {
-	if(len <= 0) {
+    } else if (ret_code == XIM_OVERFLOW) {
+	if (len <= 0) {
 	    preply = reply;
 	} else {
 	    buf_size = (int)len;
 	    preply = (XPointer)Xmalloc(buf_size);
 	    ret_code = _XimRead(im, &len, preply, buf_size,
 						 _XimCreateICCheck, 0);
-	    if(ret_code != XIM_TRUE) {
+	    if (ret_code != XIM_TRUE) {
 		Xfree(preply);
 		ic->private.proto.waitCallback = False;
 		goto ErrorOnCreatingIC;
@@ -1567,14 +1579,14 @@ _XimProtoCreateIC(xim, arg)
     buf_s = (CARD16 *)((char *)preply + XIM_HEADER_SIZE);
     if (*((CARD8 *)preply) == XIM_ERROR) {
 	_XimProcError(im, 0, (XPointer)&buf_s[3]);
-	if(reply != preply)
+	if (reply != preply)
 	    Xfree(preply);
 	goto ErrorOnCreatingIC;
     }
 
     ic->private.proto.icid = buf_s[1];		/* icid */
-    if(reply != preply)
-	    Xfree(preply);
+    if (reply != preply)
+	Xfree(preply);
     MARK_IC_CONNECTED(ic);
     return (XIC)ic;
 

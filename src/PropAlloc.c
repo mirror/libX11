@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/PropAlloc.c,v 1.4 2001/12/14 19:54:03 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xutil.h"
@@ -58,7 +59,7 @@ XClassHint *XAllocClassHint ()
 {
     register XClassHint *h;
 
-    if ((h = (XClassHint *) Xcalloc (1, (unsigned) sizeof (XClassHint)))) 
+    if ((h = (XClassHint *) Xcalloc (1, (unsigned) sizeof (XClassHint))))
       h->res_name = h->res_class = NULL;
 
     return h;

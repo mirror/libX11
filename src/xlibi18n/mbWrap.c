@@ -50,10 +50,22 @@ from The Open Group.
  * 
  *		 M. Collins		OSF  
  */				
+/* $XFree86: xc/lib/X11/mbWrap.c,v 1.6 2001/12/14 19:54:10 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 
+#if NeedFunctionPrototypes
+void
+XmbDrawText(
+    Display            *dpy,
+    Drawable            d,
+    GC                  gc,
+    int                 x,
+    int                 y,
+    XmbTextItem        *text_items,
+    int                 nitems)
+#else
 void
 XmbDrawText(dpy, d, gc, x, y, text_items, nitems)
     Display            *dpy;
@@ -62,8 +74,9 @@ XmbDrawText(dpy, d, gc, x, y, text_items, nitems)
     int                 x, y;
     XmbTextItem        *text_items;
     int                 nitems;
+#endif
 {
-    register XFontSet fs;
+    register XFontSet fs = NULL;
     register XmbTextItem *p = text_items;
     register int i = nitems;
     register int esc;
@@ -105,7 +118,7 @@ XmbDrawString(dpy, d, font_set, gc, x, y, text, text_len)
     XFontSet            font_set;
     GC                  gc;
     int                 x, y;
-    char               *text;
+    _Xconst char       *text;
     int                 text_len;
 #endif
 {
@@ -133,7 +146,7 @@ XmbDrawImageString(dpy, d, font_set, gc, x, y, text, text_len)
     XFontSet            font_set;
     GC                  gc;
     int                 x, y;
-    char               *text;
+    _Xconst char       *text;
     int                 text_len;
 #endif
 {
@@ -151,7 +164,7 @@ XmbTextEscapement(
 int 
 XmbTextEscapement(font_set, text, text_len)
     XFontSet        font_set;
-    char           *text;
+    _Xconst char   *text;
     int             text_len;
 #endif
 {
@@ -172,7 +185,7 @@ int
 XmbTextExtents(font_set, text, text_len,
 	       overall_ink_extents, overall_logical_extents)
     XFontSet        font_set;
-    char           *text;
+    _Xconst char   *text;
     int             text_len;
     XRectangle     *overall_ink_extents;
     XRectangle     *overall_logical_extents;
@@ -203,7 +216,7 @@ XmbTextPerCharExtents(font_set, text, text_len,
 		      buffer_size, num_chars,
 		      max_ink_extents, max_logical_extents)
     XFontSet        font_set;
-    char           *text;
+    _Xconst char   *text;
     int             text_len;
     XRectangle     *ink_extents_buffer;
     XRectangle     *logical_extents_buffer;

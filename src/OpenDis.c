@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/OpenDis.c,v 3.12 2001/12/14 19:54:03 dawes Exp $ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
@@ -32,10 +33,11 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xatom.h>
 #include "bigreqstr.h"
 #include <stdio.h>
+#include "Xintconn.h"
 
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
+#ifdef XKB
+#include "XKBlib.h"
+#endif /* XKB */
 
 #ifdef X_NOT_POSIX
 #define Size_t unsigned int
@@ -50,32 +52,30 @@ typedef struct {
     int opcode;
 } _XBigReqState;
 
-extern int _Xdebug;
 #ifdef WIN32
 int *_Xdebug_p = &_Xdebug;
 #endif
 
 #ifdef XTHREADS
-int  (*_XInitDisplayLock_fn)() = NULL;
-void (*_XFreeDisplayLock_fn)() = NULL;
+#include "locking.h"
+int  (*_XInitDisplayLock_fn)(Display *dpy) = NULL;
+void (*_XFreeDisplayLock_fn)(Display *dpy) = NULL;
 
 #define InitDisplayLock(d)	(_XInitDisplayLock_fn ? (*_XInitDisplayLock_fn)(d) : Success)
 #define FreeDisplayLock(d)	if (_XFreeDisplayLock_fn) (*_XFreeDisplayLock_fn)(d)
 #else
 #define InitDisplayLock(dis) Success
 #define FreeDisplayLock(dis)
-#endif
+#endif /* XTHREADS */
 
 static xReq _dummy_request = {
 	0, 0, 0
 };
 
-static void OutOfMemory();
-static Bool _XBigReqHandler();
+static void OutOfMemory(Display *dpy, char *setup);
+static Bool _XBigReqHandler(Display *dpy, xReply *rep, char *buf, int len,
+				XPointer data);
 
-extern Bool _XWireToEvent();
-extern Status _XUnknownNativeEvent();
-extern Bool _XUnknownWireEvent();
 /* 
  * Connects to a server, creates a Display object and returns a pointer to
  * the newly created Display back to the caller.
@@ -114,10 +114,9 @@ Display *XOpenDisplay (display)
 	char *conn_auth_name, *conn_auth_data;
 	int conn_auth_namelen, conn_auth_datalen;
 	unsigned long mask;
-	extern Bool _XSendClientPrefix();
-	extern XtransConnInfo _X11TransConnectDisplay();
-	extern XID _XAllocID();
-	extern void _XAllocIDs();
+
+	bzero((char *) &client, sizeof(client));
+	bzero((char *) &prefix, sizeof(prefix));
 
 	/*
 	 * If the display specifier string supplied as an argument to this 
@@ -248,7 +247,7 @@ Display *XOpenDisplay (display)
 	}	
 
 	/* Set up the output buffers. */
-	if ((dpy->bufptr = dpy->buffer = Xmalloc(BUFSIZE)) == NULL) {
+	if ((dpy->bufptr = dpy->buffer = Xcalloc(1, BUFSIZE)) == NULL) {
 	        OutOfMemory (dpy, setup);
 		return(NULL);
 	}
@@ -366,6 +365,14 @@ Display *XOpenDisplay (display)
 	dpy->max_request_size	= u.setup->maxRequestSize;
 	mask = dpy->resource_mask;
 	dpy->resource_shift	= 0;
+	if (!mask)
+	{
+	    fprintf (stderr, "Xlib: connection to \"%s\" invalid setup\n",
+		     fullname);
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
+    
 	while (!(mask & 1)) {
 	    dpy->resource_shift++;
 	    mask = mask >> 1;
@@ -375,6 +382,11 @@ Display *XOpenDisplay (display)
  * now extract the vendor string...  String must be null terminated,
  * padded to multiple of 4 bytes.
  */
+	/* Check for a sane vendor string length */
+	if (u.setup->nbytesVendor > 256) {
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
 	dpy->vendor = (char *) Xmalloc((unsigned) (u.setup->nbytesVendor + 1));
 	if (dpy->vendor == NULL) {
 	    OutOfMemory(dpy, setup);
@@ -385,6 +397,13 @@ Display *XOpenDisplay (display)
   	(void) strncpy(dpy->vendor, u.vendor, vendorlen);
 	dpy->vendor[vendorlen] = '\0';
  	vendorlen = (vendorlen + 3) & ~3;	/* round up */
+/*
+ * validate setup length
+ */
+	if ((int) setuplength - sz_xConnSetup - vendorlen < 0) {
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
 	memmove (setup, u.vendor + vendorlen,
 		 (int) setuplength - sz_xConnSetup - vendorlen);
  	u.vendor = setup;
@@ -563,6 +582,8 @@ Display *XOpenDisplay (display)
 
 	    if (_XReply (dpy, (xReply *) &reply, 0, xFalse)) {
 		if (reply.format == 8 && reply.propertyType == XA_STRING &&
+		    (reply.nItems + 1 > 0) &&
+		    (reply.nItems <= req->longLength * 4) &&
 		    (dpy->xdefaults = Xmalloc (reply.nItems + 1))) {
 		    _XReadPad (dpy, dpy->xdefaults, reply.nItems);
 		    dpy->xdefaults[reply.nItems] = '\0';

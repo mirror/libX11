@@ -26,18 +26,13 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Xlocale.h,v 1.4 2001/12/14 19:54:09 dawes Exp $ */
 
 #ifndef _XLOCALE_H_
 #define _XLOCALE_H_
 
 #include <X11/Xfuncproto.h>
 #include <X11/Xosdefs.h>
-
-#ifndef X_LOCALE
-#ifdef X_NOT_STDC_ENV
-#define X_LOCALE
-#endif
-#endif
 
 #ifndef X_LOCALE
 #include <locale.h>
@@ -61,9 +56,7 @@ _XFUNCPROTOEND
 
 #define setlocale _Xsetlocale
 
-#ifndef NULL
-#define NULL 0
-#endif
+#include <stddef.h>
 
 #endif /* X_LOCALE */
 

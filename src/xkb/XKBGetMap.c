@@ -25,6 +25,8 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
 
+/* $XFree86: xc/lib/X11/XKBGetMap.c,v 1.7 2003/02/04 03:49:33 dawes Exp $ */
+
 #define NEED_REPLIES
 #define NEED_EVENTS
 #define	NEED_MAP_READERS
@@ -467,8 +469,10 @@ XkbServerMapPtr		srv;
 	}
 	else {
 	    srv= xkb->server;
-	    bzero((char *)&srv->vmodmap[rep->firstVModMapKey],
-				rep->nVModMapKeys*sizeof(unsigned short));
+	    if (rep->nVModMapKeys > rep->firstVModMapKey)
+		bzero((char *)&srv->vmodmap[rep->firstVModMapKey],
+		      (rep->nVModMapKeys - rep->firstVModMapKey) *
+		      sizeof(unsigned short));
 	}
 	srv= xkb->server;
 	i= rep->totalVModMapKeys*SIZEOF(xkbVModMapWireDesc);
@@ -970,6 +974,7 @@ XkbGetMapChanges(dpy,xkb,changes)
 	UnlockDisplay(dpy);
 	return status;
     }
+    UnlockDisplay(dpy);
     return Success;
 }
 

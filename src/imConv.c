@@ -1,4 +1,4 @@
-/* $Xorg: imConv.c,v 1.5 2000/08/17 19:45:11 cpqbld Exp $ */
+/* $TOG: imConv.c /main/20 1998/06/17 15:46:41 kaleb $ */
 /******************************************************************
 
               Copyright 1991, 1992 by Fuji Xerox Co.,Ltd.
@@ -31,6 +31,9 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                 fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* 2000 Modifier: Ivan Pascal	The XFree86 Project.
+ */
+/* $XFree86: xc/lib/X11/imConv.c,v 1.31 2001/02/09 00:02:53 dawes Exp $ */
 
 #define NEED_EVENTS
 #include <stdio.h>
@@ -38,8 +41,6 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "Xlcint.h"
 #include "Ximint.h"
 #include "XlcPubI.h"
-#define XK_PUBLISHING
-#include "X11/keysym.h"
 
 #ifdef XKB
 /* 
@@ -53,699 +54,101 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #define	XLOOKUPSTRING XLookupString
 #endif
 
-/* bit (1<<i) means character is in codeset i */
-unsigned int _Xlatin1[128] = {
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-0x990ee, 0x88000, 0x89000, 0x89084, 0x0902e, 0x89000, 0x09080, 0x9908e,
-0x0908e, 0x89080, 0x88000, 0x89080, 0x89080, 0x990ee, 0x89000, 0x89008,
-0x9908e, 0x89080, 0x89084, 0x89084, 0x0908e, 0x89004, 0x89000, 0x99084,
-0x0900c, 0x89000, 0x88000, 0x89080, 0x09000, 0x09084, 0x09000, 0x88000,
-0x88004, 0x9800e, 0x9800e, 0x98008, 0x9800e, 0x98008, 0x98008, 0x88006,
-0x88004, 0x9800e, 0x88004, 0x9800e, 0x88004, 0x9800e, 0x9800e, 0x98004,
-0x90000, 0x88004, 0x88004, 0x98006, 0x9800e, 0x98008, 0x9800e, 0x8800e,
-0x98008, 0x88004, 0x9800e, 0x9800c, 0x9800e, 0x90002, 0x90000, 0x9800e,
-0x88004, 0x9800e, 0x9800e, 0x98008, 0x9800e, 0x98008, 0x98008, 0x88004,
-0x88004, 0x9800e, 0x88004, 0x9800e, 0x88004, 0x9800e, 0x9800e, 0x98004,
-0x90000, 0x88004, 0x88004, 0x98006, 0x9800e, 0x98008, 0x9800e, 0x8800e,
-0x98008, 0x88004, 0x9800e, 0x9800c, 0x9800e, 0x90002, 0x90000, 0x88000
-};
+typedef unsigned int ucs4_t;
 
-/* bit (1<<i) means character is in codeset i */
-unsigned int _Xlatin2[128] = {
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0,
-0x1800c, 0x10008, 0x00004, 0x00000, 0x0800c, 0x00000, 0x00000, 0x1800c,
-0x0800c, 0x00008, 0x00004, 0x00000, 0x00000, 0x1800c, 0x00008, 0x00004,
-0x1800c, 0x10008, 0x00008, 0x00000, 0x0800c, 0x00000, 0x00000, 0x00008,
-0x0800c, 0x00008, 0x00004, 0x00000, 0x00000, 0x00000, 0x00008, 0x00004,
-0x00000, 0x1800c, 0x1800c, 0x00000, 0x1800c, 0x00000, 0x00000, 0x08004,
-0x10008, 0x1800c, 0x10008, 0x1800c, 0x00000, 0x18008, 0x18008, 0x00000,
-0x00008, 0x00000, 0x00000, 0x18004, 0x1800c, 0x00000, 0x1800c, 0x0800c,
-0x00000, 0x00000, 0x0800c, 0x00000, 0x0800c, 0x10000, 0x00000, 0x1800c,
-0x00000, 0x1800c, 0x1800c, 0x00000, 0x1800c, 0x00000, 0x00000, 0x08004,
-0x10008, 0x1800c, 0x10008, 0x1800c, 0x00000, 0x1800c, 0x1800c, 0x00000,
-0x00008, 0x00000, 0x00000, 0x18004, 0x1800c, 0x00000, 0x1800c, 0x0800c,
-0x00000, 0x00000, 0x0800c, 0x00000, 0x0800c, 0x10000, 0x00000, 0x0000c
-};
-
-/* maps Cyrillic keysyms to 8859-5 */
-unsigned char _Xcyrillic[] = {
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* 0x80 - */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* 0x90 - */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0xf2, 0xf3, 0xf1, 0xf4, 0xf5, 0xf6, 0xf7, /* 0xa0 - */
-    0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0x00, 0xfe, 0xff,
-    0xf0, 0xa2, 0xa3, 0xa1, 0xa4, 0xa5, 0xa6, 0xa7, /* 0xb0 - */
-    0xa8, 0xa9, 0xaa, 0xab, 0xac, 0x00, 0xae, 0xaf,
-    0xee, 0xd0, 0xd1, 0xe6, 0xd4, 0xd5, 0xe4, 0xd3, /* 0xc0 - */
-    0xe5, 0xd8, 0xd9, 0xda, 0xdb, 0xdc, 0xdd, 0xde,
-    0xdf, 0xef, 0xe0, 0xe1, 0xe2, 0xe3, 0xd6, 0xd2, /* 0xd0 - */
-    0xec, 0xeb, 0xd7, 0xe8, 0xed, 0xe9, 0xe7, 0xea,
-    0xce, 0xb0, 0xb1, 0xc6, 0xb4, 0xb5, 0xc4, 0xb3, /* 0xe0 - */
-    0xc5, 0xb8, 0xb9, 0xba, 0xbb, 0xbc, 0xbd, 0xbe,
-    0xbf, 0xcf, 0xc0, 0xc1, 0xc2, 0xc3, 0xb6, 0xb2, /* 0xf0 - */
-    0xcc, 0xcb, 0xb7, 0xc8, 0xcd, 0xc9, 0xc7, 0xca
-};
-
-/* maps Cyrillic keysyms to KOI8-R */
-unsigned char _Xkoi8[] =
-   {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0xa3, 0x00, 0x00, 0x00, 0x00, /* 10 */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0xb3, 0x00, 0x00, 0x00, 0x00, /* 11 */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, /* 12 */
-    0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf,
-    0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6, 0xd7, /* 13 */
-    0xd8, 0xd9, 0xda, 0xdb, 0xdc, 0xdd, 0xde, 0xdf,
-    0xe0, 0xe1, 0xe2, 0xe3, 0xe4, 0xe5, 0xe6, 0xe7, /* 14 */
-    0xe8, 0xe9, 0xea, 0xeb, 0xec, 0xed, 0xee, 0xef,
-    0xf0, 0xf1, 0xf2, 0xf3, 0xf4, 0xf5, 0xf6, 0xf7, /* 15 */
-    0xf8, 0xf9, 0xfa, 0xfb, 0xfc, 0xfd, 0xfe, 0xff};
-
-unsigned short _Xkoi8_size = sizeof _Xkoi8;
-
-/* maps Greek keysyms to 8859-7 */
-unsigned char _Xgreek[] = {
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* 0x80 - */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, /* 0x90 - */
-    0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0xb6, 0xb8, 0xb9, 0xba, 0xda, 0x00, 0xbc, /* 0xa0 - */
-    0xbe, 0xdb, 0x00, 0xbf, 0x00, 0x00, 0xb5, 0xaf,
-    0x00, 0xdc, 0xdd, 0xde, 0xdf, 0xfa, 0xc0, 0xfc, /* 0xb0 - */
-    0xfd, 0xfb, 0xe0, 0xfe, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, /* 0xc0 - */
-    0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf,
-    0xd0, 0xd1, 0xd3, 0x00, 0xd4, 0xd5, 0xd6, 0xd7, /* 0xd0 - */
-    0xd8, 0xd9, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
-    0x00, 0xe1, 0xe2, 0xe3, 0xe4, 0xe5, 0xe6, 0xe7, /* 0xe0 - */
-    0xe8, 0xe9, 0xea, 0xeb, 0xec, 0xed, 0xee, 0xef,
-    0xf0, 0xf1, 0xf3, 0xf2, 0xf4, 0xf5, 0xf6, 0xf7, /* 0xf0 - */
-    0xf8, 0xf9, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-};
-
-
-static unsigned short keysym_to_unicode_1a1_1ff[] = {
-            0x0104, 0x02d8, 0x0141, 0x0000, 0x013d, 0x015a, 0x0000, /* 0x01a0-0x01a7 */
-    0x0000, 0x0160, 0x015e, 0x0164, 0x0179, 0x0000, 0x017d, 0x017b, /* 0x01a8-0x01af */
-    0x0000, 0x0105, 0x02db, 0x0142, 0x0000, 0x013e, 0x015b, 0x02c7, /* 0x01b0-0x01b7 */
-    0x0000, 0x0161, 0x015f, 0x0165, 0x017a, 0x02dd, 0x017e, 0x017c, /* 0x01b8-0x01bf */
-    0x0154, 0x0000, 0x0000, 0x0102, 0x0000, 0x0139, 0x0106, 0x0000, /* 0x01c0-0x01c7 */
-    0x010c, 0x0000, 0x0118, 0x0000, 0x011a, 0x0000, 0x0000, 0x010e, /* 0x01c8-0x01cf */
-    0x0110, 0x0143, 0x0147, 0x0000, 0x0000, 0x0150, 0x0000, 0x0000, /* 0x01d0-0x01d7 */
-    0x0158, 0x016e, 0x0000, 0x0170, 0x0000, 0x0000, 0x0162, 0x0000, /* 0x01d8-0x01df */
-    0x0155, 0x0000, 0x0000, 0x0103, 0x0000, 0x013a, 0x0107, 0x0000, /* 0x01e0-0x01e7 */
-    0x010d, 0x0000, 0x0119, 0x0000, 0x011b, 0x0000, 0x0000, 0x010f, /* 0x01e8-0x01ef */
-    0x0111, 0x0144, 0x0148, 0x0000, 0x0000, 0x0151, 0x0000, 0x0000, /* 0x01f0-0x01f7 */
-    0x0159, 0x016f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0163, 0x02d9  /* 0x01f8-0x01ff */
-};
-
-static unsigned short keysym_to_unicode_2a1_2fe[] = {
-            0x0126, 0x0000, 0x0000, 0x0000, 0x0000, 0x0124, 0x0000, /* 0x02a0-0x02a7 */
-    0x0000, 0x0130, 0x0000, 0x011e, 0x0134, 0x0000, 0x0000, 0x0000, /* 0x02a8-0x02af */
-    0x0000, 0x0127, 0x0000, 0x0000, 0x0000, 0x0000, 0x0125, 0x0000, /* 0x02b0-0x02b7 */
-    0x0000, 0x0131, 0x0000, 0x011f, 0x0135, 0x0000, 0x0000, 0x0000, /* 0x02b8-0x02bf */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x010a, 0x0108, 0x0000, /* 0x02c0-0x02c7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x02c8-0x02cf */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0120, 0x0000, 0x0000, /* 0x02d0-0x02d7 */
-    0x011c, 0x0000, 0x0000, 0x0000, 0x0000, 0x016c, 0x015c, 0x0000, /* 0x02d8-0x02df */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x010b, 0x0109, 0x0000, /* 0x02e0-0x02e7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x02e8-0x02ef */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0121, 0x0000, 0x0000, /* 0x02f0-0x02f7 */
-    0x011d, 0x0000, 0x0000, 0x0000, 0x0000, 0x016c, 0x015d          /* 0x02f8-0x02ff */
-};
-
-static unsigned short keysym_to_unicode_3a2_3fe[] = {
-                    0x0138, 0x0156, 0x0000, 0x0128, 0x013b, 0x0000, /* 0x03a0-0x03a7 */
-    0x0000, 0x0000, 0x0112, 0x0122, 0x0166, 0x0000, 0x0000, 0x0000, /* 0x03a8-0x03af */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x013c, 0x0000, /* 0x03b0-0x03b7 */
-    0x0000, 0x0000, 0x0113, 0x0123, 0x0167, 0x014a, 0x0000, 0x014b, /* 0x03b8-0x03bf */
-    0x0100, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x012e, /* 0x03c0-0x03c7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0116, 0x0000, 0x0000, 0x012a, /* 0x03c8-0x03cf */
-    0x0000, 0x0145, 0x014c, 0x0136, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x03d0-0x03d7 */
-    0x0000, 0x0172, 0x0000, 0x0000, 0x0000, 0x0168, 0x016a, 0x0000, /* 0x03d8-0x03df */
-    0x0101, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x012f, /* 0x03e0-0x03e7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0117, 0x0000, 0x0000, 0x012b, /* 0x03e8-0x03ef */
-    0x0000, 0x0146, 0x014d, 0x0137, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x03f0-0x03f7 */
-    0x0000, 0x0173, 0x0000, 0x0000, 0x0000, 0x0169, 0x016b          /* 0x03f8-0x03ff */
-};
-
-static unsigned short keysym_to_unicode_4a1_4df[] = {
-            0x3002, 0x3008, 0x3009, 0x3001, 0x30fb, 0x30f2, 0x30a1, /* 0x04a0-0x04a7 */
-    0x30a3, 0x03a5, 0x30a7, 0x30a9, 0x30e3, 0x30e5, 0x30e7, 0x30c3, /* 0x04a8-0x04af */
-    0x30fc, 0x03a2, 0x30a4, 0x30a6, 0x30a8, 0x30aa, 0x30ab, 0x30ad, /* 0x04b0-0x04b7 */
-    0x30af, 0x30b1, 0x30b3, 0x30b5, 0x30b7, 0x30b9, 0x30bb, 0x30bd, /* 0x04b8-0x04bf */
-    0x30bf, 0x30c1, 0x30c4, 0x30c6, 0x30c8, 0x30ca, 0x30cb, 0x30cc, /* 0x04c0-0x04c7 */
-    0x30cd, 0x30ce, 0x30cf, 0x30d2, 0x30d5, 0x30d8, 0x30db, 0x30de, /* 0x04c8-0x04cf */
-    0x30df, 0x30e0, 0x30e1, 0x30e2, 0x30e4, 0x30e6, 0x30e8, 0x30e9, /* 0x04d0-0x04d7 */
-    0x30ea, 0x30eb, 0x30ec, 0x30ed, 0x30ef, 0x30f3, 0x309b, 0x309c  /* 0x04d8-0x04df */
-};
-
-static unsigned short keysym_to_unicode_5ac_5f2[] = {
-                                    0x060c, 0x0000, 0x0000, 0x0000, /* 0x05ac-0x05af */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x05b0-0x05b7 */
-    0x0000, 0x0000, 0x0000, 0x061b, 0x0000, 0x0000, 0x0000, 0x061f, /* 0x05b8-0x05bf */
-    0x0000, 0x0621, 0x0622, 0x0623, 0x0624, 0x0625, 0x0626, 0x0627, /* 0x05c0-0x05c7 */
-    0x0628, 0x0629, 0x062a, 0x062b, 0x062c, 0x062d, 0x062e, 0x062f, /* 0x05c8-0x05cf */
-    0x0630, 0x0631, 0x0632, 0x0633, 0x0634, 0x0635, 0x0636, 0x0637, /* 0x05d0-0x05d7 */
-    0x0638, 0x0639, 0x063a, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x05d8-0x05df */
-    0x0640, 0x0641, 0x0642, 0x0643, 0x0644, 0x0645, 0x0646, 0x0647, /* 0x05e0-0x05e7 */
-    0x0648, 0x0649, 0x064a, 0x064b, 0x064c, 0x064d, 0x064e, 0x064f, /* 0x05e8-0x05ef */
-    0x0650, 0x0651, 0x0652                                          /* 0x05f0-0x05f7 */
-};
-
-static unsigned short keysym_to_unicode_6a1_6ff[] = {
-            0x0452, 0x0453, 0x0451, 0x0454, 0x0455, 0x0456, 0x0457, /* 0x06a0-0x06a7 */
-    0x0458, 0x0459, 0x045a, 0x045b, 0x045c, 0x0000, 0x045e, 0x045f, /* 0x06a8-0x06af */
-    0x2116, 0x0402, 0x0403, 0x0401, 0x0404, 0x0405, 0x0406, 0x0407, /* 0x06b0-0x06b7 */
-    0x0408, 0x0409, 0x040a, 0x040b, 0x040c, 0x0000, 0x040e, 0x040f, /* 0x06b8-0x06bf */
-    0x044e, 0x0430, 0x0431, 0x0446, 0x0434, 0x0435, 0x0444, 0x0433, /* 0x06c0-0x06c7 */
-    0x0445, 0x0438, 0x0439, 0x043a, 0x043b, 0x043c, 0x043d, 0x043e, /* 0x06c8-0x06cf */
-    0x043f, 0x044f, 0x0440, 0x0441, 0x0442, 0x0443, 0x0436, 0x0432, /* 0x06d0-0x06d7 */
-    0x044c, 0x044b, 0x0437, 0x0448, 0x044d, 0x0449, 0x0447, 0x044a, /* 0x06d8-0x06df */
-    0x042e, 0x0410, 0x0411, 0x0426, 0x0414, 0x0415, 0x0424, 0x0413, /* 0x06e0-0x06e7 */
-    0x0425, 0x0418, 0x0419, 0x041a, 0x041b, 0x041c, 0x041d, 0x041e, /* 0x06e8-0x06ef */
-    0x041f, 0x042f, 0x0420, 0x0421, 0x0422, 0x0423, 0x0416, 0x0412, /* 0x06f0-0x06f7 */
-    0x042c, 0x042d, 0x0417, 0x0428, 0x042d, 0x0429, 0x0427, 0x042a  /* 0x06f8-0x06ff */
-};
-
-static unsigned short keysym_to_unicode_7a1_7f9[] = {
-            0x0386, 0x0388, 0x0389, 0x038a, 0x03aa, 0x0000, 0x038c, /* 0x07a0-0x07a7 */
-    0x038e, 0x03ab, 0x0000, 0x038f, 0x0000, 0x0000, 0x0385, 0x2015, /* 0x07a8-0x07af */
-    0x0000, 0x03ac, 0x03ad, 0x03ae, 0x03af, 0x03ca, 0x0390, 0x03cc, /* 0x07b0-0x07b7 */
-    0x03cd, 0x03cb, 0x03b0, 0x03ce, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x07b8-0x07bf */
-    0x0000, 0x0391, 0x0392, 0x0393, 0x0394, 0x0395, 0x0396, 0x0397, /* 0x07c0-0x07c7 */
-    0x0398, 0x0399, 0x039a, 0x039b, 0x039c, 0x039d, 0x039e, 0x039f, /* 0x07c8-0x07cf */
-    0x03a0, 0x03a1, 0x03a2, 0x03a3, 0x03a4, 0x03a5, 0x03a6, 0x03a7, /* 0x07d0-0x07d7 */
-    0x03a8, 0x03a9, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x07d8-0x07df */
-    0x0000, 0x03b1, 0x03b2, 0x03b3, 0x03b4, 0x03b5, 0x03b6, 0x03b7, /* 0x07e0-0x07e7 */
-    0x03b8, 0x03b9, 0x03ba, 0x03bb, 0x03bc, 0x03bd, 0x03be, 0x03bf, /* 0x07e8-0x07ef */
-    0x03c0, 0x03c1, 0x03c2, 0x03c3, 0x03c4, 0x03c5, 0x03c6, 0x03c7, /* 0x07f0-0x07f7 */
-    0x03c8, 0x03c9                                                  /* 0x07f8-0x07ff */
-};
-
-static unsigned short keysym_to_unicode_8a4_8fe[] = {
-                                    0x2320, 0x2321, 0x0000, 0x231c, /* 0x08a0-0x08a7 */
-    0x231d, 0x231e, 0x231f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x08a8-0x08af */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x08b0-0x08b7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x2264, 0x2260, 0x2265, 0x222b, /* 0x08b8-0x08bf */
-    0x2234, 0x0000, 0x221e, 0x0000, 0x0000, 0x2207, 0x0000, 0x0000, /* 0x08c0-0x08c7 */
-    0x2245, 0x2246, 0x0000, 0x0000, 0x0000, 0x0000, 0x22a2, 0x0000, /* 0x08c8-0x08cf */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x221a, 0x0000, /* 0x08d0-0x08d7 */
-    0x0000, 0x0000, 0x2282, 0x2283, 0x2229, 0x222a, 0x2227, 0x2228, /* 0x08d8-0x08df */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x08e0-0x08e7 */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, /* 0x08e8-0x08ef */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0192, 0x0000, /* 0x08f0-0x08f7 */
-    0x0000, 0x0000, 0x0000, 0x2190, 0x2191, 0x2192, 0x2193          /* 0x08f8-0x08ff */
-};
-
-static unsigned short keysym_to_unicode_9df_9f8[] = {
-                                                            0x2422, /* 0x09d8-0x09df */
-    0x2666, 0x25a6, 0x2409, 0x240c, 0x240d, 0x240a, 0x0000, 0x0000, /* 0x09e0-0x09e7 */
-    0x240a, 0x240b, 0x2518, 0x2510, 0x250c, 0x2514, 0x253c, 0x2500, /* 0x09e8-0x09ef */
-    0x0000, 0x0000, 0x0000, 0x0000, 0x251c, 0x2524, 0x2534, 0x252c, /* 0x09f0-0x09f7 */
-    0x2502                                                          /* 0x09f8-0x09ff */
-};
-
-static unsigned short keysym_to_unicode_aa1_afe[] = {
-            0x2003, 0x2002, 0x2004, 0x2005, 0x2007, 0x2008, 0x2009, /* 0x0aa0-0x0aa7 */
-    0x200a, 0x2014, 0x2013, 0x0000, 0x0000, 0x0000, 0x2026, 0x2025, /* 0x0aa8-0x0aaf */
-    0x2153, 0x2154, 0x2155, 0x2156, 0x2157, 0x2158, 0x2159, 0x215a, /* 0x0ab0-0x0ab7 */
-    0x2105, 0x0000, 0x0000, 0x2012, 0x2039, 0x2024, 0x203a, 0x0000, /* 0x0ab8-0x0abf */
-    0x0000, 0x0000, 0x0000, 0x215b, 0x215c, 0x215d, 0x215e, 0x0000, /* 0x0ac0-0x0ac7 */
-    0x0000, 0x2122, 0x2120, 0x00ae, 0x25c1, 0x25b7, 0x25cb, 0x25ad, /* 0x0ac8-0x0acf */
-    0x2018, 0x2019, 0x201c, 0x201d, 0x211e, 0x0000, 0x2032, 0x2033, /* 0x0ad0-0x0ad7 */
-    0x0000, 0x271d, 0x0000, 0x220e, 0x25c2, 0x2023, 0x25cf, 0x25ac, /* 0x0ad8-0x0adf */
-    0x25e6, 0x25ab, 0x25ae, 0x25b5, 0x25bf, 0x2606, 0x2022, 0x25aa, /* 0x0ae0-0x0ae7 */
-    0x25b4, 0x25be, 0x261a, 0x261b, 0x2663, 0x2666, 0x2665, 0x0000, /* 0x0ae8-0x0aef */
-    0x2720, 0x2020, 0x2021, 0x2713, 0x2612, 0x266f, 0x266d, 0x2642, /* 0x0af0-0x0af7 */
-    0x2640, 0x2121, 0x2315, 0x2117, 0x2038, 0x201a, 0x201e          /* 0x0af8-0x0aff */
-};
-
-/* none of the APL keysyms match the Unicode characters */
-
-static unsigned short keysym_to_unicode_cdf_cfa[] = {
-                                                            0x2017, /* 0x0cd8-0x0cdf */
-    0x05d0, 0x05d1, 0x05d2, 0x05d3, 0x05d4, 0x05d5, 0x05d6, 0x05d7, /* 0x0ce0-0x0ce7 */
-    0x05d8, 0x05d9, 0x05da, 0x05db, 0x05dc, 0x05dd, 0x05de, 0x05df, /* 0x0ce8-0x0cef */
-    0x05e0, 0x05e1, 0x05e2, 0x05e3, 0x05e4, 0x05e5, 0x05e6, 0x05e7, /* 0x0cf0-0x0cf7 */
-    0x05e8, 0x05e9, 0x05ea                                          /* 0x0cf8-0x0cff */
-};
-
-static unsigned short keysym_to_unicode_da1_df9[] = {
-            0x0e01, 0x0e02, 0x0e03, 0x0e04, 0x0e05, 0x0e06, 0x0e07, /* 0x0da0-0x0da7 */
-    0x0e08, 0x0e09, 0x0e0a, 0x0e0b, 0x0e0c, 0x0e0d, 0x0e0e, 0x0e0f, /* 0x0da8-0x0daf */
-    0x0e10, 0x0e11, 0x0e12, 0x0e13, 0x0e14, 0x0e15, 0x0e16, 0x0e17, /* 0x0db0-0x0db7 */
-    0x0e18, 0x0e19, 0x0e1a, 0x0e1b, 0x0e1c, 0x0e1d, 0x0e1e, 0x0e1f, /* 0x0db8-0x0dbf */
-    0x0e20, 0x0e21, 0x0e22, 0x0e23, 0x0e24, 0x0e25, 0x0e26, 0x0e27, /* 0x0dc0-0x0dc7 */
-    0x0e28, 0x0e29, 0x0e2a, 0x0e2b, 0x0e2c, 0x0e2d, 0x0e2e, 0x0e2f, /* 0x0dc8-0x0dcf */
-    0x0e30, 0x0e31, 0x0e32, 0x0e33, 0x0e34, 0x0e35, 0x0e36, 0x0e37, /* 0x0dd0-0x0dd7 */
-    0x0e38, 0x0e39, 0x0e3a, 0x0e3b, 0x0e3c, 0x0e3d, 0x0e3e, 0x0e3f, /* 0x0dd8-0x0ddf */
-    0x0e40, 0x0e41, 0x0e42, 0x0e43, 0x0e44, 0x0e45, 0x0e46, 0x0e47, /* 0x0de0-0x0de7 */
-    0x0e48, 0x0e49, 0x0e4a, 0x0e4b, 0x0e4c, 0x0e4d, 0x0000, 0x0000, /* 0x0de8-0x0def */
-    0x0e50, 0x0e51, 0x0e52, 0x0e53, 0x0e54, 0x0e55, 0x0e56, 0x0e57, /* 0x0df0-0x0df7 */
-    0x0e58, 0x0e59                                                  /* 0x0df8-0x0dff */
-};
-
-static unsigned short keysym_to_unicode_ea0_eff[] = {
-    0x0000, 0x1101, 0x1101, 0x11aa, 0x1102, 0x11ac, 0x11ad, 0x1103, /* 0x0ea0-0x0ea7 */
-    0x1104, 0x1105, 0x11b0, 0x11b1, 0x11b2, 0x11b3, 0x11b4, 0x11b5, /* 0x0ea8-0x0eaf */
-    0x11b6, 0x1106, 0x1107, 0x1108, 0x11b9, 0x1109, 0x110a, 0x110b, /* 0x0eb0-0x0eb7 */
-    0x110c, 0x110d, 0x110e, 0x110f, 0x1110, 0x1111, 0x1112, 0x1161, /* 0x0eb8-0x0ebf */
-    0x1162, 0x1163, 0x1164, 0x1165, 0x1166, 0x1167, 0x1168, 0x1169, /* 0x0ec0-0x0ec7 */
-    0x116a, 0x116b, 0x116c, 0x116d, 0x116e, 0x116f, 0x1170, 0x1171, /* 0x0ec8-0x0ecf */
-    0x1172, 0x1173, 0x1174, 0x1175, 0x11a8, 0x11a9, 0x11aa, 0x11ab, /* 0x0ed0-0x0ed7 */
-    0x11ac, 0x11ad, 0x11ae, 0x11af, 0x11b0, 0x11b1, 0x11b2, 0x11b3, /* 0x0ed8-0x0edf */
-    0x11b4, 0x11b5, 0x11b6, 0x11b7, 0x11b8, 0x11b9, 0x11ba, 0x11bb, /* 0x0ee0-0x0ee7 */
-    0x11bc, 0x11bd, 0x11be, 0x11bf, 0x11c0, 0x11c1, 0x11c2, 0x0000, /* 0x0ee8-0x0eef */
-    0x0000, 0x0000, 0x1140, 0x0000, 0x0000, 0x1159, 0x119e, 0x0000, /* 0x0ef0-0x0ef7 */
-    0x11eb, 0x0000, 0x11f9, 0x0000, 0x0000, 0x0000, 0x0000, 0x20a9, /* 0x0ef8-0x0eff */
-};
-
-static unsigned short keysym_to_unicode_13bc_13be[] = {
-                                    0x0152, 0x0153, 0x0178          /* 0x13b8-0x13bf */
-};
-
-static unsigned short keysym_to_unicode_20a0_20ac[] = {
-    0x20a0, 0x20a1, 0x20a2, 0x20a3, 0x20a4, 0x20a5, 0x20a6, 0x20a7, /* 0x20a0-0x20a7 */
-    0x20a8, 0x20a9, 0x20aa, 0x20ab, 0x20ac                          /* 0x20a8-0x20af */
-};
-
-static int keysym_to_ucs4(keysym)
-    KeySym keysym;
-{
-    if (keysym > 0 && keysym < 0x100)
-	return keysym;
-    else if (keysym > 0x1a0 && keysym < 0x200)
-	return keysym_to_unicode_1a1_1ff[keysym - 0x1a1];
-    else if (keysym > 0x2a0 && keysym < 0x2ff)
-	return keysym_to_unicode_2a1_2fe[keysym - 0x2a1];
-    else if (keysym > 0x3a1 && keysym < 0x3ff)
-	return keysym_to_unicode_3a2_3fe[keysym - 0x3a2];
-    else if (keysym > 0x4a0 && keysym < 0x4e0)
-	return keysym_to_unicode_4a1_4df[keysym - 0x4a1];
-    else if (keysym > 0x5ab && keysym < 0x5f3)
-	return keysym_to_unicode_5ac_5f2[keysym - 0x5ac];
-    else if (keysym > 0x6a0 && keysym < 0x700)
-	return keysym_to_unicode_6a1_6ff[keysym - 0x6a1];
-    else if (keysym > 0x7a0 && keysym < 0x7fa)
-	return keysym_to_unicode_7a1_7f9[keysym - 0x7a1];
-    else if (keysym > 0x8a3 && keysym < 0x8ff)
-	return keysym_to_unicode_8a4_8fe[keysym - 0x8a4];
-    else if (keysym > 0x9de && keysym < 0x9f9)
-	return keysym_to_unicode_9df_9f8[keysym - 0x9df];
-    else if (keysym > 0xaa0 && keysym < 0xaff)
-	return keysym_to_unicode_aa1_afe[keysym - 0xaa1];
-    else if (keysym > 0xcde && keysym < 0xcfb)
-	return keysym_to_unicode_cdf_cfa[keysym - 0xcdf];
-    else if (keysym > 0xda0 && keysym < 0xdfa)
-	return keysym_to_unicode_da1_df9[keysym - 0xda1];
-    else if (keysym > 0xe9f && keysym < 0xf00)
-	return keysym_to_unicode_ea0_eff[keysym - 0xea0];
-    else if (keysym > 0x13bb && keysym < 0x13bf)
-	return keysym_to_unicode_13bc_13be[keysym - 0x13bc];
-    else if (keysym > 0x209f && keysym < 0x20ad)
-	return keysym_to_unicode_20a0_20ac[keysym - 0x20a0];
-    else 
-	return 0;
-}
-
-struct CodesetRec {
-    unsigned long locale_code;
-    char* locale_name;
-    char* escape_seq;
-};
-
-#define sLatin1	0L
-#define sLatin2	1L
-#define sLatin3	2L
-#define sLatin4	3L
-#define sKana	4L
-#define sX0201  0x01000004L
-#define sArabic	5L
-#define sCyrillic	6L
-#define sKoi8	0x01000006L
-#define sGreek	7L
-#define sHebrew	12L
-#define sThai	13L
-#define sKorean	14L
-#define sLatin5	15L
-#define sLatin6	16L
-#define sLatin7	17L
-#define sLatin8	18L
-#define sLatin9	19L
-#define sCurrency 32L
-#define sUTF8	0x02000000L
-
-static struct CodesetRec CodesetTable[] = {
-    {sLatin1,	"ISO8859-1",	"\033-A"},
-    {sLatin2,	"ISO8859-2",	"\033-B"},
-    {sLatin3,	"ISO8859-3",	"\033-C"},
-    {sLatin4,	"ISO8859-4",	"\033-D"},
-    {sArabic,	"ISO8859-6",	"\033-G"},
-    {sCyrillic,	"ISO8859-5",	"\033-L"},
-    {sGreek,	"ISO8859-7",	"\033-F"},
-    {sHebrew,	"ISO8859-8",	"\033-H"},
-    {sLatin5,	"ISO8859-9",	"\033-M"},
-    {sLatin6,	"ISO8859-10",	"\033-V"},
-    {sThai,	"TACTIS",	"\033-T"},
-    {sKorean,	"ko.euc",	"\033$(C"},
-    {sThai,	"ISO8859-11",	"\033-T"},
-#if 0
-    {sLatin8,	"ISO8859-12",	"\033-?"},/* Celtic, superceded by -14 */
-    {sLatin7,	"ISO8859-13",	"\033-?"},/* Baltic Rim */
-    {sLatin8	"ISO8859-14",	"\033-?"},/* Celtic */
+typedef int (*ucstocsConvProc)(
+#if NeedFunctionPrototypes
+    XPointer,
+    unsigned char *,
+    ucs4_t,
+    int
 #endif
-    {sUTF8,	"utf8",		"\033%B"},
-    /* Non-standard */
-    {sKoi8,	"KOI8-R", "\033%/1\200\210koi8-r\002"},
-    {sLatin9,	"FCD8859-15",	"\033%/1\200\213fcd8859-15\002"},/* a.k.a. Latin-0 */
+);
+
+XPointer _Utf8GetConvByName(
+    const char *	name
+);
+
+struct SubstRec {
+    char*  encoding_name;
+    char*  charset_name;
 };
 
-#define NUM_CODESETS sizeof CodesetTable / sizeof CodesetTable[0]
+static struct SubstRec SubstTable[] = {
+    {"STRING", "ISO8859-1"},
+    {"TIS620", "TIS620-0"},
+    {"UTF-8",  "ISO10646-1"}
+};
+#define num_substitute (sizeof SubstTable / sizeof SubstTable[0])
 
-#ifndef XK_emdash
-#define XK_emdash 0xaa9
-#endif
-
-
-/* ================================================================ */
 /*
-File:	ConvertUTF.C
-Author: Mark E. Davis
-Copyright (C) 1994 Taligent, Inc. All rights reserved.
-
-This code is copyrighted. Under the copyright laws, this code may not
-be copied, in whole or part, without prior written consent of Taligent. 
-
-Taligent grants the right to use or reprint this code as long as this
-ENTIRE copyright notice is reproduced in the code or reproduction.
-The code is provided AS-IS, AND TALIGENT DISCLAIMS ALL WARRANTIES,
-EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.  IN
-NO EVENT WILL TALIGENT BE LIABLE FOR ANY DAMAGES WHATSOEVER (INCLUDING,
-WITHOUT LIMITATION, DAMAGES FOR LOSS OF BUSINESS PROFITS, BUSINESS
-INTERRUPTION, LOSS OF BUSINESS INFORMATION, OR OTHER PECUNIARY
-LOSS) ARISING OUT OF THE USE OR INABILITY TO USE THIS CODE, EVEN
-IF TALIGENT HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-BECAUSE SOME STATES DO NOT ALLOW THE EXCLUSION OR LIMITATION OF
-LIABILITY FOR CONSEQUENTIAL OR INCIDENTAL DAMAGES, THE ABOVE
-LIMITATION MAY NOT APPLY TO YOU.
-
-RESTRICTED RIGHTS LEGEND: Use, duplication, or disclosure by the
-government is subject to restrictions as set forth in subparagraph
-(c)(l)(ii) of the Rights in Technical Data and Computer Software
-clause at DFARS 252.227-7013 and FAR 52.227-19.
-
-This code may be protected by one or more U.S. and International
-Patents.
-
-TRADEMARKS: Taligent and the Taligent Design Mark are registered
-trademarks of Taligent, Inc.
-*/
-/* ================================================================ */
-
-#define kReplacementCharacter	0x0000FFFDUL
-#define kMaximumUCS2		0x0000FFFFUL
-#define kMaximumUCS4		0x7FFFFFFFUL
-
-typedef enum {
-	ok, 				/* conversion successful */
-	sourceExhausted,	/* partial character in source, but hit end */
-	targetExhausted		/* insuff. room in target for conversion */
-} ConversionResult;
-
-#define halfShift		10
-#define halfBase		0x0010000UL
-#define halfMask		0x3FFUL
-#define kSurrogateHighStart	0xD800UL
-#define kSurrogateHighEnd	0xDBFFUL
-#define kSurrogateLowStart	0xDC00UL
-#define kSurrogateLowEnd	0xDFFFUL
-
-typedef unsigned int UCS4; /* wchar_t, but on AIX, SunOS wchar_t is 16 bits */
-typedef unsigned char UTF8;
-
-static UCS4 offsetsFromUTF8[6] = {
-	0x00000000UL, 0x00003080UL, 0x000E2080UL, 
- 	0x03C82080UL, 0xFA082080UL, 0x82082080UL
-};
-
-static char bytesFromUTF8[256] = {
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-	1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-	2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2, 3,3,3,3,3,3,3,3,4,4,4,4,5,5,5,5
-};
-
-static UTF8 firstByteMark[7] = {
-	0x00, 0x00, 0xC0, 0xE0, 0xF0, 0xF8, 0xFC
-};
-
-static ConversionResult	ConvertUCS4toUTF8 (
-	UCS4** sourceStart, UCS4* sourceEnd, 
-	UTF8** targetStart, UTF8* targetEnd)
+ * Given the name of a charset, returns the pointer to convertors
+ * from UCS char to specified charset char.
+ * This converter is needed for _XimGetCharCode subroutine.
+ */
+XPointer
+#if NeedFunctionPrototypes
+_XimGetLocaleCode (
+    _Xconst char*	encoding_name)
+#else
+_XimGetLocaleCode (encoding_name)
+    _Xconst char*	encoding_name;
+#endif
 {
-	ConversionResult result = ok;
-	register UCS4* source = *sourceStart;
-	register UTF8* target = *targetStart;
-	while (source < sourceEnd) {
-		register UCS4 ch;
-		register unsigned short bytesToWrite = 0;
-		register const UCS4 byteMask = 0xBF;
-		register const UCS4 byteMark = 0x80; 
-		ch = *source++;
-		if (ch >= kSurrogateHighStart && ch <= kSurrogateHighEnd
-				&& source < sourceEnd) {
-			register UCS4 ch2 = *source;
-			if (ch2 >= kSurrogateLowStart && ch2 <= kSurrogateLowEnd) {
-				ch = ((ch - kSurrogateHighStart) << halfShift)
-					+ (ch2 - kSurrogateLowStart) + halfBase;
-				++source;
-			};
-		};
-		if (ch < 0x80) {		bytesToWrite = 1;
-		} else if (ch < 0x800) {	bytesToWrite = 2;
-		} else if (ch < 0x10000) {	bytesToWrite = 3;
-		} else if (ch < 0x200000) {	bytesToWrite = 4;
-		} else if (ch < 0x4000000) {	bytesToWrite = 5;
-		} else if (ch <= kMaximumUCS4){	bytesToWrite = 6;
-		} else {			bytesToWrite = 2;
-						ch = kReplacementCharacter;
-		}; /* I wish there were a smart way to avoid this conditional */
-		
-		target += bytesToWrite;
-		if (target > targetEnd) {
-			target -= bytesToWrite; result = targetExhausted; break;
-		};
-		switch (bytesToWrite) {	/* note: code falls through cases! */
-		case 6:	*--target = (ch | byteMark) & byteMask; ch >>= 6;
-		case 5:	*--target = (ch | byteMark) & byteMask; ch >>= 6;
-		case 4:	*--target = (ch | byteMark) & byteMask; ch >>= 6;
-		case 3:	*--target = (ch | byteMark) & byteMask; ch >>= 6;
-		case 2:	*--target = (ch | byteMark) & byteMask; ch >>= 6;
-		case 1:	*--target =  ch | firstByteMark[bytesToWrite];
-		};
-		target += bytesToWrite;
-	};
-	*sourceStart = source;
-	*targetStart = target;
-	return result;
+    XPointer cvt = _Utf8GetConvByName(encoding_name);
+    if (!cvt && encoding_name) {
+       int i;
+       for (i = 0; i < num_substitute; i++)
+           if (!strcmp(encoding_name, SubstTable[i].encoding_name))
+               return _Utf8GetConvByName(SubstTable[i].charset_name);
+    }
+    return cvt;
 }
 
+/*
+ * Returns the locale dependent representation of a keysym.
+ * The locale's encoding is passed in form of pointer to UCS convertor.
+ * The resulting multi-byte sequence is placed starting at buf (a buffer
+ * with nbytes bytes, nbytes should be >= 8) and is NUL terminated.
+ * Returns the length of the resulting multi-byte sequence, excluding the
+ * terminating NUL byte. Return 0 if the keysym is not representable in the
+ * locale
+ */
 /*ARGSUSED*/
 int 
 #if NeedFunctionPrototypes
-_XGetCharCode (
-     unsigned long locale_code,
-     KeySym 		keysym,
-     unsigned char*	buf,
-     int 		nbytes)
+_XimGetCharCode (
+    XPointer            ucs_conv,
+    KeySym 		keysym,
+    unsigned char*	buf,
+    int 		nbytes)
 #else
-_XGetCharCode (locale_code, keysym, buf, nbytes)
-    unsigned long locale_code;
+_XimGetCharCode (ucs_conv, keysym, buf, nbytes)
+    XPointer ucs_conv;
     KeySym keysym;
     unsigned char *buf;
     int nbytes;
 #endif
 {
-    unsigned long kset;
-    int	count,isLatin1;
+    int count = 0;
+    ucstocsConvProc cvt = (ucstocsConvProc) ucs_conv;
+    ucs4_t ucs4;
 
-    if (locale_code == sUTF8) {
-	unsigned int ucs4[2];
-	unsigned int* ucs4vec[1];
-	unsigned char* utf8vec[1];
-
-	ucs4[0] = keysym_to_ucs4 (keysym);
-	ucs4[1] = 0;
-	ucs4vec[0] = ucs4;
-	utf8vec[0] = buf;
-
-	(void) ConvertUCS4toUTF8 (ucs4vec, &ucs4[1], utf8vec, &buf[nbytes]);
-	return (strlen ((char*) buf));
+    if (keysym < 0x80) {
+        buf[0] = (char) keysym;
+        count = 1;
+    } else if (cvt) {
+        ucs4 = KeySymToUcs4(keysym);
+        if (ucs4)
+            count = (*cvt)((XPointer)NULL, buf, ucs4, nbytes);
     }
 
-    kset = locale_code&0xffffff;
-
-    isLatin1 = ((keysym&0xffffff00)==0);
-    count = 0;
-
-    if ( keysym == NoSymbol )
-	return 0;
-    else if ((keysym >> 8) == kset) {
-	count = 1;
-	switch (kset) {
-	case sKana:
-	    *buf = (unsigned char)(keysym & 0xff);
-	    if (buf[0] == 0x7e)
-		count = 0;
-	    break;
-	case sCyrillic:
-	    if (locale_code == sKoi8)
-		*buf = _Xkoi8[keysym & 0x7f];
-	    else
-		*buf = _Xcyrillic[keysym & 0x7f];
-	    break;
-	case sGreek:
-	    *buf = _Xgreek[keysym & 0x7f];
-	    if (!buf[0])
-		count = 0;
-	    break;
-	default:
-	    *buf = (unsigned char)(keysym & 0xff);
-	    break;
-	}
-    } else if ((locale_code != 0) && (isLatin1) && (keysym & 0x80)) {
-	if (_Xlatin1[keysym & 0x7f] & (1 << kset)) {
-	    /* Most non-latin1 locales use some latin-1 upper half
-	       keysyms as defined by bitpatterns in array latin1.
-	       Enforce it. */
-	    *buf = (unsigned char)(keysym & 0xff);
-	    count = 1;
-	} else {
-	    count= 1;
-	    if ((locale_code == sHebrew) && (keysym == XK_multiply))
-		*buf = (unsigned char)0xaa;
-	    else if ((locale_code == sHebrew) && (keysym == XK_division))
-		*buf = (unsigned char)0xba;
-	    else if ((locale_code == sCyrillic) && (keysym == XK_section))
-		*buf = (unsigned char)0xfd;
-	    else if ((locale_code == sX0201) && (keysym == XK_yen))
-		*buf = (unsigned char)0x5c;
-	    else count = 0;
-	}
-    } else if (isLatin1) {
-	if ((locale_code == sX0201) &&
-	    ((keysym == XK_backslash) || (keysym == XK_asciitilde)))
-	    count = 0;
-	if ( (keysym&0x80)==0 ) {
-	    *buf = (unsigned char)(keysym&0x7f);
-	    count = 1;
-	}
-    } else if ((keysym >> 8) == sLatin2) {
-	count = 1;
-	if ((keysym & 0x80) && (_Xlatin2[keysym & 0x7f] & (1 << kset)))
-	    *buf = (unsigned char)(keysym & 0xff);
-	else if (locale_code == sLatin5) {
-	    if (keysym == XK_Scedilla)
-		*buf = (unsigned char)0xde;
-	    else if (keysym == XK_scedilla)
-		*buf = (unsigned char)0xfe;
-	    else count = 0;
-	} else if (locale_code == sLatin9) {
-	    if (keysym == XK_Scaron)
-		*buf = (unsigned char)0xa6;
-	    else if (keysym == XK_scaron)
-		*buf = (unsigned char)0xa8;
-	    else if (keysym == XK_Zcaron)
-		*buf = (unsigned char)0xb4;
-	    else if (keysym == XK_zcaron)
-		*buf = (unsigned char)0xb8;
-	    else count = 0;
-	} else count = 0;
-    } else if ((keysym >> 8) == sLatin3) {
-	if (locale_code == sLatin5) {
-	    count = 1;
-	    switch (keysym) {
-	    case XK_Gbreve:	*buf = (unsigned char)0xd0; break;
-	    case XK_gbreve:	*buf = (unsigned char)0xf0; break;
-	    case XK_Scedilla:	*buf = (unsigned char)0xde; break;
-	    case XK_scedilla:	*buf = (unsigned char)0xfe; break;
-	    case XK_Iabovedot:	*buf = (unsigned char)0xdd; break;
-	    case XK_idotless:	*buf = (unsigned char)0xfd; break;
-	    default:  count = 0;
-	    }
-	}
-    } else if ((keysym >> 8) == sLatin4) {
-	if (locale_code == sLatin6) {
-	    count = 1;
-	    switch (keysym) {
-	    case XK_Emacron:	*buf = (unsigned char)0xa2; break;
-	    case XK_Gcedilla:	*buf = (unsigned char)0xa3; break;
-	    case XK_Imacron:	*buf = (unsigned char)0xa4; break;
-	    case XK_Lcedilla:	*buf = (unsigned char) 0xa8; break;
-	    case XK_Dstroke:	*buf = (unsigned char)0xa9; break;
-	    case XK_Scaron:	*buf = (unsigned char)0xaa; break;
-	    case XK_Tslash:	*buf = (unsigned char)0xab; break;
-	    case XK_Zcaron:	*buf = (unsigned char)0xac; break;
-	    case XK_Umacron:	*buf = (unsigned char)0xae; break;
-	    case XK_Utilde:	*buf = (unsigned char)0xd7; break;
-	    case XK_ENG:	*buf = (unsigned char)0xaf; break;
-	    case XK_emacron:	*buf = (unsigned char)0xb2; break;
-	    case XK_gcedilla:	*buf = (unsigned char)0xb3; break;
-	    case XK_imacron:	*buf = (unsigned char)0xb4; break;
-	    case XK_lcedilla:	*buf = (unsigned char) 0xb8; break;
-	    case XK_dstroke:	*buf = (unsigned char)0xb9; break;
-	    case XK_scaron:	*buf = (unsigned char)0xba; break;
-	    case XK_tslash:	*buf = (unsigned char)0xbb; break;
-	    case XK_zcaron:	*buf = (unsigned char)0xbc; break;
-	    case XK_umacron:	*buf = (unsigned char)0xbe; break;
-	    case XK_utilde:	*buf = (unsigned char)0xf7; break;
-	    case XK_eng:	*buf = (unsigned char)0xbf; break;
-	    case XK_kra:	*buf = (unsigned char)0xff; break;
-	    case XK_Itilde:
-	    case XK_Kcedilla: 
-	    case XK_Iogonek:
-	    case XK_Ncedilla:
-	    case XK_Omacron:
-	    case XK_Uogonek:
-	    case XK_itilde:
-	    case XK_kcedilla: 
-	    case XK_iogonek:
-	    case XK_ncedilla:
-	    case XK_omacron:
-	    case XK_uogonek:	*buf = (unsigned char)(keysym & 0xff); break;
-	    default: count = 0;
-	    }
-	}
-    } else if (locale_code == sLatin9 && keysym == XK_EuroSign) {
-	count = 1;
-	*buf = (unsigned char)0xa4;
-    } else if ((locale_code == sGreek) &&
-	       ((keysym == XK_leftsinglequotemark) ||
-		(keysym == XK_rightsinglequotemark))) {
-	*buf = (unsigned char)(keysym - (XK_leftsinglequotemark - 0xa1));
-	count = 1;
-    }
+    if (count < 0)
+       	count = 0;
     if (count>nbytes)
-	return nbytes;
+        return nbytes;
     if (count<nbytes)
-	buf[count]= '\0';
+        buf[count]= '\0';
     return count;
 }
 
@@ -761,8 +164,9 @@ static int lookup_string (event, buffer, nbytes, keysym, status)
     unsigned ctrls = XkbGetXlibControls (event->display);
     XkbSetXlibControls (event->display, 
 			XkbLC_ForceLatin1Lookup, XkbLC_ForceLatin1Lookup);
-    ret = XLookupString(event, buffer, nbytes, keysym, status);
-    XkbSetXlibControls (event->display, ctrls, ctrls);
+    ret = XLookupString(event, (char *)buffer, nbytes, keysym, status);
+    XkbSetXlibControls (event->display,
+			XkbLC_ForceLatin1Lookup, ctrls);
     return ret;
 }
 #endif
@@ -778,45 +182,20 @@ _XimLookupMBText(ic, event, buffer, nbytes, keysym, status)
     KeySym*		keysym;
     XComposeStatus*	status;
 {
-    int count, local_count;
+    int count;
     KeySym symbol;
-    struct CodesetRec *cset;
-    int i;
     Status	dummy;
     Xim	im = (Xim)ic->core.im;
-    XLCd lcd = im->core.lcd;
-    unsigned char local_buf[BUF_SIZE];
+    XimCommonPrivateRec* private = &im->private.common;
     unsigned char look[BUF_SIZE];
-
+    ucs4_t ucs4;
 
     /* force a latin-1 lookup for compatibility */
     count = XLOOKUPSTRING(event, (char *)buffer, nbytes, &symbol, status);
     if (keysym != NULL) *keysym = symbol;
     if ((nbytes == 0) || (symbol == NoSymbol)) return count;
 
-    for (cset = NULL, i = 0; i < NUM_CODESETS; i++) {
-	if (strcmp (XLC_PUBLIC(lcd,encoding_name), CodesetTable[i].locale_name) == 0) {
-	    cset = &CodesetTable[i];
-	    break;
-	}
-    }
-    if (count == 0 && cset != NULL || 
-	(count == 1 && (symbol > 0x7f && symbol < 0xff00) && 
-	 cset != NULL && cset->locale_code != 0)) {
-	if ((count = _XGetCharCode(cset->locale_code, symbol,
-				   look, sizeof look))) {
-	    strcpy((char*) local_buf, cset->escape_seq);
-	    local_count = strlen(cset->escape_seq);
-	    local_buf[local_count] = look[0];
-	    local_count++;
-	    local_buf[local_count] = '\0';
-	    if ((count = im->methods->ctstombs(ic->core.im,
-				(char*) local_buf, local_count,
-				(char *)buffer, nbytes, &dummy)) < 0) {
-		count = 0;
-	    }
-	}
-    } else if (count > 1) { /* not ASCII Encoding */
+    if (count > 1) {
 	memcpy(look, (char *)buffer,count);
 	look[count] = '\0';
 	if ((count = im->methods->ctstombs(ic->core.im,
@@ -824,8 +203,40 @@ _XimLookupMBText(ic, event, buffer, nbytes, keysym, status)
 				buffer, nbytes, &dummy)) < 0) {
 	    count = 0;
 	}
+    } else if ((count == 0) || 
+	       (count == 1 && (symbol > 0x7f && symbol < 0xff00))) {
+
+        XPointer from = (XPointer) &ucs4;
+        XPointer to =   (XPointer) look;
+        int from_len = 1;
+        int to_len = BUF_SIZE;
+        XPointer args[1];
+        XlcCharSet charset;
+        args[0] = (XPointer) &charset;
+        ucs4 = (ucs4_t) KeySymToUcs4(symbol);
+        if (!ucs4)
+            return 0;
+
+	if (_XlcConvert(private->ucstoc_conv,
+                        &from, &from_len, &to, &to_len,
+                        args, 1 ) != 0) {
+	    count = 0;
+	} else {
+            from = (XPointer) look;
+            to =   (XPointer) buffer;
+            from_len = BUF_SIZE - to_len;
+            to_len = nbytes;
+            args[0] = (XPointer) charset;
+	    if (_XlcConvert(private->cstomb_conv,
+                            &from, &from_len, &to, &to_len,
+			    args, 1 ) != 0) {
+		count = 0;
+	    } else {
+                count = nbytes - to_len;
+	    }
+	}
     }
-    /* 
+    /* FIXME:
      * we should make sure that if the character is a Latin1 character
      * and it's on the right side, and we're in a non-Latin1 locale
      * that this is a valid Latin1 character for this locale.
@@ -842,56 +253,123 @@ _XimLookupWCText(ic, event, buffer, nbytes, keysym, status)
     KeySym*		keysym;
     XComposeStatus*	status;
 {
-    int count, local_count;
+    int count;
     KeySym symbol;
-    struct CodesetRec *cset;
-    int i;
     Status	dummy;
     Xim	im = (Xim)ic->core.im;
-    XLCd lcd = im->core.lcd;
-    unsigned char local_buf[BUF_SIZE];
+    XimCommonPrivateRec* private = &im->private.common;
     unsigned char look[BUF_SIZE];
+    ucs4_t ucs4;
 
     /* force a latin-1 lookup for compatibility */
     count = XLOOKUPSTRING(event, (char *)look, nbytes, &symbol, status);
     if (keysym != NULL) *keysym = symbol;
     if ((nbytes == 0) || (symbol == NoSymbol)) return count;
 
-    for (cset = NULL, i = 0; i < NUM_CODESETS; i++) {
-	if (strcmp (XLC_PUBLIC(lcd,encoding_name), CodesetTable[i].locale_name) == 0) {
-	    cset = &CodesetTable[i];
-	    break;
-	}
-    }
-    if (count == 0 && cset != NULL ||
-	(count == 1 && (symbol > 0x7f && symbol < 0xff00) && 
-	 cset != NULL && cset->locale_code != 0)) {
-	if ((count = _XGetCharCode(cset->locale_code, symbol,
-				   look, sizeof look))) {
-	    strcpy((char*) local_buf, cset->escape_seq);
-	    local_count = strlen(cset->escape_seq);
-	    local_buf[local_count] = look[0];
-	    local_count++;
-	    local_buf[local_count] = '\0';
-	    if ((count = im->methods->ctstowcs(ic->core.im,
-				(char*) local_buf, local_count,
-				buffer, nbytes, &dummy)) < 0) {
-		count = 0;
-	    }
-	}
-    } else if (count > 1) {
+    if (count > 1) {
 	if ((count = im->methods->ctstowcs(ic->core.im,
 				(char*) look, count, 
 				buffer, nbytes, &dummy)) < 0) {
 	    count = 0;
 	}
+    } else if ((count == 0) ||
+	       (count == 1 && (symbol > 0x7f && symbol < 0xff00))) {
+
+        XPointer from = (XPointer) &ucs4;
+        XPointer to =   (XPointer) look;
+        int from_len = 1;
+        int to_len = BUF_SIZE;
+        XPointer args[1];
+        XlcCharSet charset;
+        args[0] = (XPointer) &charset;
+        ucs4 = (ucs4_t) KeySymToUcs4(symbol);
+        if (!ucs4)
+            return 0;
+
+	if (_XlcConvert(private->ucstoc_conv,
+                        &from, &from_len, &to, &to_len,
+                        args, 1 ) != 0) {
+	    count = 0;
+	} else {
+            from = (XPointer) look;
+            to =   (XPointer) buffer;
+            from_len = BUF_SIZE - to_len;
+            to_len = nbytes;
+            args[0] = (XPointer) charset;
+
+	    if (_XlcConvert(private->cstowc_conv,
+                            &from, &from_len, &to, &to_len,
+			    args, 1 ) != 0) {
+		count = 0;
+	    } else {
+                count = nbytes - to_len;
+	    }
+	}
     } else
-	/* 
+	/* FIXME:
 	 * we should make sure that if the character is a Latin1 character
 	 * and it's on the right side, and we're in a non-Latin1 locale
 	 * that this is a valid Latin1 character for this locale.
 	 */
 	buffer[0] = look[0];
 
+    return count;
+}
+
+int
+_XimLookupUTF8Text(ic, event, buffer, nbytes, keysym, status)
+    Xic			 ic;
+    XKeyEvent*		event;
+    char*		buffer;
+    int			nbytes;
+    KeySym*		keysym;
+    XComposeStatus*	status;
+{
+    int count;
+    KeySym symbol;
+    Status	dummy;
+    Xim	im = (Xim)ic->core.im;
+    XimCommonPrivateRec* private = &im->private.common;
+    unsigned char look[BUF_SIZE];
+    ucs4_t ucs4;
+
+    /* force a latin-1 lookup for compatibility */
+    count = XLOOKUPSTRING(event, (char *)buffer, nbytes, &symbol, status);
+    if (keysym != NULL) *keysym = symbol;
+    if ((nbytes == 0) || (symbol == NoSymbol)) return count;
+
+    if (count > 1) {
+	memcpy(look, (char *)buffer,count);
+	look[count] = '\0';
+	if ((count = im->methods->ctstoutf8(ic->core.im,
+				(char*) look, count, 
+				buffer, nbytes, &dummy)) < 0) {
+	    count = 0;
+	}
+    } else if ((count == 0) || 
+	       (count == 1 && (symbol > 0x7f && symbol < 0xff00))) {
+
+        XPointer from = (XPointer) &ucs4;
+        int from_len = 1;
+        XPointer to = (XPointer) buffer;
+        int to_len = nbytes;
+
+        ucs4 = (ucs4_t) KeySymToUcs4(symbol);
+        if (!ucs4)
+            return 0;
+
+	if (_XlcConvert(private->ucstoutf8_conv,
+                        &from, &from_len, &to, &to_len,
+                        NULL, 0) != 0) {
+	    count = 0;
+	} else {
+            count = nbytes - to_len;
+	}
+    }
+    /* FIXME:
+     * we should make sure that if the character is a Latin1 character
+     * and it's on the right side, and we're in a non-Latin1 locale
+     * that this is a valid Latin1 character for this locale.
+     */
     return count;
 }

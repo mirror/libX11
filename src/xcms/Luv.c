@@ -38,16 +38,25 @@
  *		Fred W. Billmeyer & Max Saltzman, "Principles of Color
  *		Technology", John Wily & Sons, Inc, 1981.
  */
+/* $XFree86: xc/lib/X11/Luv.c,v 1.3 2001/01/17 19:41:39 dawes Exp $ */
 
 #include <X11/Xos.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
+
+#include <stdio.h> /* sscanf */
 
 /*
  *	EXTERNS
  */
 
 extern char _XcmsCIELuv_prefix[];
+
+/* CvCols.c */
+extern Status _XcmsDIConvertColors();
+
+/* uvY.c */
+Status _XcmsCIEuvY_ValidSpec();
 
 
 /*

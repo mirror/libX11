@@ -45,6 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/XimThai.h,v 1.5 2001/12/14 19:54:08 dawes Exp $ */
 
 /*
 **++ 
@@ -65,7 +66,7 @@ SOFTWARE.
 
 #include <X11/Xlib.h>
 
-/* Classification of characters in TACTIS according to WTT */
+/* Classification of characters in TIS620 according to WTT */
 
 #define CTRL    0   /* control chars */
 #define NON     1   /* non composibles */
@@ -169,6 +170,7 @@ Bool THAI_isaccepted (
 #endif
 );
 
+#if 0
 Private
 void THAI_apply_write_rules (
 #if NeedFunctionPrototypes
@@ -186,6 +188,7 @@ int THAI_find_chtype (
 	int	       chtype
 #endif
 );
+#endif
 
 Private
 int THAI_apply_scm (

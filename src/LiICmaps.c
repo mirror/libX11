@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/LiICmaps.c,v 1.4 2001/12/14 19:54:02 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -58,7 +59,7 @@ int *n;  /* RETURN */
 	    SyncHandle();
 	    return((Colormap *) NULL);
 	}
-	_XRead32 (dpy, (char *) cmaps, nbytes);
+	_XRead32 (dpy, (long *) cmaps, nbytes);
     }
     else cmaps = (Colormap *) NULL;
     

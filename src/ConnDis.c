@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ConnDis.c,v 3.24 2001/12/14 19:53:58 dawes Exp $ */
 
 /* 
  * This file contains operating system dependencies.
@@ -37,8 +38,12 @@ in this Software without prior written authorization from The Open Group.
 #include <stdio.h>
 #include <ctype.h>
 
-#ifndef WIN32
+#if !defined(WIN32)
+#ifndef Lynx
 #include <sys/socket.h>
+#else
+#include <socket.h>
+#endif
 #endif
 
 #ifndef X_CONNECTION_RETRIES		/* number retries on ECONNREFUSED */
@@ -109,9 +114,9 @@ _X11TransConnectDisplay (display_name, fullnamep, dpynump, screenp,
     char *pdpynum = NULL;		/* start of dpynum of display */
     char *pscrnum = NULL;		/* start of screen of display */
     Bool dnet = False;			/* if true, then DECnet format */
-    int idisplay;			/* required display number */
+    int idisplay = 0;			/* required display number */
     int iscreen = 0;			/* optional screen number */
-    int (*connfunc)();			/* method to create connection */
+    /*  int (*connfunc)(); */		/* method to create connection */
     int len, hostlen;			/* length tmp variable */
     int retry;				/* retry counter */
     char addrbuf[128];			/* final address passed to
@@ -250,18 +255,24 @@ _X11TransConnectDisplay (display_name, fullnamep, dpynump, screenp,
      * is "unix", then choose BSD UNIX domain sockets (if configured).
      */
 
-#if defined(TCPCONN) || defined(UNIXCONN) || defined(LOCALCONN)
+#if defined(TCPCONN) || defined(UNIXCONN) || defined(LOCALCONN) || defined(MNX_TCPCONN) || defined(OS2PIPECONN)
     if (!pprotocol) {
 	if (!phostname)
-#if defined(UNIXCONN) || defined(LOCALCONN)
+#if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
 	    pprotocol = copystring ("local", 5);
 	else
 #endif
 	    pprotocol = copystring ("tcp", 3);
     }
+#else
+#if defined(AMRPCCONN)
+    if (!pprotocol) {
+            pprotocol = copystring ("amcon", 5);
+    }
+#endif
 #endif
 
-#if defined(UNIXCONN) || defined(LOCALCONN)
+#if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
     /*
      * Now that the defaults have been established, see if we have any 
      * special names that we have to override:
@@ -288,7 +299,9 @@ _X11TransConnectDisplay (display_name, fullnamep, dpynump, screenp,
     }
 #endif
 
+#if defined(LOCALCONN) && defined(TCPCONN)
   connect:
+#endif
     /*
      * This seems kind of backwards, but we need to put the protocol,
      * host, and port back together to pass to _X11TransOpenCOTSClient().
@@ -301,10 +314,10 @@ _X11TransConnectDisplay (display_name, fullnamep, dpynump, screenp,
 	if (olen > sizeof addrbuf) address = Xmalloc (olen);
     }
 
-    sprintf(address,"%s/%s:%s",
+    sprintf(address,"%s/%s:%d",
 	pprotocol ? pprotocol : "",
 	phostname ? phostname : "",
-	pdpynum );
+	idisplay );
 
     /*
      * Make the connection, also need to get the auth address info for
@@ -475,8 +488,6 @@ XtransConnInfo	trans_conn;
 
 
 
-static int padlength[4] = {0, 3, 2, 1};	 /* make sure auth is multiple of 4 */
-
 Bool
 _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
      Display *dpy;
@@ -486,7 +497,7 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
 {
     int auth_length = client->nbytesAuthProto;
     int auth_strlen = client->nbytesAuthString;
-    char padbuf[3];			/* for padding to 4x bytes */
+    static char padbuf[3];		/* for padding to 4x bytes */
     int pad;
     struct iovec iovarray[5], *iov = iovarray;
     int niov = 0;
@@ -502,12 +513,12 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
      */
     if (auth_length > 0) {
 	add_to_iov (auth_proto, auth_length);
-	pad = padlength [auth_length & 3];
+	pad = -auth_length & 3; /* pad auth_length to a multiple of 4 */
 	if (pad) add_to_iov (padbuf, pad);
     }
     if (auth_strlen > 0) {
 	add_to_iov (auth_string, auth_strlen);
-	pad = padlength [auth_strlen & 3];
+	pad = -auth_strlen & 3; /* pad auth_strlen to a multiple of 4 */
 	if (pad) add_to_iov (padbuf, pad);
     }
 
@@ -544,6 +555,13 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
 #endif
 
 #ifdef SECURE_RPC
+#if defined(sun) && defined(SVR4) /* && ????? */
+/*
+ * I'm aware this is backwards, but #define'ing PORTMAP, as suggested in the
+ * man pages, doesn't work either.
+ */
+#define authdes_seccreate authdes_create
+#endif
 #include <rpc/rpc.h>
 #ifdef ultrix
 #include <time.h>
@@ -552,13 +570,8 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
 #endif
 
 #ifdef HASXDMAUTH
-#ifdef X_NOT_STDC_ENV
-#define Time_t long
-extern Time_t time ();
-#else
 #include <time.h>
 #define Time_t time_t
-#endif
 #endif
 
 /*
@@ -588,7 +601,7 @@ static char *default_xauth_names[] = {
     "MIT-MAGIC-COOKIE-1"
 };
 
-static int default_xauth_lengths[] = {
+static _Xconst int default_xauth_lengths[] = {
 #ifdef K5AUTH
     14,     /* strlen ("MIT-KERBEROS-5") */
 #endif
@@ -604,7 +617,7 @@ static int default_xauth_lengths[] = {
 #define NUM_DEFAULT_AUTH    (sizeof (default_xauth_names) / sizeof (default_xauth_names[0]))
     
 static char **xauth_names = default_xauth_names;
-static int  *xauth_lengths = default_xauth_lengths;
+static _Xconst int  *xauth_lengths = default_xauth_lengths;
 
 static int  xauth_names_length = NUM_DEFAULT_AUTH;
 

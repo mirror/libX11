@@ -24,11 +24,14 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/LookupCol.c,v 1.5 2002/12/04 23:18:32 paulo Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
+
+extern Status _XcmsResolveColorString();
 
 extern void _XcmsRGB_to_XColor();
 extern void _XUnresolveColor();
@@ -57,21 +60,27 @@ Status XLookupColor (dpy, cmap, spec, def, scr)
 	/*
 	 * Let's Attempt to use Xcms and i18n approach to Parse Color
 	 */
-	/* copy string to allow overwrite by _XcmsResolveColorString() */
 	if ((ccc = XcmsCCCOfColormap(dpy, cmap)) != (XcmsCCC)NULL) {
-	    if (_XcmsResolveColorString(ccc, &spec,
-		    &cmsColor_exact, XcmsRGBFormat) >= XcmsSuccess) {
+	    const char *tmpName = spec;
+
+	    switch (_XcmsResolveColorString(ccc, &tmpName, &cmsColor_exact,
+					    XcmsRGBFormat)) {
+	    case XcmsSuccess:
+	    case XcmsSuccessWithCompression:
 		_XcmsRGB_to_XColor(&cmsColor_exact, def, 1);
 		memcpy((char *)scr, (char *)def, sizeof(XColor));
 		_XUnresolveColor(ccc, scr);
 		return(1);
+	    case XcmsFailure:
+	    case _XCMS_NEWNAME:
+		/*
+		 * if the result was _XCMS_NEWNAME tmpName points to
+		 * a string in cmsColNm.c:pairs table, for example,
+		 * gray70 would become tekhvc:0.0/70.0/0.0
+		 */
+		break;
 	    }
-	    /*
-	     * Otherwise we failed; or spec was changed with yet another
-	     * name.  Thus pass name to the X Server.
-	     */
 	}
-
 
 	/*
 	 * Xcms and i18n methods failed, so lets pass it to the server

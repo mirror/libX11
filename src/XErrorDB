@@ -1,7 +1,11 @@
 ! $Xorg: XErrorDB,v 1.3 2000/08/17 19:44:59 cpqbld Exp $
 ! Copyright 1993, 1995, 1998  The Open Group
 
-! All Rights Reserved.
+! Permission to use, copy, modify, distribute, and sell this software and its
+! documentation for any purpose is hereby granted without fee, provided that
+! the above copyright notice appear in all copies and that both that
+! copyright notice and this permission notice appear in supporting
+! documentation.
 ! 
 ! The above copyright notice and this permission notice shall be
 ! included in all copies or substantial portions of the Software.
@@ -18,6 +22,8 @@
 ! not be used in advertising or otherwise to promote the sale, use or
 ! other dealings in this Software without prior written authorization
 ! from The Open Group.
+!
+! $XFree86: xc/lib/X11/XErrorDB,v 3.41 2002/12/22 00:46:50 dawes Exp $
 !
 ! these are used in XGetErrorMessage.
 XlibMessage.XError: X Error of failed request
@@ -575,12 +581,20 @@ XRequest.XFree86-VidModeExtension.9: XF86VidModeValidateModeLine
 XRequest.XFree86-VidModeExtension.10: XF86VidModeSwitchToMode
 XRequest.XFree86-VidModeExtension.11: XF86VidModeGetViewPort
 XRequest.XFree86-VidModeExtension.12: XF86VidModeSetViewPort
+XRequest.XFree86-VidModeExtension.13: XF86VidModeGetDotClocks
+XRequest.XFree86-VidModeExtension.14: XF86VidModeSetClientVersion
+XRequest.XFree86-VidModeExtension.15: XF86VidModeSetGamma
+XRequest.XFree86-VidModeExtension.16: XF86VidModeGetGamma
+XRequest.XFree86-VidModeExtension.17: XF86VidModeGetGammaRamp
+XRequest.XFree86-VidModeExtension.18: XF86VidModeSetGammaRamp
+XRequest.XFree86-VidModeExtension.19: XF86VidModeGetGammaRampSize
+XRequest.XFree86-VidModeExtension.20: XF86VidModeGetPermissions
 XProtoError.XFree86-VidModeExtension.0: XF86VidModeBadClock
 XProtoError.XFree86-VidModeExtension.1: XF86VidModeBadHTimings
 XProtoError.XFree86-VidModeExtension.2: XF86VidModeBadVTimings
 XProtoError.XFree86-VidModeExtension.3: XF86VidModeModeUnsuitable
-XProtoError.XFree86-VidModeExtension.4: XF86VidModeClientNotLocal
-XProtoError.XFree86-VidModeExtension.5: XF86VidModeExtensionDisabled
+XProtoError.XFree86-VidModeExtension.4: XF86VidModeExtensionDisabled
+XProtoError.XFree86-VidModeExtension.5: XF86VidModeClientNotLocal
 XProtoError.XFree86-VidModeExtension.6: XF86VidModeZoomLocked
 ! XFree86-Misc -- not an X Consortium standard
 XRequest.XFree86-Misc.0: XF86MiscQueryVersion
@@ -590,6 +604,9 @@ XRequest.XFree86-Misc.3: XF86MiscGetMouseSettings
 XRequest.XFree86-Misc.4: XF86MiscGetKbdSettings
 XRequest.XFree86-Misc.5: XF86MiscSetMouseSettings
 XRequest.XFree86-Misc.6: XF86MiscSetKbdSettings
+XRequest.XFree86-Misc.7: XF86MiscSetGrabKeysState
+XRequest.XFree86-Misc.8: XF86MiscSetClientVersion
+XRequest.XFree86-Misc.9: XF86MiscGetFilePaths
 XProtoError.XFree86-Misc.0: XF86MiscBadMouseProtocol
 XProtoError.XFree86-Misc.1: XF86MiscBadMouseBaudRate
 XProtoError.XFree86-Misc.2: XF86MiscBadMouseFlags
@@ -597,8 +614,9 @@ XProtoError.XFree86-Misc.3: XF86MiscBadMouseCombo
 XProtoError.XFree86-Misc.4: XF86MiscBadKbdType
 XProtoError.XFree86-Misc.5: XF86MiscModInDevDisabled
 XProtoError.XFree86-Misc.6: XF86MiscModInDevClientNotLocal
+XProtoError.XFree86-Misc.7: XF86MiscNoModule
 ! XFree86-DGA  -- not an X Consortium standard
-XRequest.XFree86-DGA.0: XF86DGAQueryVersion
+XRequest.XFree86-DGA.0: XDGAQueryVersion
 XRequest.XFree86-DGA.1: XF86DGAGetVideoLL
 XRequest.XFree86-DGA.2: XF86DGADirectVideo
 XRequest.XFree86-DGA.3: XF86DGAGetViewPortSize
@@ -608,10 +626,28 @@ XRequest.XFree86-DGA.6: XF86DGASetVidPage
 XRequest.XFree86-DGA.7: XF86DGAInstallColormap
 XRequest.XFree86-DGA.8: XF86DGAQueryDirectVideo
 XRequest.XFree86-DGA.9: XF86DGAViewPortChanged
+XRequest.XFree86-DGA.10: XF86DGAObsolete1
+XRequest.XFree86-DGA.11: XF86DGAObsolete2
+XRequest.XFree86-DGA.12: XDGAQueryModes
+XRequest.XFree86-DGA.13: XDGASetMode
+XRequest.XFree86-DGA.14: XDGASetViewport
+XRequest.XFree86-DGA.15: XDGAInstallColormap
+XRequest.XFree86-DGA.16: XDGASelectInput
+XRequest.XFree86-DGA.17: XDGAFillRectangle
+XRequest.XFree86-DGA.18: XDGACopyArea
+XRequest.XFree86-DGA.19: XDGACopyTransparentArea
+XRequest.XFree86-DGA.20: XDGAGetViewportStatus
+XRequest.XFree86-DGA.21: XDGASync
+XRequest.XFree86-DGA.22: XDGAOpenFramebuffer
+XRequest.XFree86-DGA.23: XDGACloseFramebuffer
+XRequest.XFree86-DGA.24: XDGASetClientVersion
+XRequest.XFree86-DGA.25: XDGAChangePixmapMode
+XRequest.XFree86-DGA.26: XDGACreateColormap
 XProtoError.XFree86-DGA.0: XF86DGAClientNotLocal
 XProtoError.XFree86-DGA.1: XF86DGANoDirectVideoMode
 XProtoError.XFree86-DGA.2: XF86DGAScreenNotActive
 XProtoError.XFree86-DGA.3: XF86DGADirectNotActivated
+XProtoError.XFree86-DGA.4: XF86DGAOperationNotSupported
 ! DOUBLE-BUFFER (DBE), an X Consortium standard
 XRequest.DOUBLE-BUFFER.0: DBEGetVersion
 XRequest.DOUBLE-BUFFER.1: DBEAllocateBackBufferName
@@ -735,3 +771,115 @@ XRequest.XINERAMA.0: XINERAMAQueryVersion
 XRequest.XINERAMA.1: XINERAMAGetState
 XRequest.XINERAMA.2: XINERAMAGetScreenCount
 XRequest.XINERAMA.3: XINERAMAGetScreenSize
+XRequest.XINERAMA.4: XINERAMAIsActive
+XRequest.XINERAMA.5: XINERAMAQueryScreens
+! XF86Rush extension, not a standard spec
+Xrequest.XFree86-Rush.0: XF86RushQueryVersion
+Xrequest.XFree86-Rush.1: XF86RushLockPixmap
+Xrequest.XFree86-Rush.2: XF86RushUnlockPixmap
+Xrequest.XFree86-Rush.3: XF86RushUnlockAllPixmaps
+Xrequest.XFree86-Rush.4: XF86RushGetCopyMode
+Xrequest.XFree86-Rush.5: XF86RushSetCopyMode
+Xrequest.XFree86-Rush.6: XF86RushGetPixelStride
+Xrequest.XFree86-Rush.7: XF86RushSetPixelStride
+Xrequest.XFree86-Rush.8: XF86RushOverlayPixmap
+Xrequest.XFree86-Rush.9: XF86RushStatusRegOffset
+Xrequest.XFree86-Rush.10: XF86RushAT3DEnableRegs
+Xrequest.XFree86-Rush.11: XF86RushAT3DDisableRegs
+! XVideo
+Xrequest.XVideo.0: XvQueryExtension
+Xrequest.XVideo.1: XvQueryAdaptors
+Xrequest.XVideo.2: XvQueryEncodings
+Xrequest.XVideo.3: XvGrabPort
+Xrequest.XVideo.4: XvUngrabPort
+Xrequest.XVideo.5: XvPutVideo
+Xrequest.XVideo.6: XvPutStill
+Xrequest.XVideo.7: XvGetVideo
+Xrequest.XVideo.8: XvGetStill
+Xrequest.XVideo.9: XvStopVideo
+Xrequest.XVideo.10: XvSelectVideoNotify
+Xrequest.XVideo.11: XvSelectPortNotify
+Xrequest.XVideo.12: XvQueryBestSize
+Xrequest.XVideo.13: XvSetPortAttribute
+Xrequest.XVideo.14: XvGetPortAttribute
+Xrequest.XVideo.15: XvQueryPortAttributes
+Xrequest.XVideo.16: XvListImageFormats
+Xrequest.XVideo.17: XvQueryImageAttributes
+Xrequest.XVideo.18: XvPutImage
+Xrequest.XVideo.19: XvShmPutImage
+XProtoError.XVideo.0: XvBadPort
+XProtoError.XVideo.1: XvBadEncoding
+XProtoError.XVideo.2: XvBadControl
+! XFree86-Bigfont
+Xrequest.XFree86-Bigfont.0: XF86BigfontQueryVersion
+Xrequest.XFree86-Bigfont.1: XF86BigfontQueryFont
+! Adobe-DPS-Extension, not a standard
+XRequest.Adobe-DPS-Extension.1: PSInit
+XRequest.Adobe-DPS-Extension.2: PSCreateContext
+XRequest.Adobe-DPS-Extension.3: PSCreateSpace
+XRequest.Adobe-DPS-Extension.4: PSGiveInput
+XRequest.Adobe-DPS-Extension.5: PSGetStatus
+XRequest.Adobe-DPS-Extension.6: PSDestroySpace
+XRequest.Adobe-DPS-Extension.7: PSReset
+XRequest.Adobe-DPS-Extension.8: PSNotifyContext
+XRequest.Adobe-DPS-Extension.9: PSCreateContextFromID
+XRequest.Adobe-DPS-Extension.10: PSXIDFromContext
+XRequest.Adobe-DPS-Extension.11: PSContextFromXID
+XRequest.Adobe-DPS-Extension.12: PSSetStatusMask
+XRequest.Adobe-DPS-Extension.13: PSCreateSecureContext
+XRequest.Adobe-DPS-Extension.14: PSNotifyWhenReady
+XProtoError.Adobe-DPS-Extension.0: PSErrorBadContext (invalid Context parameter)
+XlibMessage.Adobe-DPS-Extension.0: Context id in failed request:  0x%lx
+XProtoError.Adobe-DPS-Extension.1: PSErrorBadSpace (invalid Space parameter)
+XlibMessage.Adobe-DPS-Extension.1: Space id in failed request:  0x%lx
+XProtoError.Adobe-DPS-Extension.2: PSErrorAbort (interpreter aborted)
+XlibMessage.Adobe-DPS-Extension.2: Value in failed request:  0x%lx
+! RANDR
+XRequest.RANDR.0: RRQueryVersion
+XRequest.RANDR.1: RROldGetScreenInfo
+XRequest.RANDR.2: RRSetScreenConfig
+XRequest.RANDR.3: RROldScreenChangeSelectInput
+XRequest.RANDR.4: RRSelectInput
+XRequest.RANDR.5: RRGetScreenInfo
+! RENDER
+XRequest.RENDER.0: RenderQueryVersion
+XRequest.RENDER.1: RenderQueryPictFormats
+XRequest.RENDER.2: RenderQueryPictIndexValues
+XRequest.RENDER.3: RenderQueryDithers
+XRequest.RENDER.4: RenderCreatePicture
+XRequest.RENDER.5: RenderChangePicture
+XRequest.RENDER.6: RenderSetPictureClipRectangles
+XRequest.RENDER.7: RenderFreePicture
+XRequest.RENDER.8: RenderComposite
+XRequest.RENDER.9: RenderScale
+XRequest.RENDER.10: RenderTrapezoids
+XRequest.RENDER.11: RenderTriangles
+XRequest.RENDER.12: RenderTriStrip
+XRequest.RENDER.13: RenderTriFan
+XRequest.RENDER.14: RenderColorTrapezoids
+XRequest.RENDER.15: RenderColorTriangles
+XRequest.RENDER.16: RenderTransform
+XRequest.RENDER.17: RenderCreateGlyphSet
+XRequest.RENDER.18: RenderReferenceGlyphSet
+XRequest.RENDER.19: RenderFreeGlyphSet
+XRequest.RENDER.20: RenderAddGlyphs
+XRequest.RENDER.21: RenderAddGlyphsFromPicture
+XRequest.RENDER.22: RenderFreeGlyphs
+XRequest.RENDER.23: RenderCompositeGlyphs8
+XRequest.RENDER.24: RenderCompositeGlyphs16
+XRequest.RENDER.25: RenderCompositeGlyphs32
+XRequest.RENDER.26: RenderFillRectangles
+XRequest.RENDER.27: RenderCreateCursor
+XRequest.RENDER.28: RenderSetPictureTransform
+XRequest.RENDER.29: RenderQueryFilters
+XRequest.RENDER.30: RenderSetPictureFilter
+XProtoError.RENDER.0: RenderBadFormat (invalid PictFormat parameter)
+XlibMessage.RENDER.0: PictFormat id in failed request: 0x%lx
+XProtoError.RENDER.1: RenderBadPicture (invalid Picture parameter)
+XlibMessage.RENDER.1: Picture id in failed request: 0x%lx
+XProtoError.RENDER.2: RenderBadPictOp (invalid PictOp parameter)
+XlibMessage.RENDER.2: PictOp in failed request: 0x%lx
+XProtoError.RENDER.3: RenderBadGlyphSet (invalid GlyphSet parameter)
+XlibMessage.RENDER.3: GlyphSet id in failed request: 0x%lx
+XProtoError.RENDER.4: RenderBadGlyph (invalid Glyph parameter)
+XlibMessage.RENDER.4: Glyph in failed request: 0x%lx

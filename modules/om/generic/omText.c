@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/omText.c,v 1.6 2002/09/16 18:05:23 eich Exp $ */
 /*
  * Copyright 1995 by FUJITSU LIMITED
  * This is source code modified by FUJITSU LIMITED under the Joint
@@ -175,7 +176,7 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
     unsigned char *ptr;
     int ptr_len, char_len = 0;
     FontData fd;
-    int ret;
+    int ret = 0;
 
     ptr = (unsigned char *)text;
     is_xchar2b = fs->is_xchar2b;
@@ -195,10 +196,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 	* *always* contain good data.   We should probably remove
 	* the check for "fd->font", but we won't :-) -- jjw/pma (HP)
 	*/
-        if(fd == (FontData) NULL ||
-	   (font = fs->font) == (XFontStruct *) NULL){
+        if((font = fs->font) == (XFontStruct *) NULL){
 
-	    if((font = fd->font) == (XFontStruct *) NULL)
+	    if(fd == (FontData) NULL ||
+	       (font = fd->font) == (XFontStruct *) NULL)
 		break;
         }
 
@@ -237,6 +238,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 		       (font = fd->font) == (XFontStruct *) NULL)
 			break;
 		}
+
+	    case XOMOrientation_Context:
+	      /* never used? */
+	      break;
 	    }
 
 	    if(is_xchar2b)
@@ -264,6 +269,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
       case XOMOrientation_TTB_RTL:
       case XOMOrientation_TTB_LTR:
 	ret = y;
+	break;
+      case XOMOrientation_Context:
+	/* not used? */
+	break;
     }
     return ret;
 }
@@ -324,6 +333,9 @@ _XomGenericDrawString(dpy, d, oc, gc, x, y, type, text, length)
 	  case XOMOrientation_TTB_LTR:
 	    y = next;
 	    break;
+          case XOMOrientation_Context:
+	    /* not used */
+	    break;
 	}
 /* For VW/UDC */
     }
@@ -345,7 +357,7 @@ _XmbGenericDrawString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    char *text;
+    _Xconst char *text;
     int length;
 #endif
 {
@@ -364,10 +376,29 @@ _XwcGenericDrawString(dpy, d, oc, gc, x, y, text, length)
     XOC oc;
     GC gc;
     int x, y;
-    wchar_t *text;
+    _Xconst wchar_t *text;
     int length;
 #endif
 {
     return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMWideChar,
+				 (XPointer) text, length);
+}
+
+int
+#if NeedFunctionPrototypes
+_Xutf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+			_Xconst char *text, int length)
+#else
+_Xutf8GenericDrawString(dpy, d, oc, gc, x, y, text, length)
+    Display *dpy;
+    Drawable d;
+    XOC oc;
+    GC gc;
+    int x, y;
+    _Xconst char *text;
+    int length;
+#endif
+{
+    return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMUtf8String,
 				 (XPointer) text, length);
 }

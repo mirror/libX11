@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/RdBitF.c,v 3.5 2002/05/31 18:45:41 dawes Exp $ */
 
 /*
  *	Code to read bitmaps from disk files. Interprets 
@@ -93,7 +94,8 @@ static void initHexTable()
 /*
  *	read next hex value in the input stream, return -1 if EOF
  */
-static NextInt (fstream)
+static int
+NextInt (fstream)
     FILE *fstream;
 {
     int	ch;
@@ -156,6 +158,9 @@ int XReadBitmapFileData (filename, width, height, data, x_hot, y_hot)
     /* first time initialization */
     if (initialized == False) initHexTable();
 
+#ifdef __UNIXOS2__
+    filename = __XOS2RedirRoot(filename);
+#endif
     if (!(fstream = fopen(filename, "r")))
 	return BitmapOpenFailed;
 

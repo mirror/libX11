@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/WarpPtr.c,v 1.4 2001/12/14 19:54:08 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XWarpPointer(dpy, src_win, dest_win, src_x, src_y, src_width, src_height,
 	     dest_x, dest_y)
      register Display *dpy;

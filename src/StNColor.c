@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/StNColor.c,v 1.4 2001/12/14 19:54:07 dawes Exp $ */
 
 #include <stdio.h>
 #include "Xlibint.h"
@@ -31,6 +32,10 @@ in this Software without prior written authorization from The Open Group.
 
 extern void _XcmsRGB_to_XColor();
 
+/* cmsColNm.c */
+Status _XcmsResolveColorString();
+
+int
 #if NeedFunctionPrototypes
 XStoreNamedColor(
 register Display *dpy,

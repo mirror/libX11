@@ -30,6 +30,8 @@ OR PERFORMANCE OF THIS SOFTWARE.
 
 ******************************************************************/
 
+/* $XFree86: xc/lib/X11/imLcPrs.c,v 1.8 2003/01/15 02:59:33 dawes Exp $ */
+
 #include <X11/Xlib.h>
 #include <X11/Xmd.h>
 #include <X11/Xos.h>
@@ -43,6 +45,14 @@ extern int _Xmbstowcs(
 #if NeedFunctionPrototypes
     wchar_t	*wstr,
     char	*str,
+    int		len
+#endif
+);
+
+extern int _Xmbstoutf8(
+#if NeedFunctionPrototypes
+    char	*ustr,
+    const char	*str,
     int		len
 #endif
 );
@@ -293,6 +303,7 @@ modmask(name)
 
 #define AllMask (ShiftMask | LockMask | ControlMask | Mod1Mask) 
 #define LOCAL_WC_BUFSIZE 128
+#define LOCAL_UTF8_BUFSIZE 256
 #define SEQUENCE_MAX	10
 
 static int
@@ -306,13 +317,14 @@ parseline(fp, top, tokenbuf)
     unsigned modifier;
     unsigned tmp;
     KeySym keysym = NoSymbol;
-    DefTree *p;
+    DefTree *p = NULL;
     Bool exclam, tilde;
-    KeySym rhs_keysym;
+    KeySym rhs_keysym = 0;
     char *rhs_string_mb;
     int l;
     int lastch = 0;
     wchar_t local_wc_buf[LOCAL_WC_BUFSIZE], *rhs_string_wc;
+    char local_utf8_buf[LOCAL_UTF8_BUFSIZE], *rhs_string_utf8;
 
     struct DefBuffer {
 	unsigned modifier_mask;
@@ -443,6 +455,17 @@ parseline(fp, top, tokenbuf)
     }
     memcpy((char *)rhs_string_wc, (char *)local_wc_buf, (l + 1) * sizeof(wchar_t) );
 
+    l = _Xmbstoutf8(local_utf8_buf, rhs_string_mb, LOCAL_UTF8_BUFSIZE - 1);
+    if (l == LOCAL_UTF8_BUFSIZE - 1) {
+	local_wc_buf[l] = '\0';
+    }
+    if( (rhs_string_utf8 = (char *)Xmalloc(l + 1)) == NULL ) {
+	Xfree( rhs_string_wc );
+	Xfree( rhs_string_mb );
+	return( 0 );
+    }
+    memcpy(rhs_string_utf8, local_utf8_buf, l + 1);
+
     for (i = 0; i < n; i++) {
 	for (p = *top; p; p = p->next) {
 	    if (buf[i].keysym        == p->keysym &&
@@ -465,6 +488,7 @@ parseline(fp, top, tokenbuf)
 	    p->next          = *top;
 	    p->mb            = NULL;
 	    p->wc            = NULL;
+	    p->utf8          = NULL;
 	    p->ks            = NoSymbol;
 	    *top = p;
 	    top = &p->succession;
@@ -477,6 +501,9 @@ parseline(fp, top, tokenbuf)
     if( p->wc != NULL )
 	Xfree( p->wc );
     p->wc = rhs_string_wc;
+    if( p->utf8 != NULL )
+	Xfree( p->utf8 );
+    p->utf8 = rhs_string_utf8;
     p->ks = rhs_keysym;
     return(n);
 error:
@@ -491,13 +518,13 @@ _XimParseStringFile(fp, ptop)
     FILE *fp;
     DefTree **ptop;
 {
-    char tb[65535];
+    char tb[8192];
     char* tbp;
     struct stat st;
 
     if (fstat (fileno (fp), &st) != -1) {
 	unsigned long size = (unsigned long) st.st_size;
-	if (size < sizeof tb) tbp = tb;
+	if (size <= sizeof tb) tbp = tb;
 	else tbp = malloc (size);
 
 	if (tbp != NULL) {

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKB.c,v 1.7 2002/12/10 04:30:39 dawes Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -171,7 +172,7 @@ XkbSelectEventDetails(dpy,deviceSpec,eventType,affect,details)
 {
     register xkbSelectEventsReq *req;
     XkbInfoPtr xkbi;
-    int	     size;
+    int	     size = 0;
     char     *out;
     union {
 	CARD8	*c8;
@@ -416,9 +417,10 @@ XkbSetXlibControls(dpy,affect,values)
     unsigned	values;
 #endif
 {
-    if ((dpy->flags & XlibDisplayNoXkb) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
-	return False;
+    if (!dpy->xkb_info)
+	XkbUseExtension(dpy,NULL,NULL);
+    if (!dpy->xkb_info)
+	return 0;
     affect&= XkbLC_AllControls;
     dpy->xkb_info->xlib_ctrls&= ~affect;
     dpy->xkb_info->xlib_ctrls|= (affect&values);
@@ -433,8 +435,9 @@ XkbGetXlibControls(dpy)
     Display *	dpy;
 #endif
 {
-    if ((dpy->flags & XlibDisplayNoXkb) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
+    if (!dpy->xkb_info)
+	XkbUseExtension(dpy,NULL,NULL);
+    if (!dpy->xkb_info)
 	return 0;
     return dpy->xkb_info->xlib_ctrls;
 }
@@ -528,7 +531,7 @@ XkbComputeEffectiveMap(xkb,type,map_rtrn)
 {
 register int 		i;
 unsigned     		tmp;
-XkbKTMapEntryPtr	entry;
+XkbKTMapEntryPtr	entry = NULL;
 
     if ((!xkb)||(!type)||(!xkb->server))
 	return False;
@@ -853,7 +856,9 @@ XkbInfoPtr 			xkbi;
     UnlockDisplay(dpy);
     SyncHandle();
     if (ctrls)
-	*ctrls= (rep.value&XkbPCF_GrabsUseXKBStateMask|XkbPCF_LookupStateWhenGrabbed|XkbPCF_SendEventUsesXKBState);
+	*ctrls= (rep.value & (XkbPCF_GrabsUseXKBStateMask |
+		 XkbPCF_LookupStateWhenGrabbed |
+		 XkbPCF_SendEventUsesXKBState));
     return (True);
 }
 

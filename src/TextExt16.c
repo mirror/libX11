@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/TextExt16.c,v 1.4 2001/12/14 19:54:07 dawes Exp $ */
 /*
  * Copyright 1995 by FUJITSU LIMITED
  * This is source code modified by FUJITSU LIMITED under the Joint
@@ -42,6 +43,7 @@ from The Open Group.
  * XTextExtents16 - compute the extents of string given as a sequence of 
  * XChar2bs.
  */
+int
 #if NeedFunctionPrototypes
 XTextExtents16 (
     XFontStruct *fs,

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Macros.c,v 1.4 2001/12/14 19:54:02 dawes Exp $ */
 
 #include "Xlibint.h"
 /*
@@ -198,6 +199,7 @@ int XScreenNumberOfScreen (scr)
  * naive people are more comfortable with them.
  */
 #undef XDestroyImage
+int
 XDestroyImage(ximage)
 	XImage *ximage;
 {
@@ -236,6 +238,7 @@ int XAddPixel(ximage, value)
 }
 
 
+int
 XNoOp (dpy)
     register Display *dpy;
 {

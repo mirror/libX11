@@ -24,8 +24,15 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/CopyCmap.c,v 1.4 2001/12/14 19:53:59 dawes Exp $ */
 
 #include "Xlibint.h"
+#include "Xcmsint.h"
+
+/* cmsCmap.c */
+extern XcmsCmapRec * _XcmsCopyCmapRecAndFree(Display *dpy,
+					     Colormap src_cmap,
+					     Colormap copy_cmap);
 
 Colormap XCopyColormapAndFree(dpy, src_cmap)
 register Display *dpy;

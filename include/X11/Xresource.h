@@ -46,13 +46,14 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/Xresource.h,v 3.8 2001/12/14 19:54:10 dawes Exp $ */
 
 #ifndef _XRESOURCE_H_
 #define _XRESOURCE_H_
 
-/* You must include <X11/Xlib.h> before including this file */
-
+#ifndef _XP_PRINT_SERVER_
 #include <X11/Xlib.h>
+#endif
 
 /****************************************************************
  ****************************************************************
@@ -84,7 +85,7 @@ extern char *Xpermalloc(
  *
  ****************************************************************/
 
-typedef int     XrmQuark, *XrmQuarkList;
+typedef int       XrmQuark, *XrmQuarkList;
 #define NULLQUARK ((XrmQuark) 0)
 
 typedef char *XrmString;
@@ -285,6 +286,8 @@ extern Bool XrmQGetSearchResource(
  *
  ****************************************************************/
 
+#ifndef _XP_PRINT_SERVER_
+
 extern void XrmSetDatabase(
 #if NeedFunctionPrototypes
     Display*		/* display */,
@@ -297,6 +300,8 @@ extern XrmDatabase XrmGetDatabase(
     Display*		/* display */
 #endif
 );
+
+#endif /* !_XP_PRINT_SERVER_ */
 
 extern XrmDatabase XrmGetFileDatabase(
 #if NeedFunctionPrototypes
@@ -363,7 +368,7 @@ extern Bool XrmEnumerateDatabase(
 #endif
 );
 
-extern char *XrmLocaleOfDatabase(
+extern const char *XrmLocaleOfDatabase(
 #if NeedFunctionPrototypes
     XrmDatabase 	/* database */
 #endif

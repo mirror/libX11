@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/WrBitF.c,v 3.5 2002/05/31 18:45:41 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xos.h>
@@ -111,6 +112,9 @@ int XWriteBitmapFile(display, filename, bitmap, width, height, x_hot, y_hot)
   else
     name++;
 
+#ifdef __UNIXOS2__
+  filename = (char*)__XOS2RedirRoot(filename);
+#endif
   if (!(stream = fopen(filename, "w")))
     return(BitmapOpenFailed);
 

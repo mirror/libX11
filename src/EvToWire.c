@@ -27,6 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/EvToWire.c,v 1.5 2001/12/14 19:53:59 dawes Exp $ */
 
 /*
  *	XEvToWire.c - Internal support routines for the C subroutine
@@ -41,10 +42,10 @@ from The Open Group.
  * reformat a wire event into an XEvent structure of the right type.
  */
 Status
-_XEventToWire(dpy, re, event)
-register Display *dpy;	/* pointer to display structure */
-register XEvent *re;	/* pointer to where event should be reformatted */
-register xEvent *event;	/* wire protocol event */
+_XEventToWire(
+register Display *dpy,	/* pointer to display structure */
+register XEvent *re,	/* pointer to where event should be reformatted */
+register xEvent *event)	/* wire protocol event */
 {
 	switch (event->u.u.type = re->type) {
 	      case KeyPress:

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetProp.c,v 1.6 2001/12/14 19:54:01 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -75,21 +76,24 @@ XGetWindowProperty(dpy, w, property, offset, length, delete,
        */
 	  case 8:
 	    nbytes = netbytes = reply.nItems;
-	    if ((*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
+	    if (nbytes + 1 > 0 &&
+		(*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
 		_XReadPad (dpy, (char *) *prop, netbytes);
 	    break;
 
 	  case 16:
 	    nbytes = reply.nItems * sizeof (short);
 	    netbytes = reply.nItems << 1;
-	    if ((*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
+	    if (nbytes + 1 > 0 &&
+		(*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
 		_XRead16Pad (dpy, (short *) *prop, netbytes);
 	    break;
 
 	  case 32:
 	    nbytes = reply.nItems * sizeof (long);
 	    netbytes = reply.nItems << 2;
-	    if ((*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
+	    if (nbytes + 1 > 0 &&
+		(*prop = (unsigned char *) Xmalloc ((unsigned)nbytes + 1)))
 		_XRead32 (dpy, (long *) *prop, netbytes);
 	    break;
 
@@ -107,7 +111,7 @@ XGetWindowProperty(dpy, w, property, offset, length, delete,
 		error.errorCode = BadImplementation;
 		_XError(dpy, &error);
 	    }
-	    netbytes = 0L;
+	    nbytes = netbytes = 0L;
 	    break;
 	}
 	if (! *prop) {

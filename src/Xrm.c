@@ -49,6 +49,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Xrm.c,v 3.20 2002/05/31 18:45:42 dawes Exp $ */
 
 #include	<stdio.h>
 #include	<ctype.h>
@@ -61,16 +62,7 @@ from The Open Group.
 #include 	"XrmI.h"
 #include	<X11/Xos.h>
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-#if defined(__STDC__) && !defined(NORCONST)
-#define RConst const
-#else
-#define RConst /**/
-#endif
+extern XrmQuark _XrmInternalStringToQuark();
 
 /*
 
@@ -294,10 +286,10 @@ typedef unsigned char XrmBits;
 #define is_special(bits)	((bits) & (ENDOF|BSLASH))
 
 /* parsing types */
-static XrmBits Const xrmtypes[256] = {
+static XrmBits const xrmtypes[256] = {
     EOS,0,0,0,0,0,0,0,
     0,SPACE,EOL,0,0,
-#if defined(WIN32) || defined(__EMX__) /* || defined(OS2) */
+#if defined(WIN32) || defined(__UNIXOS2__)
                     EOL,	/* treat CR the same as LF, just in case */
 #else
                     0,
@@ -451,36 +443,43 @@ static void PrintQuarkList(quarks, stream)
 
 #endif /* DEBUG */
 
-/*ARGSUSED*/
-static void mbnoop(state)
-    XPointer state;
+
+/*
+ * Fallback methods for Xrm parsing.
+ * Simulate a C locale. No state needed here.
+ */
+
+static void
+c_mbnoop(
+    XPointer state)
 {
 }
 
-/*ARGSUSED*/
-static char mbchar(state, str, lenp)
-    XPointer state;
-    char *str;
-    int *lenp;
+static char
+c_mbchar(
+    XPointer state,
+    const char *str,
+    int *lenp)
 {
     *lenp = 1;
     return *str;
 }
 
-/*ARGSUSED*/
-static char *lcname(state)
-    XPointer state;
+static const char *
+c_lcname(
+    XPointer state)
 {
     return "C";
 }
 
-static RConst XrmMethodsRec mb_methods = {
-    mbnoop,
-    mbchar,
-    mbnoop,
-    lcname,
-    mbnoop
+static const XrmMethodsRec mb_methods = {
+    c_mbnoop,	/* mbinit */
+    c_mbchar,	/* mbchar */
+    c_mbnoop,	/* mbfinish */
+    c_lcname,	/* lcname */
+    c_mbnoop	/* destroy */
 };
+
 
 static XrmDatabase NewDatabase()
 {
@@ -491,9 +490,13 @@ static XrmDatabase NewDatabase()
 	_XCreateMutex(&db->linfo);
 	db->table = (NTable)NULL;
 	db->mbstate = (XPointer)NULL;
+#ifdef _XP_PRINT_SERVER_
+	db->methods = NULL;
+#else
 	db->methods = _XrmInitParseInfo(&db->mbstate);
+#endif
 	if (!db->methods)
-	    db->methods = (XrmMethods)&mb_methods;
+	    db->methods = &mb_methods;
     }
     return db;
 }
@@ -1590,6 +1593,10 @@ char * filename;
     register int fd, size;
     char * filebuf;
 
+#ifdef __UNIXOS2__
+    filename = __XOS2RedirRoot(filename);
+#endif
+
     /*
      * MS-Windows and OS/2 note: Default open mode includes O_TEXT
      */
@@ -1598,11 +1605,11 @@ char * filename;
 
     /*
      * MS-Windows and OS/2 note: depending on how the sources are
-     * untarred, the newlines in resource files may or may not have 
-     * been * expanded to CRLF. Either way the size returned by fstat 
-     * is sufficient to read the file into because in text-mode any 
-     * CRLFs in a file will be converted to newlines (LF) with the 
-     * result that * the number of bytes actually read with be <= 
+     * untarred, the newlines in resource files may or may not have
+     * been expanded to CRLF. Either way the size returned by fstat
+     * is sufficient to read the file into because in text-mode any
+     * CRLFs in a file will be converted to newlines (LF) with the
+     * result that the number of bytes actually read with be <=
      * to the size returned by fstat.
      */
     GetSizeOfFile(fd, size);
@@ -1612,6 +1619,17 @@ char * filename;
 	return (char *)NULL;
     }
     size = read (fd, filebuf, size);
+
+#ifdef __UNIXOS2__
+    { /* kill CRLF */
+      int i,k;
+      for (i=k=0; i<size; i++)
+	if (filebuf[i] != 0x0d) {
+	   filebuf[k++] = filebuf[i];
+	}
+	filebuf[k] = 0;
+    }
+#endif
 
     if (size < 0) {
 	close (fd);
@@ -2301,7 +2319,7 @@ Bool XrmQGetSearchResource(searchList, name, class, pType, pValue)
 {
     register LTable *list;
     register LTable table;
-    register VEntry entry;
+    register VEntry entry = NULL;
     int flags;
 
 /* find tight or loose entry */
@@ -2636,10 +2654,11 @@ static void DestroyNTable(table)
     Xfree((char *)table);
 }
 
-char *XrmLocaleOfDatabase(db)
+const char *
+XrmLocaleOfDatabase(db)
     XrmDatabase db;
 {
-    char* retval;
+    const char* retval;
     _XLockMutex(&db->linfo);
     retval = (*db->methods->lcname)(db->mbstate);
     _XUnlockMutex(&db->linfo);

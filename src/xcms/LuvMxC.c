@@ -33,6 +33,7 @@
  *		querying routine.
  *
  */
+/* $XFree86: xc/lib/X11/LuvMxC.c,v 1.3 2001/01/17 19:41:39 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
@@ -49,6 +50,9 @@
  *	EXTERNS
  */
 extern Status _XcmsCIELuvQueryMaxLCRGB();
+
+/* CvColW.c */
+extern Status _XcmsConvertColorsWithWhitePt();
 
 
 /************************************************************************

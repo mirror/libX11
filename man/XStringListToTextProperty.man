@@ -1,4 +1,5 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
+.\" Copyright \(co 2000  The XFree86 Project, Inc.
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
 .\" a copy of this software and associated documentation files (the
@@ -39,6 +40,8 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
+.\"
+.\" $XFree86: xc/doc/man/X11/XSLTTProp.man,v 1.4 2001/02/09 03:47:46 tsi Exp $
 .\" 
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -138,11 +141,11 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStringListToTextProperty 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XStringListToTextProperty 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStringListToTextProperty, XTextPropertyToStringList, XFreeStringList, XTextProperty \- convert string lists and text property structure
 .SH SYNTAX
-Status XStringListToTextProperty\^(\^\fIlist\fP, \fIcount\fP, \
+Status XStringListToTextProperty\^(\^\fIlist\fP, \fIcount\fP,
 \fItext_prop_return\fP\^)
 .br
       char **\fIlist\fP\^;
@@ -151,7 +154,7 @@ Status XStringListToTextProperty\^(\^\fIlist\fP, \fIcount\fP, \
 .br
       XTextProperty *\fItext_prop_return\fP\^;
 .LP
-Status XTextPropertyToStringList\^(\^\fItext_prop\fP, \fIlist_return\fP, \
+Status XTextPropertyToStringList\^(\^\fItext_prop\fP, \fIlist_return\fP,
 \fIcount_return\fP\^)
 .br
        XTextProperty *\fItext_prop\fP\^;
@@ -224,7 +227,8 @@ To free the storage for the list and its contents, use
 The 
 .ZN XFreeStringList 
 function releases memory allocated by 
-.ZN XmbTextPropertyToTextList
+.ZN XmbTextPropertyToTextList ,
+.ZN Xutf8TextPropertyToTextList
 and
 .ZN XTextPropertyToStringList
 and the missing charset list allocated by 

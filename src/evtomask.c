@@ -24,20 +24,15 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/evtomask.c,v 3.5 2001/12/14 19:54:10 dawes Exp $ */
 
 #include <X11/X.h>
-
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
 
 /*
  * This array can be used given an event type to determine the mask bits
  * that could have generated it.
  */
-long Const _Xevent_to_mask [LASTEvent] = {
+long const _Xevent_to_mask [LASTEvent] = {
 	0,						/* no event 0 */
 	0,						/* no event 1 */
 	KeyPressMask,					/* KeyPress */

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/SetPntMap.c,v 1.4 2001/12/14 19:54:06 dawes Exp $ */
 
 #define NEED_REPLIES
 
@@ -57,6 +58,7 @@ int XSetPointerMapping (dpy, map, nmaps)
     return ((int) rep.success);
     }
 
+int
 XChangeKeyboardMapping (dpy, first_keycode, keysyms_per_keycode, 
 		     keysyms, nkeycodes)
     register Display *dpy;

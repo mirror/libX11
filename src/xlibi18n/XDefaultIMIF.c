@@ -41,6 +41,7 @@ interest in or to any trademark, service mark, logo or trade name of
 Sun Microsystems, Inc. or its licensors is granted.
 
 */
+/* $XFree86: xc/lib/X11/XDefaultIMIF.c,v 1.2 2001/11/19 15:33:38 tsi Exp $ */
 
 #include <stdio.h>
 #define NEED_EVENTS
@@ -159,8 +160,10 @@ static _Xconst XICMethodsRec local_ic_methods = {
     _GetICValues,	/* get_values */
     _MbReset,		/* mb_reset */
     _WcReset,		/* wc_reset */
+    NULL,		/* utf8_reset */		/* ??? */
     _MbLookupString,	/* mb_lookup_string */
     _WcLookupString,	/* wc_lookup_string */
+    NULL		/* utf8_lookup_string */	/* ??? */
 };
 
 XIM
@@ -170,8 +173,6 @@ Display		*dpy;
 XrmDatabase	 rdb;
 char		*res_name, *res_class;
 {
-    FILE *fp;
-    char *name;
     StaticXIM im;
     XIMStaticXIMRec *local_impart;
     XlcConv ctom_conv, ctow_conv;
@@ -240,9 +241,6 @@ char		*res_name, *res_class;
     }
 
     return (XIM)im;
-Error1 :
-    if(im->core.im_name)
-	Xfree(im->core.im_name);
 Error2 :
     Xfree(im->private);
     Xfree(im->core.im_name);
@@ -280,10 +278,7 @@ XIM xim;
 XIMArg *values;
 {
     XIMArg *p;
-    XIMStyles **value;
     XIMStyles *styles;
-    int i;
-    XIMStyles *p_style;
 
     for (p = values; p->name != NULL; p++) {
 	if (strcmp(p->name, XNQueryInputStyle) == 0) {
@@ -307,7 +302,6 @@ XIMArg *values;
 XICOp_t mode;
 {
     XIMArg *p;
-    int i;
     char *return_name = NULL;
 
     for (p = values; p != NULL && p->name != NULL; p++) {

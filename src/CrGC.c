@@ -24,16 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/CrGC.c,v 3.6 2001/12/14 19:53:59 dawes Exp $ */
 
 #include "Xlibint.h"
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-
-static XGCValues Const initial_GC = {
+static XGCValues const initial_GC = {
     GXcopy, 	/* function */
     AllPlanes,	/* plane_mask */
     0L,		/* foreground */
@@ -60,6 +55,7 @@ static XGCValues Const initial_GC = {
 };
 
 static void _XGenerateGCList();
+int _XUpdateGCCache();
 
 GC XCreateGC (dpy, d, valuemask, values)
      register Display *dpy;
@@ -160,6 +156,7 @@ _XGenerateGCList (dpy, gc, req)
     }
 
 
+int
 _XUpdateGCCache (gc, mask, attr)
     register unsigned long mask;
     register XGCValues *attr;

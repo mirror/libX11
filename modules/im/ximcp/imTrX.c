@@ -28,6 +28,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imTrX.c,v 1.2 2002/11/26 01:21:25 dawes Exp $ */
 
 #include <string.h>
 #include <X11/Xatom.h>
@@ -340,8 +341,15 @@ _XimXGetReadData(im, buf, buf_len, ret_len, event)
     unsigned long	  bytes_after_ret;
     unsigned char	 *prop_ret;
 
-    if ((event->type == ClientMessage) && (event->xclient.format == 8)) {
-	data = event->xclient.data.b;
+    if ((event->type == ClientMessage) &&
+        !((event->xclient.message_type == spec->improtocolid) ||
+          (event->xclient.message_type == spec->immoredataid))) {
+         /* This event has nothing to do with us,
+          * FIXME should not have gotten here then...
+          */
+         return False;
+    } else if ((event->type == ClientMessage) && (event->xclient.format == 8)) {
+        data = event->xclient.data.b;
 	if (buf_len >= XIM_CM_DATA_SIZE) {
 	    (void)memcpy(buf, data, XIM_CM_DATA_SIZE);
 	    *ret_len = XIM_CM_DATA_SIZE;

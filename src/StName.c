@@ -24,10 +24,12 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/StName.c,v 1.4 2001/12/14 19:54:07 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xatom.h>
 
+int
 #if NeedFunctionPrototypes
 XStoreName (
     register Display *dpy,
@@ -45,6 +47,7 @@ XStoreName (dpy, w, name)
 			   name ? strlen(name) : 0);
 }
 
+int
 #if NeedFunctionPrototypes
 XSetIconName (
     register Display *dpy,

@@ -1,4 +1,5 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
+.\" Copyright \(co 2000  The XFree86 Project, Inc.
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
 .\" a copy of this software and associated documentation files (the
@@ -39,7 +40,9 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
-.\" 
+.\"
+.\" $XFree86: xc/doc/man/X11/XOpenOM.man,v 1.4 2001/02/09 03:47:45 tsi Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XOpenOM 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XOpenOM 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XOpenOM, XCloseOM, XSetOMValues, XGetOMValues, XDisplayOfOM, XLocaleOfOM \- open output methods
 .SH SYNTAX
@@ -241,7 +244,11 @@ function presents a variable argument list programming interface
 for setting properties or features of the specified output method.
 This function returns NULL if it succeeds;
 otherwise,
-it returns the name of the first argument that could not be obtained.
+it returns the name of the first argument that could not be set.
+Xlib does not attempt to set arguments from the supplied list that
+follow the failed argument;
+all arguments in the list preceding the failed argument have been set
+correctly.
 .LP
 No standard arguments are currently defined by Xlib.
 .LP

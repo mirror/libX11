@@ -53,7 +53,9 @@ from The Open Group.
  *
  *		 Katsuhisa Yano		TOSHIBA Corp.
  */				
+/* $XFree86: xc/lib/X11/lcWrap.c,v 3.14 2002/11/01 13:43:31 alanh Exp $ */
 
+#include <stdlib.h>
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include <X11/Xlocale.h>
@@ -63,36 +65,13 @@ from The Open Group.
 #endif
 #include <X11/Xutil.h>
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
-
-extern void _XlcInitLoader(
-#if NeedFunctionPrototypes
-    char*
-#endif
-);
-
 #ifdef XTHREADS
 LockInfoPtr _Xi18n_lock;
 #endif
 
-#if NeedFunctionPrototypes
 char *
 XSetLocaleModifiers(
-    _Xconst char   *modifiers
-)
-#else
-char *
-XSetLocaleModifiers(modifiers)
-    char        *modifiers;
-#endif
+    const char *modifiers)
 {
     XLCd lcd = _XlcCurrentLC();
     char *user_mods;
@@ -118,12 +97,12 @@ XSupportsLocale()
     return _XlcCurrentLC() != (XLCd)NULL;
 }
 
-Bool _XlcValidModSyntax(mods, valid_mods)
-    char *mods;
-    char **valid_mods;
+Bool _XlcValidModSyntax(
+    const char * mods,
+    const char * const *valid_mods)
 {
     int i;
-    char **ptr;
+    const char * const *ptr;
 
     while (mods && (*mods == '@')) {
 	mods++;
@@ -144,21 +123,21 @@ Bool _XlcValidModSyntax(mods, valid_mods)
     return !mods || !*mods;
 }
 
-static Const char *im_valid[] = {"im", (char *)NULL};
+static const char *im_valid[] = {"im", (const char *)NULL};
 
 /*ARGSUSED*/
 char *
-_XlcDefaultMapModifiers (lcd, user_mods, prog_mods)
-    XLCd lcd;
-    char *user_mods;
-    char *prog_mods;
+_XlcDefaultMapModifiers(
+    XLCd lcd,
+    const char *user_mods,
+    const char *prog_mods)
 {
     int i;
     char *mods;
 
-    if (!_XlcValidModSyntax(prog_mods, (char **)im_valid))
+    if (!_XlcValidModSyntax(prog_mods, im_valid))
 	return (char *)NULL;
-    if (!_XlcValidModSyntax(user_mods, (char **)im_valid))
+    if (!_XlcValidModSyntax(user_mods, im_valid))
 	return (char *)NULL;
     i = strlen(prog_mods) + 1;
     if (user_mods)
@@ -201,8 +180,8 @@ typedef struct _XlcLoaderListRec {
 static XlcLoaderList loader_list = NULL;
 
 void
-_XlcRemoveLoader(proc)
-    XLCdLoadProc proc;
+_XlcRemoveLoader(
+    XLCdLoadProc proc)
 {
     XlcLoaderList loader, prev;
 
@@ -229,9 +208,9 @@ _XlcRemoveLoader(proc)
 }
 
 Bool
-_XlcAddLoader(proc, position)
-    XLCdLoadProc proc;
-    XlcPosition position;
+_XlcAddLoader(
+    XLCdLoadProc proc,
+    XlcPosition position)
 {
     XlcLoaderList loader, last;
 
@@ -262,30 +241,32 @@ _XlcAddLoader(proc, position)
 }
 
 XLCd
-_XOpenLC(name)
-    char *name;
+_XOpenLC(
+    const char *name)
 {
     XLCd lcd;
     XlcLoaderList loader;
     XLCdList cur;
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
     int len;
     char sinamebuf[256];
-    char* siname;
+    char* siname = sinamebuf;
     char *_XlcMapOSLocaleName();
 #endif
 
     if (name == NULL) {
 	name = setlocale (LC_CTYPE, (char *)NULL);
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
-    /* 
-     * _XlMapOSLOcaleName will return the same string or a substring 
-     * of name, so strlen(name) is okay 
-     */
-    if ((len = strlen(name)) < sizeof sinamebuf) siname = sinamebuf;
-    else siname = Xmalloc (len + 1);
-    if (siname == NULL) return NULL;
-    name = _XlcMapOSLocaleName(name, siname);
+#if !defined(X_LOCALE)
+        /* 
+         * _XlMapOSLocaleName will return the same string or a substring 
+         * of name, so strlen(name) is okay 
+         */
+        if ((len = strlen(name)) >= sizeof sinamebuf) {
+            siname = Xmalloc (len + 1);
+            if (siname == NULL)
+                return NULL;
+        }
+        name = _XlcMapOSLocaleName(name, siname);
 #endif
     }
 
@@ -302,7 +283,8 @@ _XOpenLC(name)
 	}
     }
 
-    _XlcInitLoader(name);
+    if (!loader_list)
+	_XlcInitLoader();
 
     /*
      * not there, so try to get and add to list
@@ -320,14 +302,16 @@ _XOpenLC(name)
 		(*lcd->methods->close)(lcd);
 		lcd = (XLCd) NULL;
 	    }
-	    break;
+	    goto found;
 	}
     }
+
+    lcd = NULL;
 
 found:
     _XUnlockMutex(_Xi18n_lock);
 
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
     if (siname != sinamebuf) Xfree(siname);
 #endif
 
@@ -335,8 +319,8 @@ found:
 }
 
 void
-_XCloseLC(lcd)
-    XLCd lcd;
+_XCloseLC(
+    XLCd lcd)
 {
     XLCdList cur, *prev;
 
@@ -349,6 +333,11 @@ _XCloseLC(lcd)
 	    }
 	    break;
 	}
+    }
+
+    if(loader_list) {
+	_XlcDeInitLoader();
+	loader_list = NULL;
     }
 }
 
@@ -373,8 +362,8 @@ _XlcCurrentLC()
 }
 
 XrmMethods
-_XrmInitParseInfo(state)
-    XPointer *state;
+_XrmInitParseInfo(
+    XPointer *state)
 {
     XLCd lcd = _XOpenLC((char *) NULL);
     
@@ -385,11 +374,11 @@ _XrmInitParseInfo(state)
 }
 
 int
-XmbTextPropertyToTextList(dpy, text_prop, list_ret, count_ret)
-    Display *dpy;
-    XTextProperty *text_prop;
-    char ***list_ret;
-    int *count_ret;
+XmbTextPropertyToTextList(
+    Display *dpy,
+    const XTextProperty *text_prop,
+    char ***list_ret,
+    int *count_ret)
 {
     XLCd lcd = _XlcCurrentLC();
     
@@ -401,11 +390,11 @@ XmbTextPropertyToTextList(dpy, text_prop, list_ret, count_ret)
 }
 
 int
-XwcTextPropertyToTextList(dpy, text_prop, list_ret, count_ret)
-    Display *dpy;
-    XTextProperty *text_prop;
-    wchar_t ***list_ret;
-    int *count_ret;
+XwcTextPropertyToTextList(
+    Display *dpy,
+    const XTextProperty *text_prop,
+    wchar_t ***list_ret,
+    int *count_ret)
 {
     XLCd lcd = _XlcCurrentLC();
     
@@ -417,12 +406,28 @@ XwcTextPropertyToTextList(dpy, text_prop, list_ret, count_ret)
 }
 
 int
-XmbTextListToTextProperty(dpy, list, count, style, text_prop)
-    Display *dpy;
-    char **list;
-    int count;
-    XICCEncodingStyle style;
-    XTextProperty *text_prop;
+Xutf8TextPropertyToTextList(
+    Display *dpy,
+    const XTextProperty *text_prop,
+    char ***list_ret,
+    int *count_ret)
+{
+    XLCd lcd = _XlcCurrentLC();
+    
+    if (lcd == NULL)
+	return XLocaleNotSupported;
+
+    return (*lcd->methods->utf8_text_prop_to_list)(lcd, dpy, text_prop,
+						   list_ret, count_ret);
+}
+
+int
+XmbTextListToTextProperty(
+    Display *dpy,
+    char **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
 {
     XLCd lcd = _XlcCurrentLC();
     
@@ -434,12 +439,12 @@ XmbTextListToTextProperty(dpy, list, count, style, text_prop)
 }
 
 int
-XwcTextListToTextProperty(dpy, list, count, style, text_prop)
-    Display *dpy;
-    wchar_t **list;
-    int count;
-    XICCEncodingStyle style;
-    XTextProperty *text_prop;
+XwcTextListToTextProperty(
+    Display *dpy,
+    wchar_t **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
 {
     XLCd lcd = _XlcCurrentLC();
     
@@ -450,9 +455,26 @@ XwcTextListToTextProperty(dpy, list, count, style, text_prop)
 						 text_prop);
 }
 
+int
+Xutf8TextListToTextProperty(
+    Display *dpy,
+    char **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
+{
+    XLCd lcd = _XlcCurrentLC();
+    
+    if (lcd == NULL)
+	return XLocaleNotSupported;
+
+    return (*lcd->methods->utf8_text_list_to_prop)(lcd, dpy, list, count,
+						   style, text_prop);
+}
+
 void
-XwcFreeStringList(list)
-    wchar_t **list;
+XwcFreeStringList(
+    wchar_t **list)
 {
     XLCd lcd = _XlcCurrentLC();
     
@@ -462,7 +484,7 @@ XwcFreeStringList(list)
     (*lcd->methods->wc_free_string_list)(lcd, list);
 }
 
-char *
+const char *
 XDefaultString()
 {
     XLCd lcd = _XlcCurrentLC();
@@ -474,16 +496,16 @@ XDefaultString()
 }
 
 void
-_XlcCopyFromArg(src, dst, size)
-    char *src;
-    register char *dst;
-    register int size;
+_XlcCopyFromArg(
+    char *src,
+    char *dst,
+    int size)
 {
     if (size == sizeof(long))
 	*((long *) dst) = (long) src;
 #ifdef LONG64
     else if (size == sizeof(int))
-	*((int *) dst) = (int) src;
+	*((int *) dst) = (int)(long) src;
 #endif
     else if (size == sizeof(short))
 	*((short *) dst) = (short)(long) src;
@@ -498,13 +520,19 @@ _XlcCopyFromArg(src, dst, size)
 }
 
 void
-_XlcCopyToArg(src, dst, size)
-    register char *src;
-    register char **dst;
-    register int size;
+_XlcCopyToArg(
+    char *src,
+    char **dst,
+    int size)
 {
+    /* FIXME:
+       On Big Endian machines, this behaves differently than _XCopyToArg. */
     if (size == sizeof(long))
 	*((long *) *dst) = *((long *) src);
+#ifdef LONG64
+    else if (size == sizeof(int))
+	*((int *) *dst) = *((int *) src);
+#endif
     else if (size == sizeof(short))
 	*((short *) *dst) = *((short *) src);
     else if (size == sizeof(char))
@@ -516,25 +544,25 @@ _XlcCopyToArg(src, dst, size)
 }
 
 void
-_XlcCountVaList(var, count_ret)
-    va_list var;
-    int *count_ret;
+_XlcCountVaList(
+    va_list var,
+    int *count_ret)
 {
-    register int count;
+    int count;
 
     for (count = 0; va_arg(var, char *); count++)
-	va_arg(var, XPointer);
+	(void)va_arg(var, XPointer);
     
     *count_ret = count;
 }
 
 void
-_XlcVaToArgList(var, count, args_ret)
-    va_list var;
-    register int count;
-    XlcArgList *args_ret;
+_XlcVaToArgList(
+    va_list var,
+    int count,
+    XlcArgList *args_ret)
 {
-    register XlcArgList args;
+    XlcArgList args;
 
     *args_ret = args = (XlcArgList) Xmalloc(sizeof(XlcArg) * count);
     if (args == (XlcArgList) NULL)
@@ -547,22 +575,22 @@ _XlcVaToArgList(var, count, args_ret)
 }
 
 void
-_XlcCompileResourceList(resources, num_resources)
-    register XlcResourceList resources;
-    register int num_resources;
+_XlcCompileResourceList(
+    XlcResourceList resources,
+    int num_resources)
 {
     for ( ; num_resources-- > 0; resources++)
 	resources->xrm_name = XrmPermStringToQuark(resources->name);
 }
 
 char *
-_XlcGetValues(base, resources, num_resources, args, num_args, mask)
-    XPointer base;
-    XlcResourceList resources;
-    int num_resources;
-    XlcArgList args;
-    int num_args;
-    unsigned long mask;
+_XlcGetValues(
+    XPointer base,
+    XlcResourceList resources,
+    int num_resources,
+    XlcArgList args,
+    int num_args,
+    unsigned long mask)
 {
     XlcResourceList res;
     XrmQuark xrm_name;
@@ -588,13 +616,13 @@ _XlcGetValues(base, resources, num_resources, args, num_args, mask)
 }
 
 char *
-_XlcSetValues(base, resources, num_resources, args, num_args, mask)
-    XPointer base;
-    XlcResourceList resources;
-    int num_resources;
-    XlcArgList args;
-    int num_args;
-    unsigned long mask;
+_XlcSetValues(
+    XPointer base,
+    XlcResourceList resources,
+    int num_resources,
+    XlcArgList args,
+    int num_args,
+    unsigned long mask)
 {
     XlcResourceList res;
     XrmQuark xrm_name;

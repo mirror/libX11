@@ -44,6 +44,7 @@
  *		querying routine.
  *
  */
+/* $XFree86: xc/lib/X11/HVCMxC.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
@@ -61,6 +62,9 @@
 extern Status _XcmsTekHVCQueryMaxVCRGB();
 extern int _XcmsTekHVC_CheckModify();
 extern XcmsColorSpace XcmsTekHVCColorSpace;
+
+/* CvColW.c */
+extern Status _XcmsConvertColorsWithWhitePt();
 
 
 

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ParseCol.c,v 1.5 2002/12/04 23:18:32 paulo Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
@@ -31,6 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xcmsint.h"
 
 extern void _XcmsRGB_to_XColor();
+extern Status _XcmsResolveColorString();
 
 #if NeedFunctionPrototypes
 Status XParseColor (
@@ -94,16 +96,24 @@ Status XParseColor (dpy, cmap, spec, def)
 	 * Let's Attempt to use Xcms and i18n approach to Parse Color
 	 */
 	if ((ccc = XcmsCCCOfColormap(dpy, cmap)) != (XcmsCCC)NULL) {
-	    if (_XcmsResolveColorString(ccc, &spec,
-		    &cmsColor, XcmsRGBFormat) >= XcmsSuccess) {
+	    const char *tmpName = spec;
+
+	    switch (_XcmsResolveColorString(ccc, &tmpName, &cmsColor,
+					    XcmsRGBFormat)) {
+	    case XcmsSuccess:
+	    case XcmsSuccessWithCompression:
 		cmsColor.pixel = def->pixel;
 		_XcmsRGB_to_XColor(&cmsColor, def, 1);
 		return(1);
+	    case XcmsFailure:
+	    case _XCMS_NEWNAME:
+		/*
+		 * if the result was _XCMS_NEWNAME tmpName points to
+		 * a string in cmsColNm.c:pairs table, for example,
+		 * gray70 would become tekhvc:0.0/70.0/0.0
+		 */
+		break;
 	    }
-	    /*
-	     * Otherwise we failed; or spec was changed with yet another
-	     * name.  Thus pass name to the X Server.
-	     */
 	}
 
 	/*

@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XStColors.man,v 1.2 2001/01/27 18:20:05 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStoreColors 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XStoreColors 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStoreColors, XStoreColor, XStoreNamedColor \- set colors
 .SH SYNTAX

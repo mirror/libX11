@@ -33,6 +33,7 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/CvCols.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
@@ -62,6 +63,7 @@ extern XcmsColorSpace **_XcmsDDColorSpaces;
  */
 Status _XcmsDIConvertColors();
 Status _XcmsDDConvertColors();
+int _XcmsEqualWhitePts();
 
 
 /************************************************************************

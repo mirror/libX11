@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/LoadFont.c,v 1.4 2001/12/14 19:54:02 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -40,6 +41,10 @@ Font XLoadFont (dpy, name)
     register long nbytes;
     Font fid;
     register xOpenFontReq *req;
+
+    if (_XF86LoadQueryLocaleFont(dpy, name, (XFontStruct **)0, &fid))
+      return fid;
+
     LockDisplay(dpy);
     GetReq(OpenFont, req);
     nbytes = req->nbytes = name ? strlen(name) : 0;

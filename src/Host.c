@@ -24,11 +24,13 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Host.c,v 1.4 2001/12/14 19:54:01 dawes Exp $ */
 
 /* this might be rightly reguarded an os dependent file */
 
 #include "Xlibint.h"
 
+int
 XAddHost (dpy, host)
     register Display *dpy;
     XHostAddress *host;
@@ -47,6 +49,7 @@ XAddHost (dpy, host)
     return 1;
     }
 
+int
 XRemoveHost (dpy, host)
     register Display *dpy;
     XHostAddress *host;
@@ -65,7 +68,7 @@ XRemoveHost (dpy, host)
     return 1;
     }
 
-
+int
 XAddHosts (dpy, hosts, n)
     register Display *dpy;
     XHostAddress *hosts;
@@ -78,6 +81,7 @@ XAddHosts (dpy, hosts, n)
     return 1;
 }
 
+int
 XRemoveHosts (dpy, hosts, n)
     register Display *dpy;
     XHostAddress *hosts;

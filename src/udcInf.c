@@ -32,6 +32,9 @@ from The Open Group.
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
+
+/* $XFree86: xc/lib/X11/udcInf.c,v 1.7 2001/12/14 19:54:11 dawes Exp $ */
+
 #include <stdio.h>
 #include <locale.h>
 #include <Xlib.h>
@@ -386,14 +389,15 @@ XlcCharSet 	charset;
 char *src;
 int size;
 {
-    int name_len,seq_len,i;
+    int name_len,seq_len,rest_len,i;
     name_len = 2 + strlen(charset->encoding_name) + 1;
     seq_len = strlen(charset->ct_sequence);
-    if (name_len + seq_len + strlen(src) >= size)
+    rest_len = strlen(charset->encoding_name) + 1 + strlen(src);
+    if (name_len + seq_len + strlen(src) >= size || rest_len >= 0x4000)
 	return False;
     strcpy(from,charset->ct_sequence);
-    from[seq_len]    = name_len / 128 + 128;
-    from[seq_len+1]  = name_len % 128 + 128;
+    from[seq_len]    = (rest_len >> 7) + 128;
+    from[seq_len+1]  = (rest_len & 0x7f) + 128;
     strcpy(&from[seq_len + 2],charset->encoding_name);
     from[seq_len+name_len-1]  = 0x02;  /* STX */
     strcpy(&from[seq_len + name_len],src);
@@ -415,7 +419,7 @@ unsigned long 	*codepoint;
     unsigned long from32[25];
     unsigned long to32[25];
     int	     i,j;
-    char tmp[256],charsetname[256],src[10];
+    char charsetname[256],src[10];
     XlcConv 	conv;
     XlcCharSet 	charset;
     XPointer args[2];
@@ -652,7 +656,7 @@ int 		*num_gi;
     unsigned int from32[25];
     unsigned int to32[25];
     int      i,j;
-    char tmp[256],charsetname[256],src[10];
+    char charsetname[256],src[10];
     XlcConv     conv;
     XlcCharSet  charset;
     XPointer args[2];

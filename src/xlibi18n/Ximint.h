@@ -30,6 +30,7 @@ PERFORMANCE OF THIS SOFTWARE.
 			       makoto@sm.sony.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/Ximint.h,v 3.10 2001/07/25 15:04:44 dawes Exp $ */
 
 #ifndef _XIMINT_H
 #define _XIMINT_H
@@ -52,7 +53,21 @@ typedef struct _Xic	*Xic;
 /*
  * XIM dependent data
  */
+
+typedef struct _XimCommonPrivateRec {
+    /* This struct is also inlined in XimLocalPrivateRec, XimProtoPrivateRec. */
+    XlcConv		ctom_conv;
+    XlcConv		ctow_conv;
+    XlcConv		ctoutf8_conv;
+    XlcConv		cstomb_conv;
+    XlcConv		cstowc_conv;
+    XlcConv		cstoutf8_conv;
+    XlcConv		ucstoc_conv;
+    XlcConv		ucstoutf8_conv;
+} XimCommonPrivateRec;
+
 typedef union _XIMPrivateRec {
+    XimCommonPrivateRec  common;
     XimLocalPrivateRec   local;
     XimProtoPrivateRec   proto;
 } XIMPrivateRec;
@@ -98,12 +113,12 @@ typedef struct _XimDefICValues {
     Window			 client_window;
     Window			 focus_window;
     unsigned long		 filter_events;
-    XIMCallback			 geometry_callback;
+    XICCallback			 geometry_callback;
     char			*res_name;
     char			*res_class;
-    XIMCallback			 destroy_callback;
-    XIMCallback			 preedit_state_notify_callback;
-    XIMCallback			 string_conversion_callback;
+    XICCallback			 destroy_callback;
+    XICCallback			 preedit_state_notify_callback;
+    XICCallback			 string_conversion_callback;
     XIMStringConversionText	 string_conversion;
     XIMResetState		 reset_state;
     XIMHotKeyTriggers		*hotkey;
@@ -168,6 +183,27 @@ typedef struct _XimDefICValues {
 /*
  * Global symbols
  */
+
+XPointer _XimGetLocaleCode (
+#if NeedFunctionPrototypes
+    const char	*encoding_name
+#endif
+);
+
+int _XimGetCharCode (
+#if NeedFunctionPrototypes
+    XPointer		conv,
+    KeySym		keysym,
+    unsigned char	*buf,
+    int			nbytes
+#endif
+);
+
+unsigned int KeySymToUcs4 (
+#if NeedFunctionPrototypes
+    KeySym		keysym
+#endif
+);
 
 extern Bool _XimSetIMResourceList(
 #if NeedFunctionPrototypes
@@ -555,6 +591,17 @@ extern Bool	_XimErrorCallback(
 #endif
 );
 
+extern Bool	_XimError(
+#if NeedFunctionPrototypes
+    Xim		 im,
+    Xic		 ic,
+    CARD16	 error_code,
+    INT16	 detail_length,
+    CARD16	 type,
+    char	*detail
+#endif
+);
+
 extern Bool	_XimRegisterTriggerKeysCallback(
 #if NeedFunctionPrototypes
     Xim		 im,
@@ -715,9 +762,9 @@ extern int	_Ximctstombs(
 #if NeedFunctionPrototypes
     XIM		 im,
     char	*from,
-    int		from_len,
+    int		 from_len,
     char	*to,
-    int		to_len,
+    int		 to_len,
     Status	*state
 #endif
 );
@@ -733,13 +780,24 @@ extern int	_Ximctstowcs(
 #endif
 );
 
+extern int	_Ximctstoutf8(
+#if NeedFunctionPrototypes
+    XIM		 im,
+    char	*from,
+    int		 from_len,
+    char	*to,
+    int		 to_len,
+    Status	*state
+#endif
+);
+
 extern int	_XimLcctstombs(
 #if NeedFunctionPrototypes
     XIM		 im,
     char	*from,
-    int		from_len,
+    int		 from_len,
     char	*to,
-    int		to_len,
+    int		 to_len,
     Status	*state
 #endif
 );
@@ -750,6 +808,17 @@ extern int	_XimLcctstowcs(
     char	*from,
     int		 from_len,
     wchar_t	*to,
+    int		 to_len,
+    Status	*state
+#endif
+);
+
+extern int	_XimLcctstoutf8(
+#if NeedFunctionPrototypes
+    XIM		 im,
+    char	*from,
+    int		 from_len,
+    char	*to,
     int		 to_len,
     Status	*state
 #endif
@@ -787,6 +856,17 @@ extern int	_XimProtoWcLookupString(
     XIC		 xic,
     XKeyEvent	*ev,
     wchar_t	*buffer,
+    int		 bytes,
+    KeySym	*keysym,
+    Status	*state
+#endif
+);
+
+extern int	_XimProtoUtf8LookupString(
+#if NeedFunctionPrototypes
+    XIC		 xic,
+    XKeyEvent	*ev,
+    char	*buffer,
     int		 bytes,
     KeySym	*keysym,
     Status	*state
@@ -859,6 +939,17 @@ extern int	_XimLookupWCText(
 #endif
 );
 
+extern int	_XimLookupUTF8Text(
+#if NeedFunctionPrototypes
+    Xic			 ic,
+    XKeyEvent		*event,
+    char		*buffer,
+    int			 nbytes,
+    KeySym		*keysym,
+    XComposeStatus	*status
+#endif
+);
+
 extern EVENTMASK	_XimGetWindowEventmask(
 #if NeedFunctionPrototypes
     Xic		 ic
@@ -885,8 +976,8 @@ extern Bool	_XimRegisterIMInstantiateCallback(
     XrmDatabase	 rdb,
     char	*res_name,
     char	*res_class,
-    XIMProc	 callback,
-    XPointer	*client_data
+    XIDProc	 callback,
+    XPointer	 client_data
 #endif
 );
 
@@ -897,8 +988,8 @@ extern Bool	_XimUnRegisterIMInstantiateCallback(
     XrmDatabase	 rdb,
     char	*res_name,
     char	*res_class,
-    XIMProc	 callback,
-    XPointer	*client_data
+    XIDProc	 callback,
+    XPointer	 client_data
 #endif
 );
 
@@ -992,14 +1083,6 @@ extern Bool _XimCbDispatch(
 #endif
 );
 
-extern void _XimGetResourceName(
-#if NeedFunctionPrototypes
-    Xim im, 
-    char *res_name,
-    char *res_class
-#endif
-);
-
 extern Bool _XimLocalFilter(
 #if NeedFunctionPrototypes
     Display		*d,
@@ -1053,6 +1136,17 @@ extern int _XimLocalWcLookupString(
     XIC			 ic,
     XKeyEvent		*ev,
     wchar_t		*buffer,
+    int			 bytes,
+    KeySym		*keysym,
+    Status		*status
+#endif
+);
+
+extern int _XimLocalUtf8LookupString(
+#if NeedFunctionPrototypes
+    XIC			 ic,
+    XKeyEvent		*ev,
+    char		*buffer,
     int			 bytes,
     KeySym		*keysym,
     Status		*status

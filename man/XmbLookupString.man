@@ -145,7 +145,7 @@
 '\" t
 .TH XmbLookupString 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XmbLookupString, XwcLookupString, Xutf8LookupString \- obtain composed input from an input method
+XmbLookupString, XwcLookupString, XFree86utf8LookupString \- obtain composed input from an input method
 .SH SYNTAX
 .HP
 int XmbLookupString\^(\^XIC \fIic\fP\^, XKeyPressedEvent *\fIevent\fP, char
@@ -156,7 +156,7 @@ int XwcLookupString\^(\^XIC \fIic\fP\^, XKeyPressedEvent *\fIevent\fP\^,
 wchar_t *\fIbuffer_return\fP\^, int \fIwchars_buffer\fP\^, KeySym
 *\fIkeysym_return\fP\^, Status *\fIstatus_return\fP\^); 
 .HP
-int Xutf8LookupString\^(\^XIC \fIic\fP\^, XKeyPressedEvent *\fIevent\fP, char
+int XFree86utf8LookupString\^(\^XIC \fIic\fP\^, XKeyPressedEvent *\fIevent\fP, char
 *\fIbuffer_return\fP\^, int \fIbytes_buffer\fP\^, KeySym
 *\fIkeysym_return\fP\^, Status *\fIstatus_return\fP\^); 
 .SH ARGUMENTS
@@ -182,7 +182,7 @@ The
 .ZN XmbLookupString ,
 .ZN XwcLookupString
 and
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 functions return the string from the input method specified
 in the buffer_return argument.
 If no string is returned,
@@ -196,7 +196,7 @@ the KeySym value does not necessarily correspond to the string returned.
 .LP
 .ZN XmbLookupString
 and
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 return the length of the string in bytes, and
 .ZN XwcLookupString
 returns the length of the string in characters.
@@ -206,7 +206,7 @@ and
 .ZN XwcLookupString
 return text in the encoding of the locale bound to the input method
 of the specified input context, and
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 returns text in UTF-8 encoding.
 .LP
 Each string returned by
@@ -223,7 +223,7 @@ events to
 .ZN XmbLookupString ,
 .ZN XwcLookupString
 and
-.ZN Xutf8LookupString .
+.ZN XFree86utf8LookupString .
 Their behavior when a client passes a 
 .ZN KeyRelease
 event is undefined.
@@ -242,7 +242,7 @@ T}	T{
 The input string to be returned is too large for the supplied buffer_return.
 The required size (for
 .ZN XmbLookupString ,
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 in bytes; for
 .ZN XwcLookupString
 in characters) is returned as the value of the function,
@@ -289,18 +289,18 @@ It does not make any difference if the input context passed as an argument to
 .ZN XmbLookupString ,
 .ZN XwcLookupString
 and
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 is the one currently in possession of the focus or not.
 Input may have been composed within an input context before it lost the focus,
 and that input may be returned on subsequent calls to
 .ZN XmbLookupString ,
 .ZN XwcLookupString
 or
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 even though it does not have any more keyboard focus.
 .LP
 The function
-.ZN Xutf8LookupString
+.ZN XFree86utf8LookupString
 is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .

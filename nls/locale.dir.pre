@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.2 2004-04-23 18:44:33 eich Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.3 2004-10-18 17:29:03 eich Exp $
 XCOMM	$Xorg: locale.dir,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains locale database file names
@@ -228,6 +228,7 @@ microsoft-cp1255/XLC_LOCALE:		yi_US.CP1255
 zh_CN/XLC_LOCALE:			zh_CN.eucCN
 zh_CN/XLC_LOCALE:			zh_CN.gb2312
 zh_CN.gbk/XLC_LOCALE:			zh_CN.gbk
+zh_CN.gb18030/XLC_LOCALE:		zh_CN.gb18030
 zh_HK.big5/XLC_LOCALE:			zh_HK.big5
 zh_HK.big5hkscs/XLC_LOCALE:		zh_HK.big5-hkscs
 zh_HK.big5hkscs/XLC_LOCALE:		zh_HK.Big5-HKSCS
@@ -383,7 +384,7 @@ en_US.UTF-8/XLC_LOCALE:			vi_VN.UTF-8
 en_US.UTF-8/XLC_LOCALE:			wa_BE.UTF-8
 en_US.UTF-8/XLC_LOCALE:			yi_US.UTF-8
 zh_CN.UTF-8/XLC_LOCALE:			zh_CN.UTF-8
-zh_CN.UTF-8/XLC_LOCALE:			zh_HK.UTF-8
+zh_HK.UTF-8/XLC_LOCALE:			zh_HK.UTF-8
 zh_CN.UTF-8/XLC_LOCALE:			zh_SG.UTF-8
 zh_TW.UTF-8/XLC_LOCALE:			zh_TW.UTF-8
 #ifdef __uxp__

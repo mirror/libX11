@@ -62,7 +62,7 @@ cs1	{
 	byte2		\x40,\x7e;\x80,\xfe
 
 	wc_encoding	\x00008000
-	ct_encoding	GBK-0:GLGR:\x1b\x25\x2f\x32\x80\x88\x47\x42\x4b\x2d\x30\x02
+	ct_encoding	GBK-0:GLGR:\x1b\x25\x2f\x32
 
 	mb_conversion	[\x8140,\xfefe]->\x0140
 	ct_conversion	[\x0140,\x7efe]->\x8140

@@ -213,6 +213,11 @@ microsoft-cp1255/Compose:	yi_US.CP1256
 zh_CN/Compose:			zh_CN.eucCN
 zh_CN/Compose:			zh_CN.GB2312
 zh_CN.gbk/Compose:		zh_CN.GBK
+zh_CN.gb18030/Compose:		zh_CN.GB18030
+zh_HK.big5/Compose:		zh_HK.big5
+zh_HK.big5/Compose:		zh_HK.Big5
+zh_HK.big5hkscs/Compose:	zh_HK.big5hkscs
+zh_HK.big5hkscs/Compose:	zh_HK.Big5HKSCS
 zh_TW.big5/Compose:		zh_TW.big5
 zh_TW.big5/Compose:		zh_TW.Big5
 zh_TW/Compose:			zh_TW.eucTW

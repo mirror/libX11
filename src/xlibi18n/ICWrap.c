@@ -64,7 +64,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ICWrap.c,v 1.10 2003/04/25 14:12:38 tsi Exp $ */
+/* $XFree86: xc/lib/X11/ICWrap.c,v 1.11 2004/01/04 18:44:46 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
@@ -346,7 +346,7 @@ void
 XSetICFocus(ic)
     XIC ic;
 {
-  if (ic->core.im)
+  if (ic && ic->core.im)
       (*ic->methods->set_focus) (ic);
 }
 

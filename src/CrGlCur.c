@@ -24,12 +24,16 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/CrGlCur.c,v 1.7 2003/04/13 19:22:15 dawes Exp $ */
+/* $XFree86: xc/lib/X11/CrGlCur.c,v 1.8 2004/01/13 19:08:04 dawes Exp $ */
 
 #include "Xlibint.h"
 
 #ifdef USE_DYNAMIC_XCURSOR
 
+#ifdef __UNIXOS2__
+#define RTLD_LAZY 1
+#define LIBXCURSOR "Xcursor.dll"
+#endif
 #include <stdio.h>
 #include <string.h>
 #if defined(hpux)

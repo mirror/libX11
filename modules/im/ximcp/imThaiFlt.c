@@ -45,7 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imThaiFlt.c,v 3.21 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imThaiFlt.c,v 3.23 2003/12/31 01:18:42 tsi Exp $ */
 
 /*
 **++ 
@@ -230,7 +230,7 @@ THAI_chtype (unsigned char	ch)
     return tactis_chtype[ch];
 }
 
-
+#ifdef UNUSED
 /* returns the display level */
 Private int
 THAI_chlevel (unsigned char	ch)
@@ -311,7 +311,7 @@ THAI_istone (unsigned char	ch)
 {
     return (tactis_chtype[ch] == TONE);
 }
-
+#endif
 
 Private Bool
 THAI_iscomposible (
@@ -353,7 +353,7 @@ THAI_isaccepted (
     return iskeyvalid;
 }
 
-#if 0
+#ifdef UNUSED
 Private void 
 THAI_apply_write_rules(
     unsigned char	*instr, 
@@ -427,7 +427,7 @@ Output parameters:
     }
     return position;
 }
-#endif
+
 
 Private int 
 THAI_apply_scm(
@@ -462,25 +462,21 @@ THAI_apply_scm(
     return 0; /* probably not right but better than returning garbage */
 }
 
+
 /* The following functions are copied from XKeyBind.c */
 
-#if 0
 Private void ComputeMaskFromKeytrans();
-#endif
 Private int IsCancelComposeKey(KeySym *symbol, XKeyEvent *event);
 Private void SetLed(Display *dpy, int num, int state);
-#if 0
 Private CARD8 FindKeyCode();
-#endif
+
 
 /* The following functions are specific to this module */ 
 
-#if 0
 Private int XThaiTranslateKey();
 Private int XThaiTranslateKeySym();
-#endif
 
-#if 0
+
 Private KeySym HexIMNormalKey(
     XicThaiPart *thai_part,
     KeySym symbol,
@@ -493,9 +489,7 @@ Private KeySym HexIMSecondComposeKey(
     XicThaiPart *thai_part,
     KeySym symbol
     XKeyEvent *event);
-#endif
 Private KeySym HexIMComposeSequence(KeySym ks1, KeySym ks2);
-#if 0
 Private void InitIscMode(Xic ic);
 Private Bool ThaiComposeConvert(
     Display *dpy,
@@ -514,11 +508,12 @@ Private Bool ThaiComposeConvert(
    (0<=(wc)&&(wc)<=0x7F) ? \
      (wc) : \
      ((0x0E01<=(wc)&&(wc)<=0x0E5F) ? ((wc)-0x0E00+0xA0) : 0))
+/* "c" is an unsigned char */
 #define tis2ucs(c)  \
   ( \
    ((c)<=0x7F) ? \
      (wchar_t)(c) : \
-     ((0x0A1<=(c)&&(c)<=0x0FF) ? ((wchar_t)(c)-0xA0+0x0E00) : 0))
+     ((0x0A1<=(c)) ? ((wchar_t)(c)-0xA0+0x0E00) : 0))
 
 /*
  * Macros to save and recall last input character in XIC
@@ -645,12 +640,12 @@ IC_RealDeletePreviousChar(Xic ic)
 
 #define COMPOSE_LED 2
 
-#if 0
+#ifdef UNUSED
 typedef KeySym (*StateProc)(
     XicThaiPart *thai_part,
     KeySym symbol,
     XKeyEvent *event);
-#endif
+
 
 /*
  * macros to classify XKeyEvent state field
@@ -675,7 +670,7 @@ typedef KeySym (*StateProc)(
 	   !IsShift((event)->state))	\
 	 ? True : False)
 
-#if 0
+
 /*
  *  State handler to implement the Thai hex input method.
  */
@@ -686,7 +681,7 @@ Private StateProc state_handler[] = {
 	HexIMFirstComposeKey,
 	HexIMSecondComposeKey
 };
-#endif
+
 
 /*
  *  Table for 'Thai Compose' character input.
@@ -718,6 +713,7 @@ struct _XKeytrans {
 	int mlen;		/* length of modifier list */
 };
 
+
 /* Convert keysym to 'Thai Compose' keysym */
 /* The current implementation use latin-1 keysyms */
 Private Bool
@@ -740,7 +736,6 @@ ThaiComposeConvert(
     return False;
 }
 
-#if 0
 Private int
 XThaiTranslateKey(
     register Display *dpy,
@@ -931,7 +926,6 @@ XThaiTranslateKeySym(
         return 1;
     }
 }
-#endif
 
 /*
  * given a KeySym, returns the first keycode containing it, if any.
@@ -954,7 +948,6 @@ FindKeyCode(
     return 0;
 }
 
-#if 0
 /*
  * given a list of modifiers, computes the mask necessary for later matching.
  * This routine must lookup the key in the Keymap and then search to see
@@ -988,7 +981,6 @@ ComputeMaskFromKeytrans(
     }
     p->state &= AllMods;
 }
-#endif
 
 /************************************************************************
  *
@@ -1157,7 +1149,7 @@ void SetLed(
     led_control.led = num;
     XChangeKeyboardControl (dpy, KBLed | KBLedMode,	&led_control);
 }
-
+#endif
 
 /*
  * Initialize ISC mode from im modifier 
@@ -1252,7 +1244,7 @@ XPointer	client_data;
     int 	    isc_mode; /* Thai Input Sequence Check mode */
     unsigned char   previous_char; /* Last inputted Thai char */
     unsigned char   new_char;
-#if 0
+#ifdef UNUSED
     unsigned int    modifiers;
     KeySym	    lsym,usym;
     int		    state;
@@ -1298,7 +1290,7 @@ XPointer	client_data;
     {
         return False;
     }
-#if 0
+#ifdef UNUSED
     if (! XThaiTranslateKey(ev->xkey.display, ev->xkey.keycode, ev->xkey.state,
 	 		&modifiers, &symbol, &lsym, &usym))
 	return False;

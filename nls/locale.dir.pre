@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.7 2005-01-19 01:53:55 gisburn Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.dir.pre,v 1.2.18.1 2005-02-17 22:44:28 deronj Exp $
 XCOMM	$Xorg: locale.dir,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains locale database file names
@@ -34,7 +34,6 @@ microsoft-cp1251/XLC_LOCALE:		be_BY.CP1251
 iso8859-5/XLC_LOCALE:			bg_BG.ISO8859-5
 microsoft-cp1251/XLC_LOCALE:		bg_BG.CP1251
 koi8-r/XLC_LOCALE:			bg_BG.KOI8-R
-iso8859-2/XLC_LOCALE                   bs_BA.ISO8859-2
 iso8859-1/XLC_LOCALE:			br_FR.ISO8859-1
 iso8859-14/XLC_LOCALE:			br_FR.ISO8859-14
 iso8859-15/XLC_LOCALE:			br_FR.ISO8859-15
@@ -229,7 +228,6 @@ microsoft-cp1255/XLC_LOCALE:		yi_US.CP1255
 zh_CN/XLC_LOCALE:			zh_CN.eucCN
 zh_CN/XLC_LOCALE:			zh_CN.gb2312
 zh_CN.gbk/XLC_LOCALE:			zh_CN.gbk
-zh_CN.gb18030/XLC_LOCALE:		zh_CN.gb18030
 zh_HK.big5/XLC_LOCALE:			zh_HK.big5
 zh_HK.big5hkscs/XLC_LOCALE:		zh_HK.big5-hkscs
 zh_HK.big5hkscs/XLC_LOCALE:		zh_HK.Big5-HKSCS
@@ -252,7 +250,6 @@ en_US.UTF-8/XLC_LOCALE:			ar_LB.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_LY.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_MA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_OM.UTF-8
-en_US.UTF-8/XLC_LOCALE                 bs_BA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_QA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_SA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ar_SD.UTF-8
@@ -264,7 +261,6 @@ en_US.UTF-8/XLC_LOCALE:			a3_AZ.UTF-8
 en_US.UTF-8/XLC_LOCALE:			be_BY.UTF-8
 en_US.UTF-8/XLC_LOCALE:			bg_BG.UTF-8
 en_US.UTF-8/XLC_LOCALE:			bn_BD.UTF-8
-en_US.UTF-8/XLC_LOCALE:			bn_IN.UTF-8
 en_US.UTF-8/XLC_LOCALE:			br_FR.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ca_ES.UTF-8
 en_US.UTF-8/XLC_LOCALE:			cs_CZ.UTF-8
@@ -324,7 +320,6 @@ en_US.UTF-8/XLC_LOCALE:			fr_LU.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ga_IE.UTF-8
 en_US.UTF-8/XLC_LOCALE:			gd_GB.UTF-8
 en_US.UTF-8/XLC_LOCALE:			gl_ES.UTF-8
-en_US.UTF-8/XLC_LOCALE:			gu_IN.UTF-8
 en_US.UTF-8/XLC_LOCALE:			gv_GB.UTF-8
 en_US.UTF-8/XLC_LOCALE:			he_IL.UTF-8
 en_US.UTF-8/XLC_LOCALE:			hi_IN.UTF-8
@@ -355,7 +350,6 @@ en_US.UTF-8/XLC_LOCALE:			nn_NO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			no_NO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ny_NO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			oc_FR.UTF-8
-en_US.UTF-8/XLC_LOCALE:			pa_IN.UTF-8
 en_US.UTF-8/XLC_LOCALE:			pd_DE.UTF-8
 en_US.UTF-8/XLC_LOCALE:			pd_US.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ph_PH.UTF-8
@@ -368,7 +362,6 @@ en_US.UTF-8/XLC_LOCALE:			ru_RU.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ru_UA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			se_NO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sh_YU.UTF-8
-en_US.UTF-8/XLC_LOCALE:			si_LK.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sk_SK.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sl_SI.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sq_AL.UTF-8
@@ -390,7 +383,7 @@ en_US.UTF-8/XLC_LOCALE:			vi_VN.UTF-8
 en_US.UTF-8/XLC_LOCALE:			wa_BE.UTF-8
 en_US.UTF-8/XLC_LOCALE:			yi_US.UTF-8
 zh_CN.UTF-8/XLC_LOCALE:			zh_CN.UTF-8
-zh_HK.UTF-8/XLC_LOCALE:			zh_HK.UTF-8
+zh_CN.UTF-8/XLC_LOCALE:			zh_HK.UTF-8
 zh_CN.UTF-8/XLC_LOCALE:			zh_SG.UTF-8
 zh_TW.UTF-8/XLC_LOCALE:			zh_TW.UTF-8
 #ifdef __uxp__

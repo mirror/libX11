@@ -1,7 +1,7 @@
 XCOMM UTF-8 (Unicode) compose sequence
 XCOMM David.Monniaux@ens.fr
 XCOMM
-XCOMM $XFree86: xc/nls/Compose/en_US.UTF-8,v 1.9 2003/04/03 22:24:53 dawes Exp $
+XCOMM $XFree86: xc/nls/Compose/en_US.UTF-8,v 1.10 2003/12/05 04:10:28 dawes Exp $
 
 XCOMM Part 1 - Manual definitions
 
@@ -2337,6 +2337,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <A>	: "Ậ" U1EAC # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <A>	: "Ậ" U1EAC # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <A>	: "Ậ" U1EAC # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <Acircumflex>		: "Ậ" U1EAC # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <U1ea1>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <U1ea1>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <dead_belowdot> <a>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
@@ -2345,6 +2346,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <a>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <a>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <a>	: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <acircumflex>		: "ậ" U1EAD # LATIN SMALL LETTER A WITH CIRCUMFLEX AND DOT BELOW
 <dead_acute> <Abreve>	: "Ắ" U1EAE # LATIN CAPITAL LETTER A WITH BREVE AND ACUTE
 <Multi_key> <acute> <Abreve>	: "Ắ" U1EAE # LATIN CAPITAL LETTER A WITH BREVE AND ACUTE
 <Multi_key> <apostrophe> <Abreve>	: "Ắ" U1EAE # LATIN CAPITAL LETTER A WITH BREVE AND ACUTE
@@ -2461,6 +2463,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <dead_breve> <combining_belowdot> <A>	: "Ặ" U1EB6 # LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <U> <combining_belowdot> <A>	: "Ặ" U1EB6 # LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <b> <combining_belowdot> <A>	: "Ặ" U1EB6 # LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW
+<dead_belowdot> <Abreve>		: "Ặ" U1EB6 # LATIN CAPITAL LETTER A WITH BREVE AND DOT BELOW
 <dead_breve> <U1ea1>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <U> <U1ea1>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <b> <U1ea1>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
@@ -2473,6 +2476,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <dead_breve> <combining_belowdot> <a>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <U> <combining_belowdot> <a>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
 <Multi_key> <b> <combining_belowdot> <a>	: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
+<dead_belowdot> <abreve>		: "ặ" U1EB7 # LATIN SMALL LETTER A WITH BREVE AND DOT BELOW
 <dead_belowdot> <E>	: "Ẹ" U1EB8 # LATIN CAPITAL LETTER E WITH DOT BELOW
 <Multi_key> <exclam> <E>	: "Ẹ" U1EB8 # LATIN CAPITAL LETTER E WITH DOT BELOW
 <combining_belowdot> <E>	: "Ẹ" U1EB8 # LATIN CAPITAL LETTER E WITH DOT BELOW
@@ -2577,6 +2581,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <E>	: "Ệ" U1EC6 # LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <E>	: "Ệ" U1EC6 # LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <E>	: "Ệ" U1EC6 # LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <Ecircumflex>	: "Ệ" U1EC6 # LATIN CAPITAL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <U1eb9>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <U1eb9>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <dead_belowdot> <e>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
@@ -2585,6 +2590,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <e>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <e>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <e>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <ecircumflex>	: "ệ" U1EC7 # LATIN SMALL LETTER E WITH CIRCUMFLEX AND DOT BELOW
 <dead_hook> <I>	: "Ỉ" U1EC8 # LATIN CAPITAL LETTER I WITH HOOK ABOVE
 <Multi_key> <question> <I>	: "Ỉ" U1EC8 # LATIN CAPITAL LETTER I WITH HOOK ABOVE
 <combining_hook> <I>	: "Ỉ" U1EC8 # LATIN CAPITAL LETTER I WITH HOOK ABOVE
@@ -2695,6 +2701,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <O>	: "Ộ" U1ED8 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <O>	: "Ộ" U1ED8 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <O>	: "Ộ" U1ED8 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <Ocircumflex>	: "Ộ" U1ED8 # LATIN CAPITAL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <U1ecd>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <U1ecd>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <dead_belowdot> <o>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
@@ -2703,7 +2710,9 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <exclam> <o>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <dead_circumflex> <combining_belowdot> <o>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <Multi_key> <asciicircum> <combining_belowdot> <o>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
+<dead_belowdot> <ocircumflex>	: "ộ" U1ED9 # LATIN SMALL LETTER O WITH CIRCUMFLEX AND DOT BELOW
 <dead_acute> <Ohorn>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
+<dead_acute> <U01A0>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
 <Multi_key> <acute> <Ohorn>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
 <Multi_key> <apostrophe> <Ohorn>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
 <dead_acute> <dead_horn> <O>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
@@ -2716,6 +2725,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <dead_horn> <O>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
 <combining_acute> <Multi_key> <plus> <O>	: "Ớ" U1EDA # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
 <dead_acute> <ohorn>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
+<dead_acute> <U01A1>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
 <Multi_key> <acute> <ohorn>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
 <Multi_key> <apostrophe> <ohorn>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
 <dead_acute> <dead_horn> <o>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
@@ -2728,6 +2738,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <dead_horn> <o>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
 <combining_acute> <Multi_key> <plus> <o>	: "ớ" U1EDB # LATIN SMALL LETTER O WITH HORN AND ACUTE
 <dead_grave> <Ohorn>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
+<dead_grave> <U01A0>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <Multi_key> <grave> <Ohorn>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <dead_grave> <dead_horn> <O>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <dead_grave> <Multi_key> <plus> <O>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
@@ -2737,6 +2748,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_grave> <dead_horn> <O>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <combining_grave> <Multi_key> <plus> <O>	: "Ờ" U1EDC # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <dead_grave> <ohorn>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
+<dead_grave> <U01A1>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <Multi_key> <grave> <ohorn>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <dead_grave> <dead_horn> <o>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <dead_grave> <Multi_key> <plus> <o>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
@@ -2746,6 +2758,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_grave> <dead_horn> <o>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <combining_grave> <Multi_key> <plus> <o>	: "ờ" U1EDD # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <dead_hook> <Ohorn>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
+<dead_hook> <U01A0>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
 <Multi_key> <question> <Ohorn>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
 <dead_hook> <dead_horn> <O>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
 <dead_hook> <Multi_key> <plus> <O>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
@@ -2755,6 +2768,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_hook> <dead_horn> <O>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
 <combining_hook> <Multi_key> <plus> <O>	: "Ở" U1EDE # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
 <dead_hook> <ohorn>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
+<dead_hook> <U01A1>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
 <Multi_key> <question> <ohorn>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
 <dead_hook> <dead_horn> <o>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
 <dead_hook> <Multi_key> <plus> <o>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
@@ -2764,6 +2778,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_hook> <dead_horn> <o>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
 <combining_hook> <Multi_key> <plus> <o>	: "ở" U1EDF # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
 <dead_tilde> <Ohorn>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
+<dead_tilde> <U01A0>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <Multi_key> <asciitilde> <Ohorn>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <dead_tilde> <dead_horn> <O>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <dead_tilde> <Multi_key> <plus> <O>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
@@ -2773,6 +2788,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_tilde> <dead_horn> <O>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <combining_tilde> <Multi_key> <plus> <O>	: "Ỡ" U1EE0 # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <dead_tilde> <ohorn>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
+<dead_tilde> <U01A1>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
 <Multi_key> <asciitilde> <ohorn>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
 <dead_tilde> <dead_horn> <o>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
 <dead_tilde> <Multi_key> <plus> <o>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
@@ -2782,6 +2798,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_tilde> <dead_horn> <o>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
 <combining_tilde> <Multi_key> <plus> <o>	: "ỡ" U1EE1 # LATIN SMALL LETTER O WITH HORN AND TILDE
 <dead_belowdot> <Ohorn>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
+<dead_belowdot> <U01A0>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <Multi_key> <exclam> <Ohorn>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <dead_belowdot> <dead_horn> <O>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <dead_belowdot> <Multi_key> <plus> <O>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
@@ -2791,6 +2808,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_belowdot> <dead_horn> <O>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <combining_belowdot> <Multi_key> <plus> <O>	: "Ợ" U1EE2 # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <dead_belowdot> <ohorn>	: "ợ" U1EE3 # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
+<dead_belowdot> <U01A1>	: "ợ" U1EE3 # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
 <Multi_key> <exclam> <ohorn>	: "ợ" U1EE3 # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
 <dead_belowdot> <dead_horn> <o>	: "ợ" U1EE3 # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
 <dead_belowdot> <Multi_key> <plus> <o>	: "ợ" U1EE3 # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
@@ -2812,6 +2830,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <question> <u>	: "ủ" U1EE7 # LATIN SMALL LETTER U WITH HOOK ABOVE
 <combining_hook> <u>	: "ủ" U1EE7 # LATIN SMALL LETTER U WITH HOOK ABOVE
 <dead_acute> <Uhorn>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
+<dead_acute> <U01AF>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
 <Multi_key> <acute> <Uhorn>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
 <Multi_key> <apostrophe> <Uhorn>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
 <dead_acute> <dead_horn> <U>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
@@ -2824,6 +2843,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <dead_horn> <U>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
 <combining_acute> <Multi_key> <plus> <U>	: "Ứ" U1EE8 # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
 <dead_acute> <uhorn>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
+<dead_acute> <U01B0>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
 <Multi_key> <acute> <uhorn>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
 <Multi_key> <apostrophe> <uhorn>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
 <dead_acute> <dead_horn> <u>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
@@ -2836,6 +2856,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <dead_horn> <u>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
 <combining_acute> <Multi_key> <plus> <u>	: "ứ" U1EE9 # LATIN SMALL LETTER U WITH HORN AND ACUTE
 <dead_grave> <Uhorn>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
+<dead_grave> <U01AF>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <Multi_key> <grave> <Uhorn>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <dead_grave> <dead_horn> <U>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <dead_grave> <Multi_key> <plus> <U>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
@@ -2845,6 +2866,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_grave> <dead_horn> <U>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <combining_grave> <Multi_key> <plus> <U>	: "Ừ" U1EEA # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <dead_grave> <uhorn>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
+<dead_grave> <U01B0>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <Multi_key> <grave> <uhorn>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <dead_grave> <dead_horn> <u>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <dead_grave> <Multi_key> <plus> <u>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
@@ -2854,6 +2876,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_grave> <dead_horn> <u>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <combining_grave> <Multi_key> <plus> <u>	: "ừ" U1EEB # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <dead_hook> <Uhorn>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
+<dead_hook> <U01AF>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
 <Multi_key> <question> <Uhorn>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
 <dead_hook> <dead_horn> <U>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
 <dead_hook> <Multi_key> <plus> <U>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
@@ -2863,6 +2886,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_hook> <dead_horn> <U>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
 <combining_hook> <Multi_key> <plus> <U>	: "Ử" U1EEC # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
 <dead_hook> <uhorn>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
+<dead_hook> <U01B0>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
 <Multi_key> <question> <uhorn>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
 <dead_hook> <dead_horn> <u>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
 <dead_hook> <Multi_key> <plus> <u>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
@@ -2872,6 +2896,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_hook> <dead_horn> <u>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
 <combining_hook> <Multi_key> <plus> <u>	: "ử" U1EED # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
 <dead_tilde> <Uhorn>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
+<dead_tilde> <U01AF>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <Multi_key> <asciitilde> <Uhorn>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <dead_tilde> <dead_horn> <U>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <dead_tilde> <Multi_key> <plus> <U>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
@@ -2881,6 +2906,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_tilde> <dead_horn> <U>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <combining_tilde> <Multi_key> <plus> <U>	: "Ữ" U1EEE # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <dead_tilde> <uhorn>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
+<dead_tilde> <U01B0>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
 <Multi_key> <asciitilde> <uhorn>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
 <dead_tilde> <dead_horn> <u>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
 <dead_tilde> <Multi_key> <plus> <u>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
@@ -2890,6 +2916,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_tilde> <dead_horn> <u>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
 <combining_tilde> <Multi_key> <plus> <u>	: "ữ" U1EEF # LATIN SMALL LETTER U WITH HORN AND TILDE
 <dead_belowdot> <Uhorn>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
+<dead_belowdot> <U01AF>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <Multi_key> <exclam> <Uhorn>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <dead_belowdot> <dead_horn> <U>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <dead_belowdot> <Multi_key> <plus> <U>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
@@ -2899,6 +2926,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_belowdot> <dead_horn> <U>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <combining_belowdot> <Multi_key> <plus> <U>	: "Ự" U1EF0 # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <dead_belowdot> <uhorn>	: "ự" U1EF1 # LATIN SMALL LETTER U WITH HORN AND DOT BELOW
+<dead_belowdot> <U01B0>	: "ự" U1EF1 # LATIN SMALL LETTER U WITH HORN AND DOT BELOW
 <Multi_key> <exclam> <uhorn>	: "ự" U1EF1 # LATIN SMALL LETTER U WITH HORN AND DOT BELOW
 <dead_belowdot> <dead_horn> <u>	: "ự" U1EF1 # LATIN SMALL LETTER U WITH HORN AND DOT BELOW
 <dead_belowdot> <Multi_key> <plus> <u>	: "ự" U1EF1 # LATIN SMALL LETTER U WITH HORN AND DOT BELOW

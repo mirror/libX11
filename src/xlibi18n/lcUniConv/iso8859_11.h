@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/iso8859_11.h,v 1.2 2002/10/09 16:38:19 tsi Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/iso8859_11.h,v 1.1tsi Exp $ */
 
 /*
  * ISO8859-11

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/utf8.h,v 1.3 2000/11/28 18:50:07 dawes Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/utf8.h,v 1.2 2000/11/28 16:10:32 dawes Exp $ */
 
 /*
  * UTF-8

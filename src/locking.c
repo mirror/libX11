@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/locking.c,v 1.6 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/locking.c,v 1.5 2003/04/13 19:22:22 dawes Exp $ */
 
 /*
  * Author: Stephen Gildea, MIT X Consortium

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/koi8_c.h,v 1.2 2000/11/28 16:10:29 dawes Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/koi8_c.h,v 1.1 2000/10/27 20:26:08 dawes Exp $ */
 
 /*
  * KOI8-C

@@ -45,7 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imThaiFlt.c,v 3.23 2003/12/31 01:18:42 tsi Exp $ */
+/* $XFree86: xc/lib/X11/imThaiFlt.c,v 3.22tsi Exp $ */
 
 /*
 **++ 

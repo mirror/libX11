@@ -41,7 +41,7 @@ interest in or to any trademark, service mark, logo or trade name of
 Sun Microsystems, Inc. or its licensors is granted.
 
 */
-/* $XFree86: xc/lib/X11/XDefaultOMIF.c,v 1.6 2003/11/17 22:20:09 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XDefaultOMIF.c,v 1.5 2003/04/17 02:39:56 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

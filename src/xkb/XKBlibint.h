@@ -24,7 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
-/* $XFree86: xc/lib/X11/XKBlibint.h,v 3.6 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XKBlibint.h,v 3.5 2003/04/18 18:21:45 torrey Exp $ */
 
 #ifndef _XKBLIBINT_H_
 #define	_XKBLIBINT_H_

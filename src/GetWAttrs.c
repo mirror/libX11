@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/GetWAttrs.c,v 1.3 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86$ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"

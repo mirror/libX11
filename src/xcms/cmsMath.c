@@ -25,7 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/cmsMath.c,v 3.5 2001/12/14 19:54:10 dawes Exp $ */
+/* $XFree86: xc/lib/X11/cmsMath.c,v 3.4 2001/07/29 05:01:11 tsi Exp $ */
 
 /*
  * Stephen Gildea, MIT X Consortium, January 1991

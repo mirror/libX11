@@ -32,7 +32,7 @@ PERFORMANCE OF THIS SOFTWARE.
 		 	     makoto@sm.sony.co.jp
 				
 ***********************************************************************/
-/* $XFree86: xc/lib/X11/imCallbk.c,v 3.10 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imCallbk.c,v 3.9 2003/08/22 13:29:16 pascal Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

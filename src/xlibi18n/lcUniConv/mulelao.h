@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/mulelao.h,v 1.3 2000/11/29 17:40:35 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * MULELAO-1

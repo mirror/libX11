@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/imKStoUCS.c,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imKStoUCS.c,v 1.4 2003/04/29 11:29:18 pascal Exp $ */
 
 #include "Xlibint.h"
 #include "Ximint.h"

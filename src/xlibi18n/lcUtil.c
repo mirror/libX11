@@ -24,7 +24,7 @@
  *			   	mopi@osa.ilab.toshiba.co.jp
  * Bug fixes: Bruno Haible	XFree86 Inc.
  */
-/* $XFree86: xc/lib/X11/lcUtil.c,v 1.4 2001/01/17 19:41:55 dawes Exp $ */
+/* $XFree86: xc/lib/X11/lcUtil.c,v 1.3 2000/11/29 17:40:24 dawes Exp $ */
 
 #include <X11/Xlib.h>
 #include "XlcPublic.h"

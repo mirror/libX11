@@ -24,7 +24,7 @@
  * CONNECTION WITH THE USE OR THE PERFORMANCE OF THIS SOFTWARE.
  */
 
-/* $XFree86: xc/lib/X11/cmsTrig.c,v 3.9 2003/04/13 19:22:20 dawes Exp $ */
+/* $XFree86: xc/lib/X11/cmsTrig.c,v 3.8 2001/10/28 03:32:34 tsi Exp $ */
 /*
  *	It should be pointed out that for simplicity's sake, the
  *	environment parameters are defined as floating point constants,

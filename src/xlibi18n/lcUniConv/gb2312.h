@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/gb2312.h,v 1.5 2003/05/27 22:26:29 tsi Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/gb2312.h,v 1.4tsi Exp $ */
 
 /*
  * GB2312.1980-0

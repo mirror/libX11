@@ -35,7 +35,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                  miyamoto@jrd.dec.com
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/XimintP.h,v 1.8 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XimintP.h,v 1.7 2001/01/17 19:41:49 dawes Exp $ */
 
 #ifndef _XIMINTP_H
 #define _XIMINTP_H

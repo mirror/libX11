@@ -31,7 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
-/* $XFree86: xc/lib/X11/XlcGeneric.h,v 1.5 2003/04/13 19:22:19 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XlcGeneric.h,v 1.4 2001/07/25 15:04:44 dawes Exp $ */
 
 #ifndef _XLCGENERIC_H_
 #define _XLCGENERIC_H_

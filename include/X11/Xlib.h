@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.7.2.1 2004-02-27 21:30:50 eich Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.7.2.2 2004-03-04 17:46:38 eich Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -25,7 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/Xlib.h,v 3.26 2003/12/18 16:38:35 dawes Exp $ */
+/* $XFree86: xc/lib/X11/Xlib.h,v 3.25 2003/11/17 22:20:10 dawes Exp $ */
 
 
 /*

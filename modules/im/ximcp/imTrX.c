@@ -28,7 +28,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imTrX.c,v 1.4 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imTrX.c,v 1.3 2003/04/13 19:22:21 dawes Exp $ */
 
 #include <string.h>
 #include <X11/Xatom.h>

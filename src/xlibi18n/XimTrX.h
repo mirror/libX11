@@ -28,7 +28,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/XimTrX.h,v 1.2 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _XIMTRX_H
 #define _XIMTRX_H

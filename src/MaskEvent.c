@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/MaskEvent.c,v 3.6 2001/12/14 19:54:03 dawes Exp $ */
+/* $XFree86: xc/lib/X11/MaskEvent.c,v 3.5 2001/10/28 03:32:30 tsi Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"

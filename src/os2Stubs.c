@@ -28,7 +28,7 @@
  *
  */
 
-/* $XFree86: xc/lib/X11/os2Stubs.c,v 3.1 2002/05/31 18:45:42 dawes Exp $ */
+/* $XFree86: xc/lib/X11/os2Stubs.c,v 3.0 1996/05/13 06:37:17 dawes Exp $ */
 
 /* A few OS/2 functions needed in the X11 lib. Mainly, the file path redirection
  * functions and the "optimized" select() for the clients */

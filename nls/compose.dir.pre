@@ -213,11 +213,6 @@ microsoft-cp1255/Compose:	yi_US.CP1256
 zh_CN/Compose:			zh_CN.eucCN
 zh_CN/Compose:			zh_CN.GB2312
 zh_CN.gbk/Compose:		zh_CN.GBK
-zh_CN.gb18030/Compose:		zh_CN.GB18030
-zh_HK.big5/Compose:		zh_HK.big5
-zh_HK.big5/Compose:		zh_HK.Big5
-zh_HK.big5hkscs/Compose:	zh_HK.big5hkscs
-zh_HK.big5hkscs/Compose:	zh_HK.Big5HKSCS
 zh_TW.big5/Compose:		zh_TW.big5
 zh_TW.big5/Compose:		zh_TW.Big5
 zh_TW/Compose:			zh_TW.eucTW
@@ -243,7 +238,6 @@ en_US.UTF-8/Compose:		az_AZ.UTF-8
 en_US.UTF-8/Compose:		a3_AZ.UTF-8
 en_US.UTF-8/Compose:		be_BY.UTF-8
 en_US.UTF-8/Compose:		bg_BG.UTF-8
-en_US.UTF-8/Compose:		bn_IN.UTF-8
 en_US.UTF-8/Compose:		br_FR.UTF-8
 en_US.UTF-8/Compose:		ca_ES.UTF-8
 en_US.UTF-8/Compose:		cs_CZ.UTF-8
@@ -301,7 +295,6 @@ en_US.UTF-8/Compose:		fr_LU.UTF-8
 en_US.UTF-8/Compose:		ga_IE.UTF-8
 en_US.UTF-8/Compose:		gd_GB.UTF-8
 en_US.UTF-8/Compose:		gl_ES.UTF-8
-en_US.UTF-8/Compose:		gu_IN.UTF-8
 en_US.UTF-8/Compose:		gv_GB.UTF-8
 en_US.UTF-8/Compose:		he_IL.UTF-8
 en_US.UTF-8/Compose:		hi_IN.UTF-8
@@ -313,10 +306,8 @@ en_US.UTF-8/Compose:		is_IS.UTF-8
 en_US.UTF-8/Compose:		it_CH.UTF-8
 en_US.UTF-8/Compose:		it_IT.UTF-8
 en_US.UTF-8/Compose:		iu_CA.UTF-8
-en_US.UTF-8/Compose:		ja_JP.UTF-8
 en_US.UTF-8/Compose:		ka_GE.UTF-8
 en_US.UTF-8/Compose:		kl_GL.UTF-8
-en_US.UTF-8/Compose:		ko_KR.UTF-8
 en_US.UTF-8/Compose:		kw_GB.UTF-8
 en_US.UTF-8/Compose:		lo_LA.UTF-8
 en_US.UTF-8/Compose:		lt_LT.UTF-8
@@ -330,18 +321,16 @@ en_US.UTF-8/Compose:		no_NO.UTF-8
 en_US.UTF-8/Compose:		nb_NO.UTF-8
 en_US.UTF-8/Compose:		ny_NO.UTF-8
 en_US.UTF-8/Compose:		oc_FR.UTF-8
-en_US.UTF-8/Compose:		pa_IN.UTF-8
 en_US.UTF-8/Compose:		pd_DE.UTF-8
 en_US.UTF-8/Compose:		pd_US.UTF-8
 en_US.UTF-8/Compose:		ph_PH.UTF-8
 en_US.UTF-8/Compose:		pl_PL.UTF-8
 en_US.UTF-8/Compose:		pp_AN.UTF-8
-en_US.UTF-8/Compose:		pt_BR.UTF-8
+pt_BR.UTF-8/Compose:		pt_BR.UTF-8
 en_US.UTF-8/Compose:		pt_PT.UTF-8
 en_US.UTF-8/Compose:		ro_RO.UTF-8
 en_US.UTF-8/Compose:		ru_RU.UTF-8
 en_US.UTF-8/Compose:		ru_UA.UTF-8
-en_US.UTF-8/Compose:		si_LK.UTF-8
 en_US.UTF-8/Compose:		sk_SK.UTF-8
 en_US.UTF-8/Compose:		sl_SI.UTF-8
 en_US.UTF-8/Compose:		sq_AL.UTF-8
@@ -360,4 +349,3 @@ en_US.UTF-8/Compose:		uz_UZ.UTF-8
 en_US.UTF-8/Compose:		vi_VN.UTF-8
 en_US.UTF-8/Compose:		wa_BE.UTF-8
 en_US.UTF-8/Compose:		yi_US.UTF-8
-en_US.UTF-8/Compose:		zh_TW.UTF-8

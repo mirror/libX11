@@ -167,7 +167,7 @@ extern int _Xutf8TextPropertyToTextList(
 extern int _XmbTextListToTextProperty(
     XLCd		/* lcd */,
     Display*		/* dpy */,
-    wchar_t**		/* list */,
+    char**		/* list */,
     int			/* count */,
     XICCEncodingStyle	/* style */,
     XTextProperty*	/* text_prop */
@@ -176,7 +176,7 @@ extern int _XmbTextListToTextProperty(
 extern int _XwcTextListToTextProperty(
     XLCd		/* lcd */,
     Display*		/* dpy */,
-    char**		/* list */,
+    wchar_t**		/* list */,
     int			/* count */,
     XICCEncodingStyle	/* style */,
     XTextProperty*	/* text_prop */

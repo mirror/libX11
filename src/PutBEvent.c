@@ -33,16 +33,14 @@ from The Open Group.
 #include "Xlibint.h"
 
 int
-XPutBackEvent (dpy, event)
-	register Display *dpy;
-	register XEvent *event;
+_XPutBackEvent (
+    register Display *dpy, 
+    register XEvent *event)
 	{
 	register _XQEvent *qelt;
 
-	LockDisplay(dpy);
 	if (!dpy->qfree) {
     	    if ((dpy->qfree = (_XQEvent *) Xmalloc (sizeof (_XQEvent))) == NULL) {
-		UnlockDisplay(dpy);
 		return 0;
 	    }
 	    dpy->qfree->next = NULL;
@@ -56,6 +54,18 @@ XPutBackEvent (dpy, event)
 	if (dpy->tail == NULL)
 	    dpy->tail = qelt;
 	dpy->qlen++;
-	UnlockDisplay(dpy);
 	return 0;
+	}
+
+int
+XPutBackEvent (
+    register Display * dpy, 
+    register XEvent *event)
+	{
+	int ret;
+
+	LockDisplay(dpy);
+	ret = _XPutBackEvent(dpy, event);
+	UnlockDisplay(dpy);
+	return ret;
 	}

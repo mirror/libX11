@@ -1298,6 +1298,15 @@ extern void _XSetClipRectangles (
     int n,
     int ordering);
 
+Status _XGetWindowAttributes(
+    register Display *dpy,
+    Window w,
+    XWindowAttributes *attr);
+
+int _XPutBackEvent (
+    register Display *dpy, 
+    register XEvent *event);
+
 _XFUNCPROTOEND
 
 #endif /* _XLIBINT_H_ */

@@ -73,7 +73,7 @@ _XimLocalFilter(d, w, ev, client_data)
 	    ic->private.local.composed = p;
 	    /* return back to client KeyPressEvent keycode == 0 */
 	    ev->xkey.keycode = 0;
-	    XPutBackEvent(d, ev);
+	    _XPutBackEvent(d, ev);
 	    /* initialize internal state for next key sequence */
 	    ic->private.local.context = ((Xim)ic->core.im)->private.local.top;
 	    return(True);

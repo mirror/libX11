@@ -188,14 +188,15 @@ _XwcGenericTextPerCharExtents(XOC oc, _Xconst wchar_t *text, int length,
 }
 
 Status
-_Xutf8GenericTextPerCharExtents(XOC oc, _Xconst char *text, int length,
-				XRectangle *ink_buf, XRectangle *logical_buf,
-				int buf_size, int *num_chars,
-				XRectangle *overall_ink,
-				XRectangle *overall_logical)
+_XFree86utf8GenericTextPerCharExtents(XOC oc, _Xconst char *text, int length,
+				      XRectangle *ink_buf, 
+				      XRectangle *logical_buf,
+				      int buf_size, int *num_chars,
+				      XRectangle *overall_ink,
+				      XRectangle *overall_logical)
 {
-    return _XomGenericTextPerCharExtents(oc, XOMUtf8String, (XPointer) text,
-					 length, ink_buf, logical_buf, buf_size,
-					 num_chars, overall_ink,
-					 overall_logical);
+    return _XomGenericTextPerCharExtents(oc, XFree86OMUtf8String, 
+		    			 (XPointer) text, length, ink_buf, 
+					 logical_buf, buf_size, num_chars, 
+					 overall_ink, overall_logical);
 }

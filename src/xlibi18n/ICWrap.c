@@ -391,7 +391,7 @@ XwcResetIC(ic)
 }
 
 char *
-Xutf8ResetIC(ic)
+XFree86utf8ResetIC(ic)
     XIC ic;
 {
     if (ic->core.im) {
@@ -434,7 +434,7 @@ XwcLookupString(ic, ev, buffer, nchars, keysym, status)
 }
 
 int
-Xutf8LookupString(ic, ev, buffer, nbytes, keysym, status)
+XFree86utf8LookupString(ic, ev, buffer, nbytes, keysym, status)
     XIC ic;
     register XKeyEvent *ev;
     char *buffer;

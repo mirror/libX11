@@ -56,7 +56,7 @@ from The Open Group.
 #include <X11/Xlocale.h>
 
 void
-Xutf8SetWMProperties (
+XFree86utf8SetWMProperties (
     Display *dpy,
     Window w,
     _Xconst char *windowName,
@@ -72,11 +72,11 @@ Xutf8SetWMProperties (
     XTextProperty *iprop = NULL;
 
     if (windowName &&
-	Xutf8TextListToTextProperty(dpy, (char**)&windowName, 1,
+	XFree86utf8TextListToTextProperty(dpy, (char**)&windowName, 1,
 				    XStdICCTextStyle, &wname) >= Success)
 	wprop = &wname;
     if (iconName &&
-	Xutf8TextListToTextProperty(dpy, (char**)&iconName, 1,
+	XFree86utf8TextListToTextProperty(dpy, (char**)&iconName, 1,
 				    XStdICCTextStyle, &iname) >= Success)
 	iprop = &iname;
     XSetWMProperties(dpy, w, wprop, iprop, argv, argc,

@@ -3649,7 +3649,7 @@ extern int XwcTextEscapement(
     int			/* num_wchars */
 );
 
-extern int Xutf8TextEscapement(
+extern int XFree86utf8TextEscapement(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */
@@ -3671,7 +3671,7 @@ extern int XwcTextExtents(
     XRectangle*		/* overall_logical_return */
 );
 
-extern int Xutf8TextExtents(
+extern int XFree86utf8TextExtents(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */,
@@ -3703,7 +3703,7 @@ extern Status XwcTextPerCharExtents(
     XRectangle*		/* overall_logical_return */
 );
 
-extern Status Xutf8TextPerCharExtents(
+extern Status XFree86utf8TextPerCharExtents(
     XFontSet		/* font_set */,
     _Xconst char*	/* text */,
     int			/* bytes_text */,
@@ -3735,7 +3735,7 @@ extern void XwcDrawText(
     int			/* nitems */
 );
 
-extern void Xutf8DrawText(
+extern void XFree86utf8DrawText(
     Display*		/* display */,
     Drawable		/* d */,
     GC			/* gc */,
@@ -3767,7 +3767,7 @@ extern void XwcDrawString(
     int			/* num_wchars */
 );
 
-extern void Xutf8DrawString(
+extern void XFree86utf8DrawString(
     Display*		/* display */,
     Drawable		/* d */,
     XFontSet		/* font_set */,
@@ -3800,7 +3800,7 @@ extern void XwcDrawImageString(
     int			/* num_wchars */
 );
 
-extern void Xutf8DrawImageString(
+extern void XFree86utf8DrawImageString(
     Display*		/* display */,
     Drawable		/* d */,
     XFontSet		/* font_set */,
@@ -3862,7 +3862,7 @@ extern char *XmbResetIC(
     XIC /* ic */
 );
 
-extern char *Xutf8ResetIC(
+extern char *XFree86utf8ResetIC(
     XIC /* ic */
 );
 
@@ -3901,7 +3901,7 @@ extern int XwcLookupString(
     Status*		/* status_return */
 );
 
-extern int Xutf8LookupString(
+extern int XFree86utf8LookupString(
     XIC			/* ic */,
     XKeyPressedEvent*	/* event */,
     char*		/* buffer_return */,

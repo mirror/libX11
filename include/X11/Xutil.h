@@ -170,7 +170,7 @@ typedef enum {
     XTextStyle,			/* text in owner's encoding (current locale)*/
     XStdICCTextStyle,		/* STRING, else COMPOUND_TEXT */
     /* The following is an XFree86 extension, introduced in November 2000 */
-    XUTF8StringStyle		/* UTF8_STRING */
+    XFree86Utf8StringStyle	/* UTF8_STRING */
 } XICCEncodingStyle;
 
 typedef struct {
@@ -672,7 +672,7 @@ extern void XmbSetWMProperties(
     XClassHint*		/* class_hints */
 );
 
-extern void Xutf8SetWMProperties(
+extern void XFree86utf8SetWMProperties(
     Display*		/* display */,
     Window		/* w */,
     _Xconst char*	/* window_name */,
@@ -744,7 +744,7 @@ extern int XwcTextListToTextProperty(
     XTextProperty*	text_prop_return
 );
 
-extern int Xutf8TextListToTextProperty(
+extern int XFree86utf8TextListToTextProperty(
     Display*		display,
     char**		list,
     int			count,
@@ -776,7 +776,7 @@ extern int XwcTextPropertyToTextList(
     int*		count_return
 );
 
-extern int Xutf8TextPropertyToTextList(
+extern int XFree86utf8TextPropertyToTextList(
     Display*		display,
     const XTextProperty* text_prop,
     char***		list_return,

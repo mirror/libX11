@@ -38,7 +38,7 @@ OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "XlcGeneric.h"
 
 XLCd
-_XlcUtf8Loader(
+_XFree86lcUtf8Loader(
     const char *name)
 {
     XLCd lcd;
@@ -54,8 +54,8 @@ _XlcUtf8Loader(
 	return (XLCd) NULL;
     }
 
-    _XlcAddUtf8LocaleConverters(lcd);
-    _XlcAddUtf8Converters(lcd);
+    _XFree86lcAddUtf8LocaleConverters(lcd);
+    _XFree86lcAddUtf8Converters(lcd);
 
     return lcd;
 }

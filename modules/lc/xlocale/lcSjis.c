@@ -1556,7 +1556,7 @@ _XlcSjisLoader(
     _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNMultiByte, open_wcstombs);
 #endif
 
-    _XlcAddUtf8Converters(lcd);
+    _XFree86lcAddUtf8Converters(lcd);
 
     return lcd;
 }

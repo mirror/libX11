@@ -78,7 +78,7 @@ from The Open Group.
 #include "Xlcint.h"
 
 void
-Xutf8DrawText(
+XFree86utf8DrawText(
     Display            *dpy,
     Drawable            d,
     GC                  gc,
@@ -111,7 +111,7 @@ Xutf8DrawText(
 }
 
 void
-Xutf8DrawString(
+XFree86utf8DrawString(
     Display            *dpy,
     Drawable            d,
     XFontSet            font_set,
@@ -127,7 +127,7 @@ Xutf8DrawString(
 
 
 void
-Xutf8DrawImageString(
+XFree86utf8DrawImageString(
     Display            *dpy,
     Drawable            d,
     XFontSet            font_set,
@@ -142,7 +142,7 @@ Xutf8DrawImageString(
 }
 
 int 
-Xutf8TextEscapement(
+XFree86utf8TextEscapement(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len)
@@ -152,7 +152,7 @@ Xutf8TextEscapement(
 }
 
 int
-Xutf8TextExtents(
+XFree86utf8TextExtents(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len,
@@ -166,7 +166,7 @@ Xutf8TextExtents(
 }
 
 Status
-Xutf8TextPerCharExtents(
+XFree86utf8TextPerCharExtents(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len,

@@ -3142,7 +3142,7 @@ _XlcGenericLoader(
     }
 #endif
 
-    _XlcAddUtf8Converters(lcd);
+    _XFree86lcAddUtf8Converters(lcd);
 
     return lcd;
 }

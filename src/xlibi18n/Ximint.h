@@ -705,7 +705,7 @@ extern int	_XimProtoWcLookupString(
     Status	*state
 );
 
-extern int	_XimProtoUtf8LookupString(
+extern int	_XFree86imProtoUtf8LookupString(
     XIC		 xic,
     XKeyEvent	*ev,
     char	*buffer,
@@ -764,7 +764,7 @@ extern int	_XimLookupWCText(
     XComposeStatus	*status
 );
 
-extern int	_XimLookupUTF8Text(
+extern int	_XFree86imLookupUtf8Text(
     Xic			 ic,
     XKeyEvent		*event,
     char		*buffer,
@@ -915,7 +915,7 @@ extern int _XimLocalWcLookupString(
     Status		*status
 );
 
-extern int _XimLocalUtf8LookupString(
+extern int _XFree86imLocalUtf8LookupString(
     XIC			 ic,
     XKeyEvent		*ev,
     char		*buffer,

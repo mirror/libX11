@@ -84,12 +84,12 @@ XPointer
 _XimGetLocaleCode (
     _Xconst char*	encoding_name)
 {
-    XPointer cvt = _Utf8GetConvByName(encoding_name);
+    XPointer cvt = _XFree86utf8GetConvByName(encoding_name);
     if (!cvt && encoding_name) {
        int i;
        for (i = 0; i < num_substitute; i++)
            if (!strcmp(encoding_name, SubstTable[i].encoding_name))
-               return _Utf8GetConvByName(SubstTable[i].charset_name);
+               return _XFree86utf8GetConvByName(SubstTable[i].charset_name);
     }
     return cvt;
 }
@@ -298,7 +298,7 @@ _XimLookupWCText(ic, event, buffer, nbytes, keysym, status)
 }
 
 int
-_XimLookupUTF8Text(ic, event, buffer, nbytes, keysym, status)
+_XFree86imLookupUtf8Text(ic, event, buffer, nbytes, keysym, status)
     Xic			 ic;
     XKeyEvent*		event;
     char*		buffer;

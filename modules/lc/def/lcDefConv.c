@@ -784,7 +784,7 @@ _XlcDefaultLoader(
     _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNMultiByte, open_cstombs);
     _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNWideChar, open_cstowcs);
 
-    _XlcAddUtf8Converters(lcd);
+    _XFree86lcAddUtf8Converters(lcd);
 
     return lcd;
 }

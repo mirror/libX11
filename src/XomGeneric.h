@@ -61,7 +61,7 @@ typedef struct _VRotateRec {
 typedef enum {
     XOMMultiByte,
     XOMWideChar,
-    XOMUtf8String
+    XFree86OMUtf8String
 } XOMTextType;
 
 typedef struct _FontDataRec {
@@ -178,7 +178,7 @@ _XmbDefaultTextEscapement(XOC oc, _Xconst char *text, int length);
 extern int
 _XwcDefaultTextEscapement(XOC oc, _Xconst wchar_t *text, int length);
 extern int
-_Xutf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length);
+_XFree86utf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length);
 extern int
 _XmbDefaultTextExtents(XOC oc, _Xconst char *text, int length,
     XRectangle *overall_ink, XRectangle *overall_logical);
@@ -186,7 +186,7 @@ extern int
 _XwcDefaultTextExtents(XOC oc, _Xconst wchar_t *text, int length,
     XRectangle *overall_ink, XRectangle *overall_logical);
 extern int
-_Xutf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
+_XFree86utf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
     XRectangle *overall_ink, XRectangle *overall_logical);
 extern Status
 _XmbDefaultTextPerCharExtents(
@@ -203,7 +203,7 @@ _XwcDefaultTextPerCharExtents(
     XRectangle *overall_ink,
     XRectangle *overall_logical);
 extern Status
-_Xutf8DefaultTextPerCharExtents(
+_XFree86utf8DefaultTextPerCharExtents(
     XOC oc, _Xconst char *text, int length,
     XRectangle *ink_buf, XRectangle *logical_buf,
     int buf_size, int *num_chars,
@@ -216,8 +216,8 @@ extern int
 _XwcDefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
     _Xconst wchar_t *text, int length);
 extern int
-_Xutf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
-    _Xconst char *text, int length);
+_XFree86utf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, 
+    int x, int y, _Xconst char *text, int length);
 extern void
 _XmbDefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
     int y, _Xconst char *text, int length);
@@ -225,8 +225,8 @@ extern void
 _XwcDefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
     int y, _Xconst wchar_t *text, int length);
 extern void
-_Xutf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
-    int y, _Xconst char *text, int length);
+_XFree86utf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, 
+    int x, int y, _Xconst char *text, int length);
 
 extern int
 _XmbGenericTextEscapement(XOC oc, _Xconst char *text, int length);
@@ -234,23 +234,23 @@ extern int
 _XmbGenericTextExtents(XOC oc, _Xconst char *text, int length,
     XRectangle *overall_ink, XRectangle *overall_logical);
 extern int
-_Xutf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
-    _Xconst char *text, int length);
+_XFree86utf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, 
+    int x, int y, _Xconst char *text, int length);
 extern void
-_Xutf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
-    int y, _Xconst char *text, int length);
+_XFree86utf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, 
+    int x, int y, _Xconst char *text, int length);
 extern Status
-_Xutf8GenericTextPerCharExtents(
+_XFree86utf8GenericTextPerCharExtents(
     XOC oc, _Xconst char *text, int length,
     XRectangle *ink_buf, XRectangle *logical_buf,
     int buf_size, int *num_chars,
     XRectangle *overall_ink,
     XRectangle *overall_logical);
 extern int
-_Xutf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
+_XFree86utf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
     XRectangle *overall_ink, XRectangle *overall_logical);
 extern int
-_Xutf8GenericTextEscapement(XOC oc, _Xconst char *text, int length);
+_XFree86utf8GenericTextEscapement(XOC oc, _Xconst char *text, int length);
 extern void
 _XwcGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
     int y, _Xconst wchar_t *text, int length);

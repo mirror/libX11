@@ -138,7 +138,7 @@ Private XICMethodsRec Thai_ic_methods = {
     _XimThaiMbReset,		/* utf8_reset */
     _XimLocalMbLookupString,	/* mb_lookup_string */
     _XimLocalWcLookupString,	/* wc_lookup_string */
-    _XimLocalUtf8LookupString	/* utf8_lookup_string */
+    _XFree86imLocalUtf8LookupString	/* utf8_lookup_string */
 };
 
 XIC

@@ -97,9 +97,9 @@ _XTextListToTextProperty(
 	    encoding = XA_STRING;
 	    to_type = XlcNString;
 	    break;
-	case XUTF8StringStyle:
+	case XFree86Utf8StringStyle:
 	    encoding = XInternAtom(dpy, "UTF8_STRING", False);
-	    to_type = XlcNUtf8String;
+	    to_type = XFree86lcNUtf8String;
 	    break;
 	case XCompoundTextStyle:
 	    encoding = XInternAtom(dpy, "COMPOUND_TEXT", False);
@@ -240,7 +240,7 @@ _XwcTextListToTextProperty(
 }
 
 int
-_Xutf8TextListToTextProperty(
+_XFree86utf8TextListToTextProperty(
     XLCd lcd,
     Display *dpy,
     char **list,
@@ -248,6 +248,6 @@ _Xutf8TextListToTextProperty(
     XICCEncodingStyle style,
     XTextProperty *text_prop)
 {
-    return _XTextListToTextProperty(lcd, dpy, XlcNUtf8String, (XPointer) list,
-				    count, style, text_prop);
+    return _XTextListToTextProperty(lcd, dpy, XFree86lcNUtf8String, 
+		    		    (XPointer) list, count, style, text_prop);
 }

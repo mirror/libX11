@@ -361,9 +361,9 @@ _XwcGenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
 }
 
 int
-_Xutf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
-			_Xconst char *text, int length)
+_XFree86utf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, 
+			      int x, int y, _Xconst char *text, int length)
 {
-    return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMUtf8String,
+    return _XomGenericDrawString(dpy, d, oc, gc, x, y, XFree86OMUtf8String,
 				 (XPointer) text, length);
 }

@@ -903,12 +903,12 @@ extern void _XlcRemoveLoader(
 );
 
 /* Registers UTF-8 converters for a non-UTF-8 locale. */
-extern void _XlcAddUtf8Converters(
+extern void _XFree86lcAddUtf8Converters(
     XLCd		lcd
 );
 
 /* Registers UTF-8 converters for a UTF-8 locale. */
-extern void _XlcAddUtf8LocaleConverters(
+extern void _XFree86lcAddUtf8LocaleConverters(
     XLCd		lcd
 );
 
@@ -925,7 +925,7 @@ extern XLCd _XlcGenericLoader(
 
 /* The UTF-8 locale loader. Suitable for UTF-8 encoding.
    Uses an XLC_LOCALE configuration file. */
-extern XLCd _XlcUtf8Loader(
+extern XLCd _XFree86lcUtf8Loader(
     const char*		name
 );
 

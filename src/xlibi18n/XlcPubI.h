@@ -156,7 +156,7 @@ extern int _XwcTextPropertyToTextList(
     int*		count_ret
 );
 
-extern int _Xutf8TextPropertyToTextList(
+extern int _XFree86utf8TextPropertyToTextList(
     XLCd		lcd,
     Display*		dpy,
     const XTextProperty* text_prop,
@@ -182,7 +182,7 @@ extern int _XwcTextListToTextProperty(
     XTextProperty*	/* text_prop */
 );
 
-extern int _Xutf8TextListToTextProperty(
+extern int _XFree86utf8TextListToTextProperty(
     XLCd		/* lcd */,
     Display*		/* dpy */,
     char**		/* list */,
@@ -240,12 +240,12 @@ extern char *_XlcMapOSLocaleName(
 #endif
 
 extern int
-_Xmbstoutf8(
+_XFree86mbstoutf8(
     char *ustr,
     const char *str,
     int len);
 extern int
-_Xlcmbstoutf8(
+_XFree86lcmbstoutf8(
     XLCd lcd,
     char *ustr,
     const char *str,
@@ -287,7 +287,7 @@ _Xlcwctomb(
 
 
 extern XPointer
-_Utf8GetConvByName(
+_XFree86utf8GetConvByName(
     const char *name);
 
 _XFUNCPROTOEND

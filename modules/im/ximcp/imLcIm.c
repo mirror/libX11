@@ -298,7 +298,7 @@ _XimLocalOpenIM(
 	goto Open_Error;
     private->ctow_conv = conv;
 
-    if (!(conv = _XlcOpenConverter(lcd,	XlcNCompoundText, lcd, XlcNUtf8String)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCompoundText, lcd, XFree86lcNUtf8String)))
 	goto Open_Error;
     private->ctoutf8_conv = conv;
 
@@ -310,7 +310,7 @@ _XimLocalOpenIM(
 	goto Open_Error;
     private->cstowc_conv = conv;
 
-    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNUtf8String)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XFree86lcNUtf8String)))
 	goto Open_Error;
     private->cstoutf8_conv = conv;
 
@@ -318,7 +318,7 @@ _XimLocalOpenIM(
 	goto Open_Error;
     private->ucstoc_conv = conv;
 
-    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XFree86lcNUtf8String)))
 	goto Open_Error;
     private->ucstoutf8_conv = conv;
 

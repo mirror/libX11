@@ -66,26 +66,26 @@
 
 #if 0
 extern int _XmbDefaultTextEscapement(), _XwcDefaultTextEscapement(),
-	   _Xutf8DefaultTextEscapement();
+	   _XFree86utf8DefaultTextEscapement();
 extern int _XmbDefaultTextExtents(), _XwcDefaultTextExtents(),
-	   _Xutf8DefaultTextExtents();
+	   _XFree86utf8DefaultTextExtents();
 extern Status _XmbDefaultTextPerCharExtents(), _XwcDefaultTextPerCharExtents(),
-	      _Xutf8DefaultTextPerCharExtents();
+	      _XFree86utf8DefaultTextPerCharExtents();
 extern int _XmbDefaultDrawString(), _XwcDefaultDrawString(),
-	   _Xutf8DefaultDrawString();
+	   _XFree86utf8DefaultDrawString();
 extern void _XmbDefaultDrawImageString(), _XwcDefaultDrawImageString(),
-	    _Xutf8DefaultDrawImageString();
+	    _XFree86utf8DefaultDrawImageString();
 
 extern int _XmbGenericTextEscapement(), _XwcGenericTextEscapement(),
-	   _Xutf8GenericTextEscapement();
+	   _XFree86utf8GenericTextEscapement();
 extern int _XmbGenericTextExtents(), _XwcGenericTextExtents(),
-	   _Xutf8GenericTextExtents();
+	   _XFree86utf8GenericTextExtents();
 extern Status _XmbGenericTextPerCharExtents(), _XwcGenericTextPerCharExtents(),
-	      _Xutf8GenericTextPerCharExtents();
+	      _XFree86utf8GenericTextPerCharExtents();
 extern int _XmbGenericDrawString(), _XwcGenericDrawString(),
-	   _Xutf8GenericDrawString();
+	   _XFree86utf8GenericDrawString();
 extern void _XmbGenericDrawImageString(), _XwcGenericDrawImageString(),
-	    _Xutf8GenericDrawImageString();
+	    _XFree86utf8GenericDrawImageString();
 
 extern void _XlcDbg_printValue (const char *str, char **value, int num);
 #endif
@@ -1583,11 +1583,11 @@ static XOCMethodsRec oc_default_methods = {
     _XwcDefaultTextPerCharExtents,
     _XwcDefaultDrawString,
     _XwcDefaultDrawImageString,
-    _Xutf8DefaultTextEscapement,
-    _Xutf8DefaultTextExtents,
-    _Xutf8DefaultTextPerCharExtents,
-    _Xutf8DefaultDrawString,
-    _Xutf8DefaultDrawImageString
+    _XFree86utf8DefaultTextEscapement,
+    _XFree86utf8DefaultTextExtents,
+    _XFree86utf8DefaultTextPerCharExtents,
+    _XFree86utf8DefaultDrawString,
+    _XFree86utf8DefaultDrawImageString
 };
 
 static XOCMethodsRec oc_generic_methods = {
@@ -1604,11 +1604,11 @@ static XOCMethodsRec oc_generic_methods = {
     _XwcGenericTextPerCharExtents,
     _XwcGenericDrawString,
     _XwcGenericDrawImageString,
-    _Xutf8GenericTextEscapement,
-    _Xutf8GenericTextExtents,
-    _Xutf8GenericTextPerCharExtents,
-    _Xutf8GenericDrawString,
-    _Xutf8GenericDrawImageString
+    _XFree86utf8GenericTextEscapement,
+    _XFree86utf8GenericTextExtents,
+    _XFree86utf8GenericTextPerCharExtents,
+    _XFree86utf8GenericDrawString,
+    _XFree86utf8GenericDrawImageString
 };
 
 typedef struct _XOCMethodsListRec {

@@ -319,7 +319,7 @@ _Xwcsncmp(
 
 
 int
-_Xlcmbstoutf8(
+_XFree86lcmbstoUtf8(
     XLCd lcd,
     char *ustr,
     const char *str,
@@ -335,7 +335,7 @@ _Xlcmbstoutf8(
 	    return -1;
     }
 
-    conv = _XlcOpenConverter(lcd, XlcNMultiByte, lcd, XlcNUtf8String);
+    conv = _XlcOpenConverter(lcd, XlcNMultiByte, lcd, XFree86lcNUtf8String);
     if (conv == NULL)
 	return -1;
 
@@ -358,10 +358,10 @@ _Xlcmbstoutf8(
 }
 
 int
-_Xmbstoutf8(
+_XFree86mbstoUtf8(
     char *ustr,
     const char *str,
     int len)
 {
-    return _Xlcmbstoutf8((XLCd) NULL, ustr, str, len);
+    return _XFree86lcmbstoUtf8((XLCd) NULL, ustr, str, len);
 }

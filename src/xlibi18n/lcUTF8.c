@@ -371,8 +371,7 @@ init_all_charsets (void)
 	    init_all_charsets();					\
     } while (0)
 
-/* from XlcNCharSet to XlcNUtf8String */
-
+/* from XlcNCharSet to XFree86lcNUtf8String */ 
 static int
 cstoutf8(
     XlcConv conv,
@@ -464,7 +463,7 @@ open_cstoutf8(
     return create_conv(from_lcd, &methods_cstoutf8);
 }
 
-/* from XlcNUtf8String to XlcNCharSet */
+/* from XFree86lcNUtf8String to XlcNCharSet */
 
 static XlcConv
 create_tocs_conv(
@@ -678,7 +677,7 @@ open_utf8tocs(
     return create_tocs_conv(from_lcd, &methods_utf8tocs);
 }
 
-/* from XlcNUtf8String to XlcNChar */
+/* from XFree86lcNUtf8String to XlcNChar */
 
 static int
 utf8tocs1(
@@ -782,7 +781,7 @@ open_utf8tocs1(
     return create_tocs_conv(from_lcd, &methods_utf8tocs1);
 }
 
-/* from XlcNUtf8String to XlcNString */
+/* from XFree86lcNUtf8String to XlcNString */
 
 static int
 utf8tostr(
@@ -858,7 +857,7 @@ open_utf8tostr(
     return create_conv(from_lcd, &methods_utf8tostr);
 }
 
-/* from XlcNString to XlcNUtf8String */
+/* from XlcNString to XFree86lcNUtf8String */
 
 static int
 strtoutf8(
@@ -918,7 +917,7 @@ open_strtoutf8(
 /* Support for the input methods. */
 
 XPointer
-_Utf8GetConvByName(
+_XFree86utf8GetConvByName(
     const char *name)
 {
     XrmQuark xrm_name;
@@ -1056,7 +1055,7 @@ open_ucstocs1(
     return create_ucstocs_conv(from_lcd, &methods_ucstocs1);
 }
 
-/* from XlcNUcsChar to XlcNUtf8String, needed for input methods */
+/* from XlcNUcsChar to XFree86lcNUtf8String, needed for input methods */
 
 static int
 ucstoutf8(
@@ -1119,16 +1118,16 @@ open_ucstoutf8(
 
 /* Registers UTF-8 converters for a non-UTF-8 locale. */
 void
-_XlcAddUtf8Converters(
+_XFree86lcAddUtf8Converters(
     XLCd lcd)
 {
-    _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNUtf8String, open_cstoutf8);
-    _XlcSetConverter(lcd, XlcNUtf8String, lcd, XlcNCharSet, open_utf8tocs);
-    _XlcSetConverter(lcd, XlcNUtf8String, lcd, XlcNChar, open_utf8tocs1);
-    _XlcSetConverter(lcd, XlcNString, lcd, XlcNUtf8String, open_strtoutf8);
-    _XlcSetConverter(lcd, XlcNUtf8String, lcd, XlcNString, open_utf8tostr);
+    _XlcSetConverter(lcd, XlcNCharSet, lcd, XFree86lcNUtf8String, open_cstoutf8);
+    _XlcSetConverter(lcd, XFree86lcNUtf8String, lcd, XlcNCharSet, open_utf8tocs);
+    _XlcSetConverter(lcd, XFree86lcNUtf8String, lcd, XlcNChar, open_utf8tocs1);
+    _XlcSetConverter(lcd, XlcNString, lcd, XFree86lcNUtf8String, open_strtoutf8);
+    _XlcSetConverter(lcd, XFree86lcNUtf8String, lcd, XlcNString, open_utf8tostr);
     _XlcSetConverter(lcd, XlcNUcsChar,    lcd, XlcNChar, open_ucstocs1);
-    _XlcSetConverter(lcd, XlcNUcsChar,    lcd, XlcNUtf8String, open_ucstoutf8);
+    _XlcSetConverter(lcd, XlcNUcsChar,    lcd, XFree86lcNUtf8String, open_ucstoutf8);
 }
 
 /***************************************************************************/
@@ -1756,7 +1755,7 @@ create_tofontcs_conv(
 		if (!strcmp(preferred[k]->name, name))
 		    break;
 	    if (k < 0) {
-                /* For fonts "ISO10646-1" means not utf8 but ucs2.*/
+                /* For fonts "ISO10646-1" means ucs2, not utf8.*/
                 if (!strcmp("ISO10646-1", name)) {
                     preferred[num++] = &all_charsets[ucs2_conv_index];
                     continue;
@@ -1802,7 +1801,7 @@ open_utf8tofcs(
 /* Registers UTF-8 converters for a UTF-8 locale. */
 
 void
-_XlcAddUtf8LocaleConverters(
+_XFree86lcAddUtf8LocaleConverters(
     XLCd lcd)
 {
     /* Register elementary converters. */
@@ -1827,8 +1826,8 @@ _XlcAddUtf8LocaleConverters(
 
     _XlcSetConverter(lcd, XlcNString, lcd, XlcNMultiByte, open_strtoutf8);
     _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNString, open_utf8tostr);
-    _XlcSetConverter(lcd, XlcNUtf8String, lcd, XlcNMultiByte, open_identity);
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNUtf8String, open_identity);
+    _XlcSetConverter(lcd, XFree86lcNUtf8String, lcd, XlcNMultiByte, open_identity);
+    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XFree86lcNUtf8String, open_identity);
 
     /* Register converters for XlcNFontCharSet */
     _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNFontCharSet, open_utf8tofcs);

@@ -406,7 +406,7 @@ XwcTextPropertyToTextList(
 }
 
 int
-Xutf8TextPropertyToTextList(
+XFree86utf8TextPropertyToTextList(
     Display *dpy,
     const XTextProperty *text_prop,
     char ***list_ret,
@@ -456,7 +456,7 @@ XwcTextListToTextProperty(
 }
 
 int
-Xutf8TextListToTextProperty(
+XFree86utf8TextListToTextProperty(
     Display *dpy,
     char **list,
     int count,

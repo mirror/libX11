@@ -153,6 +153,7 @@ long *\fIbytes_after_return\fP\^, unsigned char **\fIprop_return\fP\^);
 .HP
 Atom *XListProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, int
 *\fInum_prop_return\fP\^); 
+.HP
 int XChangeProperty\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, Atom
 \fIproperty\fP\^, Atom \fItype\fP\^, int \fIformat\fP\^, int \fImode\fP\^,
 unsigned char *\fIdata\fP\^, int \fInelements\fP\^); 

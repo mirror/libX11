@@ -254,8 +254,6 @@ _XimUnRegisterIMInstantiateCallback(
 		    _XUnregisterFilter( display, RootWindow(display, 0),
 					_XimFilterPropertyNotify,
 					(XPointer)NULL );
-		    XSelectInput( display, RootWindow(display, 0),
-				  NoEventMask );
 		}
 		else
 		    picb->next = icb->next;

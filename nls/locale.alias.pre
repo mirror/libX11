@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.5 2004-11-05 00:58:49 gisburn Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.6 2004-11-09 00:56:56 gisburn Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -714,6 +714,8 @@ sh_HR.iso88592:					sh_HR.ISO8859-2
 sh_SP:						sh_YU.ISO8859-2
 sh_YU:						sh_YU.ISO8859-2
 sh_YU.utf8:					sh_YU.UTF-8
+si:						si_LK.UTF-8
+si_LK:						si_LK.UTF-8
 sk:						sk_SK.ISO8859-2
 sk_SK:						sk_SK.ISO8859-2
 sk_SK.iso88592:					sk_SK.ISO8859-2
@@ -918,6 +920,7 @@ romanian:					ro_RO.ISO8859-2
 rumanian:					ro_RO.ISO8859-2
 russian:					ru_RU.ISO8859-5
 serbocroatian:					sh_YU.ISO8859-2
+sinhala:					si_LK.UTF-8
 slovak:						sk_SK.ISO8859-2
 slovene:					sl_SI.ISO8859-2
 slovenian:					sl_SI.ISO8859-2

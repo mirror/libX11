@@ -1055,6 +1055,7 @@ parse_fontdata(
 		      return True;
 		  }
 		  Xfree(font_data->xlfd_name);
+		  font_data->xlfd_name = NULL;
 		  return False;
 	       }
 	       break;

@@ -85,8 +85,8 @@ char *XKeysymToString(ks)
     if (ks <= 0x1fffffff)
     {
 	val1 = ks >> 24;
-	val2 = ks >> 16;
-	val3 = ks >> 8;
+	val2 = (ks >> 16) & 0xff;
+	val3 = (ks >> 8) & 0xff;
 	val4 = ks & 0xff;
 	i = ks % VTABLESIZE;
 	h = i + 1;
@@ -95,7 +95,7 @@ char *XKeysymToString(ks)
 	{
 	    entry = &_XkeyTable[idx];
 	    if ((entry[0] == val1) && (entry[1] == val2) &&
-                (entry[2] == val1) && (entry[3] == val2))
+                (entry[2] == val3) && (entry[3] == val4))
 		return ((char *)entry + 4);
 	    if (!--n)
 		break;

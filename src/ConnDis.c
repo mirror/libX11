@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.3 2004-04-24 23:39:25 alanc Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.4 2004-05-24 19:02:11 eich Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -1127,15 +1127,20 @@ GetAuthorization(
 	    static unsigned long    unix_addr = 0xFFFFFFFF;
 	    unsigned long	the_addr;
 	    unsigned short	the_port;
+	    unsigned long	the_utime;
+	    struct timeval      tp;
 	    
+	    X_GETTIMEOFDAY(&tp);
 	    _XLockMutex(_Xglobal_lock);
 	    the_addr = unix_addr--;
 	    _XUnlockMutex(_Xglobal_lock);
+	    the_utime = (unsigned long) tp.tv_usec;
 	    the_port = getpid ();
-
-	    xdmcp_data[j++] = (the_addr >> 24) & 0xFF;
-	    xdmcp_data[j++] = (the_addr >> 16) & 0xFF;
-	    xdmcp_data[j++] = (the_addr >>  8) & 0xFF;
+	    
+	    xdmcp_data[j++] = (the_utime >> 24) & 0xFF;
+	    xdmcp_data[j++] = (the_utime >> 16) & 0xFF;
+	    xdmcp_data[j++] = ((the_utime >>  8) & 0xF0)
+		| ((the_addr >>  8) & 0x0F);
 	    xdmcp_data[j++] = (the_addr >>  0) & 0xFF;
 	    xdmcp_data[j++] = (the_port >>  8) & 0xFF;
 	    xdmcp_data[j++] = (the_port >>  0) & 0xFF;

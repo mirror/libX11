@@ -386,6 +386,7 @@ extern LockInfoPtr _Xglobal_lock;
 #define XlibDisplayReadEvents	(1L << 5) /* in _XReadEvents */
 #define XlibDisplayReply	(1L << 5) /* in _XReply */
 #define XlibDisplayWriting	(1L << 6) /* in _XFlushInt, _XSend */
+#define XlibDisplayDfltRMDB     (1L << 7) /* mark if RM db from XGetDefault */
 
 /*
  * X Protocol packetizing macros.

@@ -761,7 +761,8 @@ void _XFreeDisplayStructure(dpy)
 	if (dpy->xkb_info)
 	   (*dpy->free_funcs->xkb)(dpy);
 
-	if (dpy->db)
+	/* if RM database was allocated by XGetDefault() free it */
+	if (dpy->db && (dpy->flags & XlibDisplayDfltRMDB))
 	    XrmDestroyDatabase(dpy->db);
 
 	if (dpy->screens) {

@@ -301,7 +301,8 @@ even though it does not have any more keyboard focus.
 .LP
 The function
 .ZN Xutf8LookupString
-is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
+is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
+release. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .
 .SH "SEE ALSO"

@@ -517,6 +517,8 @@ XPolygonRegion(Pts, Count, rule)
 	}
 	return(region);
     }
+    
+    if (Count < 2) return region;
 
     if (! (pETEs = (EdgeTableEntry *)
 	   Xmalloc((unsigned) (sizeof(EdgeTableEntry) * Count))))

@@ -73,7 +73,7 @@ utf8_to_mbs(
     XlcConv conv;
     int to_left, ret;
 
-    conv = _XomInitConverter(oc, XFree86OMUtf8String);
+    conv = _XomInitConverter(oc, XOMUtf8String);
     if (conv == NULL)
 	return False;
 
@@ -116,7 +116,7 @@ err:
 }
 
 int
-_XFree86utf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length)
+_Xutf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
@@ -190,9 +190,8 @@ err:
 }
 
 int
-_XFree86utf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
-			       XRectangle *overall_ink, 
-			       XRectangle *overall_logical)
+_Xutf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
+			 XRectangle *overall_ink, XRectangle *overall_logical)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
@@ -314,12 +313,11 @@ err:
 }
 
 Status
-_XFree86utf8DefaultTextPerCharExtents(XOC oc, _Xconst char *text, int length,
-				      XRectangle *ink_buf, 
-				      XRectangle *logical_buf,
-				      int buf_size, int *num_chars,
-				      XRectangle *overall_ink,
-				      XRectangle *overall_logical)
+_Xutf8DefaultTextPerCharExtents(XOC oc, _Xconst char *text, int length,
+				XRectangle *ink_buf, XRectangle *logical_buf,
+				int buf_size, int *num_chars,
+				XRectangle *overall_ink,
+				XRectangle *overall_logical)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
@@ -380,8 +378,8 @@ err:
 }
 
 int
-_XFree86utf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, 
-			      int x, int y, _Xconst char *text, int length)
+_Xutf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+			_Xconst char *text, int length)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);
@@ -431,8 +429,8 @@ err:
 }
 
 void
-_XFree86utf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, 
-				   int x, int y, _Xconst char *text, int length)
+_Xutf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+			     int y, _Xconst char *text, int length)
 {
     DefineLocalBuf;
     char *buf = AllocLocalBuf(length);

@@ -139,7 +139,7 @@ _XTextPropertyToTextList(
     if (encoding == XA_STRING)
 	from_type = XlcNString;
     else if (encoding == XInternAtom(dpy, "UTF8_STRING", False))
-	from_type = XFree86lcNUtf8String;
+	from_type = XlcNUtf8String;
     else if (encoding == XInternAtom(dpy, "COMPOUND_TEXT", False))
 	from_type = XlcNCompoundText;
     else if (encoding == XInternAtom(dpy, XLC_PUBLIC(lcd, encoding_name), False))
@@ -150,7 +150,7 @@ _XTextPropertyToTextList(
     if (is_wide_char) {
 	buf_len = (text_prop->nitems + 1) * sizeof(wchar_t);;
     } else {
-	if (strcmp(to_type, XFree86lcNUtf8String) == 0)
+	if (strcmp(to_type, XlcNUtf8String) == 0)
 	    buf_len = text_prop->nitems * 6 + 1;
 	else
 	    buf_len = text_prop->nitems * XLC_PUBLIC(lcd, mb_cur_max) + 1;
@@ -162,7 +162,7 @@ _XTextPropertyToTextList(
     to_left = buf_len;
 
     /* can be XlcNMultiByte to XlcNMultiByte,
-       or XFree86lcNUtf8String to XFree86lcNUtf8String */
+       or XlcNUtf8String to XlcNUtf8String */
     if (!strcmp(from_type, to_type)) {
         do_strcpy = True;
     } else {
@@ -265,14 +265,14 @@ _XwcTextPropertyToTextList(
 }
 
 int
-_XFree86utf8TextPropertyToTextList(
+_Xutf8TextPropertyToTextList(
     XLCd lcd,
     Display *dpy,
     const XTextProperty *text_prop,
     char ***list_ret,
     int *count_ret)
 {
-    return _XTextPropertyToTextList(lcd, dpy, text_prop, XFree86lcNUtf8String,
+    return _XTextPropertyToTextList(lcd, dpy, text_prop, XlcNUtf8String,
 				    (XPointer **) list_ret, count_ret);
 }
 

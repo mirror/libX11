@@ -143,7 +143,7 @@
 .ny0
 .TH XSetWMProperties 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XSetWMProperties, XmbSetWMProperties, XFree86utf8SetWMProperties \- set standard window properties
+XSetWMProperties, XmbSetWMProperties, Xutf8SetWMProperties \- set standard window properties
 .SH SYNTAX
 .HP
 void XSetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
@@ -156,7 +156,7 @@ void XmbSetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
 \fIargc\fP\^, XSizeHints *\fInormal_hints\fP\^, XWMHints *\fIwm_hints\fP\^,
 XClassHint *\fIclass_hints\fP\^); 
 .HP
-void XFree86utf8SetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
+void Xutf8SetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
 *\fIwindow_name\fP\^, char *\fIicon_name\fP\^, char *\fIargv\fP\^[], int
 \fIargc\fP\^, XSizeHints *\fInormal_hints\fP\^, XWMHints *\fIwm_hints\fP\^,
 XClassHint *\fIclass_hints\fP\^); 
@@ -243,7 +243,7 @@ any directory prefixes, is substituted for res_name.
 The
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 convenience functions provide a simple programming interface 
 for setting those essential window properties that are used 
 for communicating with other clients
@@ -256,7 +256,7 @@ they set the WM_ICON_NAME property.
 The window_name and icon_name arguments are null-terminated strings, for
 .ZN XmbSetWMProperties
 in the encoding of the current locale, for
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 in UTF-8 encoding.
 If the arguments can be fully converted to the STRING encoding,
 the properties are created with type ``STRING''; 
@@ -266,14 +266,14 @@ and the properties are created with type ``COMPOUND_TEXT''.
 If the normal_hints argument is non-NULL,
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 call
 .ZN XSetWMNormalHints ,
 which sets the WM_NORMAL_HINTS property (see section 14.1.7).
 If the wm_hints argument is non-NULL, 
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 call
 .ZN XSetWMHints ,
 which sets the WM_HINTS property (see section 14.1.6).
@@ -281,7 +281,7 @@ which sets the WM_HINTS property (see section 14.1.6).
 If the argv argument is non-NULL,
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 set the WM_COMMAND property from argv and argc.
 An argc of zero indicates a zero-length command.
 .LP
@@ -292,7 +292,7 @@ The hostname of the machine is stored using
 If the class_hints argument is non-NULL,
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 set the WM_CLASS property.
 If the res_name member in the 
 .ZN XClassHint
@@ -315,7 +315,7 @@ in the properties.
 For clients that need to process the property text in a locale,
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 set the WM_LOCALE_NAME property to be the name of the current locale.
 The name is assumed to be in the Host Portable Character Encoding
 and is converted to STRING for storage in the property.
@@ -323,7 +323,7 @@ and is converted to STRING for storage in the property.
 .ZN XSetWMProperties ,
 .ZN XmbSetWMProperties
 and
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 can generate
 .ZN BadAlloc
 and
@@ -331,7 +331,7 @@ and
 errors.
 .LP
 The function
-.ZN XFree86utf8SetWMProperties
+.ZN Xutf8SetWMProperties
 is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .

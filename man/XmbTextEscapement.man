@@ -143,7 +143,7 @@
 .ny0
 .TH XmbTextEscapement 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XmbTextEscapement, XwcTextEscapement, XFree86utf8TextEscapement \- obtain the escapement of text
+XmbTextEscapement, XwcTextEscapement, Xutf8TextEscapement \- obtain the escapement of text
 .SH SYNTAX
 .HP
 int XmbTextEscapement\^(\^XFontSet \fIfont_set\fP\^, char *\fIstring\fP\^, int
@@ -152,7 +152,7 @@ int XmbTextEscapement\^(\^XFontSet \fIfont_set\fP\^, char *\fIstring\fP\^, int
 int XwcTextEscapement\^(\^XFontSet \fIfont_set\fP\^, wchar_t *\fIstring\fP\^,
 int \fInum_wchars\fP\^); 
 .HP
-int XFree86utf8TextEscapement\^(\^XFontSet \fIfont_set\fP\^, char *\fIstring\fP\^, 
+int Xutf8TextEscapement\^(\^XFontSet \fIfont_set\fP\^, char *\fIstring\fP\^, 
 int \fInum_bytes\fP\^); 
 .SH ARGUMENTS
 .IP \fIfont_set\fP 1i
@@ -168,7 +168,7 @@ The
 .ZN XmbTextEscapement ,
 .ZN XwcTextEscapement
 and
-.ZN XFree86utf8TextEscapement
+.ZN Xutf8TextEscapement
 functions return the escapement in pixels of the specified string as a value,
 using the fonts loaded for the specified font set.
 The escapement is the distance in pixels in the primary draw
@@ -180,7 +180,7 @@ Regardless of the character rendering order,
 the escapement is always positive.
 .LP
 The function
-.ZN XFree86utf8TextEscapement
+.ZN Xutf8TextEscapement
 is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .

@@ -170,7 +170,7 @@ typedef enum {
     XTextStyle,			/* text in owner's encoding (current locale)*/
     XStdICCTextStyle,		/* STRING, else COMPOUND_TEXT */
     /* The following is an XFree86 extension, introduced in November 2000 */
-    XFree86Utf8StringStyle	/* UTF8_STRING */
+    XUTF8StringStyle		/* UTF8_STRING */
 } XICCEncodingStyle;
 
 typedef struct {
@@ -672,7 +672,7 @@ extern void XmbSetWMProperties(
     XClassHint*		/* class_hints */
 );
 
-extern void XFree86utf8SetWMProperties(
+extern void Xutf8SetWMProperties(
     Display*		/* display */,
     Window		/* w */,
     _Xconst char*	/* window_name */,
@@ -683,9 +683,6 @@ extern void XFree86utf8SetWMProperties(
     XWMHints*		/* wm_hints */,
     XClassHint*		/* class_hints */
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8SetWMProperties XFree86utf8SetWMProperties
-#endif
 
 extern void XSetWMSizeHints(
     Display*		/* display */,
@@ -747,16 +744,13 @@ extern int XwcTextListToTextProperty(
     XTextProperty*	text_prop_return
 );
 
-extern int XFree86utf8TextListToTextProperty(
+extern int Xutf8TextListToTextProperty(
     Display*		display,
     char**		list,
     int			count,
     XICCEncodingStyle	style,
     XTextProperty*	text_prop_return
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8TextListToTextProperty XFree86utf8TextListToTextProperty
-#endif
 
 extern void XwcFreeStringList(
     wchar_t**		list
@@ -782,15 +776,12 @@ extern int XwcTextPropertyToTextList(
     int*		count_return
 );
 
-extern int XFree86utf8TextPropertyToTextList(
+extern int Xutf8TextPropertyToTextList(
     Display*		display,
     const XTextProperty* text_prop,
     char***		list_return,
     int*		count_return
 );
-#ifndef NOXFREE86COMPAT
-#define Xutf8TextPropertyToTextList XFree86utf8TextPropertyToTextList
-#endif
 
 extern int XUnionRectWithRegion(
     XRectangle*		/* rectangle */,

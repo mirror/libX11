@@ -1358,7 +1358,7 @@ XPointer	client_data;
     _Xlcwcstombs(ic->core.im->core.lcd, ic->private.local.composed->mb,
 		 ic->private.local.composed->wc, 10);
 
-    _XFree86lcmbstoutf8(ic->core.im->core.lcd, ic->private.local.composed->utf8,
+    _Xlcmbstoutf8(ic->core.im->core.lcd, ic->private.local.composed->utf8,
 		  ic->private.local.composed->mb, 10);
 
     /* Remember the last character inputted

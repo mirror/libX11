@@ -81,9 +81,9 @@ _XwcGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
 }
 
 void
-_XFree86utf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, 
-				   int x, int y, _Xconst char *text, int length)
+_Xutf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+			     int y, _Xconst char *text, int length)
 {
-    _XomGenericDrawImageString(dpy, d, oc, gc, x, y, XFree86OMUtf8String,
+    _XomGenericDrawImageString(dpy, d, oc, gc, x, y, XOMUtf8String,
 			       (XPointer) text, length);
 }

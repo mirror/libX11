@@ -903,12 +903,12 @@ extern void _XlcRemoveLoader(
 );
 
 /* Registers UTF-8 converters for a non-UTF-8 locale. */
-extern void _XFree86lcAddUtf8Converters(
+extern void _XlcAddUtf8Converters(
     XLCd		lcd
 );
 
 /* Registers UTF-8 converters for a UTF-8 locale. */
-extern void _XFree86lcAddUtf8LocaleConverters(
+extern void _XlcAddUtf8LocaleConverters(
     XLCd		lcd
 );
 

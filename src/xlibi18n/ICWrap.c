@@ -391,7 +391,8 @@ XwcResetIC(ic)
 }
 
 char *
-XFree86utf8ResetIC(XIC ic)
+Xutf8ResetIC(ic)
+    XIC ic;
 {
     if (ic->core.im) {
 	if (ic->methods->utf8_reset)
@@ -401,15 +402,6 @@ XFree86utf8ResetIC(XIC ic)
     }
     return (char *)NULL;
 }
-
-#ifndef NOXFREE86COMPAT
-#undef Xutf8ResetIC
-char *
-Xutf8ResetIC(XIC ic)
-{
-    return XFree86utf8ResetIC(ic);
-}
-#endif
 
 int
 XmbLookupString(ic, ev, buffer, nbytes, keysym, status)
@@ -442,13 +434,13 @@ XwcLookupString(ic, ev, buffer, nchars, keysym, status)
 }
 
 int
-XFree86utf8LookupString(
-    XIC ic,
-    register XKeyEvent *ev,
-    char *buffer,
-    int nbytes,
-    KeySym *keysym,
-    Status *status)
+Xutf8LookupString(ic, ev, buffer, nbytes, keysym, status)
+    XIC ic;
+    register XKeyEvent *ev;
+    char *buffer;
+    int nbytes;
+    KeySym *keysym;
+    Status *status;
 {
     if (ic->core.im) {
 	if (ic->methods->utf8_lookup_string)
@@ -460,18 +452,3 @@ XFree86utf8LookupString(
     }
     return XLookupNone;
 }
-
-#ifndef NOXFREE86COMPAT
-#undef Xutf8LookupString
-int
-Xutf8LookupString(
-    XIC ic,
-    register XKeyEvent *ev,
-    char *buffer,
-    int nbytes,
-    KeySym *keysym,
-    Status *status)
-{
-    return XFree86utf8LookupString(ic, ev, buffer, nbytes, keysym, status);
-}
-#endif

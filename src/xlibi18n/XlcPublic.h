@@ -206,7 +206,7 @@ typedef struct _XlcConvMethodsRec{
 #define XlcNWideChar 		"wideChar"
 #define XlcNCompoundText 	"compoundText"
 #define XlcNString 		"string"
-#define XFree86lcNUtf8String 	"utf8String"
+#define XlcNUtf8String 		"utf8String"
 #define XlcNCharSet 		"charSet"
 #define XlcNCTCharSet 		"CTcharSet"
 #define XlcNFontCharSet		"FontCharSet"

@@ -1488,7 +1488,7 @@ _XlcEucLoader(
     _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNMultiByte, open_wcstombs);
 #endif
 
-    _XFree86lcAddUtf8Converters(lcd);
+    _XlcAddUtf8Converters(lcd);
 
     return lcd;
 }

@@ -126,9 +126,9 @@ _XwcGenericTextExtents(XOC oc, _Xconst wchar_t *text, int length,
 }
 
 int
-_XFree86utf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
+_Xutf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
 			 XRectangle *overall_ink, XRectangle *overall_logical)
 {
-    return _XomGenericTextExtents(oc, XFree86OMUtf8String, (XPointer) text, 
-		    		  length, overall_ink, overall_logical);
+    return _XomGenericTextExtents(oc, XOMUtf8String, (XPointer) text, length,
+				  overall_ink, overall_logical);
 }

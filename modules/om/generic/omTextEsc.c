@@ -292,8 +292,8 @@ _XwcGenericTextEscapement(XOC oc, _Xconst wchar_t *text, int length)
 }
 
 int
-_XFree86utf8GenericTextEscapement(XOC oc, _Xconst char *text, int length)
+_Xutf8GenericTextEscapement(XOC oc, _Xconst char *text, int length)
 {
-    return _XomGenericTextEscapement(oc, XFree86OMUtf8String, (XPointer) text,
+    return _XomGenericTextEscapement(oc, XOMUtf8String, (XPointer) text,
 				     length);
 }

@@ -1105,7 +1105,7 @@ _XimProtoWcLookupString(
 }
 
 Public int
-_XFree86imProtoUtf8LookupString(
+_XimProtoUtf8LookupString(
     XIC			 xic,
     XKeyEvent		*ev,
     char		*buffer,
@@ -1145,7 +1145,7 @@ _XFree86imProtoUtf8LookupString(
 	_XimUnregCommitInfo(ic);
 
     } else if (ev->type == KeyPress) {
-	ret = _XFree86imLookupUtf8Text(ic, ev, buffer, bytes, keysym, NULL);
+	ret = _XimLookupUTF8Text(ic, ev, buffer, bytes, keysym, NULL);
 	if (ret > 0) {
            if (ret > bytes)
                *state = XBufferOverflow;

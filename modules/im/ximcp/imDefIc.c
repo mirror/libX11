@@ -1212,7 +1212,7 @@ _XimProtoWcReset(
 }
 
 Private char *
-_XFree86imCommitedUtf8String(
+_XimCommitedUtf8String(
     Xim			 im,
     Xic			 ic,
     XPointer		 buf)
@@ -1262,10 +1262,10 @@ Error_On_Reset:
 }
 
 Private char *
-_XFree86imProtoUtf8Reset(
+_XimProtoUtf8Reset(
     XIC		 xic)
 {
-    return _XimProtoReset(xic, _XFree86imCommitedUtf8String);
+    return _XimProtoReset(xic, _XimCommitedUtf8String);
 }
 
 Private XICMethodsRec ic_methods = {
@@ -1276,10 +1276,10 @@ Private XICMethodsRec ic_methods = {
     _XimProtoGetICValues,	/* get_values */
     _XimProtoMbReset,		/* mb_reset */
     _XimProtoWcReset,		/* wc_reset */
-    _XFree86imProtoUtf8Reset,	/* utf8_reset */
+    _XimProtoUtf8Reset,		/* utf8_reset */
     _XimProtoMbLookupString,	/* mb_lookup_string */
     _XimProtoWcLookupString,	/* wc_lookup_string */
-    _XFree86imProtoUtf8LookupString	/* utf8_lookup_string */
+    _XimProtoUtf8LookupString	/* utf8_lookup_string */
 };
 
 Private Bool

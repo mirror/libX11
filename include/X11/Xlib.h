@@ -3830,12 +3830,6 @@ extern char *XSetIMValues(
     XIM /* im */, ...
 );
 
-extern char *XSetIMValues(
-#if NeedVarargsPrototypes
-    XIM /* im */, ...
-#endif
-);
-
 extern Display *XDisplayOfIM(
     XIM /* im */
 );

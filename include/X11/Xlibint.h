@@ -1020,12 +1020,6 @@ extern int _XFreeExtData(
     XExtData*	/* extension */
 );
 
-extern Bool _XWireToEvent(Display *dpy, XEvent *re, xEvent *event);
-extern Bool _XDefaultWireError(Display *display, XErrorEvent *he, xError *we);
-extern Bool _XPollfdCacheInit(Display *dpy);
-extern XID _XAllocID(Display *dpy);
-extern void _XAllocIDs(Display *dpy, XID *ids, int count);
-
 extern int (*XESetCreateGC(
     Display*		/* display */,
     int			/* extension */,

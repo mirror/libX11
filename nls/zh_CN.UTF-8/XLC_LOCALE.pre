@@ -2,7 +2,7 @@ XCOMM     XFree86 NLS for Chinese locale zh_CN.UTF-8
 XCOMM          Modified from xc/nls/XLC_LOCALE/en_US.UTF-8
 XCOMM          by James Su <suzhe@turbolinux.com.cn>
 XCOMM
-: XCOMM $XdotOrg: lib/X11/nls/zh_CN.UTF-8/XLC_LOCALE.pre,v 1.1.4.1.4.1 2004-03-04 17:47:16 eich Exp $
+XCOMM $XdotOrg: lib/X11/nls/zh_CN.UTF-8/XLC_LOCALE.pre,v 1.1.4.1.4.2 2004-03-05 12:46:31 eich Exp $
 XCOMM $XFree86$
 
 XCOMM 

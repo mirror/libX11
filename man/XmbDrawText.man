@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\"
 .\" $XFree86: xc/doc/man/X11/XmbDTxt.man,v 1.4 2003/04/28 22:17:58 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XmbDrawText.man,v 1.1.4.4.4.2 2004-03-04 17:45:54 eich Exp $
+.\" $XdotOrg: lib/X11/man/XmbDrawText.man,v 1.1.4.4.4.3 2004-04-02 21:47:10 eich Exp $
 .\" 
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -216,7 +216,8 @@ The behavior for an invalid codepoint is undefined.
 .LP
 The function
 .ZN Xutf8DrawText
-is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
+is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
+release. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .
 .SH STRUCTURES

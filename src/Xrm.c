@@ -348,6 +348,11 @@ void XrmSetDatabase(
     XrmDatabase database)
 {
     LockDisplay(display);
+    /* destroy database if set up imlicitely by XGetDefault() */
+    if (display->db && (display->flags & XlibDisplayDfltRMDB)) {
+	XrmDestroyDatabase(display->db);
+	display->flags &= ~XlibDisplayDfltRMDB;
+    }
     display->db = database;
     UnlockDisplay(display);
 }

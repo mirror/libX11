@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.1.4.2.2.1 2004-03-17 20:28:23 ago Exp $ */
+/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.1.4.2.2.2 2004-09-15 16:33:18 ago Exp $ */
 /* $Xorg: HVC.c,v 1.3 2000/08/17 19:44:36 cpqbld Exp $ */
 
 /*

@@ -239,8 +239,9 @@ XGetDefault(
 	 */
 	LockDisplay(dpy);
 	if (dpy->db == NULL) {
-		dpy->db = InitDefaults(dpy);
-		}
+	    dpy->db = InitDefaults(dpy);
+	    dpy->flags |= XlibDisplayDfltRMDB;
+	}
 	UnlockDisplay(dpy);
 
 	names[0] = XrmStringToName(progname);

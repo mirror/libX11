@@ -570,6 +570,12 @@ XOpenDisplay (
 			u.vp = (xVisualType *) (((char *) u.vp) +
 						sz_xVisualType);
 		    }
+		    if (dp->depth == 32 && getenv ("XLIB_SKIP_ARGB_VISUALS"))
+		    {
+			Xfree (dp->visuals);
+			dp->visuals = NULL;
+			dp->nvisuals = 0;
+		    }
 		} else {
 		    dp->visuals = (Visual *) NULL;
 		}
@@ -761,7 +767,8 @@ void _XFreeDisplayStructure(dpy)
 	if (dpy->xkb_info)
 	   (*dpy->free_funcs->xkb)(dpy);
 
-	if (dpy->db)
+	/* if RM database was allocated by XGetDefault() free it */
+	if (dpy->db && (dpy->flags & XlibDisplayDfltRMDB))
 	    XrmDestroyDatabase(dpy->db);
 
 	if (dpy->screens) {

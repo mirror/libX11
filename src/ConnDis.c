@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.1.4.2.2.1 2004-03-17 20:28:23 ago Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.1.4.2.2.2 2004-09-15 16:33:18 ago Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -58,7 +58,7 @@ in this Software without prior written authorization from The Open Group.
 
 #include "Xintconn.h"
 
-/* prototyes */
+/* prototypes */
 static void GetAuthorization(
     XtransConnInfo trans_conn,
     int family,
@@ -147,9 +147,9 @@ _X11TransConnectDisplay (
     int connect_stat;
 #ifdef LOCALCONN
     struct utsname sys;
+#endif
 #ifdef TCPCONN
     char *tcphostname = NULL;		/* A place to save hostname pointer */
-#endif
 #endif
 
     p = display_name;
@@ -283,19 +283,19 @@ _X11TransConnectDisplay (
 
 #if defined(TCPCONN) || defined(UNIXCONN) || defined(LOCALCONN) || defined(MNX_TCPCONN) || defined(OS2PIPECONN)
     if (!pprotocol) {
-	if (!phostname)
+	if (!phostname) {
 #if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
 	    pprotocol = copystring ("local", 5);
+#if defined(TCPCONN)
+	    tcphostname = copystring("localhost", 9);
+#endif
+	}
 	else
+	{
 #endif
 	    pprotocol = copystring ("tcp", 3);
+	}
     }
-#else
-#if defined(AMRPCCONN)
-    if (!pprotocol) {
-            pprotocol = copystring ("amcon", 5);
-    }
-#endif
 #endif
 
 #if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
@@ -325,7 +325,7 @@ _X11TransConnectDisplay (
     }
 #endif
 
-#if defined(LOCALCONN) && defined(TCPCONN)
+#if defined(TCPCONN)
   connect:
 #endif
     /*
@@ -339,6 +339,7 @@ _X11TransConnectDisplay (
 		       (pdpynum   ? strlen(pdpynum)   : 0);
 	if (olen > sizeof addrbuf) address = Xmalloc (olen);
     }
+    if (!address) goto bad;
 
     sprintf(address,"%s/%s:%d",
 	pprotocol ? pprotocol : "",
@@ -397,6 +398,7 @@ _X11TransConnectDisplay (
 	}
 
     if (address != addrbuf) Xfree (address);
+    address = addrbuf;
 
     if( trans_conn == NULL )
       goto bad;
@@ -428,6 +430,9 @@ _X11TransConnectDisplay (
     if (phostname) Xfree (phostname);
     if (pdpynum) Xfree (pdpynum);
     if (pscrnum) Xfree (pscrnum);
+#ifdef TCPCONN
+    if (tcphostname) Xfree (tcphostname);
+#endif
 
     GetAuthorization(trans_conn, family, (char *) saddr, saddrlen, idisplay,
 		     auth_namep, auth_namelenp, auth_datap, auth_datalenp);
@@ -442,8 +447,9 @@ _X11TransConnectDisplay (
     if (saddr) free ((char *) saddr);
     if (pprotocol) Xfree (pprotocol);
     if (phostname) Xfree (phostname);
+    if (address && address != addrbuf) { Xfree(address); address = addrbuf; }
 
-#if defined(LOCALCONN) && defined(TCPCONN)
+#if defined(TCPCONN)
     if (tcphostname) {
 	pprotocol = copystring("tcp", 3);
 	phostname = tcphostname;
@@ -580,13 +586,6 @@ _XSendClientPrefix (dpy, client, auth_proto, auth_string, prefix)
 #endif
 
 #ifdef SECURE_RPC
-#if defined(sun) && defined(SVR4) /* && ????? */
-/*
- * I'm aware this is backwards, but #define'ing PORTMAP, as suggested in the
- * man pages, doesn't work either.
- */
-#define authdes_seccreate authdes_create
-#endif
 #include <rpc/rpc.h>
 #ifdef ultrix
 #include <time.h>
@@ -1099,14 +1098,14 @@ GetAuthorization(
 		/* Port number */
 		for (i=2; i<4; i++)
 		    xdmcp_data[j++] = ((char *)addr)[i];
-		break;
 	    } else {
 		/* Fake data to keep the data aligned. Otherwise the 
 		   the server will bail about incorrect timing data */
-		for (i = 0; i < 8; i++) {
+		for (i = 0; i < 6; i++) {
 		    xdmcp_data[j++] = 0;
 		}
 	    }
+	    break;
 	}
 #endif /* AF_INET6 */
 #ifdef AF_UNIX
@@ -1122,15 +1121,20 @@ GetAuthorization(
 	    static unsigned long    unix_addr = 0xFFFFFFFF;
 	    unsigned long	the_addr;
 	    unsigned short	the_port;
+	    unsigned long	the_utime;
+	    struct timeval      tp;
 	    
+	    X_GETTIMEOFDAY(&tp);
 	    _XLockMutex(_Xglobal_lock);
 	    the_addr = unix_addr--;
 	    _XUnlockMutex(_Xglobal_lock);
+	    the_utime = (unsigned long) tp.tv_usec;
 	    the_port = getpid ();
-
-	    xdmcp_data[j++] = (the_addr >> 24) & 0xFF;
-	    xdmcp_data[j++] = (the_addr >> 16) & 0xFF;
-	    xdmcp_data[j++] = (the_addr >>  8) & 0xFF;
+	    
+	    xdmcp_data[j++] = (the_utime >> 24) & 0xFF;
+	    xdmcp_data[j++] = (the_utime >> 16) & 0xFF;
+	    xdmcp_data[j++] = ((the_utime >>  8) & 0xF0)
+		| ((the_addr >>  8) & 0x0F);
 	    xdmcp_data[j++] = (the_addr >>  0) & 0xFF;
 	    xdmcp_data[j++] = (the_port >>  8) & 0xFF;
 	    xdmcp_data[j++] = (the_port >>  0) & 0xFF;

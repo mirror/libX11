@@ -1,4 +1,5 @@
 /* $Xorg: makekeys.c,v 1.5 2001/02/09 02:03:40 xorgcvs Exp $ */
+/* $XdotOrg: lib/X11/src/util/makekeys.c,v 1.1.4.1.2.2 2004-09-15 16:33:20 ago Exp $ */
 /*
 
 Copyright 1990, 1998  The Open Group
@@ -60,7 +61,7 @@ char buf[1024];
 int
 main(int argc, char *argv[])
 {
-    int ksnum;
+    int ksnum = 0;
     int max_rehash;
     Signature sig;
     register int i, j, k, z;
@@ -71,27 +72,43 @@ main(int argc, char *argv[])
     int best_z = 0;
     int num_found;
     KeySym val;
+    char key[128];
+    char alias[128];
 
-    for (ksnum = 0; 1; (void)fgets(buf, sizeof(buf), stdin)) {
-	i = scanf("#define XK_%s 0x%lx", buf, &info[ksnum].val);
-	if (i == EOF)
-	    break;
-	if (i != 2)
-	    continue;
+
+    while (fgets(buf, sizeof(buf), stdin)) {
+	i = sscanf(buf, "#define XK_%127s 0x%lx", key, &info[ksnum].val);
+	if (i != 2) {
+	    i = sscanf(buf, "#define XK_%127s XK_%127s", key, alias);
+	    if (i != 2)
+		continue;
+	    for (i = ksnum - 1; i >= 0; i--) {
+		if (strcmp(info[i].name, alias) == 0) {
+		    info[ksnum].val = info[i].val;
+		    break;
+		}
+	    }
+	    if (i < 0) {  /* Didn't find a match */
+		fprintf(stderr,
+		    "can't find matching definition %s for keysym %s\n",
+		    alias, key);
+		continue;
+	    }
+	}
 	if (info[ksnum].val == XK_VoidSymbol)
 	    info[ksnum].val = 0;
 	if (info[ksnum].val > 0xffff) {
 	    fprintf(stderr,
 		    "ignoring illegal keysym (%s), remove it from .h file!\n",
-		    buf);
+		    key);
 	    continue;
 	}
-	name = malloc((unsigned)strlen(buf)+1);
+	name = malloc((unsigned)strlen(key)+1);
 	if (!name) {
 	    fprintf(stderr, "makekeys: out of memory!\n");
 	    exit(1);
 	}
-	(void)strcpy(name, buf);
+	(void)strcpy(name, key);
 	info[ksnum].name = name;
 	ksnum++;
 	if (ksnum == KTNUM) {

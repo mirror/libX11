@@ -24,7 +24,6 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86$ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -84,10 +83,11 @@ _XWAttrsHandler(
     return True;
 }
 
-Status XGetWindowAttributes(dpy, w, attr)
-     register Display *dpy;
-     Window w;
-     XWindowAttributes *attr;
+Status
+_XGetWindowAttributes(
+    register Display *dpy,
+    Window w,
+    XWindowAttributes *attr)
 {       
     xGetGeometryReply rep;
     register xResourceReq *req;
@@ -96,7 +96,6 @@ Status XGetWindowAttributes(dpy, w, attr)
     _XAsyncHandler async;
     _XWAttrsState async_state;
  
-    LockDisplay(dpy);
     GetResReq(GetWindowAttributes, w, req);
 
     async_state.attr_seq = dpy->request;
@@ -113,14 +112,10 @@ Status XGetWindowAttributes(dpy, w, attr)
 
     if (!_XReply (dpy, (xReply *)&rep, 0, xTrue)) {
 	DeqAsyncHandler(dpy, &async);
-	UnlockDisplay(dpy);
-	SyncHandle();
 	return (0);
 	}
     DeqAsyncHandler(dpy, &async);
     if (!async_state.attr) {
-	UnlockDisplay(dpy);
-	SyncHandle();
 	return (0);
     }
     attr->x = cvtINT16toInt (rep.x);
@@ -138,8 +133,22 @@ Status XGetWindowAttributes(dpy, w, attr)
 	    break;
 	}
     }
+    return(1);
+}
+
+Status
+XGetWindowAttributes(
+    Display *dpy,
+    Window w,
+    XWindowAttributes *attr)
+{
+    Status ret;
+
+    LockDisplay(dpy);
+    ret = _XGetWindowAttributes(dpy, w, attr);
     UnlockDisplay(dpy);
     SyncHandle();
-    return(1);
+
+    return ret;
 }
 

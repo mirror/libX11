@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.1.4.5 2004-02-18 22:17:02 kaleb Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.1.4.6 2004-02-23 21:34:50 kaleb Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -6,7 +6,7 @@ XCOMM	Each alias name is described within one line.
 XCOMM	The first word is the alias name (simplified locale name)
 XCOMM	the second word is full locale name.
 XCOMM
-XCOMM	$XFree86: xc/nls/locale.alias,v 1.64 2003/12/18 04:14:22 dawes Exp $
+XCOMM	$XFree86: xc/nls/locale.alias,v 1.66 2004/02/09 01:35:17 dawes Exp $
 XCOMM
 
 POSIX:						C
@@ -535,6 +535,7 @@ ko:						ko_KR.eucKR
 ko_KR:						ko_KR.eucKR
 KO_KR:						ko_KR.eucKR
 ko_KR.EUC:					ko_KR.eucKR
+ko_KR.EUC-KR:					ko_KR.eucKR
 ko_KR.euc:					ko_KR.eucKR
 ko_KR.euckr:					ko_KR.eucKR
 ko_KR.utf8:					ko_KR.UTF-8
@@ -797,6 +798,8 @@ ur_PK.cp1256:					ur_PK.CP1256
 ur_PK.microsoftcp1256:				ur_PK.CP1256
 ur_PK.microsoft-cp1256:				ur_PK.CP1256
 ur_PK.MICROSOFT-CP1256:				ur_PK.CP1256
+uz:						uz_UZ.UTF-8
+uz_UZ:						uz_UZ.UTF-8
 vi:						vi_VN.TCVN
 vi_VN:						vi_VN.TCVN
 Vi_VN:						vi_VN.TCVN

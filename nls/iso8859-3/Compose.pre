@@ -19,8 +19,8 @@ XCOMM Special Character
 <Multi_key> <parenright> <parenright>	: "]"	bracketright
 <Multi_key> <asciicircum> <space>	: "^"	asciicircum
 <Multi_key> <space> <asciicircum>	: "^"	asciicircum
-<Multi_key> <greater> <space>		: "^"	asciicirum
-<Multi_key> <space> <greater>		: "^"	asciicirum
+<Multi_key> <greater> <space>		: "^"	asciicircum
+<Multi_key> <space> <greater>		: "^"	asciicircum
 <Multi_key> <grave> <space>		: "`"	grave
 <Multi_key> <space> <grave>		: "`"	grave
 <Multi_key> <parenleft> <minus>		: "{"	braceleft

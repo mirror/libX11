@@ -33,7 +33,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/SetCCC.c,v 1.2 2003/11/17 22:20:08 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcms.h"

@@ -32,7 +32,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/SetGetCols.c,v 1.2 2003/04/13 19:22:17 dawes Exp $ */
 
 /*
  *      EXTERNAL INCLUDES

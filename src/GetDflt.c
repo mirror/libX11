@@ -46,7 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/GetDflt.c,v 3.22 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86: xc/lib/X11/GetDflt.c,v 3.23 2003/11/17 22:20:07 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xos.h>

@@ -319,7 +319,7 @@ _Xwcsncmp(
 
 
 int
-_XFree86lcmbstoUtf8(
+_XFree86lcmbstoutf8(
     XLCd lcd,
     char *ustr,
     const char *str,
@@ -358,10 +358,10 @@ _XFree86lcmbstoUtf8(
 }
 
 int
-_XFree86mbstoUtf8(
+_XFree86mbstoutf8(
     char *ustr,
     const char *str,
     int len)
 {
-    return _XFree86lcmbstoUtf8((XLCd) NULL, ustr, str, len);
+    return _XFree86lcmbstoutf8((XLCd) NULL, ustr, str, len);
 }

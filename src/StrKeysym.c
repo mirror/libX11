@@ -88,9 +88,10 @@ XStringToKeysym(_Xconst char *s)
     {
 	entry = &_XkeyTable[idx];
 	if ((entry[0] == sig1) && (entry[1] == sig2) &&
-	    !strcmp(s, (char *)entry + 4))
+	    !strcmp(s, (char *)entry + 6))
 	{
-	    val = (entry[2] << 8) | entry[3];
+	    val = (entry[2] << 24) | (entry[3] << 16) |
+	          (entry[4] << 8)  | entry[5];
 	    if (!val)
 		val = XK_VoidSymbol;
 	    return val;
@@ -137,9 +138,10 @@ XStringToKeysym(_Xconst char *s)
 	    else if ('a' <= c && c <= 'f') val = (val<<4)+c-'a'+10;
 	    else if ('A' <= c && c <= 'F') val = (val<<4)+c-'A'+10;
 	    else return NoSymbol;
-
 	}
-	if (val >= 0x01000000)
+	if (val < 0x100)
+	    return val;
+	if (val > 0x10ffff || val < 0x100)
 	    return NoSymbol;
         return val | 0x01000000;
     }

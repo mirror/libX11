@@ -1,5 +1,5 @@
-/* $Xorg: makekeys.c,v 1.5 2001/02/09 02:03:40 xorgcvs Exp $ */
-/* $XdotOrg: lib/X11/src/util/makekeys.c,v 1.3 2004-05-22 03:47:42 alanc Exp $ */
+/* $Xorg: makekeys.c,v 1.5 2001/02/09 02:03:40 $ */
+/* $XdotOrg: lib/X11/src/util/makekeys.c,v 1.4 2004-09-26 20:46:17 kuhn Exp $ */
 /*
 
 Copyright 1990, 1998  The Open Group
@@ -27,7 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/util/makekeys.c,v 3.6 2001/07/25 15:04:48 dawes Exp $ */
+/* $XFree86: $ */
 
 /* Constructs hash tables for XStringToKeysym and XKeysymToString. */
 
@@ -97,7 +97,7 @@ main(int argc, char *argv[])
 	}
 	if (info[ksnum].val == XK_VoidSymbol)
 	    info[ksnum].val = 0;
-	if (info[ksnum].val > 0xffff) {
+	if (info[ksnum].val > 0x1fffffff) {
 	    fprintf(stderr,
 		    "ignoring illegal keysym (%s), remove it from .h file!\n",
 		    key);
@@ -175,10 +175,11 @@ next1:	;
 	offsets[j] = k;
 	indexes[i] = k;
 	val = info[i].val;
-	printf("0x%.2lx, 0x%.2lx, 0x%.2lx, 0x%.2lx, ",
+	printf("0x%.2lx, 0x%.2lx, 0x%.2lx, 0x%.2lx, 0x%.2lx, 0x%.2lx, ",
 	       (sig >> 8) & 0xff, sig & 0xff,
+	       (val >> 24) & 0xff, (val >> 16) & 0xff,
 	       (val >> 8) & 0xff, val & 0xff);
-	for (name = info[i].name, k += 5; (c = *name++); k++)
+	for (name = info[i].name, k += 7; (c = *name++); k++)
 	    printf("'%c',", c);
 	printf((i == (ksnum-1)) ? "0\n" : "0,\n");
     }

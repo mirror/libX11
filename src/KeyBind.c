@@ -457,9 +457,9 @@ UCSConvertCase( register unsigned code,
 
     /* Basic Latin and Latin-1 Supplement, U+0000 to U+00FF */
     if (code <= 0x00ff) {
-        if (code >= 0x0041 && code <= 0x005a)
+        if (code >= 0x0041 && code <= 0x005a)             /* A-Z */
             *lower += 0x20;
-        else if (code >= 0x0061 && code <= 0x007a)
+        else if (code >= 0x0061 && code <= 0x007a)        /* a-z */
             *upper -= 0x20;
         else if ( (code >= 0x00c0 && code <= 0x00d6) ||
 	          (code >= 0x00d8 && code <= 0x00de) )
@@ -467,10 +467,11 @@ UCSConvertCase( register unsigned code,
         else if ( (code >= 0x00e0 && code <= 0x00f6) ||
 	          (code >= 0x00f8 && code <= 0x00fe) )
             *upper -= 0x20;
-        else if (code == 0x00ff)
+        else if (code == 0x00ff)      /* y with diaeresis */
             *upper = 0x0178;
-        else if (code == 0x00b5)
+        else if (code == 0x00b5)      /* micro sign */
             *upper = 0x039c;
+	return;
     }
 
     /* Latin Extended-A, U+0100 to U+017F */
@@ -489,13 +490,14 @@ UCSConvertCase( register unsigned code,
 	        *upper -= 1;
         }
         else if (code == 0x0130)
-            *lower = 0x0069; 
+            *lower = 0x0069;
         else if (code == 0x0131)
-            *upper = 0x0049; 
+            *upper = 0x0049;
         else if (code == 0x0178)
-            *lower = 0x00ff; 
+            *lower = 0x00ff;
         else if (code == 0x017f)
-            *upper = 0x0053; 
+            *upper = 0x0053;
+        return;
     }
 
     /* Latin Extended-B, U+0180 to U+024F */
@@ -531,6 +533,7 @@ UCSConvertCase( register unsigned code,
             *lower = 0x01bf;
         else if (code == 0x0220)
             *lower = 0x019e;
+        return;
     }
 
     /* IPA Extensions, U+0250 to U+02AF */
@@ -645,6 +648,12 @@ XConvertCase(sym, lower, upper)
     KeySym *lower;
     KeySym *upper;
 {
+    /* Latin 1 keysym */
+    if (sym < 0x100) {
+        UCSConvertCase(sym, lower, upper);
+	return;
+    }
+
     /* Unicode keysym */
     if ((sym & 0xff000000) == 0x01000000) {
         UCSConvertCase((sym & 0x00ffffff), lower, upper);
@@ -653,26 +662,12 @@ XConvertCase(sym, lower, upper)
         return;
     }
 
+    /* Legacy keysym */
+
     *lower = sym;
     *upper = sym;
 
     switch(sym >> 8) {
-    case 0: /* Latin 1 */
-	if ((sym >= XK_A) && (sym <= XK_Z))
-	    *lower += (XK_a - XK_A);
-	else if ((sym >= XK_a) && (sym <= XK_z))
-	    *upper -= (XK_a - XK_A);
-	else if ((sym >= XK_Agrave) && (sym <= XK_Odiaeresis))
-	    *lower += (XK_agrave - XK_Agrave);
-	else if ((sym >= XK_agrave) && (sym <= XK_odiaeresis))
-	    *upper -= (XK_agrave - XK_Agrave);
-	else if ((sym >= XK_Ooblique) && (sym <= XK_Thorn))
-	    *lower += (XK_oslash - XK_Ooblique);
-	else if ((sym >= XK_oslash) && (sym <= XK_thorn))
-	    *upper -= (XK_oslash - XK_Ooblique);
-        else if (sym == XK_ydiaeresis)
-            *upper = XK_Ydiaeresis; /* actually a Latin 9 character */
-	break;
     case 1: /* Latin 2 */
 	/* Assume the KeySym is a legal value (ignore discontinuities) */
 	if (sym == XK_Aogonek)
@@ -751,63 +746,6 @@ XConvertCase(sym, lower, upper)
 		 sym != XK_Greek_finalsmallsigma)
 	    *upper -= (XK_Greek_alpha - XK_Greek_ALPHA);
         break;
-    case 0x12: /* Latin 8 */
-        /* No neat pattern to the values */
-        switch (sym) {
-            case XK_Babovedot:
-                *lower = XK_babovedot; break;
-            case XK_babovedot:
-                *upper = XK_Babovedot; break;
-            case XK_Dabovedot:
-                *lower = XK_dabovedot; break;
-            case XK_Wgrave:
-                *lower = XK_wgrave; break;
-            case XK_Wacute:
-                *lower = XK_wacute; break;
-            case XK_dabovedot:
-                *upper = XK_Dabovedot; break;
-            case XK_Ygrave:
-                *lower = XK_ygrave; break;
-            case XK_Fabovedot:
-                *lower = XK_fabovedot; break;
-            case XK_fabovedot:
-                *upper = XK_Fabovedot; break;
-            case XK_Mabovedot:
-                *lower = XK_mabovedot; break;
-            case XK_mabovedot:
-                *upper = XK_Mabovedot; break;
-            case XK_Pabovedot:
-                *lower = XK_pabovedot; break;
-            case XK_wgrave:
-                *upper = XK_Wgrave; break;
-            case XK_pabovedot:
-                *upper = XK_Pabovedot; break;
-            case XK_wacute:
-                *upper = XK_Wacute; break;
-            case XK_Sabovedot:
-                *lower = XK_sabovedot; break;
-            case XK_ygrave:
-                *upper = XK_Ygrave; break;
-            case XK_Wdiaeresis:
-                *lower = XK_wdiaeresis; break;
-            case XK_wdiaeresis:
-                *upper = XK_Wdiaeresis; break;
-            case XK_sabovedot:
-                *upper = XK_Sabovedot; break;
-            case XK_Wcircumflex:
-                *lower = XK_wcircumflex; break;
-            case XK_Tabovedot:
-                *lower = XK_tabovedot; break;
-            case XK_Ycircumflex:
-                *lower = XK_ycircumflex; break;
-            case XK_wcircumflex:
-                *upper = XK_Wcircumflex; break;
-            case XK_tabovedot:
-                *upper = XK_Tabovedot; break;
-            case XK_ycircumflex:
-                *upper = XK_Ycircumflex; break;
-	    }
-        break;
     case 0x13: /* Latin 9 */
         if (sym == XK_OE)
             *lower = XK_oe;
@@ -815,45 +753,6 @@ XConvertCase(sym, lower, upper)
             *upper = XK_OE;
         else if (sym == XK_Ydiaeresis)
             *lower = XK_ydiaeresis;
-        break;
-    case 0x14: /* Armenian */
-	if (sym >= XK_Armenian_AYB && sym <= XK_Armenian_fe) {
-	    *lower = sym | 1;
-	    *upper = sym & ~1;
-	}
-        break;
-    case 0x16: /* Caucasus, Inupiak, Guarani */
-        if (sym == XK_ocaron || sym == XK_Ocaron) {
-	    *upper = XK_Ocaron;
-	    *lower = XK_ocaron;
-        }
-        else if (sym >= XK_Ccedillaabovedot && sym <= XK_Obarred)
-	    *lower += (XK_ccedillaabovedot - XK_Ccedillaabovedot);
-        else if (sym >= XK_ccedillaabovedot && sym <= XK_obarred)
-	    *upper -= (XK_ccedillaabovedot - XK_Ccedillaabovedot);
-	else if (sym == XK_schwa || sym == XK_SCHWA) {
-	    *lower = XK_schwa;
-	    *upper = XK_SCHWA;
-	}
-	else if (sym == XK_lbelowdot || sym == XK_Lbelowdot) {
-	    *lower = XK_lbelowdot;
-	    *upper = XK_Lbelowdot;
-	}
-	else if (sym == XK_lstrokebelowdot || sym == XK_Lstrokebelowdot) {
-	    *lower = XK_lstrokebelowdot;
-	    *upper = XK_Lstrokebelowdot;
-	}
-	else if (sym == XK_gtilde || sym == XK_Gtilde) {
-	    *lower = XK_gtilde;
-	    *upper = XK_Gtilde;
-	}
-        break;
-    case 0x1e: /* Vietnamese */
-        if ((sym >= XK_Abelowdot && sym <= XK_uhornbelowdot) ||
-	    (sym >= XK_Ybelowdot && sym <= XK_uhorn)) {
-	    *lower = sym | 1;
-	    *upper = sym & ~1;
-        }
         break;
     }
 }

@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.4 2004-05-24 19:02:11 eich Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.5 2004-07-27 06:06:05 herrb Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -296,12 +296,6 @@ _X11TransConnectDisplay (
 	    pprotocol = copystring ("tcp", 3);
 	}
     }
-#else
-#if defined(AMRPCCONN)
-    if (!pprotocol) {
-            pprotocol = copystring ("amcon", 5);
-    }
-#endif
 #endif
 
 #if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)

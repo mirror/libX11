@@ -36,7 +36,7 @@
  *  Modifier: Ivan Pascal     The XFree86 Project
  *  Modifier: Bruno Haible    The XFree86 Project
  */
-/* $XFree86: xc/lib/X11/lcCT.c,v 3.28 2003/08/04 10:32:20 eich Exp $ */
+/* $XFree86: xc/lib/X11/lcCT.c,v 3.26 2001/10/28 03:32:34 tsi Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"

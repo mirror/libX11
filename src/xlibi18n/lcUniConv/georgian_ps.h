@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/georgian_ps.h,v 1.3 2000/11/29 17:40:29 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * GEORGIAN-PS

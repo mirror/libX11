@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/RdBitF.c,v 3.7 2003/11/17 22:20:08 dawes Exp $ */
+/* $XFree86: xc/lib/X11/RdBitF.c,v 3.6 2003/04/13 19:22:17 dawes Exp $ */
 
 /*
  *	Code to read bitmaps from disk files. Interprets 

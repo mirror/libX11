@@ -74,7 +74,7 @@ Sun Microsystems, Inc. or its licensors is granted.
  *   Modifier: Masayoshi Shimamura      FUJITSU LIMITED 
  *
  */
-/* $XFree86: xc/lib/X11/lcInit.c,v 3.10 2002/11/01 13:43:31 alanh Exp $ */
+/* $XFree86: xc/lib/X11/lcInit.c,v 3.9 2001/11/16 00:52:27 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

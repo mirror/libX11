@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/iso8859_9e.h,v 1.3 2000/11/28 16:10:28 dawes Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/iso8859_9e.h,v 1.2 2000/11/02 19:10:45 dawes Exp $ */
 
 /*
  * ISO-8859-9E

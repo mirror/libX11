@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/jisx0212.h,v 1.5 2003/05/27 22:26:31 tsi Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/jisx0212.h,v 1.4tsi Exp $ */
 
 /*
  * JISX0212.1990-0

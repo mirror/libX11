@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/Cr.h,v 1.1 2003/04/13 19:22:14 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _CR_H_
 #define _CR_H_

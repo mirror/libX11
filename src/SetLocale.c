@@ -55,7 +55,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/SetLocale.c,v 3.21 2004/02/11 00:30:44 torrey Exp $ */
+/* $XFree86: xc/lib/X11/SetLocale.c,v 3.20 2003/11/17 22:20:08 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

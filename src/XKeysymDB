@@ -11,7 +11,7 @@
 ! suitability of this software for any purpose.  It is provided "as is"
 ! without express or implied warranty.
 !
-! $XFree86: xc/lib/X11/XKeysymDB,v 3.17 2003/02/14 22:02:26 dawes Exp $
+! $XFree86: xc/lib/X11/XKeysymDB,v 3.16 2003/02/11 02:51:10 dawes Exp $
 
 hpmute_acute		:100000A8
 hpmute_grave		:100000A9

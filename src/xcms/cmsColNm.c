@@ -31,7 +31,7 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/cmsColNm.c,v 3.12 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86: xc/lib/X11/cmsColNm.c,v 3.11 2003/04/13 19:22:20 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

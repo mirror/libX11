@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imRmAttr.c,v 1.8 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imRmAttr.c,v 1.7 2003/04/13 19:22:21 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

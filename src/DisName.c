@@ -27,7 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/DisName.c,v 1.3 2003/04/13 19:22:15 dawes Exp $ */
+/* $XFree86$ */
 
 /* XDisplayName.c */
 /* 

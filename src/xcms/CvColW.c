@@ -33,7 +33,7 @@
  *
  *
  */
-/* $XFree86: xc/lib/X11/CvColW.c,v 1.4 2003/04/13 19:22:15 dawes Exp $ */
+/* $XFree86: xc/lib/X11/CvColW.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

@@ -27,7 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/BdrWidth.c,v 1.4 2001/12/14 19:53:56 dawes Exp $ */
+/* $XFree86: xc/lib/X11/BdrWidth.c,v 1.3 2001/01/17 19:41:32 dawes Exp $ */
 
 #include "Xlibint.h"
 

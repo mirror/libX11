@@ -32,7 +32,7 @@ THIS SOFTWARE.
 	                          frankyling@hgrd01.enet.dec.com
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/XimintL.h,v 1.7 2001/01/17 19:41:49 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XimintL.h,v 1.6 2000/12/04 18:49:19 dawes Exp $ */
 
 #ifndef _XIMINTL_H
 #define _XIMINTL_H

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/Key.h,v 1.1 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _KEY_H_
 #define _KEY_H_

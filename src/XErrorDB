@@ -23,7 +23,7 @@
 ! other dealings in this Software without prior written authorization
 ! from The Open Group.
 !
-! $XFree86: xc/lib/X11/XErrorDB,v 3.41 2002/12/22 00:46:50 dawes Exp $
+! $XFree86: xc/lib/X11/XErrorDB,v 3.40 2002/12/21 17:51:42 dawes Exp $
 !
 ! these are used in XGetErrorMessage.
 XlibMessage.XError: X Error of failed request

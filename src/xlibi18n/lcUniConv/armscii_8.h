@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/armscii_8.h,v 1.4 2003/07/15 17:33:45 pascal Exp $ */
+/* $XFree86: xc/lib/X11/lcUniConv/armscii_8.h,v 1.3 2000/11/29 17:40:28 dawes Exp $ */
 
 /*
  * ARMSCII-8

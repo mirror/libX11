@@ -27,7 +27,7 @@ sale, use or other dealings in this Software without prior written
 authorization from the X Consortium and the XFree86 Project.
 
 */
-/* $XFree86: xc/lib/X11/Font.c,v 1.18 2003/11/17 22:20:06 dawes Exp $ */
+/* $XFree86: xc/lib/X11/Font.c,v 1.17 2003/04/13 19:22:16 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"

@@ -48,7 +48,7 @@ from The Open Group.
  * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE
  * OR PERFORMANCE OF THIS SOFTWARE.
  */
-/* $XFree86: xc/lib/X11/utf8WMProps.c,v 1.3 2003/11/17 22:20:12 dawes Exp $ */
+/* $XFree86: xc/lib/X11/utf8WMProps.c,v 1.2 2001/12/14 19:54:11 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>

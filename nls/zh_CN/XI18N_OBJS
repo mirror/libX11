@@ -2,7 +2,7 @@
 #
 #	XI18N objects table for zh locale
 #
-# $XFree86: xc/nls/XI18N_OBJS/zh_CN,v 1.1 2002/06/03 22:19:44 dawes Exp $
+# $XFree86$
 #
 XLC	common/xlocale	_XlcEucLoader	# XLC_open
 XLC	common/xlibi18n	_XlcGenericLoader	# XLC_open

@@ -3346,7 +3346,7 @@ int _XOpenFile(path, flags)
     int flags;
 {
     char buf[MAX_PATH];
-    char* bufp;
+    char* bufp = NULL;
     int ret = -1;
     UINT olderror = SetErrorMode (SEM_FAILCRITICALERRORS);
 

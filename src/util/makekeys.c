@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/util/makekeys.c,v 3.7 2001/12/14 19:54:32 dawes Exp $ */
 
 /* Constructs hash tables for XStringToKeysym and XKeysymToString. */
 

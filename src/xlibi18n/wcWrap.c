@@ -51,7 +51,7 @@ from The Open Group.
  * 
  *		 M. Collins		OSF  
  */				
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/wcWrap.c,v 1.7 2003/11/17 22:20:12 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

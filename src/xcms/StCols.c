@@ -32,7 +32,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/StCols.c,v 1.4 2003/04/13 19:22:18 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

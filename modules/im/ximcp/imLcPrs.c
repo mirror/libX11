@@ -30,7 +30,7 @@ OR PERFORMANCE OF THIS SOFTWARE.
 
 ******************************************************************/
 
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/imLcPrs.c,v 1.11 2003/11/17 22:20:12 dawes Exp $ */
 
 #include <X11/Xlib.h>
 #include <X11/Xmd.h>

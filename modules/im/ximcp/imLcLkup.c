@@ -29,7 +29,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/imLcLkup.c,v 3.9 2003/07/08 15:39:47 tsi Exp $ */
 
 #include <stdio.h>
 #include <X11/Xatom.h>

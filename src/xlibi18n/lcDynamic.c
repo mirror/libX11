@@ -32,7 +32,7 @@ from The Open Group.
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/lcDynamic.c,v 1.5 2001/12/14 19:54:10 dawes Exp $ */
 
 /*
  * A dynamically loaded locale.

@@ -32,7 +32,7 @@ THIS SOFTWARE.
 	                          frankyling@hgrd01.enet.dec.com
 
 ******************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/imImSw.c,v 1.4 2003/04/13 19:22:21 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

@@ -23,7 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/lcStd.c,v 1.7 2003/04/17 02:06:32 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"

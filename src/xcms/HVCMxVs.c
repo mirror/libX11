@@ -43,7 +43,7 @@
  *		Source for the XcmsTekHVCQueryMaxVSamples() gamut boundary
  *		querying routine.
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/HVCMxVs.c,v 1.4 2003/04/13 19:22:16 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

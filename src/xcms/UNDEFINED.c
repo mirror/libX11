@@ -33,7 +33,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/UNDEFINED.c,v 1.2 2003/04/13 19:22:18 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

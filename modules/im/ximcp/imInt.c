@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/imInt.c,v 3.13 2003/11/17 22:20:11 dawes Exp $ */
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>

@@ -30,7 +30,7 @@
  *		Source for XcmsCIELabClipL() gamut compression routine.
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/LabGcL.c,v 1.4 2003/04/13 19:22:16 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

@@ -25,7 +25,7 @@ in this Software without prior written authorization from The Open Group.
 
 */
 
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/GetPntMap.c,v 1.7 2003/11/17 22:20:07 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"

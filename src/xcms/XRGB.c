@@ -33,7 +33,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/XRGB.c,v 3.4 2003/04/13 19:22:19 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/XKBBind.c,v 3.20 2003/11/17 22:20:09 dawes Exp $ */
 
 	/* the new monsters ate the old ones */
 

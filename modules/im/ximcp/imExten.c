@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/imExten.c,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
 
 #include <X11/Xatom.h>
 #define NEED_EVENTS

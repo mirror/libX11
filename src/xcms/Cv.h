@@ -1,4 +1,4 @@
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/Cv.h,v 1.2 2003/04/17 02:06:31 dawes Exp $ */
 
 #ifndef _CV_H_
 #define _CV_H_

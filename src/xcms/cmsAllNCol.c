@@ -32,7 +32,7 @@
  *
  *
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/cmsAllNCol.c,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>

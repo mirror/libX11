@@ -38,7 +38,7 @@
  *		Fred W. Billmeyer & Max Saltzman, "Principles of Color
  *		Technology", John Wily & Sons, Inc, 1981.
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/LuvMxLC.c,v 1.2 2003/04/13 19:22:17 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

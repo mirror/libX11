@@ -23,7 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/lcJis.c,v 1.10 2003/01/20 04:05:31 dawes Exp $ */
 
 /*
  * A Japanese JIS locale.

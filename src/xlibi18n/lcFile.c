@@ -23,7 +23,7 @@
  * SOFTWARE.
  *
 */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/lcFile.c,v 3.33 2003/07/16 01:38:26 dawes Exp $ */
 
 #include <stdlib.h>
 #include <stdio.h>

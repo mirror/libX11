@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/Xlocale.h,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
 
 #ifndef _XLOCALE_H_
 #define _XLOCALE_H_

@@ -30,7 +30,7 @@ OF THIS SOFTWARE.
              Yoshiyuki Segawa		(segawa@ossi.com)
 
 *****************************************************************/
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/lcEuc.c,v 3.13 2003/08/22 13:29:16 pascal Exp $ */
 
 /*
  * An EUC locale.

@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86$ */
+/* $XFree86: xc/lib/X11/UnldFont.c,v 1.6 2001/12/19 15:37:57 tsi Exp $ */
 
 #include "Xlibint.h"
 

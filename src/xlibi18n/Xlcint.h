@@ -925,7 +925,7 @@ extern XLCd _XlcGenericLoader(
 
 /* The UTF-8 locale loader. Suitable for UTF-8 encoding.
    Uses an XLC_LOCALE configuration file. */
-extern XLCd _XFree86lcUtf8Loader(
+extern XLCd _XlcUtf8Loader(
     const char*		name
 );
 

@@ -31,6 +31,9 @@ in this Software without prior written authorization from The Open Group.
 #define LG3D
 
 #ifdef LG3D
+
+int Xlg3dSkipTranslateCoordinates = 0;
+
 static Bool skip = False;
 static int skipCount = 2;
 #endif /* LG3D */
@@ -47,12 +50,14 @@ Bool XTranslateCoordinates(dpy, src_win, dest_win, src_x, src_y,
     xTranslateCoordsReply rep;
 
 #ifdef LG3D
-    if (--skipCount <= 0) {
-        skip = True;
-    }
+    if (Xlg3dSkipTranslateCoordinates) {
+	if (--skipCount <= 0) {
+	    skip = True;
+	}
     
-    if (skip) {
-        return (True);
+	if (skip) {
+	    return (True);
+	}
     }
 #endif /* LG3D */
 

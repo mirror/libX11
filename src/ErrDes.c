@@ -146,9 +146,13 @@ XGetErrorDatabaseText(
 	   mutex unlocked. */
 	XrmDatabase temp_db;
 	int do_destroy;
+	const char *dbname;
 
 	XrmInitialize();
-	temp_db = XrmGetFileDatabase(ERRORDB);
+	dbname = getenv("XERRORDB");
+	if (!dbname)
+	    dbname = ERRORDB;
+	temp_db = XrmGetFileDatabase(dbname);
 
 	_XLockMutex(_Xglobal_lock);
 	if (!db) {

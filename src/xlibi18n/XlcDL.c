@@ -42,7 +42,7 @@ Sun Microsystems, Inc. or its licensors is granted.
 
 */
 /* $XFree86: xc/lib/X11/XlcDL.c,v 1.13 2003/11/17 22:20:10 dawes Exp $ */
-/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.1.4.3 2004-02-11 17:46:29 eich Exp $ */
+/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.1.4.2.4.1 2004-03-01 13:44:13 eich Exp $ */
 
 #include <stdio.h>
 #if defined(hpux)

@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.2 2004-04-23 18:43:24 eich Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.3 2004-12-02 16:18:16 jg Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -671,7 +671,8 @@ typedef struct {
 	Bool send_event;	/* true if this came from a SendEvent request */
 	Display *display;	/* Display the event was read from */
 	Window window;		/* window of event */
-	int mode;		/* NotifyNormal, NotifyGrab, NotifyUngrab */
+	int mode;		/* NotifyNormal, NotifyWhileGrabbed,
+				   NotifyGrab, NotifyUngrab */
 	int detail;
 	/*
 	 * NotifyAncestor, NotifyVirtual, NotifyInferior, 

@@ -35,17 +35,11 @@ from The Open Group.
 #define NEED_EVENTS
 #define NEED_REPLIES
 
-#ifdef WIN32
-#define _XLIBINT_
-#endif
 #include "Xlibint.h"
 #include <X11/Xpoll.h>
 #include <X11/Xtrans.h>
 #include <X11/extensions/xcmiscstr.h>
 #include <stdio.h>
-#ifdef WIN32
-#include <direct.h>
-#endif
 
 #ifdef XTHREADS
 #include "locking.h"
@@ -3352,7 +3346,7 @@ int _XOpenFile(path, flags)
     int flags;
 {
     char buf[MAX_PATH];
-    char* bufp = NULL;
+    char* bufp;
     int ret = -1;
     UINT olderror = SetErrorMode (SEM_FAILCRITICALERRORS);
 
@@ -3404,23 +3398,3 @@ int _XAccessFile(path)
 
 #endif
 
-#ifdef WIN32
-#undef _Xdebug
-int _Xdebug = 0;
-int *_Xdebug_p = &_Xdebug;
-void (**_XCreateMutex_fn_p)(LockInfoPtr) = &_XCreateMutex_fn;
-void (**_XFreeMutex_fn_p)(LockInfoPtr) = &_XFreeMutex_fn;
-void (**_XLockMutex_fn_p)(LockInfoPtr
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-    , char * /* file */
-    , int /* line */
-#endif
-        ) = &_XLockMutex_fn;
-void (**_XUnlockMutex_fn_p)(LockInfoPtr
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-    , char * /* file */
-    , int /* line */
-#endif
-        ) = &_XUnlockMutex_fn;
-LockInfoPtr *_Xglobal_lock_p = &_Xglobal_lock;
-#endif

@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.1.4.4 2004-02-18 21:39:38 kaleb Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.1.4.5 2004-02-18 22:17:02 kaleb Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -76,7 +76,7 @@ be_BY.microsoftcp1251:				be_BY.CP1251
 be_BY.microsoft-cp1251:				be_BY.CP1251
 be_BY.MICROSOFT-CP1251:				be_BY.CP1251
 be_BY.utf8:					be_BY.UTF-8
-bg_BG.iso88595:					bg_BY.ISO8859-5
+bg_BG.iso88595:					bg_BG.ISO8859-5
 bg:						bg_BG.CP1251
 bg_BG:						bg_BG.CP1251
 bg_BG.cp1251:					bg_BG.CP1251
@@ -181,7 +181,6 @@ el:						el_GR.ISO8859-7
 el_GR:						el_GR.ISO8859-7
 el_GR.iso88597:					el_GR.ISO8859-7
 el_GR.ISO-8859-7:				el_GR.ISO8859-7
-XCOMM this next looks like a bug to me. Greek w Latin-1?
 el_GR@euro:					el_GR.ISO8859-15
 el_GR.utf8:					el_GR.UTF-8
 en:						en_US.ISO8859-1
@@ -494,7 +493,7 @@ iw:						he_IL.ISO8859-8
 iw_IL:						he_IL.ISO8859-8
 Iw_IL:						he_IL.ISO8859-8
 iw_IL.iso88598:					he_IL.ISO8859-8
-iw_IL.ISO-8859-8:				iw_IL.ISO8859-8
+iw_IL.ISO-8859-8:				he_IL.ISO8859-8
 #ifndef __uxp__
 ja_JP:						ja_JP.eucJP
 #else /* __uxp__ */
@@ -664,7 +663,7 @@ pt_BR.iso88591:					pt_BR.ISO8859-1
 pt_BR.ISO-8859-1:				pt_BR.ISO8859-1
 pt_BR.ISO_8859-1:				pt_BR.ISO8859-1
 pt_BR.iso885915:				pt_BR.ISO8859-15
-pl_BR.utf8:					pl_BR.UTF-8
+pt_BR.utf8:					pt_BR.UTF-8
 pt_PT:						pt_PT.ISO8859-1
 pt_PT.88591:					pt_PT.ISO8859-1
 pt_PT.88591.en:					pt_PT.ISO8859-1
@@ -673,7 +672,7 @@ pt_PT.ISO-8859-1:				pt_PT.ISO8859-1
 pt_PT.ISO_8859-1:				pt_PT.ISO8859-1
 pt_PT.iso885915:				pt_PT.ISO8859-15
 pt_PT@euro:					pt_PT.ISO8859-15
-pl_PT.utf8:					pl_PT.UTF-8
+pt_PT.utf8:					pt_PT.UTF-8
 pt_PT.UTF-8@euro:				pt_PT.UTF-8
 ro:						ro_RO.ISO8859-2
 ro_RO:						ro_RO.ISO8859-2

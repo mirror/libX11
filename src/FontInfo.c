@@ -24,25 +24,26 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/FontInfo.c,v 1.6 2001/12/14 19:54:00 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
 
-#if NeedFunctionPrototypes
+#if defined(XF86BIGFONT) && !defined(MUSTCOPY)
+#define USE_XF86BIGFONT
+#endif
+#ifdef USE_XF86BIGFONT
+extern void _XF86BigfontFreeFontMetrics(
+    XFontStruct*	/* fs */
+);
+#endif
+
 char **XListFontsWithInfo(
 register Display *dpy,
 _Xconst char *pattern,  /* null-terminated */
 int maxNames,
 int *actualCount,	/* RETURN */
 XFontStruct **info)	/* RETURN */
-#else
-char **XListFontsWithInfo(dpy, pattern, maxNames, actualCount, info)
-register Display *dpy;
-char *pattern;  /* null-terminated */
-int maxNames;
-int *actualCount;	/* RETURN */
-XFontStruct **info;	/* RETURN */
-#endif
 {       
     register long nbytes;
     register int i;
@@ -163,7 +164,7 @@ XFontStruct **info;	/* RETURN */
 	    if (! (fs->properties = (XFontProp *) Xmalloc((unsigned) nbytes)))
 		goto badmem;
 	    nbytes = reply.nFontProps * SIZEOF(xFontProp);
-	    _XRead32 (dpy, (char *)fs->properties, nbytes);
+	    _XRead32 (dpy, (long *)fs->properties, nbytes);
 
 	} else
 	    fs->properties = NULL;
@@ -174,7 +175,7 @@ XFontStruct **info;	/* RETURN */
 	flist[i] = (char *) Xmalloc ((unsigned int) j);
 	if (! flist[i]) {
 	    if (finfo[i].properties) Xfree((char *) finfo[i].properties);
-	    nbytes = reply.nameLength + 3 & ~3;
+	    nbytes = (reply.nameLength + 3) & ~3;
 	    _XEatData(dpy, (unsigned long) nbytes);
 	    goto badmem;
 	}
@@ -221,7 +222,7 @@ XFontStruct **info;	/* RETURN */
     return (char **) NULL;
 }
 
-
+int
 XFreeFontInfo (names, info, actualCount)
 char **names;
 XFontStruct *info;
@@ -238,7 +239,11 @@ int actualCount;
 	if (info) {
 		for (i = 0; i < actualCount; i++) {
 			if (info[i].per_char)
+#ifdef USE_XF86BIGFONT
+				_XF86BigfontFreeFontMetrics(&info[i]);
+#else
 				Xfree ((char *) info[i].per_char);
+#endif
 			if (info[i].properties)
 				Xfree ((char *) info[i].properties);
 			}

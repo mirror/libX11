@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ChWAttrs.c,v 1.4 2001/12/14 19:53:57 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -33,6 +34,7 @@ in this Software without prior written authorization from The Open Group.
 		     CWOverrideRedirect|CWSaveUnder|CWEventMask|\
 		     CWDontPropagate|CWColormap|CWCursor)
 
+int
 XChangeWindowAttributes (dpy, w, valuemask, attributes)
     register Display *dpy;
     Window w;
@@ -40,7 +42,6 @@ XChangeWindowAttributes (dpy, w, valuemask, attributes)
     XSetWindowAttributes *attributes;
 {
     register xChangeWindowAttributesReq *req;
-    extern void _XProcessWindowAttributes();
 
     LockDisplay(dpy);
     GetReq(ChangeWindowAttributes,req);

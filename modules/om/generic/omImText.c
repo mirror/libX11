@@ -23,25 +23,28 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/omImText.c,v 1.5 2003/04/13 19:22:22 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XomGeneric.h"
 
+#if 0
 extern int _XomGenericTextExtents(), _XomGenericDrawString();
+#endif
 
 #define GET_VALUE_MASK	(GCFunction | GCForeground | GCBackground | GCFillStyle)
 #define SET_VALUE_MASK	(GCFunction | GCForeground | GCFillStyle)
 
 static void
-_XomGenericDrawImageString(dpy, d, oc, gc, x, y, type, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    XOMTextType type;
-    XPointer text;
-    int length;
+_XomGenericDrawImageString(
+    Display *dpy,
+    Drawable d,
+    XOC oc,
+    GC gc,
+    int x, int y,
+    XOMTextType type,
+    XPointer text,
+    int length)
 {
     XGCValues values;
     XRectangle extent;
@@ -62,39 +65,25 @@ _XomGenericDrawImageString(dpy, d, oc, gc, x, y, type, text, length)
 }
 
 void
-#if NeedFunctionPrototypes
 _XmbGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
 			   int y, _Xconst char *text, int length)
-#else
-_XmbGenericDrawImageString(dpy, d, oc, gc, x, y, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    char *text;
-    int length;
-#endif
 {
     _XomGenericDrawImageString(dpy, d, oc, gc, x, y, XOMMultiByte,
 			       (XPointer) text, length);
 }
 
 void
-#if NeedFunctionPrototypes
 _XwcGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
 			   int y, _Xconst wchar_t *text, int length)
-#else
-_XwcGenericDrawImageString(dpy, d, oc, gc, x, y, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    wchar_t *text;
-    int length;
-#endif
 {
     _XomGenericDrawImageString(dpy, d, oc, gc, x, y, XOMWideChar,
+			       (XPointer) text, length);
+}
+
+void
+_Xutf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+			     int y, _Xconst char *text, int length)
+{
+    _XomGenericDrawImageString(dpy, d, oc, gc, x, y, XOMUtf8String,
 			       (XPointer) text, length);
 }

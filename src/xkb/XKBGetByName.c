@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86$ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
@@ -35,22 +36,12 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 /***====================================================================***/
 
 XkbDescPtr
-#if NeedFunctionPrototypes
 XkbGetKeyboardByName(	Display *		dpy,
 			unsigned		deviceSpec,
 			XkbComponentNamesPtr	names,
 			unsigned		want,
 			unsigned		need,
 			Bool			load)
-#else
-XkbGetKeyboardByName(dpy,deviceSpec,names,want,need,load)
-    Display *			dpy;
-    unsigned			deviceSpec;
-    XkbComponentNamesPtr	names;
-    unsigned			want;
-    unsigned			need;
-    Bool			load;
-#endif
 {
     register xkbGetKbdByNameReq	*	req;
     xkbGetKbdByNameReply 		rep;
@@ -218,14 +209,7 @@ BAILOUT:
 }
 
 XkbDescPtr
-#if NeedFunctionPrototypes
 XkbGetKeyboard(Display *dpy,unsigned which,unsigned deviceSpec)
-#else
-XkbGetKeyboard(dpy,which,deviceSpec)
-    Display *		dpy;
-    unsigned		which;
-    unsigned		deviceSpec;
-#endif
 {
     return XkbGetKeyboardByName(dpy,deviceSpec,NULL,which,which,False);
 }

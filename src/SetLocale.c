@@ -1,3 +1,4 @@
+/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.2 2004-04-23 18:43:24 eich Exp $ */
 /* $Xorg: SetLocale.c,v 1.4 2001/02/09 02:03:36 xorgcvs Exp $ */
 
 /*
@@ -55,32 +56,25 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/SetLocale.c,v 3.20 2003/11/17 22:20:08 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include <X11/Xlocale.h>
 #include <X11/Xos.h>
+#include "XlcPubI.h"
+
+#define MAXLOCALE	64	/* buffer size of locale name */
 
 #ifdef X_LOCALE
 
 /* alternative setlocale() for when the OS does not provide one */
 
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
-
-#if NeedFunctionPrototypes
 char *
 _Xsetlocale(
     int		  category,
-    _Xconst char *name
+    _Xconst char  *name
 )
-#else
-char *
-_Xsetlocale(category, name)
-    int		category;
-    char       *name;
-#endif
 {
     static char *xsl_name;
     char *old_name;
@@ -98,7 +92,9 @@ _Xsetlocale(category, name)
 	name = getenv("LC_CTYPE");
     if (!name || !*name)
 	name = getenv("LANG");
-    if (!name || !*name || !_XOpenLC(name))
+    if (name && strlen(name) >= MAXLOCALE)
+	name = NULL;
+    if (!name || !*name || !_XOpenLC((char *) name))
 	name = "C";
     old_name = xsl_name;
     xsl_name = (char *)name;
@@ -122,6 +118,17 @@ _Xsetlocale(category, name)
 
 #else /* X_LOCALE */
 
+#ifdef __DARWIN__
+char *
+_Xsetlocale(
+    int           category,
+    _Xconst char  *name
+)
+{
+    return setlocale(category, name);
+}
+#endif /* __DARWIN__ */
+
 /*
  * _XlcMapOSLocaleName is an implementation dependent routine that derives
  * the LC_CTYPE locale name as used in the sample implementation from that
@@ -139,90 +146,107 @@ _Xsetlocale(category, name)
  */
 
 char *
-_XlcMapOSLocaleName(osname, siname)
-    char *osname;
-    char *siname;
+_XlcMapOSLocaleName(
+    char *osname,
+    char *siname)
 {
-#if defined(hpux) || defined(CSRG_BASED) || defined(sun) || defined(SVR4) || defined(sgi) || defined(__osf__) || defined(AIXV3) || defined(ultrix) || defined(WIN32)
-#ifdef hpux
-#ifndef _LastCategory
-/* HPUX 9 and earlier */
-#define SKIPCOUNT 2
-#define STARTCHAR ':'
-#define ENDCHAR ';'
-#else
-/* HPUX 10 */
-#define ENDCHAR ' '
-#endif
-#else
-#ifdef ultrix
-#define SKIPCOUNT 2
-#define STARTCHAR '\001'
-#define ENDCHAR '\001'
-#else
-#ifdef WIN32
-#define SKIPCOUNT 1
-#define STARTCHAR '='
-#define ENDCHAR ';'
-#define WHITEFILL
-#else
-#if defined(__osf__) || (defined(AIXV3) && !defined(AIXV4))
-#define STARTCHAR ' '
-#define ENDCHAR ' '
-#else
-#if !defined(sun) || defined(SVR4)
-#define STARTCHAR '/'
-#endif
-#define ENDCHAR '/'
-#endif
-#endif
-#endif
-#endif
+#if defined(hpux) || defined(CSRG_BASED) || defined(sun) || defined(SVR4) || defined(sgi) || defined(__osf__) || defined(AIXV3) || defined(ultrix) || defined(WIN32) || defined(__UNIXOS2__) || defined(linux)
+# ifdef hpux
+#  ifndef _LastCategory
+   /* HPUX 9 and earlier */
+#   define SKIPCOUNT 2
+#   define STARTCHAR ':'
+#   define ENDCHAR ';'
+#  else
+   /* HPUX 10 */
+#   define ENDCHAR ' '
+#  endif
+# else
+#  ifdef ultrix
+#   define SKIPCOUNT 2
+#   define STARTCHAR '\001'
+#   define ENDCHAR '\001'
+#  else
+#   if defined(WIN32) || defined(__UNIXOS2__)
+#    define SKIPCOUNT 1
+#    define STARTCHAR '='
+#    define ENDCHAR ';'
+#    define WHITEFILL
+#   else
+#    if defined(__osf__) || (defined(AIXV3) && !defined(AIXV4))
+#     define STARTCHAR ' '
+#     define ENDCHAR ' '
+#    else
+#     if defined(linux)
+#      define STARTSTR "LC_CTYPE="
+#      define ENDCHAR ';'
+#     else
+#      if !defined(sun) || defined(SVR4)
+#       define STARTCHAR '/'
+#       define ENDCHAR '/'
+#      endif
+#     endif
+#    endif
+#   endif
+#  endif
+# endif
 
     char           *start;
     char           *end;
     int             len;
-#ifdef SKIPCOUNT
+# ifdef SKIPCOUNT
     int		    n;
-#endif
+# endif
 
     start = osname;
-#ifdef SKIPCOUNT
+# ifdef SKIPCOUNT
     for (n = SKIPCOUNT;
 	 --n >= 0 && start && (start = strchr (start, STARTCHAR));
 	 start++)
 	;
     if (!start)
 	start = osname;
-#endif
-#ifdef STARTCHAR
-    if (start && (start = strchr (start, STARTCHAR))) {
+# endif
+# ifdef STARTCHAR
+    if (start && (start = strchr (start, STARTCHAR))) 
+# elif  defined (STARTSTR)
+    if (start && (start = strstr (start,STARTSTR)))
+# endif
+    {
+# ifdef STARTCHAR
 	start++;
-#endif
-	if (end = strchr (start, ENDCHAR)) {
+# elif defined (STARTSTR)
+	start += strlen(STARTSTR);
+# endif
+	if ((end = strchr (start, ENDCHAR))) {
 	    len = end - start;
+	    if (len >= MAXLOCALE)
+		len = MAXLOCALE - 1;
 	    strncpy(siname, start, len);
 	    *(siname + len) = '\0';
-#ifdef WHITEFILL
+# ifdef WHITEFILL
 	    for (start = siname; start = strchr(start, ' '); )
 		*start++ = '-';
-#endif
+# endif
 	    return siname;
-#ifdef STARTCHAR
-	}
-#endif
+	} else  /* if no ENDCHAR is found we are at the end of the line */
+	    return start;
     }
-#ifdef WHITEFILL
+# ifdef WHITEFILL
     if (strchr(osname, ' ')) {
-	strcpy(siname, osname);
+	len = strlen(osname);
+	if (len >= MAXLOCALE - 1)
+	    len = MAXLOCALE - 1;
+	strncpy(siname, osname, len);
+	*(siname + len) = '\0';
 	for (start = siname; start = strchr(start, ' '); )
 	    *start++ = '-';
 	return siname;
     }
-#endif
-#undef STARTCHAR
-#undef ENDCHAR
-#undef WHITEFILL
+# endif
+# undef STARTCHAR
+# undef ENDCHAR
+# undef WHITEFILL
 #endif
     return osname;
 }

@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XCWEvent.man,v 1.2 2001/01/27 18:19:57 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XCreateWindowEvent.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateWindowEvent 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XCreateWindowEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateWindowEvent \- CreateNotify event structure
 .SH STRUCTURES
@@ -150,16 +153,16 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* CreateNotify */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
-	Window parent;	/* parent of the window */
-	Window window;	/* window id of window created */
-	int x, y;	/* window location */
-	int width, height;	/* size of window */
-	int border_width;	/* border width */
-	Bool override_redirect;	/* creation should be overridden */
+	int type;	/\(** CreateNotify */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
+	Window parent;	/\(** parent of the window */
+	Window window;	/\(** window id of window created */
+	int x, y;	/\(** window location */
+	int width, height;	/\(** size of window */
+	int border_width;	/\(** border width */
+	Bool override_redirect;	/\(** creation should be overridden */
 } XCreateWindowEvent;
 .De
 .LP

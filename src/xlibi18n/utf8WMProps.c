@@ -55,8 +55,8 @@ from The Open Group.
 #include <X11/Xatom.h>
 #include <X11/Xlocale.h>
 
-#if NeedFunctionPrototypes
-void Xutf8SetWMProperties (
+void
+Xutf8SetWMProperties (
     Display *dpy,
     Window w,
     _Xconst char *windowName,
@@ -66,19 +66,6 @@ void Xutf8SetWMProperties (
     XSizeHints *sizeHints,
     XWMHints *wmHints,
     XClassHint *classHints)
-#else
-void Xutf8SetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
-			   wmHints, classHints)
-     Display *dpy;
-     Window w;			/* window to decorate */
-     _Xconst char *windowName;	/* name of application */
-     _Xconst char *iconName;	/* name string for icon */
-     char **argv;		/* command line */
-     int argc;			/* size of command line */
-     XSizeHints *sizeHints;	/* size hints for window in its normal state */
-     XWMHints *wmHints;		/* miscelaneous window manager hints */
-     XClassHint *classHints;	/* resource name and class */
-#endif
 {
     XTextProperty wname, iname;
     XTextProperty *wprop = NULL;

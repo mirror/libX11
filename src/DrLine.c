@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/DrLine.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -32,6 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #define wsize (SIZEOF(xPolySegmentReq) + WLNSPERBATCH * SIZEOF(xSegment))
 #define zsize (SIZEOF(xPolySegmentReq) + ZLNSPERBATCH * SIZEOF(xSegment))
 
+int
 XDrawLine (dpy, d, gc, x1, y1, x2, y2)
     register Display *dpy;
     Drawable d;

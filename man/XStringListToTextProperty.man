@@ -1,4 +1,5 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
+.\" Copyright \(co 2000  The XFree86 Project, Inc.
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
 .\" a copy of this software and associated documentation files (the
@@ -39,6 +40,9 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
+.\"
+.\" $XFree86: xc/doc/man/X11/XSLTTProp.man,v 1.5 2003/04/28 22:17:56 herrb Exp $
+.\" $XdotOrg: lib/X11/man/XStringListToTextProperty.man,v 1.2 2004-04-23 18:42:09 eich Exp $
 .\" 
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -138,31 +142,18 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStringListToTextProperty 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XStringListToTextProperty 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStringListToTextProperty, XTextPropertyToStringList, XFreeStringList, XTextProperty \- convert string lists and text property structure
 .SH SYNTAX
-Status XStringListToTextProperty\^(\^\fIlist\fP, \fIcount\fP, \
-\fItext_prop_return\fP\^)
-.br
-      char **\fIlist\fP\^;
-.br
-      int \fIcount\fP\^;
-.br
-      XTextProperty *\fItext_prop_return\fP\^;
-.LP
-Status XTextPropertyToStringList\^(\^\fItext_prop\fP, \fIlist_return\fP, \
-\fIcount_return\fP\^)
-.br
-       XTextProperty *\fItext_prop\fP\^;
-.br
-       char ***\fIlist_return\fP\^;
-.br
-       int *\fIcount_return\fP\^;
-.LP
-void XFreeStringList\^(\^\fIlist\fP\^)
-.br
-      char **\fIlist\fP\^;
+.HP
+Status XStringListToTextProperty\^(\^char **\fIlist\fP\^, int \fIcount\fP\^,
+XTextProperty *\fItext_prop_return\fP\^); 
+.HP
+Status XTextPropertyToStringList\^(\^XTextProperty *\fItext_prop\fP\^, char
+***\fIlist_return\fP\^, int *\fIcount_return\fP\^); 
+.HP
+void XFreeStringList\^(\^char **\fIlist\fP\^); 
 .SH ARGUMENTS
 .ds Cn strings
 .IP \fIcount\fP 1i
@@ -224,7 +215,8 @@ To free the storage for the list and its contents, use
 The 
 .ZN XFreeStringList 
 function releases memory allocated by 
-.ZN XmbTextPropertyToTextList
+.ZN XmbTextPropertyToTextList ,
+.ZN Xutf8TextPropertyToTextList
 and
 .ZN XTextPropertyToStringList
 and the missing charset list allocated by 
@@ -238,10 +230,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	unsigned char *value;	/* property data */
-	Atom encoding;	/* type of property */
-	int format;	/* 8, 16, or 32 */
-	unsigned long nitems;	/* number of items in value */
+	unsigned char *value;	/\(** property data */
+	Atom encoding;	/\(** type of property */
+	int format;	/\(** 8, 16, or 32 */
+	unsigned long nitems;	/\(** number of items in value */
 } XTextProperty;
 .De
 .SH "SEE ALSO"

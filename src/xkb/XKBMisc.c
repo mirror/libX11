@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBMisc.c,v 3.5 2001/10/28 03:32:33 tsi Exp $ */
 
 #ifndef XKB_IN_SERVER
 
@@ -54,12 +55,12 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #define	mapSize(m)	(sizeof(m)/sizeof(XkbKTMapEntryRec))
 static  XkbKTMapEntryRec map2Level[]= { 
-	{ True, ShiftMask, 1, ShiftMask, 0 }
+  { True, ShiftMask, {1, ShiftMask, 0} }
 };
 
 static  XkbKTMapEntryRec mapAlpha[]= { 
-	{ True, ShiftMask, 1, ShiftMask, 0 },
-	{ True,	LockMask,  0,  LockMask, 0 }
+  { True, ShiftMask, { 1, ShiftMask, 0 } },
+  { True, LockMask,  { 0,  LockMask, 0 } }
 };
 
 static	XkbModsRec preAlpha[]= {
@@ -69,8 +70,8 @@ static	XkbModsRec preAlpha[]= {
 
 #define	NL_VMOD_MASK	0
 static  XkbKTMapEntryRec mapKeypad[]= { 
-	{ True,	ShiftMask, 1, ShiftMask,            0 },
-	{ False,        0, 1,         0, NL_VMOD_MASK }
+	{ True,	ShiftMask, { 1, ShiftMask,            0 } },
+	{ False,        0, { 1,         0, NL_VMOD_MASK } }
 };
 
 static	XkbKeyTypeRec	canonicalTypes[XkbNumRequiredTypes] = {
@@ -101,14 +102,7 @@ static	XkbKeyTypeRec	canonicalTypes[XkbNumRequiredTypes] = {
 };
 
 Status
-#if NeedFunctionPrototypes
 XkbInitCanonicalKeyTypes(XkbDescPtr xkb,unsigned which,int keypadVMod)
-#else
-XkbInitCanonicalKeyTypes(xkb,which,keypadVMod)
-    XkbDescPtr		xkb;
-    unsigned		which;
-    int			keypadVMod;
-#endif
 {
 XkbClientMapPtr	map;
 XkbKeyTypePtr	from,to;
@@ -158,23 +152,12 @@ Status		rtrn;
 #define	XKB_OFFSET(g,l)	(((g)*groupsWidth)+(l))
 
 int
-#if NeedFunctionPrototypes
 XkbKeyTypesForCoreSymbols(	XkbDescPtr	xkb,
 				int		map_width,
 				KeySym *	core_syms,
 				unsigned int 	protected,
     				int *		types_inout,
 				KeySym *	xkb_syms_rtrn)
-#else
-XkbKeyTypesForCoreSymbols(xkb,map_width,core_syms,protected,types_inout,
-								xkb_syms_rtrn)
-    XkbDescPtr		xkb;
-    int			map_width;
-    KeySym *		core_syms;
-    unsigned int 	protected;
-    int *		types_inout;
-    KeySym * 		xkb_syms_rtrn;
-#endif
 {
 register int	i;
 unsigned int	empty;
@@ -339,18 +322,10 @@ int		nGroups,tmp,groupsWidth;
 }
 
 static XkbSymInterpretPtr
-#if NeedFunctionPrototypes
 _XkbFindMatchingInterp(	XkbDescPtr	xkb,
 			KeySym 		sym,
 			unsigned int	real_mods,
 			unsigned int	level)
-#else
-_XkbFindMatchingInterp(xkb,sym,real_mods,level)
-    XkbDescPtr		xkb;
-    KeySym		sym;
-    unsigned int	real_mods;
-    unsigned int	level;
-#endif
 {
 register unsigned	 i;
 XkbSymInterpretPtr	 interp,rtrn;
@@ -398,14 +373,7 @@ CARD8			 mods;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbAddKeyChange(KeyCode *pFirst,unsigned char *pNum,KeyCode newKey)
-#else
-_XkbAddKeyChange(pFirst,pNum,newKey)
-    KeyCode *		pFirst;
-    unsigned char *	pNum;
-    KeyCode		newKey;
-#endif
 {
 KeyCode	last;
 
@@ -421,14 +389,7 @@ KeyCode	last;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbSetActionKeyMods(XkbDescPtr xkb,XkbAction *act,unsigned mods)
-#else
-_XkbSetActionKeyMods(xkb,act,mods)
-    XkbDescPtr	xkb;
-    XkbAction *	act;
-    unsigned	mods;
-#endif
 {
 unsigned	tmp;
 
@@ -456,14 +417,7 @@ unsigned	tmp;
 #define	IBUF_SIZE	8
 
 Bool
-#if NeedFunctionPrototypes
 XkbApplyCompatMapToKey(XkbDescPtr xkb,KeyCode key,XkbChangesPtr changes)
-#else
-XkbApplyCompatMapToKey(xkb,key,changes)
-    XkbDescPtr		xkb;
-    KeyCode		key;
-    XkbChangesPtr	changes;
-#endif
 {
 KeySym *		syms;
 unsigned char 		explicit,mods;
@@ -564,7 +518,7 @@ unsigned		changed,tmp;
 	if (((explicit&XkbExplicitAutoRepeatMask)==0)&&(xkb->ctrls)) {
 	    CARD8 old;
 	    old= xkb->ctrls->per_key_repeat[key/8];
-#if RETURN_SHOULD_REPEAT
+#ifdef RETURN_SHOULD_REPEAT
 	    if (*XkbKeySymsPtr(xkb,key) != XK_Return)
 #endif
 		xkb->ctrls->per_key_repeat[key/8]|= (1<<(key%8));
@@ -612,22 +566,12 @@ unsigned		changed,tmp;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbUpdateMapFromCore(	XkbDescPtr	xkb,
 			KeyCode		first_key,
 			int		num_keys,
 			int		map_width,
 			KeySym *	core_keysyms,
 			XkbChangesPtr	changes)
-#else
-XkbUpdateMapFromCore(xkb,first_key,num_keys,map_width,core_keysyms,changes)
-    XkbDescPtr		xkb;
-    KeyCode		first_key;
-    int			num_keys;
-    int			map_width;
-    KeySym *		core_keysyms;
-    XkbChangesPtr	changes;
-#endif
 {
 register int	key,last_key;
 KeySym *	syms;
@@ -704,22 +648,12 @@ KeySym *	syms;
 }
 
 Status
-#if NeedFunctionPrototypes
 XkbChangeTypesOfKey(	XkbDescPtr		 xkb,
 			int		 	 key,
 			int			 nGroups,
 			unsigned	 	 groups,
 			int	* 	 	 newTypesIn,
 			XkbMapChangesPtr	 changes)
-#else
-XkbChangeTypesOfKey(xkb,key,nGroups,groups,newTypesIn,changes)
-    XkbDescPtr		 xkb;
-    int		 	 key;
-    int			 nGroups;
-    unsigned	 	 groups;
-    int	* 	 	 newTypesIn;
-    XkbMapChangesPtr	 changes;
-#endif
 {
 XkbKeyTypePtr	pOldType,pNewType;
 register int	i;
@@ -838,14 +772,7 @@ int		width,nOldGroups,oldWidth,newTypes[XkbNumKbdGroups];
 /***====================================================================***/
 
 Bool
-#if NeedFunctionPrototypes
 XkbVirtualModsToReal(XkbDescPtr xkb,unsigned virtual_mask,unsigned *mask_rtrn)
-#else
-XkbVirtualModsToReal(xkb,virtual_mask,mask_rtrn)
-    XkbDescPtr	xkb;
-    unsigned	virtual_mask;
-    unsigned *	mask_rtrn;
-#endif
 {
 register int i,bit;
 register unsigned mask;
@@ -869,14 +796,7 @@ register unsigned mask;
 /***====================================================================***/
 
 Bool
-#if NeedFunctionPrototypes
 XkbUpdateActionVirtualMods(XkbDescPtr xkb,XkbAction *act,unsigned changed)
-#else
-XkbUpdateActionVirtualMods(xkb,act,changed)
-    XkbDescPtr	xkb;
-    XkbAction *	act;
-    unsigned	changed;
-#endif
 {
 unsigned int	tmp;
 
@@ -902,18 +822,10 @@ unsigned int	tmp;
 }
 
 void
-#if NeedFunctionPrototypes
 XkbUpdateKeyTypeVirtualMods(	XkbDescPtr	xkb,
 				XkbKeyTypePtr	type,
 				unsigned int	changed,
 				XkbChangesPtr 	changes)
-#else
-XkbUpdateKeyTypeVirtualMods(xkb,type,changed,changes)
-    XkbDescPtr		xkb;
-    XkbKeyTypePtr	type;
-    unsigned int	changed;
-    XkbChangesPtr	changes;
-#endif
 {
 register unsigned int	i;
 unsigned int		mask;
@@ -958,17 +870,10 @@ unsigned int		mask;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbApplyVirtualModChanges(XkbDescPtr xkb,unsigned changed,XkbChangesPtr changes)
-#else
-XkbApplyVirtualModChanges(xkb,changed,changes)
-    XkbDescPtr		xkb;
-    unsigned		changed;
-    XkbChangesPtr	changes;
-#endif
 {
 register int	i;
-unsigned	checkState;
+unsigned int	checkState = 0;
 
     if ((!xkb) || (!xkb->map) || (changed==0))
 	return False;
@@ -1035,8 +940,7 @@ unsigned	checkState;
 	}
     }
     if (xkb->map && xkb->server) {
-	int	highChange,lowChange;
-	lowChange= -1;
+	int highChange = 0, lowChange = -1;
 	for (i=xkb->min_key_code;i<=xkb->max_key_code;i++) {
 	    if (XkbKeyHasActions(xkb,i)) {
 		register XkbAction *pAct;

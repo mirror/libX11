@@ -27,6 +27,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86$ */
 
 /* XDisplayName.c */
 /* 
@@ -46,16 +47,16 @@ from The Open Group.
 /* Written at Waterloo - JMSellens */
 
 #include <stdio.h>
-
-extern char *getenv();
+#include <stdlib.h>
+#include "Xlib.h"
 
 char *
-XDisplayName( display )
-    char *display;
+XDisplayName(
+    _Xconst char *display)
 {
     char *d;
     if ( display != (char *)NULL && *display != '\0' )
-	return( display );
+	return( (char *)display );
     if ( (d = getenv( "DISPLAY" )) != (char *)NULL )
 	return( d );
     return( "" );

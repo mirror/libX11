@@ -33,6 +33,7 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/CCC.c,v 1.4 2001/12/14 19:53:56 dawes Exp $ */
 
 /*
 
@@ -65,8 +66,7 @@ from The Open Group.
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-extern XcmsIntensityMap *_XcmsGetIntensityMap();
+#include "Cv.h"
 
 
 

@@ -32,15 +32,11 @@
  *		adjustment of color specifications in the CIE CIELuv.color
  *		space.
  */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-/*
- *	EXTERNS
- */
-
-extern Status _XcmsConvertColorsWithWhitePt();
+#include "Cv.h"
 
 
 

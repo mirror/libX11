@@ -32,16 +32,11 @@
  *
  *
  */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-/*
- *      EXTERNS
- */
-extern XcmsColorSpace **_XcmsDIColorSpaces;
-extern XcmsColorSpace **_XcmsDDColorSpaces;
-void _XcmsCopyISOLatin1Lowered();
+#include "Cv.h"
 
 
 /*

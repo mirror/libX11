@@ -35,6 +35,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                  miyamoto@jrd.dec.com
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/XimintP.h,v 1.7 2001/01/17 19:41:49 dawes Exp $ */
 
 #ifndef _XIMINTP_H
 #define _XIMINTP_H
@@ -46,9 +47,7 @@ PERFORMANCE OF THIS SOFTWARE.
  * for protocol layer callback function
  */
 typedef Bool (*XimProtoIntrProc)(
-#if NeedFunctionPrototypes
 	Xim, INT16, XPointer, XPointer
-#endif
 );
 typedef struct _XimProtoIntrRec {
     XimProtoIntrProc		 func;
@@ -62,45 +61,41 @@ typedef struct _XimProtoIntrRec {
  * for transport layer methods
  */
 typedef Bool (*XimTransConnectProc)(
-#if NeedFunctionPrototypes
 	 Xim
-#endif
 );
 typedef Bool (*XimTransShutdownProc)(
-#if NeedFunctionPrototypes
 	 Xim
-#endif
 );
 typedef Bool (*XimTransWriteProc)(
-#if NeedFunctionPrototypes
 	 Xim, INT16, XPointer
-#endif
 );
 typedef Bool (*XimTransReadProc)(
-#if NeedFunctionPrototypes
 	 Xim, XPointer, int, int *
-#endif
 );
 typedef void (*XimTransFlushProc)(
-#if NeedFunctionPrototypes
 	 Xim
-#endif
 );
 typedef Bool (*XimTransRegDispatcher)(
-#if NeedNestedPrototypes
 	 Xim, Bool (*)(Xim, INT16, XPointer, XPointer), XPointer
-#endif
 );
 typedef Bool (*XimTransCallDispatcher)(
-#if NeedFunctionPrototypes
 	 Xim, INT16, XPointer
-#endif
 );
 
 /*
  * private part of IM
  */
 typedef struct _XimProtoPrivateRec {
+    /* The first fields are identical with XimCommonPrivateRec. */
+    XlcConv			 ctom_conv;
+    XlcConv			 ctow_conv;
+    XlcConv			 ctoutf8_conv;
+    XlcConv			 cstomb_conv;
+    XlcConv			 cstowc_conv;
+    XlcConv			 cstoutf8_conv;
+    XlcConv			 ucstoc_conv;
+    XlcConv			 ucstoutf8_conv;
+
     Window			 im_window;
     XIMID			 imid;
     CARD16			 unused;
@@ -125,9 +120,6 @@ typedef struct _XimProtoPrivateRec {
     CARD16			 protocol_minor_version;
     XrmQuark			*saved_imvalues;
     int				 num_saved_imvalues;
-
-    XlcConv			 ctom_conv;
-    XlcConv			 ctow_conv;
 
     /*
      * transport specific

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBGeom.c,v 1.5 2003/04/13 19:22:18 dawes Exp $ */
 
 #ifdef DEBUG
 #include <stdio.h>
@@ -31,10 +32,11 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #define NEED_EVENTS
 #define NEED_REPLIES
+#define NEED_MAP_READERS
 #include "Xlibint.h"
-#include "XKBlibint.h"
 #include <X11/extensions/XKBgeom.h>
 #include <X11/extensions/XKBproto.h>
+#include "XKBlibint.h"
 
 #ifndef MINSHORT
 #define	MINSHORT	-32768
@@ -46,13 +48,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 /***====================================================================***/
 
 static void
-#if NeedFunctionPrototypes
 _XkbCheckBounds(XkbBoundsPtr bounds,int	x,int y)
-#else
-_XkbCheckBounds(bounds,x,y)
-    XkbBoundsPtr	bounds;
-    int			x,y;
-#endif
 {
     if (x<bounds->x1)	bounds->x1= x;
     if (x>bounds->x2)	bounds->x2= x;
@@ -62,12 +58,7 @@ _XkbCheckBounds(bounds,x,y)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbComputeShapeBounds(XkbShapePtr shape)
-#else
-XkbComputeShapeBounds(shape)
-   XkbShapePtr	shape;
-#endif
 {
 register int	o,p;
 XkbOutlinePtr	outline;
@@ -86,13 +77,7 @@ XkbPointPtr	pt;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbComputeShapeTop(XkbShapePtr shape,XkbBoundsPtr bounds)
-#else
-XkbComputeShapeTop(shape,bounds)
-   XkbShapePtr	shape;
-   XkbBoundsPtr	bounds;
-#endif
 {
 register int	p;
 XkbOutlinePtr	outline;
@@ -117,14 +102,7 @@ XkbPointPtr	pt;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbComputeRowBounds(XkbGeometryPtr geom,XkbSectionPtr section,XkbRowPtr row)
-#else
-XkbComputeRowBounds(geom,section,row)
-    XkbGeometryPtr	geom;
-    XkbSectionPtr	section;
-    XkbRowPtr		row;
-#endif
 {
 register int	k,pos;
 XkbKeyPtr	key;
@@ -161,19 +139,13 @@ XkbBoundsPtr	bounds,sbounds;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbComputeSectionBounds(XkbGeometryPtr geom,XkbSectionPtr section)
-#else
-XkbComputeSectionBounds(geom,section)
-    XkbGeometryPtr	geom;
-    XkbSectionPtr	section;
-#endif
 {
 register int	i;
 XkbShapePtr	shape;
 XkbRowPtr	row;
 XkbDoodadPtr	doodad;
-XkbBoundsPtr	bounds,rbounds;
+XkbBoundsPtr	bounds,rbounds=NULL;
 
     if ((!geom)||(!section))
 	return False;
@@ -223,14 +195,7 @@ XkbBoundsPtr	bounds,rbounds;
 /***====================================================================***/
 
 char *
-#if NeedFunctionPrototypes
 XkbFindOverlayForKey(XkbGeometryPtr geom,XkbSectionPtr wanted,char *under)
-#else
-XkbFindOverlayForKey(geom,wanted,under)
-    XkbGeometryPtr	geom;
-    XkbSectionPtr	wanted;
-    char *		under;
-#endif
 {
 int		s;
 XkbSectionPtr	section;
@@ -270,16 +235,9 @@ XkbSectionPtr	section;
 /***====================================================================***/
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomProperties(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr 		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomProperties(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 Status	rtrn;
 
@@ -302,16 +260,9 @@ Status	rtrn;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomKeyAliases(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomKeyAliases(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 Status	rtrn;
 
@@ -331,16 +282,9 @@ Status	rtrn;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomColors(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomColors(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 Status	rtrn;
 
@@ -361,16 +305,9 @@ Status	rtrn;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomShapes(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomShapes(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 register int i;
 Status	rtrn;
@@ -426,16 +363,9 @@ Status	rtrn;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomDoodad(	XkbReadBufferPtr 	buf,
 			XkbGeometryPtr 		geom,
 			XkbSectionPtr 		section)
-#else
-_XkbReadGeomDoodad(buf,geom,section)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    XkbSectionPtr		section;
-#endif
 {
 XkbDoodadPtr		doodad;
 xkbDoodadWireDesc *	doodadWire;
@@ -485,16 +415,9 @@ xkbDoodadWireDesc *	doodadWire;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomOverlay(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			XkbSectionPtr		section)
-#else
-_XkbReadGeomOverlay(buf,geom,section)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    XkbSectionPtr		section;
-#endif
 {
 XkbOverlayPtr		ol;
 xkbOverlayWireDesc *	olWire;
@@ -538,16 +461,9 @@ register int		r;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomSections(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomSections(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 register int 		s;
 XkbSectionPtr		section;
@@ -628,16 +544,9 @@ Status			rtrn;
 }
 
 static Status
-#if NeedFunctionPrototypes
 _XkbReadGeomDoodads(	XkbReadBufferPtr	buf,
 			XkbGeometryPtr		geom,
 			xkbGetGeometryReply *	rep)
-#else
-_XkbReadGeomDoodads(buf,geom,rep)
-    XkbReadBufferPtr		buf;
-    XkbGeometryPtr		geom;
-    xkbGetGeometryReply *	rep;
-#endif
 {
 register int d;
 Status	rtrn;
@@ -654,18 +563,10 @@ Status	rtrn;
 }
 
 Status
-#if NeedFunctionPrototypes
 _XkbReadGetGeometryReply(	Display * dpy,
 				xkbGetGeometryReply * rep,
 				XkbDescPtr xkb,
 				int * nread_rtrn)
-#else
-_XkbReadGetGeometryReply(dpy,rep,xkb,nread_rtrn)
-    Display *			dpy;
-    xkbGetGeometryReply *	rep;
-    XkbDescPtr			xkb;
-    int *			nread_rtrn;
-#endif
 {
 XkbGeometryPtr	geom;
 
@@ -721,13 +622,7 @@ XkbGeometryPtr	geom;
 }
 
 Status
-#if NeedFunctionPrototypes
 XkbGetGeometry(Display *dpy,XkbDescPtr xkb)
-#else
-XkbGetGeometry(dpy,xkb)
-    Display *	dpy;
-    XkbDescPtr	xkb;
-#endif
 {
 xkbGetGeometryReq	*req;
 xkbGetGeometryReply	 rep;
@@ -749,14 +644,7 @@ xkbGetGeometryReply	 rep;
 }
 
 Status
-#if NeedFunctionPrototypes
 XkbGetNamedGeometry(Display *dpy,XkbDescPtr xkb,Atom name)
-#else
-XkbGetNamedGeometry(dpy,xkb,name)
-    Display *	dpy;
-    XkbDescPtr	xkb;
-    Atom	name;
-#endif
 {
 xkbGetGeometryReq	*req;
 xkbGetGeometryReply	 rep;

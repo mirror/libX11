@@ -46,6 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/GetDflt.c,v 3.22 2003/04/13 19:22:16 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xos.h>
@@ -86,14 +87,12 @@ SOFTWARE.
 #include <stdio.h>
 #include <ctype.h>
 
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
 
 /*ARGSUSED*/
-static char *GetHomeDir (dest, len)
-    char *dest;
-    int len;
+static char *
+GetHomeDir(
+    char *dest,
+    int len)
 {
 #ifdef WIN32
     register char *ptr1;
@@ -114,7 +113,9 @@ static char *GetHomeDir (dest, len)
     else
 	*dest = '\0';
 #else
+#ifdef X_NEEDS_PWPARAMS
     _Xgetpwparams pwparams;
+#endif
     struct passwd *pw;
     register char *ptr;
 
@@ -122,7 +123,7 @@ static char *GetHomeDir (dest, len)
 	return NULL;
 
     if ((ptr = getenv("HOME"))) {
-	(void) strncpy(dest, ptr, len);
+	(void) strncpy(dest, ptr, len-1);
 	dest[len-1] = '\0';
     } else {
 	if ((ptr = getenv("USER")))
@@ -130,7 +131,7 @@ static char *GetHomeDir (dest, len)
 	else
 	    pw = _XGetpwuid(getuid(),pwparams);
 	if (pw != NULL) {
-	    (void) strncpy(dest, pw->pw_dir, len);
+	    (void) strncpy(dest, pw->pw_dir, len-1);
 	    dest[len-1] = '\0';
 	} else
 	    *dest = '\0';
@@ -140,8 +141,9 @@ static char *GetHomeDir (dest, len)
 }
 
 
-static XrmDatabase InitDefaults (dpy)
-    Display *dpy;			/* display for defaults.... */
+static XrmDatabase
+InitDefaults(
+    Display *dpy)			/* display for defaults.... */
 {
     XrmDatabase userdb;
     XrmDatabase xdb;
@@ -190,17 +192,11 @@ static XrmDatabase InitDefaults (dpy)
 #endif
 }
 
-#if NeedFunctionPrototypes
-char *XGetDefault(
+char *
+XGetDefault(
 	Display *dpy,			/* display for defaults.... */
 	char _Xconst *prog,		/* name of program for option	*/
 	register _Xconst char *name)	/* name of option program wants */
-#else
-char *XGetDefault(dpy, prog, name)
-	Display *dpy;			/* display for defaults.... */
-	char *prog;			/* name of program for option	*/
-	register char *name;		/* name of option program wants */
-#endif
 {					/* to get, for example, "font"  */
 	XrmName names[3];
 	XrmClass classes[3];
@@ -209,6 +205,10 @@ char *XGetDefault(dpy, prog, name)
 	char *progname;
 #ifdef WIN32
 	char *progname2;
+#endif
+#ifdef __UNIXOS2__
+	char *progname2;
+	char *dotpos;
 #endif
 
 	/*
@@ -220,6 +220,14 @@ char *XGetDefault(dpy, prog, name)
 	if (progname2 && (!progname || progname < progname2))
 	    progname = progname2;
 #endif
+#ifdef __UNIXOS2__  /* Very similar to WIN32 */
+	progname2 = strrchr (prog, '\\');
+	if (progname2 && (!progname || progname < progname2))
+	    progname = progname2;
+	dotpos = strrchr (prog, '.');
+	if (dotpos && (dotpos>progname2)) *dotpos='\0';
+#endif  /* We take out the .exe suffix  */
+
 	if (progname)
 	    progname++;
 	else
@@ -231,8 +239,9 @@ char *XGetDefault(dpy, prog, name)
 	 */
 	LockDisplay(dpy);
 	if (dpy->db == NULL) {
-		dpy->db = InitDefaults(dpy);
-		}
+	    dpy->db = InitDefaults(dpy);
+	    dpy->flags |= XlibDisplayDfltRMDB;
+	}
 	UnlockDisplay(dpy);
 
 	names[0] = XrmStringToName(progname);

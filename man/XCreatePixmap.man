@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XCrePmap.man,v 1.2 2001/01/27 18:19:57 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,25 +140,16 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreatePixmap 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XCreatePixmap 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreatePixmap, XFreePixmap \- create or destroy pixmaps
 .SH SYNTAX
-Pixmap XCreatePixmap\^(\^\fIdisplay\fP, \fId\fP\^, \fIwidth\fP\^, \fIheight\fP\^, \fIdepth\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Drawable \fId\fP\^;
-.br
-      unsigned int \fIwidth\fP\^, \fIheight\fP\^;
-.br
-      unsigned int \fIdepth\fP\^;
-.LP
-XFreePixmap\^(\^\fIdisplay\fP, \fIpixmap\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Pixmap \fIpixmap\fP\^;
+.HP
+Pixmap XCreatePixmap\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^,
+unsigned int \fIwidth\fP\^, unsigned int \fIheight\fP\^, unsigned int
+\fIdepth\fP\^); 
+.HP
+int XFreePixmap\^(\^Display *\fIdisplay\fP\^, Pixmap \fIpixmap\fP\^); 
 .SH ARGUMENTS
 .IP \fId\fP 1i
 Specifies which screen the pixmap is created on. 

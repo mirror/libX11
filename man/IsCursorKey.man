@@ -1,3 +1,4 @@
+.\" $XdotOrg: lib/X11/man/IsCursorKey.man,v 1.2 2004-04-23 18:42:09 eich Exp $ 
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
@@ -40,6 +41,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/IsCKey.man,v 1.2 2001/01/27 18:19:56 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,23 +141,23 @@
 .el .sp 10p
 ..
 .ny0
-.TH IsCursorKey 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH IsCursorKey 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-IsCursorKey, IsFunctionKey, IsKeypadKey, IsMiscFunctionKey, IsModiferKey, IsPFKey, IsPrivateKeypadKey \- keysym classification macros
+IsCursorKey, IsFunctionKey, IsKeypadKey, IsMiscFunctionKey, IsModifierKey, IsPFKey, IsPrivateKeypadKey \- keysym classification macros
 .SH SYNTAX
-IsCursorKey\^(\^\fIkeysym\fP\^)
+int IsCursorKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsFunctionKey\^(\^\fIkeysym\fP\^)
+int IsFunctionKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsKeypadKey\^(\^\fIkeysym\fP\^)
+int IsKeypadKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsMiscFunctionKey\^(\^\fIkeysym\fP\^)
+int IsMiscFunctionKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsModifierKey\^(\^\fIkeysym\fP\^)
+int IsModifierKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsPFKey\^(\^\fIkeysym\fP\^)
+int IsPFKey\^(\^KeySym \fIkeysym\fP\^);
 .LP
-IsPrivateKeypadKey\^(\^\fIkeysym\fP\^)
+int IsPrivateKeypadKey\^(\^KeySym \fIkeysym\fP\^);
 .SH ARGUMENTS
 .ds Fn tested
 .IP \fIkeysym\fP 1i
@@ -185,7 +188,7 @@ macro returns
 if the specified KeySym is a miscellaneous function key.
 .LP
 The
-.ZN IsModiferKey
+.ZN IsModifierKey
 macro returns
 .ZN True
 if the specified KeySym is a modifier key.

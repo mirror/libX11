@@ -26,6 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDispch.c,v 1.4 2003/04/13 19:22:20 dawes Exp $ */
 
 #include <X11/Xlib.h>
 #include "Xlibint.h"
@@ -33,27 +34,17 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Xlcint.h"
 #include "Ximint.h"
 
+
 Public Bool
-#if NeedFunctionPrototypes
 _XimRegProtoIntrCallback(
     Xim		 im,
     CARD16	 major_code,
     CARD16	 minor_code,
     Bool	(*proc)(
-#if NeedNestedPrototypes
                         Xim, INT16, XPointer, XPointer
-#endif
 			),
 
     XPointer	 call_data)
-#else
-_XimRegProtoIntrCallback(im, major_code, minor_code, proc, call_data)
-    Xim		 im;
-    CARD16	 major_code;
-    CARD16	 minor_code;
-    Bool	(*proc)();
-    XPointer	 call_data;
-#endif /* NeedFunctionPrototypes */
 {
     XimProtoIntrRec    *rec;
 
@@ -84,19 +75,11 @@ _XimFreeProtoIntrCallback(im)
 }
 
 Private Bool
-#if NeedFunctionPrototypes
 _XimTransportIntr(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 call_data)
-#else
-_XimTransportIntr(im, len, data, call_data)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 call_data;
-#endif
 {
     Xim			 call_im = (Xim)call_data;
     XimProtoIntrRec	*rec = call_im->private.proto.intrproto;

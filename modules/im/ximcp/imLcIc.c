@@ -26,6 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imLcIc.c,v 1.4 2001/01/17 19:41:52 dawes Exp $ */
 
 #include <stdio.h>
 #include <X11/Xlib.h>
@@ -35,8 +36,8 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 
 Private void
-_XimLocalUnSetFocus(xic)
-    XIC	 xic;
+_XimLocalUnSetFocus(
+    XIC	 xic)
 {
     Xic  ic = (Xic)xic;
     ((Xim)ic->core.im)->private.local.current_ic = (XIC)NULL;
@@ -48,13 +49,17 @@ _XimLocalUnSetFocus(xic)
 }
 
 Private void
-_XimLocalDestroyIC(xic)
-    XIC	 xic;
+_XimLocalDestroyIC(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
+
     if(((Xim)ic->core.im)->private.local.current_ic == (XIC)ic) {
-	_XimLocalUnSetFocus(xic);
+	((Xim)ic->core.im)->private.local.current_ic = (XIC)NULL;
     }
+    if (ic->core.focus_window)
+	_XUnregisterFilter(ic->core.im->core.display,
+			ic->core.focus_window, _XimLocalFilter, (XPointer)ic);
     if(ic->private.local.ic_resources) {
 	Xfree(ic->private.local.ic_resources);
 	ic->private.local.ic_resources = NULL;
@@ -63,8 +68,8 @@ _XimLocalDestroyIC(xic)
 }
 
 Private void
-_XimLocalSetFocus(xic)
-    XIC	 xic;
+_XimLocalSetFocus(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
     XIC	 current_ic = ((Xim)ic->core.im)->private.local.current_ic;
@@ -84,24 +89,29 @@ _XimLocalSetFocus(xic)
     return;
 }
 
-Private char *
-_XimLocalMbReset(xic)
-    XIC	 xic;
+Private void
+_XimLocalReset(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
     ic->private.local.composed = (DefTree *)NULL;
     ic->private.local.context  = ((Xim)ic->core.im)->private.local.top;
-    return((char *)NULL);
+}
+
+Private char *
+_XimLocalMbReset(
+    XIC	 xic)
+{
+    _XimLocalReset(xic);
+    return (char *)NULL;
 }
 
 Private wchar_t *
-_XimLocalWcReset(xic)
-    XIC	 xic;
+_XimLocalWcReset(
+    XIC	 xic)
 {
-    Xic	 ic = (Xic)xic;
-    ic->private.local.composed = (DefTree *)NULL;
-    ic->private.local.context  = ((Xim)ic->core.im)->private.local.top;
-    return((wchar_t *)NULL);
+    _XimLocalReset(xic);
+    return (wchar_t *)NULL;
 }
 
 Private XICMethodsRec Local_ic_methods = {
@@ -112,14 +122,16 @@ Private XICMethodsRec Local_ic_methods = {
     _XimLocalGetICValues,	/* get_values */
     _XimLocalMbReset,		/* mb_reset */
     _XimLocalWcReset,		/* wc_reset */
+    _XimLocalMbReset,		/* utf8_reset */
     _XimLocalMbLookupString,	/* mb_lookup_string */
     _XimLocalWcLookupString,	/* wc_lookup_string */
+    _XimLocalUtf8LookupString	/* utf8_lookup_string */
 };
 
 Public XIC
-_XimLocalCreateIC(im, values)
-    XIM			 im;
-    XIMArg		*values;
+_XimLocalCreateIC(
+    XIM			 im,
+    XIMArg		*values)
 {
     Xic			 ic;
     XimDefICValues	 ic_values;

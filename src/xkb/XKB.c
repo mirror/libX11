@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKB.c,v 1.9 2003/04/17 02:06:31 dawes Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -36,23 +37,12 @@ XkbInternAtomFunc	_XkbInternAtomFunc= XInternAtom;
 XkbGetAtomNameFunc	_XkbGetAtomNameFunc= XGetAtomName;
 
 Bool 
-#if NeedFunctionPrototypes
 XkbQueryExtension(	Display *dpy,
 			int *	opcodeReturn,
 			int *	eventBaseReturn,
 			int *	errorBaseReturn,
 			int *	majorReturn,
 			int *	minorReturn)
-#else
-XkbQueryExtension(dpy,opcodeReturn,eventBaseReturn,errorBaseReturn,
-						majorReturn,minorReturn)
-    Display *dpy;
-    int *opcodeReturn;
-    int *eventBaseReturn;
-    int *errorBaseReturn;
-    int *majorReturn;
-    int *minorReturn;
-#endif
 {
     if (!XkbUseExtension(dpy,majorReturn,minorReturn))
 	return False;
@@ -70,13 +60,7 @@ XkbQueryExtension(dpy,opcodeReturn,eventBaseReturn,errorBaseReturn,
 }
 
 Bool 
-#if NeedFunctionPrototypes
 XkbLibraryVersion(int *libMajorRtrn,int *libMinorRtrn)
-#else
-XkbLibraryVersion(libMajorRtrn,libMinorRtrn)
-    int *libMajorRtrn;
-    int *libMinorRtrn;
-#endif
 {
 int supported;
 
@@ -96,18 +80,10 @@ int supported;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSelectEvents(	Display *	dpy,
 			unsigned int 	deviceSpec,
 			unsigned int 	affect,
 			unsigned int 	selectAll)
-#else
-XkbSelectEvents(dpy,deviceSpec,affect,selectAll)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int affect;
-    unsigned int selectAll;
-#endif
 {
     register xkbSelectEventsReq *req;
     XkbInfoPtr xkbi;
@@ -154,24 +130,15 @@ XkbSelectEvents(dpy,deviceSpec,affect,selectAll)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSelectEventDetails(	Display *		dpy,
 			unsigned 		deviceSpec,
 			unsigned 		eventType,
 			unsigned long int 	affect,
 			unsigned long int 	details)
-#else
-XkbSelectEventDetails(dpy,deviceSpec,eventType,affect,details)
-    Display *dpy;
-    unsigned deviceSpec;
-    unsigned eventType;
-    unsigned long int affect;
-    unsigned long int details;
-#endif
 {
     register xkbSelectEventsReq *req;
     XkbInfoPtr xkbi;
-    int	     size;
+    int	     size = 0;
     char     *out;
     union {
 	CARD8	*c8;
@@ -255,18 +222,10 @@ XkbSelectEventDetails(dpy,deviceSpec,eventType,affect,details)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbLockModifiers(	Display *	dpy,
 			unsigned int 	deviceSpec,
 			unsigned int 	affect,
 			unsigned int 	values)
-#else
-XkbLockModifiers(dpy,deviceSpec,affect,values)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int affect;
-    unsigned int values;
-#endif
 {
     register xkbLatchLockStateReq *req;
     XkbInfoPtr xkbi;
@@ -294,18 +253,10 @@ XkbLockModifiers(dpy,deviceSpec,affect,values)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbLatchModifiers(	Display *	dpy,
 			unsigned int	deviceSpec,
 			unsigned int	affect,
 			unsigned int	values)
-#else
-XkbLatchModifiers(dpy,deviceSpec,affect,values)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int affect;
-    unsigned int values;
-#endif
 {
     register xkbLatchLockStateReq *req;
     XkbInfoPtr xkbi;
@@ -335,14 +286,7 @@ XkbLatchModifiers(dpy,deviceSpec,affect,values)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbLockGroup(Display *dpy,unsigned int deviceSpec,unsigned int group)
-#else
-XkbLockGroup(dpy,deviceSpec,group)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int group;
-#endif
 {
     register xkbLatchLockStateReq *req;
     XkbInfoPtr xkbi;
@@ -370,14 +314,7 @@ XkbLockGroup(dpy,deviceSpec,group)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbLatchGroup(Display *dpy,unsigned int deviceSpec,unsigned int group)
-#else
-XkbLatchGroup(dpy,deviceSpec,group)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int group;
-#endif
 {
     register xkbLatchLockStateReq *req;
     XkbInfoPtr xkbi;
@@ -407,18 +344,12 @@ XkbLatchGroup(dpy,deviceSpec,group)
 }
 
 unsigned
-#if NeedFunctionPrototypes
 XkbSetXlibControls(Display *dpy,unsigned affect,unsigned values)
-#else
-XkbSetXlibControls(dpy,affect,values)
-    Display *	dpy;
-    unsigned	affect;
-    unsigned	values;
-#endif
 {
-    if ((dpy->flags & XlibDisplayNoXkb) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
-	return False;
+    if (!dpy->xkb_info)
+	XkbUseExtension(dpy,NULL,NULL);
+    if (!dpy->xkb_info)
+	return 0;
     affect&= XkbLC_AllControls;
     dpy->xkb_info->xlib_ctrls&= ~affect;
     dpy->xkb_info->xlib_ctrls|= (affect&values);
@@ -426,25 +357,17 @@ XkbSetXlibControls(dpy,affect,values)
 }
 
 unsigned
-#if NeedFunctionPrototypes
 XkbGetXlibControls(Display *dpy)
-#else
-XkbGetXlibControls(dpy)
-    Display *	dpy;
-#endif
 {
-    if ((dpy->flags & XlibDisplayNoXkb) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
+    if (!dpy->xkb_info)
+	XkbUseExtension(dpy,NULL,NULL);
+    if (!dpy->xkb_info)
 	return 0;
     return dpy->xkb_info->xlib_ctrls;
 }
 
 unsigned int
-#if NeedFunctionPrototypes
 XkbXlibControlsImplemented(void)
-#else
-XkbXlibControlsImplemented()
-#endif
 {
 #ifdef __sgi
     return XkbLC_AllControls;
@@ -454,7 +377,6 @@ XkbXlibControlsImplemented()
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetDebuggingFlags(	Display *	dpy,
 			unsigned int 	mask,
 			unsigned int 	flags,
@@ -463,17 +385,6 @@ XkbSetDebuggingFlags(	Display *	dpy,
 			unsigned int	ctrls,
 			unsigned int *	rtrn_flags,
 			unsigned int *	rtrn_ctrls)
-#else
-XkbSetDebuggingFlags(dpy,mask,flags,msg,ctrls_mask,ctrls,rtrn_flags,rtrn_ctrls)
-    Display *		dpy;
-    unsigned int 	mask;
-    unsigned int 	flags;
-    char *		msg;
-    unsigned int 	ctrls_mask;
-    unsigned int 	ctrls;
-    unsigned int *	rtrn_flags;
-    unsigned int *	rtrn_ctrls;
-#endif
 {
     register xkbSetDebuggingFlagsReq *req;
     xkbSetDebuggingFlagsReply rep;
@@ -515,20 +426,13 @@ XkbSetDebuggingFlags(dpy,mask,flags,msg,ctrls_mask,ctrls,rtrn_flags,rtrn_ctrls)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbComputeEffectiveMap(	XkbDescPtr 	xkb,
 			XkbKeyTypePtr 	type,
 			unsigned char *	map_rtrn)
-#else
-XkbComputeEffectiveMap(xkb,type,map_rtrn)
-    XkbDescPtr		xkb;
-    XkbKeyTypePtr	type;
-    unsigned char *	map_rtrn;
-#endif
 {
 register int 		i;
 unsigned     		tmp;
-XkbKTMapEntryPtr	entry;
+XkbKTMapEntryPtr	entry = NULL;
 
     if ((!xkb)||(!type)||(!xkb->server))
 	return False;
@@ -568,14 +472,7 @@ XkbKTMapEntryPtr	entry;
 }
 
 Status
-#if NeedFunctionPrototypes
 XkbGetState(Display *dpy,unsigned deviceSpec,XkbStatePtr rtrn)
-#else
-XkbGetState(dpy,deviceSpec,rtrn)
-    Display *	dpy;
-    unsigned 	deviceSpec;
-    XkbStatePtr	rtrn;
-#endif
 {
     register xkbGetStateReq	*req;
     xkbGetStateReply rep;
@@ -615,14 +512,7 @@ XkbGetState(dpy,deviceSpec,rtrn)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetDetectableAutoRepeat(Display *dpy,Bool detectable,Bool *supported)
-#else
-XkbSetDetectableAutoRepeat(dpy,detectable,supported)
-    Display *		dpy;
-    Bool		detectable;
-    Bool *		supported;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -655,13 +545,7 @@ XkbInfoPtr 			xkbi;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetDetectableAutoRepeat(Display *dpy,Bool *supported)
-#else
-XkbGetDetectableAutoRepeat(dpy,supported)
-    Display *		dpy;
-    Bool *		supported;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -692,18 +576,10 @@ XkbInfoPtr 			xkbi;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetAutoResetControls(	Display *	dpy,
 				unsigned 	changes,
 				unsigned *	auto_ctrls,
 				unsigned *	auto_values)
-#else
-XkbSetAutoResetControls(dpy,changes,auto_ctrls,auto_values)
-    Display *		dpy;
-    unsigned 		changes;
-    unsigned *		auto_ctrls;
-    unsigned *		auto_values;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -736,16 +612,9 @@ XkbInfoPtr 			xkbi;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetAutoResetControls(	Display *	dpy,
 				unsigned *	auto_ctrls,
 				unsigned *	auto_ctrl_values)
-#else
-XkbGetAutoResetControls(dpy,auto_ctrls,auto_ctrl_values)
-    Display *		dpy;
-    unsigned *		auto_ctrls;
-    unsigned *		auto_ctrl_values;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -778,16 +647,9 @@ XkbInfoPtr 			xkbi;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetPerClientControls(	Display *	dpy,
 				unsigned 	change,
 				unsigned *	values)
-#else
-XkbSetPerClientControls(dpy,change,values)
-    Display *		dpy;
-    unsigned 		change;
-    unsigned *		values;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -819,14 +681,8 @@ unsigned			value_hold = *values;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetPerClientControls(	Display *	dpy,
 				unsigned *	ctrls)
-#else
-XkbGetPerClientControls(dpy,ctrls)
-    Display *		dpy;
-    unsigned *		ctrls;
-#endif
 {
 register xkbPerClientFlagsReq *	req;
 xkbPerClientFlagsReply 		rep;
@@ -853,27 +709,19 @@ XkbInfoPtr 			xkbi;
     UnlockDisplay(dpy);
     SyncHandle();
     if (ctrls)
-	*ctrls= (rep.value&XkbPCF_GrabsUseXKBStateMask|XkbPCF_LookupStateWhenGrabbed|XkbPCF_SendEventUsesXKBState);
+	*ctrls= (rep.value & (XkbPCF_GrabsUseXKBStateMask |
+		 XkbPCF_LookupStateWhenGrabbed |
+		 XkbPCF_SendEventUsesXKBState));
     return (True);
 }
 
 Display *
-#if NeedFunctionPrototypes
 XkbOpenDisplay(	char *	name,
 		int *	ev_rtrn,
 		int *	err_rtrn,
 		int *	major_rtrn,
 		int *	minor_rtrn,
 		int *	reason)
-#else
-XkbOpenDisplay(name,ev_rtrn,err_rtrn,major_rtrn,minor_rtrn,reason)
-    char *	name;
-    int *	ev_rtrn;
-    int *	err_rtrn;
-    int *	major_rtrn;
-    int *	minor_rtrn;
-    int *	reason;
-#endif
 {
     Display* dpy;
     int	 major_num,minor_num;
@@ -912,13 +760,7 @@ XkbOpenDisplay(name,ev_rtrn,err_rtrn,major_rtrn,minor_rtrn,reason)
 }
 
 void
-#if NeedFunctionPrototypes
 XkbSetAtomFuncs(XkbInternAtomFunc getAtom,XkbGetAtomNameFunc getName)
-#else
-XkbSetAtomFuncs(getAtom,getName)
-    XkbInternAtomFunc	getAtom;
-    XkbGetAtomNameFunc	getName;
-#endif
 {
     _XkbInternAtomFunc= (getAtom?getAtom:XInternAtom);
     _XkbGetAtomNameFunc= (getName?getName:XGetAtomName);

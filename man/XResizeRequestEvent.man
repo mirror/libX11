@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XRREvent.man,v 1.2 2001/01/27 18:20:03 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XResizeRequestEvent.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XResizeRequestEvent 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XResizeRequestEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XResizeRequestEvent \- ResizeRequest event structure
 .SH STRUCTURES
@@ -150,10 +153,10 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* ResizeRequest */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
+	int type;	/\(** ResizeRequest */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
 	Window window;
 	int width, height;
 } XResizeRequestEvent;

@@ -26,25 +26,20 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86$ */
 
 #ifndef _XIMIMSW_H
 #define _XIMIMSW_H
 
 typedef struct {
     Bool	(*checkprocessing)(
-#if NeedNestedPrototypes
 	Xim   im
-#endif
 		);
     Bool	(*im_open)(
-#if NeedNestedPrototypes
 	Xim   im
-#endif
 		);
     void	(*im_free)(
-#if NeedNestedPrototypes
 	Xim   im
-#endif
 		);
 } XimImsportSW;
 

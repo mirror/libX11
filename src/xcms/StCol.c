@@ -32,9 +32,11 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/StCol.c,v 1.3 2001/01/17 19:41:44 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
 
 /************************************************************************
@@ -74,6 +76,6 @@ XcmsStoreColor(dpy, colormap, pColor_in)
     XcmsColor tmpColor;
 
     tmpColor = *pColor_in;
-    return(_XcmsSetGetColors (XStoreColor, dpy, colormap,
-			      &tmpColor, 1, XcmsRGBFormat, (Bool *) NULL));
+    return(_XcmsSetGetColor(XStoreColor, dpy, colormap,
+			      &tmpColor, XcmsRGBFormat, (Bool *) NULL));
 }

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/AllPlanes.c,v 1.3 2001/01/17 19:41:32 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -61,7 +62,7 @@ unsigned long *rmask, *gmask, *bmask; /* CARD32 */ /* RETURN */
 	*bmask = rep.blueMask;
 
 	/* sizeof(CARD32) = 4 */
-	_XRead32 (dpy, (char *) pixels, (long)(ncolors * 4));
+	_XRead32 (dpy, (long *) pixels, (long)(ncolors * 4));
     }
 
     UnlockDisplay(dpy);

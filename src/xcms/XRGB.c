@@ -33,21 +33,17 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/XRGB.c,v 3.3 2001/07/29 05:01:11 tsi Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
+#include "Cv.h"
 
 /*
  *      LOCAL VARIABLES
  */
 
-static unsigned short Const MASK[17] = {
+static unsigned short const MASK[17] = {
     0x0000,	/*  0 bitsPerRGB */
     0x8000,	/*  1 bitsPerRGB */
     0xc000,	/*  2 bitsPerRGB */
@@ -82,10 +78,10 @@ static unsigned short Const MASK[17] = {
  *	SYNOPSIS
  */
 void
-_XcmsRGB_to_XColor(pColors, pXColors, nColors)
-    XcmsColor *pColors;
-    XColor *pXColors;
-    unsigned int nColors;
+_XcmsRGB_to_XColor(
+    XcmsColor *pColors,
+    XColor *pXColors,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *	    Translates a color specification in XcmsRGBFormat in a XcmsColor
@@ -112,11 +108,11 @@ _XcmsRGB_to_XColor(pColors, pXColors, nColors)
  *	SYNOPSIS
  */
 void
-_XColor_to_XcmsRGB(ccc, pXColors, pColors, nColors)
-    XcmsCCC ccc;
-    XColor *pXColors;
-    XcmsColor *pColors;
-    unsigned int nColors;
+_XColor_to_XcmsRGB(
+    XcmsCCC ccc,
+    XColor *pXColors,
+    XcmsColor *pColors,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Translates an RGB color specification in an XColor
@@ -150,9 +146,9 @@ _XColor_to_XcmsRGB(ccc, pXColors, pColors, nColors)
  *	SYNOPSIS
  */
 void
-_XcmsResolveColor(ccc, pXcmsColor)
-    XcmsCCC ccc;
-    XcmsColor *pXcmsColor;
+_XcmsResolveColor(
+    XcmsCCC ccc,
+    XcmsColor *pXcmsColor)
 /*
  *	DESCRIPTION
  *	    Uses the X Server ResolveColor() algorithm to
@@ -196,9 +192,9 @@ _XcmsResolveColor(ccc, pXcmsColor)
  *	SYNOPSIS
  */
 void
-_XcmsUnresolveColor(ccc, pColor)
-    XcmsCCC ccc;
-    XcmsColor *pColor;
+_XcmsUnresolveColor(
+    XcmsCCC ccc,
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		Masks out insignificant bits.
@@ -225,9 +221,9 @@ _XcmsUnresolveColor(ccc, pColor)
  *	SYNOPSIS
  */
 void
-_XUnresolveColor(ccc, pXColor)
-    XcmsCCC ccc;
-    XColor *pXColor;
+_XUnresolveColor(
+    XcmsCCC ccc,
+    XColor *pXColor)
 /*
  *	DESCRIPTION
  *		Masks out insignificant bits.

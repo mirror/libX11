@@ -44,15 +44,11 @@
  *		adjustment of color specifications in the TekHVC color
  *		space.
  */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-/*
- *	EXTERNS
- */
-extern Status _XcmsConvertColorsWithWhitePt();
-extern XcmsColorSpace XcmsTekHVCColorSpace;
+#include "Cv.h"
 
 
 /************************************************************************

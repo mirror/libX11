@@ -129,16 +129,8 @@ typedef unsigned int ucs4_t;
 typedef struct _Utf8ConvRec {
     const char *name;
     XrmQuark xrm_name;
-#if NeedFunctionPrototypes
     int (* cstowc) (XlcConv, ucs4_t *, unsigned char const *, int);
-#else
-    int (* cstowc) ();
-#endif
-#if NeedFunctionPrototypes
     int (* wctocs) (XlcConv, unsigned char *, ucs4_t, int);
-#else
-    int (* wctocs) ();
-#endif
 } Utf8ConvRec, *Utf8Conv;
 
 /*
@@ -1764,7 +1756,7 @@ create_tofontcs_conv(
 		if (!strcmp(preferred[k]->name, name))
 		    break;
 	    if (k < 0) {
-                /* For fonts "ISO10646-1" means not utf8 but ucs2.*/
+                /* For fonts "ISO10646-1" means ucs2, not utf8.*/
                 if (!strcmp("ISO10646-1", name)) {
                     preferred[num++] = &all_charsets[ucs2_conv_index];
                     continue;

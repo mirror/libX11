@@ -1,4 +1,5 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
+.\" Copyright \(co 2000  The XFree86 Project, Inc.
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
 .\" a copy of this software and associated documentation files (the
@@ -39,6 +40,8 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
+.\"
+.\" $XFree86: xc/doc/man/X11/XSeWMProp.man,v 1.4 2001/02/09 03:47:46 tsi Exp $
 .\" 
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -138,53 +141,25 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetWMProperties 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XSetWMProperties 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XSetWMProperties, XmbSetWMProperties \- set standard window properties
+XSetWMProperties, XmbSetWMProperties, Xutf8SetWMProperties \- set standard window properties
 .SH SYNTAX
-void XSetWMProperties\^(\^\fIdisplay\fP, \fIw\fP, \fIwindow_name\fP, \
-\fIicon_name\fP, \fIargv\fP, \fIargc\fP, \fInormal_hints\fP, \fIwm_hints\fP, \
-\fIclass_hints\fP\^)
-.br
-      Display *\fIdisplay\fP\^; 
-.br
-      Window \fIw\fP\^;
-.br
-      XTextProperty *\fIwindow_name\fP\^;
-.br
-      XTextProperty *\fIicon_name\fP\^;
-.br
-      char **\fIargv\fP\^;
-.br
-      int \fIargc\fP\^;
-.br
-      XSizeHints *\fInormal_hints\fP\^;
-.br
-      XWMHints *\fIwm_hints\fP\^;
-.br
-      XClassHint *\fIclass_hints\fP\^;
-.LP
-void XmbSetWMProperties\^(\^\fIdisplay\fP\^, \fIw\fP\^, \fIwindow_name\fP\^, \fIicon_name\fP\^, \fIargv\fP\^, \fIargc\fP\^,
-.br
-                      \fInormal_hints\fP\^, \fIwm_hints\fP\^, \fIclass_hints\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.br
-      char *\fIwindow_name\fP\^;
-.br
-      char *\fIicon_name\fP\^;
-.br
-      char *\fIargv\fP\^[];
-.br
-      int \fIargc\fP\^;
-.br
-      XSizeHints *\fInormal_hints\fP\^;
-.br
-      XWMHints *\fIwm_hints\fP\^;
-.br
-      XClassHint *\fIclass_hints\fP\^;
+.HP
+void XSetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
+XTextProperty *\fIwindow_name\fP\^, XTextProperty *\fIicon_name\fP\^, char
+**\fIargv\fP\^, int \fIargc\fP\^, XSizeHints *\fInormal_hints\fP\^, XWMHints
+*\fIwm_hints\fP\^, XClassHint *\fIclass_hints\fP\^); 
+.HP
+void XmbSetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
+*\fIwindow_name\fP\^, char *\fIicon_name\fP\^, char *\fIargv\fP\^[], int
+\fIargc\fP\^, XSizeHints *\fInormal_hints\fP\^, XWMHints *\fIwm_hints\fP\^,
+XClassHint *\fIclass_hints\fP\^); 
+.HP
+void Xutf8SetWMProperties\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
+*\fIwindow_name\fP\^, char *\fIicon_name\fP\^, char *\fIargv\fP\^[], int
+\fIargc\fP\^, XSizeHints *\fInormal_hints\fP\^, XWMHints *\fIwm_hints\fP\^,
+XClassHint *\fIclass_hints\fP\^); 
 .SH ARGUMENTS
 .IP \fIargc\fP 1i
 Specifies the number of arguments.
@@ -267,19 +242,22 @@ any directory prefixes, is substituted for res_name.
 .LP
 The
 .ZN XmbSetWMProperties
-convenience function provides a simple programming interface 
+and
+.ZN Xutf8SetWMProperties
+convenience functions provide a simple programming interface 
 for setting those essential window properties that are used 
 for communicating with other clients
 (particularly window and session managers).
 .LP
 If the window_name argument is non-NULL,
-.ZN XmbSetWMProperties
-sets the WM_NAME property.
+they set the WM_NAME property.
 If the icon_name argument is non-NULL,
+they set the WM_ICON_NAME property.
+The window_name and icon_name arguments are null-terminated strings, for
 .ZN XmbSetWMProperties
-sets the WM_ICON_NAME property.
-The window_name and icon_name arguments are null-terminated strings
-in the encoding of the current locale.
+in the encoding of the current locale, for
+.ZN Xutf8SetWMProperties
+in UTF-8 encoding.
 If the arguments can be fully converted to the STRING encoding,
 the properties are created with type ``STRING''; 
 otherwise, the arguments are converted to Compound Text, 
@@ -287,18 +265,24 @@ and the properties are created with type ``COMPOUND_TEXT''.
 .LP
 If the normal_hints argument is non-NULL,
 .ZN XmbSetWMProperties
-calls
+and
+.ZN Xutf8SetWMProperties
+call
 .ZN XSetWMNormalHints ,
 which sets the WM_NORMAL_HINTS property (see section 14.1.7).
 If the wm_hints argument is non-NULL, 
 .ZN XmbSetWMProperties
-calls
+and
+.ZN Xutf8SetWMProperties
+call
 .ZN XSetWMHints ,
 which sets the WM_HINTS property (see section 14.1.6).
 .LP
 If the argv argument is non-NULL,
 .ZN XmbSetWMProperties
-sets the WM_COMMAND property from argv and argc.
+and
+.ZN Xutf8SetWMProperties
+set the WM_COMMAND property from argv and argc.
 An argc of zero indicates a zero-length command.
 .LP
 The hostname of the machine is stored using 
@@ -307,7 +291,9 @@ The hostname of the machine is stored using
 .LP
 If the class_hints argument is non-NULL,
 .ZN XmbSetWMProperties
-sets the WM_CLASS property.
+and
+.ZN Xutf8SetWMProperties
+set the WM_CLASS property.
 If the res_name member in the 
 .ZN XClassHint
 structure is set to the NULL pointer and the RESOURCE_NAME
@@ -320,26 +306,36 @@ is substituted for res_name.
 .LP
 It is assumed that the supplied class_hints.res_name and argv,
 the RESOURCE_NAME environment variable, and the hostname of the machine
-are in the encoding of the locale announced for the LC_CTYPE category
-(on POSIX-compliant systems, the LC_CTYPE, else LANG environment variable).
+are in the encoding of the current locale.
 The corresponding WM_CLASS, WM_COMMAND, and WM_CLIENT_MACHINE properties
 are typed according to the local host locale announcer.
-No encoding conversion is performed prior to storage in the properties.
+No encoding conversion is performed for these strings prior to storage
+in the properties.
 .LP
 For clients that need to process the property text in a locale,
 .ZN XmbSetWMProperties
-sets the WM_LOCALE_NAME property to be the name of the current locale.
+and
+.ZN Xutf8SetWMProperties
+set the WM_LOCALE_NAME property to be the name of the current locale.
 The name is assumed to be in the Host Portable Character Encoding
 and is converted to STRING for storage in the property.
 .LP
-.ZN XSetWMProperties
-and
+.ZN XSetWMProperties ,
 .ZN XmbSetWMProperties
+and
+.ZN Xutf8SetWMProperties
 can generate
 .ZN BadAlloc
 and
 .ZN BadWindow
 errors.
+.LP
+The function
+.ZN Xutf8SetWMProperties
+is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
+release. Its presence is
+indicated by the macro
+.ZN X_HAVE_UTF8_STRING .
 .SH PROPERTIES
 .TP 1i
 \s-1WM_CLASS\s+1

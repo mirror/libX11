@@ -43,21 +43,16 @@
  *		Source for XcmsTekHVCQueryMinV gamut boundary querying routine.
  *
  */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
 /*
  *	DEFINES
  */
 #define EPS	    0.001
-
-/*
- *	EXTERNS
- */
-extern Status _XcmsTekHVCQueryMaxVCRGB();
-extern Status _XcmsTekHVC_CheckModify();
-extern XcmsColorSpace XcmsTekHVCColorSpace;
 
 
 /************************************************************************

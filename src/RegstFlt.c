@@ -52,13 +52,14 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/RegstFlt.c,v 1.5 2003/04/13 19:22:17 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 
 static void
-_XFreeIMFilters(display)
-    Display *display;
+_XFreeIMFilters(
+    Display *display)
 {
     register XFilterEventList fl;
 
@@ -72,16 +73,14 @@ _XFreeIMFilters(display)
  * Register a filter with the filter machinery by event mask.
  */
 void
-_XRegisterFilterByMask(display, window, event_mask, filter, client_data)
-    Display *display;
-    Window window;
-    unsigned long event_mask;
+_XRegisterFilterByMask(
+    Display *display,
+    Window window,
+    unsigned long event_mask,
     Bool (*filter)(
-#if NeedNestedPrototypes
 		   Display*, Window, XEvent*, XPointer
-#endif
-		   );
-    XPointer client_data;
+		   ),
+    XPointer client_data)
 {
     XFilterEventRec		*rec;
 
@@ -105,18 +104,15 @@ _XRegisterFilterByMask(display, window, event_mask, filter, client_data)
  * Register a filter with the filter machinery by type code.
  */
 void
-_XRegisterFilterByType(display, window, start_type, end_type,
-		       filter, client_data)
-    Display *display;
-    Window window;
-    int start_type;
-    int end_type;
+_XRegisterFilterByType(
+    Display *display,
+    Window window,
+    int start_type,
+    int end_type,
     Bool (*filter)(
-#if NeedNestedPrototypes
 		   Display*, Window, XEvent*, XPointer
-#endif
-		   );
-    XPointer client_data;
+		   ),
+    XPointer client_data)
 {
     XFilterEventRec		*rec;
 
@@ -137,15 +133,13 @@ _XRegisterFilterByType(display, window, start_type, end_type,
 }
 
 void
-_XUnregisterFilter(display, window, filter, client_data)
-    Display *display;
-    Window window;
+_XUnregisterFilter(
+    Display *display,
+    Window window,
     Bool (*filter)(
-#if NeedNestedPrototypes
 		   Display*, Window, XEvent*, XPointer
-#endif
-		   );
-    XPointer client_data;
+		   ),
+    XPointer client_data)
 {
     register XFilterEventList	*prev, fl;
 

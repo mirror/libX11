@@ -28,6 +28,10 @@
  *  This is source code modified by FUJITSU LIMITED under the Joint
  *  Development Agreement for the CDE/Motif PST.
  */
+/* $XFree86: xc/lib/X11/lcDB.c,v 3.15tsi Exp $ */
+
+
+
 #ifndef	NOT_X_ENV
 
 #include <X11/Xlib.h>
@@ -92,21 +96,22 @@ typedef enum {
 
 typedef struct {
     Token token;	/* token id */
-    char *name;		/* token sequence */
+    const char *name;	/* token sequence */
     int len;		/* length of token sequence */
-    int (*parse_proc)(); /* parsing procedure */
+    int (*parse_proc)(const char *str, Token token, Database *db);
+			/* parsing procedure */
 } TokenTable;
 
-static int f_newline();
-static int f_comment();
-static int f_semicolon();
-static int f_double_quote();
-static int f_left_brace();
-static int f_right_brace();
-static int f_white();
-static int f_backslash();
-static int f_numeric();
-static int f_default();
+static int f_newline (const char *str, Token token, Database *db);
+static int f_comment (const char *str, Token token, Database *db);
+static int f_semicolon (const char *str, Token token, Database *db);
+static int f_double_quote (const char *str, Token token, Database *db);
+static int f_left_brace (const char *str, Token token, Database *db);
+static int f_right_brace (const char *str, Token token, Database *db);
+static int f_white (const char *str, Token token, Database *db);
+static int f_backslash (const char *str, Token token, Database *db);
+static int f_numeric (const char *str, Token token, Database *db);
+static int f_default (const char *str, Token token, Database *db);
 
 static TokenTable token_tbl[] = {
     { T_NEWLINE,	"\n",	1,	f_newline },
@@ -121,10 +126,10 @@ static TokenTable token_tbl[] = {
     { T_NUMERIC_HEX,	"\\x",	2,	f_numeric },
     { T_NUMERIC_DEC,	"\\d",	2,	f_numeric },
     { T_NUMERIC_OCT,	"\\o",	2,	f_numeric },
-    { T_DEFAULT,	" ",	1,	f_default },	/* any character */
-    0 
+    { T_DEFAULT,	" ",	1,	f_default }	/* any character */
 };
 
+#define	SYM_CR          '\r'
 #define	SYM_NEWLINE	'\n'
 #define	SYM_COMMENT	'#'
 #define	SYM_SEMICOLON	';'
@@ -154,17 +159,18 @@ typedef struct {
 
 static DBParseInfo parse_info;
 
-static void init_parse_info()
+static void
+init_parse_info (void)
 {
-    static int first = 1;
+    static int allocated /* = 0 */;
     char *ptr;
-    int  size;
-    if(first == 1){
+    int size;
+    if (!allocated) {
 	bzero(&parse_info, sizeof(DBParseInfo));
 	parse_info.buf = (char *)Xmalloc(BUFSIZE);
 	parse_info.bufMaxSize = BUFSIZE;
-	first = 0;
-	return ;
+	allocated = 1;
+	return;
     }
     ptr = parse_info.buf;
     size = parse_info.bufMaxSize;
@@ -174,22 +180,22 @@ static void init_parse_info()
 }
 
 static void
-clear_parse_info()
+clear_parse_info (void)
 {
     int i;
     char *ptr;
     int size;
     parse_info.pre_state = S_NULL;
-    if(parse_info.category != NULL){
+    if (parse_info.category != NULL) {
 	Xfree(parse_info.category);
     }
-    for(i = 0; i <= parse_info.nest_depth; ++i){
-	if(parse_info.name[i]){
+    for (i = 0; i <= parse_info.nest_depth; ++i) {
+	if (parse_info.name[i]) {
 	    Xfree(parse_info.name[i]);
 	}
     }
-    if(parse_info.value){
-	if(*parse_info.value){
+    if (parse_info.value) {
+	if (*parse_info.value) {
 	    Xfree(*parse_info.value);
 	}
 	Xfree((char *)parse_info.value);
@@ -202,23 +208,22 @@ clear_parse_info()
 }
 
 static Bool
-realloc_parse_info(len)
-int len;
+realloc_parse_info(
+    int len)
 {
     char *p;
 
-
-    parse_info.bufMaxSize = BUFSIZE * 
-	    ((parse_info.bufsize + len)/BUFSIZE + 1);
+    parse_info.bufMaxSize = BUFSIZE * ((parse_info.bufsize + len)/BUFSIZE + 1);
     p = (char *)Xrealloc(parse_info.buf, parse_info.bufMaxSize);
-    if(p == NULL){
-        return(False);
-    }
+    if (p == NULL)
+        return False;
     parse_info.buf = p;
 
-    return(True);
+    return True;
 }
+
 /************************************************************************/
+
 typedef struct _Line {
     char *str;
     int cursize;
@@ -227,28 +232,28 @@ typedef struct _Line {
 } Line;
 
 static void
-free_line(line)
-    Line *line;
+free_line(
+    Line *line)
 {
-    if(line->str != NULL){
+    if (line->str != NULL) {
 	Xfree(line->str);
     }
     bzero(line, sizeof(Line));
 }
 
 static int
-realloc_line(line, size)
-    Line *line;
-    int size;
+realloc_line(
+    Line *line,
+    int size)
 {
     char *str = line->str;
 
-    if(str != NULL){
+    if (str != NULL) {
 	str = (char *)Xrealloc(str, size);
-    }else{
+    } else {
 	str = (char *)Xmalloc(size);
     }
-    if(str == NULL){
+    if (str == NULL) {
 	/* malloc error */
 	if (line->str != NULL) {
 	    Xfree(line->str);
@@ -264,34 +269,34 @@ realloc_line(line, size)
 #define	iswhite(ch)	((ch) == SYM_SPACE   || (ch) == SYM_TAB)
 
 static void
-zap_comment(str, quoted)
-    char *str;
-    int *quoted;
+zap_comment(
+    char *str,
+    int *quoted)
 {
     char *p = str;
 #ifdef	never
     *quoted = 0;
-    if(*p == SYM_COMMENT){
+    if (*p == SYM_COMMENT) {
 	int len = strlen(str);
-	if(p[len - 1] == SYM_NEWLINE){
+	if (p[len - 1] == SYM_NEWLINE || p[len - 1] == SYM_CR) {
 	    *p++ = SYM_NEWLINE;
 	}
 	*p = '\0';
     }
 #else
-    while(*p){
-	if(*p == SYM_DOUBLE_QUOTE){
-	    if(p == str || p[-1] != SYM_BACKSLASH){
+    while (*p) {
+	if (*p == SYM_DOUBLE_QUOTE) {
+	    if (p == str || p[-1] != SYM_BACKSLASH) {
 		/* unescaped double quote changes quoted state. */
 		*quoted = *quoted ? 0 : 1;
 	    }
 	}
-	if(*p == SYM_COMMENT && !*quoted){
+	if (*p == SYM_COMMENT && !*quoted) {
 	    int pos = p - str;
-	    if(pos == 0 ||
-	       iswhite(p[-1]) && (pos == 1 || p[-2] != SYM_BACKSLASH)){
+	    if (pos == 0 ||
+	        (iswhite(p[-1]) && (pos == 1 || p[-2] != SYM_BACKSLASH))) {
 		int len = strlen(p);
-		if(len > 0 && p[len - 1] == SYM_NEWLINE){
+		if (len > 0 && (p[len - 1] == SYM_NEWLINE || p[len-1] == SYM_CR)) {
 		    /* newline is the identifier for finding end of value.
 		       therefore, it should not be removed. */
 		    *p++ = SYM_NEWLINE;
@@ -306,9 +311,9 @@ zap_comment(str, quoted)
 }
 
 static int
-read_line(fd, line)
-    FILE *fd;
-    Line *line;
+read_line(
+    FILE *fd,
+    Line *line)
 {
     char buf[BUFSIZE], *p;
     int len;
@@ -319,19 +324,19 @@ read_line(fd, line)
     str = line->str;
     cur = line->cursize = 0;
 
-    while((p = fgets(buf, BUFSIZE, fd)) != NULL){
+    while ((p = fgets(buf, BUFSIZE, fd)) != NULL) {
 	++line->seq;
 	zap_comment(p, &quoted);	/* remove comment line */
 	len = strlen(p);
-	if(len == 0){
-	    if(cur > 0){
+	if (len == 0) {
+	    if (cur > 0) {
 		break;
 	    }
 	    continue;
 	}
-	if(cur + len + 1 > line->maxsize){
+	if (cur + len + 1 > line->maxsize) {
 	    /* need to reallocate buffer. */
-	    if(! realloc_line(line, line->maxsize + BUFSIZE)){
+	    if (! realloc_line(line, line->maxsize + BUFSIZE)) {
 		return -1;	/* realloc error. */
 	    }
 	    str = line->str;
@@ -340,19 +345,28 @@ read_line(fd, line)
 
 	cur += len;
 	str[cur] = '\0';
-	if(!quoted){
-	    if(cur > 1 && str[cur - 2] == SYM_BACKSLASH &&
-	       str[cur - 1] == SYM_NEWLINE){
-		/* the line is ended backslash followed by newline.
-		   need to concatinate the next line. */
-		cur -= 2;
-		str[cur] = '\0';
-	    }else{
-		break;
-	    }
+#ifdef __UNIXOS2__  /* Take out carriage returns under OS/2 */
+	if (cur>1) {
+	   if (str[cur-2] == '\r' && str[cur-1] == '\n') {
+	      str[cur-2] = '\n';
+	      str[cur-1] = '\0';
+	      cur--;
+	   }
+	}
+#endif
+	if (!quoted && cur > 1 && str[cur - 2] == SYM_BACKSLASH &&
+	    (str[cur - 1] == SYM_NEWLINE || str[cur-1] == SYM_CR)) {
+	    /* the line is ended backslash followed by newline.
+	       need to concatinate the next line. */
+	    cur -= 2;
+	    str[cur] = '\0';
+	} else if (len < BUFSIZE - 1 || buf[len - 1] == SYM_NEWLINE ||
+		   buf[len - 1] == SYM_CR) {
+	    /* the line is shorter than BUFSIZE. */
+	    break;
 	}
     }
-    if(quoted){
+    if (quoted) {
 	/* error.  still in quoted state. */
 	return -1;
     }
@@ -362,20 +376,21 @@ read_line(fd, line)
 /************************************************************************/
 
 static Token
-get_token(str)
-    char *str;
+get_token(
+    const char *str)
 {
-    switch(*str){
-    case SYM_NEWLINE:	return T_NEWLINE;
-    case SYM_COMMENT:	return T_COMMENT;
-    case SYM_SEMICOLON:	return T_SEMICOLON;
+    switch (*str) {
+    case SYM_NEWLINE:
+    case SYM_CR:		return T_NEWLINE;
+    case SYM_COMMENT:		return T_COMMENT;
+    case SYM_SEMICOLON:		return T_SEMICOLON;
     case SYM_DOUBLE_QUOTE:	return T_DOUBLE_QUOTE;
     case SYM_LEFT_BRACE:	return T_LEFT_BRACE;
     case SYM_RIGHT_BRACE:	return T_RIGHT_BRACE;
-    case SYM_SPACE:	return T_SPACE;
-    case SYM_TAB:	return T_TAB;
+    case SYM_SPACE:		return T_SPACE;
+    case SYM_TAB:		return T_TAB;
     case SYM_BACKSLASH:
-	switch(str[1]){
+	switch (str[1]) {
 	case 'x': return T_NUMERIC_HEX;
 	case 'd': return T_NUMERIC_DEC;
 	case 'o': return T_NUMERIC_OCT;
@@ -387,26 +402,25 @@ get_token(str)
 }
 
 static int
-get_word(str, word)
-    char *str;
-    char *word;
+get_word(
+    const char *str,
+    char *word)
 {
-    char *p = str, *w = word;
+    const char *p = str;
+    char *w = word;
     Token token;
     int token_len;
 
-    while(*p != '\0'){
+    while (*p != '\0') {
 	token = get_token(p);
 	token_len = token_tbl[token].len;
-	if(token == T_BACKSLASH){
+	if (token == T_BACKSLASH) {
 	    p += token_len;
-	    if(*p == '\0'){
+	    if (*p == '\0')
 		break;
-	    }
 	    token = get_token(p);
 	    token_len = token_tbl[token].len;
-	}else if(token != T_COMMENT &&
-		 token != T_DEFAULT){
+	} else if (token != T_COMMENT && token != T_DEFAULT) {
 	    break;
 	}
 	strncpy(w, p, token_len);
@@ -417,27 +431,28 @@ get_word(str, word)
 }
 
 static int
-get_quoted_word(str, word)
-    char *str;
-    char *word;
+get_quoted_word(
+    const char *str,
+    char *word)
 {
-    char *p = str, *w = word;
+    const char *p = str;
+    char *w = word;
     Token token;
     int token_len;
 
-    if(*p == SYM_DOUBLE_QUOTE){
+    if (*p == SYM_DOUBLE_QUOTE) {
 	++p;
     }
-    while(*p != '\0'){
+    while (*p != '\0') {
 	token = get_token(p);
 	token_len = token_tbl[token].len;
-	if(token == T_DOUBLE_QUOTE){
+	if (token == T_DOUBLE_QUOTE) {
 	    p += token_len;
 	    goto found;
 	}
-	if(token == T_BACKSLASH){
+	if (token == T_BACKSLASH) {
 	    p += token_len;
-	    if(*p == '\0'){
+	    if (*p == '\0') {
 		break;
 	    }
 	    token = get_token(p);
@@ -457,7 +472,7 @@ get_quoted_word(str, word)
 /************************************************************************/
 
 static int
-append_value_list()
+append_value_list (void)
 {
     char **value_list = parse_info.value;
     char *value;
@@ -467,45 +482,44 @@ append_value_list()
     int len = parse_info.bufsize;
     char *p;
 
-    if(len < 1){
+    if (len < 1) {
 	return 1; /* return with no error */
     }
 
-    if(value_list == (char **)NULL){
+    if (value_list == (char **)NULL) {
 	value_list = (char **)Xmalloc(sizeof(char *) * 2);
 	*value_list = NULL;
-    }else{
+    } else {
 	char **prev_list = value_list;
 
 	value_list = (char **)
 	    Xrealloc(value_list, sizeof(char *) * (value_num + 2));
-	if (value_list == NULL){
+	if (value_list == NULL) {
 	    Xfree(prev_list);
 	}
     }
-    if(value_list == (char **)NULL){
-	goto err;
-    }
+    if (value_list == (char **)NULL)
+	goto err2;
 
     value = *value_list;
-    if(value == NULL){
+    if (value == NULL) {
 	value = (char *)Xmalloc(value_len + len + 1);
-    }else{
+    } else {
 	char *prev_value = value;
 
 	value = (char *)Xrealloc(value, value_len + len + 1);
-	if (value == NULL){
+	if (value == NULL) {
 	    Xfree(prev_value);
 	}
     }
-    if(value == NULL){
-	goto err;
+    if (value == NULL) {
+	goto err1;
     }
-    if(value != *value_list){
+    if (value != *value_list) {
 	int delta, i;
 	delta = value - *value_list;
 	*value_list = value;
-	for(i = 1; i < value_num; ++i){
+	for (i = 1; i < value_num; ++i) {
 	    value_list[i] += delta;
 	}
     }
@@ -521,13 +535,14 @@ append_value_list()
     parse_info.bufsize = 0;
     return 1;
 
- err:
-    if(value_list){
+ err1:
+    if (value_list) {
 	Xfree((char **)value_list);
     }
-    if(value){
+    if (value) {
 	Xfree(value);
     }
+ err2:
     parse_info.value = (char **)NULL;
     parse_info.value_num = 0;
     parse_info.value_len = 0;
@@ -536,14 +551,15 @@ append_value_list()
 }
 
 static int 
-construct_name(name, size)
-    char *name;
-    int size;
+construct_name(
+    char *name,
+    int size)
 {
-    register int i, len = 0;
+    int i;
+    int len = 0;
     char *p = name;
 
-    for(i = 0; i <= parse_info.nest_depth; ++i){
+    for (i = 0; i <= parse_info.nest_depth; ++i) {
 	len += strlen(parse_info.name[i]) + 1;
     }
     if (len >= size)
@@ -551,7 +567,7 @@ construct_name(name, size)
 
     strcpy(p, parse_info.name[0]);
     p += strlen(parse_info.name[0]);
-    for(i = 1; i <= parse_info.nest_depth; ++i){
+    for (i = 1; i <= parse_info.nest_depth; ++i) {
 	*p++ = '.';
 	strcpy(p, parse_info.name[i]);
 	p += strlen(parse_info.name[i]);
@@ -560,39 +576,39 @@ construct_name(name, size)
 }
 
 static int
-store_to_database(db)
-    Database *db;
+store_to_database(
+    Database *db)
 {
     Database new = (Database)NULL;
     char name[BUFSIZE];
 
-    if(parse_info.pre_state == S_VALUE){
-	if(! append_value_list()){
+    if (parse_info.pre_state == S_VALUE) {
+	if (! append_value_list()) {
 	    goto err;
 	}
     }
 
-    if(parse_info.name[parse_info.nest_depth] == NULL){
+    if (parse_info.name[parse_info.nest_depth] == NULL) {
 	goto err;
     }
 
     new = (Database)Xmalloc(sizeof(DatabaseRec));
-    if(new == (Database)NULL){
+    if (new == (Database)NULL) {
 	goto err;
     }
     bzero(new, sizeof(DatabaseRec));
 
     new->category = (char *)Xmalloc(strlen(parse_info.category) + 1);
-    if(new->category == NULL){
+    if (new->category == NULL) {
 	goto err;
     }
     strcpy(new->category, parse_info.category);
 
-    if(! construct_name(name, sizeof(name))){
+    if (! construct_name(name, sizeof(name))) {
 	goto err;
     }
     new->name = (char *)Xmalloc(strlen(name) + 1);
-    if(new->name == NULL){
+    if (new->name == NULL) {
 	goto err;
     }
     strcpy(new->name, name);
@@ -611,16 +627,16 @@ store_to_database(db)
     return 1;
 
  err:
-    if(new){
-	if(new->category){
+    if (new) {
+	if (new->category) {
 	    Xfree(new->category);
 	}
-	if(new->name){
+	if (new->name) {
 	    Xfree(new->name);
 	}
     }
-    if(parse_info.value){
-	if(*parse_info.value){
+    if (parse_info.value) {
+	if (*parse_info.value) {
 	    Xfree(*parse_info.value);
 	}
 	Xfree((char **)parse_info.value);
@@ -635,23 +651,23 @@ store_to_database(db)
 #define	END_MARK_LEN	3 /*strlen(END_MARK)*/
 
 static int
-check_category_end(str)
-    char *str;
+check_category_end(
+    const char *str)
 {
-    char *p;
+    const char *p;
     int len;
 
     p = str;
-    if(strncmp(p, END_MARK, END_MARK_LEN)){
+    if (strncmp(p, END_MARK, END_MARK_LEN)) {
 	return 0;
     }
     p += END_MARK_LEN;
 
-    while(iswhite(*p)){
+    while (iswhite(*p)) {
 	++p;
     }
     len = strlen(parse_info.category);
-    if(strncmp(p, parse_info.category, len)){
+    if (strncmp(p, parse_info.category, len)) {
 	return 0;
     }
     p += len;
@@ -661,19 +677,19 @@ check_category_end(str)
 /************************************************************************/
 
 static int
-f_newline(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_newline(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_CATEGORY:
 	break;
     case S_NAME:
 	return 0; /* no value */
     case S_VALUE:
-	if(!store_to_database(db))
+	if (!store_to_database(db))
 	    return 0;
 	parse_info.pre_state = S_CATEGORY;
 	break;
@@ -684,49 +700,49 @@ f_newline(str, token, db)
 }
 
 static int
-f_comment(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_comment(
+    const char *str,
+    Token token,
+    Database *db)
 {
     /* NOTE: comment is already handled in read_line(),
        so this function is not necessary. */
 
-    char *p = str;
+    const char *p = str;
 
-    while(*p != SYM_NEWLINE && *p != '\0'){
+    while (*p != SYM_NEWLINE && *p != SYM_CR && *p != '\0') {
 	++p;	/* zap to the end of line */
     }
     return p - str;
 }
 
 static int
-f_white(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_white(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    char *p = str;
+    const char *p = str;
 
-    while(iswhite(*p)){
+    while (iswhite(*p)) {
 	++p;
     }
     return p - str;
 }
 
 static int
-f_semicolon(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_semicolon(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_CATEGORY:
     case S_NAME:
 	return 0;
     case S_VALUE:
-	if(! append_value_list())
+	if (! append_value_list())
 	    return 0;
 	parse_info.pre_state = S_VALUE;
 	break;
@@ -737,19 +753,19 @@ f_semicolon(str, token, db)
 }
 
 static int
-f_left_brace(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_left_brace(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_CATEGORY:
     case S_VALUE:
 	return 0;
     case S_NAME:
-	if(parse_info.name[parse_info.nest_depth] == NULL ||
-	   parse_info.nest_depth + 1 > MAX_NAME_NEST)
+	if (parse_info.name[parse_info.nest_depth] == NULL
+	    || parse_info.nest_depth + 1 > MAX_NAME_NEST)
 	    return 0;
 	++parse_info.nest_depth;
 	parse_info.pre_state = S_CATEGORY;
@@ -761,24 +777,24 @@ f_left_brace(str, token, db)
 }
 
 static int
-f_right_brace(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_right_brace(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    if(parse_info.nest_depth < 1)
+    if (parse_info.nest_depth < 1)
 	return 0;
 
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_NAME:
 	return 0;
     case S_VALUE:
-	if(! store_to_database(db))
+	if (! store_to_database(db))
 	    return 0;
 	/* fall into next case */
     case S_CATEGORY:
-	if(parse_info.name[parse_info.nest_depth] != NULL){
+	if (parse_info.name[parse_info.nest_depth] != NULL) {
 	    Xfree(parse_info.name[parse_info.nest_depth]);
 	    parse_info.name[parse_info.nest_depth] = NULL;
 	}
@@ -792,10 +808,10 @@ f_right_brace(str, token, db)
 }
 
 static int
-f_double_quote(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_double_quote(
+    const char *str,
+    Token token,
+    Database *db)
 {
     char word[BUFSIZE];
     char* wordp;
@@ -809,18 +825,18 @@ f_double_quote(str, token, db)
 	return 0;
 
     len = 0;
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_CATEGORY:
 	goto err;
     case S_NAME:
     case S_VALUE:
 	len = get_quoted_word(str, wordp);
-	if(len < 1)
+	if (len < 1)
 	    goto err;
-	if( (parse_info.bufsize + (int)strlen(wordp) +1) 
-					>= parse_info.bufMaxSize){
-	    if(realloc_parse_info(strlen(wordp) +1) == False){
+	if ((parse_info.bufsize + (int)strlen(wordp) + 1) 
+					>= parse_info.bufMaxSize) {
+	    if (realloc_parse_info(strlen(wordp)+1) == False) {
 		goto err;
 	    }
 	}
@@ -831,30 +847,33 @@ f_double_quote(str, token, db)
     default:
 	goto err;
     }
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return len;	/* including length of token */
 
 err:
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return 0;
 }
 
 static int
-f_backslash(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_backslash(
+    const char *str,
+    Token token,
+    Database *db)
 {
     return f_default(str, token, db);
 }
 
 static int
-f_numeric(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_numeric(
+    const char *str,
+    Token token,
+    Database *db)
 {
-    char word[BUFSIZE], *p;
+    char word[BUFSIZE];
+    const char *p;
     char* wordp;
     int len;
     int token_len;
@@ -866,7 +885,7 @@ f_numeric(str, token, db)
     if (wordp == NULL)
 	return 0;
 
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
     case S_CATEGORY:
 	goto err;
@@ -875,11 +894,11 @@ f_numeric(str, token, db)
 	token_len = token_tbl[token].len;
 	p = str + token_len;
 	len = get_word(p, wordp);
-	if(len < 1)
+	if (len < 1)
 	    goto err;
-	if( (parse_info.bufsize + token_len + (int)strlen(wordp) +1) 
-					>= parse_info.bufMaxSize){
-	    if(realloc_parse_info(token_len + strlen(wordp) +1) == False)
+	if ((parse_info.bufsize + token_len + (int)strlen(wordp) + 1) 
+					>= parse_info.bufMaxSize) {
+	    if (realloc_parse_info(token_len + strlen(wordp) + 1) == False)
 		goto err;
 	}
 	strncpy(&parse_info.buf[parse_info.bufsize], str, token_len);
@@ -890,19 +909,21 @@ f_numeric(str, token, db)
     default:
 	goto err;
     }
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return len + token_len;
 
 err:
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return 0;
 }
 
 static int
-f_default(str, token, db)
-    char *str;
-    Token token;
-    Database *db;
+f_default(
+    const char *str,
+    Token token,
+    Database *db)
 {
     char word[BUFSIZE], *p;
     char* wordp;
@@ -916,23 +937,23 @@ f_default(str, token, db)
 	return 0;
 
     len = get_word(str, wordp);
-    if(len < 1)
+    if (len < 1)
 	goto err;
 
-    switch(parse_info.pre_state){
+    switch (parse_info.pre_state) {
     case S_NULL:
-	if(parse_info.category != NULL)
+	if (parse_info.category != NULL)
 	    goto err;
 	p = (char *)Xmalloc(strlen(wordp) + 1);
-	if(p == NULL)
+	if (p == NULL)
 	    goto err;
 	strcpy(p, wordp);
 	parse_info.category = p;
 	parse_info.pre_state = S_CATEGORY;
 	break;
     case S_CATEGORY:
-	if(parse_info.nest_depth == 0){
-	    if(check_category_end(str)){
+	if (parse_info.nest_depth == 0) {
+	    if (check_category_end(str)) {
 		/* end of category is detected.
 		   clear context and zap to end of this line */
 		clear_parse_info();
@@ -941,10 +962,10 @@ f_default(str, token, db)
 	    }
 	}
 	p = (char *)Xmalloc(strlen(wordp) + 1);
-	if(p == NULL)
+	if (p == NULL)
 	    goto err;
 	strcpy(p, wordp);
-	if(parse_info.name[parse_info.nest_depth] != NULL){
+	if (parse_info.name[parse_info.nest_depth] != NULL) {
 	    Xfree(parse_info.name[parse_info.nest_depth]);
 	}
 	parse_info.name[parse_info.nest_depth] = p;
@@ -952,9 +973,9 @@ f_default(str, token, db)
 	break;
     case S_NAME:
     case S_VALUE:
-	if( (parse_info.bufsize + (int)strlen(wordp) +1 ) 
-					>= parse_info.bufMaxSize){
-	    if(realloc_parse_info(strlen(wordp) +1) == False)
+	if ((parse_info.bufsize + (int)strlen(wordp) + 1) 
+					>= parse_info.bufMaxSize) {
+	    if (realloc_parse_info(strlen(wordp) + 1) == False)
 		goto err;
 	}
 	strcpy(&parse_info.buf[parse_info.bufsize], wordp);
@@ -964,30 +985,32 @@ f_default(str, token, db)
     default:
 	goto err;
     }
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return len;
 
 err:
-    if (wordp != word) Xfree (wordp);
+    if (wordp != word)
+	Xfree (wordp);
     return 0;
 }
 
 /************************************************************************/
 
-#ifdef	DEBUG
+#ifdef DEBUG
 static void
-PrintDatabase(db)
-    Database db;
+PrintDatabase(
+    Database db)
 {
     Database p = db;
     int i = 0, j;
 
     printf("***\n*** BEGIN Database\n***\n");
-    while(p){
+    while (p) {
 	printf("%3d: ", i++);
 	printf("%s, %s, ", p->category, p->name);
 	printf("\t[%d: ", p->value_num);
-	for(j = 0; j < p->value_num; ++j){
+	for (j = 0; j < p->value_num; ++j) {
 	    printf("%s, ", p->value[j]);
 	}
 	printf("]\n");
@@ -998,20 +1021,20 @@ PrintDatabase(db)
 #endif
 
 static void
-DestroyDatabase(db)
-    Database db;
+DestroyDatabase(
+    Database db)
 {
     Database p = db;
 
-    while(p){
-	if(p->category != NULL){
+    while (p) {
+	if (p->category != NULL) {
 	    Xfree(p->category);
 	}
-	if(p->name != NULL){
+	if (p->name != NULL) {
 	    Xfree(p->name);
 	}
-	if(p->value != (char **)NULL){
-	    if(*p->value != NULL){
+	if (p->value != (char **)NULL) {
+	    if (*p->value != NULL) {
 		Xfree(*p->value);
 	    }
 	    Xfree((char *)p->value);
@@ -1023,13 +1046,13 @@ DestroyDatabase(db)
 }
 
 static int
-CountDatabase(db)
-    Database db;
+CountDatabase(
+    Database db)
 {
     Database p = db;
     int cnt = 0;
 
-    while(p){
+    while (p) {
 	++cnt;
 	p = p->next;
     }
@@ -1037,8 +1060,8 @@ CountDatabase(db)
 }
 
 static Database
-CreateDatabase(dbfile)
-    char *dbfile;
+CreateDatabase(
+    char *dbfile)
 {
     Database db = (Database)NULL;
     FILE *fd;
@@ -1049,26 +1072,25 @@ CreateDatabase(dbfile)
     int error = 0;
 
     fd = _XFopenFile(dbfile, "r");
-    if(fd == (FILE *)NULL){
+    if (fd == (FILE *)NULL)
 	return NULL;
-    }
 
     bzero(&line, sizeof(Line));
     init_parse_info();
 
     do {
 	int rc = read_line(fd, &line);
-	if(rc < 0){
+	if (rc < 0) {
 	    error = 1;
 	    break;
-	}else if(rc == 0){
+	} else if (rc == 0) {
 	    break;
 	}
 	p = line.str;
-	while(*p){
+	while (*p) {
 	    token = get_token(p);
 	    len = (*token_tbl[token].parse_proc)(p, token, &db);
-	    if(len < 1){
+	    if (len < 1) {
 		error = 1;
 		break;
 	    }
@@ -1076,11 +1098,11 @@ CreateDatabase(dbfile)
 	}
     } while (!error);
 
-    if(parse_info.pre_state != S_NULL){
+    if (parse_info.pre_state != S_NULL) {
 	clear_parse_info();
 	error = 1;
     }
-    if(error){
+    if (error) {
 #ifdef	DEBUG
 	fprintf(stderr, "database format error at line %d.\n", line.seq);
 #endif
@@ -1128,12 +1150,12 @@ static XlcDatabaseList _db_list = (XlcDatabaseList)NULL;
 /*	This function retrieves XLocale database information.		*/
 /************************************************************************/
 void
-_XlcGetResource(lcd, category, class, value, count)
-    XLCd lcd;
-    char *category;
-    char *class;
-    char ***value;
-    int *count;
+_XlcGetResource(
+    XLCd lcd,
+    const char *category,
+    const char *class,
+    char ***value,
+    int *count)
 {
     XLCdPublicMethodsPart *methods = XLC_PUBLIC_METHODS(lcd);
 
@@ -1147,20 +1169,20 @@ _XlcGetResource(lcd, category, class, value, count)
 /*	This function retrieves XLocale database information.		*/
 /************************************************************************/
 void
-_XlcGetLocaleDataBase(lcd, category, name, value, count)
-    XLCd lcd;
-    char *category;
-    char *name;
-    char ***value;
-    int *count;
+_XlcGetLocaleDataBase(
+    XLCd lcd,
+    const char *category,
+    const char *name,
+    char ***value,
+    int *count)
 {
     XlcDatabase lc_db = (XlcDatabase)XLC_PUBLIC(lcd, xlocale_db);
     XrmQuark category_q, name_q;
 
     category_q = XrmStringToQuark(category);
     name_q = XrmStringToQuark(name);
-    for(; lc_db->db; ++lc_db){
-	if(category_q == lc_db->category_q && name_q == lc_db->name_q){
+    for (; lc_db->db; ++lc_db) {
+	if (category_q == lc_db->category_q && name_q == lc_db->name_q) {
 	    *value = lc_db->db->value;
 	    *count = lc_db->db->value_num;
 	    return;
@@ -1180,23 +1202,23 @@ _XlcGetLocaleDataBase(lcd, category, name, value, count)
 /*	remove it from the cache list and free work area.		*/
 /************************************************************************/
 void
-_XlcDestroyLocaleDataBase(lcd)
-    XLCd lcd;
+_XlcDestroyLocaleDataBase(
+    XLCd lcd)
 {
     XlcDatabase lc_db = (XlcDatabase)XLC_PUBLIC(lcd, xlocale_db);
     XlcDatabaseList p, prev;
 
-    for(p = _db_list, prev = (XlcDatabaseList)NULL; p;
-	prev = p, p = p->next){
-	if(p->lc_db == lc_db){
-	    if((-- p->ref_count) < 1){
-		if(p->lc_db != (XlcDatabase)NULL){
+    for (p = _db_list, prev = (XlcDatabaseList)NULL; p;
+	 prev = p, p = p->next) {
+	if (p->lc_db == lc_db) {
+	    if ((-- p->ref_count) < 1) {
+		if (p->lc_db != (XlcDatabase)NULL) {
 		    Xfree((char *)p->lc_db);
 		}
 		DestroyDatabase(p->database);
-		if(prev == (XlcDatabaseList)NULL){
+		if (prev == (XlcDatabaseList)NULL) {
 		    _db_list = p->next;
-		}else{
+		} else {
 		    prev->next = p->next;
 		}
 		Xfree((char*)p);
@@ -1214,8 +1236,8 @@ _XlcDestroyLocaleDataBase(lcd)
 /*	the specified XLCd.						*/
 /************************************************************************/
 XPointer
-_XlcCreateLocaleDataBase(lcd)
-    XLCd lcd;
+_XlcCreateLocaleDataBase(
+    XLCd lcd)
 {
     XlcDatabaseList list, new;
     Database p, database = (Database)NULL;
@@ -1225,13 +1247,16 @@ _XlcCreateLocaleDataBase(lcd)
     int i, n;
 
     name = _XlcFileName(lcd, "locale");
-    if(name == NULL){
+    if (name == NULL)
 	return (XPointer)NULL;
-    }
 
+#ifndef __UNIXOS2__
     name_q = XrmStringToQuark(name);
-    for(list = _db_list; list; list = list->next){
-	if(name_q == list->name_q){
+#else
+    name_q = XrmStringToQuark((char*)__XOS2RedirRoot(name));
+#endif
+    for (list = _db_list; list; list = list->next) {
+	if (name_q == list->name_q) {
 	    list->ref_count++;
 	    Xfree (name);
 	    return XLC_PUBLIC(lcd, xlocale_db) = (XPointer)list->lc_db;
@@ -1239,24 +1264,23 @@ _XlcCreateLocaleDataBase(lcd)
     }
 
     database = CreateDatabase(name);
-    if(database == (Database)NULL){
+    if (database == (Database)NULL) {
 	Xfree (name);
 	return (XPointer)NULL;
     }
     n = CountDatabase(database);
     lc_db = (XlcDatabase)Xmalloc(sizeof(XlcDatabaseRec) * (n + 1));
-    if(lc_db == (XlcDatabase)NULL){
+    if (lc_db == (XlcDatabase)NULL)
 	goto err;
-    }
     bzero(lc_db, sizeof(XlcDatabaseRec) * (n + 1));
-    for(p = database, i = 0; p && i < n; p = p->next, ++i){
+    for (p = database, i = 0; p && i < n; p = p->next, ++i) {
 	lc_db[i].category_q = XrmStringToQuark(p->category);
 	lc_db[i].name_q = XrmStringToQuark(p->name);
 	lc_db[i].db = p;
     }
 
     new = (XlcDatabaseList)Xmalloc(sizeof(XlcDatabaseListRec));
-    if(new == (XlcDatabaseList)NULL){
+    if (new == (XlcDatabaseList)NULL) {
 	goto err;
     }
     new->name_q = name_q;
@@ -1271,7 +1295,7 @@ _XlcCreateLocaleDataBase(lcd)
 
  err:
     DestroyDatabase(database);
-    if(lc_db != (XlcDatabase)NULL){
+    if (lc_db != (XlcDatabase)NULL) {
 	Xfree((char *)lc_db);
     }
     Xfree (name);

@@ -44,24 +44,18 @@
  *		querying routine.
  *
  */
+/* $XFree86: xc/lib/X11/HVCMxC.c,v 1.4 2003/04/13 19:22:16 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include <math.h>
+#include "Cv.h"
 
 /*
  *	DEFINES
  */
 #define MAXBISECTCOUNT	100
 #define EPS	        0.001
-
-/*
- *	EXTERNS
- */
-extern Status _XcmsTekHVCQueryMaxVCRGB();
-extern int _XcmsTekHVC_CheckModify();
-extern XcmsColorSpace XcmsTekHVCColorSpace;
-
 
 
 /************************************************************************
@@ -163,6 +157,7 @@ XcmsTekHVCQueryMaxC(ccc, hue, value, pColor_return)
 	/* save the structure input so that any elements that */
 	/* are not touched are recopied later in the routine. */
 	nValue = savedValue = value;
+	lastChroma = -1.0;
 	lastValue = -1.0;
 	nMaxCount = MAXBISECTCOUNT;
 	maxDist = 100.0 - max_vc.spec.TekHVC.V;

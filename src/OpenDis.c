@@ -24,18 +24,21 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/OpenDis.c,v 3.16 2003/07/04 16:24:23 eich Exp $ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
 #include "Xlibint.h"
 #include <X11/Xtrans.h>
 #include <X11/Xatom.h>
+#include <X11/Xresource.h>
 #include "bigreqstr.h"
 #include <stdio.h>
+#include "Xintconn.h"
 
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
+#ifdef XKB
+#include "XKBlib.h"
+#endif /* XKB */
 
 #ifdef X_NOT_POSIX
 #define Size_t unsigned int
@@ -50,43 +53,37 @@ typedef struct {
     int opcode;
 } _XBigReqState;
 
-extern int _Xdebug;
 #ifdef WIN32
 int *_Xdebug_p = &_Xdebug;
 #endif
 
 #ifdef XTHREADS
-int  (*_XInitDisplayLock_fn)() = NULL;
-void (*_XFreeDisplayLock_fn)() = NULL;
+#include "locking.h"
+int  (*_XInitDisplayLock_fn)(Display *dpy) = NULL;
+void (*_XFreeDisplayLock_fn)(Display *dpy) = NULL;
 
 #define InitDisplayLock(d)	(_XInitDisplayLock_fn ? (*_XInitDisplayLock_fn)(d) : Success)
 #define FreeDisplayLock(d)	if (_XFreeDisplayLock_fn) (*_XFreeDisplayLock_fn)(d)
 #else
 #define InitDisplayLock(dis) Success
 #define FreeDisplayLock(dis)
-#endif
+#endif /* XTHREADS */
 
 static xReq _dummy_request = {
 	0, 0, 0
 };
 
-static void OutOfMemory();
-static Bool _XBigReqHandler();
+static void OutOfMemory(Display *dpy, char *setup);
+static Bool _XBigReqHandler(Display *dpy, xReply *rep, char *buf, int len,
+				XPointer data);
 
-extern Bool _XWireToEvent();
-extern Status _XUnknownNativeEvent();
-extern Bool _XUnknownWireEvent();
 /* 
  * Connects to a server, creates a Display object and returns a pointer to
  * the newly created Display back to the caller.
  */
-#if NeedFunctionPrototypes
-Display *XOpenDisplay (
+Display *
+XOpenDisplay (
 	register _Xconst char *display)
-#else
-Display *XOpenDisplay (display)
-	register char *display;
-#endif
 {
 	register Display *dpy;		/* New Display object being created. */
 	register int i;
@@ -111,13 +108,15 @@ Display *XOpenDisplay (display)
 		xVisualType *vp;
 	} u;				/* proto data returned from server */
 	long setuplength;	/* number of bytes in setup message */
+	long usedbytes = 0;     /* number of bytes we have processed */
 	char *conn_auth_name, *conn_auth_data;
 	int conn_auth_namelen, conn_auth_datalen;
 	unsigned long mask;
-	extern Bool _XSendClientPrefix();
-	extern XtransConnInfo _X11TransConnectDisplay();
-	extern XID _XAllocID();
-	extern void _XAllocIDs();
+       long int conn_buf_size;
+       char *xlib_buffer_size;
+
+	bzero((char *) &client, sizeof(client));
+	bzero((char *) &prefix, sizeof(prefix));
 
 	/*
 	 * If the display specifier string supplied as an argument to this 
@@ -248,11 +247,24 @@ Display *XOpenDisplay (display)
 	}	
 
 	/* Set up the output buffers. */
-	if ((dpy->bufptr = dpy->buffer = Xmalloc(BUFSIZE)) == NULL) {
-	        OutOfMemory (dpy, setup);
-		return(NULL);
-	}
-	dpy->bufmax = dpy->buffer + BUFSIZE;
+#ifndef XLIBDEFAULTBUFSIZE
+#define XLIBDEFAULTBUFSIZE 16384 /* 16k */
+#endif
+#ifndef XLIBMINBUFSIZE
+#define XLIBMINBUFSIZE BUFSIZE /* old default buffer size */
+#endif
+    if ((xlib_buffer_size = getenv("XLIBBUFFERSIZE")) == NULL)
+        conn_buf_size = XLIBDEFAULTBUFSIZE;
+    else
+        conn_buf_size = 1024 * strtol(xlib_buffer_size, NULL, 10);
+    if (conn_buf_size < XLIBMINBUFSIZE)
+        conn_buf_size = XLIBMINBUFSIZE;
+
+    if ((dpy->bufptr = dpy->buffer = Xcalloc(1, conn_buf_size)) == NULL) {
+         OutOfMemory (dpy, setup);
+         return(NULL);
+    }
+    dpy->bufmax = dpy->buffer + conn_buf_size;
  
 	/* Set up the input event queue and input event queue parameters. */
 	dpy->head = dpy->tail = NULL;
@@ -329,6 +341,7 @@ Display *XOpenDisplay (display)
 		return(NULL);
 	}
 	_XRead (dpy, (char *)u.setup, setuplength);
+
 /*
  * If the connection was not accepted by the server due to problems,
  * give error message to the user....
@@ -338,11 +351,27 @@ Display *XOpenDisplay (display)
 		fprintf (stderr, 
 		      "Xlib: connection to \"%s\" refused by server\r\nXlib: ",
 			 fullname);
-		(void) fwrite (u.failure, (Size_t)sizeof(char),
+
+		if (prefix.lengthReason > setuplength) {
+		    fprintf (stderr, "Xlib: Broken initial reply: length of reason > length of packet\r\n");
+		}else{
+		    (void) fwrite (u.failure, (Size_t)sizeof(char),
 			       (Size_t)prefix.lengthReason, stderr);
-		(void) fwrite ("\r\n", sizeof(char), 2, stderr);
+		    (void) fwrite ("\r\n", sizeof(char), 2, stderr);
+		}
+
 		OutOfMemory(dpy, setup);
 		return (NULL);
+	}
+
+/*
+ * Check if the reply was long enough to get any information out of it.
+ */
+	usedbytes = sz_xConnSetup;
+	if (setuplength < usedbytes ) {
+	    fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
 	}
 
 /*
@@ -366,6 +395,14 @@ Display *XOpenDisplay (display)
 	dpy->max_request_size	= u.setup->maxRequestSize;
 	mask = dpy->resource_mask;
 	dpy->resource_shift	= 0;
+	if (!mask)
+	{
+	    fprintf (stderr, "Xlib: connection to \"%s\" invalid setup\n",
+		     fullname);
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
+    
 	while (!(mask & 1)) {
 	    dpy->resource_shift++;
 	    mask = mask >> 1;
@@ -375,16 +412,35 @@ Display *XOpenDisplay (display)
  * now extract the vendor string...  String must be null terminated,
  * padded to multiple of 4 bytes.
  */
+	/* Check for a sane vendor string length */
+	if (u.setup->nbytesVendor > 256) {
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
+
 	dpy->vendor = (char *) Xmalloc((unsigned) (u.setup->nbytesVendor + 1));
 	if (dpy->vendor == NULL) {
 	    OutOfMemory(dpy, setup);
 	    return (NULL);
 	}
 	vendorlen = u.setup->nbytesVendor;
+
+/*
+ * validate setup length
+ */
+	usedbytes += (vendorlen + 3) & ~3;
+	if (setuplength < usedbytes) {
+	    fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+	    OutOfMemory(dpy, setup);
+	    return (NULL);
+	}
+
  	u.setup = (xConnSetup *) (((char *) u.setup) + sz_xConnSetup);
   	(void) strncpy(dpy->vendor, u.vendor, vendorlen);
 	dpy->vendor[vendorlen] = '\0';
  	vendorlen = (vendorlen + 3) & ~3;	/* round up */
+
+
 	memmove (setup, u.vendor + vendorlen,
 		 (int) setuplength - sz_xConnSetup - vendorlen);
  	u.vendor = setup;
@@ -401,6 +457,14 @@ Display *XOpenDisplay (display)
 /*
  * First decode the Z axis Screen format information.
  */
+	usedbytes += dpy->nformats * sz_xPixmapFormat;
+
+	if (setuplength < usedbytes) {
+	    fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+	    OutOfMemory (dpy, setup);
+	    return(NULL);
+	}
+
 	for (i = 0; i < dpy->nformats; i++) {
 	    register ScreenFormat *fmt = &dpy->pixmap_format[i];
 	    fmt->depth = u.sf->depth;
@@ -419,12 +483,22 @@ Display *XOpenDisplay (display)
 	        OutOfMemory (dpy, setup);
 		return(NULL);
 	}
+
 /*
  * Now go deal with each screen structure.
  */
 	for (i = 0; i < dpy->nscreens; i++) {
 	    register Screen *sp = &dpy->screens[i];
-	    VisualID root_visualID = u.rp->rootVisualID;
+	    VisualID root_visualID;
+
+	    usedbytes += sz_xWindowRoot;
+	    if (setuplength < usedbytes) {
+		fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+		OutOfMemory (dpy, setup);
+		return(NULL);
+	    }
+
+	    root_visualID = u.rp->rootVisualID;	    
 	    sp->display	    = dpy;
 	    sp->root 	    = u.rp->windowId;
 	    sp->cmap 	    = u.rp->defaultColormap;
@@ -457,6 +531,14 @@ Display *XOpenDisplay (display)
 	     */
 	    for (j = 0; j < sp->ndepths; j++) {
 		Depth *dp = &sp->depths[j];
+
+		usedbytes += sz_xDepth;
+		if (setuplength < usedbytes) {
+		    fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+		    OutOfMemory (dpy, setup);
+		    return(NULL);
+		}
+		
 		dp->depth = u.dp->depth;
 		dp->nvisuals = u.dp->nVisuals;
 		u.dp = (xDepth *) (((char *) u.dp) + sz_xDepth);
@@ -469,6 +551,14 @@ Display *XOpenDisplay (display)
 		    }
 		    for (k = 0; k < dp->nvisuals; k++) {
 			register Visual *vp = &dp->visuals[k];
+
+			usedbytes += sz_xVisualType;
+			if (setuplength < usedbytes) {
+			    fprintf (stderr, "Xlib: Broken initial reply: Too short (%ld)\n", setuplength);
+			    OutOfMemory (dpy, setup);
+			    return(NULL);
+			}
+			
 			vp->visualid	= u.vp->visualID;
 			vp->class	= u.vp->class;
 			vp->bits_per_rgb= u.vp->bitsPerRGB;
@@ -486,7 +576,15 @@ Display *XOpenDisplay (display)
 	    }
 	    sp->root_visual = _XVIDtoVisual(dpy, root_visualID);
 	}
-		
+
+	if(usedbytes != setuplength){
+	    /* Sanity check, shouldn't happen. */
+	    fprintf(stderr, "Xlib: Did not parse entire setup message: "
+	                    "parsed: %ld, message: %ld\n",
+		    usedbytes, setuplength);
+	    OutOfMemory(dpy, setup);
+	    return(NULL);
+	}
 
 /*
  * Now start talking to the server to setup all other information...
@@ -563,6 +661,8 @@ Display *XOpenDisplay (display)
 
 	    if (_XReply (dpy, (xReply *) &reply, 0, xFalse)) {
 		if (reply.format == 8 && reply.propertyType == XA_STRING &&
+		    (reply.nItems + 1 > 0) &&
+		    (reply.nItems <= req->longLength * 4) &&
 		    (dpy->xdefaults = Xmalloc (reply.nItems + 1))) {
 		    _XReadPad (dpy, dpy->xdefaults, reply.nItems);
 		    dpy->xdefaults[reply.nItems] = '\0';
@@ -660,6 +760,10 @@ void _XFreeDisplayStructure(dpy)
 	   (*dpy->free_funcs->context_db)(dpy);
 	if (dpy->xkb_info)
 	   (*dpy->free_funcs->xkb)(dpy);
+
+	/* if RM database was allocated by XGetDefault() free it */
+	if (dpy->db && (dpy->flags & XlibDisplayDfltRMDB))
+	    XrmDestroyDatabase(dpy->db);
 
 	if (dpy->screens) {
 	    register int i;

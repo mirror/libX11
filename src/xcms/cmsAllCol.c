@@ -32,9 +32,11 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsAllCol.c,v 1.3 2001/01/17 19:41:50 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
 
 /*
@@ -66,6 +68,6 @@ XcmsAllocColor(dpy, colormap, pXcmsColor_in_out, result_format)
  *
  */
 {
-    return(_XcmsSetGetColors (XAllocColor, dpy, colormap, pXcmsColor_in_out, 1,
+    return(_XcmsSetGetColor(XAllocColor, dpy, colormap, pXcmsColor_in_out,
 	    result_format, (Bool *)NULL));
 }

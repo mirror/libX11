@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBSetMap.c,v 3.2 2001/01/17 19:41:49 dawes Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -33,13 +34,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "XKBlibint.h"
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeKeyTypes(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeKeyTypes(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
     XkbKeyTypePtr	map;
     int			i,len;
@@ -61,14 +56,7 @@ _XkbSizeKeyTypes(xkb,req)
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteKeyTypes(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteKeyTypes(dpy,xkb,req)
-    Display	*	dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
     char *		buf;
     XkbKeyTypePtr 	type;
@@ -114,13 +102,7 @@ _XkbWriteKeyTypes(dpy,xkb,req)
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeKeySyms(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeKeySyms(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
     int			i,len;
     unsigned		nSyms;
@@ -141,14 +123,7 @@ _XkbSizeKeySyms(xkb,req)
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteKeySyms(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteKeySyms(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register KeySym *	pSym;
 CARD32 *		outSym;
@@ -180,13 +155,7 @@ register int	i;
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeKeyActions(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeKeyActions(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
     int			i,len,nActs;
 
@@ -206,14 +175,7 @@ _XkbSizeKeyActions(xkb,req)
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteKeyActions(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteKeyActions(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
     register int	 i;
     int	 		 n;
@@ -244,13 +206,7 @@ _XkbWriteKeyActions(dpy,xkb,req)
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeKeyBehaviors(XkbDescPtr	xkb,xkbSetMapReq *req)
-#else
-_XkbSizeKeyBehaviors(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int i,first,last,nFound;
 
@@ -271,14 +227,7 @@ register int i,first,last,nFound;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteKeyBehaviors(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteKeyBehaviors(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int 		i,first,last;
 xkbBehaviorWireDesc *	wire;
@@ -305,12 +254,7 @@ char *			buf;
 }
 
 static unsigned
-#if NeedFunctionPrototypes
 _XkbSizeVirtualMods(xkbSetMapReq *req)
-#else
-_XkbSizeVirtualMods(req)
-    xkbSetMapReq *	req;
-#endif
 {
 register int i,bit,nMods;
 
@@ -327,18 +271,10 @@ register int i,bit,nMods;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteVirtualMods(	Display *	dpy,
 			XkbDescPtr 	xkb,
 			xkbSetMapReq *	req,
 			unsigned 	size)
-#else
-_XkbWriteVirtualMods(dpy,xkb,req,size)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-    unsigned 		size;
-#endif
 {
     register int	 i,bit;
     CARD8		*vmods;
@@ -355,13 +291,7 @@ _XkbWriteVirtualMods(dpy,xkb,req,size)
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeKeyExplicit(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeKeyExplicit(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int i,first,last,nFound;
 
@@ -383,14 +313,7 @@ register int i,first,last,nFound;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteKeyExplicit(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteKeyExplicit(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int	i,first,last;
 CARD8 *		wire;
@@ -412,13 +335,7 @@ CARD8 *		wire;
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeModifierMap(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeModifierMap(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int i,first,last,nFound;
 
@@ -440,14 +357,7 @@ register int i,first,last,nFound;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteModifierMap(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteModifierMap(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int	i,first,last;
 CARD8 *		wire;
@@ -471,13 +381,7 @@ CARD8 *		wire;
 }
 
 static int
-#if NeedFunctionPrototypes
 _XkbSizeVirtualModMap(XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbSizeVirtualModMap(xkb,req)
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int i,first,last,nFound;
 
@@ -499,14 +403,7 @@ register int i,first,last,nFound;
 }
 
 static void
-#if NeedFunctionPrototypes
 _XkbWriteVirtualModMap(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-_XkbWriteVirtualModMap(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 register int		i,first,last;
 xkbVModMapWireDesc *	wire;
@@ -530,14 +427,7 @@ xkbVModMapWireDesc *	wire;
 }
 
 static void
-#if NeedFunctionPrototypes
 SendSetMap(Display *dpy,XkbDescPtr xkb,xkbSetMapReq *req)
-#else
-SendSetMap(dpy,xkb,req)
-    Display *		dpy;
-    XkbDescPtr 		xkb;
-    xkbSetMapReq *	req;
-#endif
 {
 xkbSetMapReq tmp;
 unsigned szMods;
@@ -573,14 +463,7 @@ unsigned szMods;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetMap(Display *dpy,unsigned which,XkbDescPtr xkb)
-#else
-XkbSetMap(dpy,which,xkb)
-    Display *	dpy;
-    unsigned 	which;
-    XkbDescPtr	xkb;
-#endif
 {
 register xkbSetMapReq *	req;
 XkbInfoPtr 		xkbi;
@@ -650,14 +533,7 @@ XkbClientMapPtr		map;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbChangeMap(Display *dpy,XkbDescPtr xkb,XkbMapChangesPtr changes)
-#else
-XkbChangeMap(dpy,xkb,changes)
-    Display *		dpy;
-    XkbDescPtr		xkb;
-    XkbMapChangesPtr	changes;
-#endif
 {
 register xkbSetMapReq *	req;
 XkbInfoPtr 		xkbi;

@@ -24,8 +24,17 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86$ */
 
 #include "Xlibint.h"
+
+#ifdef USE_DYNAMIC_XCURSOR
+void
+_XNoticeCreateBitmap (Display	    *dpy,
+		      Pixmap	    pid,
+		      unsigned int  width,
+		      unsigned int  height);
+#endif
 
 Pixmap XCreatePixmap (dpy, d, width, height, depth)
     register Display *dpy;
@@ -44,6 +53,10 @@ Pixmap XCreatePixmap (dpy, d, width, height, depth)
     pid = req->pid = XAllocID(dpy);
     UnlockDisplay(dpy);
     SyncHandle();
+#ifdef USE_DYNAMIC_XCURSOR
+    if (depth == 1)
+	_XNoticeCreateBitmap (dpy, pid, width, height);
+#endif
     return (pid);
 }
 

@@ -24,10 +24,12 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetSSaver.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
 
+int
 XGetScreenSaver(dpy, timeout, interval, prefer_blanking, allow_exp)
      register Display *dpy;
      /* the following are return only vars */

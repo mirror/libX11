@@ -41,14 +41,13 @@ interest in or to any trademark, service mark, logo or trade name of
 Sun Microsystems, Inc. or its licensors is granted.
 
 */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
 
 extern XIM _XDefaultOpenIM(
-#if NeedNestedPrototypes
 	XLCd, Display *, XrmDatabase, char *, char *
-#endif
 			   );
 
 Bool
@@ -65,9 +64,7 @@ XLCd lcd;
 }
 
 extern XOM _XDefaultOpenOM(
-#if NeedFunctionPrototypes
     XLCd, Display*, XrmDatabase, _Xconst char*, _Xconst char*
-#endif
 			   );
 
 Bool

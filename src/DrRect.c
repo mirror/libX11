@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/DrRect.c,v 1.3 2001/01/17 19:41:34 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -32,6 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #define wsize (SIZEOF(xPolyRectangleReq) + WRCTSPERBATCH * SIZEOF(xRectangle))
 #define zsize (SIZEOF(xPolyRectangleReq) + ZRCTSPERBATCH * SIZEOF(xRectangle))
 
+int
 XDrawRectangle(dpy, d, gc, x, y, width, height)
     register Display *dpy;
     Drawable d;

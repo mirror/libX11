@@ -24,10 +24,12 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetPCnt.c,v 1.3 2001/01/17 19:41:36 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
 
+int
 XGetPointerControl(dpy, accel_numer, accel_denom, threshold)
      register Display *dpy;
      /* the following are return only vars */

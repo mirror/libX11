@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GCMisc.c,v 1.3 2001/01/17 19:41:36 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XSetArcMode (dpy, gc, arc_mode)
 register Display *dpy;
 register GC gc;
@@ -42,6 +44,7 @@ int arc_mode;
     return 1;
 }
 
+int
 XSetFillRule (dpy, gc, fill_rule)
 register Display *dpy;
 register GC gc;
@@ -57,6 +60,7 @@ int fill_rule;
     return 1;
 }
 
+int
 XSetFillStyle (dpy, gc, fill_style)
 register Display *dpy;
 register GC gc;
@@ -72,6 +76,7 @@ int fill_style;
     return 1;
 }
 
+int
 XSetGraphicsExposures (dpy, gc, graphics_exposures)
 register Display *dpy;
 register GC gc;
@@ -87,6 +92,7 @@ Bool graphics_exposures;
     return 1;
 }
 
+int
 XSetSubwindowMode (dpy, gc, subwindow_mode)
 register Display *dpy;
 register GC gc;

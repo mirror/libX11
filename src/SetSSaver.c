@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/SetSSaver.c,v 1.3 2001/01/17 19:41:44 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XSetScreenSaver(dpy, timeout, interval, prefer_blank, allow_exp)
     register Display *dpy;
     int timeout, interval, prefer_blank, allow_exp;

@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-
+/* $XFree86: xc/lib/X11/globals.c,v 3.4 2001/07/29 05:01:11 tsi Exp $ */
 
 /*
  *
@@ -53,7 +53,7 @@ from The Open Group.
 /*
  * If we need to define extra variables for each global
  */
-#if (defined(__STDC__) && !defined(UNIXCPP)) || defined(ANSICPP)
+#if !defined(UNIXCPP) || defined(ANSICPP)
 #define ZEROINIT(t,var,val) SetZero(t,var,val); \
   SetZero (long, _libX_##var##Flag, 0); \
   SetZero (void *, _libX_##var##Ptr, NULL)

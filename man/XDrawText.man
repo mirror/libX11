@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XDrText.man,v 1.4 2003/04/28 22:17:54 herrb Exp $
+.\" $XdotOrg: lib/X11/man/XDrawText.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,37 +141,17 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawText 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XDrawText 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawText, XDrawText16, XTextItem, XTextItem16 \- draw polytext text and text drawing structures
 .SH SYNTAX
-XDrawText\^(\^\fIdisplay\fP, \fId\fP\^, \fIgc\fP\^, \fIx\fP\^, \fIy\fP\^, \fIitems\fP\^, \fInitems\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Drawable \fId\fP\^;
-.br
-      GC \fIgc\fP\^;
-.br
-      int \fIx\fP\^, \fIy\fP\^;
-.br
-      XTextItem *\fIitems\fP\^;
-.br
-      int \fInitems\fP\^;
-.LP
-XDrawText16\^(\^\fIdisplay\fP, \fId\fP\^, \fIgc\fP\^, \fIx\fP\^, \fIy\fP\^, \fIitems\fP\^, \fInitems\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Drawable \fId\fP\^;
-.br
-      GC \fIgc\fP\^;
-.br
-      int \fIx\fP\^, \fIy\fP\^;
-.br
-      XTextItem16 *\fIitems\fP\^;
-.br
-      int \fInitems\fP\^;
+.HP
+int XDrawText\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC \fIgc\fP\^,
+int \fIx\fP\^, int \fIy\fP\^, XTextItem *\fIitems\fP\^, int \fInitems\fP\^); 
+.HP
+int XDrawText16\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
+\fIgc\fP\^, int \fIx\fP\^, int \fIy\fP\^, XTextItem16 *\fIitems\fP\^, int
+\fInitems\fP\^); 
 .SH ARGUMENTS
 .IP \fId\fP 1i
 Specifies the drawable. 
@@ -180,7 +163,7 @@ Specifies the GC.
 Specifies an array of text items.
 .IP \fInitems\fP 1i
 Specifies the number of text items in the array.
-.ds Xy , which are relative to the origin of the specified drawable \
+.ds Xy , which are relative to the origin of the specified drawable
 and define the origin of the first character
 .IP \fIx\fP 1i
 .br
@@ -245,10 +228,10 @@ structures contain:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	char *chars;	/* pointer to string */
-	int nchars;	/* number of characters */
-	int delta;	/* delta between strings */
-	Font font;	/* Font to print it in, None don't change */
+	char *chars;	/\(** pointer to string */
+	int nchars;	/\(** number of characters */
+	int delta;	/\(** delta between strings */
+	Font font;	/\(** Font to print it in, None don't change */
 } XTextItem;
 .De
 .LP
@@ -256,10 +239,10 @@ typedef struct {
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	XChar2b *chars;	/* pointer to two-byte characters */
-	int nchars;	/* number of characters */
-	int delta;	/* delta between strings */
-	Font font;	/* font to print it in, None don't change */
+	XChar2b *chars;	/\(** pointer to two-byte characters */
+	int nchars;	/\(** number of characters */
+	int delta;	/\(** delta between strings */
+	Font font;	/\(** font to print it in, None don't change */
 } XTextItem16;
 .De
 .LP

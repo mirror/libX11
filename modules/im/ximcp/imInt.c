@@ -26,6 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imInt.c,v 3.12 2003/04/17 02:06:32 dawes Exp $ */
 
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
@@ -39,8 +40,8 @@ Private Xim 		*_XimCurrentIMlist  = (Xim *)NULL;
 Private int		 _XimCurrentIMcount = 0;
 
 Private Bool
-_XimSetIMStructureList(im)
-    Xim		  im;
+_XimSetIMStructureList(
+    Xim		  im)
 {
     register int  i;
     Xim		 *xim;
@@ -103,7 +104,7 @@ _XimServerDestroy(im_2_destroy)
 	    continue;
 
 	if (im->core.destroy_callback.callback)
-	    (*im->core.destroy_callback.callback)(im,
+	    (*im->core.destroy_callback.callback)((XIM)im,
 			im->core.destroy_callback.client_data, NULL);
 	for (ic = im->core.ic_chain; ic; ic = ic->core.next) {
 	    if (ic->core.destroy_callback.callback) {
@@ -148,8 +149,9 @@ _XimServerReconectableDestroy()
 #endif /* XIM_CONNECTABLE */
 
 Private char	*
-_XimStrstr(src, dest)
-    register char	*src, *dest;
+_XimStrstr(
+    register char	*src,
+    register char	*dest)
 {
     int			 len;
     
@@ -163,8 +165,8 @@ _XimStrstr(src, dest)
 }
 
 Private char *
-_XimMakeImName(lcd)
-    XLCd	   lcd;
+_XimMakeImName(
+    XLCd	   lcd)
 {
     char* begin = NULL;
     char* end = NULL;
@@ -179,13 +181,12 @@ _XimMakeImName(lcd)
 		end++;
 	}
     }
-
     ret = Xmalloc(end - begin + 1);
     if (ret != NULL) {
-	if (begin != NULL) {
+	if (begin != NULL && end != NULL) {
 	    (void)strncpy(ret, begin, end - begin);
 	    ret[end - begin] = '\0';
-        } else {
+	} else {
 	    ret[0] = '\0';
 	}
     }
@@ -194,11 +195,12 @@ _XimMakeImName(lcd)
 }
 
 Public XIM
-_XimOpenIM(lcd, dpy, rdb, res_name, res_class)
-    XLCd		 lcd;
-    Display		*dpy;
-    XrmDatabase		 rdb;
-    char		*res_name, *res_class;
+_XimOpenIM(
+    XLCd		 lcd,
+    Display		*dpy,
+    XrmDatabase		 rdb,
+    char		*res_name,
+    char		*res_class)
 {
     Xim			 im;
     register int	 i;

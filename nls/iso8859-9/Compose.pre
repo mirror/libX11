@@ -4,7 +4,7 @@ XCOMM ISO 8859-9 (Latin5) Compose Sequence
 XCOMM
 XCOMM Sequence Definition
 XCOMM
-XCOMM $XFree86: xc/nls/Compose/iso8859-9,v 1.2 2001/04/26 21:09:40 dawes Exp $
+XCOMM $XFree86: xc/nls/Compose/iso8859-9,v 1.1 1999/06/06 14:05:57 dawes Exp $
 XCOMM
 XCOMM <Multi_key> Means <Compose>
 XCOMM Special Character

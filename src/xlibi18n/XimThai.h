@@ -45,6 +45,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/XimThai.h,v 1.5 2001/12/14 19:54:08 dawes Exp $ */
 
 /*
 **++ 
@@ -65,7 +66,7 @@ SOFTWARE.
 
 #include <X11/Xlib.h>
 
-/* Classification of characters in TACTIS according to WTT */
+/* Classification of characters in TIS620 according to WTT */
 
 #define CTRL    0   /* control chars */
 #define NON     1   /* non composibles */
@@ -107,95 +108,5 @@ SOFTWARE.
 #define THAICAT_ISC     3   /* THAICAT ISC mode */
 #define NOISC	      255   /* No ISC */
 
-
-/* Function prototypes (thaisub.c) */
-
-Private
-int THAI_chtype (  		/* returns classification of a char */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-);
-
-Private
-int THAI_chlevel (		/* returns the display level */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-);
-
-Private
-Bool THAI_isdead ( 		/* return True if char is non-spacing */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-);
-
-Private
-Bool THAI_iscons (		/* return True if char is consonant */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-); 
-
-Private
-Bool THAI_isvowel ( 		/* return True if char is vowel */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-);
-
-Private
-Bool THAI_istone ( 		/* return True if char is tonemark */
-#if NeedFunctionPrototypes
-	unsigned char ch
-#endif
-);
-
-Private
-Bool THAI_iscomposible (
-#if NeedFunctionPrototypes
-	unsigned char follow_ch, 
-	unsigned char lead_ch
-#endif
-);
-
-Private
-Bool THAI_isaccepted (
-#if NeedFunctionPrototypes
-	unsigned char follow_ch, 
-	unsigned char lead_ch, 
-	unsigned char isc_mode
-#endif
-);
-
-Private
-void THAI_apply_write_rules (
-#if NeedFunctionPrototypes
-	unsigned char  *instr, 
-	unsigned char  *outstr, 
-	unsigned char  insert_ch, 
-	int	       *num_insert_ch
-#endif
-);
-
-Private
-int THAI_find_chtype (
-#if NeedFunctionPrototypes
-	unsigned char  *instr, 
-	int	       chtype
-#endif
-);
-
-Private
-int THAI_apply_scm (
-#if NeedFunctionPrototypes
-	unsigned char  	*instr, 
-	unsigned char	*outstr, 
-	unsigned char	spec_ch, 
-	int		num_sp, 
-	unsigned char	insert_ch
-#endif
-);
 
 #endif /* _XIMTHAI_H_ */

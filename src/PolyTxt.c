@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/PolyTxt.c,v 3.5 2001/10/28 03:32:30 tsi Exp $ */
 
 #include "Xlibint.h"
 
+int
 XDrawText(dpy, d, gc, x, y, items, nitems)
     register Display *dpy;
     Drawable d;
@@ -111,7 +113,7 @@ XDrawText(dpy, d, gc, x, y, items, nitems)
             /* register xTextElt *elt; */
 	    int FirstTimeThrough = True;
  	    char *CharacterOffset = item->chars;
-            char *tbuf;
+            char *tbuf = NULL;
 
 	    while((PartialDelta < -128) || (PartialDelta > 127))
             {

@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XACHints.man,v 1.2 2001/01/27 18:19:56 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,27 +140,16 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAllocClassHint 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XAllocClassHint 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocClassHint, XSetClassHint, XGetClassHint, XClassHint \- allocate class hints structure and set or read a window's WM_CLASS property
 .SH SYNTAX
-XClassHint *XAllocClassHint\^(\|)
-.LP
-XSetClassHint\^(\^\fIdisplay\fP, \fIw\fP, \fIclass_hints\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.br
-      XClassHint *\fIclass_hints\fP\^;
-.LP
-Status XGetClassHint\^(\^\fIdisplay\fP, \fIw\fP, \fIclass_hints_return\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP;
-.br
-      XClassHint *\fIclass_hints_return\fP\^;
+.HP
+XClassHint *XAllocClassHint\^(void\^);
+.HP
+XSetClassHint\^(\^Display *\fIdisplay\fP, Window \fIw\fP, XClassHint *\fIclass_hints\fP\^);
+.HP
+Status XGetClassHint\^(\^Display *\fIdisplay\fP, Window \fIw\fP, XClassHint *\fIclass_hints_return\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

@@ -24,26 +24,16 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/StrKeysym.c,v 3.7 2003/04/13 19:22:18 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xresource.h>
 #include <X11/keysymdef.h>
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
-
-extern XrmQuark _XrmInternalStringToQuark();
-
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-
-typedef unsigned long Signature;
+#include "Xresinternal.h"
 
 #define NEEDKTABLE
 #include "ks_tables.h"
+#include "Key.h"
 
 #ifndef KEYSYMDB
 #define KEYSYMDB "/usr/lib/X11/XKeysymDB"
@@ -54,7 +44,7 @@ static XrmDatabase keysymdb;
 static XrmQuark Qkeysym[2];
 
 XrmDatabase
-_XInitKeysymDB()
+_XInitKeysymDB(void)
 {
     if (!initialized)
     {
@@ -74,21 +64,16 @@ _XInitKeysymDB()
     return keysymdb;
 }
 
-#if NeedFunctionPrototypes
-KeySym XStringToKeysym(s)
-    _Xconst char *s;
-#else
-KeySym XStringToKeysym(s)
-    char *s;
-#endif
+KeySym
+XStringToKeysym(_Xconst char *s)
 {
     register int i, n;
     int h;
     register Signature sig = 0;
-    register Const char *p = s;
+    register const char *p = s;
     register int c;
     register int idx;
-    Const unsigned char *entry;
+    const unsigned char *entry;
     unsigned char sig1, sig2;
     KeySym val;
 
@@ -124,7 +109,6 @@ KeySym XStringToKeysym(s)
 	XrmValue result;
 	XrmRepresentation from_type;
 	char c;
-	KeySym val;
 	XrmQuark names[2];
 
 	names[0] = _XrmInternalStringToQuark(s, p - s - 1, sig, False);
@@ -137,12 +121,27 @@ KeySym XStringToKeysym(s)
 	    {
 		c = ((char *)result.addr)[i];
 		if ('0' <= c && c <= '9') val = (val<<4)+c-'0';
-		else if ('a' <= c && c <= 'z') val = (val<<4)+c-'a'+10;
-		else if ('A' <= c && c <= 'Z') val = (val<<4)+c-'A'+10;
+		else if ('a' <= c && c <= 'f') val = (val<<4)+c-'a'+10;
+		else if ('A' <= c && c <= 'F') val = (val<<4)+c-'A'+10;
 		else return NoSymbol;
 	    }
 	    return val;
 	}
+    }
+
+    if (*s == 'U') {
+    	val = 0;
+        for (p = &s[1]; *p; p++) {
+            c = *p;
+	    if ('0' <= c && c <= '9') val = (val<<4)+c-'0';
+	    else if ('a' <= c && c <= 'f') val = (val<<4)+c-'a'+10;
+	    else if ('A' <= c && c <= 'F') val = (val<<4)+c-'A'+10;
+	    else return NoSymbol;
+
+	}
+	if (val >= 0x01000000)
+	    return NoSymbol;
+        return val | 0x01000000;
     }
     return (NoSymbol);
 }

@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/XlcPubI.h,v 3.14 2003/11/17 22:20:10 dawes Exp $ */
 
 #ifndef _XLCPUBLICI_H_
 #define _XLCPUBLICI_H_
@@ -40,40 +41,30 @@
 typedef struct _XLCdPublicMethodsRec *XLCdPublicMethods;
 
 typedef XLCd (*XlcPubCreateProc)(
-#if NeedFunctionPrototypes
-    char*		/* name */,
-    XLCdMethods		/* methods */
-#endif
+    const char*		name,
+    XLCdMethods		methods
 );
 
 typedef Bool (*XlcPubInitializeProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
 typedef void (*XlcPubDestroyProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
 typedef char* (*XlcPubGetValuesProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    XlcArgList		/* args */,
-    int			/* num_args */
-#endif
+    XLCd		lcd,
+    XlcArgList		args,
+    int			num_args
 );
 
 typedef void (*XlcPubGetResourceProc)(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    char*		/* category */,
-    char*		/* class */,
-    char***		/* value */,
-    int*		/* count */
-#endif
+    XLCd		lcd,
+    const char*		category,
+    const char*		_class,
+    char***		value,
+    int*		count
 );
 
 typedef struct _XLCdPublicMethodsPart {
@@ -102,7 +93,7 @@ typedef struct _XLCdPublicPart {
     char *encoding_name;		/* encoding name */
     int mb_cur_max;			/* ANSI C MB_CUR_MAX */
     Bool is_state_depend;		/* state-depend encoding */
-    char *default_string;		/* for XDefaultString() */
+    const char *default_string;		/* for XDefaultString() */
     XPointer xlocale_db;
 } XLCdPublicPart;
 
@@ -116,136 +107,194 @@ extern XLCdMethods _XlcPublicMethods;
 _XFUNCPROTOBEGIN
 
 extern XLCd _XlcCreateLC(
-#if NeedFunctionPrototypes
-    char*		/* name */,
-    XLCdMethods		/* methods */
-#endif
+    const char*		name,
+    XLCdMethods		methods
 );
 
 extern void _XlcDestroyLC(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
+/* Fills into a freshly created XlcCharSet the fields that can be inferred
+   from the ESC sequence. These are side, char_size, set_size. */
 extern Bool _XlcParseCharSet(
-#if NeedFunctionPrototypes
-    XlcCharSet		/* charset */
-#endif
+    XlcCharSet		charset
 );
 
+/* Creates a new XlcCharSet, given its name (including side suffix) and
+   Compound Text ESC sequence (normally at most 4 bytes). */
 extern XlcCharSet _XlcCreateDefaultCharSet(
-#if NeedFunctionPrototypes
-    char*		/* name */,
-    char*		/* control_sequence */
-#endif
+    const char*		name,
+    const char*		ct_sequence
 );
 
 extern XlcCharSet _XlcAddCT(
-#if NeedFunctionPrototypes
-    char*		/* name */,
-    char*		/* control_sequence */
-#endif
+    const char*		name,
+    const char*		ct_sequence
 );
 
+extern Bool _XlcInitCTInfo (void);
+
 extern XrmMethods _XrmDefaultInitParseInfo(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    XPointer*		/* state */
-#endif
+    XLCd		lcd,
+    XPointer*		state
 );
 
 extern int _XmbTextPropertyToTextList(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* dpy */,
-    XTextProperty*	/* text_prop */,
-    char***		/* list_ret */,
-    int*		/* count_ret */
-#endif
+    XLCd		lcd,
+    Display*		dpy,
+    const XTextProperty* text_prop,
+    char***		list_ret,
+    int*		count_ret
 );
 
 extern int _XwcTextPropertyToTextList(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */,
-    Display*		/* dpy */,
-    XTextProperty*	/* text_prop */,
-    wchar_t***		/* list_ret */,
-    int*		/* count_ret */
-#endif
+    XLCd		lcd,
+    Display*		dpy,
+    const XTextProperty* text_prop,
+    wchar_t***		list_ret,
+    int*		count_ret
+);
+
+extern int _Xutf8TextPropertyToTextList(
+    XLCd		lcd,
+    Display*		dpy,
+    const XTextProperty* text_prop,
+    char***		list_ret,
+    int*		count_ret
 );
 
 extern int _XmbTextListToTextProperty(
-#if NeedFunctionPrototypes
     XLCd		/* lcd */,
     Display*		/* dpy */,
     char**		/* list */,
     int			/* count */,
     XICCEncodingStyle	/* style */,
     XTextProperty*	/* text_prop */
-#endif
 );
 
 extern int _XwcTextListToTextProperty(
-#if NeedFunctionPrototypes
     XLCd		/* lcd */,
     Display*		/* dpy */,
     wchar_t**		/* list */,
     int			/* count */,
     XICCEncodingStyle	/* style */,
     XTextProperty*	/* text_prop */
-#endif
+);
+
+extern int _Xutf8TextListToTextProperty(
+    XLCd		/* lcd */,
+    Display*		/* dpy */,
+    char**		/* list */,
+    int			/* count */,
+    XICCEncodingStyle	/* style */,
+    XTextProperty*	/* text_prop */
 );
 
 extern void _XwcFreeStringList(
-#if NeedFunctionPrototypes
     XLCd		/* lcd */,
     wchar_t**		/* list */
-#endif
 );
 
 extern int _XlcResolveLocaleName(
-#if NeedFunctionPrototypes
-    char*		/* lc_name */,
-    XLCdPublicPart*	/* pub */
-#endif
+    const char*		lc_name,
+    XLCdPublicPart*	pub
 );
 
 extern int _XlcResolveI18NPath(
-#if NeedFunctionPrototypes
-    char*		/* buf */,
-    int			/* buf_len */
-#endif
+    char*		buf,
+    int			buf_len
 );
 
 extern char *_XlcLocaleDirName(
-#if NeedFunctionPrototypes
-     char*	       /* dir_name */,
-     char*	       /* lc_name */
-#endif
+     char*             /* dir_name */,
+     size_t,	       /* dir_len */
+     char*             /* lc_name */
 );
 
 extern XPointer _XlcCreateLocaleDataBase(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
 extern void _XlcDestroyLocaleDataBase(
-#if NeedFunctionPrototypes
-    XLCd		/* lcd */
-#endif
+    XLCd		lcd
 );
 
 extern void _XlcGetLocaleDataBase(
-#if NeedFunctionPrototypes
     XLCd		/* lcd */,
-    char*		/* category */,
-    char*		/* name */,
+    const char*		/* category */,
+    const char*		/* name */,
     char***		/* value */,
     int*		/* count */
-#endif
 );
+
+#ifdef X_LOCALE
+extern char *
+_Xsetlocale(
+    int           category,
+    _Xconst char  *name);
+#else
+#ifdef __DARWIN__
+extern char *
+_Xsetlocale(
+    int           category,
+    _Xconst char  *name);
+#endif
+extern char *_XlcMapOSLocaleName(
+    char *osname,
+    char *siname);
+#endif
+
+extern int
+_Xmbstoutf8(
+    char *ustr,
+    const char *str,
+    int len);
+extern int
+_Xlcmbstoutf8(
+    XLCd lcd,
+    char *ustr,
+    const char *str,
+    int len);
+extern int
+_Xmbstowcs(
+    wchar_t *wstr,
+    char *str,
+    int len);
+extern int
+_Xlcwcstombs(
+    XLCd lcd,
+    char *str,
+    wchar_t *wstr,
+    int len);
+extern int
+_Xlcmbstowcs(
+    XLCd lcd,
+    wchar_t *wstr,
+    char *str,
+    int len);
+extern int
+_Xwcstombs(
+    char *str,
+    wchar_t *wstr,
+    int len);
+extern int
+_Xlcmbtowc(
+    XLCd lcd,
+    wchar_t *wstr,
+    char *str,
+    int len);
+extern int
+_Xlcwctomb(
+    XLCd lcd,
+    char *str,
+    wchar_t wc);
+
+
+
+extern XPointer
+_Utf8GetConvByName(
+    const char *name);
 
 _XFUNCPROTOEND
 

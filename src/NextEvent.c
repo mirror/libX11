@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/NextEvent.c,v 1.3 2001/01/17 19:41:40 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
@@ -33,6 +34,7 @@ in this Software without prior written authorization from The Open Group.
  * events.
  */
 
+int
 XNextEvent (dpy, event)
 	register Display *dpy;
 	register XEvent *event;

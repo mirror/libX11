@@ -24,9 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/CopyGC.c,v 1.3 2001/01/17 19:41:33 dawes Exp $ */
 
 #include "Xlibint.h"
 
+int
 XCopyGC (dpy, srcGC, mask, destGC)
      register Display *dpy;
      unsigned long mask;		/* which ones to set initially */

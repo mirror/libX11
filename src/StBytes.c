@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/StBytes.c,v 1.4 2001/12/14 19:54:07 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xatom.h>
@@ -39,6 +40,7 @@ static Atom n_to_atom[8] = {
 	XA_CUT_BUFFER6,
 	XA_CUT_BUFFER7};
 
+int
 XRotateBuffers (dpy, rotate)
     register Display *dpy;
     int rotate;
@@ -79,36 +81,23 @@ char *XFetchBytes (dpy, nbytes)
     return (XFetchBuffer (dpy, nbytes, 0));
 }
 
-#if NeedFunctionPrototypes
+int
 XStoreBuffer (
     register Display *dpy,
     _Xconst char *bytes,
     int nbytes,
     register int buffer)
-#else
-XStoreBuffer (dpy, bytes, nbytes, buffer)
-    register Display *dpy;
-    char *bytes;
-    int nbytes;
-    register int buffer;
-#endif
 {
     if ((buffer < 0) || (buffer > 7)) return 0;
     return XChangeProperty(dpy, RootWindow(dpy, 0), n_to_atom[buffer], 
 	XA_STRING, 8, PropModeReplace, (unsigned char *) bytes, nbytes);
 }
 
-#if NeedFunctionPrototypes
+int
 XStoreBytes (
     register Display *dpy,
     _Xconst char *bytes,
     int nbytes)
-#else
-XStoreBytes (dpy, bytes, nbytes)
-    register Display *dpy;
-    char *bytes;
-    int nbytes;
-#endif
 {
     return XStoreBuffer (dpy, bytes, nbytes, 0);
 }

@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XCreOC.man,v 1.2 2001/01/27 18:19:57 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,29 +140,20 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateOC 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XCreateOC 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateOC, XDestroyOC, XSetOCValues, XGetOCValues, XOMOfOC \- create output contexts
 .SH SYNTAX
-XOC XCreateOC\^(\^\fIom\fP\^, ...)
-.br
-      XOM \fIom\fP\^;
-.LP
-void XDestroyOC\^(\^\fIoc\fP\^)
-.br
-      XOC \fIoc\fP\^;
-.LP
-char * XSetOCValues\^(\^\fIoc\fP\^, ...)
-.br
-      XOC \fIoc\fP\^;
-.LP
-char * XGetOCValues\^(\^\fIoc\fP\^, ...)
-.br
-      XOC \fIoc\fP\^;
-.LP
-XOM XOMOfOC\^(\^\fIoc\fP\^)
-.br
-      XOC \fIoc\fP\^; 
+.HP
+XOC XCreateOC\^(\^XOM \fIom\fP\^); 
+.HP
+void XDestroyOC\^(\^XOC \fIoc\fP\^); 
+.HP
+char * XSetOCValues\^(\^XOC \fIoc\fP\^, ...); 
+.HP
+char * XGetOCValues\^(\^XOC \fIoc\fP\^, ...); 
+.HP
+XOM XOMOfOC\^(\^XOC \fIoc\fP\^); 
 .SH ARGUMENTS
 .IP \fIoc\fP 1i
 Specifies the output context.

@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/lcTxtPr.c,v 3.3 2001/01/17 19:41:55 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"
@@ -31,14 +32,14 @@
 #include <stdio.h>
 
 static int
-get_buf_size(is_wide_char, list, count)
-    Bool is_wide_char;
-    XPointer list;
-    int count;
+get_buf_size(
+    Bool is_wide_char,
+    XPointer list,
+    int count)
 {
-    register int length = 0;
-    register char **mb_list;
-    register wchar_t **wc_list;
+    int length = 0;
+    char **mb_list;
+    wchar_t **wc_list;
 
     if (list == NULL)
 	return 0;
@@ -64,23 +65,23 @@ get_buf_size(is_wide_char, list, count)
 }
 
 static int
-_XTextListToTextProperty(lcd, dpy, from_type, list, count, style, text_prop)
-    XLCd lcd;
-    Display *dpy;
-    char *from_type;
-    XPointer list;
-    int count;
-    XICCEncodingStyle style;
-    XTextProperty *text_prop;
+_XTextListToTextProperty(
+    XLCd lcd,
+    Display *dpy,
+    const char *from_type,
+    XPointer list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
 {
     Atom encoding;
     XlcConv conv;
-    char *to_type;
-    char **mb_list;
-    wchar_t **wc_list;
+    const char *to_type;
+    char **mb_list = NULL;
+    wchar_t **wc_list = NULL;
     XPointer from;
     char *to, *buf, *value;
-    int from_left, to_left, buf_len, nitems, unconv_num, ret, i;
+    int from_left, to_left, buf_len, nitems, unconv_num = 0, ret, i;
     Bool is_wide_char = False;
 
     if (strcmp(XlcNWideChar, from_type) == 0)
@@ -95,6 +96,10 @@ _XTextListToTextProperty(lcd, dpy, from_type, list, count, style, text_prop)
 	case XStdICCTextStyle:
 	    encoding = XA_STRING;
 	    to_type = XlcNString;
+	    break;
+	case XUTF8StringStyle:
+	    encoding = XInternAtom(dpy, "UTF8_STRING", False);
+	    to_type = XlcNUtf8String;
 	    break;
 	case XCompoundTextStyle:
 	    encoding = XInternAtom(dpy, "COMPOUND_TEXT", False);
@@ -209,27 +214,40 @@ done:
 }
 
 int
-_XmbTextListToTextProperty(lcd, dpy, list, count, style, text_prop)
-    XLCd lcd;
-    Display *dpy;
-    char **list;
-    int count;
-    XICCEncodingStyle style;
-    XTextProperty *text_prop;
+_XmbTextListToTextProperty(
+    XLCd lcd,
+    Display *dpy,
+    char **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
 {
     return _XTextListToTextProperty(lcd, dpy, XlcNMultiByte, (XPointer) list,
 				    count, style, text_prop);
 }
 
 int
-_XwcTextListToTextProperty(lcd, dpy, list, count, style, text_prop)
-    XLCd lcd;
-    Display *dpy;
-    wchar_t **list;
-    int count;
-    XICCEncodingStyle style;
-    XTextProperty *text_prop;
+_XwcTextListToTextProperty(
+    XLCd lcd,
+    Display *dpy,
+    wchar_t **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
 {
     return _XTextListToTextProperty(lcd, dpy, XlcNWideChar, (XPointer) list,
+				    count, style, text_prop);
+}
+
+int
+_Xutf8TextListToTextProperty(
+    XLCd lcd,
+    Display *dpy,
+    char **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
+{
+    return _XTextListToTextProperty(lcd, dpy, XlcNUtf8String, (XPointer) list,
 				    count, style, text_prop);
 }

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/LiProps.c,v 1.3 2001/01/17 19:41:39 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -57,7 +58,7 @@ int *n_props;  /* RETURN */
 	    SyncHandle();
 	    return (Atom *) NULL;
 	}
-	_XRead32 (dpy, (char *) properties, nbytes);
+	_XRead32 (dpy, (long *) properties, nbytes);
     }
     else properties = (Atom *) NULL;
 

@@ -23,41 +23,40 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/lcConv.c,v 1.5 2000/12/04 18:49:26 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <stdio.h>
 
-typedef XlcConv (*XlcConverter)();
-
 typedef struct _XlcConverterListRec {
     XLCd from_lcd;
-    char *from;
+    const char *from;
     XrmQuark from_type;
     XLCd to_lcd;
-    char *to;
+    const char *to;
     XrmQuark to_type;
-    XlcConverter converter;
+    XlcOpenConverterProc converter;
     struct _XlcConverterListRec *next;
 } XlcConverterListRec, *XlcConverterList;
 
 static XlcConverterList conv_list = NULL;
 
 static void
-close_converter(conv)
-    XlcConv conv;
+close_converter(
+    XlcConv conv)
 {
     (*conv->methods->close)(conv);
 }
 
 static XlcConv
-get_converter(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    XrmQuark from_type;
-    XLCd to_lcd;
-    XrmQuark to_type;
+get_converter(
+    XLCd from_lcd,
+    XrmQuark from_type,
+    XLCd to_lcd,
+    XrmQuark to_type)
 {
-    register XlcConverterList list, prev = NULL;
+    XlcConverterList list, prev = NULL;
 
     for (list = conv_list; list; list = list->next) {
 	if (list->from_lcd == from_lcd && list->to_lcd == to_lcd 
@@ -74,20 +73,20 @@ get_converter(from_lcd, from_type, to_lcd, to_type)
 
 	prev = list;
     }
-    
+
     return (XlcConv) NULL;
 }
 
 Bool
-_XlcSetConverter(from_lcd, from, to_lcd, to, converter)
-    XLCd from_lcd;
-    char *from;
-    XLCd to_lcd;
-    char *to;
-    XlcOpenConverterProc converter;
+_XlcSetConverter(
+    XLCd from_lcd,
+    const char *from,
+    XLCd to_lcd,
+    const char *to,
+    XlcOpenConverterProc converter)
 {
-    register XlcConverterList list;
-    register XrmQuark from_type, to_type;
+    XlcConverterList list;
+    XrmQuark from_type, to_type;
 
     from_type = XrmStringToQuark(from);
     to_type = XrmStringToQuark(to);
@@ -104,7 +103,7 @@ _XlcSetConverter(from_lcd, from, to_lcd, to, converter)
     list = (XlcConverterList) Xmalloc(sizeof(XlcConverterListRec));
     if (list == NULL)
 	return False;
-    
+
     list->from_lcd = from_lcd;
     list->from = from;
     list->from_type = from_type;
@@ -124,14 +123,14 @@ typedef struct _ConvRec {
 } ConvRec, *Conv;
 
 static int
-indirect_convert(lc_conv, from, from_left, to, to_left, args, num_args)
-    XlcConv lc_conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+indirect_convert(
+    XlcConv lc_conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
 {
     Conv conv = (Conv) lc_conv->state;
     XlcConv from_conv = conv->from_conv;
@@ -161,28 +160,35 @@ indirect_convert(lc_conv, from, from_left, to, to_left, args, num_args)
 	if (ret < 0)
 	    break;
 
-	length = cs_left = cs - buf;
-	cs = buf;
+	unconv_num += ret;
 
-	tmp_args[0] = (XPointer) charset;
+	length = cs - buf;
+	if (length > 0) {
+	    cs_left = length;
+	    cs = buf;
 
-	ret = (*to_conv->methods->convert)(to_conv, &cs, &cs_left, to, to_left,
-					   tmp_args, 1);
-	if (ret < 0) {
-	    unconv_num += length / charset->char_size;
-	    continue;
+	    tmp_args[0] = (XPointer) charset;
+
+	    ret = (*to_conv->methods->convert)(to_conv, &cs, &cs_left, to, to_left,
+					       tmp_args, 1);
+	    if (ret < 0) {
+		unconv_num += length / (charset->char_size > 0 ? charset->char_size : 1);
+		continue;
+	    }
+
+	    unconv_num += ret;
+
+	    if (*to_left < 1)
+		break;
 	}
-	
-	if (*to_left < 1)
-	    break;
     }
 
     return unconv_num;
 }
 
 static void
-close_indirect_converter(lc_conv)
-    XlcConv lc_conv;
+close_indirect_converter(
+    XlcConv lc_conv)
 {
     Conv conv = (Conv) lc_conv->state;
 
@@ -199,8 +205,8 @@ close_indirect_converter(lc_conv)
 }
 
 static void
-reset_indirect_converter(lc_conv)
-    XlcConv lc_conv;
+reset_indirect_converter(
+    XlcConv lc_conv)
 {
     Conv conv = (Conv) lc_conv->state;
 
@@ -219,11 +225,11 @@ static XlcConvMethodsRec conv_methods = {
 } ;
 
 static XlcConv
-open_indirect_converter(from_lcd, from, to_lcd, to)
-    XLCd from_lcd;
-    char *from;
-    XLCd to_lcd;
-    char *to;
+open_indirect_converter(
+    XLCd from_lcd,
+    const char *from,
+    XLCd to_lcd,
+    const char *to)
 {
     XlcConv lc_conv, from_conv, to_conv;
     Conv conv;
@@ -246,13 +252,13 @@ open_indirect_converter(from_lcd, from, to_lcd, to)
     lc_conv = (XlcConv) Xmalloc(sizeof(XlcConvRec));
     if (lc_conv == NULL)
 	return (XlcConv) NULL;
-    
+
     lc_conv->methods = &conv_methods;
 
     lc_conv->state = (XPointer) Xcalloc(1, sizeof(ConvRec));
     if (lc_conv->state == NULL)
 	goto err;
-    
+
     conv = (Conv) lc_conv->state;
 
     from_conv = get_converter(from_lcd, from_type, from_lcd, QCTCharSet);
@@ -284,11 +290,11 @@ err:
 }
 
 XlcConv
-_XlcOpenConverter(from_lcd, from, to_lcd, to)
-    XLCd from_lcd;
-    char *from;
-    XLCd to_lcd;
-    char *to;
+_XlcOpenConverter(
+    XLCd from_lcd,
+    const char *from,
+    XLCd to_lcd,
+    const char *to)
 {
     XlcConv conv;
     XrmQuark from_type, to_type;
@@ -298,34 +304,34 @@ _XlcOpenConverter(from_lcd, from, to_lcd, to)
 
     if ((conv = get_converter(from_lcd, from_type, to_lcd, to_type)))
 	return conv;
-    
+
     return open_indirect_converter(from_lcd, from, to_lcd, to);
 }
 
 void
-_XlcCloseConverter(conv)
-    XlcConv conv;
+_XlcCloseConverter(
+    XlcConv conv)
 {
     close_converter(conv);
 }
 
 int
-_XlcConvert(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+_XlcConvert(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
 {
     return (*conv->methods->convert)(conv, from, from_left, to, to_left, args,
 				     num_args);
 }
 
 void
-_XlcResetConverter(conv)
-    XlcConv conv;
+_XlcResetConverter(
+    XlcConv conv)
 {
     if (conv->methods->reset)
 	(*conv->methods->reset)(conv);

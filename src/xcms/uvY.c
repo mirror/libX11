@@ -35,24 +35,20 @@
  *	DOCUMENTATION
  *		"TekColor Color Management System, System Implementor's Manual"
  */
+/* $XFree86: xc/lib/X11/uvY.c,v 1.3 2001/01/17 19:41:57 dawes Exp $ */
 
 #include <X11/Xos.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
-
-/*
- *	EXTERNS
- */
-extern char	_XcmsCIEuvY_prefix[];
-
+#include <stdio.h>
 
 /*
  *	FORWARD DECLARATIONS
  */
+static int CIEuvY_ParseString(register char *spec, XcmsColor *pColor);
 
-static int CIEuvY_ParseString();
-Status _XcmsCIEuvY_ValidSpec();
 /*
  *	DEFINES
  *		Internal definitions that need NOT be exported to any package
@@ -118,9 +114,9 @@ XcmsColorSpace	XcmsCIEuvYColorSpace =
  *	SYNOPSIS
  */
 static int
-CIEuvY_ParseString(spec, pColor)
-    register char *spec;
-    XcmsColor *pColor;
+CIEuvY_ParseString(
+    register char *spec,
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		This routines takes a string and attempts to convert
@@ -181,8 +177,8 @@ CIEuvY_ParseString(spec, pColor)
  *	SYNOPSIS
  */
 Status
-_XcmsCIEuvY_ValidSpec(pColor)
-    XcmsColor *pColor;
+_XcmsCIEuvY_ValidSpec(
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		Checks if color specification valid for CIE u'v'Y.

@@ -24,11 +24,11 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/SendEvent.c,v 1.4 2001/12/14 19:54:05 dawes Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
 
-extern Status _XEventToWire();
 /*
  * In order to avoid all images requiring _XEventToWire, we install the
  * event converter here if it has never been installed.
@@ -43,7 +43,10 @@ XSendEvent(dpy, w, propagate, event_mask, event)
 {
     register xSendEventReq *req;
     xEvent ev;
-    register Status (**fp)();
+    register Status (**fp)(
+                Display *       /* dpy */,
+                XEvent *        /* re */,
+                xEvent *        /* event */);
     Status status;
 
     LockDisplay (dpy);

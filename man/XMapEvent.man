@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XMEvent.man,v 1.2 2001/01/27 18:20:01 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XMapEvent.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XMapEvent 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XMapEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XMapEvent, XMappingEvent \- MapNotify and MappingNotify event structures
 .SH STRUCTURES
@@ -150,13 +153,13 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* MapNotify */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
+	int type;	/\(** MapNotify */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
 	Window event;
 	Window window;
-	Bool override_redirect;	/* boolean, is override set... */
+	Bool override_redirect;	/\(** boolean, is override set... */
 } XMapEvent;
 .De
 .LP
@@ -205,15 +208,15 @@ events is:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* MappingNotify */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
-	Window window;	/* unused */
-	int request;	/* one of MappingModifier, MappingKeyboard,
+	int type;	/\(** MappingNotify */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
+	Window window;	/\(** unused */
+	int request;	/\(** one of MappingModifier, MappingKeyboard,
 		   MappingPointer */
-	int first_keycode;	/* first keycode */
-	int count;	/* defines range of change w. first_keycode*/
+	int first_keycode;	/\(** first keycode */
+	int count;	/\(** defines range of change w. first_keycode*/
 } XMappingEvent;
 .De
 .LP

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/FillArc.c,v 1.3 2001/01/17 19:41:35 dawes Exp $ */
 
 #include "Xlibint.h"
 
@@ -31,6 +32,7 @@ in this Software without prior written authorization from The Open Group.
 
 #define size (SIZEOF(xPolyFillArcReq) + FARCSPERBATCH * SIZEOF(xArc))
 
+int
 XFillArc(dpy, d, gc, x, y, width, height, angle1, angle2)
     register Display *dpy;
     Drawable d;

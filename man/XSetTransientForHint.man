@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XSeTFHint.man,v 1.2 2001/01/27 18:20:05 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,25 +140,16 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetTransientForHint 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XSetTransientForHint 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetTransientForHint, XGetTransientForHint \- set or read a window's WM_TRANSIENT_FOR property
 .SH SYNTAX
-XSetTransientForHint\^(\^\fIdisplay\fP, \fIw\fP, \fIprop_window\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.br
-      Window \fIprop_window\fP\^;
-.LP
-Status XGetTransientForHint\^(\^\fIdisplay\fP, \fIw\fP, \fIprop_window_return\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.br
-      Window *\fIprop_window_return\fP\^;
+.HP
+int XSetTransientForHint\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
+Window \fIprop_window\fP\^); 
+.HP
+Status XGetTransientForHint\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
+Window *\fIprop_window_return\fP\^); 
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

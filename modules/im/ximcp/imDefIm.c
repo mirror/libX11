@@ -31,19 +31,22 @@ OF THIS SOFTWARE.
                                makoto@sm.sony.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imDefIm.c,v 1.15 2003/08/22 19:27:24 eich Exp $ */
 
 #include <X11/Xatom.h>
 #define NEED_EVENTS
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "XlcPublic.h"
+#include "XlcPubI.h"
 #include "XimTrInt.h"
 #include "Ximint.h"
 
+
 Public int
-_XimCheckDataSize(buf, len)
-    XPointer	 buf;
-    int		 len;
+_XimCheckDataSize(
+    XPointer	 buf,
+    int		 len)
 {
     CARD16	*buf_s = (CARD16 *)buf;
 
@@ -53,20 +56,12 @@ _XimCheckDataSize(buf, len)
 }
 
 Public void
-#if NeedFunctionPrototypes
 _XimSetHeader(
     XPointer	 buf,
     CARD8	 major_opcode,
     CARD8	 minor_opcode,
     INT16	*len
 )
-#else
-_XimSetHeader(buf, major_opcode, minor_opcode, len)
-    XPointer	 buf;
-    CARD8	 major_opcode;
-    CARD8	 minor_opcode;
-    INT16	*len;
-#endif /* NeedFunctionPrototypes */
 {
     CARD8	*buf_b = (CARD8 *)buf;
     CARD16	*buf_s = (CARD16 *)buf;
@@ -79,7 +74,7 @@ _XimSetHeader(buf, major_opcode, minor_opcode, len)
 }
 
 Private char
-_XimGetMyEndian()
+_XimGetMyEndian(void)
 {
     CARD16	 test_card = 1;
 
@@ -90,9 +85,9 @@ _XimGetMyEndian()
 }
 
 Private Bool
-_XimCheckServerName(im, str)
-    Xim		   im;
-    char	  *str;
+_XimCheckServerName(
+    Xim		   im,
+    char	  *str)
 {
     char	  *server_name = im->core.im_name;
     int		   len;
@@ -128,12 +123,12 @@ _XimCheckServerName(im, str)
 }
 
 Private char *
-_XimCheckLocaleName(im, address, address_len, locale_name, len)
-    Xim		   im;
-    char	  *address;
-    int		   address_len;
-    char	  *locale_name[];
-    int		   len;
+_XimCheckLocaleName(
+    Xim		   im,
+    char	  *address,
+    int		   address_len,
+    char	  *locale_name[],
+    int		   len)
 {
     int		   category_len;
     char	  *pp;
@@ -158,7 +153,7 @@ _XimCheckLocaleName(im, address, address_len, locale_name, len)
 	*p = '\0';
 
 	for( n = 0; n < len; n++ )
-	    if( locale_name[n] && !strcmp( pp, locale_name[n] ) )
+	    if( locale_name[n] && !_XlcCompareISOLatin1( pp, locale_name[n] ) )
 		return locale_name[n];
 	if (finish)
 	    break;
@@ -168,12 +163,12 @@ _XimCheckLocaleName(im, address, address_len, locale_name, len)
 }
 
 Private Bool
-_XimCheckTransport(address, address_len, transport, len, trans_addr)
-    char	  *address;
-    int		   address_len;
-    char	  *transport;
-    int		   len;
-    char	 **trans_addr;
+_XimCheckTransport(
+    char	  *address,
+    int		   address_len,
+    char	  *transport,
+    int		   len,
+    char	 **trans_addr)
 {
     int		   category_len = strlen(XIM_TRANSPORT_CATEGORY);
     char	  *pp;
@@ -212,10 +207,10 @@ _XimCheckTransport(address, address_len, transport, len, trans_addr)
 }
 
 Private Bool
-_CheckSNEvent(display, xevent, arg)
-    Display		*display;
-    XEvent		*xevent;
-    XPointer		 arg;
+_CheckSNEvent(
+    Display		*display,
+    XEvent		*xevent,
+    XPointer		 arg)
 {
     XSelectionEvent	*event = (XSelectionEvent *)xevent;
     Window		 window = *(Window*)arg;
@@ -226,11 +221,11 @@ _CheckSNEvent(display, xevent, arg)
 }
 
 Private Bool
-_XimGetSelectionNotify(display, window, target, ret_address)
-    Display		 *display;
-    Window		  window;
-    Atom		  target;
-    char		**ret_address;
+_XimGetSelectionNotify(
+    Display		 *display,
+    Window		  window,
+    Atom		  target,
+    char		**ret_address)
 {
     XEvent		  event;
     XSelectionEvent	 *ev = (XSelectionEvent *)&event;
@@ -255,9 +250,9 @@ _XimGetSelectionNotify(display, window, target, ret_address)
 }
 
 Private Bool
-_XimPreConnectionIM(im, selection)
-    Xim			 im;
-    Atom		 selection;
+_XimPreConnectionIM(
+    Xim			 im,
+    Atom		 selection)
 {
     Display		*display = im->core.display; 
     Atom		 locales, transport;
@@ -373,8 +368,8 @@ Error:
 }
 
 Private Bool
-_XimPreConnect(im)
-    Xim		    im;
+_XimPreConnect(
+    Xim		    im)
 {
     Display	   *display = im->core.display; 
     Atom	    imserver;
@@ -384,7 +379,7 @@ _XimPreConnect(im)
     unsigned long   bytes_after;
     unsigned char  *prop_return;
     Atom	   *atoms;
-    Window	    im_window;
+    Window	    im_window = 0;
     register int    i;
 
     if((imserver = XInternAtom(display, XIM_SERVERS, True)) == (Atom)None)
@@ -420,11 +415,11 @@ _XimPreConnect(im)
 }
 
 Private Bool
-_XimGetAuthProtocolNames(im, buf, num, len)
-    Xim		 im;
-    CARD16	*buf;
-    CARD8	*num;
-    INT16	*len;
+_XimGetAuthProtocolNames(
+    Xim		 im,
+    CARD16	*buf,
+    CARD8	*num,
+    INT16	*len)
 {
     if (!IS_USE_AUTHORIZATION_FUNC(im)) {
 	*num = 0;
@@ -438,10 +433,10 @@ _XimGetAuthProtocolNames(im, buf, num, len)
 }
 
 Private Bool
-_XimSetAuthReplyData(im, buf, len)
-    Xim		 im;
-    XPointer	 buf;
-    INT16	*len;
+_XimSetAuthReplyData(
+    Xim		 im,
+    XPointer	 buf,
+    INT16	*len)
 {
     /*
      * Not yet
@@ -451,10 +446,10 @@ _XimSetAuthReplyData(im, buf, len)
 }
 
 Private Bool
-_XimSetAuthNextData(im, buf, len)
-    Xim		 im;
-    XPointer	 buf;
-    INT16	*len;
+_XimSetAuthNextData(
+    Xim		 im,
+    XPointer	 buf,
+    INT16	*len)
 {
     /*
      * Not yet
@@ -464,10 +459,10 @@ _XimSetAuthNextData(im, buf, len)
 }
 
 Private Bool
-_XimSetAuthRequiredData(im, buf, len)
-    Xim		 im;
-    XPointer	 buf;
-    INT16	*len;
+_XimSetAuthRequiredData(
+    Xim		 im,
+    XPointer	 buf,
+    INT16	*len)
 {
     /*
      * Not yet
@@ -477,9 +472,9 @@ _XimSetAuthRequiredData(im, buf, len)
 }
 
 Private Bool
-_XimCheckAuthSetupData(im, buf)
-    Xim		 im;
-    XPointer	 buf;
+_XimCheckAuthSetupData(
+    Xim		 im,
+    XPointer	 buf)
 {
     /*
      * Not yet
@@ -488,9 +483,9 @@ _XimCheckAuthSetupData(im, buf)
 }
 
 Private Bool
-_XimCheckAuthNextData(im, buf)
-    Xim		 im;
-    XPointer	 buf;
+_XimCheckAuthNextData(
+    Xim		 im,
+    XPointer	 buf)
 {
     /*
      * Not yet
@@ -503,9 +498,9 @@ _XimCheckAuthNextData(im, buf)
 #define	BAD_AUTH	0
 
 Private int
-_XimClientAuthCheck(im, buf)
-    Xim		 im;
-    XPointer	 buf;
+_XimClientAuthCheck(
+    Xim		 im,
+    XPointer	 buf)
 {
     /*
      * Not yet
@@ -514,8 +509,8 @@ _XimClientAuthCheck(im, buf)
 }
 
 Private void
-_XimAuthNG(im)
-    Xim		 im;
+_XimAuthNG(
+    Xim		 im)
 {
     CARD32	 buf32[BUFSIZE/4];
     CARD8	*buf = (CARD8 *)buf32;
@@ -528,19 +523,11 @@ _XimAuthNG(im)
 }
 
 Private	Bool
-#if NeedFunctionPrototypes
 _XimAllRecv(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 arg)
-#else
-_XimAllRecv(im, len, data, arg)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 arg;
-#endif
 {
     return True;
 }
@@ -549,8 +536,8 @@ _XimAllRecv(im, len, data, arg)
 #define	CLIENT_WAIT2		2
 
 Private Bool
-_XimConnection(im)
-    Xim		 im;
+_XimConnection(
+    Xim		 im)
 {
     CARD32	 buf32[BUFSIZE/4];
     CARD8	*buf = (CARD8 *)buf32;
@@ -710,19 +697,11 @@ _XimConnection(im)
 }
 
 Private	Bool
-#if NeedFunctionPrototypes
 _XimDisconnectCheck(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 arg)
-#else
-_XimDisconnectCheck(im, len, data, arg)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 arg;
-#endif
 {
     CARD8	 major_opcode = *((CARD8 *)data);
     CARD8	 minor_opcode = *((CARD8 *)data + 1);
@@ -737,8 +716,8 @@ _XimDisconnectCheck(im, len, data, arg)
 }
 
 Private Bool
-_XimDisconnect(im)
-    Xim		 im;
+_XimDisconnect(
+    Xim		 im)
 {
     CARD32	 buf32[BUFSIZE/4];
     CARD8	*buf = (CARD8 *)buf32;
@@ -777,19 +756,11 @@ _XimDisconnect(im)
 }
 
 Private	Bool
-#if NeedFunctionPrototypes
 _XimOpenCheck(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 arg)
-#else
-_XimOpenCheck(im, len, data, arg)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 arg;
-#endif
 {
     CARD8	 major_opcode = *((CARD8 *)data);
     CARD8	 minor_opcode = *((CARD8 *)data + 1);
@@ -804,8 +775,8 @@ _XimOpenCheck(im, len, data, arg)
 }
 
 Private Bool
-_XimOpen(im)
-    Xim			 im;
+_XimOpen(
+    Xim			 im)
 {
     CARD32		 buf32[BUFSIZE/4];
     CARD8		*buf = (CARD8 *)buf32;
@@ -900,19 +871,11 @@ _XimOpen(im)
 }
 
 Private	Bool
-#if NeedFunctionPrototypes
 _XimCloseCheck(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 arg)
-#else
-_XimCloseCheck(im, len, data, arg)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 arg;
-#endif
 {
     CARD16	*buf_s = (CARD16 *)((CARD8 *)data + XIM_HEADER_SIZE);
     CARD8	 major_opcode = *((CARD8 *)data);
@@ -932,8 +895,8 @@ _XimCloseCheck(im, len, data, arg)
 }
 
 Private Bool
-_XimClose(im)
-    Xim		 im;
+_XimClose(
+    Xim		 im)
 {
     CARD32	 buf32[BUFSIZE/4];
     CARD8	*buf = (CARD8 *)buf32;
@@ -990,8 +953,8 @@ _XimClose(im)
 }
 
 Public void
-_XimProtoIMFree(im)
-    Xim		  im;
+_XimProtoIMFree(
+    Xim		  im)
 {
     /* XIMPrivateRec */
     if (im->private.proto.im_onkeylist) {
@@ -1029,6 +992,30 @@ _XimProtoIMFree(im)
     if (im->private.proto.ctow_conv) {
 	_XlcCloseConverter(im->private.proto.ctow_conv);
 	im->private.proto.ctow_conv = NULL;
+    }
+    if (im->private.proto.ctoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.ctoutf8_conv);
+	im->private.proto.ctoutf8_conv = NULL;
+    }
+    if (im->private.proto.cstomb_conv) {
+	_XlcCloseConverter(im->private.proto.cstomb_conv);
+	im->private.proto.cstomb_conv = NULL;
+    }
+    if (im->private.proto.cstowc_conv) {
+	_XlcCloseConverter(im->private.proto.cstowc_conv);
+	im->private.proto.cstowc_conv = NULL;
+    }
+    if (im->private.proto.cstoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.cstoutf8_conv);
+	im->private.proto.cstoutf8_conv = NULL;
+    }
+    if (im->private.proto.ucstoc_conv) {
+	_XlcCloseConverter(im->private.proto.ucstoc_conv);
+	im->private.proto.ucstoc_conv = NULL;
+    }
+    if (im->private.proto.ucstoutf8_conv) {
+	_XlcCloseConverter(im->private.proto.ucstoutf8_conv);
+	im->private.proto.ucstoutf8_conv = NULL;
     }
 
 #ifdef XIM_CONNECTABLE
@@ -1084,8 +1071,8 @@ _XimProtoIMFree(im)
 }
 
 Private Status
-_XimProtoCloseIM(xim)
-    XIM		 xim;
+_XimProtoCloseIM(
+    XIM		 xim)
 {
     Xim		 im = (Xim)xim;
     XIC		 ic;
@@ -1105,6 +1092,13 @@ _XimProtoCloseIM(xim)
 #endif /* XIM_CONNECTABLE */
 	ic = next;
     }
+#ifdef XIM_CONNECTABLE
+    if (!(!IS_SERVER_CONNECTED(im) && IS_RECONNECTABLE(im)))
+	im->core.ic_chain = NULL;
+#else
+    im->core.ic_chain = NULL;
+#endif
+
     _XimUnregisterServerFilter(im);
     _XimResetIMInstantiateCallback(im);
     status = (Status)_XimClose(im);
@@ -1123,11 +1117,12 @@ _XimProtoCloseIM(xim)
     return status;
 }
 
+#ifdef XIM_CONNECTABLE
 Private Bool
-_XimCheckIMQuarkList(quark_list, num_quark, quark)
-    XrmQuark		*quark_list;
-    int			 num_quark;
-    XrmQuark		 quark;
+_XimCheckIMQuarkList(
+    XrmQuark		*quark_list,
+    int			 num_quark,
+    XrmQuark		 quark)
 {
     register int	 i;
 
@@ -1139,11 +1134,10 @@ _XimCheckIMQuarkList(quark_list, num_quark, quark)
     return False;
 }
 
-#ifdef XIM_CONNECTABLE
 Private Bool
-_XimSaveIMValues(im, arg)
-    Xim			 im;
-    XIMArg		*arg;
+_XimSaveIMValues(
+    Xim			 im,
+    XIMArg		*arg)
 {
     register XIMArg	*p;
     register int	 n;
@@ -1190,9 +1184,9 @@ _XimSaveIMValues(im, arg)
 }
 
 Private char *
-_XimDelayModeSetIMValues(im, arg)
-    Xim			 im;
-    XIMArg		*arg;
+_XimDelayModeSetIMValues(
+    Xim			 im,
+    XIMArg		*arg)
 {
     XimDefIMValues	 im_values;
     char		*name;
@@ -1208,19 +1202,11 @@ _XimDelayModeSetIMValues(im, arg)
 #endif /* XIM_CONNECTABLE */
 
 Private Bool
-#if NeedFunctionPrototypes
 _XimSetIMValuesCheck(
     Xim          im,
     INT16        len,
     XPointer	 data,
     XPointer     arg)
-#else
-_XimSetIMValuesCheck(im, len, data, arg)
-    Xim          im;
-    INT16        len;
-    XPointer	 data;
-    XPointer     arg;
-#endif
 {
     CARD16	*buf_s = (CARD16 *)((CARD8 *)data + XIM_HEADER_SIZE);
     CARD8	 major_opcode = *((CARD8 *)data);
@@ -1240,9 +1226,9 @@ _XimSetIMValuesCheck(im, len, data, arg)
 }
 
 Private char *
-_XimProtoSetIMValues(xim, arg)
-    XIM			 xim;
-    XIMArg		*arg;
+_XimProtoSetIMValues(
+    XIM			 xim,
+    XIMArg		*arg)
 {
     Xim			 im = (Xim)xim;
     XimDefIMValues	 im_values;
@@ -1372,9 +1358,9 @@ _XimProtoSetIMValues(xim, arg)
 
 #ifdef XIM_CONNECTABLE
 Private char *
-_XimDelayModeGetIMValues(im, arg)
-    Xim			 im;
-    XIMArg		*arg;
+_XimDelayModeGetIMValues(
+    Xim			 im,
+    XIMArg		*arg)
 {
     XimDefIMValues	 im_values;
 
@@ -1385,19 +1371,11 @@ _XimDelayModeGetIMValues(im, arg)
 #endif /* XIM_CONNECTABLE */
 
 Private Bool
-#if NeedFunctionPrototypes
 _XimGetIMValuesCheck(
     Xim          im,
     INT16        len,
     XPointer	 data,
     XPointer     arg)
-#else
-_XimGetIMValuesCheck(im, len, data, arg)
-    Xim          im;
-    INT16        len;
-    XPointer	 data;
-    XPointer     arg;
-#endif
 {
     CARD16	*buf_s = (CARD16 *)((CARD8 *)data + XIM_HEADER_SIZE);
     CARD8	 major_opcode = *((CARD8 *)data);
@@ -1417,9 +1395,9 @@ _XimGetIMValuesCheck(im, len, data, arg)
 }
 
 Private char *
-_XimProtoGetIMValues(xim, arg)
-    XIM			 xim;
-    XIMArg		*arg;
+_XimProtoGetIMValues(
+    XIM			 xim,
+    XIMArg		*arg)
 {
     Xim			 im = (Xim)xim;
     register XIMArg	*p;
@@ -1429,7 +1407,7 @@ _XimProtoGetIMValues(xim, arg)
     INT16		 len;
     CARD32		 reply32[BUFSIZE/4];
     char		*reply = (char *)reply32;
-    XPointer		 preply;
+    XPointer		 preply = NULL;
     int			 buf_size;
     int			 ret_code;
     char		*makeid_name;
@@ -1534,14 +1512,15 @@ Private XIMMethodsRec     im_methods = {
     _XimProtoGetIMValues,       /* get_values */
     _XimProtoCreateIC,          /* create_ic */
     _Ximctstombs,		/* ctstombs */
-    _Ximctstowcs		/* ctstowcs */
+    _Ximctstowcs,		/* ctstowcs */
+    _Ximctstoutf8		/* ctstoutf8 */
 };
 
 Private Bool
-_XimSetEncodingByName(im, buf, len)
-    Xim		  im;
-    char	**buf;
-    int		 *len;
+_XimSetEncodingByName(
+    Xim		  im,
+    char	**buf,
+    int		 *len)
 {
     char	*encoding = (char *)NULL;
     int		 encoding_len;
@@ -1571,10 +1550,10 @@ _XimSetEncodingByName(im, buf, len)
 }
 
 Private Bool
-_XimSetEncodingByDetail(im, buf, len)
-    Xim		 im;
-    char	**buf;
-    int		 *len;
+_XimSetEncodingByDetail(
+    Xim		 im,
+    char	**buf,
+    int		 *len)
 {
     *len = 0;
     *buf = NULL;
@@ -1582,20 +1561,23 @@ _XimSetEncodingByDetail(im, buf, len)
 }
 
 Private Bool
-_XimGetEncoding(im, buf, name, name_len, detail, detail_len)
-    Xim		 im;
-    CARD16	*buf;
-    char	*name;
-    int		 name_len;
-    char	*detail;
-    int		 detail_len;
+_XimGetEncoding(
+    Xim		 im,
+    CARD16	*buf,
+    char	*name,
+    int		 name_len,
+    char	*detail,
+    int		 detail_len)
 {
     XLCd	 lcd = im->core.lcd;
     CARD16	 category = buf[0];
     CARD16	 idx = buf[1];
     int		 len;
-    XlcConv	 ctom_conv;
-    XlcConv	 ctow_conv;
+    XlcConv	 ctom_conv = NULL;
+    XlcConv	 ctow_conv = NULL;
+    XlcConv	 ctoutf8_conv = NULL;
+    XlcConv	 conv;
+    XimProtoPrivateRec *private = &im->private.proto;
 
     if (idx == (CARD16)XIM_Default_Encoding_IDX) { /* XXX */
 	if (!(ctom_conv = _XlcOpenConverter(lcd,
@@ -1603,6 +1585,9 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
 	    return False;
 	if (!(ctow_conv = _XlcOpenConverter(lcd,
 				 XlcNCompoundText, lcd, XlcNWideChar)))
+	    return False;
+	if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 	    return False;
     }
 
@@ -1615,6 +1600,9 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
 		    return False;
 		if (!(ctow_conv = _XlcOpenConverter(lcd,
 				 XlcNCompoundText, lcd, XlcNWideChar)))
+		    return False;
+		if (!(ctoutf8_conv = _XlcOpenConverter(lcd,
+				 XlcNCompoundText, lcd, XlcNUtf8String)))
 		    return False;
 		break;
 	    } else {
@@ -1633,25 +1621,40 @@ _XimGetEncoding(im, buf, name, name_len, detail, detail_len)
     } else {
 	return False;
     }
-    im->private.proto.ctom_conv = ctom_conv;
-    im->private.proto.ctow_conv = ctow_conv;
+
+    private->ctom_conv = ctom_conv;
+    private->ctow_conv = ctow_conv;
+    private->ctoutf8_conv = ctoutf8_conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNMultiByte)))
+	return False;
+    private->cstomb_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNWideChar)))
+	return False;
+    private->cstowc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNCharSet, lcd, XlcNUtf8String)))
+	return False;
+    private->cstoutf8_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNChar)))
+	return False;
+    private->ucstoc_conv = conv;
+
+    if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
+	return False;
+    private->ucstoutf8_conv = conv;
+
     return True;
 }
 
 Private	Bool
-#if NeedFunctionPrototypes
 _XimEncodingNegoCheck(
     Xim		 im,
     INT16	 len,
     XPointer	 data,
     XPointer	 arg)
-#else
-_XimEncodingNegoCheck(im, len, data, arg)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-    XPointer	 arg;
-#endif
 {
     CARD16	*buf_s = (CARD16 *)((CARD8 *)data + XIM_HEADER_SIZE);
     CARD8	 major_opcode = *((CARD8 *)data);
@@ -1671,8 +1674,8 @@ _XimEncodingNegoCheck(im, len, data, arg)
 }
 
 Private Bool
-_XimEncodingNegotiation(im)
-    Xim		 im;
+_XimEncodingNegotiation(
+    Xim		 im)
 {
     char	*name_ptr = 0;
     int		 name_len = 0;
@@ -1778,8 +1781,8 @@ _XimEncodingNegotiation(im)
 
 #ifdef XIM_CONNECTABLE
 Private Bool
-_XimSendSavedIMValues(im)
-    Xim			 im;
+_XimSendSavedIMValues(
+    Xim			 im)
 {
     XimDefIMValues	 im_values;
     INT16		 len;
@@ -1888,8 +1891,8 @@ _XimSendSavedIMValues(im)
 }
 
 Private void
-_XimDelayModeIMFree(im)
-    Xim		 im;
+_XimDelayModeIMFree(
+    Xim		 im)
 {
     if (im->core.im_resources) {
 	Xfree(im->core.im_resources);
@@ -1911,8 +1914,8 @@ _XimDelayModeIMFree(im)
 }
 
 Public Bool
-_XimConnectServer(im)
-    Xim		 im;
+_XimConnectServer(
+    Xim		 im)
 {
     Xim		 save_im;
 
@@ -1935,8 +1938,8 @@ _XimConnectServer(im)
 }
 
 Public Bool
-_XimDelayModeSetAttr(im)
-    Xim			 im;
+_XimDelayModeSetAttr(
+    Xim			 im)
 {
     XimDefIMValues	 im_values;
 
@@ -1967,8 +1970,8 @@ _XimDelayModeSetAttr(im)
 }
 
 Private Bool
-_XimReconnectModeSetAttr(im)
-    Xim			 im;
+_XimReconnectModeSetAttr(
+    Xim			 im)
 {
     XimDefIMValues	 im_values;
 
@@ -1994,8 +1997,8 @@ _XimReconnectModeSetAttr(im)
 #endif /* XIM_CONNECTABLE */
 
 Public Bool
-_XimProtoOpenIM(im)
-    Xim		 im;
+_XimProtoOpenIM(
+    Xim		 im)
 {
     _XimInitialResourceInfo();
 
@@ -2010,6 +2013,7 @@ _XimProtoOpenIM(im)
 	    _XimRegisterServerFilter(im);
 	    return True;
 	}
+	_XimShutdown(im);
 #ifdef XIM_CONNECTABLE
     } else if (IS_DELAYBINDABLE(im)) {
 	if (_XimDelayModeSetAttr(im))

@@ -23,206 +23,544 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/*
+ * 2000
+ * Modifier: Ivan Pascal        The XFree86 Project
+ */
+/* $XFree86: xc/lib/X11/lcDefConv.c,v 1.6 2001/01/17 19:41:53 dawes Exp $ */
+
+/*
+ * The default locale loader.
+ * Supports: one byte per char (iso8859 like) locales.
+ * How: converts bytes to wide characters in a 1:1 manner.
+ * Platforms: all systems.
+ */
 
 #include "Xlibint.h"
-#include "XlcPubI.h"
+#include "XlcGeneric.h"
 
+#ifndef MB_LEN_MAX
+#define MB_LEN_MAX 6
+#endif
+
+#if !defined(macII) && !defined(Lynx_22) && !defined(X_LOCALE)
+#define STDCVT
+#endif
+
+#define GR	0x80
+#define GL	0x7f
+
+typedef struct _StateRec *State;
 typedef struct _StateRec {
+    CodeSet     GL_codeset;
+    CodeSet     GR_codeset;
+    wchar_t     wc_mask;
+    wchar_t     wc_encode_mask;
+    Bool        (*MBtoWC) (State state, const char *ch, wchar_t *wc);
+    Bool        (*WCtoMB) (State state, wchar_t wc, char *ch);
+} StateRec;
+
+static
+Bool MBtoWCdef(
+    State    state,
+    const char *ch,
+    wchar_t  *wc)
+{
+    wchar_t wc_encoding;
+    CodeSet codeset = (*ch & GR) ? state->GR_codeset : state->GL_codeset;
+    if (!codeset)
+	return False;
+    wc_encoding = codeset->wc_encoding;
+    *wc = ((wchar_t) *ch & state->wc_mask) | wc_encoding;
+    return True;
+}
+
+#ifdef STDCVT
+static
+Bool MBtoWCstd(
+    State   state,
+    const char *ch,
+    wchar_t *wc)
+{
+    return (mbtowc(wc, ch, 1) == 1);
+}
+#endif
+
+static
+Bool WCtoMBdef(
+    State   state,
+    wchar_t wc,
+    char    *ch)
+{
+    wchar_t wc_encoding = wc & state->wc_encode_mask;
+    CodeSet codeset;
+
+    codeset = state->GL_codeset;
+    if (codeset && (wc_encoding == codeset->wc_encoding)) {
+	*ch = wc & state->wc_mask;
+	return True;
+    }
+    codeset = state->GR_codeset;
+    if (codeset && (wc_encoding == codeset->wc_encoding)) {
+	*ch = (wc & state->wc_mask) | GR;
+	return True;
+    }
+    return False;
+}
+
+#ifdef STDCVT
+static
+Bool WCtoMBstd(
+    State   state,
+    wchar_t wc,
+    char    *ch)
+{
+    return (wctomb(ch, wc) == 1);
+}
+#endif
+
+static
+XlcCharSet get_charset(
+    State  state,
+    char   side)
+{
+    CodeSet codeset = side ? state->GR_codeset : state->GL_codeset;
+    if (codeset) {
+	int i;
+	XlcCharSet charset;
+	for (i = 0; i < codeset->num_charsets; i++) {
+	    charset = codeset->charset_list[i];
+	    if (*charset->ct_sequence != '\0')
+		return charset;
+	}
+	return *(codeset->charset_list);
+    }
+    return (XlcCharSet) NULL;
+}
+
+static int
+def_mbstowcs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const char *src = (const char *) *from;
+    wchar_t *dst = (wchar_t *) * to;
+    State state = (State) conv->state;
+    int unconv = 0;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    while (*from_left && *to_left) {
+	(*from_left)--;
+	if (state->MBtoWC (state, src++, dst)) {
+	    dst++;
+	    (*to_left)--;
+	} else {
+	    unconv++;
+	}
+    }
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+def_wcstombs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const wchar_t *src = (const wchar_t *) * from;
+    char  *dst = (char *) *to;
+    State state = (State) conv->state;
+    char ch[MB_LEN_MAX];
+    int unconv = 0;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    while (*from_left && *to_left) {
+	(*from_left)--;
+	if (state->WCtoMB (state, *src++, ch)) {
+	    *dst++ = *ch;
+	    (*to_left)--;
+	} else {
+	    unconv++;
+	}
+    }
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+mbstostr(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const char *src = (const char *) *from;
+    char *dst = (char *) *to;
+    CodeSet codeset;
+    State state = (State) conv->state;
+    char ch;
+    int unconv = 0;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    while (*from_left && *to_left) {
+	ch = *src++;
+	(*from_left)--;
+
+	codeset = (ch & GR) ? state->GR_codeset : state->GL_codeset;
+	if (codeset && codeset->string_encoding) {
+	    *dst++ = ch;
+	    (*to_left)--;
+	} else {
+	    unconv++;
+	}
+    }
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+wcstostr(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const wchar_t *src = (const wchar_t *) *from;
+    char *dst = (char *) *to;
+    CodeSet codeset;
+    State state = (State) conv->state;
+    char ch[MB_LEN_MAX];
+    int unconv = 0;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    while (*from_left && *to_left) {
+	(*from_left)--;
+	if (state->WCtoMB (state, *src++, ch)) {
+	    codeset = (*ch & GR) ? state->GR_codeset : state->GL_codeset;
+	    if (codeset && codeset->string_encoding) {
+		*dst++ = *ch;
+		(*to_left)--;
+	    } else {
+		unconv++;
+	    }
+	} else {
+	    unconv++;
+	}
+    }
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+mbstocs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const char *src = (const char *) *from;
+    char *dst = (char *) *to;
+    int length;
+    State state = (State) conv->state;
+    char cur_side;
+    int unconv = 0;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    length = min(*from_left, *to_left);
+
+    cur_side = *src & GR;
+    while (length) {
+	if ((char) (*src & GR) != cur_side)
+	    break;
+	*dst++ = *src++;
+	length--;
+    }
+
+    if (num_args > 0) {
+	XlcCharSet      charset = get_charset(state, cur_side);
+	if (charset) {
+	    *((XlcCharSet *) args[0]) = charset;
+	} else {
+	    dst = *to;
+	    unconv = -1;
+	}
+    }
+    *from_left -= src - (char *) *from;
+    *to_left -= dst - (char *) *to;
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+wcstocs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const wchar_t *src = (const wchar_t *) * from;
+    char *dst = (char *) *to;
+    State state = (State) conv->state;
+    char cur_side = 0, ch[MB_LEN_MAX];
+    int unconv = 0;
+    Bool found = False;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    while (*from_left) {
+	if ((found = state->WCtoMB (state, *src, ch)))
+	    break;
+	unconv++;
+	src++;
+	(*from_left)--;
+    }
+
+    if (found) {
+	cur_side = *ch & GR;
+	while (*from_left && *to_left) {
+	    (*from_left)--;
+	    if (state->WCtoMB (state, *src++, ch)) {
+		if ((char) (*ch & GR) != cur_side) {
+		    src--;
+		    (*from_left)++;
+		    break;
+		} else {
+		    *dst++ = *ch;
+		    (*to_left)--;
+		}
+	    } else {
+		unconv++;
+	    }
+	}
+    } else {
+	unconv++;
+    }
+
+    if (num_args > 0) {
+	XlcCharSet charset = get_charset(state, cur_side);
+	if (charset) {
+	    *((XlcCharSet *) args[0]) = charset;
+	} else {
+	    unconv = -1;
+	}
+    }
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return unconv;
+}
+
+static int
+cstombs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const char *src = (const char *) *from;
+    char *dst = (char *) *to;
+    CodeSet codeset;
     XlcCharSet charset;
-    XlcCharSet GL_charset;
-    XlcCharSet GR_charset;
-    XlcConv ct_conv;
-    int (*to_converter)();
-} StateRec, *State;
-
-static int
-strtostr(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
-{
-    register char *src, *dst;
-    unsigned char side;
-    register int length;
-
-    if (from == NULL || *from == NULL)
-	return 0;
-
-    src = (char *) *from;
-    dst = (char *) *to;
-
-    length = min(*from_left, *to_left);
-
-    if (num_args > 0) {
-	side = (length > 0) ? *((unsigned char *) src) & 0x80 : 0;
-	while (length-- > 0 && side == (*((unsigned char *) src) & 0x80))
-	    *dst++ = *src++;
-    } else {
-	while (length-- > 0)
-	    *dst++ = *src++;
-    }
-    
-    *from_left -= src - (char *) *from;
-    *from = (XPointer) src;
-    *to_left -= dst - (char *) *to;
-    *to = (XPointer) dst;
-
-    if (num_args > 0) {
-	State state = (State) conv->state;
-
-	*((XlcCharSet *)args[0]) = side ? state->GR_charset : state->GL_charset;
-    }
-
-    return 0;
-}
-
-static int
-wcstostr(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
-{
-    register wchar_t *src, side;
-    register char *dst;
-    register int length;
-
-    if (from == NULL || *from == NULL)
-	return 0;
-
-    src = (wchar_t *) *from;
-    dst = (char *) *to;
-
-    length = min(*from_left, *to_left);
-
-    if (num_args > 0) {
-	side = (length > 0) ? *src & 0x80 : 0;
-	while (length-- > 0 && side == (*src & 0x80))
-	    *dst++ = *src++;
-    } else {
-	while (length-- > 0)
-	    *dst++ = *src++;
-    }
-    
-    *from_left -= src - (wchar_t *) *from;
-    *from = (XPointer) src;
-    *to_left -= dst - (char *) *to;
-    *to = (XPointer) dst;
-
-    if (num_args > 0) {
-	State state = (State) conv->state;
-
-	*((XlcCharSet *)args[0]) = side ? state->GR_charset : state->GL_charset;
-    }
-
-    return 0;
-}
-
-static int
-cstostr(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
-{
-    register char *src, *dst;
-    unsigned char side;
-    register int length;
+    State state = (State) conv->state;
+    unsigned char cur_side = 0;
+    int i;
+    Bool found = False;
 
     if (from == NULL || *from == NULL)
 	return 0;
 
     if (num_args > 0) {
-	State state = (State) conv->state;
-	XlcCharSet charset = (XlcCharSet) args[0];
-
-	if (charset != state->GL_charset && charset != state->GR_charset)
+	charset = (XlcCharSet) args[0];
+	if (charset == NULL)
 	    return -1;
-    }
-
-    src = (char *) *from;
-    dst = (char *) *to;
-
-    length = min(*from_left, *to_left);
-
-    if (num_args > 0) {
-	side = (length > 0) ? *((unsigned char *) src) & 0x80 : 0;
-	while (length-- > 0 && side == (*((unsigned char *) src) & 0x80))
-	    *dst++ = *src++;
     } else {
-	while (length-- > 0)
-	    *dst++ = *src++;
+	return -1;
     }
-    
+
+    if ((charset->side == XlcGL) || (charset->side == XlcGLGR)) {
+	codeset = state->GL_codeset;
+	if (codeset) {
+	    for (i = 0; i < codeset->num_charsets; i++)
+		if (charset == codeset->charset_list[i]) {
+		    found = True;
+		    cur_side = 0;
+		    break;
+		}
+	}
+    }
+    if (!found && ((charset->side == XlcGR) || (charset->side == XlcGLGR))) {
+	codeset = state->GR_codeset;
+	if (codeset) {
+	    for (i = 0; i < codeset->num_charsets; i++)
+		if (charset == codeset->charset_list[i]) {
+		    found = True;
+		    cur_side = GR;
+		    break;
+		}
+	}
+    }
+    if (found) {
+	int length = min(*from_left, *to_left);
+	while (length) {
+	    *dst++ = *src++ | cur_side;
+	    length--;
+	}
+    } else {
+	return -1;
+    }
+
     *from_left -= src - (char *) *from;
-    *from = (XPointer) src;
     *to_left -= dst - (char *) *to;
+    *from = (XPointer) src;
     *to = (XPointer) dst;
-
-    if (num_args > 0) {
-	State state = (State) conv->state;
-
-	*((XlcCharSet *)args[0]) = side ? state->GR_charset : state->GL_charset;
-    }
-
     return 0;
 }
 
 static int
-strtowcs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+cstowcs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
 {
-    register char *src;
-    register wchar_t *dst;
-    register int length;
+    const char *src = (const char *) *from;
+    wchar_t *dst = (wchar_t *) * to;
+    CodeSet codeset;
+    XlcCharSet charset;
+    State state = (State) conv->state;
+    Bool found = False;
+    int i, unconv = 0;
+    unsigned char cur_side = 0;
 
     if (from == NULL || *from == NULL)
 	return 0;
 
     if (num_args > 0) {
-	State state = (State) conv->state;
-	XlcCharSet charset = (XlcCharSet) args[0];
-
-	if (charset != state->GL_charset && charset != state->GR_charset)
+	charset = (XlcCharSet) args[0];
+	if (charset == NULL)
 	    return -1;
+    } else {
+	return -1;
     }
 
-    src = (char *) *from;
-    dst = (wchar_t *) *to;
-
-    length = min(*from_left, *to_left);
-
-    while (length-- > 0)
-	*dst++ = (wchar_t) *src++;
-    
-    *from_left -= src - (char *) *from;
+    if ((charset->side == XlcGL) || (charset->side == XlcGLGR)) {
+	codeset = state->GL_codeset;
+	if (codeset) {
+	    for (i = 0; i < codeset->num_charsets; i++)
+		if (charset == codeset->charset_list[i]) {
+		    found = True;
+		    cur_side = 0;
+		    break;
+		}
+	}
+    }
+    if (!found && ((charset->side == XlcGR) || (charset->side == XlcGLGR))) {
+	codeset = state->GR_codeset;
+	if (codeset) {
+	    for (i = 0; i < codeset->num_charsets; i++)
+		if (charset == codeset->charset_list[i]) {
+		    found = True;
+		    cur_side = GR;
+		    break;
+		}
+	}
+    }
+    if (found) {
+	char ch;
+	while (*from_left && *to_left) {
+	    ch = *src++ | cur_side;
+	    (*from_left)--;
+	    if (state->MBtoWC (state, &ch, dst)) {
+		dst++;
+		(*to_left)--;
+	    } else {
+		unconv++;
+	    }
+	}
+    } else {
+	return -1;
+    }
     *from = (XPointer) src;
-    *to_left -= dst - (wchar_t *) *to;
     *to = (XPointer) dst;
-
-    return 0;
+    return unconv;
 }
 
+static int
+strtombs(
+    XlcConv conv,
+    XPointer *from,
+    int *from_left,
+    XPointer *to,
+    int *to_left,
+    XPointer *args,
+    int num_args)
+{
+    const char *src = (const char *) *from;
+    char *dst = (char *) *to;
+    int length;
+
+    if (from == NULL || *from == NULL)
+	return 0;
+
+    length = min(*from_left, *to_left);
+    while (length) {
+	*dst++ = *src++;
+	length--;
+    }
+
+    *from_left -= src - (char *) *from;
+    *to_left -= dst - (char *) *to;
+    *from = (XPointer) src;
+    *to = (XPointer) dst;
+    return 0;
+}
 
 static void
-close_converter(conv)
-    XlcConv conv;
+close_converter(
+    XlcConv conv)
 {
     if (conv->state)
 	Xfree((char *) conv->state);
@@ -231,132 +569,222 @@ close_converter(conv)
 }
 
 static XlcConv
-create_conv(methods)
-    XlcConvMethods methods;
+create_conv(
+    XLCd lcd,
+    XlcConvMethods methods)
 {
-    register XlcConv conv;
+    XlcConv conv;
     State state;
-    static XlcCharSet GL_charset = NULL;
-    static XlcCharSet GR_charset = NULL;
-
-    if (GL_charset == NULL) {
-	GL_charset = _XlcGetCharSet("ISO8859-1:GL");
-	GR_charset = _XlcGetCharSet("ISO8859-1:GR");
-    }
 
     conv = (XlcConv) Xmalloc(sizeof(XlcConvRec));
     if (conv == NULL)
 	return (XlcConv) NULL;
 
     state = (State) Xmalloc(sizeof(StateRec));
-    if (state == NULL)
-	goto err;
-    
-    state->GL_charset = state->charset = GL_charset;
-    state->GR_charset = GR_charset;
+    if (state == NULL) {
+	close_converter(conv);
+	return (XlcConv) NULL;
+    }
+    state->GL_codeset = XLC_GENERIC(lcd, initial_state_GL);
+    state->GR_codeset = XLC_GENERIC(lcd, initial_state_GR);
+    state->wc_mask = (1 << XLC_GENERIC(lcd, wc_shift_bits)) - 1;
+    state->wc_encode_mask = XLC_GENERIC(lcd, wc_encode_mask);
+
+#ifdef STDCVT
+    if (XLC_GENERIC(lcd, use_stdc_env) == True)
+	state->MBtoWC = &MBtoWCstd;
+    else
+#endif
+	state->MBtoWC = &MBtoWCdef;
+
+#ifdef STDCVT
+    if (XLC_GENERIC(lcd, use_stdc_env) == True)
+	state->WCtoMB = &WCtoMBstd;
+    else
+#endif
+	state->WCtoMB = &WCtoMBdef;
 
     conv->methods = methods;
     conv->state = (XPointer) state;
 
     return conv;
-
-err:
-    close_converter(conv);
-
-    return (XlcConv) NULL;
 }
 
-static XlcConvMethodsRec strtostr_methods = {
+static XlcConvMethodsRec mbstowcs_methods = {
     close_converter,
-    strtostr,
+    def_mbstowcs,
     NULL
-} ;
+};
 
 static XlcConv
-open_strtostr(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_mbstowcs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
 {
-    return create_conv(&strtostr_methods);
+    return create_conv(from_lcd, &mbstowcs_methods);
+}
+
+static XlcConvMethodsRec mbstostr_methods = {
+    close_converter,
+    mbstostr,
+    NULL
+};
+
+static XlcConv
+open_mbstostr(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
+{
+    return create_conv(from_lcd, &mbstostr_methods);
+}
+
+static XlcConvMethodsRec mbstocs_methods = {
+    close_converter,
+    mbstocs,
+    NULL
+};
+
+static XlcConv
+open_mbstocs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
+{
+    return create_conv(from_lcd, &mbstocs_methods);
+}
+
+static XlcConvMethodsRec wcstombs_methods = {
+    close_converter,
+    def_wcstombs,
+    NULL
+};
+
+static XlcConv
+open_wcstombs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
+{
+    return create_conv(from_lcd, &wcstombs_methods);
 }
 
 static XlcConvMethodsRec wcstostr_methods = {
     close_converter,
     wcstostr,
     NULL
-} ;
+};
 
 static XlcConv
-open_wcstostr(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_wcstostr(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
 {
-    return create_conv(&wcstostr_methods);
+    return create_conv(from_lcd, &wcstostr_methods);
 }
 
-static XlcConvMethodsRec cstostr_methods = {
+static XlcConvMethodsRec wcstocs_methods = {
     close_converter,
-    cstostr,
+    wcstocs,
     NULL
-} ;
+};
 
 static XlcConv
-open_cstostr(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_wcstocs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
 {
-    return create_conv(&cstostr_methods);
+    return create_conv(from_lcd, &wcstocs_methods);
 }
 
-static XlcConvMethodsRec strtowcs_methods = {
+static XlcConvMethodsRec strtombs_methods = {
     close_converter,
-    strtowcs,
+    strtombs,
     NULL
-} ;
+};
 
 static XlcConv
-open_strtowcs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_strtombs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
 {
-    return create_conv(&strtowcs_methods);
+    return create_conv(from_lcd, &strtombs_methods);
+}
+
+static XlcConvMethodsRec cstombs_methods = {
+    close_converter,
+    cstombs,
+    NULL
+};
+
+static XlcConv
+open_cstombs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
+{
+    return create_conv(from_lcd, &cstombs_methods);
+}
+
+static XlcConvMethodsRec cstowcs_methods = {
+    close_converter,
+    cstowcs,
+    NULL
+};
+
+static XlcConv
+open_cstowcs(
+    XLCd from_lcd,
+    const char *from_type,
+    XLCd to_lcd,
+    const char *to_type)
+{
+    return create_conv(from_lcd, &cstowcs_methods);
 }
 
 XLCd
-_XlcDefaultLoader(name)
-    char *name;
+_XlcDefaultLoader(
+    const char *name)
 {
     XLCd lcd;
 
-    if (strcmp(name, "C"))
-	return (XLCd) NULL;
+    lcd = _XlcCreateLC(name, _XlcGenericMethods);
+    if (lcd == NULL)
+	return lcd;
 
-    lcd = _XlcCreateLC(name, _XlcPublicMethods);
+    if (XLC_PUBLIC(lcd, mb_cur_max) != 1){
+        _XlcDestroyLC(lcd);
+        return (XLCd) NULL;
+    }
 
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNWideChar, open_strtowcs);
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNCompoundText, open_strtostr);
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNString, open_strtostr);
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNCharSet, open_strtostr);
-    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNChar, open_strtostr);/* XXX */
+    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNWideChar, open_mbstowcs);
+    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNString, open_mbstostr);
+    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNCharSet, open_mbstocs);
+    _XlcSetConverter(lcd, XlcNMultiByte, lcd, XlcNChar, open_mbstocs);
 
-    _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNMultiByte, open_wcstostr);
-    _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNCompoundText, open_wcstostr);
+    _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNMultiByte, open_wcstombs);
     _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNString, open_wcstostr);
-    _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNCharSet, open_wcstostr);
+    _XlcSetConverter(lcd, XlcNWideChar, lcd, XlcNCharSet, open_wcstocs);
 
-    _XlcSetConverter(lcd, XlcNString, lcd, XlcNMultiByte, open_strtostr);
-    _XlcSetConverter(lcd, XlcNString, lcd, XlcNWideChar, open_strtowcs);
+    _XlcSetConverter(lcd, XlcNString, lcd, XlcNMultiByte, open_strtombs);
+    _XlcSetConverter(lcd, XlcNString, lcd, XlcNWideChar, open_mbstowcs);
 
-    _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNMultiByte, open_cstostr);
-    _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNWideChar, open_strtowcs);
+    _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNMultiByte, open_cstombs);
+    _XlcSetConverter(lcd, XlcNCharSet, lcd, XlcNWideChar, open_cstowcs);
+
+    _XlcAddUtf8Converters(lcd);
 
     return lcd;
 }

@@ -24,18 +24,18 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/SetCRects.c,v 1.4 2001/12/14 19:54:06 dawes Exp $ */
 
 #include "Xlibint.h"
 
 /* can only call when display is locked. */
-void _XSetClipRectangles (dpy, gc, clip_x_origin, clip_y_origin, rectangles, n,
-                    ordering)
-    register Display *dpy;
-    GC gc;
-    int clip_x_origin, clip_y_origin;
-    XRectangle *rectangles;
-    int n;
-    int ordering;
+void _XSetClipRectangles (
+    register Display *dpy,
+    GC gc,
+    int clip_x_origin, int clip_y_origin,
+    XRectangle *rectangles,
+    int n,
+    int ordering)
 {
     register xSetClipRectanglesReq *req;
     register long len;
@@ -60,6 +60,7 @@ void _XSetClipRectangles (dpy, gc, clip_x_origin, clip_y_origin, rectangles, n,
     gc->dirty = dirty;
 }
 
+int
 XSetClipRectangles (dpy, gc, clip_x_origin, clip_y_origin, rectangles, n,
                     ordering)
     register Display *dpy;

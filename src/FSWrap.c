@@ -56,6 +56,8 @@ from The Open Group.
 
 */
 
+/* $XFree86: xc/lib/X11/FSWrap.c,v 1.8 2003/08/22 19:27:24 eich Exp $ */
+
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include <ctype.h>
@@ -65,13 +67,13 @@ from The Open Group.
 #define	XMAXLIST	256
 
 char **
-_XParseBaseFontNameList(str, num)
-    char           *str;
-    int            *num;
+_XParseBaseFontNameList(
+    char           *str,
+    int            *num)
 {
     char           *plist[XMAXLIST];
     char          **list;
-    char           *ptr;
+    char           *ptr, *psave;
 
     *num = 0;
     if (!str || !*str) {
@@ -87,6 +89,7 @@ _XParseBaseFontNameList(str, num)
     }
     strcpy(ptr, str);
 
+    psave = ptr;
     /* somebody who specifies more than XMAXLIST basefontnames will lose */
     while (*num < (sizeof plist / sizeof plist[0])) {
 	char	*back;
@@ -110,7 +113,7 @@ _XParseBaseFontNameList(str, num)
 	    break;
     }
     if (!(list = (char **) Xmalloc((unsigned)sizeof(char *) * (*num + 1)))) {
-	Xfree(ptr);
+	Xfree(psave);
 	return (char **)NULL;
     }
     memcpy((char *)list, (char *)plist, sizeof(char *) * (*num));
@@ -120,9 +123,9 @@ _XParseBaseFontNameList(str, num)
 }
 
 static char **
-copy_string_list(string_list, list_count)
-    char **string_list;
-    int list_count;
+copy_string_list(
+    char **string_list,
+    int list_count)
 {
     char **string_list_ret, **list_src, **list_dst, *dst;
     int length, count;
@@ -157,7 +160,6 @@ copy_string_list(string_list, list_count)
     return string_list_ret;
 }
 
-#if NeedFunctionPrototypes
 XFontSet
 XCreateFontSet (
     Display        *dpy,
@@ -165,16 +167,6 @@ XCreateFontSet (
     char         ***missing_charset_list,
     int            *missing_charset_count,
     char          **def_string)
-#else
-XFontSet
-XCreateFontSet (dpy, base_font_name_list, missing_charset_list,
-	        missing_charset_count, def_string)
-    Display        *dpy;
-    char           *base_font_name_list;
-    char         ***missing_charset_list;
-    int            *missing_charset_count;
-    char          **def_string;
-#endif
 {
     XOM om;
     XOC oc;

@@ -33,10 +33,12 @@
  *		querying routine.
  *
  */
+/* $XFree86: xc/lib/X11/LabMxC.c,v 1.3 2001/01/17 19:41:39 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include <math.h>
+#include "Cv.h"
 
 /*
  *	DEFINES
@@ -45,11 +47,6 @@
 #define EPS	        (XcmsFloat)0.001
 #define START_CHROMA	(XcmsFloat)3.6
 #define TOPL		(XcmsFloat)100.0
-
-/*
- *	EXTERNS
- */
-extern Status _XcmsCIELabQueryMaxLCRGB();
 
 
 /************************************************************************

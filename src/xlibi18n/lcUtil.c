@@ -22,57 +22,64 @@
  *
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
+ * Bug fixes: Bruno Haible	XFree86 Inc.
  */
+/* $XFree86: xc/lib/X11/lcUtil.c,v 1.3 2000/11/29 17:40:24 dawes Exp $ */
 
-#include <stdio.h>
-#include <ctype.h>
-#include <X11/Xos.h>
-#include "Xlibint.h"
+#include <X11/Xlib.h>
+#include "XlcPublic.h"
 
-#ifdef X_NOT_STDC_ENV
-#ifndef toupper
-#define toupper(c)      ((int)(c) - 'a' + 'A')
-#endif
-#endif
+/* Don't use <ctype.h> here because it is locale dependent. */
 
+#define set_toupper(ch) \
+  if (ch >= 'a' && ch <= 'z') \
+    ch = ch - 'a' + 'A';
+
+/* Compares two ISO 8859-1 strings, ignoring case of ASCII letters.
+   Like strcasecmp in an ASCII locale. */
 int 
-_XlcCompareISOLatin1(str1, str2)
-    char *str1, *str2;
+_XlcCompareISOLatin1(
+    const char *str1,
+    const char *str2)
 {
-    register char ch1, ch2;
+    unsigned char ch1, ch2;
 
-    for ( ; (ch1 = *str1) && (ch2 = *str2); str1++, str2++) {
-        if (islower(ch1))
-            ch1 = toupper(ch1);
-        if (islower(ch2))
-            ch2 = toupper(ch2);
-
-        if (ch1 != ch2)
-            break;
+    for ( ; ; str1++, str2++) {
+	ch1 = *str1;
+	ch2 = *str2;
+	if (ch1 == '\0' || ch2 == '\0')
+	    break;
+	set_toupper(ch1);
+	set_toupper(ch2);
+	if (ch1 != ch2)
+	    break;
     }
 
-    return *str1 - *str2;
+    return ch1 - ch2;
 }
 
+/* Compares two ISO 8859-1 strings, at most len bytes of each, ignoring
+   case of ASCII letters. Like strncasecmp in an ASCII locale. */
 int 
-_XlcNCompareISOLatin1(str1, str2, len)
-    char *str1, *str2;
-    int len;
+_XlcNCompareISOLatin1(
+    const char *str1,
+    const char *str2,
+    int len)
 {
-    register char ch1, ch2;
+    unsigned char ch1, ch2;
 
-    for ( ; (ch1 = *str1) && (ch2 = *str2) && len; str1++, str2++, len--) {
-        if (islower(ch1))
-            ch1 = toupper(ch1);
-        if (islower(ch2))
-            ch2 = toupper(ch2);
-
-        if (ch1 != ch2)
-            break;
+    for ( ; ; str1++, str2++, len--) {
+	if (len == 0)
+	    return 0;
+	ch1 = *str1;
+	ch2 = *str2;
+	if (ch1 == '\0' || ch2 == '\0')
+	    break;
+	set_toupper(ch1);
+	set_toupper(ch2);
+	if (ch1 != ch2)
+	    break;
     }
 
-    if (len == 0)
-        return 0;
-
-    return *str1 - *str2;
+    return ch1 - ch2;
 }

@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/omText.c,v 1.9 2003/04/22 13:57:45 pascal Exp $ */
 /*
  * Copyright 1995 by FUJITSU LIMITED
  * This is source code modified by FUJITSU LIMITED under the Joint
@@ -39,9 +40,9 @@
 /* For VW/UDC */
 
 static int
-is_rotate(oc, font)
-    XOC		oc;
-    XFontStruct	*font;
+is_rotate(
+    XOC		oc,
+    XFontStruct	*font)
 {
     XOCGenericPart	*gen = XOC_GENERIC(oc);
     FontSet		font_set;
@@ -64,9 +65,9 @@ is_rotate(oc, font)
 }
 
 static int
-is_codemap(oc, font)
-    XOC		oc;
-    XFontStruct	*font;
+is_codemap(
+    XOC		oc,
+    XFontStruct	*font)
 {
     XOCGenericPart	*gen = XOC_GENERIC(oc);
     FontSet		font_set;
@@ -89,16 +90,16 @@ is_codemap(oc, font)
 }
 
 static int
-draw_vertical(dpy, d, oc, gc, font, is_xchar2b, x, y, text, length)
-    Display	*dpy;
-    Drawable	d;
-    XOC		oc;
-    GC		gc;
-    XFontStruct	*font;
-    Bool	is_xchar2b;
-    int		x, y;
-    XPointer	text;
-    int		length;
+draw_vertical(
+    Display	*dpy,
+    Drawable	d,
+    XOC		oc,
+    GC		gc,
+    XFontStruct	*font,
+    Bool	is_xchar2b,
+    int		x, int y,
+    XPointer	text,
+    int		length)
 {
     XChar2b	*buf2b;
     char	*buf;
@@ -157,32 +158,30 @@ draw_vertical(dpy, d, oc, gc, font, is_xchar2b, x, y, text, length)
 #define VROTATE       1
 #define FONTSCOPE     2
 
-extern FontData _XomGetFontDataFromFontSet();
-
 static int
-DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    FontSet fs;
-    GC gc;
-    int x, y;
-    XPointer text;
-    int length;
+DrawStringWithFontSet(
+    Display *dpy,
+    Drawable d,
+    XOC oc,
+    FontSet fs,
+    GC gc,
+    int x, int y,
+    XPointer text,
+    int length)
 {
     XFontStruct *font;
     Bool is_xchar2b;
     unsigned char *ptr;
     int ptr_len, char_len = 0;
     FontData fd;
-    int ret;
+    int ret = 0;
 
     ptr = (unsigned char *)text;
     is_xchar2b = fs->is_xchar2b;
 
     while (length > 0) {
         fd = _XomGetFontDataFromFontSet(fs,
-			(char *)ptr,length,&ptr_len,is_xchar2b,FONTSCOPE);
+			ptr,length,&ptr_len,is_xchar2b,FONTSCOPE);
 	if(ptr_len <= 0)
 	    break;
 
@@ -195,10 +194,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 	* *always* contain good data.   We should probably remove
 	* the check for "fd->font", but we won't :-) -- jjw/pma (HP)
 	*/
-        if(fd == (FontData) NULL ||
-	   (font = fs->font) == (XFontStruct *) NULL){
+        if((font = fs->font) == (XFontStruct *) NULL){
 
-	    if((font = fd->font) == (XFontStruct *) NULL)
+	    if(fd == (FontData) NULL ||
+	       (font = fd->font) == (XFontStruct *) NULL)
 		break;
         }
 
@@ -221,7 +220,7 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 	  case XOMOrientation_TTB_LTR:
 	    if(fs->font == font) {
 		fd = _XomGetFontDataFromFontSet(fs,
-			(char *)ptr,length,&ptr_len,is_xchar2b,VMAP);
+			ptr,length,&ptr_len,is_xchar2b,VMAP);
 		if(ptr_len <= 0)
 		    break;
 		if(fd == (FontData) NULL ||
@@ -230,7 +229,7 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 
 		if(is_codemap(oc, fd->font) == False) {
 		    fd = _XomGetFontDataFromFontSet(fs,
-			     (char *)ptr,length,&ptr_len,is_xchar2b,VROTATE);
+			     ptr,length,&ptr_len,is_xchar2b,VROTATE);
 		    if(ptr_len <= 0)
 			break;
 		    if(fd == (FontData) NULL ||
@@ -246,6 +245,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
             XSetFont(dpy, gc, font->fid);
 	    y = draw_vertical(dpy, d, oc, gc, font, is_xchar2b, x, y,
 			       (char *)ptr, char_len);
+	    break;
+
+	  case XOMOrientation_Context:
+	    /* never used? */
 	    break;
 	}
 
@@ -264,6 +267,10 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
       case XOMOrientation_TTB_RTL:
       case XOMOrientation_TTB_LTR:
 	ret = y;
+	break;
+      case XOMOrientation_Context:
+	/* not used? */
+	break;
     }
     return ret;
 }
@@ -271,15 +278,15 @@ DrawStringWithFontSet(dpy, d, oc, fs, gc, x, y, text, length)
 /* For VW/UDC */
 
 int
-_XomGenericDrawString(dpy, d, oc, gc, x, y, type, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    XOMTextType type;
-    XPointer text;
-    int length;
+_XomGenericDrawString(
+    Display *dpy,
+    Drawable d,
+    XOC oc,
+    GC gc,
+    int x, int y,
+    XOMTextType type,
+    XPointer text,
+    int length)
 {
     XlcConv conv;
     XFontStruct *font;
@@ -324,6 +331,9 @@ _XomGenericDrawString(dpy, d, oc, gc, x, y, type, text, length)
 	  case XOMOrientation_TTB_LTR:
 	    y = next;
 	    break;
+          case XOMOrientation_Context:
+	    /* not used */
+	    break;
 	}
 /* For VW/UDC */
     }
@@ -335,39 +345,25 @@ _XomGenericDrawString(dpy, d, oc, gc, x, y, type, text, length)
 }
 
 int
-#if NeedFunctionPrototypes
 _XmbGenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
 		      _Xconst char *text, int length)
-#else
-_XmbGenericDrawString(dpy, d, oc, gc, x, y, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    char *text;
-    int length;
-#endif
 {
     return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMMultiByte,
 				 (XPointer) text, length);
 }
 
 int
-#if NeedFunctionPrototypes
 _XwcGenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
 		      _Xconst wchar_t *text, int length)
-#else
-_XwcGenericDrawString(dpy, d, oc, gc, x, y, text, length)
-    Display *dpy;
-    Drawable d;
-    XOC oc;
-    GC gc;
-    int x, y;
-    wchar_t *text;
-    int length;
-#endif
 {
     return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMWideChar,
+				 (XPointer) text, length);
+}
+
+int
+_Xutf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+			_Xconst char *text, int length)
+{
+    return _XomGenericDrawString(dpy, d, oc, gc, x, y, XOMUtf8String,
 				 (XPointer) text, length);
 }

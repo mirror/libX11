@@ -25,6 +25,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/cmsMath.c,v 3.4 2001/07/29 05:01:11 tsi Exp $ */
 
 /*
  * Stephen Gildea, MIT X Consortium, January 1991
@@ -33,9 +34,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 #include "Xcmsint.h"
 
-#if !defined(X_NOT_STDC_ENV) && (defined(__STDC__) || !(defined(sun) || (defined(sony) && !defined(SYSTYPE_SYSV) && !defined(_SYSTYPE_SYSV))))
 #include <float.h>
-#endif
 #ifndef DBL_EPSILON
 #define DBL_EPSILON 1e-6
 #endif

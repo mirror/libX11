@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XSeClosDM.man,v 1.2 2001/01/27 18:20:04 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,21 +140,14 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetCloseDownMode 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XSetCloseDownMode 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetCloseDownMode, XKillClient \- control clients
 .SH SYNTAX
-XSetCloseDownMode\^(\^\fIdisplay\fP, \fIclose_mode\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      int \fIclose_mode\fP\^;	
-.LP
-XKillClient\^(\^\fIdisplay\fP, \fIresource\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XID \fIresource\fP\^;
+.HP
+int XSetCloseDownMode\^(\^Display *\fIdisplay\fP\^, int \fIclose_mode\fP\^); 
+.HP
+int XKillClient\^(\^Display *\fIdisplay\fP\^, XID \fIresource\fP\^); 
 .SH ARGUMENTS
 .IP \fIclose_mode\fP 1i
 Specifies the client close-down mode.

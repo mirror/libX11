@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XcmsSWP.man,v 1.2 2001/01/27 18:20:07 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,23 +140,15 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsSetWhitePoint 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XcmsSetWhitePoint 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsSetWhitePoint, XcmsSetWhiteAdjustProc \- modifying CCC attributes
 .SH SYNTAX
-Status XcmsSetWhitePoint\^(\^\fIccc\fP\^, \fIcolor\fP\^)
-.br
-      XcmsCCC \fIccc\fP\^;
-.br
-      XcmsColor *\fIcolor\fP\^;
-.LP
-XcmsWhiteAdjustProc XcmsSetWhiteAdjustProc\^(\^\fIccc\fP\^, \fIwhite_adjust_proc\fP\^, \fIclient_data\fP\^)
-.br
-      XcmsCCC \fIccc\fP\^;
-.br
-      XcmsWhiteAdjustProc \fIwhite_adjust_proc\fP\^;
-.br
-      XPointer \fIclient_data\fP\^;
+.HP
+Status XcmsSetWhitePoint\^(\^XcmsCCC \fIccc\fP\^, XcmsColor *\fIcolor\fP\^); 
+.HP
+XcmsWhiteAdjustProc XcmsSetWhiteAdjustProc\^(\^XcmsCCC \fIccc\fP\^,
+XcmsWhiteAdjustProc \fIwhite_adjust_proc\fP\^, XPointer \fIclient_data\fP\^); 
 .SH ARGUMENTS
 .IP \fIccc\fP 1i
 Specifies the CCC.

@@ -23,17 +23,23 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/lcPublic.c,v 1.11 2001/11/16 00:52:28 dawes Exp $ */
 
 #include <stdio.h>
 #include "Xlibint.h"
 #include "XlcPubI.h"
 
-static char *default_string();
+static const char *
+default_string(
+    XLCd lcd)
+{
+    return XLC_PUBLIC(lcd, default_string);
+}
 
-static XLCd create();
-static Bool initialize();
-static void destroy();
-static char *get_values();
+static XLCd create (const char *name, XLCdMethods methods);
+static Bool initialize (XLCd lcd);
+static void destroy (XLCd lcd);
+static char *get_values (XLCd lcd, XlcArgList args, int num_args);
 
 static XLCdPublicMethodsRec publicMethods = {
     {
@@ -44,8 +50,10 @@ static XLCdPublicMethodsRec publicMethods = {
 	_XrmDefaultInitParseInfo,
 	_XmbTextPropertyToTextList,
 	_XwcTextPropertyToTextList,
+	_Xutf8TextPropertyToTextList,
 	_XmbTextListToTextProperty,
 	_XwcTextListToTextProperty,
+	_Xutf8TextListToTextProperty,
 	_XwcFreeStringList,
 	default_string,
 	NULL,
@@ -63,17 +71,10 @@ static XLCdPublicMethodsRec publicMethods = {
 
 XLCdMethods _XlcPublicMethods = (XLCdMethods) &publicMethods;
 
-static char *
-default_string(lcd)
-    XLCd lcd;
-{
-    return XLC_PUBLIC(lcd, default_string);
-}
-
 static XLCd
-create(name, methods)
-    char *name;
-    XLCdMethods methods;
+create(
+    const char *name,
+    XLCdMethods methods)
 {
     XLCd lcd;
     XLCdPublicMethods new;
@@ -91,7 +92,7 @@ create(name, methods)
     new = (XLCdPublicMethods) Xmalloc(sizeof(XLCdPublicMethodsRec));
     if (new == NULL)
 	goto err;
-    *new = *((XLCdPublicMethods) methods);
+    memcpy(new,methods,sizeof(XLCdPublicMethodsRec));
     lcd->methods = (XLCdMethods) new;
 
     return lcd;
@@ -102,8 +103,8 @@ err:
 }
 
 static Bool
-load_public(lcd)
-    XLCd lcd;
+load_public(
+    XLCd lcd)
 {
     XLCdPublicPart *pub = XLC_PUBLIC_PART(lcd);
     char **values, *str;
@@ -137,8 +138,8 @@ load_public(lcd)
 }
 
 static Bool
-initialize_core(lcd)
-    XLCd lcd;
+initialize_core(
+    XLCd lcd)
 {
     XLCdMethods methods = lcd->methods;
     XLCdMethods core = &publicMethods.core;
@@ -172,11 +173,17 @@ initialize_core(lcd)
     if (methods->wc_text_prop_to_list == NULL)
 	methods->wc_text_prop_to_list = core->wc_text_prop_to_list;
 
+    if (methods->utf8_text_prop_to_list == NULL)
+	methods->utf8_text_prop_to_list = core->utf8_text_prop_to_list;
+
     if (methods->mb_text_list_to_prop == NULL)
 	methods->mb_text_list_to_prop = core->mb_text_list_to_prop;
 
     if (methods->wc_text_list_to_prop == NULL)
 	methods->wc_text_list_to_prop = core->wc_text_list_to_prop;
+
+    if (methods->utf8_text_list_to_prop == NULL)
+	methods->utf8_text_list_to_prop = core->utf8_text_list_to_prop;
 
     if (methods->wc_free_string_list == NULL)
 	methods->wc_free_string_list = core->wc_free_string_list;
@@ -187,21 +194,18 @@ initialize_core(lcd)
     return True;
 }
 
-extern Bool _XlcInitCTInfo();
-
 static Bool
-initialize(lcd)
-    XLCd lcd;
+initialize(
+    XLCd lcd)
 {
     XLCdPublicMethodsPart *methods = XLC_PUBLIC_METHODS(lcd);
     XLCdPublicMethodsPart *pub_methods = &publicMethods.pub;
     XLCdPublicPart *pub = XLC_PUBLIC_PART(lcd);
     char *name;
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
     int len;
     char sinamebuf[256];
     char* siname;
-    char *_XlcMapOSLocaleName();
 #endif
 
     _XlcInitCTInfo();
@@ -210,25 +214,29 @@ initialize(lcd)
 	return False;
 
     name = lcd->core->name;
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
     /* 
-     * _XlMapOSLOcaleName will return the same string or a substring 
+     * _XlMapOSLocaleName will return the same string or a substring 
      * of name, so strlen(name) is okay 
      */
-    if ((len = strlen(name)) < sizeof sinamebuf) siname = sinamebuf;
-    else siname = Xmalloc (len + 1);
-    if (siname == NULL) return False;
+    if ((len = strlen(name)) < sizeof sinamebuf)
+        siname = sinamebuf;
+    else
+        siname = Xmalloc (len + 1);
+    if (siname == NULL)
+        return False;
     name = _XlcMapOSLocaleName(name, siname);
 #endif
     /* _XlcResolveLocaleName will lookup the SI's name for the locale */
     if (_XlcResolveLocaleName(name, pub) == 0) {
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
 	if (siname != sinamebuf) Xfree (siname);
 #endif
 	return False;
     }
-#if !defined(X_NOT_STDC_ENV) && !defined(X_LOCALE)
-    if (siname != sinamebuf) Xfree (siname);
+#if !defined(X_LOCALE)
+    if (siname != sinamebuf)
+        Xfree (siname);
 #endif
 
     if (pub->default_string == NULL)
@@ -244,8 +252,8 @@ initialize(lcd)
 }
 
 static void
-destroy_core(lcd)
-	XLCd	lcd;
+destroy_core(
+    XLCd lcd)
 {
     if (lcd->core) {
 	if (lcd->core->name)
@@ -260,8 +268,8 @@ destroy_core(lcd)
 }
 
 static void
-destroy(lcd)
-    XLCd lcd;
+destroy(
+    XLCd lcd)
 {
     XLCdPublicPart *pub = XLC_PUBLIC_PART(lcd);
 
@@ -293,10 +301,10 @@ static XlcResource resources[] = {
 };
 
 static char *
-get_values(lcd, args, num_args)
-    register XLCd lcd;
-    register XlcArgList args;
-    register int num_args;
+get_values(
+    XLCd lcd,
+    XlcArgList args,
+    int num_args)
 {
     XLCdPublic pub = (XLCdPublic) lcd->core;
 

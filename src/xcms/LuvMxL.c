@@ -31,10 +31,12 @@
  *		querying routine.
  *
  */
+/* $XFree86: xc/lib/X11/LuvMxL.c,v 1.3 2001/01/17 19:41:40 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include <math.h>
+#include "Cv.h"
 
 /*
  *	DEFINES
@@ -42,11 +44,6 @@
 #define MAXBISECTCOUNT	100
 #define EPS		(XcmsFloat)0.001
 #define START_L_STAR	(XcmsFloat)40.0
-
-/*
- *	EXTERNS
- */
-extern Status _XcmsCIELuvQueryMaxLCRGB();
 
 
 /************************************************************************

@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ListExt.c,v 1.3 2001/01/17 19:41:39 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -85,6 +86,7 @@ int *nextensions;	/* RETURN */
 	return (list);
 }
 
+int
 XFreeExtensionList (list)
 char **list;
 {

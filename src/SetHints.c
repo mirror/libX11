@@ -46,6 +46,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/SetHints.c,v 1.4 2001/12/14 19:54:06 dawes Exp $ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
@@ -55,6 +56,7 @@ SOFTWARE.
 
 #define safestrlen(s) ((s) ? strlen(s) : 0)
 
+int
 XSetSizeHints(dpy, w, hints, property)		/* old routine */
 	Display *dpy;
 	Window w;
@@ -87,6 +89,7 @@ XSetSizeHints(dpy, w, hints, property)		/* old routine */
  *	WM_HINTS 	type: WM_HINTS	format:32
  */
 
+int
 XSetWMHints (dpy, w, wmhints)
 	Display *dpy;
 	Window w;
@@ -114,6 +117,7 @@ XSetWMHints (dpy, w, wmhints)
  *	WM_ZOOM_HINTS 	type: WM_SIZE_HINTS format: 32
  */
 
+int
 XSetZoomHints (dpy, w, zhints)
 	Display *dpy;
 	Window w;
@@ -128,6 +132,7 @@ XSetZoomHints (dpy, w, zhints)
  *	WM_NORMAL_HINTS 	type: WM_SIZE_HINTS format: 32
  */
 
+int
 XSetNormalHints (dpy, w, hints)			/* old routine */
 	Display *dpy;
 	Window w;
@@ -144,6 +149,7 @@ XSetNormalHints (dpy, w, hints)			/* old routine */
  * routine will take care of converting to host to network data structures.
  */
 
+int
 XSetIconSizes (dpy, w, list, count)
 	Display *dpy;
 	Window w;	/* typically, root */
@@ -174,6 +180,7 @@ XSetIconSizes (dpy, w, list, count)
 	return 1;
 }
 
+int
 XSetCommand (dpy, w, argv, argc)
 	Display *dpy;
 	Window w;
@@ -211,7 +218,7 @@ XSetCommand (dpy, w, argv, argc)
  *	WM_NORMAL_HINTS	  type: WM_SIZE_HINTS 	format: 32
  */
 
-#if NeedFunctionPrototypes
+int
 XSetStandardProperties (
     	Display *dpy,
     	Window w,		/* window to decorate */
@@ -221,17 +228,6 @@ XSetStandardProperties (
     	char **argv,		/* command to be used to restart application */
     	int argc,		/* count of arguments */
     	XSizeHints *hints)	/* size hints for window in its normal state */
-#else
-XSetStandardProperties (dpy, w, name, icon_string, icon_pixmap, argv, argc, hints)
-    	Display *dpy;
-    	Window w;		/* window to decorate */
-    	char *name;		/* name of application */
-    	char *icon_string;	/* name string for icon */
-	Pixmap icon_pixmap;	/* pixmap to use as icon, or None */
-    	char **argv;		/* command to be used to restart application */
-    	int argc;		/* count of arguments */
-    	XSizeHints *hints;	/* size hints for window in its normal state */
-#endif
 {
 	XWMHints phints;
 	phints.flags = 0;
@@ -256,6 +252,7 @@ XSetStandardProperties (dpy, w, name, icon_string, icon_pixmap, argv, argc, hint
 	return 1;
 }
 
+int
 XSetTransientForHint(dpy, w, propWindow)
 	Display *dpy;
 	Window w;
@@ -265,6 +262,7 @@ XSetTransientForHint(dpy, w, propWindow)
 			       PropModeReplace, (unsigned char *) &propWindow, 1);
 }
 
+int
 XSetClassHint(dpy, w, classhint)
 	Display *dpy;
 	Window w;

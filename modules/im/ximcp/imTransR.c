@@ -28,6 +28,7 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imTransR.c,v 3.6 2003/04/17 02:39:56 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"
@@ -35,21 +36,21 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 
 Public TransportSW _XimTransportRec[] = {
-    "X",          _XimXConf,  /* 1st entry must be X. 
+    { "X",          _XimXConf },  /* 1st entry must be X. 
 					This will be a fallback */
 #ifdef TCPCONN
-    "tcp",        _XimTransConf, /* use X transport lib */
+    { "tcp",        _XimTransConf }, /* use X transport lib */
 #endif /* TCPCONN */
-#ifdef UNIXCONN
-    "local",      _XimTransConf, /* use X transport lib */
+#if defined(UNIXCONN) || defined(LOCALCONN)
+    { "local",      _XimTransConf }, /* use X transport lib */
 #endif /* UNIXCONN */
 #ifdef DNETCONN
-    "dnet",     _XimTransConf, /* use X transport lib */
+    { "dnet",     _XimTransConf }, /* use X transport lib */
 #endif /* DNETCONN */
 #ifdef STREAMSCONN
-    "streams",    _XimTransConf, /* use X transport lib */
+    { "streams",    _XimTransConf }, /* use X transport lib */
 #endif /* STREAMSCONN */
-    (char *)NULL, (Bool (*)())NULL,
+    { (char *)NULL, (Bool (*)(Xim, char *))NULL },
 };
 
 Public Bool
@@ -67,22 +68,15 @@ _XimShutdown(im)
 }
 
 Public Bool
-#if NeedFunctionPrototypes
 _XimWrite(Xim im, INT16 len, XPointer data)
-#else
-_XimWrite(im, len, data)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
-#endif
 {
     return im->private.proto.write(im, len, data);
 }
 
 Private int
-_CheckProtocolData(im, recv_buf)
-    Xim		  im;
-    char	 *recv_buf;
+_CheckProtocolData(
+    Xim		  im,
+    char	 *recv_buf)
 {
     int		 data_len;
 
@@ -91,11 +85,11 @@ _CheckProtocolData(im, recv_buf)
 }
 
 Private int
-_XimReadData(im, len, buf, buf_size)
-    Xim		 im;
-    INT16	*len;
-    XPointer	 buf;
-    int		 buf_size;
+_XimReadData(
+    Xim		 im,
+    INT16	*len,
+    XPointer	 buf,
+    int		 buf_size)
 {
     char	*hold_buf;
     char	*tmp;
@@ -208,10 +202,10 @@ _XimReadData(im, len, buf, buf_size)
 }
 
 Private Bool
-_XimCallDispatcher(im, len, data)
-    Xim		 im;
-    INT16	 len;
-    XPointer	 data;
+_XimCallDispatcher(
+    Xim		 im,
+    INT16	 len,
+    XPointer	 data)
 {
     return im->private.proto.call_dispatcher(im, len, data);
 }
@@ -223,9 +217,7 @@ _XimRead(im, len, buf, buf_size, predicate, arg)
     XPointer	 buf;
     int		 buf_size;
     Bool	 (*predicate)(
-#if NeedNestedPrototypes
 			      Xim, INT16, XPointer, XPointer
-#endif
 			      );
     XPointer	 arg;
 {
@@ -248,14 +240,12 @@ _XimRead(im, len, buf, buf_size, predicate, arg)
 }
 
 Public Bool
-_XimRegisterDispatcher(im, callback, call_data)
-    Xim		 im;
+_XimRegisterDispatcher(
+    Xim		 im,
     Bool	 (*callback)(
-#if NeedNestedPrototypes
 			     Xim, INT16, XPointer, XPointer
-#endif
-			     );
-    XPointer	 call_data;
+			     ),
+    XPointer	 call_data)
 {
     return im->private.proto.register_dispatcher(im, callback, call_data);
 }

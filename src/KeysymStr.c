@@ -25,24 +25,19 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/KeysymStr.c,v 3.9 2003/04/13 19:22:16 dawes Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xresource.h>
 #include <X11/keysymdef.h>
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
+#include <stdio.h> /* sprintf */
 
 typedef unsigned long Signature;
 
 #define NEEDVTABLE
 #include "ks_tables.h"
-
-extern XrmDatabase _XInitKeysymDB();
-extern Const unsigned char _XkeyTable[];
+#include "Key.h"
 
 
 typedef struct _GRNData {
@@ -51,9 +46,9 @@ typedef struct _GRNData {
     XrmValuePtr value;
 } GRNData;
 
-#if NeedFunctionPrototypes
 /*ARGSUSED*/
-static Bool SameValue(
+static Bool
+SameValue(
     XrmDatabase*	db,
     XrmBindingList      bindings,
     XrmQuarkList	quarks,
@@ -61,15 +56,6 @@ static Bool SameValue(
     XrmValuePtr		value,
     XPointer		data
 )
-#else
-static Bool SameValue(db, bindings, quarks, type, value, data)
-    XrmDatabase		*db;
-    XrmBindingList      bindings;
-    XrmQuarkList	quarks;
-    XrmRepresentation   *type;
-    XrmValuePtr		value;
-    XPointer		data;
-#endif
 {
     GRNData *gd = (GRNData *)data;
 
@@ -88,7 +74,7 @@ char *XKeysymToString(ks)
     register int i, n;
     int h;
     register int idx;
-    Const unsigned char *entry;
+    const unsigned char *entry;
     unsigned char val1, val2;
     XrmDatabase keysymdb;
 
@@ -131,7 +117,32 @@ char *XKeysymToString(ks)
 	data.value = &resval;
 	(void)XrmEnumerateDatabase(keysymdb, &empty, &empty, XrmEnumAllLevels,
 				   SameValue, (XPointer)&data);
-	return data.name;
+        if (data.name)
+	    return data.name;
+    }
+    if ((ks & 0xff000000) == 0x01000000){
+        KeySym val = ks & 0xffffff;
+        char *s;
+        int i;
+        if (val & 0xff0000)
+            i = 10;
+        else
+            i = 6;
+        s = Xmalloc(i);
+        if (s == NULL)
+            return s;
+        i--;
+        s[i--] = '\0';
+        for (; i; i--){
+            val1 = val & 0xf;
+            val >>= 4;
+            if (val1 < 10)
+                s[i] = '0'+ val1;
+            else
+                s[i] = 'A'+ val1 - 10;
+        }
+        s[i] = 'U';
+        return s; 
     }
     return ((char *) NULL);
 }

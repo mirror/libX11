@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XAnyEvent.man,v 1.2 2001/01/27 18:19:56 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XAnyEvent.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAnyEvent 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XAnyEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAnyEvent, XEvent \- generic X event structures
 .SH STRUCTURES
@@ -150,9 +153,9 @@ have the following common members:
 .ta .5i 3i
 typedef struct {
 	int type;
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
 	Window window;
 } XAnyEvent;
 .De
@@ -183,7 +186,7 @@ structure is a union of the individual structures declared for each event type:
 .TA .5i 3i
 .ta .5i 3i
 typedef union _XEvent {
-	int type;	/* must not be changed */
+	int type;	/\(** must not be changed */
 	XAnyEvent xany;
 	XKeyEvent xkey;
 	XButtonEvent xbutton;

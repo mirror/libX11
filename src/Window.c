@@ -24,14 +24,15 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/Window.c,v 1.4 2001/12/14 19:54:08 dawes Exp $ */
 
 #include "Xlibint.h"
 
-void _XProcessWindowAttributes (dpy, req, valuemask, attributes)
-    register Display *dpy;
-    xChangeWindowAttributesReq *req;
-    register unsigned long valuemask;
-    register XSetWindowAttributes *attributes;
+void _XProcessWindowAttributes (
+    register Display *dpy,
+    xChangeWindowAttributesReq *req,
+    register unsigned long valuemask,
+    register XSetWindowAttributes *attributes)
 {
     unsigned long values[32];
     register unsigned long *value = values;
@@ -126,7 +127,7 @@ Window XCreateWindow(dpy, parent, x, y, width, height,
 	req->visual = visual->visualid;
     wid = req->wid = XAllocID(dpy);
     valuemask &= AllMaskBits;
-    if ((req->mask = valuemask)) 
+    if ((req->mask = valuemask))
         _XProcessWindowAttributes (dpy, (xChangeWindowAttributesReq *)req, 
 			valuemask, attributes);
     UnlockDisplay(dpy);

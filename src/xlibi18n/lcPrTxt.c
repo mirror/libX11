@@ -23,6 +23,7 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/lcPrTxt.c,v 1.9 2003/04/03 22:34:02 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"
@@ -30,10 +31,10 @@
 #include <X11/Xatom.h>
 
 static XPointer *
-alloc_list(is_wide_char, count, nitems)
-    Bool is_wide_char;
-    int count;
-    int nitems;
+alloc_list(
+    Bool is_wide_char,
+    int count,
+    int nitems)
 {
     if (is_wide_char) {
 	wchar_t **wstr_list;
@@ -67,11 +68,11 @@ alloc_list(is_wide_char, count, nitems)
 }
 
 static void
-copy_list(is_wide_char, text, list, count)
-    Bool is_wide_char;
-    XPointer text;
-    XPointer *list;
-    int count;
+copy_list(
+    Bool is_wide_char,
+    XPointer text,
+    XPointer *list,
+    int count)
 {
     int length;
 
@@ -105,22 +106,22 @@ copy_list(is_wide_char, text, list, count)
 }
 
 static int
-_XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
-    XLCd lcd;
-    Display *dpy;
-    XTextProperty *text_prop;
-    char *to_type;
-    XPointer **list_ret;
-    int *count_ret;
+_XTextPropertyToTextList(
+    XLCd lcd,
+    Display *dpy,
+    const XTextProperty *text_prop,
+    const char *to_type,
+    XPointer **list_ret,
+    int *count_ret)
 {
-    XlcConv conv;
-    char *from_type;
+    XlcConv conv = NULL;
+    const char *from_type;
     XPointer from, to, buf;
     char *str_ptr, *last_ptr;
     Atom encoding;
-    int from_left, to_left, buf_len, ret;
+    int from_left, to_left, buf_len, ret, len;
     int unconv_num, nitems = text_prop->nitems;
-    Bool is_wide_char = False;
+    Bool is_wide_char = False, do_strcpy = False;
 
     if (strcmp(XlcNWideChar, to_type) == 0)
 	is_wide_char = True;
@@ -137,6 +138,8 @@ _XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
     encoding = text_prop->encoding;
     if (encoding == XA_STRING)
 	from_type = XlcNString;
+    else if (encoding == XInternAtom(dpy, "UTF8_STRING", False))
+	from_type = XlcNUtf8String;
     else if (encoding == XInternAtom(dpy, "COMPOUND_TEXT", False))
 	from_type = XlcNCompoundText;
     else if (encoding == XInternAtom(dpy, XLC_PUBLIC(lcd, encoding_name), False))
@@ -145,21 +148,29 @@ _XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
 	return XConverterNotFound;
 
     if (is_wide_char) {
-	buf_len = text_prop->nitems + 1;
-	buf = (XPointer) Xmalloc(buf_len * sizeof(wchar_t));
+	buf_len = (text_prop->nitems + 1) * sizeof(wchar_t);;
     } else {
-	buf_len = text_prop->nitems * XLC_PUBLIC(lcd, mb_cur_max) + 1;
-	buf = (XPointer) Xmalloc(buf_len);
+	if (strcmp(to_type, XlcNUtf8String) == 0)
+	    buf_len = text_prop->nitems * 6 + 1;
+	else
+	    buf_len = text_prop->nitems * XLC_PUBLIC(lcd, mb_cur_max) + 1;
     }
+    buf = (XPointer) Xmalloc(buf_len);
     if (buf == NULL)
 	return XNoMemory;
     to = buf;
     to_left = buf_len;
 
-    conv = _XlcOpenConverter(lcd, from_type, lcd, to_type);
-    if (conv == NULL) {
-	Xfree(buf);
-	return XConverterNotFound;
+    /* can be XlcNMultiByte to XlcNMultiByte,
+       or XlcNUtf8String to XlcNUtf8String */
+    if (!strcmp(from_type, to_type)) {
+        do_strcpy = True;
+    } else {
+        conv = _XlcOpenConverter(lcd, from_type, lcd, to_type);
+        if (conv == NULL) {
+	    Xfree(buf);
+	    return XConverterNotFound;
+        }
     }
 
     last_ptr = str_ptr = (char *) text_prop->value;
@@ -171,7 +182,17 @@ _XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
 	    from_left = str_ptr - last_ptr;
 	    last_ptr = str_ptr;
 
-	    ret = _XlcConvert(conv, &from, &from_left, &to, &to_left, NULL, 0);
+            if (do_strcpy) {
+            	len = min(from_left, to_left);
+                strncpy(to, from, len);
+                from += len;
+                to += len;
+                from_left -= len;
+                to_left -= len;
+                ret = 0;
+            } else {
+	        ret = _XlcConvert(conv, &from, &from_left, &to, &to_left, NULL, 0);
+            }
 
 	    if (ret < 0)
 		continue;
@@ -191,20 +212,24 @@ _XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
 		to++;
 		to_left--;
 	    }
-	    _XlcResetConverter(conv);
+	    if (! do_strcpy)
+	        _XlcResetConverter(conv);
 	} else
 	    str_ptr++;
 
 	nitems--;
     }
 
-    _XlcCloseConverter(conv);
+    if (! do_strcpy)
+        _XlcCloseConverter(conv);
 
-    if (is_wide_char)
+    if (is_wide_char) {
 	*((wchar_t *) to) = (wchar_t) 0;
-    else
+	to_left -= sizeof(wchar_t);
+    } else {
 	*((char *) to) = '\0';
-    to_left--;
+	to_left--;
+    }
 
     *list_ret = alloc_list(is_wide_char, *count_ret, buf_len - to_left);
     if (*list_ret)
@@ -216,33 +241,45 @@ _XTextPropertyToTextList(lcd, dpy, text_prop, to_type, list_ret, count_ret)
 }
 
 int
-_XmbTextPropertyToTextList(lcd, dpy, text_prop, list_ret, count_ret)
-    XLCd lcd;
-    Display *dpy;
-    XTextProperty *text_prop;
-    char ***list_ret;
-    int *count_ret;
+_XmbTextPropertyToTextList(
+    XLCd lcd,
+    Display *dpy,
+    const XTextProperty *text_prop,
+    char ***list_ret,
+    int *count_ret)
 {
     return _XTextPropertyToTextList(lcd, dpy, text_prop, XlcNMultiByte,
 				    (XPointer **) list_ret, count_ret);
 }
 
 int
-_XwcTextPropertyToTextList(lcd, dpy, text_prop, list_ret, count_ret)
-    XLCd lcd;
-    Display *dpy;
-    XTextProperty *text_prop;
-    wchar_t ***list_ret;
-    int *count_ret;
+_XwcTextPropertyToTextList(
+    XLCd lcd,
+    Display *dpy,
+    const XTextProperty *text_prop,
+    wchar_t ***list_ret,
+    int *count_ret)
 {
     return _XTextPropertyToTextList(lcd, dpy, text_prop, XlcNWideChar,
 				    (XPointer **) list_ret, count_ret);
 }
 
+int
+_Xutf8TextPropertyToTextList(
+    XLCd lcd,
+    Display *dpy,
+    const XTextProperty *text_prop,
+    char ***list_ret,
+    int *count_ret)
+{
+    return _XTextPropertyToTextList(lcd, dpy, text_prop, XlcNUtf8String,
+				    (XPointer **) list_ret, count_ret);
+}
+
 void
-_XwcFreeStringList(lcd, list)
-    XLCd lcd;
-    wchar_t **list;
+_XwcFreeStringList(
+    XLCd lcd,
+    wchar_t **list)
 {
     if (list) {
         if (*list)

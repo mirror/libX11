@@ -1,3 +1,4 @@
+/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.2 2004-04-23 18:43:24 eich Exp $ */
 /* $Xorg: HVC.c,v 1.3 2000/08/17 19:44:36 cpqbld Exp $ */
 
 /*
@@ -47,11 +48,15 @@
  *	DOCUMENTATION
  *		"TekColor Color Management System, System Implementor's Manual"
  */
+/* $XFree86: xc/lib/X11/HVC.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include <X11/Xos.h>
 #include <math.h>
+#include "Cv.h"
+
+#include <stdio.h>
 
 /*
  *	DEFINES
@@ -90,18 +95,10 @@
 #endif
 
 /*
- *	EXTERNS
- */
-
-extern char _XcmsTekHVC_prefix[];
-
-/*
  *	FORWARD DECLARATIONS
  */
-
-static int TekHVC_ParseString();
-static Status XcmsTekHVC_ValidSpec();
-
+static int TekHVC_ParseString(register char *spec, XcmsColor *pColor);
+static Status XcmsTekHVC_ValidSpec(XcmsColor *pColor);
 
 /*
  *	LOCAL VARIABLES
@@ -158,9 +155,9 @@ XcmsColorSpace	XcmsTekHVCColorSpace =
  *	SYNOPSIS
  */
 static int
-TekHVC_ParseString(spec, pColor)
-    register char *spec;
-    XcmsColor *pColor;
+TekHVC_ParseString(
+    register char *spec,
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		This routines takes a string and attempts to convert
@@ -216,9 +213,9 @@ TekHVC_ParseString(spec, pColor)
  *	SYNOPSIS
  */
 static int
-ThetaOffset(pWhitePt, pThetaOffset)
-    XcmsColor *pWhitePt;
-    XcmsFloat *pThetaOffset;
+ThetaOffset(
+    XcmsColor *pWhitePt,
+    XcmsFloat *pThetaOffset)
 /*
  *	DESCRIPTION
  *		This routine computes the theta offset of a given
@@ -265,8 +262,8 @@ ThetaOffset(pWhitePt, pThetaOffset)
  *	SYNOPSIS
  */
 static int
-XcmsTekHVC_ValidSpec(pColor)
-    XcmsColor *pColor;
+XcmsTekHVC_ValidSpec(
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		Checks if values in the color specification are valid.
@@ -567,8 +564,8 @@ XcmsCIEuvYToTekHVC(ccc, pHVC_WhitePt, pColors_in_out, nColors)
  *	SYNOPSIS
  */
 int
-_XcmsTekHVC_CheckModify(pColor)
-    XcmsColor *pColor;
+_XcmsTekHVC_CheckModify(
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		Checks if values in the color specification are valid.

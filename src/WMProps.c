@@ -26,6 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/WMProps.c,v 3.6 2001/12/14 19:54:07 dawes Exp $ */
 
 /***********************************************************
 Copyright 1988 by Wyse Technology, Inc., San Jose, Ca.,
@@ -55,10 +56,8 @@ SOFTWARE.
 #include <X11/Xatom.h>
 #include <X11/Xutil.h>
 #include <X11/Xos.h>
+#include <X11/Xlocale.h>
 
-#ifdef X_NOT_STDC_ENV
-extern char *getenv();
-#endif
 
 /* 
  * XSetWMProperties sets the following properties:
@@ -86,6 +85,7 @@ void XSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
     XTextProperty textprop;
     char hostName[256];
     int len = _XGetHostname (hostName, sizeof hostName);
+    char *locale;
 
     /* set names of window and icon */
     if (windowName) XSetWMName (dpy, w, windowName);
@@ -121,6 +121,14 @@ void XSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
 		 * systems will have to change this.
 		 */
 		char *cp = strrchr (argv[0], '/');
+#ifdef __UNIXOS2__
+		char *os2_cp = strrchr (argv[0],'\\');
+		char *dot_cp = strrchr (argv[0],'.');
+		if (os2_cp && (os2_cp > cp)) {
+		    if(dot_cp && (dot_cp > os2_cp)) *dot_cp = '\0';
+		    cp=os2_cp;
+		}
+#endif
 		tmp.res_name = (cp ? cp + 1 : argv[0]);
 	    }
 	    tmp.res_class = classHints->res_class;
@@ -128,5 +136,11 @@ void XSetWMProperties (dpy, w, windowName, iconName, argv, argc, sizeHints,
 	}
 	XSetClassHint (dpy, w, classHints);
     }
+    
+    locale = setlocale(LC_CTYPE, (char *)NULL);
+    if (locale)
+        XChangeProperty (dpy, w, XInternAtom(dpy, "WM_LOCALE_NAME", False),
+        XA_STRING, 8, PropModeReplace,
+        (unsigned char *)locale, strlen(locale));
 }
 

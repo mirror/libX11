@@ -24,29 +24,20 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/GetColor.c,v 1.6 2003/04/13 19:22:16 dawes Exp $ */
 
 #define NEED_REPLIES
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
 
-extern void _XcmsRGB_to_XColor();
-
-#if NeedFunctionPrototypes
-Status XAllocNamedColor(
+Status
+XAllocNamedColor(
 register Display *dpy,
 Colormap cmap,
 _Xconst char *colorname, /* STRING8 */
 XColor *hard_def, /* RETURN */
 XColor *exact_def) /* RETURN */
-#else
-Status XAllocNamedColor(dpy, cmap, colorname, hard_def, exact_def)
-register Display *dpy;
-Colormap cmap;
-char *colorname; /* STRING8 */
-XColor *hard_def; /* RETURN */
-XColor *exact_def; /* RETURN */
-#endif
 {
 
     long nbytes;
@@ -60,20 +51,27 @@ XColor *exact_def; /* RETURN */
     /*
      * Let's Attempt to use Xcms and i18n approach to Parse Color
      */
-    /* copy string to allow overwrite by _XcmsResolveColorString() */
     if ((ccc = XcmsCCCOfColormap(dpy, cmap)) != (XcmsCCC)NULL) {
-	if (_XcmsResolveColorString(ccc, &colorname, &cmsColor_exact,
-		XcmsRGBFormat) >= XcmsSuccess) {
+	const char *tmpName = colorname;
+
+	switch (_XcmsResolveColorString(ccc, &tmpName, &cmsColor_exact,
+					XcmsRGBFormat)) {
+	case XcmsSuccess:
+	case XcmsSuccessWithCompression:
 	    _XcmsRGB_to_XColor(&cmsColor_exact, exact_def, 1);
 	    memcpy((char *)hard_def, (char *)exact_def, sizeof(XColor));
 	    ret = XAllocColor(dpy, cmap, hard_def);
 	    exact_def->pixel = hard_def->pixel;
 	    return(ret);
+	case XcmsFailure:
+	case _XCMS_NEWNAME:
+	    /*
+	     * if the result was _XCMS_NEWNAME tmpName points to
+	     * a string in cmsColNm.c:pairs table, for example,
+	     * gray70 would become tekhvc:0.0/70.0/0.0
+	     */
+	    break;
 	}
-	/*
-	 * Otherwise we failed; or colorname was changed with yet another
-	 * name.  Thus pass name to the X Server.
-	 */
     }
 
     /*

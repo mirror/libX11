@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XMapWin.man,v 1.2 2001/01/27 18:20:01 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,27 +140,16 @@
 .el .sp 10p
 ..
 .ny0
-.TH XMapWindow 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XMapWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XMapWindow, XMapRaised, XMapSubwindows \- map windows
 .SH SYNTAX
-XMapWindow\^(\^\fIdisplay\fP, \fIw\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.LP
-XMapRaised\^(\^\fIdisplay\fP, \fIw\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
-.LP
-XMapSubwindows\^(\^\fIdisplay\fP, \fIw\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Window \fIw\fP\^;
+.HP
+int XMapWindow\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+.HP
+int XMapRaised\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+.HP
+int XMapSubwindows\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

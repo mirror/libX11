@@ -48,6 +48,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/ErrDes.c,v 3.11 2003/08/06 14:03:59 eich Exp $ */
 
 #include "Xlibint.h"
 #include <X11/Xos.h>
@@ -58,17 +59,11 @@ SOFTWARE.
 #define ERRORDB "/usr/lib/X11/XErrorDB"
 #endif
 
-#ifdef __STDC__
-#define Const const
-#else
-#define Const /**/
-#endif
-
 /*
  * descriptions of errors in Section 4 of Protocol doc (pp. 350-351); more
  * verbose descriptions are given in the error database
  */
-static Const char * Const _XErrorList[] = {
+static const char * const _XErrorList[] = {
     /* No error	*/		"no error",
     /* BadRequest */		"BadRequest",
     /* BadValue	*/		"BadValue",
@@ -90,6 +85,7 @@ static Const char * Const _XErrorList[] = {
 };
 
 
+int
 XGetErrorText(dpy, code, buffer, nbytes)
     register int code;
     register Display *dpy;
@@ -125,7 +121,7 @@ XGetErrorText(dpy, code, buffer, nbytes)
     return 0;
 }
 
-#if NeedFunctionPrototypes
+int
 /*ARGSUSED*/
 XGetErrorDatabaseText(
     Display *dpy,
@@ -134,15 +130,6 @@ XGetErrorDatabaseText(
     _Xconst char *defaultp,
     char *buffer,
     int nbytes)
-#else
-/*ARGSUSED*/
-XGetErrorDatabaseText(dpy, name, type, defaultp, buffer, nbytes)
-    Display *dpy;
-    register char *name, *type;
-    char *defaultp;
-    char *buffer;
-    int nbytes;
-#endif
 {
 
     static XrmDatabase db = NULL;
@@ -178,11 +165,19 @@ XGetErrorDatabaseText(dpy, name, type, defaultp, buffer, nbytes)
     if (db)
     {
 	tlen = strlen (name) + strlen (type) + 2;
-	if (tlen <= BUFSIZE) tptr = temp;
-	else tptr = Xmalloc (tlen);
-	sprintf(tptr, "%s.%s", name, type);
-	XrmGetResource(db, tptr, "ErrorType.ErrorNumber", &type_str, &result);
-	if (tptr != temp) Xfree (tptr);
+	if (tlen <= BUFSIZE)
+	    tptr = temp;
+	else
+	    tptr = Xmalloc (tlen);
+	if (tptr) {
+	    sprintf(tptr, "%s.%s", name, type);
+	    XrmGetResource(db, tptr, "ErrorType.ErrorNumber", 
+	      &type_str, &result);
+	    if (tptr != temp)
+		Xfree (tptr);
+	} else {
+	    result.addr = (XPointer) NULL;
+	}
     }
     else
 	result.addr = (XPointer)NULL;

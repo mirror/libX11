@@ -24,6 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ModMap.c,v 1.4 2001/12/14 19:54:03 dawes Exp $ */
 
 #define NEED_REPLIES
 #include "Xlibint.h"
@@ -108,6 +109,7 @@ XNewModifiermap(keyspermodifier)
 }
 
 
+int
 XFreeModifiermap(map)
     XModifierKeymap *map;
 {
@@ -119,7 +121,6 @@ XFreeModifiermap(map)
     return 1;
 }
 
-#if NeedFunctionPrototypes
 XModifierKeymap *
 XInsertModifiermapEntry(XModifierKeymap *map,
 #if NeedWidePrototypes
@@ -128,13 +129,6 @@ XInsertModifiermapEntry(XModifierKeymap *map,
 			KeyCode keycode,
 #endif
 			int modifier)
-#else
-XModifierKeymap *
-XInsertModifiermapEntry(map, keycode, modifier)
-    XModifierKeymap *map;
-    KeyCode keycode;
-    int modifier;
-#endif
 {
     XModifierKeymap *newmap;
     int i,
@@ -169,7 +163,6 @@ XInsertModifiermapEntry(map, keycode, modifier)
     return(newmap);
 }
 
-#if NeedFunctionPrototypes
 XModifierKeymap *
 XDeleteModifiermapEntry(XModifierKeymap *map,
 #if NeedWidePrototypes
@@ -178,13 +171,6 @@ XDeleteModifiermapEntry(XModifierKeymap *map,
 			KeyCode keycode,
 #endif
 			int modifier)
-#else
-XModifierKeymap *
-XDeleteModifiermapEntry(map, keycode, modifier)
-    XModifierKeymap *map;
-    KeyCode keycode;
-    int modifier;
-#endif
 {
     int i,
 	row = modifier * map->max_keypermod;

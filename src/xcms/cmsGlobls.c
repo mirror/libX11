@@ -32,46 +32,11 @@
  *
  *
  */
+/* $XFree86: xc/lib/X11/cmsGlobls.c,v 1.4 2001/01/17 19:41:51 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
-
-/*
- *      EXTERNS
- *              External declarations required locally to this package
- *              that are not already declared in any of the included header
- *		files (external includes or internal includes).
- */
-extern XcmsFunctionSet	XcmsLinearRGBFunctionSet;
-#ifdef GRAY
-extern XcmsFunctionSet	XcmsGrayFunctionSet;
-#endif /* GRAY */
-
-/* UNDEFINED Color Space */
-extern XcmsColorSpace	XcmsUNDEFINEDColorSpace;
-
-/* CIE XYZ Color Space */
-extern XcmsColorSpace	XcmsCIEXYZColorSpace;
-
-/* CIE uvY Color Space */
-extern XcmsColorSpace	XcmsCIEuvYColorSpace;
-
-/* CIE xyY Color Space */
-extern XcmsColorSpace	XcmsCIExyYColorSpace;
-
-/* CIE Lab Color Space */
-extern XcmsColorSpace	XcmsCIELabColorSpace;
-
-/* CIE Luv Color Space */
-extern XcmsColorSpace	XcmsCIELuvColorSpace;
-
-/* TekHVC Color Space */
-extern XcmsColorSpace	XcmsTekHVCColorSpace;
-
-/* Device Dependent Color Space Structures */
-extern XcmsColorSpace	XcmsRGBiColorSpace;
-extern XcmsColorSpace	XcmsRGBColorSpace;
-
+#include "Cv.h"
 
 /*
  *      GLOBALS
@@ -135,26 +100,26 @@ XcmsFunctionSet **_XcmsSCCFuncSets = _XcmsSCCFuncSetsInit;
      * X Consortium Registered Device-Independent Color Spaces
      *	Note that prefix must be in lowercase.
      */
-char	_XcmsCIEXYZ_prefix[] = "ciexyz";
-char	_XcmsCIEuvY_prefix[] = "cieuvy";
-char	_XcmsCIExyY_prefix[] = "ciexyy";
-char	_XcmsCIELab_prefix[] = "cielab";
-char 	_XcmsCIELuv_prefix[] = "cieluv";
-char	_XcmsTekHVC_prefix[] = "tekhvc";
+const char	_XcmsCIEXYZ_prefix[] = "ciexyz";
+const char	_XcmsCIEuvY_prefix[] = "cieuvy";
+const char	_XcmsCIExyY_prefix[] = "ciexyy";
+const char	_XcmsCIELab_prefix[] = "cielab";
+const char 	_XcmsCIELuv_prefix[] = "cieluv";
+const char	_XcmsTekHVC_prefix[] = "tekhvc";
     /*
      * Registered Device-Dependent Color Spaces
      */
-char	_XcmsRGBi_prefix[] = "rgbi";
-char	_XcmsRGB_prefix[] = "rgb";
+const char	_XcmsRGBi_prefix[] = "rgbi";
+const char	_XcmsRGB_prefix[] = "rgb";
 
 XcmsRegColorSpaceEntry _XcmsRegColorSpaces[] = {
-    _XcmsCIEXYZ_prefix,	XcmsCIEXYZFormat,
-    _XcmsCIEuvY_prefix,	XcmsCIEuvYFormat,
-    _XcmsCIExyY_prefix,	XcmsCIExyYFormat,
-    _XcmsCIELab_prefix,	XcmsCIELabFormat,
-    _XcmsCIELuv_prefix,	XcmsCIELuvFormat,
-    _XcmsTekHVC_prefix,	XcmsTekHVCFormat,
-    _XcmsRGB_prefix,	XcmsRGBFormat,
-    _XcmsRGBi_prefix,	XcmsRGBiFormat,
-    NULL, 0
+    { _XcmsCIEXYZ_prefix, XcmsCIEXYZFormat },
+    { _XcmsCIEuvY_prefix, XcmsCIEuvYFormat },
+    { _XcmsCIExyY_prefix, XcmsCIExyYFormat },
+    { _XcmsCIELab_prefix, XcmsCIELabFormat },
+    { _XcmsCIELuv_prefix, XcmsCIELuvFormat },
+    { _XcmsTekHVC_prefix, XcmsTekHVCFormat },
+    { _XcmsRGB_prefix, XcmsRGBFormat },
+    { _XcmsRGBi_prefix,	XcmsRGBiFormat },
+    { NULL, 0 }
 };

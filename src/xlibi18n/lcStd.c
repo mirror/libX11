@@ -23,16 +23,17 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/lcStd.c,v 1.6 2003/04/13 19:22:21 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XlcPubI.h"
 
 int
-_Xlcmbtowc(lcd, wstr, str, len)
-    XLCd lcd;
-    wchar_t *wstr;
-    char *str;
-    int len;
+_Xlcmbtowc(
+    XLCd lcd,
+    wchar_t *wstr,
+    char *str,
+    int len)
 {
     static XLCd last_lcd = NULL;
     static XlcConv conv = NULL;
@@ -73,10 +74,10 @@ _Xlcmbtowc(lcd, wstr, str, len)
 }
 
 int
-_Xlcwctomb(lcd, str, wc)
-    XLCd lcd;
-    char *str;
-    wchar_t wc;
+_Xlcwctomb(
+    XLCd lcd,
+    char *str,
+    wchar_t wc)
 {
     static XLCd last_lcd = NULL;
     static XlcConv conv = NULL;
@@ -116,11 +117,11 @@ _Xlcwctomb(lcd, str, wc)
 }
 
 int
-_Xlcmbstowcs(lcd, wstr, str, len)
-    XLCd lcd;
-    wchar_t *wstr;
-    char *str;
-    int len;
+_Xlcmbstowcs(
+    XLCd lcd,
+    wchar_t *wstr,
+    char *str,
+    int len)
 {
     XlcConv conv;
     XPointer from, to;
@@ -155,11 +156,11 @@ _Xlcmbstowcs(lcd, wstr, str, len)
 }
 
 int
-_Xlcwcstombs(lcd, str, wstr, len)
-    XLCd lcd;
-    char *str;
-    wchar_t *wstr;
-    int len;
+_Xlcwcstombs(
+    XLCd lcd,
+    char *str,
+    wchar_t *wstr,
+    int len)
 {
     XlcConv conv;
     XPointer from, to;
@@ -195,51 +196,63 @@ _Xlcwcstombs(lcd, str, wstr, len)
 
 
 int
-_Xmbtowc(wstr, str, len)
-    wchar_t *wstr;
-    char *str;
-    int len;
+_Xmbtowc(
+    wchar_t *wstr,
+#ifdef ISC
+    char const *str,
+    size_t len
+#else
+    char *str,
+    int len
+#endif
+    )
 {
     return _Xlcmbtowc((XLCd) NULL, wstr, str, len);
 }
 
 int
-_Xmblen(str, len)
-    char *str;
-    int len;
+_Xmblen(
+#ifdef ISC
+    char const *str,
+    size_t len
+#else
+    char *str,
+    int len
+#endif
+    )
 {
     return _Xmbtowc((wchar_t *) NULL, str, len);
 }
 
 int
-_Xwctomb(str, wc)
-    char *str;
-    wchar_t wc;
+_Xwctomb(
+    char *str,
+    wchar_t wc)
 {
     return _Xlcwctomb((XLCd) NULL, str, wc);
 }
 
 int
-_Xmbstowcs(wstr, str, len)
-    wchar_t *wstr;
-    char *str;
-    int len;
+_Xmbstowcs(
+    wchar_t *wstr,
+    char *str,
+    int len)
 {
     return _Xlcmbstowcs((XLCd) NULL, wstr, str, len);
 }
 
 int
-_Xwcstombs(str, wstr, len)
-    char *str;
-    wchar_t *wstr;
-    int len;
+_Xwcstombs(
+    char *str,
+    wchar_t *wstr,
+    int len)
 {
     return _Xlcwcstombs((XLCd) NULL, str, wstr, len);
 }
 
 wchar_t *
-_Xwcscpy(wstr1, wstr2)
-    register wchar_t *wstr1, *wstr2;
+_Xwcscpy(
+    register wchar_t *wstr1, register wchar_t *wstr2)
 {
     wchar_t *wstr_tmp = wstr1;
 
@@ -250,9 +263,9 @@ _Xwcscpy(wstr1, wstr2)
 }
 
 wchar_t *
-_Xwcsncpy(wstr1, wstr2, len)
-    register wchar_t *wstr1, *wstr2;
-    register int len;
+_Xwcsncpy(
+    register wchar_t *wstr1, register wchar_t *wstr2,
+    register int len)
 {
     wchar_t *wstr_tmp = wstr1;
 
@@ -267,8 +280,8 @@ _Xwcsncpy(wstr1, wstr2, len)
 }
 
 int
-_Xwcslen(wstr)
-    register wchar_t *wstr;
+_Xwcslen(
+    register wchar_t *wstr)
 {
     register wchar_t *wstr_ptr = wstr;
 
@@ -279,8 +292,8 @@ _Xwcslen(wstr)
 }
 
 int
-_Xwcscmp(wstr1, wstr2)
-    register wchar_t *wstr1, *wstr2;
+_Xwcscmp(
+    register wchar_t *wstr1, register wchar_t *wstr2)
 {
     for ( ; *wstr1 && *wstr2; wstr1++, wstr2++)
 	if (*wstr1 != *wstr2)
@@ -290,9 +303,9 @@ _Xwcscmp(wstr1, wstr2)
 }
 
 int
-_Xwcsncmp(wstr1, wstr2, len)
-    register wchar_t *wstr1, *wstr2;
-    register int len;
+_Xwcsncmp(
+    register wchar_t *wstr1, register wchar_t *wstr2,
+    register int len)
 {
     for ( ; *wstr1 && *wstr2 && len > 0; wstr1++, wstr2++, len--)
 	if (*wstr1 != *wstr2)
@@ -302,4 +315,53 @@ _Xwcsncmp(wstr1, wstr2, len)
 	return 0;
 
     return *wstr1 - *wstr2;
+}
+
+
+int
+_Xlcmbstoutf8(
+    XLCd lcd,
+    char *ustr,
+    const char *str,
+    int len)
+{
+    XlcConv conv;
+    XPointer from, to;
+    int from_left, to_left, ret;
+
+    if (lcd == NULL) {
+	lcd = _XlcCurrentLC();
+	if (lcd == NULL)
+	    return -1;
+    }
+
+    conv = _XlcOpenConverter(lcd, XlcNMultiByte, lcd, XlcNUtf8String);
+    if (conv == NULL)
+	return -1;
+
+    from = (XPointer) str;
+    from_left = strlen(str);
+    to = (XPointer) ustr;
+    to_left = len;
+
+    if (_XlcConvert(conv, &from, &from_left, &to, &to_left, NULL, 0) < 0)
+	ret = -1;
+    else {
+	ret = len - to_left;
+	if (ustr && to_left > 0)
+	    ustr[ret] = '\0';
+    }
+
+    _XlcCloseConverter(conv);
+
+    return ret;
+}
+
+int
+_Xmbstoutf8(
+    char *ustr,
+    const char *str,
+    int len)
+{
+    return _Xlcmbstoutf8((XLCd) NULL, ustr, str, len);
 }

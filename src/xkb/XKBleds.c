@@ -24,22 +24,17 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBleds.c,v 1.4 2003/04/13 19:22:18 dawes Exp $ */
 
 #define NEED_REPLIES
 #define NEED_EVENTS
+#define NEED_MAP_READERS
 #include "Xlibint.h"
 #include <X11/extensions/XKBproto.h>
 #include "XKBlibint.h"
 
 Status
-#if NeedFunctionPrototypes
 XkbGetIndicatorState(Display *dpy,unsigned deviceSpec,unsigned *pStateRtrn)
-#else
-XkbGetIndicatorState(dpy,deviceSpec,pStateRtrn)
-    Display *		dpy;
-    unsigned int	deviceSpec;
-    unsigned int *	pStateRtrn;
-#endif
 {
     register xkbGetIndicatorStateReq *req;
     xkbGetIndicatorStateReply	rep;
@@ -64,18 +59,10 @@ XkbGetIndicatorState(dpy,deviceSpec,pStateRtrn)
 }
 
 Status	
-#if NeedFunctionPrototypes
 _XkbReadGetIndicatorMapReply(	Display *			dpy,
 				xkbGetIndicatorMapReply *	rep,
 				XkbDescPtr			xkb,
 				int	*			nread_rtrn)
-#else
-_XkbReadGetIndicatorMapReply(dpy,rep,xkb,nread_rtrn)
-    Display *			dpy;
-    xkbGetIndicatorMapReply *	rep;
-    XkbDescPtr			xkb;
-    int	*			nread_rtrn;
-#endif
 {
 XkbIndicatorPtr		leds;
 XkbReadBufferRec	buf;
@@ -122,14 +109,7 @@ XkbReadBufferRec	buf;
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetIndicatorMap(Display *dpy,unsigned long which,XkbDescPtr xkb)
-#else
-XkbGetIndicatorMap(dpy,which,xkb)
-    Display *		dpy;
-    unsigned long 	which;
-    XkbDescPtr		xkb;
-#endif
 {
     register xkbGetIndicatorMapReq *	req;
     xkbGetIndicatorMapReply 		rep;
@@ -169,14 +149,7 @@ XkbGetIndicatorMap(dpy,which,xkb)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetIndicatorMap(Display *dpy,unsigned long which,XkbDescPtr xkb)
-#else
-XkbSetIndicatorMap(dpy,which,xkb)
-    Display *		dpy;
-    unsigned long 	which;
-    XkbDescPtr		xkb;
-#endif
 {
     register xkbSetIndicatorMapReq	*req;
     register int i,bit;
@@ -221,7 +194,6 @@ XkbSetIndicatorMap(dpy,which,xkb)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetNamedDeviceIndicator(	Display *		dpy,
 				unsigned		device,
 				unsigned		class,
@@ -231,19 +203,6 @@ XkbGetNamedDeviceIndicator(	Display *		dpy,
     				Bool *			pStateRtrn,
 				XkbIndicatorMapPtr	pMapRtrn,
 				Bool *			pRealRtrn)
-#else
-XkbGetNamedDeviceIndicator(dpy,device,class,id,name,pNdxRtrn,pStateRtrn,
-							pMapRtrn,pRealRtrn)
-    Display *		dpy;
-    unsigned		device;
-    unsigned		class;
-    unsigned		id;
-    Atom		name;
-    int	*		pNdxRtrn;
-    Bool *		pStateRtrn;
-    XkbIndicatorMapPtr	pMapRtrn;
-    Bool *		pRealRtrn;
-#endif
 {
     register xkbGetNamedIndicatorReq *req;
     xkbGetNamedIndicatorReply	rep;
@@ -288,22 +247,12 @@ XkbGetNamedDeviceIndicator(dpy,device,class,id,name,pNdxRtrn,pStateRtrn,
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbGetNamedIndicator(	Display *		dpy,
 			Atom			name,
 			int	*		pNdxRtrn,
     			Bool *			pStateRtrn,
 			XkbIndicatorMapPtr	pMapRtrn,
 			Bool *			pRealRtrn)
-#else
-XkbGetNamedIndicator(dpy,name,pNdxRtrn,pStateRtrn,pMapRtrn,pRealRtrn)
-    Display *		dpy;
-    Atom		name;
-    int	*		pNdxRtrn;
-    Bool *		pStateRtrn;
-    XkbIndicatorMapPtr	pMapRtrn;
-    Bool *		pRealRtrn;
-#endif
 {
     return XkbGetNamedDeviceIndicator(dpy,XkbUseCoreKbd,
 					  XkbDfltXIClass,XkbDfltXIId,
@@ -312,7 +261,6 @@ XkbGetNamedIndicator(dpy,name,pNdxRtrn,pStateRtrn,pMapRtrn,pRealRtrn)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetNamedDeviceIndicator(	Display *		dpy,
 				unsigned		device,
 				unsigned		class,
@@ -322,26 +270,12 @@ XkbSetNamedDeviceIndicator(	Display *		dpy,
 				Bool			state,
 				Bool			createNewMap,
 				XkbIndicatorMapPtr	pMap)
-#else
-XkbSetNamedDeviceIndicator(dpy,device,class,id,name,changeState,
-							state,createNewMap,pMap)
-    Display *		dpy;
-    unsigned		device;
-    unsigned		class;
-    unsigned		id;
-    Atom		name;
-    Bool		changeState;
-    Bool		state;
-    Bool		createNewMap;
-    XkbIndicatorMapPtr	pMap;
-#endif
 {
     register xkbSetNamedIndicatorReq	*req;
     XkbInfoPtr xkbi;
 
     if ((dpy->flags & XlibDisplayNoXkb) || (name==None) ||
-	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)) ||
-	(pMap==NULL))
+ 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
 	return False;
     LockDisplay(dpy);
     xkbi = dpy->xkb_info;
@@ -384,22 +318,12 @@ XkbSetNamedDeviceIndicator(dpy,device,class,id,name,changeState,
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetNamedIndicator(	Display *		dpy,
 			Atom			name,
 			Bool			changeState,
 			Bool			state,
 			Bool			createNewMap,
 			XkbIndicatorMapPtr	pMap)
-#else
-XkbSetNamedIndicator(dpy,name,changeState,state,createNewMap,pMap)
-    Display *		dpy;
-    Atom		name;
-    Bool		changeState;
-    Bool		state;
-    Bool		createNewMap;
-    XkbIndicatorMapPtr	pMap;
-#endif
 {
     return XkbSetNamedDeviceIndicator(dpy,XkbUseCoreKbd,
 					  XkbDfltXIClass,XkbDfltXIId,

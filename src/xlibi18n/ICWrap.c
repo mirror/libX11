@@ -64,15 +64,16 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
+/* $XFree86: xc/lib/X11/ICWrap.c,v 1.10 2003/04/25 14:12:38 tsi Exp $ */
 
 #define NEED_EVENTS
 #include "Xlibint.h"
 #include "Xlcint.h"
 
 static int
-_XIMNestedListToNestedList(nlist, list)
-    XIMArg *nlist;   /* This is the new list */
-    XIMArg *list;    /* The original list */
+_XIMNestedListToNestedList(
+    XIMArg *nlist,   /* This is the new list */
+    XIMArg *list)    /* The original list */
 {
     register XIMArg *ptr = list;
 
@@ -90,9 +91,9 @@ _XIMNestedListToNestedList(nlist, list)
 }
 
 static void
-_XIMCountNestedList(args, total_count)
-    XIMArg *args;
-    int *total_count;
+_XIMCountNestedList(
+    XIMArg *args,
+    int *total_count)
 {
     for (; args->name; args++) {
 	if (!strcmp(args->name, XNVaNestedList))
@@ -102,15 +103,8 @@ _XIMCountNestedList(args, total_count)
     }
 }
 
-#if NeedVarargsPrototypes
 static void
 _XIMCountVaList(va_list var, int *total_count)
-#else
-static void
-_XIMCountVaList(var, total_count)
-    va_list var;
-    int *total_count;
-#endif
 {
     char *attr;
 
@@ -120,22 +114,14 @@ _XIMCountVaList(var, total_count)
 	if (!strcmp(attr, XNVaNestedList)) {
 	    _XIMCountNestedList(va_arg(var, XIMArg*), total_count);
 	} else {
-	    va_arg(var, XIMArg*);
+	    (void)va_arg(var, XIMArg*);
 	    ++(*total_count);
 	}
     }
 }
 
-#if NeedVarargsPrototypes
 static void
 _XIMVaToNestedList(va_list var, int max_count, XIMArg **args_return)
-#else
-static void
-_XIMVaToNestedList(var, max_count, args_return)
-    va_list var;
-    int max_count;
-    XIMArg **args_return;
-#endif
 {
     XIMArg *args;
     char   *attr;
@@ -162,40 +148,26 @@ _XIMVaToNestedList(var, max_count, args_return)
 }
 
 /*ARGSUSED*/
-#if NeedVarargsPrototypes
 XVaNestedList
 XVaCreateNestedList(int dummy, ...)
-#else
-XVaNestedList
-XVaCreateNestedList(dummy, va_alist)
-    int dummy;
-    va_dcl
-#endif
 {
     va_list		var;
     XIMArg		*args = NULL;
     int			total_count;
 
-    Va_start(var, dummy);
+    va_start(var, dummy);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
-    Va_start(var, dummy);
+    va_start(var, dummy);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
     return (XVaNestedList)args;
 }
 
-#if NeedVarargsPrototypes
 char *
 XSetIMValues(XIM im, ...)
-#else				/* NeedVarargsPrototypes */
-char *
-XSetIMValues(im, va_alist)
-    XIM im;
-    va_dcl
-#endif				/* NeedVarargsPrototypes */
 {
     va_list var;
     int     total_count;
@@ -205,14 +177,14 @@ XSetIMValues(im, va_alist)
     /*
      * so count the stuff dangling here
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
     /*
      * now package it up so we can send it along
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
@@ -221,15 +193,8 @@ XSetIMValues(im, va_alist)
     return ret;
 }
 
-#if NeedVarargsPrototypes
 char *
 XGetIMValues(XIM im, ...)
-#else				/* NeedVarargsPrototypes */
-char *
-XGetIMValues(im, va_alist)
-    XIM im;
-    va_dcl
-#endif				/* NeedVarargsPrototypes */
 {
     va_list var;
     int     total_count;
@@ -239,14 +204,14 @@ XGetIMValues(im, va_alist)
     /*
      * so count the stuff dangling here
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
     /*
      * now package it up so we can send it along
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
@@ -260,15 +225,8 @@ XGetIMValues(im, va_alist)
  * and return a pointer to the input context.
  */
 
-#if NeedVarargsPrototypes
 XIC
 XCreateIC(XIM im, ...)
-#else
-XIC
-XCreateIC(im, va_alist)
-    XIM im;		/* specified the attached input method */
-    va_dcl		/* specified variable length argment list */
-#endif
 {
     va_list var;
     int     total_count;
@@ -278,14 +236,14 @@ XCreateIC(im, va_alist)
     /*
      * so count the stuff dangling here
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
     /*
      * now package it up so we can send it along
      */
-    Va_start(var, im);
+    va_start(var, im);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
@@ -320,15 +278,8 @@ XDestroyIC(ic)
     Xfree ((char *) ic);
 }
 
-#if NeedVarargsPrototypes
 char *
 XGetICValues(XIC ic, ...)
-#else
-char *
-XGetICValues(ic, va_alist)
-    XIC ic;
-    va_dcl
-#endif
 { 
     va_list var;
     int     total_count;
@@ -341,14 +292,14 @@ XGetICValues(ic, va_alist)
     /*
      * so count the stuff dangling here
      */
-    Va_start(var, ic);
+    va_start(var, ic);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
     /*
      * now package it up so we can send it along
      */
-    Va_start(var, ic);
+    va_start(var, ic);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
@@ -357,15 +308,8 @@ XGetICValues(ic, va_alist)
     return ret;
 }
 
-#if NeedVarargsPrototypes
 char *
 XSetICValues(XIC ic, ...)
-#else
-char *
-XSetICValues(ic, va_alist)
-    XIC ic;
-    va_dcl
-#endif
 {
     va_list var;
     int     total_count;
@@ -378,14 +322,14 @@ XSetICValues(ic, va_alist)
     /*
      * so count the stuff dangling here
      */
-    Va_start(var, ic);
+    va_start(var, ic);
     _XIMCountVaList(var, &total_count);
     va_end(var);
 
     /*
      * now package it up so we can send it along
      */
-    Va_start(var, ic);
+    va_start(var, ic);
     _XIMVaToNestedList(var, total_count, &args);
     va_end(var);
 
@@ -402,7 +346,7 @@ void
 XSetICFocus(ic)
     XIC ic;
 {
-  if (ic->core.im)
+  if (ic && ic->core.im)
       (*ic->methods->set_focus) (ic);
 }
 
@@ -428,7 +372,8 @@ XIMOfIC(ic)
     return ic->core.im;
 }
 
-char *XmbResetIC(ic)
+char *
+XmbResetIC(ic)
     XIC ic;
 {
     if (ic->core.im)
@@ -436,12 +381,26 @@ char *XmbResetIC(ic)
     return (char *)NULL;
 }
 
-wchar_t *XwcResetIC(ic)
+wchar_t *
+XwcResetIC(ic)
     XIC ic;
 {
     if (ic->core.im)
 	return (*ic->methods->wc_reset)(ic);
     return (wchar_t *)NULL;
+}
+
+char *
+Xutf8ResetIC(ic)
+    XIC ic;
+{
+    if (ic->core.im) {
+	if (ic->methods->utf8_reset)
+	    return (*ic->methods->utf8_reset)(ic);
+	else if (ic->methods->mb_reset)
+	    return (*ic->methods->mb_reset)(ic);
+    }
+    return (char *)NULL;
 }
 
 int
@@ -471,5 +430,25 @@ XwcLookupString(ic, ev, buffer, nchars, keysym, status)
     if (ic->core.im)
 	return (*ic->methods->wc_lookup_string) (ic, ev, buffer, nchars,
 						 keysym, status);
+    return XLookupNone;
+}
+
+int
+Xutf8LookupString(ic, ev, buffer, nbytes, keysym, status)
+    XIC ic;
+    register XKeyEvent *ev;
+    char *buffer;
+    int nbytes;
+    KeySym *keysym;
+    Status *status;
+{
+    if (ic->core.im) {
+	if (ic->methods->utf8_lookup_string)
+	    return (*ic->methods->utf8_lookup_string) (ic, ev, buffer, nbytes,
+						   	keysym, status);
+	else if (ic->methods->mb_lookup_string)
+	    return (*ic->methods->mb_lookup_string) (ic, ev, buffer, nbytes,
+						   	keysym, status);
+    }
     return XLookupNone;
 }

@@ -23,20 +23,20 @@
  * Author: Katsuhisa Yano	TOSHIBA Corp.
  *			   	mopi@osa.ilab.toshiba.co.jp
  */
+/* $XFree86: xc/lib/X11/omTextExt.c,v 1.5 2003/04/13 19:22:22 dawes Exp $ */
 
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include <stdio.h>
 
 int
-_XomGenericTextExtents(oc, type, text, length, overall_ink,
-		       overall_logical)
-    XOC oc;
-    XOMTextType type;
-    XPointer text;
-    int length;
-    XRectangle *overall_ink;
-    XRectangle *overall_logical;
+_XomGenericTextExtents(
+    XOC oc,
+    XOMTextType type,
+    XPointer text,
+    int length,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical)
 {
     XlcConv conv;
     XFontStruct *font;
@@ -110,35 +110,25 @@ _XomGenericTextExtents(oc, type, text, length, overall_ink,
 }
 
 int
-#if NeedFunctionPrototypes
 _XmbGenericTextExtents(XOC oc, _Xconst char *text, int length,
 		       XRectangle *overall_ink, XRectangle *overall_logical)
-#else
-_XmbGenericTextExtents(oc, text, length, overall_ink, overall_logical)
-    XOC oc;
-    char *text;
-    int length;
-    XRectangle *overall_ink;
-    XRectangle *overall_logical;
-#endif
 {
     return _XomGenericTextExtents(oc, XOMMultiByte, (XPointer) text, length,
 				  overall_ink, overall_logical);
 }
 
 int
-#if NeedFunctionPrototypes
 _XwcGenericTextExtents(XOC oc, _Xconst wchar_t *text, int length,
 		       XRectangle *overall_ink, XRectangle *overall_logical)
-#else
-_XwcGenericTextExtents(oc, text, length, overall_ink, overall_logical)
-    XOC oc;
-    wchar_t *text;
-    int length;
-    XRectangle *overall_ink;
-    XRectangle *overall_logical;
-#endif
 {
     return _XomGenericTextExtents(oc, XOMWideChar, (XPointer) text, length,
+				  overall_ink, overall_logical);
+}
+
+int
+_Xutf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
+			 XRectangle *overall_ink, XRectangle *overall_logical)
+{
+    return _XomGenericTextExtents(oc, XOMUtf8String, (XPointer) text, length,
 				  overall_ink, overall_logical);
 }

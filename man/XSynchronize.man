@@ -40,6 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XSync.man,v 1.2 2001/01/27 18:20:05 dawes Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,21 +140,15 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSynchronize 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XSynchronize 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSynchronize, XSetAfterFunction \- enable or disable synchronization 
 .SH SYNTAX
-int (*XSynchronize\^(\^\fIdisplay\fP, \fIonoff\fP\^)\^)()
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      Bool \fIonoff\fP\^;
-.LP
-int (*XSetAfterFunction\^(\^\fIdisplay\fP, \fIprocedure\fP\^))()
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      int (\^*\^\fIprocedure\fP\^)\^();
+.HP
+int (*XSynchronize\^(\^Display *\fIdisplay\fP\^, Bool \fIonoff\fP\^))(); 
+.HP
+int (*XSetAfterFunction\^(\^Display *\fIdisplay\fP\^, int
+(\^*\^\fIprocedure\fP\^)\^()))(); 
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

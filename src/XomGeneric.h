@@ -31,6 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
+/* $XFree86: xc/lib/X11/XomGeneric.h,v 1.5 2003/04/13 19:22:19 dawes Exp $ */
 
 #ifndef _XOMGENERIC_H_
 #define _XOMGENERIC_H_
@@ -59,7 +60,8 @@ typedef struct _VRotateRec {
 
 typedef enum {
     XOMMultiByte,
-    XOMWideChar
+    XOMWideChar,
+    XOMUtf8String
 } XOMTextType;
 
 typedef struct _FontDataRec {
@@ -134,6 +136,7 @@ typedef struct _FontSetRec {
 typedef struct _XOCGenericPart {
     XlcConv 		mbs_to_cs;
     XlcConv 		wcs_to_cs;
+    XlcConv 		utf8_to_cs;
     int 		font_set_num;
     FontSet 		font_set;
 } XOCGenericPart;
@@ -147,24 +150,19 @@ typedef struct _XOCGenericRec {
 _XFUNCPROTOBEGIN
 
 extern XOM _XomGenericOpenOM(
-#if NeedFunctionPrototypes
     XLCd		/* lcd */,
     Display*		/* dpy */,
     XrmDatabase		/* rdb */,
     _Xconst char*	/* res_name */,
     _Xconst char*	/* res_class */
-#endif
 );
 
 extern XlcConv _XomInitConverter(
-#if NeedFunctionPrototypes
     XOC			/* oc */,
     XOMTextType		/* type */
-#endif
 );
 
 extern int _XomConvert(
-#if NeedFunctionPrototypes
     XOC			/* oc */,
     XlcConv		/* conv */,
     XPointer*		/* from */,
@@ -173,8 +171,147 @@ extern int _XomConvert(
     int*		/* to_left */,
     XPointer*		/* args */,
     int			/* num_args */
-#endif
 );
+
+extern int
+_XmbDefaultTextEscapement(XOC oc, _Xconst char *text, int length);
+extern int
+_XwcDefaultTextEscapement(XOC oc, _Xconst wchar_t *text, int length);
+extern int
+_Xutf8DefaultTextEscapement(XOC oc, _Xconst char *text, int length);
+extern int
+_XmbDefaultTextExtents(XOC oc, _Xconst char *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern int
+_XwcDefaultTextExtents(XOC oc, _Xconst wchar_t *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern int
+_Xutf8DefaultTextExtents(XOC oc, _Xconst char *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern Status
+_XmbDefaultTextPerCharExtents(
+    XOC oc, _Xconst char *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern Status
+_XwcDefaultTextPerCharExtents(
+    XOC oc, _Xconst wchar_t *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern Status
+_Xutf8DefaultTextPerCharExtents(
+    XOC oc, _Xconst char *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern int
+_XmbDefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst char *text, int length);
+extern int
+_XwcDefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst wchar_t *text, int length);
+extern int
+_Xutf8DefaultDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst char *text, int length);
+extern void
+_XmbDefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst char *text, int length);
+extern void
+_XwcDefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst wchar_t *text, int length);
+extern void
+_Xutf8DefaultDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst char *text, int length);
+
+extern int
+_XmbGenericTextEscapement(XOC oc, _Xconst char *text, int length);
+extern int
+_XmbGenericTextExtents(XOC oc, _Xconst char *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern int
+_Xutf8GenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst char *text, int length);
+extern void
+_Xutf8GenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst char *text, int length);
+extern Status
+_Xutf8GenericTextPerCharExtents(
+    XOC oc, _Xconst char *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern int
+_Xutf8GenericTextExtents(XOC oc, _Xconst char *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern int
+_Xutf8GenericTextEscapement(XOC oc, _Xconst char *text, int length);
+extern void
+_XwcGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst wchar_t *text, int length);
+extern int
+_XwcGenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst wchar_t *text, int length);
+extern Status
+_XwcGenericTextPerCharExtents(XOC oc, _Xconst wchar_t *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern int
+_XwcGenericTextExtents(XOC oc, _Xconst wchar_t *text, int length,
+    XRectangle *overall_ink, XRectangle *overall_logical);
+extern int
+_XwcGenericTextEscapement(XOC oc, _Xconst wchar_t *text, int length);
+extern void
+_XmbGenericDrawImageString(Display *dpy, Drawable d, XOC oc, GC gc, int x,
+    int y, _Xconst char *text, int length);
+extern int
+_XmbGenericDrawString(Display *dpy, Drawable d, XOC oc, GC gc, int x, int y,
+    _Xconst char *text, int length);
+extern Status
+_XmbGenericTextPerCharExtents(XOC oc, _Xconst char *text, int length,
+    XRectangle *ink_buf, XRectangle *logical_buf,
+    int buf_size, int *num_chars,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+
+extern FontData
+read_EncodingInfo(
+    int count,
+    char **value);
+
+extern int
+_XomGenericDrawString(
+    Display *dpy,
+    Drawable d,
+    XOC oc,
+    GC gc,
+    int x, int y,
+    XOMTextType type,
+    XPointer text,
+    int length);
+extern int
+_XomGenericTextExtents(
+    XOC oc,
+    XOMTextType type,
+    XPointer text,
+    int length,
+    XRectangle *overall_ink,
+    XRectangle *overall_logical);
+extern FontData
+_XomGetFontDataFromFontSet(
+    FontSet fs,
+    unsigned char *str,
+    int len,
+    int *len_ret,
+    int is2b,
+    int type);
 
 _XFUNCPROTOEND
 

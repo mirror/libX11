@@ -32,6 +32,7 @@ THIS SOFTWARE.
 	                          frankyling@hgrd01.enet.dec.com
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/imThaiIc.c,v 1.4 2001/01/17 19:41:52 dawes Exp $ */
 
 #include <stdio.h>
 #include <X11/Xlib.h>
@@ -41,8 +42,8 @@ THIS SOFTWARE.
 #include "Ximint.h"
 
 Private void
-_XimThaiUnSetFocus(xic)
-    XIC	 xic;
+_XimThaiUnSetFocus(
+    XIC	 xic)
 {
     Xic  ic = (Xic)xic;
     ((Xim)ic->core.im)->private.local.current_ic = (XIC)NULL;
@@ -54,8 +55,8 @@ _XimThaiUnSetFocus(xic)
 }
 
 Private void
-_XimThaiDestroyIC(xic)
-    XIC	 xic;
+_XimThaiDestroyIC(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
     if(((Xim)ic->core.im)->private.local.current_ic == (XIC)ic) {
@@ -68,16 +69,18 @@ _XimThaiDestroyIC(xic)
 
     Xfree(ic->private.local.context->mb);
     Xfree(ic->private.local.context->wc);
+    Xfree(ic->private.local.context->utf8);
     Xfree(ic->private.local.context);
     Xfree(ic->private.local.composed->mb);
     Xfree(ic->private.local.composed->wc);
+    Xfree(ic->private.local.composed->utf8);
     Xfree(ic->private.local.composed);
     return;
 }
 
 Private void
-_XimThaiSetFocus(xic)
-    XIC	 xic;
+_XimThaiSetFocus(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
     XIC	 current_ic = ((Xim)ic->core.im)->private.local.current_ic;
@@ -96,28 +99,32 @@ _XimThaiSetFocus(xic)
     return;
 }
 
-Private char *
-_XimThaiMbReset(xic)
-    XIC	 xic;
+Private void
+_XimThaiReset(
+    XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
     ic->private.local.thai.comp_state = 0;
     ic->private.local.thai.keysym = 0;
     ic->private.local.composed->mb[0] = '\0';
     ic->private.local.composed->wc[0] = 0;
-    return((char *)NULL);
+    ic->private.local.composed->utf8[0] = '\0';
+}
+
+Private char *
+_XimThaiMbReset(
+    XIC	 xic)
+{
+    _XimThaiReset(xic);
+    return (char *)NULL;
 }
 
 Private wchar_t *
-_XimThaiWcReset(xic)
-    XIC	 xic;
+_XimThaiWcReset(
+    XIC	 xic)
 {
-    Xic	 ic = (Xic)xic;
-    ic->private.local.thai.comp_state = 0;
-    ic->private.local.thai.keysym = 0;
-    ic->private.local.composed->mb[0] = '\0';
-    ic->private.local.composed->wc[0] = 0;
-    return((wchar_t *)NULL);
+    _XimThaiReset(xic);
+    return (wchar_t *)NULL;
 }
 
 Private XICMethodsRec Thai_ic_methods = {
@@ -128,14 +135,16 @@ Private XICMethodsRec Thai_ic_methods = {
     _XimLocalGetICValues,	/* get_values */
     _XimThaiMbReset,		/* mb_reset */
     _XimThaiWcReset,		/* wc_reset */
+    _XimThaiMbReset,		/* utf8_reset */
     _XimLocalMbLookupString,	/* mb_lookup_string */
     _XimLocalWcLookupString,	/* wc_lookup_string */
+    _XimLocalUtf8LookupString	/* utf8_lookup_string */
 };
 
 XIC
-_XimThaiCreateIC(im, values)
-    XIM			 im;
-    XIMArg		*values;
+_XimThaiCreateIC(
+    XIM			 im,
+    XIMArg		*values)
 {
     Xic			 ic;
     XimDefICValues	 ic_values;
@@ -160,6 +169,9 @@ _XimThaiCreateIC(im, values)
     if ((ic->private.local.context->wc = (wchar_t *)Xmalloc(10*sizeof(wchar_t)))
 		== (wchar_t *)NULL)
 	goto Set_Error;
+    if ((ic->private.local.context->utf8 = (char *)Xmalloc(10))
+		== (char *)NULL)
+	goto Set_Error;
     if ((ic->private.local.composed = (DefTree *)Xmalloc(sizeof(DefTree)))
 	    == (DefTree *)NULL)
 	goto Set_Error;
@@ -168,6 +180,9 @@ _XimThaiCreateIC(im, values)
 	goto Set_Error;
     if ((ic->private.local.composed->wc = (wchar_t *)Xmalloc(10*sizeof(wchar_t)))
 		== (wchar_t *)NULL)
+	goto Set_Error;
+    if ((ic->private.local.composed->utf8 = (char *)Xmalloc(10))
+		== (char *)NULL)
 	goto Set_Error;
 
     ic->private.local.thai.comp_state = 0;

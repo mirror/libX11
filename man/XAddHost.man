@@ -1,28 +1,34 @@
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
+.\" Copyright \(co 2004 Sun Microsystems, Inc.
 .\"
-.\" Permission is hereby granted, free of charge, to any person obtaining
-.\" a copy of this software and associated documentation files (the
+.\" All rights reserved.
+.\" 
+.\" Permission is hereby granted, free of charge, to any person obtaining a
+.\" copy of this software and associated documentation files (the
 .\" "Software"), to deal in the Software without restriction, including
 .\" without limitation the rights to use, copy, modify, merge, publish,
-.\" distribute, sublicense, and/or sell copies of the Software, and to
-.\" permit persons to whom the Software is furnished to do so, subject to
-.\" the following conditions:
-.\"
-.\" The above copyright notice and this permission notice shall be included
-.\" in all copies or substantial portions of the Software.
-.\"
+.\" distribute, and/or sell copies of the Software, and to permit persons
+.\" to whom the Software is furnished to do so, provided that the above
+.\" copyright notice(s) and this permission notice appear in all copies of
+.\" the Software and that both the above copyright notice(s) and this
+.\" permission notice appear in supporting documentation.
+.\" 
 .\" THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
 .\" OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-.\" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
-.\" IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM, DAMAGES OR
-.\" OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
-.\" ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-.\" OTHER DEALINGS IN THE SOFTWARE.
-.\"
-.\" Except as contained in this notice, the name of the X Consortium shall
-.\" not be used in advertising or otherwise to promote the sale, use or
-.\" other dealings in this Software without prior written authorization
-.\" from the X Consortium.
+.\" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT
+.\" OF THIRD PARTY RIGHTS. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+.\" HOLDERS INCLUDED IN THIS NOTICE BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL
+.\" INDIRECT OR CONSEQUENTIAL DAMAGES, OR ANY DAMAGES WHATSOEVER RESULTING
+.\" FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT,
+.\" NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION
+.\" WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+.\" 
+.\" Except as contained in this notice, the name of a copyright holder
+.\" shall not be used in advertising or otherwise to promote the sale, use
+.\" or other dealings in this Software without prior written authorization
+.\" of the copyright holder.
+.\" 
+.\" X Window System is a trademark of The Open Group.
 .\"
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991 by
 .\" Digital Equipment Corporation
@@ -40,6 +46,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XAddHost.man,v 1.3 2003/04/28 22:17:54 herrb Exp $
+.\" $XdotOrg: lib/X11/man/XAddHost.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,59 +147,28 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAddHost 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XAddHost 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XAddHost, XAddHosts, XListHosts, XRemoveHost, XRemoveHosts, XSetAccessControl, XEnableAccessControl, XDisableAccessControl, XHostAddress \- control host access and host control structure
+XAddHost, XAddHosts, XListHosts, XRemoveHost, XRemoveHosts, XSetAccessControl, XEnableAccessControl, XDisableAccessControl, XHostAddress, XServerInterpretedAddress \- control host access and host control structure
 .SH SYNTAX
-XAddHost\^(\^\fIdisplay\fP, \fIhost\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XHostAddress *\fIhost\fP\^;	
-.LP
-XAddHosts\^(\^\fIdisplay\fP, \fIhosts\fP, \fInum_hosts\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XHostAddress *\fIhosts\fP\^;
-.br
-      int \fInum_hosts\fP\^;
-.LP
-XHostAddress *XListHosts\^(\^\fIdisplay\fP, \fInhosts_return\fP, \fIstate_return\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      int *\fInhosts_return\fP\^;
-.br
-      Bool *\fIstate_return\fP\^;
-.LP
-XRemoveHost\^(\^\fIdisplay\fP, \fIhost\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XHostAddress *\fIhost\fP\^;
-.LP
-XRemoveHosts\^(\^\fIdisplay\fP, \fIhosts\fP, \fInum_hosts\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      XHostAddress *\fIhosts\fP\^;
-.br
-      int \fInum_hosts\fP\^;
-.LP
-XSetAccessControl\^(\^\fIdisplay\fP, \fImode\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.br
-      int \fImode\fP\^;
-.LP
-XEnableAccessControl\^(\^\fIdisplay\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
-.LP
-XDisableAccessControl\^(\^\fIdisplay\fP\^)
-.br
-      Display *\fIdisplay\fP\^;
+.HP
+int XAddHost\^(\^Display *\fIdisplay\fP, XHostAddress *\fIhost\fP\^); 
+.HP
+int XAddHosts\^(\^Display *\fIdisplay\fP, XHostAddress *\fIhosts\fP, 
+int \fInum_hosts\fP\^);
+.HP
+XHostAddress *XListHosts\^(\^Display *\fIdisplay\fP, int *\fInhosts_return\fP,
+Bool \fIstate_return\fP\^);
+.HP
+int XRemoveHost\^(\^Display *\fIdisplay\fP, XHostAddress *\fIhost\fP\^);
+.HP
+int XRemoveHosts\^(\^Display *\fIdisplay\fP, XHostAddress *\fIhosts\fP, int \fInum_hosts\fP\^);
+.HP
+int XSetAccessControl\^(\^Display *\fIdisplay\fP, int \fImode\fP\^);
+.HP
+int XEnableAccessControl\^(\^Display *\fIdisplay\fP\^);
+.HP
+int XDisableAccessControl\^(\^Display *\fIdisplay\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -327,20 +305,43 @@ structure contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int family;	/* for example FamilyInternet */
-	int length;	/* length of address, in bytes */
-	char *address;	/* pointer to where to find the address */
+	int family;	/\(** for example FamilyInternet */
+	int length;	/\(** length of address, in bytes */
+	char *address;	/\(** pointer to where to find the address */
 } XHostAddress;
 .De
 .LP
 The family member specifies which protocol address family to use 
 (for example, TCP/IP or DECnet) and can be
 .ZN FamilyInternet ,
+.ZN FamilyInternet6 ,
+.ZN FamilyServerInterpreted ,
 .ZN FamilyDECnet ,
 or
 .ZN FamilyChaos .
 The length member specifies the length of the address in bytes.
 The address member specifies a pointer to the address.
+.LP
+For the ServerInterpreted family, the length is ignored and the address 
+member is a pointer to a 
+.ZN XServerInterpretedAddress
+structure which contains:
+.LP
+.Ds 0
+.TA .5i 3i
+.ta .5i 3i
+typedef struct {
+	int typelength;		/\(** length of type string, in bytes */
+	int valuelength;	/\(** length of value string, in bytes */
+	char *type;		/\(** pointer to where to find the type string */
+	char *value;		/\(** pointer to where to find the address */
+} XServerInterpretedAddress;
+.De
+.LP
+The type and value members point to strings representing the type and value of
+the server interpreted entry.  These strings may not be NULL-terminated so care
+should be used when accessing them.  The typelength and valuelength members
+specify the length in byte of the type and value strings.
 .SH DIAGNOSTICS
 .TP 1i
 .ZN BadAccess

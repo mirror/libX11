@@ -32,6 +32,7 @@ THIS SOFTWARE.
 	                          frankyling@hgrd01.enet.dec.com
 
 ******************************************************************/
+/* $XFree86: xc/lib/X11/XimintL.h,v 1.6 2000/12/04 18:49:19 dawes Exp $ */
 
 #ifndef _XIMINTL_H
 #define _XIMINTL_H
@@ -50,14 +51,23 @@ typedef struct _DefTree {
     KeySym           keysym;		/* leaf only */
     char            *mb;
     wchar_t         *wc;		/* make from mb */
+    char            *utf8;		/* make from mb */
     KeySym           ks;
 } DefTree;
 
 typedef struct _XimLocalPrivateRec {
-	XIC			 current_ic;
-	DefTree			*top;
-	XlcConv			 ctom_conv;
-	XlcConv			 ctow_conv;
+	/* The first fields are identical with XimCommonPrivateRec. */
+	XlcConv		 ctom_conv;
+	XlcConv		 ctow_conv;
+	XlcConv		 ctoutf8_conv;
+	XlcConv		 cstomb_conv;
+	XlcConv		 cstowc_conv;
+	XlcConv		 cstoutf8_conv;
+	XlcConv		 ucstoc_conv;
+	XlcConv		 ucstoutf8_conv;
+
+	XIC		 current_ic;
+	DefTree		*top;
 } XimLocalPrivateRec;
 
 typedef struct _XicThaiPart {

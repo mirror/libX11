@@ -32,9 +32,11 @@
  *
  *
  */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"
+#include "Cv.h"
 
 
 /*
@@ -44,15 +46,6 @@
 	    (XCMS_UNREG_ID(lastid) ? ++lastid : XCMS_FIRST_UNREG_DI_ID)
 #define MAX(x,y) ((x) < (y) ? (y) : (x))
 
-
-/*
- *      EXTERNS
- */
-extern XcmsPerDpyInfo *_XcmsFindDpyInfo();
-extern XPointer *_XcmsPushPointerArray();
-extern XcmsColorFormat _XcmsRegFormatOfPrefix();
-extern XcmsColorSpace **_XcmsDIColorSpaces;
-extern XcmsColorSpace *_XcmsDIColorSpacesInit[];
 
 /*
  *	NAME

@@ -24,6 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
+/* $XFree86: xc/lib/X11/XKBCtrls.c,v 1.4 2002/12/10 04:33:48 dawes Exp $ */
 
 #include <stdio.h>
 #define NEED_REPLIES
@@ -34,14 +35,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 
 static xkbSetControlsReq *
-#if NeedFunctionPrototypes
 _XkbGetSetControlsReq(Display *dpy,XkbInfoPtr xkbi,unsigned int deviceSpec)
-#else
-_XkbGetSetControlsReq(dpy,xkbi,deviceSpec)
-    Display *		dpy;
-    XkbInfoPtr		xkbi;
-    unsigned int	deviceSpec;
-#endif
 {
 xkbSetControlsReq *req;
 
@@ -55,18 +49,10 @@ xkbSetControlsReq *req;
 }
 
 Bool 
-#if NeedFunctionPrototypes
 XkbSetAutoRepeatRate(	Display *dpy,
 			unsigned int deviceSpec, 
 			unsigned int timeout, 
 			unsigned int interval)
-#else
-XkbSetAutoRepeatRate(dpy, deviceSpec, timeout, interval)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int timeout;
-    unsigned int interval;
-#endif
 {
     register xkbSetControlsReq *req;
 
@@ -84,18 +70,10 @@ XkbSetAutoRepeatRate(dpy, deviceSpec, timeout, interval)
 }
 
 Bool 
-#if NeedFunctionPrototypes
 XkbGetAutoRepeatRate(	Display *	dpy,
 			unsigned int 	deviceSpec,
 			unsigned int *	timeoutp,
 			unsigned int *	intervalp)
-#else
-XkbGetAutoRepeatRate(dpy, deviceSpec, timeoutp, intervalp)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned int *timeoutp;
-    unsigned int *intervalp;
-#endif
 {
     register xkbGetControlsReq *req;
     xkbGetControlsReply rep;
@@ -124,23 +102,12 @@ XkbGetAutoRepeatRate(dpy, deviceSpec, timeoutp, intervalp)
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetServerInternalMods(	Display *	dpy,
 				unsigned 	deviceSpec,
 				unsigned 	affectReal,
 				unsigned 	realValues,
 				unsigned 	affectVirtual,
 				unsigned 	virtualValues)
-#else
-XkbSetServerInternalMods(dpy,deviceSpec,
-			     affectReal,realValues,affectVirtual,virtualValues)
-    Display *dpy;
-    unsigned deviceSpec;
-    unsigned affectReal;
-    unsigned realValues;
-    unsigned affectVirtual;
-    unsigned virtualValues;
-#endif
 {
     register xkbSetControlsReq *req;
 
@@ -160,23 +127,12 @@ XkbSetServerInternalMods(dpy,deviceSpec,
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbSetIgnoreLockMods(	Display *	dpy,
 			unsigned int 	deviceSpec,
 			unsigned 	affectReal,
 			unsigned 	realValues,
 			unsigned 	affectVirtual,
 			unsigned 	virtualValues)
-#else
-XkbSetIgnoreLockMods(dpy,deviceSpec,
-			 affectReal,realValues,affectVirtual,virtualValues)
-    Display *dpy;
-    unsigned int deviceSpec;
-    unsigned affectReal;
-    unsigned realValues;
-    unsigned affectVirtual;
-    unsigned virtualValues;
-#endif
 {
     register xkbSetControlsReq *req;
 
@@ -196,18 +152,10 @@ XkbSetIgnoreLockMods(dpy,deviceSpec,
 }
 
 Bool
-#if NeedFunctionPrototypes
 XkbChangeEnabledControls(	Display *	dpy,
 				unsigned	deviceSpec,
 				unsigned	affect,
 				unsigned	values)
-#else
-XkbChangeEnabledControls(dpy,deviceSpec,affect,values)
-    Display *	dpy;
-    unsigned	deviceSpec;
-    unsigned	affect;
-    unsigned	values;
-#endif
 {
     register xkbSetControlsReq *req;
 
@@ -225,14 +173,7 @@ XkbChangeEnabledControls(dpy,deviceSpec,affect,values)
 }
 
 Status 
-#if NeedFunctionPrototypes
 XkbGetControls(Display *dpy, unsigned long which, XkbDescPtr xkb)
-#else
-XkbGetControls(dpy, which, xkb)
-    Display *dpy;
-    unsigned long which;
-    XkbDescPtr xkb;
-#endif
 {
     register xkbGetControlsReq *req;
     xkbGetControlsReply rep;
@@ -303,6 +244,14 @@ XkbGetControls(dpy, which, xkb)
     }
     if (which&XkbAccessXKeysMask)
 	ctrls->ax_options= rep.axOptions;
+    if (which&XkbStickyKeysMask) {
+	ctrls->ax_options &= ~XkbAX_SKOptionsMask;
+	ctrls->ax_options |= rep.axOptions & XkbAX_SKOptionsMask;
+    }
+    if (which&XkbAccessXFeedbackMask) {
+	ctrls->ax_options &= ~XkbAX_FBOptionsMask;
+	ctrls->ax_options |= rep.axOptions & XkbAX_FBOptionsMask;
+    }
     if (which&XkbAccessXTimeoutMask) {
 	ctrls->ax_timeout = rep.axTimeout;
 	ctrls->axt_ctrls_mask = rep.axtCtrlsMask;
@@ -320,14 +269,7 @@ XkbGetControls(dpy, which, xkb)
 }
 
 Bool 
-#if NeedFunctionPrototypes
 XkbSetControls(Display *dpy, unsigned long which, XkbDescPtr xkb)
-#else
-XkbSetControls(dpy, which, xkb)
-    Display *		dpy;
-    unsigned long 	which;
-    XkbDescPtr		xkb;
-#endif
 {
     register xkbSetControlsReq *req;
     XkbControlsPtr	ctrls;
@@ -393,22 +335,15 @@ XkbSetControls(dpy, which, xkb)
     }
     UnlockDisplay(dpy);
     SyncHandle();
-    return False;
+    return True;
 }
 
 /***====================================================================***/
 
 void
-#if NeedFunctionPrototypes
 XkbNoteControlsChanges(	XkbControlsChangesPtr		old,
 			XkbControlsNotifyEvent *	new,
 			unsigned int	 		wanted)
-#else
-XkbNoteControlsChanges(old,new,wanted)
-    XkbControlsChangesPtr	old;
-    XkbControlsNotifyEvent *	new;
-    unsigned int	 	wanted;
-#endif
 {
     old->changed_ctrls|= (new->changed_ctrls&wanted);
     if (new->changed_ctrls&XkbControlsEnabledMask&wanted)

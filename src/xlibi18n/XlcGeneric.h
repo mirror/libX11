@@ -31,6 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
+/* $XFree86: xc/lib/X11/XlcGeneric.h,v 1.4 2001/07/25 15:04:44 dawes Exp $ */
 
 #ifndef _XLCGENERIC_H_
 #define _XLCGENERIC_H_
@@ -93,6 +94,7 @@ typedef struct _CodeSetRec {
     ExtdSegment 	ctextseg;
     ParseInfo 		parse_info;
     unsigned long 	wc_encoding;
+    Bool		string_encoding;
 } CodeSetRec, *CodeSet;
 
 typedef enum {
@@ -129,10 +131,8 @@ typedef struct _XLCdGenericPart {
     CodeSet 		initial_state_GR;
     int  		segment_conv_num;  /* UDC */
     SegConv 		segment_conv;      /* UDC */
-#ifndef X_NOT_STDC_ENV
     Bool 		use_stdc_env;
     Bool 		force_convert_to_mb;
-#endif
 } XLCdGenericPart;
 
 typedef struct _XLCdGenericRec {
@@ -142,5 +142,23 @@ typedef struct _XLCdGenericRec {
 } XLCdGenericRec, *XLCdGeneric;
 
 extern XLCdMethods _XlcGenericMethods;
+
+extern FontScope
+_XlcParse_scopemaps(
+    const char *str,
+    int *size);
+extern void
+_XlcDbg_printValue(
+    const char *str,
+    char **value,
+    int num);
+
+extern XIM
+_XDefaultOpenIM(
+    XLCd                lcd,
+    Display             *dpy,
+    XrmDatabase         rdb,
+    char                *res_name,
+    char                *res_class);
 
 #endif  /* _XLCGENERIC_H_ */

@@ -1,15 +1,18 @@
-# $Xorg: iso8859-1,v 1.3 2000/08/17 19:46:59 cpqbld Exp $
-#
-# ISO 8859-1 (Latin1) Compose Sequence
-#
-# Sequence Definition
-#
-# <Multi_key> Means <Compose>
-# Special Character
+XCOMM $Xorg: iso8859-1,v 1.3 2000/08/17 19:46:59 cpqbld Exp $
+XCOMM
+XCOMM ISO 8859-1 (Latin1) Compose Sequence
+XCOMM
+XCOMM
+XCOMM $XFree86: xc/nls/Compose/iso8859-1,v 1.8 2001/12/24 17:15:09 dawes Exp $
+XCOMM
+XCOMM Sequence Definition
+XCOMM
+XCOMM <Multi_key> Means <Compose>
+XCOMM Special Character
 <Multi_key> <plus> <plus>		: "#"	numbersign
 <Multi_key> <apostrophe> <space>	: "'"	apostrophe
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
-<Multi_key> <A> <A>			: "@"	at
+<Multi_key> <A> <T>			: "@"	at
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft
 <Multi_key> <slash> <slash>		: "\\"	backslash
 <Multi_key> <slash> <less>		: "\\"	backslash
@@ -17,8 +20,8 @@
 <Multi_key> <parenright> <parenright>	: "]"	bracketright
 <Multi_key> <asciicircum> <space>	: "^"	asciicircum
 <Multi_key> <space> <asciicircum>	: "^"	asciicircum
-<Multi_key> <greater> <space>		: "^"	asciicirum
-<Multi_key> <space> <greater>		: "^"	asciicirum
+<Multi_key> <greater> <space>		: "^"	asciicircum
+<Multi_key> <space> <greater>		: "^"	asciicircum
 <Multi_key> <grave> <space>		: "`"	grave
 <Multi_key> <space> <grave>		: "`"	grave
 <Multi_key> <parenleft> <minus>		: "{"	braceleft
@@ -96,6 +99,7 @@
 <Multi_key> <0> <c>			: "\251"	copyright
 <Multi_key> <C> <0>			: "\251"	copyright
 <Multi_key> <0> <C>			: "\251"	copyright
+<Multi_key> <parenleft> <c>		: "\251"	copyright
 <Multi_key> <a> <underscore>		: "\252"	ordfeminine
 <Multi_key> <underscore> <a>		: "\252"	ordfeminine
 <Multi_key> <A> <underscore>		: "\252"	ordfeminine
@@ -158,6 +162,7 @@
 <Multi_key> <minus> <minus>		: "\255"	hyphen
 <Multi_key> <R> <O>			: "\256"	registered
 <Multi_key> <O> <R>			: "\256"	registered
+<Multi_key> <parenleft> <r>		: "\256"	registered
 <Multi_key> <minus> <asciicircum>	: "\257"	macron
 <Multi_key> <asciicircum> <minus>	: "\257"	macron
 <Multi_key> <underscore> <asciicircum>	: "\257"	macron
@@ -169,7 +174,7 @@
 <Multi_key> <apostrophe> <apostrophe>	: "\264"	acute
 <Multi_key> <comma> <comma>		: "\270"	cedilla
 <Multi_key> <quotedbl> <quotedbl>	: "\250"	diaeresis
-# Accented Alphabet
+XCOMM Accented Alphabet
 <Multi_key> <A> <grave>			: "\300"	Agrave
 <Multi_key> <grave> <A>			: "\300"	Agrave
 <Multi_key> <A> <acute>			: "\301"	Aacute
@@ -190,6 +195,8 @@
 <Multi_key> <diaeresis> <A>		: "\304"	Adiaeresis
 <Multi_key> <A> <asterisk>		: "\305"	Aring
 <Multi_key> <asterisk> <A>		: "\305"	Aring
+<Multi_key> <A> <A>			: "\305"	Aring
+<Multi_key> <A> <O>			: "\305"	Aring
 <Multi_key> <A> <E>			: "\306"	AE
 <Multi_key> <a> <grave>			: "\340"	agrave
 <Multi_key> <grave> <a>			: "\340"	agrave
@@ -211,7 +218,11 @@
 <Multi_key> <diaeresis> <a>		: "\344"	adiaeresis
 <Multi_key> <a> <asterisk>		: "\345"	aring
 <Multi_key> <asterisk> <a>		: "\345"	aring
+<Multi_key> <a> <a>			: "\345"	aring
+<Multi_key> <a> <o>			: "\345"	aring
 <Multi_key> <a> <e>			: "\346"	ae
+<Multi_key> <acute> <C>			: "\307"	Ccedilla
+<Multi_key> <acute> <c>			: "\347"	ccedilla
 <Multi_key> <C> <comma>			: "\307"	Ccedilla
 <Multi_key> <comma> <C>			: "\307"	Ccedilla
 <Multi_key> <c> <comma>			: "\347"	ccedilla
@@ -367,18 +378,25 @@
 <Multi_key> <quotedbl> <y>		: "\377"	ydiaeresis
 <Multi_key> <y> <diaeresis>		: "\377"	ydiaeresis
 <Multi_key> <diaeresis> <y>		: "\377"	ydiaeresis
-#
-#
-# dead key accent keysyms
-# Special Character
-<dead_circumflex>  <slash>		: "|"	bar
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
-<dead_diaeresis> <space>		: "\250"	diaeresis
+XCOMM
+XCOMM
+XCOMM dead key accent keysyms
+XCOMM Special Character
+<dead_circumflex> <slash>		: "|"	bar
 <dead_circumflex> <space>		: "^"	asciicircum
+<dead_circumflex> <dead_circumflex>	: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
+<dead_tilde> <dead_tilde>		: "~"	asciitilde
 <dead_grave> <space>			: "`"	grave
+<dead_grave> <dead_grave>		: "`"	grave
+XCOMM These are for us_intl, that does not have diaeresis, etc
 <dead_acute> <space>			: "'"	apostrophe
+<dead_acute> <dead_acute>		: "\264"	acute
+<dead_diaeresis> <space>		: "\""	quotedbl
+<dead_diaeresis> <dead_diaeresis>	: "\250"	diaeresis
+<dead_doubleacute> <space>		: "\""	quotedbl
+<dead_abovering> <space>		: "\260"	degree
+<dead_abovering> <dead_abovering>	: "\260"	degree
 <dead_circumflex> <0>			: "\260"	degree
 <dead_circumflex> <1>			: "\271"	onesuperior
 <dead_circumflex> <2>			: "\262"	twosuperior
@@ -391,12 +409,14 @@
 <dead_acute> <apostrophe>		: "\264"	acute
 <dead_cedilla> <comma>			: "\270"	cedilla
 <dead_diaeresis> <quotedbl>		: "\250"	diaeresis
-# Accented Alphabet
+XCOMM Accented Alphabet
+<dead_abovering> <A>			: "\305"	Aring
 <dead_grave> <A>			: "\300"	Agrave
 <dead_acute> <A>			: "\301"	Aacute
 <dead_circumflex> <A>			: "\302"	Acircumflex
 <dead_tilde> <A>			: "\303"	Atilde
 <dead_diaeresis> <A>			: "\304"	Adiaeresis
+<dead_abovering> <a>			: "\345"	aring
 <dead_grave> <a>			: "\340"	agrave
 <dead_acute> <a>			: "\341"	aacute
 <dead_circumflex> <a>			: "\342"	acircumflex
@@ -435,17 +455,23 @@
 <dead_grave> <U>			: "\331"	Ugrave
 <dead_acute> <U>			: "\332"	Uacute
 <dead_circumflex> <U>			: "\333"	Ucircumflex
+<dead_doubleacute> <U>			: "\334"	Udiaeresis
 <dead_diaeresis> <U>			: "\334"	Udiaeresis
 <dead_grave> <u>			: "\371"	ugrave
 <dead_acute> <u>			: "\372"	uacute
 <dead_circumflex> <u>			: "\373"	ucircumflex
+<dead_doubleacute> <u>			: "\374"	udiaeresis
 <dead_diaeresis> <u>			: "\374"	udiaeresis
 <dead_acute> <Y>			: "\335"	Yacute
 <dead_acute> <y>			: "\375"	yacute
 <dead_diaeresis> <y>			: "\377"	ydiaeresis
-#
-# Ctrl<T> Means <Compose>
-# Special Character
+XCOMM Useful for portuguese language
+<dead_acute> <C>			: "\307"	Ccedilla
+<dead_acute> <c>			: "\347"	ccedilla
+XCOMM
+#ifdef USE_CTRL_SHIFT_T_SEQS
+XCOMM Ctrl<T> Means <Compose>
+XCOMM Special Character
 Ctrl<T> <plus> <plus>			: "#"	numbersign
 Ctrl<T> <apostrophe> <space>		: "'"	apostrophe
 Ctrl<T> <space> <apostrophe>		: "'"	apostrophe
@@ -457,8 +483,8 @@ Ctrl<T> <less> <slash>			: "\\"	backslash
 Ctrl<T> <parenright> <parenright>	: "]"	bracketright
 Ctrl<T> <asciicircum> <space>		: "^"	asciicircum
 Ctrl<T> <space> <asciicircum>		: "^"	asciicircum
-Ctrl<T> <greater> <space>		: "^"	asciicirum
-Ctrl<T> <space> <greater>		: "^"	asciicirum
+Ctrl<T> <greater> <space>		: "^"	asciicircum
+Ctrl<T> <space> <greater>		: "^"	asciicircum
 Ctrl<T> <grave> <space>			: "`"	grave
 Ctrl<T> <space> <grave>			: "`"	grave
 Ctrl<T> <parenleft> <minus>		: "{"	braceleft
@@ -609,7 +635,7 @@ Ctrl<T> <x> <x>				: "\327"	multiply
 Ctrl<T> <apostrophe> <apostrophe>	: "\264"	acute
 Ctrl<T> <comma> <comma>			: "\270"	cedilla
 Ctrl<T> <quotedbl> <quotedbl>		: "\250"	diaeresis
-# Accented Alphabet
+XCOMM Accented Alphabet
 Ctrl<T> <A> <grave>			: "\300"	Agrave
 Ctrl<T> <grave> <A>			: "\300"	Agrave
 Ctrl<T> <A> <acute>			: "\301"	Aacute
@@ -630,6 +656,8 @@ Ctrl<T> <A> <diaeresis>			: "\304"	Adiaeresis
 Ctrl<T> <diaeresis> <A>			: "\304"	Adiaeresis
 Ctrl<T> <A> <asterisk>			: "\305"	Aring
 Ctrl<T> <asterisk> <A>			: "\305"	Aring
+Ctrl<T> <A> <A>				: "\305"	Aring
+Ctrl<T> <A> <O>				: "\305"	Aring
 Ctrl<T> <A> <E>				: "\306"	AE
 Ctrl<T> <a> <grave>			: "\340"	agrave
 Ctrl<T> <grave> <a>			: "\340"	agrave
@@ -651,6 +679,8 @@ Ctrl<T> <a> <diaeresis>			: "\344"	adiaeresis
 Ctrl<T> <diaeresis> <a>			: "\344"	adiaeresis
 Ctrl<T> <a> <asterisk>			: "\345"	aring
 Ctrl<T> <asterisk> <a>			: "\345"	aring
+Ctrl<T> <a> <a>				: "\345"	aring
+Ctrl<T> <a> <o>				: "\345"	aring
 Ctrl<T> <a> <e>				: "\346"	ae
 Ctrl<T> <C> <comma>			: "\307"	Ccedilla
 Ctrl<T> <comma> <C>			: "\307"	Ccedilla
@@ -807,4 +837,5 @@ Ctrl<T> <y> <quotedbl>			: "\377"	ydiaeresis
 Ctrl<T> <quotedbl> <y>			: "\377"	ydiaeresis
 Ctrl<T> <y> <diaeresis>			: "\377"	ydiaeresis
 Ctrl<T> <diaeresis> <y>			: "\377"	ydiaeresis
-# End of Sequence Definition
+#endif /* USE_CTRL_SHIFT_T_SEQS */
+XCOMM End of Sequence Definition

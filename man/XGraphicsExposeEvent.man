@@ -40,6 +40,9 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
+.\" $XFree86: xc/doc/man/X11/XGEEvent.man,v 1.2 2001/01/27 18:19:59 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XGraphicsExposeEvent.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
 .ds xL Xlib \- C Language X Interface
@@ -138,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XGraphicsExposeEvent 3X11 "Release 6.6" "X Version 11" "XLIB FUNCTIONS"
+.TH XGraphicsExposeEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGraphicsExposeEvent, XNoExposeEvent \- GraphicsExpose and NoExpose event structures
 .SH STRUCTURES
@@ -152,16 +155,16 @@ events contain:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* GraphicsExpose */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
+	int type;	/\(** GraphicsExpose */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
 	Drawable drawable;
 	int x, y;
 	int width, height;
-	int count;	/* if nonzero, at least this many more */
-	int major_code;	/* core is CopyArea or CopyPlane */
-	int minor_code;	/* not defined in the core */
+	int count;	/\(** if nonzero, at least this many more */
+	int major_code;	/\(** core is CopyArea or CopyPlane */
+	int minor_code;	/\(** not defined in the core */
 } XGraphicsExposeEvent;
 .De
 .LP
@@ -169,13 +172,13 @@ typedef struct {
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/* NoExpose */
-	unsigned long serial;	/* # of last request processed by server */
-	Bool send_event;	/* true if this came from a SendEvent request */
-	Display *display;	/* Display the event was read from */
+	int type;	/\(** NoExpose */
+	unsigned long serial;	/\(** # of last request processed by server */
+	Bool send_event;	/\(** true if this came from a SendEvent request */
+	Display *display;	/\(** Display the event was read from */
 	Drawable drawable;
-	int major_code;	/* core is CopyArea or CopyPlane */
-	int minor_code;	/* not defined in the core */
+	int major_code;	/\(** core is CopyArea or CopyPlane */
+	int minor_code;	/\(** not defined in the core */
 } XNoExposeEvent;
 .De
 .LP

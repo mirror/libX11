@@ -78,7 +78,7 @@ from The Open Group.
 #include "Xlcint.h"
 
 void
-XFree86utf8DrawText(
+Xutf8DrawText(
     Display            *dpy,
     Drawable            d,
     GC                  gc,
@@ -109,24 +109,9 @@ XFree86utf8DrawText(
 	x += esc;
     }
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8DrawText
-void
-Xutf8DrawText(
-    Display            *dpy,
-    Drawable            d,
-    GC                  gc,
-    int                 x,
-    int                 y,
-    XmbTextItem        *text_items,
-    int                 nitems)
-{
-    XFree86utf8DrawText(dpy, d, gc, x, y, text_items, nitems);
-}
-#endif
 
 void
-XFree86utf8DrawString(
+Xutf8DrawString(
     Display            *dpy,
     Drawable            d,
     XFontSet            font_set,
@@ -139,25 +124,10 @@ XFree86utf8DrawString(
     (void)(*font_set->methods->utf8_draw_string) (dpy, d, font_set, gc, x, y,
 						  (char *)text, text_len);
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8DrawString
-void
-Xutf8DrawString(
-    Display            *dpy,
-    Drawable            d,
-    XFontSet            font_set,
-    GC                  gc,
-    int                 x,
-    int                 y,
-    _Xconst char       *text,
-    int                 text_len)
-{
-    XFree86utf8DrawString(dpy, d, font_set, gc, x, y, text, text_len);
-}
-#endif
+
 
 void
-XFree86utf8DrawImageString(
+Xutf8DrawImageString(
     Display            *dpy,
     Drawable            d,
     XFontSet            font_set,
@@ -170,25 +140,9 @@ XFree86utf8DrawImageString(
     (*font_set->methods->utf8_draw_image_string) (dpy, d, font_set, gc, x, y,
 						  (char *)text, text_len);
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8DrawImageString
-void
-Xutf8DrawImageString(
-    Display            *dpy,
-    Drawable            d,
-    XFontSet            font_set,
-    GC                  gc,
-    int                 x,
-    int                 y,
-    _Xconst char       *text,
-    int                 text_len)
-{
-    XFree86utf8DrawImageString(dpy, d, font_set, gc, x, y, text, text_len);
-}
-#endif
 
 int 
-XFree86utf8TextEscapement(
+Xutf8TextEscapement(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len)
@@ -196,20 +150,9 @@ XFree86utf8TextEscapement(
     return (*font_set->methods->utf8_escapement) (font_set,
 						  (char *)text, text_len);
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8TextEscapement
-int 
-Xutf8TextEscapement(
-    XFontSet        font_set,
-    _Xconst char   *text,
-    int             text_len)
-{
-    return XFree86utf8TextEscapement(font_set, text, text_len);
-}
-#endif
 
 int
-XFree86utf8TextExtents(
+Xutf8TextExtents(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len,
@@ -221,23 +164,9 @@ XFree86utf8TextExtents(
 					       overall_ink_extents,
 					       overall_logical_extents);
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8TextExtents
-int
-Xutf8TextExtents(
-    XFontSet        font_set,
-    _Xconst char   *text,
-    int             text_len,
-    XRectangle     *overall_ink_extents,
-    XRectangle     *overall_logical_extents)
-{
-    return XFree86utf8TextExtents(font_set, text, text_len,
-	overall_ink_extents, overall_logical_extents);
-}
-#endif
 
 Status
-XFree86utf8TextPerCharExtents(
+Xutf8TextPerCharExtents(
     XFontSet        font_set,
     _Xconst char   *text,
     int             text_len,
@@ -253,22 +182,3 @@ XFree86utf8TextPerCharExtents(
 	      ink_extents_buffer, logical_extents_buffer,
 	      buffer_size, num_chars, max_ink_extents, max_logical_extents);
 }
-#ifndef NOXFREE86COMPAT
-#undef Xutf8TextPerCharExtents
-Status
-Xutf8TextPerCharExtents(
-    XFontSet        font_set,
-    _Xconst char   *text,
-    int             text_len,
-    XRectangle     *ink_extents_buffer,
-    XRectangle     *logical_extents_buffer,
-    int             buffer_size,
-    int            *num_chars,
-    XRectangle     *max_ink_extents,
-    XRectangle     *max_logical_extents)
-{
-    return XFree86utf8TextPerCharExtents(font_set, text, text_len,
-	ink_extents_buffer, logical_extents_buffer, buffer_size,
-	    num_chars, max_ink_extents, max_logical_extents);
-}
-#endif

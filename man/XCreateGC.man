@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
 .\" $XFree86: xc/doc/man/X11/XCreGC.man,v 1.6 2003/04/28 22:17:54 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XCreateGC.man,v 1.1.4.4 2004-03-05 13:38:16 eich Exp $
+.\" $XdotOrg: lib/X11/man/XCreateGC.man,v 1.1.4.2.2.1 2004-03-17 20:25:08 ago Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface

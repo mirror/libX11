@@ -143,14 +143,14 @@
 .ny0
 .TH XmbResetIC 3X11 __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XmbResetIC, XwcResetIC, XFree86utf8ResetIC \- reset the state of an input context
+XmbResetIC, XwcResetIC, Xutf8ResetIC \- reset the state of an input context
 .SH SYNTAX
 .HP
 char *XmbResetIC\^(\^XIC \fIic\fP\^); 
 .HP
 wchar_t *XwcResetIC\^(\^XIC \fIic\fP\^); 
 .HP
-char *XFree86utf8ResetIC\^(\^XIC \fIic\fP\^); 
+char *Xutf8ResetIC\^(\^XIC \fIic\fP\^); 
 .SH ARGUMENTS
 .IP \fIic\fP 1i
 Specifies the input context.
@@ -162,7 +162,7 @@ is set to
 .ZN XmbResetIC ,
 .ZN XwcResetIC
 and
-.ZN XFree86utf8ResetIC
+.ZN Xutf8ResetIC
 reset an input context to its initial state;
 when
 .ZN XNResetState
@@ -176,7 +176,7 @@ Calling
 .ZN XmbResetIC ,
 .ZN XwcResetIC
 or
-.ZN XFree86utf8ResetIC
+.ZN Xutf8ResetIC
 does not change the focus.
 .LP
 The return value of
@@ -186,7 +186,7 @@ The return value of
 .ZN XwcResetIC
 is its current preedit string as a wide character string.
 The return value of
-.ZN XFree86utf8ResetIC
+.ZN Xutf8ResetIC
 is its current preedit string as an UTF-8 string.
 If there is any preedit text drawn or visible to the user,
 then these procedures must return a non-NULL string.
@@ -198,7 +198,7 @@ The client should free the returned string by calling
 .ZN XFree .
 .LP
 The function
-.ZN XFree86utf8ResetIC
+.ZN Xutf8ResetIC
 is an XFree86 extension introduced in XFree86 4.0.2. Its presence is
 indicated by the macro
 .ZN X_HAVE_UTF8_STRING .

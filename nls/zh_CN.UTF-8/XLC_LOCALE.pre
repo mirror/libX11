@@ -1,0 +1,127 @@
+XCOMM $XFree86: xc/nls/XLC_LOCALE/zh_CN.UTF-8,v 1.2 2003/10/24 16:36:46 tsi Exp $
+
+# 	XLC_FONTSET category
+
+XLC_FONTSET
+
+on_demand_loading	True
+
+object_name		generic
+
+#	We leave the legacy encodings in for the moment, because we don't
+#	have that many ISO10646 fonts yet.
+# 	fs0 class (7 bit ASCII)
+fs0	{
+	charset	{
+		name	ISO8859-1:GL
+	}
+	font	{
+		primary		ISO8859-1:GL
+		vertical_rotate	all
+	}
+}
+fs1     {
+        charset {
+                name    ISO8859-1:GR
+        }
+        font    {
+                primary ISO8859-1:GR
+        }
+
+}
+fs2	{
+	charset	{
+		name	GB2312.1980-0:GL
+	}
+	font	{
+		primary	GB2312.1980-0:GL
+	}
+}
+fs3	{
+	charset {
+		name	JISX0208.1983-0:GL
+	}
+	font	{
+		primary	JISX0208.1983-0:GL
+	}
+}
+fs4	{
+	charset	{
+		name	KSC5601.1987-0:GL
+	}
+	font	{
+		primary	KSC5601.1987-0:GL
+	}
+}
+fs5	{
+	charset	{
+		name	BIG5-0:GLGR
+	}
+	font	{
+		primary	BIG5-0:GLGR
+		substitute	BIG5-0:GLGR
+	}
+}
+fs6	{
+	charset	{
+		name	ISO10646-1
+	}
+	font	{
+		primary	ISO10646-1
+		                  
+	}
+}
+END XLC_FONTSET
+
+
+# 	XLC_XLOCALE category
+
+XLC_XLOCALE
+
+encoding_name		GB18030
+mb_cur_max		4
+state_depend_encoding	False
+
+cs0	{
+	side		GL:Default
+	length		1
+	ct_encoding	ISO8859-1:GL
+}
+cs1     {
+        side            GR:Default
+        length          1
+        ct_encoding     ISO8859-1:GR
+}
+cs2     {
+        side            GR
+        length          2
+        ct_encoding     GB2312.1980-0:GL; GB2312.1980-0:GR
+}
+cs3	{
+	side		none
+	ct_encoding	iso10646-1
+}
+cs4	{
+	side		GR
+	length		2
+	ct_encoding	JISX0208.19832-0:GL; JISX0208.1983-0:GR;	JISX0208.1983-1:GL; JISX0208.1983-1:GR
+}
+cs5	{
+	side		GL
+	length		2
+	ct_encoding	KSC5601.1987-0:GL; KSC5601.1987-0:GR;		KSC5601.1987-1:GL; KSC5601.1987-1:GR
+}
+cs6	{
+	side		none
+	length		2
+	byte1		\xa1,\xf9
+	byte2		\x40,\x7e;\xa1,\xfe
+
+	wc_encoding	\x00008000
+	ct_encoding	BIG5-0:GLGR:\x1b\x25\x2f\x32
+
+	mb_conversion	[\xa140,\xf9fe]->\x2140
+	ct_conversion	[\x2140,\x79fe]->\xa140
+}
+
+END XLC_XLOCALE

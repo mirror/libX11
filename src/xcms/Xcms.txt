@@ -1,0 +1,61 @@
+/*
+ * (c) Copyright 1990 1991 Tektronix Inc.
+ * 	All Rights Reserved
+ *
+ * Permission to use, copy, modify, and distribute this software and its
+ * documentation for any purpose and without fee is hereby granted,
+ * provided that the above copyright notice appear in all copies and that
+ * both that copyright notice and this permission notice appear in
+ * supporting documentation, and that the name of Tektronix not be used
+ * in advertising or publicity pertaining to distribution of the software
+ * without specific, written prior permission.
+ *
+ * Tektronix disclaims all warranties with regard to this software, including
+ * all implied warranties of merchantability and fitness, in no event shall
+ * Tektronix be liable for any special, indirect or consequential damages or
+ * any damages whatsoever resulting from loss of use, data or profits,
+ * whether in an action of contract, negligence or other tortious action,
+ * arising out of or in connection with the use or performance of this
+ * software.
+ *
+ *
+ *	NAME
+ *		Xcms.txt
+ *
+ *	DESCRIPTION
+ *		Sample Color Name Database
+ *
+ */
+
+
+This device-independent color name database is provided just as an example.
+There are no claims that these color specifications are or should be bound
+to the corresponding color name.
+
+As you can see, the start of the database is indicated by "XCMS_COLORDB_START".
+Anything before this is assumed to be comments.  The "0.1" indicates the
+version number of the format/syntax used in this file.  The color name is
+delimited from the color specification by one or more tabs.
+
+XCMS_COLORDB_START 0.1
+red			CIEXYZ:0.371298/0.201443/0.059418
+green			CIEXYZ:0.321204/0.660070/0.159833
+blue			CIEXYZ:0.279962/0.160195/1.210705
+aquamarine		CIEXYZ:0.34672401/0.54832153/0.44658871
+cadet blue		CIEXYZ:0.22601070/0.28905571/0.47233452
+cornflower blue		CIEXYZ:0.05658276/0.04476296/0.17063955
+navy blue		CIEXYZ:0.06713718/0.03366278/0.31293880
+navy			CIEXYZ:0.06713718/0.03366278/0.31293880
+brown			CIEXYZ:0.08443233/0.06011398/0.01840693
+gray0			TekHVC:0.0/0.0/0.0
+gray10			TekHVC:0.0/10.0/0.0
+gray20			TekHVC:0.0/20.0/0.0
+gray30			TekHVC:0.0/30.0/0.0
+gray40			TekHVC:0.0/40.0/0.0
+gray50			TekHVC:0.0/50.0/0.0
+gray60			TekHVC:0.0/60.0/0.0
+gray70			TekHVC:0.0/70.0/0.0
+gray80			TekHVC:0.0/80.0/0.0
+gray90			TekHVC:0.0/90.0/0.0
+gray100			TekHVC:0.0/100.0/0.0
+XCMS_COLORDB_END

@@ -1,0 +1,417 @@
+XCOMM	$Xorg: locale.alias,v 1.4 2000/12/12 13:00:42 coskrey Exp $
+XCOMM
+XCOMM	This file contains alias name of locale.
+XCOMM	Each alias name is described within one line.
+XCOMM	The first word is the alias name (simplified locale name)
+XCOMM	the second word is full locale name.
+XCOMM
+POSIX:						C
+POSIX-UTF2:					C
+C_C.C:						C
+C.en:						C
+C.iso88591:					en_US.ISO8859-1
+Cextend:					en_US.ISO8859-1
+Cextend.en:					en_US.ISO8859-1
+English_United-States.437:			C
+XCOMM
+ar:						ar_AA.ISO8859-6
+ar_AA:						ar_AA.ISO8859-6
+ar_SA.iso88596:					ar_SA.ISO8859-6
+bg:						bg_BG.ISO8859-5
+bg_BG:						bg_BG.ISO8859-5
+bg_BG.iso88595:					bg_BG.ISO8859-5
+cs:						cs_CZ.ISO8859-2
+cs_CS:						cs_CZ.ISO8859-2
+cs_CS.ISO8859-2:				cs_CZ.ISO8859-2
+cs_CZ:						cs_CZ.ISO8859-2
+cs_CZ.iso88592:					cs_CZ.ISO8859-2
+cz:						cz_CZ.ISO8859-2
+cz_CZ:						cz_CZ.ISO8859-2
+da:						da_DK.ISO8859-1
+da_DK:						da_DK.ISO8859-1
+da_DK.88591:					da_DK.ISO8859-1
+da_DK.88591.en:					da_DK.ISO8859-1
+da_DK.iso88591:					da_DK.ISO8859-1
+da_DK.ISO_8859-1:				da_DK.ISO8859-1
+de:						de_DE.ISO8859-1
+de_AT:						de_AT.ISO8859-1
+de_AT.ISO_8859-1:				de_AT.ISO8859-1
+de_CH:						de_CH.ISO8859-1
+de_CH.ISO_8859-1:				de_CH.ISO8859-1
+de_DE:						de_DE.ISO8859-1
+de_DE.88591:					de_DE.ISO8859-1
+de_DE.88591.en:					de_DE.ISO8859-1
+de_DE.iso88591:					de_DE.ISO8859-1
+de_DE.ISO_8859-1:				de_DE.ISO8859-1
+GER_DE.8859:					de_DE.ISO8859-1
+GER_DE.8859.in:					de_DE.ISO8859-1
+ee:						ee_EE.ISO8859-4
+el:						el_GR.ISO8859-7
+el_GR:						el_GR.ISO8859-7
+el_GR.iso88597:					el_GR.ISO8859-7
+en:						en_US.ISO8859-1
+en_AU:						en_AU.ISO8859-1
+en_AU.ISO_8859-1:				en_AU.ISO8859-1
+en_CA:						en_CA.ISO8859-1
+en_CA.ISO_8859-1:				en_CA.ISO8859-1
+en_GB:						en_GB.ISO8859-1
+en_GB.88591:					en_GB.ISO8859-1
+en_GB.88591.en:					en_GB.ISO8859-1
+en_GB.iso88591:					en_GB.ISO8859-1
+en_GB.ISO_8859-1:				en_GB.ISO8859-1
+en_UK:						en_GB.ISO8859-1
+ENG_GB.8859:					en_GB.ISO8859-1
+ENG_GB.8859.in:					en_GB.ISO8859-1
+en_IE:						en_IE.ISO8859-1
+en_NZ:						en_NZ.ISO8859-1
+en_US:						en_US.ISO8859-1
+en_US.88591:					en_US.ISO8859-1
+en_US.88591.en:					en_US.ISO8859-1
+en_US.iso88591:					en_US.ISO8859-1
+en_US.ISO_8859-1:				en_US.ISO8859-1
+en_US.UTF-8:					en_US.UTF-8
+es:						es_ES.ISO8859-1
+es_AR:						es_AR.ISO8859-1
+es_BO:						es_BO.ISO8859-1
+es_CL:						es_CL.ISO8859-1
+es_CO:						es_CO.ISO8859-1
+es_CR:						es_CR.ISO8859-1
+es_EC:						es_EC.ISO8859-1
+es_ES:						es_ES.ISO8859-1
+es_ES.88591:					es_ES.ISO8859-1
+es_ES.88591.en:					es_ES.ISO8859-1
+es_ES.iso88591:					es_ES.ISO8859-1
+es_ES.ISO_8859-1:				es_ES.ISO8859-1
+es_GT:						es_GT.ISO8859-1
+es_MX:						es_MX.ISO8859-1
+es_NI:						es_NI.ISO8859-1
+es_PA:						es_PA.ISO8859-1
+es_PE:						es_PE.ISO8859-1
+es_PY:						es_PY.ISO8859-1
+es_SV:						es_SV.ISO8859-1
+es_UY:						es_UY.ISO8859-1
+es_VE:						es_VE.ISO8859-1
+#if defined(SVR4) && defined(sun)
+XCOMM Sun Solaris 2.6 has erroneously specified Estonian as a Latin-1
+XCOMM language; however this is clearly incorrect according to ISO8859.
+#endif
+et:						et_EE.ISO8859-4
+et_EE:						et_EE.ISO8859-4
+fi:						fi_FI.ISO8859-1
+fi_FI:						fi_FI.ISO8859-1
+fi_FI.88591:					fi_FI.ISO8859-1
+fi_FI.88591.en:					fi_FI.ISO8859-1
+fi_FI.iso88591:					fi_FI.ISO8859-1
+fi_FI.ISO_8859-1:				fi_FI.ISO8859-1
+fr:						fr_FR.ISO8859-1
+fr_BE:						fr_BE.ISO8859-1
+fr_BE.88591:					fr_BE.ISO8859-1
+fr_BE.88591.en:					fr_BE.ISO8859-1
+fr_BE.ISO_8859-1:				fr_BE.ISO8859-1
+fr_CA:						fr_CA.ISO8859-1
+fr_CA.88591:					fr_CA.ISO8859-1
+fr_CA.88591.en:					fr_CA.ISO8859-1
+fr_CA.iso88591:					fr_CA.ISO8859-1
+fr_CA.ISO_8859-1:				fr_CA.ISO8859-1
+fr_CH:						fr_CH.ISO8859-1
+fr_CH.88591:					fr_CH.ISO8859-1
+fr_CH.88591.en:					fr_CH.ISO8859-1
+fr_CH.ISO_8859-1:				fr_CH.ISO8859-1
+fr_FR:						fr_FR.ISO8859-1
+fr_FR.88591:					fr_FR.ISO8859-1
+fr_FR.88591.en:					fr_FR.ISO8859-1
+fr_FR.iso88591:					fr_FR.ISO8859-1
+fr_FR.ISO_8859-1:				fr_FR.ISO8859-1
+FRE_FR.8859:					fr_FR.ISO8859-1
+FRE_FR.8859.in:					fr_FR.ISO8859-1
+hr:						hr_HR.ISO8859-2
+hr_HR:						hr_HR.ISO8859-2
+hr_HR.iso88592:					hr_HR.ISO8859-2
+hr_HR.ISO_8859-2:				hr_HR.ISO8859-2
+hu:						hu_HU.ISO8859-2
+hu_HU:						hu_HU.ISO8859-2
+hu_HU.iso88592:					hu_HU.ISO8859-2
+is:						is_IS.ISO8859-1
+is_IS:						is_IS.ISO8859-1
+is_IS.iso88591:					is_IS.ISO8859-1
+is_IS.ISO_8859-1:				is_IS.ISO8859-1
+it:						it_IT.ISO8859-1
+it_CH:						it_CH.ISO8859-1
+it_CH.ISO_8859-1:				it_CH.ISO8859-1
+it_IT:						it_IT.ISO8859-1
+it_IT.88591:					it_IT.ISO8859-1
+it_IT.88591.en:					it_IT.ISO8859-1
+it_IT.iso88591:					it_IT.ISO8859-1
+it_IT.ISO_8859-1:				it_IT.ISO8859-1
+iw:						iw_IL.ISO8859-8
+iw_IL:						iw_IL.ISO8859-8
+iw_IL.iso88598:					iw_IL.ISO8859-8
+ja:						ja_JP.eucJP
+ja.JIS:						ja_JP.JIS7
+ja.SJIS:					ja_JP.SJIS
+#ifndef __uxp__
+ja_JP:						ja_JP.eucJP
+#else /* __uxp__ */
+ja_JP:						ja_JP.U90
+ja_JP.U90:					ja_JP.U90
+ja_JP.S90:					ja_JP.S90
+#endif /* __uxp__ */
+ja_JP.ujis:					ja_JP.eucJP
+ja_JP.eucJP:					ja_JP.eucJP
+Jp_JP:						ja_JP.eucJP
+ja_JP.AJEC:					ja_JP.eucJP
+ja_JP.EUC:					ja_JP.eucJP
+ja_JP.ISO-2022-JP:				ja_JP.JIS7
+ja_JP.JIS:					ja_JP.JIS7
+ja_JP.jis7:					ja_JP.JIS7
+ja_JP.mscode:					ja_JP.SJIS
+ja_JP.SJIS:					ja_JP.SJIS
+ko:						ko_KR.eucKR
+ko_KR:						ko_KR.eucKR
+ko_KR.EUC:					ko_KR.eucKR
+ko_KR.euc:					ko_KR.eucKR
+#if defined(__FreeBSD__)
+XCOMM most locales in FreeBSD 2.1.[56] do not work, allow use of FreeBSD's
+XCOMM generic latin-1 locale name. N.B. "lt" is a bad code to use for a 
+XCOMM generic Latin-1 locale anyway because it is the country code for 
+XCOMM Lithuania, which by default uses Latin-4.
+lt_LN.ISO_8859-1:				lt_LN.ISO8859-1
+#endif
+lt:						lt_LT.ISO8859-4
+lv:						lv_LV.ISO8859-4
+mk:						mk_MK.ISO8859-5
+mk_MK:						mk_MK.ISO8859-5
+nl:						nl_NL.ISO8859-1
+nl_BE:						nl_BE.ISO8859-1
+nl_BE.88591:					nl_BE.ISO8859-1
+nl_BE.88591.en:					nl_BE.ISO8859-1
+nl_BE.ISO_8859-1:				nl_BE.ISO8859-1
+nl_NL:						nl_NL.ISO8859-1
+nl_NL.88591:					nl_NL.ISO8859-1
+nl_NL.88591.en:					nl_NL.ISO8859-1
+nl_NL.iso88591:					nl_NL.ISO8859-1
+nl_NL.ISO_8859-1:				nl_NL.ISO8859-1
+no:						no_NO.ISO8859-1
+no_NO:						no_NO.ISO8859-1
+no_NO.88591:					no_NO.ISO8859-1
+no_NO.88591.en:					no_NO.ISO8859-1
+no_NO.iso88591:					no_NO.ISO8859-1
+no_NO.ISO_8859-1:				no_NO.ISO8859-1
+pl:						pl_PL.ISO8859-2
+pl_PL:						pl_PL.ISO8859-2
+pl_PL.iso88592:					pl_PL.ISO8859-2
+pt:						pt_PT.ISO8859-1
+pt_BR:						pt_BR.ISO8859-1
+pt_PT:						pt_PT.ISO8859-1
+pt_PT.88591:					pt_PT.ISO8859-1
+pt_PT.88591.en:					pt_PT.ISO8859-1
+pt_PT.iso88591:					pt_PT.ISO8859-1
+pt_PT.ISO_8859-1:				pt_PT.ISO8859-1
+ro:						ro_RO.ISO8859-2
+ro_RO:						ro_RO.ISO8859-2
+ro_RO.iso88592:					ro_RO.ISO8859-2
+ru:						ru_RU.ISO8859-5
+ru_RU:						ru_RU.ISO8859-5
+ru_RU.iso88595:					ru_RU.ISO8859-5
+ru_SU:						ru_RU.ISO8859-5
+ru_SU.ISO8859-5:				ru_RU.ISO8859-5
+ru_SU.KOI8-R:					ru_RU.KOI8-R
+sh:						sh_YU.ISO8859-2
+sh_HR.iso88592:					sh_HR.ISO8859-2
+sh_YU:						sh_YU.ISO8859-2
+sh_SP:						sh_YU.ISO8859-2
+sk:						sk_SK.ISO8859-2
+sk_SK:						sk_SK.ISO8859-2
+sk_sK.iso88592:					sk_SK.ISO8859-2
+sl:						sl_CS.ISO8859-2
+sl_CS:						sl_CS.ISO8859-2
+sl_SI:						sl_SI.ISO8859-2
+sl_SI.iso88592:					sl_SI.ISO8859-2
+sp:						sp_YU.ISO8859-5
+sp_YU:						sp_YU.ISO8859-5
+sr_SP:						sr_SP.ISO8859-2
+sv:						sv_SE.ISO8859-1
+sv_SE:						sv_SE.ISO8859-1
+sv_SE.88591:					sv_SE.ISO8859-1
+sv_SE.88591.en:					sv_SE.ISO8859-1
+sv_SE.iso88591:					sv_SE.ISO8859-1
+sv_SE.ISO_8859-1:				sv_SE.ISO8859-1
+th_TH:						th_TH.TACTIS
+th_TH.tis620:					th_TH.TACTIS
+tr:						tr_TR.ISO8859-9
+tr_TR:						tr_TR.ISO8859-9
+tr_TR.iso88599:					tr_TR.ISO8859-9
+zh:						zh_CN.eucCN
+zh_CN:						zh_CN.eucCN
+zh_CN.EUC:					zh_CN.eucCN
+zh_TW:						zh_TW.eucTW
+zh_TW.EUC:					zh_TW.eucTW
+zh_CN.big5:					zh_TW.eucTW
+XCOMM The following locale names are used in SCO 3.0
+english_uk.8859:				en_GB.ISO8859-1
+english_us.8859:				en_US.ISO8859-1
+english_us.ascii:				en_US.ISO8859-1
+french_france.8859:				fr_FR.ISO8859-1
+german_germany.8859:				de_DE.ISO8859-1
+portuguese_brazil.8859:				pt_BR.ISO8859-1
+spanish_spain.8859:				es_ES.ISO8859-1
+XCOMM The following locale names are used in HPUX 9.x
+american.iso88591:				en_US.ISO8859-1
+arabic.iso88596:				ar_AA.ISO8859-6
+bulgarian:					bg_BG.ISO8859-5
+c-french.iso88591:				fr_CA.ISO8859-1
+chinese-s:					zh_CN.eucCN
+chinese-t:					zh_TW.eucTW
+croatian:					hr_HR.ISO8859-2
+czech:						cs_CS.ISO8859-2
+danish.iso88591:				da_DK.ISO8859-1
+dutch.iso88591:					nl_BE.ISO8859-1
+english.iso88591:				en_EN.ISO8859-1
+finnish.iso88591:				fi_FI.ISO8859-1
+french.iso88591:				fr_CH.ISO8859-1
+german.iso88591:				de_CH.ISO8859-1
+greek.iso88597:					el_GR.ISO8859-7
+hebrew.iso88598:				iw_IL.ISO8859-8
+hungarian:					hu_HU.ISO8859-2
+icelandic.iso88591:				is_IS.ISO8859-1
+italian.iso88591:				it_IT.ISO8859-1
+#if ! (defined(SVR4) && defined(sun))
+japanese:					ja_JP.SJIS
+#else
+japanese:					ja_JP.eucJP
+#endif
+japanese.euc:					ja_JP.eucJP
+korean:						ko_KR.eucKR
+norwegian.iso88591:				no_NO.ISO8859-1
+polish:						pl_PL.ISO8859-2
+portuguese.iso88591:				pt_PT.ISO8859-1
+rumanian:					ro_RO.ISO8859-2
+russian:					ru_SU.ISO8859-5
+serbocroatian:					sh_YU.ISO8859-2
+slovak:						sk_SK.ISO8859-2
+slovene:					sl_CS.ISO8859-2
+spanish.iso88591:				es_ES.ISO8859-1
+swedish.iso88591:				sv_SE.ISO8859-1
+turkish.iso88599:				tr_TR.ISO8859-9
+univ.utf8:					en_US.utf
+XCOMM Digital Unix utf
+universal.utf8@ucs4:				en_US.utf
+XCOMM Solaris 2.6
+XCOMM Solaris and SunOS have iso_8859_1 LC_CTYPES to augment LANG=C
+iso_8859_1:					en_US.ISO8859-1
+#ifdef WIN32
+XCOMM Microsoft Windows/NT 4.0 SP3
+XCOMM parser doesn't grok embedded spaces in locale name
+Afrikaans_South Africa.1252:			af_ZA.iso8859-1
+Arabic_Bahrain.1256:				ar_BH.iso8859-6
+Arabic_Algeria.1256:				ar_DZ.iso8859-6
+Arabic_Egypt.1256:				ar_EG.iso8859-6
+Arabic_Iraq.1256:				ar_IQ.iso8859-6
+Arabic_Jordan.1256:				ar_JO.iso8859-6
+Arabic_Kuwait.1256:				ar_KW.iso8859-6
+Arabic_Lebanon.1256:				ar_LB.iso8859-6
+Arabic_Libya.1256:				ar_LY.iso8859-6
+Arabic_Morocco.1256:				ar_MA.iso8859-6
+Arabic_Oman.1256:				ar_OM.iso8859-6
+Arabic_Qatar.1256:				ar_QA.iso8859-6
+Arabic_Saudi Arabia.1256:			ar_SA.iso8859-6
+Arabic_Tunisia.1256:				ar_TN.iso8859-6
+Arabic_Yemen.1256:				ar_YE.iso8859-6
+Belarusian_Belarus.1251:			be_BY.iso8859-5
+Bulgarian_Bulgaria.1251:			bg_BG.iso8859-5
+Catalan_Spain.1252:				ca_ES.iso8859-1
+Czech_Czech Republic.1250:			cs_CZ.iso8859-2
+Danish_Denmark.1252:				da_DK.iso8859-1
+German_Austria.1252:				de_AT.iso8859-1
+German_Switzerland.1252:			de_CH.iso8859-1
+German_Germany.1252:				de_DE.iso8859-1
+German_Liechtenstein.1252:			de_LI.iso8859-1
+German_Luxembourg.1252:				de_LU.iso8859-1
+Greek_Greece.1253:				el_GR.iso8859-7
+English_Australia.1252:				en_AU.iso8859-1
+English_Belize.1252:				en_BZ.iso8859-1
+English_Canada.1252:				en_CA.iso8859-1
+English_Ireland.1252:				en_IE.iso8859-1
+English_Jamaica.1252:				en_JM.iso8859-1
+English_New Zealand.1252:			en_NZ.iso8859-1
+English_Trinidad y Tobago.1252:			en_TT.iso8859-1
+English_United Kingdom.1252:			en_UK.iso8859-1
+English_United States.1252:			en_US.iso8859-1
+English_South Africa.1252:			en_ZA.iso8859-1
+Spanish_Argentina.1252:				es_AR.iso8859-1
+Spanish_Bolivia.1252:				es_BO.iso8859-1
+Spanish_Chile.1252:				es_CL.iso8859-1
+Spanish_Colombia.1252:				es_CO.iso8859-1
+Spanish_Costa Rica.1252:			es_CR.iso8859-1
+Spanish_Dominican Republic.1252:		es_DO.iso8859-1
+Spanish_Ecuador.1252:				es_EC.iso8859-1
+Spanish - Modern Sort_Spain.1252:		es_ES.iso8859-1
+Spanish - Traditional Sort_Spain.1252:		es_ES.iso8859-1
+Spanish_Guatemala.1252:				es_GT.iso8859-1
+Spanish_Honduras.1252:				es_HN.iso8859-1
+Spanish_Mexican.1252:				es_MX.iso8859-1
+Spanish_Nicaragua.1252:				es_NI.iso8859-1
+Spanish_Panama.1252:				es_PA.iso8859-1
+Spanish_Paraguay.1252:				es_PY.iso8859-1
+Spanish_Peru.1252:				es_PE.iso8859-1
+Spanish_Puerto Rico.1252:			es_PR.iso8859-1
+Spanish_El Salvador.1252:			es_SV.iso8859-1
+Spanish_Uruguay.1252:				es_UY.iso8859-1
+Spanish_Venezuela.1252:				es_VE.iso8859-1
+Estonian_Estonia.1257				et_EE.iso8859-4
+Basque_Spain.1252:				eu_ES.iso8859-1
+Finnish_Finland.1252:				fi_FI.iso8859-1
+French_Belgium.1252:				fr_BE.iso8859-1
+French_Canada.1252:				fr_CA.iso8859-1
+French_Switzerland.1252:			fr_CH.iso8859-1
+French_France.1252:				fr_FR.iso8859-1
+French_Luxembourg.1252:				fr_LU.iso8859-1
+Faeroese_Faeroe Islands.1252:			fo_FO.iso8859-1
+Hebrew_Israel.1255:				he_IL.iso8859-8
+Croatian_Croatia.1250:				hr_HR.iso8859-2
+Hungarian_Hungary.1250:				hu_HU.iso8859-2
+Indonesian_Indonesia.1252:			id_ID.iso8859-1
+Icelandic_Iceland.1252:				is_IS.iso8859-1
+Italian_Switzerland.1252:			it_CH.iso8859-1
+Italian_Italy.1252:				it_IT.iso8859-1
+Japanese_Japan.932:				ja_JP.SJIS
+Korean_Korea.949:				ko_KR.EUC
+Lithuanian_Lithuania.1257			lt_LT.iso8859-4
+Latvian_Latvia.1257:				lv_LV.iso8859-4
+Dutch_Belgium.1252:				nl_BE.iso8859-1
+Dutch_Netherlands.1252:				nl_NL.iso8859-1
+Norwegian (Nynorsk)_Norway.1252:		no_NO.iso8859-1
+Norwegian (Bokmål)_Norway.1252:			no_NO.iso8859-1
+Polish_Poland.1250:				pl_PL.iso8859-2
+Portuguese_Brazil.1252:				pt_BR.iso8859-1
+Portuguese_Portugal.1252:			pt_PT.iso8859-1
+Romanian_Romania.1250:				ro_RO.iso8859-2
+Russian_Russia.1251:				ru_RU.iso8859-5
+Slovak_Slovakia.1250:				sk_SK.iso8859-2
+Slovene_Slovenia.1250:				sl_SI.iso8859-2
+Albanian_Albania.1250:				sq_AL.iso8859-2
+Serbian (Latin)_Serbia.1250:			sr_YU.iso8859-2
+Swedish_Finland.1252:				sv_FI.iso8859-1
+Swedish_Sweden.1252:				sv_SE.iso8859-1
+Turkish_Turkey.1254:				tr_TR.iso8859-9
+Ukrainian_Ukraine.1251:				uk_UA.iso8859-5
+Chinese(PRC)_People's Republic of China.936:	zh_CN.EUC
+Chinese(PRC)_Hong Kong.950:			zh_HK.EUC
+Chinese(Singapore)_Signapore.936:		zh_SG.EUC
+Chinese(Taiwan)_Taiwan.950:			zh_TW.EUC
+#endif
+XCOMM Other miscellaneous locale names
+ISO8859-1:					en_US.ISO8859-1
+ISO-8859-1:					en_US.ISO8859-1
+#ifndef __uxp__
+japan:						ja_JP.eucJP
+#else
+japan:						ja_JP.U90
+#endif
+Japanese-EUC:					ja_JP.eucJP
+
+XCOMM Added by Sun
+ja_JP.PCK:					ja_JP.SJIS
+zh_CN.GBK:					zh.GBK
+zh.GBK:						zh.GBK
+zh_TW.BIG5:					zh_TW.BIG5

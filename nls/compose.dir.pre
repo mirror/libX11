@@ -1,0 +1,93 @@
+XCOMM $Xorg: compose.dir,v 1.4 2000/12/12 13:00:42 coskrey Exp $
+XCOMM
+XCOMM	This file contains compose table file name.
+XCOMM	The first word is the compose table file name and
+XCOMM	the second word is full locale name.
+XCOMM
+iso8859-1/Compose:	C
+iso8859-1/Compose:	af_ZA.ISO8859-1
+iso8859-1/Compose:	ca_ES.ISO8859-1
+iso8859-1/Compose:	da_DK.ISO8859-1
+iso8859-1/Compose:	de_AT.ISO8859-1
+iso8859-1/Compose:	de_CH.ISO8859-1
+iso8859-1/Compose:	de_DE.ISO8859-1
+iso8859-1/Compose:	de_LI.ISO8859-1
+iso8859-1/Compose:	de_LU.ISO8859-1
+iso8859-1/Compose:	en_AU.ISO8859-1
+iso8859-1/Compose:	en_BZ.ISO8859-1
+iso8859-1/Compose:	en_CA.ISO8859-1
+iso8859-1/Compose:	en_GB.ISO8859-1
+iso8859-1/Compose:	en_IE.ISO8859-1
+iso8859-1/Compose:	en_JM.ISO8859-1
+iso8859-1/Compose:	en_NZ.ISO8859-1
+iso8859-1/Compose:	en_TT.ISO8859-1
+iso8859-1/Compose:	en_UK.ISO8859-1
+iso8859-1/Compose:	en_US.ISO8859-1
+iso8859-1/Compose:	en_ZA.ISO8859-1
+iso8859-1/Compose:	es_AR.ISO8859-1
+iso8859-1/Compose:	es_BO.ISO8859-1
+iso8859-1/Compose:	es_CL.ISO8859-1
+iso8859-1/Compose:	es_CO.ISO8859-1
+iso8859-1/Compose:	es_CR.ISO8859-1
+iso8859-1/Compose:	es_DO.ISO8859-1
+iso8859-1/Compose:	es_EC.ISO8859-1
+iso8859-1/Compose:	es_ES.ISO8859-1
+iso8859-1/Compose:	es_GT.ISO8859-1
+iso8859-1/Compose:	es_HN.ISO8859-1
+iso8859-1/Compose:	es_MX.ISO8859-1
+iso8859-1/Compose:	es_NI.ISO8859-1
+iso8859-1/Compose:	es_PA.ISO8859-1
+iso8859-1/Compose:	es_PE.ISO8859-1
+iso8859-1/Compose:	es_PR.ISO8859-1
+iso8859-1/Compose:	es_PY.ISO8859-1
+iso8859-1/Compose:	es_SV.ISO8859-1
+iso8859-1/Compose:	es_UY.ISO8859-1
+iso8859-1/Compose:	es_VE.ISO8859-1
+iso8859-1/Compose:	eu_ES.ISO8859-1
+iso8859-1/Compose:	fi_FI.ISO8859-1
+iso8859-1/Compose:	fo_FO.ISO8859-1
+iso8859-1/Compose:	fr_BE.ISO8859-1
+iso8859-1/Compose:	fr_CA.ISO8859-1
+iso8859-1/Compose:	fr_CH.ISO8859-1
+iso8859-1/Compose:	fr_FR.ISO8859-1
+iso8859-1/Compose:	fr_LU.ISO8859-1
+iso8859-1/Compose:	id_ID.ISO8859-1
+iso8859-1/Compose:	is_IS.ISO8859-1
+iso8859-1/Compose:	it_CH.ISO8859-1
+iso8859-1/Compose:	it_IT.ISO8859-1
+iso8859-1/Compose:	lt_LN.ISO8859-1
+iso8859-1/Compose:	nl_BE.ISO8859-1
+iso8859-1/Compose:	nl_NL.ISO8859-1
+iso8859-1/Compose:	no_NO.ISO8859-1
+iso8859-1/Compose:	pt_BR.ISO8859-1
+iso8859-1/Compose:	pt_PT.ISO8859-1
+iso8859-1/Compose:	sv_FI.ISO8859-1
+iso8859-1/Compose:	sv_SE.ISO8859-1
+iso8859-2/Compose:	cs_CZ.ISO8859-2
+iso8859-2/Compose:	cz_CZ.ISO8859-2
+iso8859-2/Compose:	hr_HR.ISO8859-2
+iso8859-2/Compose:	hu_HU.ISO8859-2
+iso8859-2/Compose: 	pl_PL.ISO8859-2
+iso8859-2/Compose:	ro_RO.ISO8859-2
+iso8859-2/Compose: 	sh_YU.ISO8859-2
+iso8859-2/Compose: 	sk_SK.ISO8859-2
+iso8859-2/Compose: 	sl_CS.ISO8859-2
+iso8859-2/Compose: 	sl_SI.ISO8859-2
+iso8859-2/Compose: 	sq_AL.ISO8859-2
+iso8859-2/Compose:	sr_SP.ISO8859-2
+iso8859-2/Compose:	sr_YU.ISO8859-2
+en_US.utf/Compose:	en_US.utf
+
+XCOMM Added by Sun
+en_US.UTF-8/Compose:	en_US.UTF-8
+
+iso8859-5/Compose:      sr_SP.ISO8859-5
+iso8859-5/Compose:       bg_BG.ISO8859-5
+iso8859-5/Compose:       mk_MK.ISO8859-5
+iso8859-5/Compose: 	ru.ISO8859-5
+
+iso8859-7/Compose: 	el.ISO8859-7
+
+iso8859-13/Compose:	lt.ISO8859-13
+iso8859-13/Compose:	lv.ISO8859-13
+

@@ -382,23 +382,21 @@ normalize_lcname (const char *name)
 {
     char *p, *ret;
     const char *tmp = name;
-    Bool normalize = False;
     
     p = ret = Xmalloc(strlen(name) + 1);
     if (!p)
 	return NULL;
     
-    do {
-	if (normalize) {
-	    if (*tmp == '-')
-		continue;
-	    *p++ = c_tolower(*tmp);
-	} else {
-	    *p++ = *tmp;
-	    if (*tmp == '.' || *tmp == '@')
-		normalize = True;
+    if (tmp) {
+	while (*tmp && *tmp != '.' && *tmp != '@')
+	    *p++ = *tmp++;
+	while (*tmp) {
+	    if (*tmp != '-')
+		*p++ = c_tolower(*tmp);
+	    tmp++;
 	}
-    } while (*tmp++);
+    }
+    *p = '\0';
 
     if (strcmp(ret, name) == 0) {
 	Xfree(ret);

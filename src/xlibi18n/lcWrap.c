@@ -420,6 +420,18 @@ XFree86utf8TextPropertyToTextList(
     return (*lcd->methods->utf8_text_prop_to_list)(lcd, dpy, text_prop,
 						   list_ret, count_ret);
 }
+#ifndef NOXFREE86COMPAT
+#undef Xutf8TextPropertyToTextList
+int
+Xutf8TextPropertyToTextList(
+    Display *dpy,
+    const XTextProperty *text_prop,
+    char ***list_ret,
+    int *count_ret)
+{
+    return XFree86utf8TextPropertyToTextList(dpy, text_prop, list_ret, count_ret);
+}
+#endif
 
 int
 XmbTextListToTextProperty(
@@ -471,6 +483,19 @@ XFree86utf8TextListToTextProperty(
     return (*lcd->methods->utf8_text_list_to_prop)(lcd, dpy, list, count,
 						   style, text_prop);
 }
+#ifndef NOXFREE86COMPAT
+#undef Xutf8TextListToTextProperty
+int
+Xutf8TextListToTextProperty(
+    Display *dpy,
+    char **list,
+    int count,
+    XICCEncodingStyle style,
+    XTextProperty *text_prop)
+{
+    return XFree86utf8TextListToTextProperty(dpy, list, count, style, text_prop);
+}
+#endif
 
 void
 XwcFreeStringList(

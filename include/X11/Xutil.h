@@ -683,6 +683,9 @@ extern void XFree86utf8SetWMProperties(
     XWMHints*		/* wm_hints */,
     XClassHint*		/* class_hints */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8SetWMProperties XFree86utf8SetWMProperties
+#endif
 
 extern void XSetWMSizeHints(
     Display*		/* display */,
@@ -751,6 +754,9 @@ extern int XFree86utf8TextListToTextProperty(
     XICCEncodingStyle	style,
     XTextProperty*	text_prop_return
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8TextListToTextProperty XFree86utf8TextListToTextProperty
+#endif
 
 extern void XwcFreeStringList(
     wchar_t**		list
@@ -782,6 +788,9 @@ extern int XFree86utf8TextPropertyToTextList(
     char***		list_return,
     int*		count_return
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8TextPropertyToTextList XFree86utf8TextPropertyToTextList
+#endif
 
 extern int XUnionRectWithRegion(
     XRectangle*		/* rectangle */,

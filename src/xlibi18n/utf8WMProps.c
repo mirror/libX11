@@ -88,3 +88,21 @@ XFree86utf8SetWMProperties (
 
     /* Note: The WM_LOCALE_NAME property is set by XSetWMProperties. */
 }
+#ifndef NOXFREE86COMPAT
+#undef Xutf8SetWMProperties
+void
+Xutf8SetWMProperties (
+    Display *dpy,
+    Window w,
+    _Xconst char *windowName,
+    _Xconst char *iconName,
+    char **argv,
+    int argc,
+    XSizeHints *sizeHints,
+    XWMHints *wmHints,
+    XClassHint *classHints)
+{
+    XFree86utf8SetWMProperties (dpy, w, windowName, iconName, argv, argc,
+	sizeHints, wmHints, classHints);
+}
+#endif

@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.6 2003-12-20 00:28:22 kaleb Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.1.4.7 2004-02-24 20:26:32 kaleb Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -3659,6 +3659,9 @@ extern int XFree86utf8TextEscapement(
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8TextEscapement XFree86utf8TextEscapement
+#endif
 
 extern int XmbTextExtents(
     XFontSet		/* font_set */,
@@ -3683,6 +3686,9 @@ extern int XFree86utf8TextExtents(
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8TextExtents XFree86utf8TextExtents
+#endif
 
 extern Status XmbTextPerCharExtents(
     XFontSet		/* font_set */,
@@ -3719,6 +3725,9 @@ extern Status XFree86utf8TextPerCharExtents(
     XRectangle*		/* overall_ink_return */,
     XRectangle*		/* overall_logical_return */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8TextPerCharExtents XFree86utf8TextPerCharExtents
+#endif
 
 extern void XmbDrawText(
     Display*		/* display */,
@@ -3749,6 +3758,9 @@ extern void XFree86utf8DrawText(
     XmbTextItem*	/* text_items */,
     int			/* nitems */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8DrawText XFree86utf8DrawText
+#endif
 
 extern void XmbDrawString(
     Display*		/* display */,
@@ -3782,6 +3794,9 @@ extern void XFree86utf8DrawString(
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8DrawString XFree86utf8DrawString
+#endif
 
 extern void XmbDrawImageString(
     Display*		/* display */,
@@ -3815,6 +3830,9 @@ extern void XFree86utf8DrawImageString(
     _Xconst char*	/* text */,
     int			/* bytes_text */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8DrawImageString XFree86utf8DrawImageString
+#endif
 
 extern XIM XOpenIM(
     Display*			/* dpy */,
@@ -3870,6 +3888,9 @@ extern char *XmbResetIC(
 extern char *XFree86utf8ResetIC(
     XIC /* ic */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8ResetIC XFree86utf8ResetIC
+#endif
 
 extern char *XSetICValues(
     XIC /* ic */, ...
@@ -3914,6 +3935,9 @@ extern int XFree86utf8LookupString(
     KeySym*		/* keysym_return */,
     Status*		/* status_return */
 );
+#ifndef NOXFREE86COMPAT
+#define Xutf8LookupString XFree86utf8LookupString
+#endif
 
 extern XVaNestedList XVaCreateNestedList(
     int /*unused*/, ...

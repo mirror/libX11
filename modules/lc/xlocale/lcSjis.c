@@ -991,6 +991,13 @@ sjis_mbstocts(
 	    ct_state.GR_charset = charset;
 	else if (charset->side == XlcGL)
 	    ct_state.GL_charset = charset;
+
+	if (charset->side == XlcGR) {
+	  clen = charset->length;
+	  do {
+	    (*(Uchar *)(ctptr-clen)) = BIT8ON(*(Uchar *)(ctptr-clen));
+	  } while (--clen);
+	}
     }
 
     *to = (XPointer)ctptr;
@@ -1147,6 +1154,8 @@ sjis_ctstombs(
     unsigned int ct_seglen = 0;
     Uchar ct_type;
     CTData ctdp = ctdata;	/* default */
+    CTData GL_ctdp = ctdp;	/* GL ctdp save */
+    CTData GR_ctdp = ctdp;	/* GR ctdp save */
 
     if (*from_left > *to_left)
 	*from_left = *to_left;
@@ -1154,6 +1163,18 @@ sjis_ctstombs(
     for (length = ctdata[Ascii].length; *from_left > 0 ; (*from_left) -= length)
     {
 	ct_type = CT_STD;
+	/* change GL/GR charset */
+	if(ctdp->side == XlcGR && isleftside(*inbufptr)){
+	    /* select GL side */
+	    ctdp = GL_ctdp;
+	    length = ctdp->length;
+	    ct_type = ctdp->ct_type;
+	}else if(ctdp->side == XlcGL && isrightside(*inbufptr)){
+	    /* select GR side */
+	    ctdp = GR_ctdp;
+	    length = ctdp->length;
+	    ct_type = ctdp->ct_type;
+	}
 	if (*inbufptr == '\033' || *inbufptr == (char)'\233') {
 
 	    for (ctdp = ctdata; ctdp <= ctd_endp ; ctdp++) {
@@ -1171,6 +1192,11 @@ sjis_ctstombs(
 			}
 		    }
 		    ct_type = ctdp->ct_type;
+		    if(ctdp->side == XlcGL){
+			GL_ctdp = ctdp; /* save GL ctdp */
+		    }else{
+			GR_ctdp = ctdp; /* save GR ctdp */
+		    }
 		    break;
 		}
 	    }
@@ -1265,6 +1291,8 @@ sjis_ctstowcs(
     wchar_t wch;
     Ulong wc_encoding;
     CTData ctdp = ctdata;
+    CTData GL_ctdp = ctdp;	/* GL ctdp save */
+    CTData GR_ctdp = ctdp;	/* GR ctdp save */
 
     if (*from_left > *to_left)
 	*from_left = *to_left;
@@ -1272,6 +1300,18 @@ sjis_ctstowcs(
     for (length = ctdata[Ascii].length; *from_left > 0; (*from_left) -= length )
     {
 	ct_type = CT_STD;
+	/* change GL/GR charset */
+	if(ctdp->side == XlcGR && isleftside(*inbufptr)){
+	    /* select GL side */
+	    ctdp = GL_ctdp;
+	    length = ctdp->length;
+	    ct_type = ctdp->ct_type;
+	}else if(ctdp->side == XlcGL && isrightside(*inbufptr)){
+	    /* select GR side */
+	    ctdp = GR_ctdp;
+	    length = ctdp->length;
+	    ct_type = ctdp->ct_type;
+	}
 	if (*inbufptr == '\033' || *inbufptr == (char)'\233') {
 	    for (ctdp = ctdata; ctdp <= ctd_endp ; ctdp++) {
 
@@ -1288,6 +1328,11 @@ sjis_ctstowcs(
 			}
 		    }
 		    ct_type = ctdp->ct_type;
+		    if(ctdp->side == XlcGL){
+			GL_ctdp = ctdp; /* save GL ctdp */
+		    }else{
+			GR_ctdp = ctdp; /* save GR ctdp */
+		    }
 		    break;
 		}
 	    }

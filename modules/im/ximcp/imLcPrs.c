@@ -53,14 +53,6 @@ extern int _Xmbstoutf8(
     int		len
 );
 
-extern int _Xmbstoutf8(
-#if NeedFunctionPrototypes
-    char	*ustr,
-    const char	*str,
-    int		len
-#endif
-);
-
 /*
  *	Parsing File Format:
  *

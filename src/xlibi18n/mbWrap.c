@@ -55,17 +55,6 @@ from The Open Group.
 #include "Xlibint.h"
 #include "Xlcint.h"
 
-#if NeedFunctionPrototypes
-void
-XmbDrawText(
-    Display            *dpy,
-    Drawable            d,
-    GC                  gc,
-    int                 x,
-    int                 y,
-    XmbTextItem        *text_items,
-    int                 nitems)
-#else
 void
 XmbDrawText(
     Display            *dpy,

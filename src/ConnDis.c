@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/ConnDis.c,v 3.27 2003/07/20 16:12:14 tsi Exp $ */
+/* $XFree86: xc/lib/X11/ConnDis.c,v 3.28 2003/12/02 23:33:17 herrb Exp $ */
 
 /* 
  * This file contains operating system dependencies.
@@ -1081,6 +1081,32 @@ GetAuthorization(
 	    break;
 	}
 #endif /* AF_INET */
+#if defined(IPv6) && defined(AF_INET6)
+	case AF_INET6:
+	  /* XXX This should probably never happen */
+	{
+	    unsigned char ipv4mappedprefix[] = {
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff };
+	    
+	    /* In the case of v4 mapped addresses send the v4 
+	       part of the address - addr is already in network byte order */
+	    if (memcmp(addr+8, ipv4mappedprefix, 12) == 0) {
+		for (i = 20 ; i < 24; i++)
+		    xdmcp_data[j++] = ((char *)addr)[i];
+	    
+		/* Port number */
+		for (i=2; i<4; i++)
+		    xdmcp_data[j++] = ((char *)addr)[i];
+		break;
+	    } else {
+		/* Fake data to keep the data aligned. Otherwise the 
+		   the server will bail about incorrect timing data */
+		for (i = 0; i < 8; i++) {
+		    xdmcp_data[j++] = 0;
+		}
+	    }
+	}
+#endif /* AF_INET6 */
 #ifdef AF_UNIX
 	case AF_UNIX:
 	{

@@ -41,7 +41,7 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XDrArc.man,v 1.4 2003/04/28 22:17:54 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XDrArc.man,v 1.5 2003/11/23 05:40:33 dawes Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -300,7 +300,7 @@ structure contains:
 typedef struct {
 	short x, y;
 	unsigned short width, height;
-	short angle1, angle2;             /* Degrees * 64 */
+	short angle1, angle2;             /\(** Degrees * 64 */
 } XArc;
 .De
 .LP

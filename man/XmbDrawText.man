@@ -41,7 +41,7 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\"
-.\" $XFree86: xc/doc/man/X11/XmbDTxt.man,v 1.4 2003/04/28 22:17:58 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XmbDTxt.man,v 1.5 2003/11/23 05:40:33 dawes Exp $
 .\" 
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -226,10 +226,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	char *chars;	/* pointer to string */
-	int nchars;	/* number of bytes */
-	int delta;	/* pixel delta between strings */
-	XFontSet font_set; 	/* fonts, None means don't change */
+	char *chars;	/\(** pointer to string */
+	int nchars;	/\(** number of bytes */
+	int delta;	/\(** pixel delta between strings */
+	XFontSet font_set; 	/\(** fonts, None means don't change */
 } XmbTextItem;
 .De
 The
@@ -239,10 +239,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	wchar_t *chars;	/* pointer to wide char string */
-	int nchars;	/* number of wide characters */
-	int delta;	/* pixel delta between strings */
-	XFontSet font_set;	/* fonts, None means don't change */
+	wchar_t *chars;	/\(** pointer to wide char string */
+	int nchars;	/\(** number of wide characters */
+	int delta;	/\(** pixel delta between strings */
+	XFontSet font_set;	/\(** fonts, None means don't change */
 } XwcTextItem;
 .De
 .SH "SEE ALSO"

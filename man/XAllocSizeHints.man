@@ -41,7 +41,7 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XASHints.man,v 1.5 2003/04/28 22:17:54 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XASHints.man,v 1.6 2003/11/23 05:40:33 dawes Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -323,7 +323,7 @@ The
 .ZN XSizeHints
 structure contains:
 .LP
-/* Size hints mask bits */
+/\(** Size hints mask bits */
 .TS
 lw(.5i) lw(1.1i) lw(1.5i) lw(3.1i).
 T{
@@ -333,7 +333,7 @@ T}	T{
 T}	T{
 (1L << 0)
 T}	T{
-/* user specified x, y */
+/\(** user specified x, y */
 T}
 T{
 \&#define
@@ -342,7 +342,7 @@ T}	T{
 T}	T{
 (1L << 1)
 T}	T{
-/* user specified width, height */
+/\(** user specified width, height */
 T}
 T{
 \&#define
@@ -351,7 +351,7 @@ T}	T{
 T}	T{
 (1L << 2)
 T}	T{
-/* program specified position */
+/\(** program specified position */
 T}
 T{
 \&#define
@@ -360,7 +360,7 @@ T}	T{
 T}	T{
 (1L << 3)
 T}	T{
-/* program specified size */
+/\(** program specified size */
 T}
 T{
 \&#define
@@ -369,7 +369,7 @@ T}	T{
 T}	T{
 (1L << 4)
 T}	T{
-/* program specified minimum size */
+/\(** program specified minimum size */
 T}
 T{
 \&#define
@@ -378,7 +378,7 @@ T}	T{
 T}	T{
 (1L << 5)
 T}	T{
-/* program specified maximum size */
+/\(** program specified maximum size */
 T}
 T{
 \&#define
@@ -387,7 +387,7 @@ T}	T{
 T}	T{
 (1L << 6)
 T}	T{
-/* program specified resize increments */
+/\(** program specified resize increments */
 T}
 T{
 \&#define
@@ -396,7 +396,7 @@ T}	T{
 T}	T{
 (1L << 7)
 T}	T{
-/* program specified min and max aspect ratios */
+/\(** program specified min and max aspect ratios */
 T}
 T{
 \&#define
@@ -429,22 +429,22 @@ T}
 .Ds 0
 .TA .5i 2.5i
 .ta .5i 2.5i
-/* Values */
+/\(** Values */
 
 typedef struct {
-	long flags;	/* marks which fields in this structure are defined */
-	int x, y;	/* Obsolete */
-	int width, height;	/* Obsolete */
+	long flags;	/\(** marks which fields in this structure are defined */
+	int x, y;	/\(** Obsolete */
+	int width, height;	/\(** Obsolete */
 	int min_width, min_height;
 	int max_width, max_height;
 	int width_inc, height_inc;
 	struct {
-	       int x;	/* numerator */
-	       int y;	/* denominator */
+	       int x;	/\(** numerator */
+	       int y;	/\(** denominator */
 	} min_aspect, max_aspect;
 	int base_width, base_height;
 	int win_gravity;
-	/* this structure may be extended in the future */
+	/\(** this structure may be extended in the future */
 } XSizeHints;
 .De
 .LP

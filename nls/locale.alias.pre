@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.6 2004-11-09 00:56:56 gisburn Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.7 2005-01-14 04:59:05 gisburn Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -54,6 +54,11 @@ ar_QA:						ar_QA.ISO8859-6
 ar_QA.utf8:					ar_QA.UTF-8
 ar_SA:						ar_SA.ISO8859-6
 ar_SA.iso88596:					ar_SA.ISO8859-6
+bs                                             bs_BA.ISO8859-2
+bs_BA                                          bs_BA.ISO8859-2
+bs_BA.iso88592                                 bs_BA.ISO8859-2
+bs_BA.ISO-8859-2                               bs_BA.ISO8859-2
+bs_BA.ISO_8859-2                               bs_BA.ISO8859-2
 ar_SA.utf8:					ar_SA.UTF-8
 ar_SD:						ar_SD.ISO8859-6
 ar_SD.utf8:					ar_SD.UTF-8
@@ -904,6 +909,11 @@ hungarian:					hu_HU.ISO8859-2
 icelandic.iso88591:				is_IS.ISO8859-1
 icelandic:					is_IS.ISO8859-1
 italian:					it_IT.ISO8859-1
+bs:                                            bs_BA.ISO8859-2
+bs_BA:                                         bs_BA.ISO8859-2
+bs_BA.iso88592:                                        bs_BA.ISO8859-2
+bs_BA.ISO-8859-2:                              bs_BA.ISO8859-2
+bs_BA.ISO_8859-2:                              bs_BA.ISO8859-2
 italian.iso88591:				it_IT.ISO8859-1
 japanese:					ja_JP.eucJP
 japanese.euc:					ja_JP.eucJP

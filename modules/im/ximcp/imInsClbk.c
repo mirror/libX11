@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                makoto@sm.sony.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imInsClbk.c,v 3.4 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86: xc/lib/X11/imInsClbk.c,v 3.3 2003/05/27 22:26:26 tsi Exp $ */
 
 #include	<X11/Xatom.h>
 #define NEED_EVENTS
@@ -254,8 +254,6 @@ _XimUnRegisterIMInstantiateCallback(
 		    _XUnregisterFilter( display, RootWindow(display, 0),
 					_XimFilterPropertyNotify,
 					(XPointer)NULL );
-		    XSelectInput( display, RootWindow(display, 0),
-				  NoEventMask );
 		}
 		else
 		    picb->next = icb->next;

@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/XlibInt.c,v 3.39 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86: xc/lib/X11/XlibInt.c,v 3.38 2003/10/30 21:55:05 alanh Exp $ */
 
 /*
  *	XlibInt.c - Internal support routines for the C subroutine
@@ -1281,9 +1281,10 @@ void _XReadPad(
 	    if (bytes_read > 0) {
 		size -= bytes_read;
 		if (iov[0].iov_len < bytes_read) {
-		    iov[1].iov_len += iov[0].iov_len - bytes_read;
+		    int pad_bytes_read = bytes_read - iov[0].iov_len;
+		    iov[1].iov_len -= pad_bytes_read;
 		    iov[1].iov_base =
-			(char *)iov[1].iov_base + bytes_read - iov[0].iov_len;
+			(char *)iov[1].iov_base + pad_bytes_read;
 		    iov[0].iov_len = 0;
 		    }
 	    	else {
@@ -3345,7 +3346,7 @@ int _XOpenFile(path, flags)
     int flags;
 {
     char buf[MAX_PATH];
-    char* bufp;
+    char* bufp = NULL;
     int ret = -1;
     UINT olderror = SetErrorMode (SEM_FAILCRITICALERRORS);
 
@@ -3364,7 +3365,7 @@ void* _XFopenFile(path, mode)
     _Xconst char* mode;
 {
     char buf[MAX_PATH];
-    char* bufp;
+    char* bufp = NULL;
     void* ret = NULL;
     UINT olderror = SetErrorMode (SEM_FAILCRITICALERRORS);
 

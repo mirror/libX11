@@ -570,6 +570,12 @@ XOpenDisplay (
 			u.vp = (xVisualType *) (((char *) u.vp) +
 						sz_xVisualType);
 		    }
+		    if (dp->depth == 32 && getenv ("XLIB_SKIP_ARGB_VISUALS"))
+		    {
+			Xfree (dp->visuals);
+			dp->visuals = NULL;
+			dp->nvisuals = 0;
+		    }
 		} else {
 		    dp->visuals = (Visual *) NULL;
 		}

@@ -684,20 +684,6 @@ extern void Xutf8SetWMProperties(
     XClassHint*		/* class_hints */
 );
 
-extern void Xutf8SetWMProperties(
-#if NeedFunctionPrototypes
-    Display*		/* display */,
-    Window		/* w */,
-    _Xconst char*	/* window_name */,
-    _Xconst char*	/* icon_name */,
-    char**		/* argv */,
-    int			/* argc */,
-    XSizeHints*		/* normal_hints */,
-    XWMHints*		/* wm_hints */,
-    XClassHint*		/* class_hints */
-#endif
-);
-
 extern void XSetWMSizeHints(
     Display*		/* display */,
     Window		/* w */,

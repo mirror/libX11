@@ -11,19 +11,8 @@ on_demand_loading	True
 
 object_name		generic
 
-XCOMM	fs0 class
+XCOMM 	fs0 class (7 bit ASCII)
 fs0	{
-	charset	{
-		name	ISO10646-1
-	}
-	font	{
-		primary	ISO10646-1
-	}
-}
-XCOMM	We leave the legacy encodings in for the moment, because we don't
-XCOMM	have that many ISO10646 fonts yet.
-XCOMM 	fs1 class (7 bit ASCII)
-fs1	{
 	charset	{
 		name	ISO8859-1:GL
 	}
@@ -32,8 +21,8 @@ fs1	{
 		vertical_rotate	all
 	}
 }
-XCOMM	fs2 class (ISO8859 families)
-fs2	{
+XCOMM	fs1 class (ISO8859 families)
+fs1	{
 	charset	{
 		name	ISO8859-1:GR
 	}
@@ -41,8 +30,8 @@ fs2	{
 		primary	ISO8859-1:GR
 	}
 }
-XCOMM 	fs3 class (Kanji)
-fs3	{
+XCOMM 	fs2 class (Kanji)
+fs2	{
 	charset	{
 		name	JISX0208.1983-0:GL
 	}
@@ -50,8 +39,8 @@ fs3	{
 		primary	JISX0208.1983-0:GL
 	}
 }
-XCOMM   fs4 class (Korean Character)
-fs4	{
+XCOMM   fs3 class (Korean Character)
+fs3	{
 	charset	{
 		name	KSC5601.1987-0:GL
 	}
@@ -59,8 +48,8 @@ fs4	{
 		primary	KSC5601.1987-0:GL
 	}
 }
-XCOMM   fs5 class (Chinese Han Character)
-fs5	{
+XCOMM   fs4 class (Chinese Han Character)
+fs4	{
 	charset	{
 		name	GB2312.1980-0:GL
 	}
@@ -68,14 +57,24 @@ fs5	{
 		primary	GB2312.1980-0:GL
 	}
 }
-XCOMM	fs6 class (Half Kana)
-fs6	{
+XCOMM	fs5 class (Half Kana)
+fs5	{
 	charset	{
 		name	JISX0201.1976-0:GR
 	}
 	font	{
 		primary		JISX0201.1976-0:GR
 		vertical_rotate	all
+	}
+}
+XCOMM	ISO10646 should come last so the fonts above will actually be used
+XCOMM	fs6 class
+fs6	{
+	charset	{
+		name	ISO10646-1
+	}
+	font	{
+		primary	ISO10646-1
 	}
 }
 END XLC_FONTSET

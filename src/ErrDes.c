@@ -149,9 +149,13 @@ XGetErrorDatabaseText(
 	const char *dbname;
 
 	XrmInitialize();
+#ifdef WIN32
 	dbname = getenv("XERRORDB");
 	if (!dbname)
 	    dbname = ERRORDB;
+#else
+    dbname = ERRORDB;
+#endif
 	temp_db = XrmGetFileDatabase(dbname);
 
 	_XLockMutex(_Xglobal_lock);

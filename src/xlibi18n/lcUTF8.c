@@ -1750,7 +1750,12 @@ create_tofontcs_conv(
         }
 	while (count-- > 0) {
 	    XlcCharSet charset = _XlcGetCharSet(*value++);
-	    const char *name = charset->encoding_name;
+	    const char *name;
+
+	    if (charset == (XlcCharSet) NULL)
+		continue;
+
+	    name = charset->encoding_name;
 	    /* If it wasn't already encountered... */
 	    for (k = num - 1; k >= 0; k--)
 		if (!strcmp(preferred[k]->name, name))

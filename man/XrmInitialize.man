@@ -40,7 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XInitial.man,v 1.4 2003/04/28 22:17:55 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XInitial.man,v 1.5 2003/11/23 05:40:33 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XrmInitialize.man,v 1.1.4.3 2003-12-06 13:22:41 kaleb Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -232,14 +233,14 @@ typedef struct {
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef enum {
-	XrmoptionNoArg,	/* Value is specified in XrmOptionDescRec.value */
-	XrmoptionIsArg,	/* Value is the option string itself */
-	XrmoptionStickyArg,	/* Value is characters immediately following option */
-	XrmoptionSepArg,	/* Value is next argument in argv */
-	XrmoptionResArg,	/* Resource and value in next argument in argv */
-	XrmoptionSkipArg,	/* Ignore this option and the next argument in argv */
-	XrmoptionSkipLine,	/* Ignore this option and the rest of argv */
-	XrmoptionSkipNArgs	/* Ignore this option and the next
+	XrmoptionNoArg,	/\(** Value is specified in XrmOptionDescRec.value */
+	XrmoptionIsArg,	/\(** Value is the option string itself */
+	XrmoptionStickyArg,	/\(** Value is characters immediately following option */
+	XrmoptionSepArg,	/\(** Value is next argument in argv */
+	XrmoptionResArg,	/\(** Resource and value in next argument in argv */
+	XrmoptionSkipArg,	/\(** Ignore this option and the next argument in argv */
+	XrmoptionSkipLine,	/\(** Ignore this option and the rest of argv */
+	XrmoptionSkipNArgs	/\(** Ignore this option and the next
 		\ \ \ XrmOptionDescRec.value arguments in argv */
 } XrmOptionKind;
 .De
@@ -248,10 +249,10 @@ typedef enum {
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	char *option;	/* Option specification string in argv		    */
-	char *specifier;	/* Binding and resource name (sans application name)    */
-	XrmOptionKind argKind;	/* Which style of option it is	    */
-	XPointer value;	/* Value to provide if XrmoptionNoArg or 
+	char *option;	/\(** Option specification string in argv		    */
+	char *specifier;	/\(** Binding and resource name (sans application name)    */
+	XrmOptionKind argKind;	/\(** Which style of option it is	    */
+	XPointer value;	/\(** Value to provide if XrmoptionNoArg or 
 		\ \ \ XrmoptionSkipNArgs   */
 } XrmOptionDescRec, *XrmOptionDescList;
 .De

@@ -40,7 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XLoadFont.man,v 1.3 2003/04/28 22:17:55 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XLoadFont.man,v 1.4 2003/11/23 05:40:33 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XLoadFont.man,v 1.1.4.3 2003-12-06 13:22:41 kaleb Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -312,12 +313,12 @@ structures contain:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	short lbearing;	/* origin to left edge of raster */
-	short rbearing;	/* origin to right edge of raster */
-	short width;	/* advance to next char's origin */
-	short ascent;	/* baseline to top edge of raster */
-	short descent;	/* baseline to bottom edge of raster */
-	unsigned short attributes;	/* per char flags (not predefined) */
+	short lbearing;	/\(** origin to left edge of raster */
+	short rbearing;	/\(** origin to right edge of raster */
+	short width;	/\(** advance to next char's origin */
+	short ascent;	/\(** baseline to top edge of raster */
+	short descent;	/\(** baseline to bottom edge of raster */
+	unsigned short attributes;	/\(** per char flags (not predefined) */
 } XCharStruct;
 .De
 .LP
@@ -335,7 +336,7 @@ typedef struct {
 .Ds 0
 .TA .5i 3i
 .ta .5i 3i
-typedef struct {	/* normal 16 bit characters are two bytes */
+typedef struct {	/\(** normal 16 bit characters are two bytes */
     unsigned char byte1;
     unsigned char byte2;
 } XChar2b;
@@ -346,22 +347,22 @@ typedef struct {	/* normal 16 bit characters are two bytes */
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	XExtData *ext_data;	/* hook for extension to hang data */
-	Font fid;	/* Font id for this font */
-	unsigned direction;	/* hint about the direction font is painted */
-	unsigned min_char_or_byte2;	/* first character */
-	unsigned max_char_or_byte2;	/* last character */
-	unsigned min_byte1;	/* first row that exists */
-	unsigned max_byte1;	/* last row that exists */
-	Bool all_chars_exist;	/* flag if all characters have nonzero size */
-	unsigned default_char;	/* char to print for undefined character */
-	int n_properties;	/* how many properties there are */
-	XFontProp *properties;	/* pointer to array of additional properties */
-	XCharStruct min_bounds;	/* minimum bounds over all existing char */
-	XCharStruct max_bounds;	/* maximum bounds over all existing char */
-	XCharStruct *per_char;	/* first_char to last_char information */
-	int ascent;	/* logical extent above baseline for spacing */
-	int descent;	/* logical decent below baseline for spacing */
+	XExtData *ext_data;	/\(** hook for extension to hang data */
+	Font fid;	/\(** Font id for this font */
+	unsigned direction;	/\(** hint about the direction font is painted */
+	unsigned min_char_or_byte2;	/\(** first character */
+	unsigned max_char_or_byte2;	/\(** last character */
+	unsigned min_byte1;	/\(** first row that exists */
+	unsigned max_byte1;	/\(** last row that exists */
+	Bool all_chars_exist;	/\(** flag if all characters have nonzero size */
+	unsigned default_char;	/\(** char to print for undefined character */
+	int n_properties;	/\(** how many properties there are */
+	XFontProp *properties;	/\(** pointer to array of additional properties */
+	XCharStruct min_bounds;	/\(** minimum bounds over all existing char */
+	XCharStruct max_bounds;	/\(** maximum bounds over all existing char */
+	XCharStruct *per_char;	/\(** first_char to last_char information */
+	int ascent;	/\(** logical extent above baseline for spacing */
+	int descent;	/\(** logical decent below baseline for spacing */
 } XFontStruct;
 .De
 .LP

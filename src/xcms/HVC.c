@@ -1,3 +1,4 @@
+/* $XdotOrg: lib/X11/src/xcms/HVC.c,v 1.1.4.3 2003-12-06 13:24:22 kaleb Exp $ */
 /* $Xorg: HVC.c,v 1.3 2000/08/17 19:44:36 cpqbld Exp $ */
 
 /*
@@ -54,8 +55,6 @@
 #include <X11/Xos.h>
 #include <math.h>
 #include "Cv.h"
-
-#include <stdio.h>
 
 #include <stdio.h>
 

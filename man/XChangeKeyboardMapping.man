@@ -40,7 +40,8 @@
 .\" of this documentation for any purpose.
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
-.\" $XFree86: xc/doc/man/X11/XCKMping.man,v 1.4 2003/04/28 22:17:54 herrb Exp $
+.\" $XFree86: xc/doc/man/X11/XCKMping.man,v 1.5 2003/11/23 05:40:33 dawes Exp $
+.\" $XdotOrg: lib/X11/man/XChangeKeyboardMapping.man,v 1.1.4.3 2003-12-06 13:22:41 kaleb Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -427,8 +428,8 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	int max_keypermod;	/* This server's max number of keys per modifier */
-	KeyCode *modifiermap;	/* An 8 by max_keypermod array of the modifiers */
+	int max_keypermod;	/\(** This server's max number of keys per modifier */
+	KeyCode *modifiermap;	/\(** An 8 by max_keypermod array of the modifiers */
 } XModifierKeymap;
 .De
 .SH DIAGNOSTICS

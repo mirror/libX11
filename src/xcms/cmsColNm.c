@@ -1,3 +1,4 @@
+/* $XdotOrg: lib/X11/src/xcms/cmsColNm.c,v 1.1.4.3 2003-12-06 13:24:22 kaleb Exp $ */
 /* $Xorg: cmsColNm.c,v 1.3 2000/08/17 19:45:09 cpqbld Exp $ */
 
 /*
@@ -45,7 +46,6 @@
 
 /* forwards/locals */
 static Status LoadColornameDB(void);
-
 
 
 /*

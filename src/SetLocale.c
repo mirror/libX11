@@ -1,3 +1,4 @@
+/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.1.4.3 2003-12-06 13:24:22 kaleb Exp $ */
 /* $Xorg: SetLocale.c,v 1.4 2001/02/09 02:03:36 xorgcvs Exp $ */
 
 /*
@@ -62,8 +63,6 @@ from The Open Group.
 #include <X11/Xlocale.h>
 #include <X11/Xos.h>
 #include "XlcPubI.h"
-
-#define MAXLOCALE	64	/* buffer size of locale name */
 
 #define MAXLOCALE	64	/* buffer size of locale name */
 

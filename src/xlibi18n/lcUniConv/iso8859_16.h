@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/iso8859_16.h,v 1.4 2003/07/15 17:33:45 pascal Exp $ */
+/* $XFree86$ */
 
 /*
  * ISO-8859-16

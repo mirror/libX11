@@ -44,7 +44,7 @@
  *		querying routine.
  *
  */
-/* $XFree86: xc/lib/X11/HVCMxV.c,v 1.5 2003/07/16 01:38:26 dawes Exp $ */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

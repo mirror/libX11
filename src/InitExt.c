@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/InitExt.c,v 1.8 2003/11/17 22:20:07 dawes Exp $ */
+/* $XFree86$ */
 
 #include <X11/Xlibint.h>
 #include <X11/Xos.h>

@@ -24,7 +24,7 @@ used in advertising or otherwise to promote the sale, use or other dealings
 in this Software without prior written authorization from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/LookupCol.c,v 1.7 2003/11/17 22:20:08 dawes Exp $ */
+/* $XFree86$ */
 
 #define NEED_REPLIES
 #include <stdio.h>

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/8bit_tab_to_h.c,v 1.3 2001/02/09 00:02:54 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * Generates an 8-bit character set table from a .TXT table as found on

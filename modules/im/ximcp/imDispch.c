@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imDispch.c,v 1.5 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86$ */
 
 #include <X11/Xlib.h>
 #include "Xlibint.h"

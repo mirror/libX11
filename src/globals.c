@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/globals.c,v 3.5 2001/12/14 19:54:10 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  *

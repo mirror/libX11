@@ -24,7 +24,7 @@ OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION  WITH
 THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 ********************************************************/
-/* $XFree86: xc/lib/X11/XKBUse.c,v 3.8 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86$ */
 
 #include <stdio.h>
 #include <ctype.h>

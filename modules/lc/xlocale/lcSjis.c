@@ -35,7 +35,7 @@ OR PERFORMANCE OF THIS SOFTWARE.
 				makoto@sm.sony.co.jp
 
 *****************************************************************/
-/* $XFree86: xc/lib/X11/lcSjis.c,v 3.10 2003/01/20 04:05:31 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * A Japanese SJIS locale.

@@ -25,7 +25,7 @@
  *	DESCRIPTION
  *		Sample Color Name Database
  *
- * $XFree86: xc/lib/X11/Xcms.txt,v 3.2 2003/02/13 03:40:54 dawes Exp $
+ * $XFree86$
  */
 
 

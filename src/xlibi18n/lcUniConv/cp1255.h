@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/cp1255.h,v 1.1 2000/12/04 18:49:33 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * CP1255

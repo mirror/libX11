@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/WrBitF.c,v 3.7 2003/11/17 22:20:08 dawes Exp $ */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include <X11/Xos.h>

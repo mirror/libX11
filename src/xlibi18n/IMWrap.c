@@ -57,7 +57,7 @@ from The Open Group.
 
 */
 
-/* $XFree86: xc/lib/X11/IMWrap.c,v 3.9 2003/11/17 22:20:07 dawes Exp $ */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xlcint.h"

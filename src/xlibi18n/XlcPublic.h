@@ -31,7 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
-/* $XFree86: xc/lib/X11/XlcPublic.h,v 1.12 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86$ */
 /*
  * Most of this API is documented in i18n/Framework.PS
  */

@@ -26,7 +26,7 @@ other dealings in this Software without prior written authorization
 from The Open Group.
 
 */
-/* $XFree86: xc/lib/X11/XKBCvt.c,v 3.35 2003/11/17 22:20:09 dawes Exp $ */
+/* $XFree86$ */
 
 #include <stdio.h>
 #include <sys/types.h>

@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/big5_emacs.h,v 1.1 2000/11/28 18:50:06 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * BIG5-0 and BIG5-1

@@ -31,7 +31,7 @@
  * Modifier: Takanori Tateno   FUJITSU LIMITED
  *
  */
-/* $XFree86: xc/lib/X11/XomGeneric.h,v 1.6 2003/11/17 22:20:11 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _XOMGENERIC_H_
 #define _XOMGENERIC_H_

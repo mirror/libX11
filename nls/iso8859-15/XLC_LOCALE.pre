@@ -6,7 +6,7 @@ XCOMM  This file is provided as preliminary support for the Latin-9
 XCOMM  (a.k.a. Latin-0) character set so that Europeans who want
 XCOMM  the Euro currency character can do so.
 XCOMM 
-XCOMM  $XFree86: xc/nls/XLC_LOCALE/iso8859-15,v 1.3 1998/10/25 12:47:53 dawes Exp $
+XCOMM  $XFree86$
 XCOMM 
 
 XCOMM 

@@ -21,7 +21,7 @@ ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS
 SOFTWARE.
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imEvToWire.c,v 1.2 2003/04/13 19:22:20 dawes Exp $ */
+/* $XFree86$ */
 
 #define NEED_EVENTS
 #include <X11/Xlibint.h>

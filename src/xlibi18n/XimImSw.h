@@ -26,7 +26,7 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/XimImSw.h,v 1.2 2003/11/17 22:20:10 dawes Exp $ */
+/* $XFree86$ */
 
 #ifndef _XIMIMSW_H
 #define _XIMIMSW_H

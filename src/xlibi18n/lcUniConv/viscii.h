@@ -1,4 +1,4 @@
-/* $XFree86: xc/lib/X11/lcUniConv/viscii.h,v 1.3 2000/11/29 17:40:35 dawes Exp $ */
+/* $XFree86$ */
 
 /*
  * VISCII1.1-1

@@ -30,7 +30,7 @@
  *		Source for XcmsCIELuvClipuv() gamut compression routine.
  *
  */
-/* $XFree86: xc/lib/X11/LuvGcC.c,v 1.4 2003/04/13 19:22:16 dawes Exp $ */
+/* $XFree86$ */
 
 #include "Xlibint.h"
 #include "Xcmsint.h"

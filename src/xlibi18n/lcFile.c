@@ -371,6 +371,43 @@ lowercase(
     return dst;
 }
 
+/*
+ * normalize_lcname(): remove any '_' and '-' and convert any character
+ * to lower case after the <language>_<territory> part. If result is identical
+ * to argument, free result and
+ * return NULL.
+ */
+static char *
+normalize_lcname (const char *name)
+{
+    char *p, *ret;
+    const char *tmp = name;
+    Bool normalize = False;
+    
+    p = ret = Xmalloc(strlen(name) + 1);
+    if (!p)
+	return NULL;
+    
+    do {
+	if (normalize) {
+	    if (*tmp == '-')
+		continue;
+	    *p++ = c_tolower(*tmp);
+	} else {
+	    *p++ = *tmp;
+	    if (*tmp == '.' || *tmp == '@')
+		normalize = True;
+	}
+    } while (*tmp++);
+
+    if (strcmp(ret, name) == 0) {
+	Xfree(ret);
+	return NULL;
+    }
+
+    return ret;
+}
+
 /************************************************************************/
 char *
 _XlcFileName(
@@ -439,6 +476,7 @@ _XlcResolveLocaleName(
     char *args[NUM_LOCALEDIR];
     static const char locale_alias[] = LOCALE_ALIAS;
     char *tmp_siname;
+    char *nlc_name = NULL;
 
     xlocaledir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, NUM_LOCALEDIR);
@@ -447,11 +485,18 @@ _XlcResolveLocaleName(
 	    strlen (locale_alias)) < PATH_MAX) {
 	    sprintf (buf, "%s/%s", args[i], locale_alias);
 	    name = resolve_name (lc_name, buf, LtoR);
+	    if (!name) {
+		if (!nlc_name)
+		    nlc_name = normalize_lcname(lc_name);
+		if (nlc_name)
+		    name = resolve_name (nlc_name, buf, LtoR);
+	    }
 	}
 	if (name != NULL) {
 	    break;
 	}
     }
+    if (nlc_name) Xfree(nlc_name);
 
     if (name == NULL) {
 	/* vendor locale name == Xlocale name, no expansion of alias */
@@ -526,6 +571,7 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
     static char locale_alias[] = LOCALE_ALIAS;
     char *target_name = (char*)0;
     char *target_dir = (char*)0;
+    char *nlc_name = NULL;
 
     xlocaledir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, 256);
@@ -535,6 +581,12 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
  	     strlen(locale_alias)) < PATH_MAX) {
  	    sprintf (buf, "%s/%s", args[i], locale_alias);
  	    name = resolve_name(lc_name, buf, LtoR);
+	    if (!name) {
+		if (!nlc_name)
+		    nlc_name = normalize_lcname(lc_name);
+		if (nlc_name)
+		    name = resolve_name (nlc_name, buf, LtoR);
+	    }
  	}
   
  	/* If name is not an alias, use lc_name for locale.dir search */
@@ -568,6 +620,8 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
  	}
  	name = NULL;
     }
+    if (nlc_name) Xfree(nlc_name);
+
     if (target_name == NULL) {
  	/* vendor locale name == Xlocale name, no expansion of alias */
  	target_dir = args[0];

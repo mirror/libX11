@@ -1,5 +1,6 @@
 /*
  * $Xorg: ErrDes.c,v 1.4 2001/02/09 02:03:32 xorgcvs Exp $
+ * $XdotOrg: lib/X11/src/ErrDes.c,v 1.5 2005-03-21 04:58:21 alanc Exp $
  */
 
 /***********************************************************
@@ -173,7 +174,7 @@ XGetErrorDatabaseText(
     if (db)
     {
 	tlen = strlen (name) + strlen (type) + 2;
-	if (tlen <= BUFSIZE)
+	if (tlen <= sizeof(temp))
 	    tptr = temp;
 	else
 	    tptr = Xmalloc (tlen);

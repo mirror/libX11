@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 /* $XFree86: xc/lib/X11/FreeCmap.c,v 1.4 2001/12/14 19:54:00 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlib.h"
 #include "Xlibint.h"
 #include "Cmap.h"

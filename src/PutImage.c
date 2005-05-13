@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 /* $XFree86: xc/lib/X11/PutImage.c,v 3.11 2002/12/09 04:10:56 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xutil.h"
 #include <stdio.h>

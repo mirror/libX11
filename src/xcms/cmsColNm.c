@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/xcms/cmsColNm.c,v 1.2 2004-04-23 18:43:24 eich Exp $ */
+/* $XdotOrg: lib/X11/src/xcms/cmsColNm.c,v 1.3 2005-05-13 22:53:44 sandmann Exp $ */
 /* $Xorg: cmsColNm.c,v 1.3 2000/08/17 19:45:09 cpqbld Exp $ */
 
 /*
@@ -34,6 +34,9 @@
  */
 /* $XFree86: xc/lib/X11/cmsColNm.c,v 3.11 2003/04/13 19:22:20 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include <X11/Xos.h>

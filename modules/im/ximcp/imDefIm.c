@@ -33,6 +33,9 @@ OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imDefIm.c,v 1.15 2003/08/22 19:27:24 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xatom.h>
 #define NEED_EVENTS
 #include "Xlibint.h"

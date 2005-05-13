@@ -32,6 +32,9 @@ in this Software without prior written authorization from The Open Group.
  * locking.c - multi-thread locking routines implemented in C Threads
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #undef _XLockMutex
 #undef _XUnlockMutex

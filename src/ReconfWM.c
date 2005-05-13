@@ -29,6 +29,9 @@ from The Open Group.
 
 #define NEED_EVENTS
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 #define AllMaskBits (CWX|CWY|CWWidth|CWHeight|\

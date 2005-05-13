@@ -31,6 +31,9 @@ in this Software without prior written authorization from The Open Group.
  * Stephen Gildea, MIT X Consortium, January 1991
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 

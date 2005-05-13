@@ -32,6 +32,9 @@ OR PERFORMANCE OF THIS SOFTWARE.
 
 /* $XFree86: xc/lib/X11/imLcPrs.c,v 1.10 2003/09/06 14:06:32 pascal Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlib.h>
 #include <X11/Xmd.h>
 #include <X11/Xos.h>

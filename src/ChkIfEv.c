@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86$ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 /* 

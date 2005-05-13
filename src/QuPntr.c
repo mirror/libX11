@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 Bool XQueryPointer(dpy, w, root, child, root_x, root_y, win_x, win_y, mask)

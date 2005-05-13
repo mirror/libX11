@@ -29,6 +29,9 @@ from The Open Group.
 */
 /* $XFree86: xc/lib/X11/BdrWidth.c,v 1.3 2001/01/17 19:41:32 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 int

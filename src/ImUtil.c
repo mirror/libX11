@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 /* $XFree86: xc/lib/X11/ImUtil.c,v 3.12 2003/04/15 22:10:06 herrb Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #include <stdio.h>

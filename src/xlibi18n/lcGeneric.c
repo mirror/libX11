@@ -30,6 +30,9 @@
  */
 /* $XFree86: xc/lib/X11/lcGeneric.c,v 3.19 2003/05/27 16:55:27 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "XlcGeneric.h"

@@ -51,6 +51,9 @@ from The Open Group.
 */
 /* $XFree86: xc/lib/X11/Xrm.c,v 3.22 2003/07/16 01:38:26 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include	<stdio.h>
 #include	<ctype.h>
 #include	"Xlibint.h"

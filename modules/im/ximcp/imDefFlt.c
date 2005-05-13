@@ -28,6 +28,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imDefFlt.c,v 1.4 2001/01/17 19:41:51 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xatom.h>
 #define NEED_EVENTS
 #include "Xlibint.h"

@@ -25,6 +25,9 @@
  */
 /* $XFree86: xc/lib/X11/lcPublic.c,v 1.11 2001/11/16 00:52:28 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "XlcPubI.h"

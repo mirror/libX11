@@ -43,6 +43,9 @@ Sun Microsystems, Inc. or its licensors is granted.
 */
 /* $XFree86: xc/lib/X11/XDefaultIMIF.c,v 1.3 2003/04/13 19:22:18 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #define NEED_EVENTS
 #include "Xlibint.h"

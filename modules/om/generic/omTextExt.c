@@ -25,6 +25,9 @@
  */
 /* $XFree86: xc/lib/X11/omTextExt.c,v 1.5 2003/04/13 19:22:22 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include <stdio.h>

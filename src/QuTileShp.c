@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 Status XQueryBestTile(dpy, drawable, width, height, ret_width, ret_height)

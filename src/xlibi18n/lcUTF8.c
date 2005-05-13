@@ -73,6 +73,9 @@ OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  * without first going through the list of predefined character sets.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "XlcPubI.h"

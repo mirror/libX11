@@ -28,6 +28,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imDefLkup.c,v 3.11 2003/06/23 17:35:43 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xatom.h>
 #define  NEED_EVENTS
 #include "Xlibint.h"

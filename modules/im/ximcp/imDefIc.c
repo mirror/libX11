@@ -30,6 +30,9 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imDefIc.c,v 3.9 2003/04/13 19:22:20 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "Ximint.h"

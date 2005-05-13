@@ -28,6 +28,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imInsClbk.c,v 3.3 2003/05/27 22:26:26 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include	<X11/Xatom.h>
 #define NEED_EVENTS
 #include	"Xlibint.h"

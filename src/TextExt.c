@@ -34,6 +34,9 @@ from The Open Group.
  */
 
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 #define min_byte2 min_char_or_byte2

@@ -37,6 +37,9 @@
 /* $XFree86: xc/lib/X11/cmsInt.c,v 1.4 2003/04/13 19:22:20 dawes Exp $ */
 
 /* #define NEED_EVENTS */
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"

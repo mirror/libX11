@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86: xc/lib/X11/QuColors.c,v 1.3 2001/01/17 19:41:42 dawes Exp $ */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 int

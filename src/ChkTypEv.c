@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86: xc/lib/X11/ChkTypEv.c,v 1.2 2001/10/28 03:32:29 tsi Exp $ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 /* 

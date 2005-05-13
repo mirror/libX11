@@ -29,6 +29,9 @@ from The Open Group.
 */
 /* $XFree86$ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xutil.h"
 

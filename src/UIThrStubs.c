@@ -49,6 +49,9 @@
  */
 
 #ifdef CTHREADS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <cthreads.h>
 typedef cthread_t xthread_t;
 #define xthread_self cthread_self

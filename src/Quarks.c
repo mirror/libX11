@@ -51,6 +51,9 @@ from The Open Group.
 */
 /* $XFree86: xc/lib/X11/Quarks.c,v 1.6 2003/04/13 19:22:17 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include <X11/Xresource.h>
 #include "Xresinternal.h"

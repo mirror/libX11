@@ -25,6 +25,9 @@
  */
 /* $XFree86: xc/lib/X11/OMWrap.c,v 1.4 2001/07/25 15:04:44 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 

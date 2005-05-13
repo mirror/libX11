@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86: xc/lib/X11/IfEvent.c,v 1.4 2001/12/14 19:54:01 dawes Exp $ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 /* 

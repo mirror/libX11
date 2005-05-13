@@ -26,6 +26,9 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ********************************************************/
 /* $XFree86: xc/lib/X11/XKBRdBuf.c,v 1.2 2001/10/28 03:32:33 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #define NEED_REPLIES
 #define NEED_EVENTS

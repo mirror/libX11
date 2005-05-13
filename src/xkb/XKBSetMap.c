@@ -26,6 +26,9 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ********************************************************/
 /* $XFree86: xc/lib/X11/XKBSetMap.c,v 3.2 2001/01/17 19:41:49 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #define NEED_REPLIES
 #define NEED_EVENTS

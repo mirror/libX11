@@ -39,6 +39,9 @@
  *              Include files that must be exported to any package or
  *              program using this package.
  */
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include "Cv.h"

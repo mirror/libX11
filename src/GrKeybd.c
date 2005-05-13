@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 int XGrabKeyboard (dpy, window, ownerEvents, pointerMode, keyboardMode, time)
     register Display *dpy;

@@ -43,6 +43,9 @@ from The Open Group.
  * without the other).
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include <X11/Xos.h>
 #include "Xutil.h"

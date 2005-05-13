@@ -63,6 +63,9 @@ from The Open Group.
 
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"

@@ -1,0 +1,596 @@
+2005-04-05  Jamey Sharp  <jamey@minilop.net>
+
+	* src/OpenDis.c:
+	* src/locking.c:
+	* src/locking.h:
+	* src/xcl/display.c:
+	* src/xcl/xcblock.c:
+	When built --with-xcb, quit calling XInitThreads while opening a
+	display, and just ignore the pluggable InitDisplayLock and
+	FreeDisplayLock function pointers. Always call the XCB-based
+	_XInitDisplayLock and _XFreeDisplayLock.
+
+2005-04-02  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/xcblock.c:
+	Oops. Stop leaking a 4-byte malloc'ed block per request.
+
+2005-04-01  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/xcblock.c:
+	Set dpy->last_request_read correctly. Fixes a subtle bug for
+	apps that produce 65,536 requests without getting any responses.
+
+2005-03-30  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/xcblock.c (_XGetXCBBuffer):
+	Always defer looking for the most recent reply: this prevents
+	XCB from blocking waiting for a reply that will never come. It
+	also (together with recent fixes in XCB) makes
+	XListFontsWithInfo work finally, AFAICT.
+
+2005-03-24  Owen Taylor  <otaylor@redhat.com>
+
+	* x11.pc.in (Cflags): Remove unused references
+	to XTHREADS_CFLAGS / XTHREADS_LIBS that were breaking
+	the build of modules depending on X11.
+
+2005-03-22  Jamey Sharp  <jamey@minilop.net>
+
+	* configure.ac:
+	* src/Makefile.am:
+	* include/X11/Xlibint.h (removed):
+	* include/X11/.cvsignore (added):
+	* include/X11/Xlibint.h.in (added):
+	Generate Xlibint.h to #define XTHREADS if Xlib was built with
+	thread support, or to #undef it otherwise.
+
+2005-03-20  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xclint.h:
+	* src/xcl/display.c:
+	* src/xcl/io.c:
+	* src/xcl/xcblock.c:
+	Instead of registering a callback with XCB for unexpected
+	replies, just tell XCB to expect replies for all requests that
+	Xlib sends. Any sequence numbers lower than the last request XCB
+	has read can be definitively dealt with, either by discovering
+	that no reply was expected or by handing the reply that arrived
+	off to the async handlers.
+
+2005-02-11  Josh Triplett  <josh@freedesktop.org>
+
+	* src/xcl/proto.c: Add pregenerated output file based on last
+	M4-based XCB.
+
+	* configure.ac, src/Makefile.am: Don't try to regenerate the
+	output file.
+
+	* src/xcl/.cvsignore: Remove; only contained proto.c, which should
+	now not be ignored.
+
+2005-02-11  Josh Triplett  <josh@freedesktop.org>
+
+	* man/.cvsignore: add man/Makefile.in and man/Makefile.
+
+2005-02-09  Owen Taylor  <otaylor@redhat.com>
+
+	* src/KeyBind.c src/KeysymStr.c src/StrKeysym.c:
+	Merge changes from head... src/util/makekeys.c
+	was out of sync with the code that accessed the
+	generated hash table.
+
+2005-02-08  Owen Taylor  <otaylor@redhat.com>
+
+	* include/X11/Xutil.h: Really restore the
+	region typedef.
+
+2005-02-08  Owen Taylor  <otaylor@redhat.com>
+
+	* include/X11/region.h include/X11/Xuti.h: Move
+	the Region typedef back where it belong, don't include
+	region.h from Xutil.h ... it defines all sorts of 
+	stuff (TRUE/FALSE/MIN/MAXSHORT/Box...) that will
+	break compilation of projects using Xutil.h. (#2501)
+
+2005-01-29  Adam Jackson  <ajax@freedesktop.org>
+
+	* src/cmsCmap.c:
+	Remove a bad #include.
+
+2005-01-29  Adam Jackson  <ajax@freedesktop.org>
+
+	* src/ErrDes.c:
+	* src/imRm.c:
+	Typo fixes.
+
+2005-01-29  Adam Jackson  <ajax@freedesktop.org>
+
+	* include/X11/region.h:
+	Reinstate the Region typedef.
+	* include/X11/Xutil.h:
+	Include region.h to pick up the Region typedef.
+
+2005-01-29  Daniel Stone  <daniel@freedesktop.org>
+
+	* include/X11/Xutil.h:
+	* include/X11/Xlib.h:
+	* include/X11/Xlibint.h:
+	* src/ConnDis.c (_X11TransConnectDisplay):
+	* src/ErrDes.c (XGetErrorDatabaseText):
+	* src/GetWAttrs.c (XGetWindowAttributes):
+	* src/Host.c:
+	* src/KeyBind.c (UCSConvertCase) (XConvertCase):
+	* src/LiHosts.c:
+	* src/OpenDis.c:
+	* src/PutBEvent.c (XPutBackEvent):
+	* src/StrKeysym.c (XStringToKeysym):
+	* src/XKBBind.c (XkbRefreshKeyboardMapping):
+	* src/XKBCvt.c:
+	* src/XlibInt.c:
+	* src/cmsCmap.c:
+	* src/cmsColNm.c:
+	* src/imDefLkup.c (_XimGetWindowEventmask):
+	* src/imInsClbk.c (_XimUnRegisterIMInstantiateCallback):
+	* src/imLcFlt.c (_XimLocalFilter):
+	* src/imLcIm.c (_XimLocalIMFree):
+	* src/imRm.c:
+	* src/imThaiFlt.c (tis2ucs):
+	* src/imTrans.c:
+	* src/lcEuc.c (euc_ctstowcs) (euc_ctstombs):
+	* src/lcFile.c:
+	* src/lcSjis.c:
+	* src/lcUTF8.c (create_tofontcs_conv):
+	* src/omGeneric.c (parse_fontdata):
+	* src/util/makekeys.c (main):
+	Resync with X.Org HEAD, including a security fix for the error DB name
+	and a minor stack smash in XKB code, thread-safe XGetWindowAttributes
+	and XPutBackEvent, case-conversion cleanups and updates, and large-scale
+	localisation/input cleanups and adherance to the specification.
+
+2004-11-22  Carl Worth  <cworth@cworth.org>
+
+	* configure.ac: Remove AC_CONFIG_AUX_DIR (it was in the wrong
+	place for automake-1.9, and it was set to the default value
+	anyway).
+
+2004-09-30  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/io.c:
+	Update for rename of XCBWaitReply to XCBWaitForReply.
+
+2004-09-29  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/io.c:
+	Make use of XCBPollForEvent from new XCB API.
+
+2004-09-29  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/xcblock.c:
+	Keith didn't like my logic, so he fixed it.
+
+2004-09-29  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/io.c:
+	Include the new xcbext.h header, and make use of new
+	sanity check macros.
+
+	* src/xcl/xcblock.c:
+	Make use of new sanity check macros, and don't make
+	Xlib's idea of the last request read exactly match
+	XCB's, since it shouldn't.
+	
+	* src/xcl/xcbwrap.m4:
+	Fix handling of LISTPARAMs to match XCB's new
+	semantics.
+
+2004-08-02  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/display.c:
+	Update for XCB API as of 2004-07-25.
+
+2004-08-02  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/io.c: (_XSetLastRequestRead)
+	Added a comment to explain why sequence numbers should go
+	backwards here. It was really confusing otherwise.
+
+2004-07-13  Carlos Romero  <kidcrash@freedesktop.org>
+
+	* man/Makefile.am:
+	Include man pages in EXTRA_DIST.
+
+2004-07-10  Daniel Stone  <daniel@freedesktop.org>
+
+	* src/Makefile.am:
+	Force definition of _BSD_SOURCE, so ConnDis.c can compile.
+
+2004-07-03  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/proto.m4: (GrabButton)
+	Somehow I got the modifiers and button parameters swapped. It
+	makes a big difference.
+
+2004-07-03  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/display.c:
+	Small XCB API change for C++ compatibility.
+
+2004-07-03  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xcl/xcblock.c:
+	When built with XCB, force a response from the server if we
+	haven't seen one in 65530 requests. If you don't do this, XCB
+	gets confused the next time it waits for a reply.
+
+2004-07-01  Daniel Stone  <daniel@freedesktop.org>
+
+	* configure.ac:
+	* Makefile.am:
+	* man/*:
+	Imported man pages from X11R6.7.
+
+2004-06-29  Daniel Stone  <daniel@freedesktop.org>
+
+	* src/x11_trans.h:
+	Change #include <Xtrans.h> to <X11/Xtrans/Xtrans.h>.
+
+	* src/ClDisplay.c:
+	* src/OpenDis.c:
+	* src/XlibInt.c:
+	Change #if !USE_XCB/#else/#endif to a far more natural #if
+	USE_XCB/#else/#endif.
+
+2004-06-28  Daniel Stone  <daniel@freedesktop.org>
+	
+	* src/ConnDis.c:
+	* src/CrGlCur.c:
+	* src/GetDflt.c:
+	* src/ICWrap.c
+	* src/Host.c:
+	* src/LiHosts.c:
+	* src/OpenDis.c:
+	* src/SetLocale.c:
+	* src/Xrm.c:
+	* src/imThaiFlt.c:
+	* src/lcUTF8.c:
+	* src/locking.c:
+	* src/XlcPubI.h:
+	* include/X11/Xlib.h:
+	* include/X11/Xlibint.h:
+	The great X11R6.7 merge; picking up all changes since 2003-10-01 or
+	such from the X.Org tree. Unfortunately log information has been lost,
+	and you'll have to get it from the X.Org tree. CVS sucks, news at 11.
+
+2004-06-26  Keith Packard  <keithp@keithp.com>
+
+	* src/OpenDis.c: (XOpenDisplay):
+	HACK - set XLIB_SKIP_EXTRA_VISUALS so that you can
+	hide Composite visuals from applications
+
+2004-06-16  Jamey Sharp  <jamey@minilop.net>
+
+	* src/xclint.h:
+	* src/xcl/xcblock.c:
+	Added conditional variants of _X{Get,Put}XCBBuffer, called
+	_X{Get,Put}XCBBufferIf. Xlib must neither get nor release XCB's
+	buffer twice in a row; now the code counts to determine whether
+	the buffer should be owned. This fixes applications that use
+	XLockDisplay and XUnlockDisplay, like xine. New rule: No XCB
+	functions can be called by the application between calls to
+	XLockDisplay and XUnlockDisplay.
+
+	* src/xcl/display.c: (_XAsyncReplyHandler)
+	Only acquire buffer if we don't already own it.
+	
+	* src/xcl/io.c: (_XReply)
+	Unconditionally release and re-acquire buffer.
+
+	* src/xcl/xcbwrap.m4:
+	For all generated functions, release and re-acquire buffer
+	around calls down to XCB if we own the buffer.
+
+2004-06-16  Keith Packard  <keithp@keithp.com>
+
+	* include/X11/Xlibint.h:
+	Add back xcl private data pointer when compiled to use XCB
+	* src/xcl/display.c: (init_depths), (init_screens):
+	Add Composite-specific hack to make Composite visuals invisible
+	when XLIB_SKIP_EXTRA_VISUALS is set.
+	* src/xcl/io.c: (_XEventsQueued), (_XReadEvents):
+	Use _XSend instead of _XFlush to avoid moving events from
+	XCB to Xlib unexpectedly.  This bug would cause Xlib apps to
+	hang waiting for events that were never going to arrive.
+
+2004-06-16  Jamey Sharp <jamey@minilop.net>
+
+	* src/Makefile.am:
+	* src/ChAccCon.c:
+	* src/ChSaveSet.c:
+	* src/FSSaver.c:
+	* src/SetPntMap.c:
+	I removed too many native Xlib functions when adding proto.m4.
+	So this puts those excess functions back.
+
+	* src/XlibInt.c:
+	* src/xcl/io.c:
+	Hooked up internal connections support that broke when I took
+	out the old xtrans-based bits.
+
+	* src/xcl/display.c:
+	Remove redundant creation of default GCs. OpenDis.c still
+	contains appropriate code to do this.
+
+2004-06-03  Philip Blundell  <philb@gnu.org>
+
+	* configure.ac: New options --disable-unix-transport,
+	--disable-tcp-transport, --disable-ipv6.
+	(UNIXCONN, TCPCONN, IPV6CONN): AC_DEFINE as appropriate.
+
+2004-05-06  Eric Anholt  <anholt@FreeBSD.org>
+
+	* src/Makefile.am:
+	Mark xcl/proto.c nodist (generated file).
+
+2004-04-14  Warren Turkal <wt@midsouth.rr.com>
+
+	* resync rest public headers with Xorg 6.7
+        * resync cms changes with Xorg 6.7
+
+2004-04-14  Warren Turkal <wt@midsouth.rr.com>
+
+	* resync most public headers with Xorg 6.7
+
+2004-04-13  Warren Turkal <wt@midsouth.rr.com>
+
+	* stop polluting the public API with ImUtil.h
+
+2004-04-07  Matthew Allum  <mallum@handhelds.org>
+
+	* src/X18NCMSstubs.c: (XwcTextExtents), (XwcDrawString),
+	(XwcDrawText), (XwcDrawImageString), (XwcTextEscapement),
+	(XwcTextPerCharExtents), (XwcTextPropertyToTextList),
+	(XwcTextListToTextProperty), (XwcFreeStringList), (XmbTextExtents),
+	(XmbDrawText), (XmbDrawString), (XmbDrawImageString),
+	(XmbTextEscapement), (XmbTextPerCharExtents):
+	Lots more stubs added, all Xmb* and Xwc* should be covered.
+
+2004-04-05  Warren Turkal <wt@midsouth.rr.com>
+
+	* put the single function prototype in Cmap.h into Xcmsint.h
+
+2004-03-16  Jamey Sharp <jamey@minilop.net>
+
+	* src/xclint.h:
+	* include/Makefile.am:
+	* include/X11/xcl.h (new):
+	All XCB symbols have names distinct from the names found in Xlib
+	now, which affects pretty much everything in this update. Also,
+	now there's an xcl.h that apps can include to get access to the
+	XCBConnection underlying an XCL Display.
+
+	* src/OpenDis.c:
+	* src/XlibInt.c:
+	* src/locking.c:
+	* src/locking.h:
+	* src/xcl/display.c:
+	* src/xcl/io.c:
+	* src/xcl/xcblock.c (new):
+	XOpenDisplay calls XInitThreads, so LockDisplay and
+	UnlockDisplay are called whether a thread library is linked in
+	or not. Those functions pass control over XCB's data structures
+	back and forth between XCB and Xlib, so it should be possible to
+	mix XCB and Xlib calls.
+
+	* configure.ac:
+	* src/Makefile.am:
+	* src/xcl/xcbwrap.m4 (new):
+	* src/xcl/proto.m4 (new):
+	* src/xcl/.cvsignore (new):
+	I copied (without history, because I don't care) the
+	machine-generated bits of the original XCL. When compiled with
+	XCB, Xlib no longer compiles a bunch of the native Xlib stubs;
+	it uses stubs that delegate to XCB instead. This tests that Xlib
+	and XCB calls can mix, without having to rewrite any apps.
+
+2004-03-07  Warren Turkal <wt@midsouth.rr.com>
+
+	* fix some #endif comments
+	* point contact email to xlibs@freedesktop.org in configure.ac
+
+2004-03-06  Jamey Sharp <jamey@minilop.net>
+
+	* src/xcl/display.c:
+	* src/xcl/io.c:
+	Updated for XCB API renaming. This code works (more or less)
+	with the current version of XCB from CVS.
+
+2004-02-29  Warren Turkal <wt@midsouth.rr.com>
+
+	* Remove all ^L from source
+
+2004-02-06  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	Remove quotes from keysymdef.h path search (Alan Cox)
+
+2004-02-06  Noah Levitt  <nlevitt@columbia.edu>
+
+	* configure.ac: Look for keysymdef.h under /usr/include too. Other
+	fixes and improvements to the search for keysymdef.h.
+
+2004-01-15  Daniel Stone  <daniel@fooishbar.org>
+	* Tagging release 6.2.1 for the first fd.o clientside lib release.
+
+2004-01-15  Harold L Hunt II <huntharo@msu.edu>
+	* Makefile.am: Pass -no-undefined to libtool via LDFLAGS.
+
+2003-12-04  Matthew Allum  <mallum@openedhand.com>
+
+	* src/X18NCMSstubs.c:
+	Yet more stubs added. 
+
+2003-11-28  Jamey Sharp  <jamey@minilop.net>
+
+	* configure.ac:
+	* include/X11/Xlibint.h:
+	* src/ClDisplay.c:
+	* src/Makefile.am:
+	* src/OpenDis.c:
+	* src/Xintconn.h:
+	* src/XlibInt.c:
+	* src/xclint.h (new):
+	* src/xcl/display.c (new):
+	* src/xcl/io.c (new):
+	A better-tested version of XCL is now available as a
+	configure-time option. Unlike the version that was on the XCL
+	branch, this removes no code from CVS; but when --with-xcb is
+	given to configure, the old code is simply not compiled. The new
+	code is isolated in the xcl subdirectory.
+
+	Note that this version of XCL requires the XCB version with the
+	pre_sendrequest tag. Versions newer than that have API changes
+	that XCL needs to track, but I wanted to commit the conditional
+	compile patches first.
+
+	Note that XCL removes libXdmcp, which kdm on Debian - at
+	least - assumes is linked into Xlib. I worked around this with
+	the obvious LD_PRELOAD.
+
+2003-11-13  Matthew Allum  <mallum@openedhand.com>
+
+	* src/X18NCMSstubs.c:
+	Extra stubs for _XlcCurrentLC, _XimGetLocaleCode. see bug #143
+
+2003-11-13  Jamey Sharp  <jamey@minilop.net>
+
+	* configure.ac:
+	Fix path for finding keysymdef.h.
+
+2003-11-09  Eric Anholt  <anholt@FreeBSD.org>
+
+	* configure.ac:
+	Make initial package version 6.2.1, as agreed on the mailing list.
+
+2003-11-09  Luciano Montanaro  <mikelima@virgilio.it>
+
+	* configure.ac:
+	Without the following patch, the xtrans include directory is not 
+	added to the compiler command line, since then the X11_CFLAGS are 
+	not changed in the generated configure script. 
+	
+2003-10-31  Eric Anholt  <anholt@FreeBSD.org>
+
+	* configure.ac:
+	* src/XlibInt.c:
+	* src/x11_trans.c:
+	Define USE_POLL if the poll() function is available.  This
+	causes poll() to be used instead of select(), which is
+	supposed to be more efficient.
+
+2003-10-31  Eric Anholt  <anholt@FreeBSD.org>
+
+	reviewed by: <keithp@keithp.com>
+
+	* src/ErrDes.c:
+	* src/Makefile.am:
+	* src/XKBCvt.c:
+	* src/cmsColNm.c:
+	* src/lcDynamic.c:
+	* src/lcFile.c:
+	Look for files in X11_DATADIR instead of /usr/lib/X11.  Also,
+	install XErrorDB in X11_DATADIR.
+
+2003-10-31  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	Must put -DX11_DATADIR="path" on compile command line because
+	configure can't manage to get it put into config.h correctly
+	Distribute XKeysymDB in packages.
+
+2003-10-29  Eric Anholt  <anholt@FreeBSD.org>
+
+	reviewed by: <keithp@keithp.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	Check for XdmcpWrap in libXdmcp, and enable XDM-AUTHORIZATION-1
+	support if available.  Causes libX11 to be linked against
+	libXdmcp in that case.
+
+2003-10-29  Keith Packard  <keithp@keithp.com>
+
+	* src/Makefile.am:
+	Fix 'make dist' to include XKeysymDB
+
+2003-10-29  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	* src/StrKeysym.c:
+	Forgot to install XKeysymDB.  Installing in ${prefix}/share/X11
+
+2003-10-29  Keith Packard  <keithp@keithp.com>
+
+	reviewed by: jim.gettys@hp.com, otaylor@redhat.com
+
+	* src/XlibInt.c: (_XReadPad):
+	Ok, so the XFree86 patch contained a bug fix for a real problem
+	in this function, but the twisty nature of that fix obscured both
+	the original bug and the repair (at least to me).  Added a nice
+	comment marking the problem and made nicer looking code to fix it
+	to boot.
+
+2003-10-28  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	* src/Makefile.am:
+	Add GCC warnings.
+	Switch from libX11_la_CFLAGS to AM_CFLAGS as that avoids
+	mass confusion in library object names.
+
+2003-10-26  Keith Packard  <keithp@keithp.com>
+
+	* src/ClDisplay.c:
+	* src/ConnDis.c:
+	* src/Makefile.am:
+	* src/OpenDis.c:
+	* src/XlibInt.c:
+	* src/imTrans.c:
+	oops.  ximtrans and XimTrans conflict badly on Windows.
+	Can't fix this by any method other than renaming the ,v files,
+	so you won't see that change listed here.  We love CVS.
+
+2003-10-24	Mathew Allum	<mallum@openedhand.com>
+	* added 3 new stubs to X18NCMSstubs.c, needed by Xt apps 
+
+2003-10-19	Mathew Allum	<mallum@openedhand.com>
+	* added xkb disable swtich (experimental)
+	
+2003-10-17	Keith Packard	<keithp@keithp.com>
+	* include/X11/Xcms.h
+	* src/CvCols.c and various conversion files
+	Back out bogus typechecking fix for color conversion functions.
+	Place casts for device-dependent color conversion functions to
+	avoid warnings.  The Xlib specification is inherently type-unsafe.
+
+2003-10-17	Keith Packard	<keithp@keithp.com>
+	* src/XlibInt.c
+	Back out incorrect changes from 3.34 to 3.35 that
+	attempted to fix type incompatibilities with _XAsyncReply.
+	Change argument type to _XAsyncReply
+
+2003-10-16	Mathew Allum	<mallum@openedhand.com>
+	* Makefile.am, configure.ac, src/Font.c, src/Xrm.c, src/locking.c
+	* added X18NCMSstubs.c
+	experimental patches to build much smaller version of Xlib.
+
+2003-10-10	Jim Gettys	<Jim.Gettys@hp.com>
+	* updated AUTHORS file
+	* updated TODO file
+	* updated README
+	* put something in the ChangeLog
+	
+2003-10-1 Warren Turkal	<wt@midsouth.rr.com>
+	* Autotooled Xlib

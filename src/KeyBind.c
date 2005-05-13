@@ -29,6 +29,9 @@ in this Software without prior written authorization from The Open Group.
 /* Beware, here be monsters (still under construction... - JG */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #define XK_MISCELLANY

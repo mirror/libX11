@@ -49,6 +49,9 @@
  * Egbert Eich, SuSE Linux AG
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include "XlcGeneric.h"

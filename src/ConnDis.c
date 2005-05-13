@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.6 2004-11-15 15:06:54 ago Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.7 2005-05-13 22:53:43 sandmann Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -33,6 +33,9 @@ in this Software without prior written authorization from The Open Group.
 
 #define NEED_EVENTS
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 #include <X11/Xtrans.h>
 #include <X11/Xauth.h>

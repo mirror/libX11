@@ -31,6 +31,9 @@ from The Open Group.
 	/* the new monsters ate the old ones */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "XKBlib.h"
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>

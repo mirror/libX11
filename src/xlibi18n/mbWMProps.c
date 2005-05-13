@@ -28,6 +28,9 @@ from The Open Group.
 */
 /* $XFree86: xc/lib/X11/mbWMProps.c,v 1.5 2001/12/14 19:54:10 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>

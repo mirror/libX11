@@ -42,8 +42,11 @@ Sun Microsystems, Inc. or its licensors is granted.
 
 */
 /* $XFree86: xc/lib/X11/XlcDL.c,v 1.12 2003/04/13 19:22:19 dawes Exp $ */
-/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.2 2004-04-23 18:43:24 eich Exp $ */
+/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.3 2005-05-13 22:53:44 sandmann Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #if defined(hpux)
 #include <dl.h>

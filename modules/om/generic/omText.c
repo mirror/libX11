@@ -33,6 +33,9 @@
  * Modifiers: Jeff Walls, Paul Anderson (HEWLETT-PACKARD)
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include <stdio.h>

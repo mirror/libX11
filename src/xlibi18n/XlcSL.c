@@ -43,6 +43,9 @@ Sun Microsystems, Inc. or its licensors is granted.
 */
 /* $XFree86$ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 

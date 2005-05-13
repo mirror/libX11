@@ -30,6 +30,9 @@
  * Development Agreement for the CDE/Motif PST.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include <stdio.h>

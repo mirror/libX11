@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 Bool XTranslateCoordinates(dpy, src_win, dest_win, src_x, src_y, 

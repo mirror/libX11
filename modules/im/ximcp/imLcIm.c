@@ -34,6 +34,9 @@ THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imLcIm.c,v 1.12 2003/09/06 14:06:32 pascal Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 /*
 #include <X11/Xlib.h>

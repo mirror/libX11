@@ -28,6 +28,9 @@ from The Open Group.
 */
 /* $XFree86: xc/lib/X11/XKBCvt.c,v 3.34 2002/10/08 23:31:35 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <sys/types.h>
 #include <sys/stat.h>

@@ -25,6 +25,9 @@
  */
 /* $XFree86: xc/lib/X11/lcCharSet.c,v 3.8 2001/01/17 19:41:53 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "XlcPublic.h"

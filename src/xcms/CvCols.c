@@ -35,6 +35,9 @@
  */
 /* $XFree86: xc/lib/X11/CvCols.c,v 1.4 2003/04/13 19:22:15 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include "Cv.h"

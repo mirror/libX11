@@ -51,6 +51,9 @@ from The Open Group.
 */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 #include <X11/Xatom.h>
 #include <X11/Xos.h>

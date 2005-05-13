@@ -33,6 +33,9 @@ in this Software without prior written authorization from The Open Group.
  * XLockDis.c - multi-thread application-level locking routines
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #ifdef XTHREADS
 #include "locking.h"

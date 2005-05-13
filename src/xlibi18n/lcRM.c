@@ -26,6 +26,9 @@
  */
 /* $XFree86: xc/lib/X11/lcRM.c,v 1.4 2000/11/28 18:49:48 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <stdio.h>

@@ -59,6 +59,9 @@ from The Open Group.
 
 /* $XFree86: xc/lib/X11/IMWrap.c,v 3.8 2001/12/14 19:54:01 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 

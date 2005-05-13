@@ -26,6 +26,9 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ********************************************************/
 /* $XFree86: xc/lib/X11/XKBUse.c,v 3.7 2003/07/07 15:34:21 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <ctype.h>
 #define NEED_REPLIES

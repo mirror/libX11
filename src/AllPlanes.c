@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86: xc/lib/X11/AllPlanes.c,v 1.3 2001/01/17 19:41:32 dawes Exp $ */
 
 #define NEED_REPLIES
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 Status XAllocColorPlanes(dpy, cmap, contig, pixels, ncolors, nreds, ngreens, 

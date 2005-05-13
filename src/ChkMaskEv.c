@@ -27,6 +27,9 @@ in this Software without prior written authorization from The Open Group.
 /* $XFree86: xc/lib/X11/ChkMaskEv.c,v 3.5 2001/10/28 03:32:29 tsi Exp $ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 extern long const _Xevent_to_mask[];

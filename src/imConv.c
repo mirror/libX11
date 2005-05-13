@@ -36,6 +36,9 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 /* $XFree86: xc/lib/X11/imConv.c,v 1.32 2003/04/13 19:22:20 dawes Exp $ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xlcint.h"

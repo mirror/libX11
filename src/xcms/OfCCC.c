@@ -34,6 +34,9 @@
  *
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlib.h"
 #include "Xcms.h"
 

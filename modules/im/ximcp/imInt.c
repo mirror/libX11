@@ -28,6 +28,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imInt.c,v 3.12 2003/04/17 02:06:32 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xatom.h>
 #include <X11/Xlib.h>
 #include <X11/Xmd.h>

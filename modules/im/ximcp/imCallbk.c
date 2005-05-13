@@ -34,6 +34,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ***********************************************************************/
 /* $XFree86: xc/lib/X11/imCallbk.c,v 3.9 2003/08/22 13:29:16 pascal Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "Ximint.h"

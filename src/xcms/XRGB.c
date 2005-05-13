@@ -35,6 +35,9 @@
  */
 /* $XFree86: xc/lib/X11/XRGB.c,v 3.3 2001/07/29 05:01:11 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include "Cv.h"

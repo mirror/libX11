@@ -56,6 +56,9 @@ from The Open Group.
 /* $XFree86: xc/lib/X11/FilterEv.c,v 3.4 2001/07/29 05:01:11 tsi Exp $ */
 
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 

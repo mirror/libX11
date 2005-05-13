@@ -38,6 +38,9 @@ from The Open Group.
 #ifdef WIN32
 #define _XLIBINT_
 #endif
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include <X11/Xpoll.h>
 #include <X11/Xtrans.h>

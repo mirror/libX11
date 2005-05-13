@@ -58,6 +58,9 @@ from The Open Group.
 
 /* $XFree86: xc/lib/X11/FSWrap.c,v 1.8 2003/08/22 19:27:24 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include <ctype.h>

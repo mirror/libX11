@@ -48,6 +48,9 @@
  * Platforms: all systems.
  */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XlcGeneric.h"
 #include <stdio.h>

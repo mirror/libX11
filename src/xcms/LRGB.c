@@ -37,6 +37,9 @@
  */
 /* $XFree86: xc/lib/X11/LRGB.c,v 3.6 2003/04/13 19:22:16 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <X11/Xos.h>
 #include <X11/Xatom.h>

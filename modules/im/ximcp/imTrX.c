@@ -30,6 +30,9 @@ IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imTrX.c,v 1.3 2003/04/13 19:22:21 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <string.h>
 #include <X11/Xatom.h>
 #define NEED_EVENTS

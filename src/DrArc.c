@@ -32,6 +32,9 @@ in this Software without prior written authorization from The Open Group.
    the last point in one arc coincides with the first point in another.
    The client wouldn't expect this and would have no easy way to defeat it. */
    
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 int

@@ -76,6 +76,9 @@ Sun Microsystems, Inc. or its licensors is granted.
  */
 /* $XFree86: xc/lib/X11/lcInit.c,v 3.9 2001/11/16 00:52:27 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xlcint.h"
 

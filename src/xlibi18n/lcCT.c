@@ -38,6 +38,9 @@
  */
 /* $XFree86: xc/lib/X11/lcCT.c,v 3.26 2001/10/28 03:32:34 tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <X11/Xos.h>

@@ -1,5 +1,5 @@
 /* $Xorg: Host.c,v 1.4 2001/02/09 02:03:33 xorgcvs Exp $ */
-/* $XdotOrg: lib/X11/src/Host.c,v 1.2 2004-04-23 18:43:24 eich Exp $ */
+/* $XdotOrg: lib/X11/src/Host.c,v 1.3 2005-05-13 22:53:43 sandmann Exp $ */
 /*
 
 Copyright 1986, 1998  The Open Group
@@ -39,6 +39,9 @@ X Window System is a trademark of The Open Group.
 
 /* this might be rightly regarded an os dependent file */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 int

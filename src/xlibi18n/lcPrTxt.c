@@ -25,6 +25,9 @@
  */
 /* $XFree86: xc/lib/X11/lcPrTxt.c,v 1.9 2003/04/03 22:34:02 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <X11/Xutil.h>

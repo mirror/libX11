@@ -26,6 +26,9 @@ in this Software without prior written authorization from The Open Group.
 */
 /* $XFree86: xc/lib/X11/SetFPath.c,v 1.5 2001/01/17 19:41:43 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 
 #define safestrlen(s) ((s) ? strlen(s) : 0)

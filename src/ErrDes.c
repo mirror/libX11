@@ -1,6 +1,6 @@
 /*
  * $Xorg: ErrDes.c,v 1.4 2001/02/09 02:03:32 xorgcvs Exp $
- * $XdotOrg: lib/X11/src/ErrDes.c,v 1.5 2005-03-21 04:58:21 alanc Exp $
+ * $XdotOrg: lib/X11/src/ErrDes.c,v 1.6 2005-05-13 22:53:43 sandmann Exp $
  */
 
 /***********************************************************
@@ -51,6 +51,9 @@ SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/ErrDes.c,v 3.11 2003/08/06 14:03:59 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include <X11/Xos.h>
 #include "Xresource.h"

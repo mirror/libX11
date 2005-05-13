@@ -35,6 +35,9 @@
  */
 /* $XFree86: xc/lib/X11/XYZ.c,v 1.3 2001/01/17 19:41:49 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xos.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"

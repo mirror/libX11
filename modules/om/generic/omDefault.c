@@ -30,6 +30,9 @@
  */
 /* $XFree86: xc/lib/X11/omDefault.c,v 1.6 2003/04/13 19:22:22 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XomGeneric.h"
 #include <X11/Xos.h>

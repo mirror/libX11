@@ -34,6 +34,9 @@ THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imThaiIc.c,v 1.4 2001/01/17 19:41:52 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <X11/Xlib.h>
 #include <X11/Xmd.h>

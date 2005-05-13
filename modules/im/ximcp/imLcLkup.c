@@ -31,6 +31,9 @@ PERFORMANCE OF THIS SOFTWARE.
 ******************************************************************/
 /* $XFree86: xc/lib/X11/imLcLkup.c,v 3.8 2003/06/23 17:35:43 eich Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <stdio.h>
 #include <X11/Xatom.h>
 #include <X11/Xos.h>

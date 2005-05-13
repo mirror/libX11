@@ -45,6 +45,9 @@
  */
 /* $XFree86: xc/lib/X11/HVCMxVs.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include "Cv.h"

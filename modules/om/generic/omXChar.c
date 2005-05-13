@@ -36,6 +36,9 @@
  */
 /* $XFree86: xc/lib/X11/omXChar.c,v 1.6tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include "XlcPublic.h"
 #include "XomGeneric.h"

@@ -35,6 +35,9 @@ from The Open Group.
  * This file should contain only those objects which must be predefined.
  */
 #define NEED_EVENTS
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include <X11/Xlibint.h>
 
 

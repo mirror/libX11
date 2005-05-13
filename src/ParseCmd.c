@@ -57,6 +57,9 @@ SOFTWARE.
    other options appearing before the longer version in the table.
 */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
 #include "Xlibint.h"
 #include <X11/Xresource.h>
 #include <stdio.h>

@@ -181,7 +181,10 @@ fi
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
 if test "$XKB" = yes; then
+   PKG_CHECK_MODULES(XKBPROTO, kbproto)
    AC_DEFINE(XKB, YES, [Use XKB])
+   X11_CFLAGS="$X11_CFLAGS $XKBPROTO_CFLAGS"
+   X11_LIBS="$X11_LIBS $XKBPROTO_LIBS"
 fi
 
 if test "x$GCC" = "xyes"; then

@@ -22,7 +22,7 @@ PKG_CHECK_MODULES(BIGREQS, bigreqsproto)
 AC_SUBST(BIGREQS_CFLAGS)
 AC_SUBST(BIGREQS_LIBS)
 
-PKG_CHECK_MODULES(X11, xextensions xtrans xau)
+PKG_CHECK_MODULES(X11, xextproto xtrans xau)
 PKG_CHECK_MODULES(XDMCP, xdmcp, [xdmauth="yes"], [xdmauth="no"])
 
 AC_SUBST(X11_CFLAGS)

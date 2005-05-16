@@ -22,8 +22,7 @@ PKG_CHECK_MODULES(BIGREQS, bigreqsproto)
 AC_SUBST(BIGREQS_CFLAGS)
 AC_SUBST(BIGREQS_LIBS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau)
-PKG_CHECK_MODULES(XDMCP, xdmcp, [xdmauth="yes"], [xdmauth="no"])
+PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto xdmcp)
 
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)
@@ -98,19 +97,13 @@ esac
 AC_SUBST(XTHREADS)
 AC_SUBST(XUSE_MTSAFE_API)
 
-if test "x$xdmauth" = "xyes"; then
-echo checking dmcp
 AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
-fi
 
 case x$xdmauth in
 xyes)
-	echo setting flags
 	XDMCP_CFLAGS="$XDMCP_CFLAGS -DHASXDMAUTH"
 	;;
 xno)
-	echo unsetting flags
-	XDMCP_CFLAGS=""
 	XDMCP_LIBS=""
 	;;
 esac
@@ -181,7 +174,7 @@ fi
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
 if test "$XKB" = yes; then
-   PKG_CHECK_MODULES(XKBPROTO, kbproto)
+   PKG_CHECK_MODULES(XKBPROTO, kbproto inputproto)
    AC_DEFINE(XKB, YES, [Use XKB])
    X11_CFLAGS="$X11_CFLAGS $XKBPROTO_CFLAGS"
    X11_LIBS="$X11_LIBS $XKBPROTO_LIBS"

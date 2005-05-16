@@ -1,5 +1,5 @@
 /*
- * $Id: xim_trans.c,v 3.2 2003/09/26 21:07:29 keithp Exp $
+ * $Id: xim_trans.c,v 1.1 2005/05/13 22:53:43 sandmann Exp $
  *
  * Copyright © 2003 Keith Packard
  *
@@ -25,4 +25,4 @@
 #define XIM_t
 #define TRANS_CLIENT
 
-#include <transport.c>
+#include <X11/transport.c>

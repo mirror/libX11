@@ -1,3 +1,8 @@
+2005-05-16    <ssp@aware-of-vacuity.boston.redhat.com>
+
+	* configure.ac: Make Xdmcp unconditionally required, require various 
+	protocol modules.
+
 Mon May 16 17:48:03 2005  Søren Sandmann  <sandmann@redhat.com>
 
 	* configure.ac: Check for kbproto if using XKB.

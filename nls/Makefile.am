@@ -69,3 +69,8 @@ locale.alias: locale.alias.pre
 	$(CPP) -traditional -DXCOMM='#' - < $< > locale.alias.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < locale.alias.l1 > locale.alias
+
+compose.dir: compose.dir.pre
+	$(CPP) -traditional -DXCOMM='#' - < $< > compose.dir.l1
+	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
+        < compose.dir.l1 > compose.dir

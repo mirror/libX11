@@ -1,5 +1,5 @@
 /*
- * $Id: x11_trans.c,v 3.3 2003/11/01 00:33:15 anholt Exp $
+ * $Id: x11_trans.c,v 1.1 2005/05/13 22:53:43 sandmann Exp $
  *
  * Copyright © 2003 Keith Packard
  *
@@ -28,5 +28,5 @@
 
 #define X11_t
 #define TRANS_CLIENT
-#include <transport.c>
+#include <X11/transport.c>
 

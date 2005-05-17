@@ -1,3 +1,8 @@
+Tue May 17 18:31:08 2005  Søren Sandmann  <sandmann@redhat.com>
+
+	* configure.ac (XPROTO_LIBS): Check for xproto as its CFLAGS are
+	needed in the .pc file
+
 2005-05-16    <ssp@aware-of-vacuity.boston.redhat.com>
 
 	* configure.ac: Make Xdmcp unconditionally required, require various 

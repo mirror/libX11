@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.3 2004-12-02 16:18:16 jg Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.4 2005-05-17 08:10:10 eich Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -3572,12 +3572,12 @@ extern Status XCloseOM(
 extern char *XSetOMValues(
     XOM			/* om */,
     ...
-);
+) _X_SENTINEL(0);
 
 extern char *XGetOMValues(
     XOM			/* om */,
     ...
-);
+) _X_SENTINEL(0);
 
 extern Display *XDisplayOfOM(
     XOM			/* om */
@@ -3590,7 +3590,7 @@ extern char *XLocaleOfOM(
 extern XOC XCreateOC(
     XOM			/* om */,
     ...
-);
+) _X_SENTINEL(0);
 
 extern void XDestroyOC(
     XOC			/* oc */
@@ -3603,12 +3603,12 @@ extern XOM XOMOfOC(
 extern char *XSetOCValues(
     XOC			/* oc */,
     ...
-);
+) _X_SENTINEL(0);
 
 extern char *XGetOCValues(
     XOC			/* oc */,
     ...
-);
+) _X_SENTINEL(0);
 
 extern XFontSet XCreateFontSet(
     Display*		/* display */,
@@ -3840,11 +3840,11 @@ extern Status XCloseIM(
 
 extern char *XGetIMValues(
     XIM /* im */, ...
-);
+) _X_SENTINEL(0);
 
 extern char *XSetIMValues(
     XIM /* im */, ...
-);
+) _X_SENTINEL(0);
 
 extern Display *XDisplayOfIM(
     XIM /* im */
@@ -3856,7 +3856,7 @@ extern char *XLocaleOfIM(
 
 extern XIC XCreateIC(
     XIM /* im */, ...
-);
+) _X_SENTINEL(0);
 
 extern void XDestroyIC(
     XIC /* ic */
@@ -3884,11 +3884,11 @@ extern char *Xutf8ResetIC(
 
 extern char *XSetICValues(
     XIC /* ic */, ...
-);
+) _X_SENTINEL(0);
 
 extern char *XGetICValues(
     XIC /* ic */, ...
-);
+) _X_SENTINEL(0);
 
 extern XIM XIMOfIC(
     XIC /* ic */
@@ -3928,7 +3928,7 @@ extern int Xutf8LookupString(
 
 extern XVaNestedList XVaCreateNestedList(
     int /*unused*/, ...
-);
+) _X_SENTINEL(0);
 
 /* internal connections for IMs */
 

@@ -33,19 +33,8 @@ AC_SUBST(X11_LIBS)
 AC_SUBST(XDMCP_CFLAGS)
 AC_SUBST(XDMCP_LIBS)
 
-# Transport selection
-AC_ARG_ENABLE(unix-transport,[  --disable-unix-transport ], [UNIXCONN=$enableval], [UNIXCONN=yes])
-AC_ARG_ENABLE(tcp-transport, [  --disable-tcp-transport ], [TCPCONN=$enableval], [TCPCONN=yes])
-AC_ARG_ENABLE(ipv6,          [  --disable-ipv6 ], [IPV6CONN=$enableval], [IPV6CONN=yes])
-if test "$UNIXCONN" = "yes"; then
-	AC_DEFINE(UNIXCONN,1,[Support UNIX socket connections])
-fi
-if test "$TCPCONN" = "yes"; then
-	AC_DEFINE(TCPCONN,1,[Support TCP socket connections])
-fi
-if test "$IPV6CONN" = "yes"; then
-	AC_DEFINE(IPv6,1,[Support IPv6 for TCP connections])
-fi
+# Transport selection macro from xtrans.m4
+XTRANS_CONNECTION_FLAGS
 
 # Check for dlopen
 AC_SEARCH_LIBS(dlopen,[dl svld])

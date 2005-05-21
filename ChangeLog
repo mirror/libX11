@@ -1,3 +1,9 @@
+2005-05-21  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* configure.ac: Moved transport type checks to new macro
+	XTRANS_CONNECTION_FLAGS in xtrans.m4 in xtrans module so they can
+	be shared by all modules using xtrans.
+	
 2005-05-20  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* configure.ac: Quote $ac_cv_search_* variables to prevent errors

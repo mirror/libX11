@@ -1,3 +1,13 @@
+2005-05-20  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* configure.ac: Quote $ac_cv_search_* variables to prevent errors
+	from test when they are set to "none required" (as happens on Solaris
+	since dlopen is in libc)
+
+	* util/src/Makefile.am: Comment out "override CC = gcc" line as it
+	breaks builds with non-GNU makes, and its incorrect to force a 
+	specific compiler.  Change LINK line from gcc to $(CC).
+
 Tue May 17 18:31:08 2005  Søren Sandmann  <sandmann@redhat.com>
 
 	* configure.ac (XPROTO_LIBS): Check for xproto as its CFLAGS are

@@ -49,9 +49,9 @@ fi
 
 # Check for dlopen
 AC_SEARCH_LIBS(dlopen,[dl svld])
-if test x$ac_cv_search_dlopen = xno; then
+if test "x$ac_cv_search_dlopen" = xno; then
 	AC_SEARCH_LIBS(shl_load,[dld])
-	if test x$ac_cv_search_shl_load != xno; then
+	if test "x$ac_cv_search_shl_load" != xno; then
 		AC_DEFINE(HAVE_SHL_LOAD,1,
 			  [Use shl_load to load shared libraries])
 		AC_CHECK_HEADERS([dl.h])

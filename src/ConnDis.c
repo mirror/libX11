@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.7 2005-05-13 22:53:43 sandmann Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.8 2005-06-04 21:20:20 alanc Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -1014,11 +1014,11 @@ GetAuthorization(
     char rpc_cred[MAX_AUTH_BYTES];
 #endif
 #ifdef HASXDMAUTH
-    char xdmcp_data[192/8];
+    unsigned char xdmcp_data[192/8];
 #endif
     char *auth_name;
     int auth_namelen;
-    char *auth_data;
+    unsigned char *auth_data;
     int auth_datalen;
     Xauth *authptr = NULL;
 
@@ -1029,7 +1029,7 @@ GetAuthorization(
 	auth_namelen = xauth_namelen;
 	auth_name = xauth_name;
 	auth_datalen = xauth_datalen;
-	auth_data = xauth_data;
+	auth_data = (unsigned char *) xauth_data;
     } else {
 	char dpynumbuf[40];		/* big enough to hold 2^64 and more */
 	(void) sprintf (dpynumbuf, "%d", idisplay);
@@ -1046,7 +1046,7 @@ GetAuthorization(
 	    auth_namelen = authptr->name_length;
 	    auth_name = (char *)authptr->name;
 	    auth_datalen = authptr->data_length;
-	    auth_data = (char *)authptr->data;
+	    auth_data = (unsigned char *) authptr->data;
 	} else {
 	    auth_namelen = 0;
 	    auth_name = NULL;
@@ -1202,7 +1202,7 @@ GetAuthorization(
 	    auth_datalen = sizeof (rpc_cred);
 	    if (auth_ezencode(servernetname, 100, rpc_cred,
 			      &auth_datalen))
-		auth_data = rpc_cred;
+		auth_data = (unsigned char *) rpc_cred;
 	    else {
 		auth_datalen = 0;
 		auth_data = NULL;

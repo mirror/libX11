@@ -1,8 +1,16 @@
 2005-06-04  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* configure.ac: 
+	Port Imake flags to autoconf tests & --enable-* flags:
+	HASSETUGID, HASGETRESUID, NO_XLOCALEDIR, 
+	HAS_SHM and XF86BIGFONT 
+	
+2005-06-04  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* configure.ac: 
 	Add --enable-secure-rpc flag and checks for needed functions for
 	Secure RPC ("SUN-DES-1") authentication method
+	
 
 2005-05-27  Matthieu Herrb  <matthieu.herrb@laas.fr>
 

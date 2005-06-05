@@ -87,6 +87,14 @@ dnl AC_CHECK_HEADERS([stdio.h stdlib.h math.h])
 
 # Checks for library functions.
 AC_CHECK_FUNCS([strtol])
+# Used in lcFile.c (see also --enable-xlocaledir settings below)
+XLOCALEDIR_IS_SAFE="no"
+AC_CHECK_FUNC([issetugid], [XLOCALEDIR_IS_SAFE="yes"]
+	AC_DEFINE(HASSETUGID,1,[Has issetugid() function]))
+AC_CHECK_FUNC([getresuid], [XLOCALEDIR_IS_SAFE="yes"]
+	AC_DEFINE(HASGETRESUID,1,[Has getresuid() & getresgid() functions]))
+# Used in Font.c
+AC_CHECK_FUNC([shmat], AC_DEFINE(HAS_SHM,1,[Has shm*() functions]))
 
 # Checks for system services
 dnl AC_PATH_XTRA
@@ -172,6 +180,30 @@ AC_ARG_ENABLE(xlocale,
               AC_HELP_STRING([--disable-xlocale],
                 [Disable Xlib locale implementation *EXPERIMENTAL*]),
               [XLOCALE=$enableval],[XLOCALE=yes])
+
+# This disables XLOCALEDIR.  Set it if you're using BuildLoadableXlibI18n,
+# don't have either issetugid() or getresuid(), and you need to protect
+# clients that are setgid or setuid to an id other than 0.
+AC_MSG_CHECKING([if XLOCALEDIR support should be enabled])
+AC_ARG_ENABLE(xlocaledir,
+	      AC_HELP_STRING([--enable-xlocaledir],
+		[Enable XLOCALEDIR environment variable support]),
+	      [XLOCALEDIR=$enableval],[XLOCALEDIR=$XLOCALEDIR_IS_SAFE])
+if test "x$XLOCALEDIR" == "xno"; then
+	AC_DEFINE(NO_XLOCALEDIR,1,[Disable XLOCALEDIR environment variable])
+fi
+AC_MSG_RESULT($XLOCALEDIR)
+
+AC_MSG_CHECKING([if XF86BigFont support should be enabled])
+AC_ARG_ENABLE(xf86bigfont,
+	      AC_HELP_STRING([--disable-xf86bigfont],
+		[Disable XF86BigFont extension support]),
+	      [XF86BIGFONT=$enableval],[XF86BIGFONT="yes"])
+if test "x$XF86BIGFONT" == "xyes"; then
+	AC_DEFINE(XF86BIGFONT,1,[Enable XF86BIGFONT extension])
+fi
+AC_MSG_RESULT($XF86BIGFONT)
+
 
 AC_ARG_ENABLE(xkb, 
               AC_HELP_STRING([--disable-xkb],

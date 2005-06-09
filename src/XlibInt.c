@@ -43,7 +43,7 @@ from The Open Group.
 #endif
 #include "Xlibint.h"
 #include <X11/Xpoll.h>
-#include <X11/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include <X11/extensions/xcmiscstr.h>
 #include <stdio.h>
 #ifdef WIN32

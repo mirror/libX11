@@ -32,7 +32,7 @@ from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
-#include <X11/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include "Xlib.h"
 #include "Xlibint.h"
 #include "Xintconn.h"

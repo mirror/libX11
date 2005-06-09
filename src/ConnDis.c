@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.8 2005-06-04 21:20:20 alanc Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.9 2005-06-09 15:52:02 ago Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  
@@ -37,7 +37,7 @@ in this Software without prior written authorization from The Open Group.
 #include <config.h>
 #endif
 #include <X11/Xlibint.h>
-#include <X11/Xtrans.h>
+#include <X11/Xtrans/Xtrans.h>
 #include <X11/Xauth.h>
 #include <X11/Xdmcp.h>
 #include <stdio.h>

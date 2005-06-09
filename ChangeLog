@@ -1,3 +1,9 @@
+2005-06-09  Alexander Gottwald <ago@freedesktop.org>
+
+	* src/x11_trans.c:
+	* src/xim_trans.c: 
+	Replace <X11/transport.c> with <X11/Xtrans/transport.c>
+
 2005-06-04  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* configure.ac: 

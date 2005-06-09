@@ -66,11 +66,11 @@ SUBDIRS= \
 	zh_TW.UTF-8
 
 locale.alias: locale.alias.pre
-	$(CPP) -traditional -DXCOMM='#' - < locale.alias.pre > locale.alias.l1
+	$(CPP) -traditional -DXCOMM='#' - < $(srcdir)/locale.alias.pre > locale.alias.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < locale.alias.l1 > locale.alias
 
 compose.dir: compose.dir.pre
-	$(CPP) -traditional -DXCOMM='#' - < compose.dir.pre > compose.dir.l1
+	$(CPP) -traditional -DXCOMM='#' - < $(srcdir)/compose.dir.pre > compose.dir.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < compose.dir.l1 > compose.dir

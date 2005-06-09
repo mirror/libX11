@@ -7,7 +7,7 @@ x11thislocale_DATA =  XLC_LOCALE Compose
 
 # XXX: WCHAR32 definition <<-- WTF does this mean?
 XLC_LOCALE: XLC_LOCALE.pre
-	$(CPP) -traditional -DWCHAR32=1 -DXCOMM='#' - < XLC_LOCALE.pre > $@
+	$(CPP) -traditional -DWCHAR32=1 -DXCOMM='#' - < $(srcdir)/XLC_LOCALE.pre > $@
 
 Compose: Compose.pre
 	$(CPP) -traditional -DXCOMM='#' - < Compose.pre > $@

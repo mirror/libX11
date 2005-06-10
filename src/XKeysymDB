@@ -352,3 +352,20 @@ usldead_asciicircum	:100000AA
 usldead_asciitilde	:100000AC
 usldead_cedilla		:1000FE2C
 usldead_ring		:1000FEB0
+
+scodead_grave		:FE50
+scodead_acute		:FE51
+scodead_circumflex	:FE52
+scodead_tilde		:FE53
+scodead_macron		:FE54
+scodead_breve		:FE55
+scodead_abovedot	:FE56
+scodead_diaeresis	:FE57
+scodead_abovering	:FE58
+scodead_doubleacute	:FE59
+scodead_caron		:FE5A
+scodead_cedilla		:FE5B
+scodead_ogonek		:FE5C
+scodead_iota		:FE5D
+scodead_voiced_sound	:FE5E
+scodead_semivoiced_sound	:FE5F

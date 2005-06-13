@@ -28,16 +28,6 @@ in this Software without prior written authorization from The Open Group.
 #define NEED_REPLIES
 #include "Xlibint.h"
 
-#define LG3D
-
-#ifdef LG3D
-
-int Xlg3dSkipTranslateCoordinates = 0;
-
-static Bool skip = False;
-static int skipCount = 2;
-#endif /* LG3D */
-
 Bool XTranslateCoordinates(dpy, src_win, dest_win, src_x, src_y, 
 		      dst_x, dst_y, child)
      register Display *dpy;
@@ -48,18 +38,6 @@ Bool XTranslateCoordinates(dpy, src_win, dest_win, src_x, src_y,
 {       
     register xTranslateCoordsReq *req;
     xTranslateCoordsReply rep;
-
-#ifdef LG3D
-    if (Xlg3dSkipTranslateCoordinates) {
-	if (--skipCount <= 0) {
-	    skip = True;
-	}
-    
-	if (skip) {
-	    return (True);
-	}
-    }
-#endif /* LG3D */
 
     LockDisplay(dpy);
     GetReq(TranslateCoords, req);

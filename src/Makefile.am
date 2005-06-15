@@ -237,6 +237,7 @@ X11_SRCS= \
                   CirWinDn.c \
                   CirWinUp.c \
                   ClDisplay.c \
+		  Cmap.h \
                   Context.c \
                   CopyCmap.c \
                   CopyGC.c \
@@ -310,7 +311,6 @@ X11_SRCS= \
                   ImText.c \
                   ImText16.c \
                   ImUtil.c \
-                  ImUtil.h \
                   InitExt.c \
                   IntAtom.c \
                   KeyBind.c \
@@ -434,7 +434,6 @@ X11_SRCS= \
                   poly.h 
 
 x11datadir = @X11_DATADIR@
-
 x11data_DATA = XKeysymDB XErrorDB
 
 EXTRA_DIST = \
@@ -499,7 +498,7 @@ libX11_la_SOURCES += \
                   UnmapWin.c \
                   WarpPtr.c \
                   x11_trans.c \
-                  x11_trans.h
+		  x11_trans.h
 
 if DISABLE_XLOCALE
 libX11_la_SOURCES+= X18NCMSstubs.c 

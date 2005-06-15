@@ -9,4 +9,4 @@ x11include_HEADERS=\
 	X11/Xutil.h \
 	X11/cursorfont.h \
 	X11/region.h \
-	X11/Imutil.h
+	X11/ImUtil.h

@@ -1,3 +1,15 @@
+2005-06-15  Daniel Stone  <daniel@freedesktop.org>
+
+	* configure.ac:
+	* acinclude.m4:
+	Define locations for XErrorDB, XKeysymDB, and locale data in
+	configure.ac.  Add AC_DEFINE_DIR macro from autoconf-archive.cryp.to
+	towards this end.
+
+	* src/Makefile.am:
+	* include/Makefile.am:
+	Move ImUtil.h from src/ to include/X11/.
+
 2005-06-09  Alexander Gottwald <ago@freedesktop.org>
 
 	* nls/Makefile.am:
@@ -77,7 +89,6 @@
 	* configure.ac: 
 	Add --enable-secure-rpc flag and checks for needed functions for
 	Secure RPC ("SUN-DES-1") authentication method
-	
 
 2005-05-27  Matthieu Herrb  <matthieu.herrb@laas.fr>
 

@@ -4,7 +4,7 @@
 AC_PREREQ(2.57)
 AC_INIT([libX11],
         6.2.1,
-        [xlibs@freedesktop.org],
+        [xorg@lists.freedesktop.org],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
 AM_INIT_AUTOMAKE([dist-bzip2])
@@ -239,9 +239,14 @@ fi
 
 X11_DATADIR='${datadir}/X11'
 X11_LOCALEDIR='${X11_DATADIR}/locale'
+XKEYSYMDB='${X11_DATADIR}/XKeysymDB'
+XERRORDB='${X11_DATADIR}/XErrorDB'
 
 AC_SUBST(X11_DATADIR)
 AC_SUBST(X11_LOCALEDIR)
+AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
+AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
+AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
 
 AC_OUTPUT([Makefile
            include/Makefile

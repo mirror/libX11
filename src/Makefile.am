@@ -89,7 +89,6 @@ XCMS_SRCS= \
 
 XI18N_SRCS=\
 		  xim_trans.c \
-		  xim_trans.h \
                   ICWrap.c \
                   IMWrap.c \
                   XDefaultIMIF.c \
@@ -440,7 +439,6 @@ EXTRA_DIST = \
 	$(X11_SRCS) \
 	$(XI18N_SRCS) \
 	$(XCMS_SRCS) \
-	X18NCMSstubs.c \
 	$(x11data_DATA)
 
 libX11_la_SOURCES = $(X11_SRCS)
@@ -497,18 +495,17 @@ libX11_la_SOURCES += \
                   UnmapSubs.c \
                   UnmapWin.c \
                   WarpPtr.c \
-                  x11_trans.c \
-		  x11_trans.h
+                  x11_trans.c
 
 if DISABLE_XLOCALE
-libX11_la_SOURCES+= X18NCMSstubs.c 
+libX11_la_SOURCES+= #X18NCMSstubs.c 
 else
 libX11_la_SOURCES+= $(XI18N_SRCS)
 endif
 
 if DISABLE_XCMS
 if !DISABLE_XLOCALE
-libX11_la_SOURCES+= X18NCMSstubs.c 
+libX11_la_SOURCES+= #X18NCMSstubs.c 
 endif
 else
 libX11_la_SOURCES+= $(XCMS_SRCS)

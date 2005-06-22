@@ -1,11 +1,14 @@
 x11localedir = @X11_LOCALEDIR@
 
-EXTRA_DIST = locale.alias.pre
+EXTRA_DIST = locale.alias.pre compose.dir.pre
 
 dist_x11locale_DATA=locale.dir compose.dir
 x11locale_DATA=locale.alias
 
-DISTCLEANFILES=locale.alias XLC_LOCALE
+DISTCLEANFILES= \
+	locale.alias locale.alias.l1 \
+	compose.dir compose.dir.l1 \
+	XLC_LOCALE
 
 SUBDIRS= \
 	armscii-8		\

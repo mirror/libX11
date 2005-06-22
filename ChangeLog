@@ -1,3 +1,11 @@
+2005-06-22  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
+
+	Fix make distcheck.
+
+	* nls/Makefile.am: Also dist compose.dir.pre, clean some more files.
+	* nls/*/Makefile.am: Fix builddir != srcdir builds.
+	* src/Makefile.am: Remove some non-existant files.
+
 2005-06-15  Daniel Stone  <daniel@freedesktop.org>
 
 	* configure.ac:

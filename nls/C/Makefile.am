@@ -10,9 +10,9 @@ XLC_LOCALE: XLC_LOCALE.pre
 	$(CPP) -traditional -DWCHAR32=1 -DXCOMM='#' - < $(srcdir)/XLC_LOCALE.pre > $@
 
 Compose: Compose.pre
-	$(CPP) -traditional -DXCOMM='#' - < Compose.pre > $@
+	$(CPP) -traditional -DXCOMM='#' - < $(srcdir)/Compose.pre > $@
 
 Compose.pre:
-	touch Compose.pre	
+	touch Compose.pre
 
 DISTCLEANFILES=XLC_LOCALE Compose

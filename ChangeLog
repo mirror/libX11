@@ -1,3 +1,13 @@
+2005-07-02  Daniel Stone  <daniel@freedesktop.org>
+
+	Fix objdir != srcdir, as well as make distcheck.
+	
+	* nls/*/Makefile.am:
+	Don't attempt to create Compose.pre files; formatting fixes.
+
+	* nls/*/Compose.pre:
+	Added if not already present.
+
 2005-06-22  Theo van Klaveren  <t.vanklaveren@student.utwente.nl>
 
 	Fix make distcheck.

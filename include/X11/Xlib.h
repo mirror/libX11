@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.4 2005-05-17 08:10:10 eich Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.5 2005-07-03 07:00:55 daniels Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 

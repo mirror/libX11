@@ -1,5 +1,5 @@
 /* $Xorg: makekeys.c,v 1.5 2001/02/09 02:03:40 $ */
-/* $XdotOrg: lib/X11/src/util/makekeys.c,v 1.4 2004-09-26 20:46:17 kuhn Exp $ */
+/* $XdotOrg: lib/X11/src/util/makekeys.c,v 1.5 2005-07-03 07:00:56 daniels Exp $ */
 /*
 
 Copyright 1990, 1998  The Open Group

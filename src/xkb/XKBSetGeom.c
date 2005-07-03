@@ -1,5 +1,5 @@
 /* $Xorg: XKBSetGeom.c,v 1.3 2000/08/17 19:45:03 cpqbld Exp $ */
-/* $XdotOrg: lib/X11/src/xkb/XKBSetGeom.c,v 1.4 2005-05-13 22:53:44 sandmann Exp $ */
+/* $XdotOrg: lib/X11/src/xkb/XKBSetGeom.c,v 1.5 2005-07-03 07:00:55 daniels Exp $ */
 /************************************************************
 Copyright (c) 1993 by Silicon Graphics Computer Systems, Inc.
 

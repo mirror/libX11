@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.3 2005-05-13 22:53:44 sandmann Exp $ */
+/* $XdotOrg: lib/X11/src/SetLocale.c,v 1.4 2005-07-03 07:00:55 daniels Exp $ */
 /* $Xorg: SetLocale.c,v 1.4 2001/02/09 02:03:36 xorgcvs Exp $ */
 
 /*

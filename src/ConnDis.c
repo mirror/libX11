@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.9 2005-06-09 15:52:02 ago Exp $ */
+/* $XdotOrg: lib/X11/src/ConnDis.c,v 1.10 2005-07-03 07:00:55 daniels Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
  

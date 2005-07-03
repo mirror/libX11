@@ -42,7 +42,7 @@ Sun Microsystems, Inc. or its licensors is granted.
 
 */
 /* $XFree86: xc/lib/X11/XlcDL.c,v 1.12 2003/04/13 19:22:19 dawes Exp $ */
-/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.3 2005-05-13 22:53:44 sandmann Exp $ */
+/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.4 2005-07-03 07:00:55 daniels Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

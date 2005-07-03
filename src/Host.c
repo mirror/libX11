@@ -1,5 +1,5 @@
 /* $Xorg: Host.c,v 1.4 2001/02/09 02:03:33 xorgcvs Exp $ */
-/* $XdotOrg: lib/X11/src/Host.c,v 1.3 2005-05-13 22:53:43 sandmann Exp $ */
+/* $XdotOrg: lib/X11/src/Host.c,v 1.4 2005-07-03 07:00:55 daniels Exp $ */
 /*
 
 Copyright 1986, 1998  The Open Group

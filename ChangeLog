@@ -1,3 +1,9 @@
+2005-07-03  Eric Anholt  <anholt@FreeBSD.org>
+
+	* nls/*/Makefile.am:
+	Avoid a gmake-specific construct, and instead just write the name of
+	the current directory into each Makefile.am.
+
 2005-07-02  Daniel Stone  <daniel@freedesktop.org>
 
 	Fix objdir != srcdir, as well as make distcheck.

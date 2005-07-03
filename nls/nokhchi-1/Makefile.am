@@ -1,4 +1,4 @@
-x11thislocaledir = @X11_LOCALEDIR@/$(shell basename `pwd`)
+x11thislocaledir = @X11_LOCALEDIR@/nokhchi-1
 
 EXTRA_DIST = XLC_LOCALE.pre Compose.pre
 

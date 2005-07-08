@@ -1,0 +1,12 @@
+*.lo
+*.la
+.deps
+.libs
+Makefile
+Makefile.in
+config.h
+config.h.in
+force
+ks_tables.h
+stamp-h1
+

@@ -9,4 +9,8 @@ x11include_HEADERS=\
 	X11/Xutil.h \
 	X11/cursorfont.h \
 	X11/region.h \
-	X11/ImUtil.h
+	X11/ImUtil.h \
+	X11/XlibConf.h
+
+EXTRA_DIST=\
+	X11/XlibConf.h.in

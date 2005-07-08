@@ -12,6 +12,7 @@ AM_INIT_AUTOMAKE([dist-bzip2])
 AM_MAINTAINER_MODE
 
 AM_CONFIG_HEADER([src/config.h])
+AC_CONFIG_HEADER([include/X11/XlibConf.h])
 
 # Checks for programs.
 AC_PROG_LIBTOOL

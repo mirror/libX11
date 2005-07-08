@@ -1,3 +1,74 @@
+2005-07-07  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	* include/Makefile.am:
+	* include/X11/XlibConf.h.in:
+	Create and install XlibConf.h to provide external
+	users of Xlibint.h the defines necessary to correctly
+	use the library. Xlibint.h should #include this new
+	file.
+
+	* nls/.cvsignore:
+	* nls/C/.cvsignore:
+	* nls/armscii-8/.cvsignore:
+	* nls/en_US.UTF-8/.cvsignore:
+	* nls/georgian-academy/.cvsignore:
+	* nls/georgian-ps/.cvsignore:
+	* nls/ibm-cp1133/.cvsignore:
+	* nls/iscii-dev/.cvsignore:
+	* nls/isiri-3342/.cvsignore:
+	* nls/iso8859-1/.cvsignore:
+	* nls/iso8859-10/.cvsignore:
+	* nls/iso8859-11/.cvsignore:
+	* nls/iso8859-13/.cvsignore:
+	* nls/iso8859-14/.cvsignore:
+	* nls/iso8859-15/.cvsignore:
+	* nls/iso8859-2/.cvsignore:
+	* nls/iso8859-3/.cvsignore:
+	* nls/iso8859-4/.cvsignore:
+	* nls/iso8859-5/.cvsignore:
+	* nls/iso8859-6/.cvsignore:
+	* nls/iso8859-7/.cvsignore:
+	* nls/iso8859-8/.cvsignore:
+	* nls/iso8859-9/.cvsignore:
+	* nls/iso8859-9e/.cvsignore:
+	* nls/ja.JIS/.cvsignore:
+	* nls/ja.S90/.cvsignore:
+	* nls/ja.SJIS/.cvsignore:
+	* nls/ja.U90/.cvsignore:
+	* nls/ja/.cvsignore:
+	* nls/ja_JP.UTF-8/.cvsignore:
+	* nls/ko/.cvsignore:
+	* nls/ko_KR.UTF-8/.cvsignore:
+	* nls/koi8-c/.cvsignore:
+	* nls/koi8-r/.cvsignore:
+	* nls/koi8-u/.cvsignore:
+	* nls/microsoft-cp1251/.cvsignore:
+	* nls/microsoft-cp1255/.cvsignore:
+	* nls/microsoft-cp1256/.cvsignore:
+	* nls/mulelao-1/.cvsignore:
+	* nls/nokhchi-1/.cvsignore:
+	* nls/pt_BR.UTF-8/.cvsignore:
+	* nls/tatar-cyr/.cvsignore:
+	* nls/th_TH.UTF-8/.cvsignore:
+	* nls/th_TH/.cvsignore:
+	* nls/tscii-0/.cvsignore:
+	* nls/vi_VN.tcvn/.cvsignore:
+	* nls/vi_VN.viscii/.cvsignore:
+	* nls/zh_CN.UTF-8/.cvsignore:
+	* nls/zh_CN.gb18030/.cvsignore:
+	* nls/zh_CN.gbk/.cvsignore:
+	* nls/zh_CN/.cvsignore:
+	* nls/zh_HK.UTF-8/.cvsignore:
+	* nls/zh_HK.big5/.cvsignore:
+	* nls/zh_HK.big5hkscs/.cvsignore:
+	* nls/zh_TW.UTF-8/.cvsignore:
+	* nls/zh_TW.big5/.cvsignore:
+	* nls/zh_TW/.cvsignore:
+	* src/.cvsignore:
+	* src/util/.cvsignore:
+	Add a bunch of .cvsignore files
+
 2005-07-03  Eric Anholt  <anholt@FreeBSD.org>
 
 	* nls/*/Makefile.am:

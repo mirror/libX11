@@ -42,6 +42,7 @@ from The Open Group.
 
 #include <X11/Xlib.h>
 #include <X11/Xproto.h>		/* to declare xEvent */
+#include <X11/XlibConf.h>	/* for configured options like XTHREADS */
 
 #ifdef WIN32
 #define _XFlush _XFlushIt

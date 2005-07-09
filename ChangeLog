@@ -1,3 +1,13 @@
+2005-07-08  Keith Packard  <keithp@keithp.com>
+
+	* .cvsignore:
+	* include/.cvsignore:
+	* include/X11/.cvsignore:
+	* man/.cvsignore:
+	* nls/.cvsignore:
+	* src/.cvsignore:
+	Clean up .cvsignore files
+
 2005-07-07  Keith Packard  <keithp@keithp.com>
 
 	* configure.ac:

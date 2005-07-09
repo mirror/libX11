@@ -68,12 +68,14 @@ SUBDIRS= \
 	zh_TW.big5		\
 	zh_TW.UTF-8
 
+include $(top_srcdir)/cpprules.in
+
 locale.alias: locale.alias.pre
-	$(CPP) -traditional -DXCOMM='#' - < $(srcdir)/locale.alias.pre > locale.alias.l1
+	$(RAWCPP) $(RAWCPPFLAGS) $(CPP_FILES_FLAGS) < $(srcdir)/locale.alias.pre | $(CPP_SED_MAGIC) > locale.alias.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < locale.alias.l1 > locale.alias
 
 compose.dir: compose.dir.pre
-	$(CPP) -traditional -DXCOMM='#' - < $(srcdir)/compose.dir.pre > compose.dir.l1
+	$(RAWCPP) $(RAWCPPFLAGS) $(CPP_FILES_FLAGS) < $(srcdir)/compose.dir.pre | $(CPP_SED_MAGIC) > compose.dir.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < compose.dir.l1 > compose.dir

@@ -17,6 +17,9 @@ AC_CONFIG_HEADER([include/X11/XlibConf.h])
 # Checks for programs.
 AC_PROG_LIBTOOL
 AC_PROG_CC
+AC_PROG_CPP
+AC_PATH_PROGS(RAWCPP, [cpp], [$(CPP)], 
+   [$PATH:/bin:/usr/bin:/usr/lib:/usr/libexec:/usr/ccs/lib:/usr/ccs/lbin:/lib])
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(BIGREQS, bigreqsproto)
@@ -79,10 +82,12 @@ AC_CHECK_FUNC([shmat], AC_DEFINE(HAS_SHM,1,[Has shm*() functions]))
 dnl AC_PATH_XTRA
 
 # arch specific things
+WCHAR32="1"
 case $target_alias in
-  *os2*) os2="true" ;;
+  *os2*) os2="true" ; WCHAR32="0" ;;
   *) ;;
 esac
+AC_SUBST(WCHAR32)
 
 AM_CONDITIONAL(OS2, test x$os2 = xtrue)
 
@@ -191,6 +196,12 @@ AC_ARG_ENABLE(xkb,
               AC_HELP_STRING([--disable-xkb],
                 [Disable XKB support *EXPERIMENTAL*]),
               [XKB=$enableval],[XKB=yes])
+
+AC_ARG_ENABLE(man-pages, 
+	      AC_HELP_STRING([--enable-man-pages=section], 
+			     [Choose manual section for installing man pages]),
+		[LIBMAN_SUFFIX=$enableval],[LIBMAN_SUFFIX=3x])
+AC_SUBST(LIBMAN_SUFFIX)
 
 # Finalization
 

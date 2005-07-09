@@ -1,4 +1,10 @@
-man3_MANS = \
+# Have to fake out automake by calling our man pages "DATA" since "MANS" won't
+# accept .3x as a valid man page suffix
+
+LIBMAN_SUFFIX=@LIBMAN_SUFFIX@
+libmandir = $(mandir)/man$(LIBMAN_SUFFIX)
+
+libman_SOURCES = \
 	AllPlanes.man \
 	BlackPixelOfScreen.man \
 	DisplayOfCCC.man \
@@ -181,4 +187,15 @@ man3_MANS = \
 	XmbTextExtents.man \
 	XmbTextPerCharExtents.man
 
-EXTRA_DIST=$(man3_MANS)
+libman_DATA=$(libman_SOURCES:man=$(LIBMAN_SUFFIX))
+
+EXTRA_DIST = $(libman_SOURCES)
+
+CLEANFILES = $(libman_DATA)
+
+include $(top_srcdir)/cpprules.in
+
+SUFFIXES += .$(LIBMAN_SUFFIX) .man
+
+.man.$(LIBMAN_SUFFIX):
+	$(RAWCPP) $(RAWCPPFLAGS) $(CPP_MAN_FLAGS) < $< | $(CPP_SED_MAGIC) > $@

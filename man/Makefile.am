@@ -1,8 +1,8 @@
 # Have to fake out automake by calling our man pages "DATA" since "MANS" won't
 # accept .3x as a valid man page suffix
 
-LIBMAN_SUFFIX=@LIBMAN_SUFFIX@
-libmandir = $(mandir)/man$(LIBMAN_SUFFIX)
+LIBMANSUFFIX=@LIBMAN_SUFFIX@
+libmandir = $(mandir)/man$(LIBMANSUFFIX)
 
 libman_SOURCES = \
 	AllPlanes.man \
@@ -187,7 +187,7 @@ libman_SOURCES = \
 	XmbTextExtents.man \
 	XmbTextPerCharExtents.man
 
-libman_DATA=$(libman_SOURCES:man=$(LIBMAN_SUFFIX))
+libman_DATA=$(libman_SOURCES:man=$(LIBMANSUFFIX))
 
 EXTRA_DIST = $(libman_SOURCES)
 
@@ -195,7 +195,15 @@ CLEANFILES = $(libman_DATA)
 
 include $(top_srcdir)/cpprules.in
 
-SUFFIXES += .$(LIBMAN_SUFFIX) .man
+SUFFIXES += .$(LIBMANSUFFIX) .man
+
+XORGRELSTRING = @PACKAGE_STRING@
+  XORGMANNAME = X Version 11
+
+MANDEFS = -D__libmansuffix__=$(LIBMANSUFFIX) \
+	-D__xorgversion__="\"$(XORGRELSTRING)\" \"$(XORGMANNAME)\""
+
+CPP_MAN_FLAGS = $(MANDEFS) $(EXTRAMANDEFS)
 
 .man.$(LIBMAN_SUFFIX):
 	$(RAWCPP) $(RAWCPPFLAGS) $(CPP_MAN_FLAGS) < $< | $(CPP_SED_MAGIC) > $@

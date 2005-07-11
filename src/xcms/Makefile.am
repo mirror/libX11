@@ -1,5 +1,19 @@
 noinst_LTLIBRARIES = libxcms.la
 
+AM_CFLAGS= \
+	-I$(top_srcdir)/include \
+	-I$(top_srcdir)/include/X11 \
+	-I$(top_builddir)/include \
+	-I$(top_builddir)/include/X11 \
+	-I$(top_srcdir)/src/xcms \
+	-I$(top_srcdir)/src/xkb \
+	-I$(top_srcdir)/src/xlibi18n \
+	$(X11_CFLAGS) \
+	$(BIGREQS_CFLAGS) \
+	$(BIGFONT_CFLAGS) \
+	$(XDMCP_CFLAGS) \
+	-D_BSD_SOURCE
+
 libxcms_la_SOURCES = \
 		  AddDIC.c \
                   AddSF.c \

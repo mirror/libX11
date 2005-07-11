@@ -1,5 +1,19 @@
 2005-07-11  Keith Packard  <keithp@keithp.com>
 
+	* src/xcms/Makefile.am:
+	* src/xkb/Makefile.am:
+	* src/xlibi18n/Makefile.am:
+	* src/xlibi18n/im/ximcp/Makefile.am:
+	* src/xlibi18n/lc/Utf8/Makefile.am:
+	* src/xlibi18n/lc/def/Makefile.am:
+	* src/xlibi18n/lc/gen/Makefile.am:
+	* src/xlibi18n/lc/xlocale/Makefile.am:
+	* src/xlibi18n/om/generic/Makefile.am:
+	Ammend AM_CFLAGS with all needed includes;
+	cannot figure out an easy way to automate this.
+
+2005-07-11  Keith Packard  <keithp@keithp.com>
+
 	* man/.cvsignore:
 	Ignore built man page files
 

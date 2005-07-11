@@ -1,5 +1,10 @@
 2005-07-11  Keith Packard  <keithp@keithp.com>
 
+	* man/.cvsignore:
+	Ignore built man page files
+
+2005-07-11  Keith Packard  <keithp@keithp.com>
+
 	* configure.ac:
 	* cpprules.in:
 	* man/Makefile.am:

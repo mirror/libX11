@@ -1,3 +1,119 @@
+2005-07-11  Keith Packard  <keithp@keithp.com>
+
+	* configure.ac:
+	* cpprules.in:
+	* man/Makefile.am:
+	* nls/C/Makefile.am:
+	* nls/Makefile.am:
+	* nls/armscii-8/Makefile.am:
+	* nls/en_US.UTF-8/Makefile.am:
+	* nls/georgian-academy/Makefile.am:
+	* nls/georgian-ps/Makefile.am:
+	* nls/ibm-cp1133/Makefile.am:
+	* nls/iscii-dev/Makefile.am:
+	* nls/isiri-3342/Makefile.am:
+	* nls/iso8859-1/Makefile.am:
+	* nls/iso8859-10/Makefile.am:
+	* nls/iso8859-11/Makefile.am:
+	* nls/iso8859-13/Makefile.am:
+	* nls/iso8859-14/Makefile.am:
+	* nls/iso8859-15/Makefile.am:
+	* nls/iso8859-2/Makefile.am:
+	* nls/iso8859-3/Makefile.am:
+	* nls/iso8859-4/Makefile.am:
+	* nls/iso8859-5/Makefile.am:
+	* nls/iso8859-6/Makefile.am:
+	* nls/iso8859-7/Makefile.am:
+	* nls/iso8859-8/Makefile.am:
+	* nls/iso8859-9/Makefile.am:
+	* nls/iso8859-9e/Makefile.am:
+	* nls/ja.JIS/Makefile.am:
+	* nls/ja.S90/Makefile.am:
+	* nls/ja.SJIS/Makefile.am:
+	* nls/ja.U90/Makefile.am:
+	* nls/ja/Makefile.am:
+	* nls/ja_JP.UTF-8/Makefile.am:
+	* nls/ko/Makefile.am:
+	* nls/ko_KR.UTF-8/Makefile.am:
+	* nls/koi8-c/Makefile.am:
+	* nls/koi8-r/Makefile.am:
+	* nls/koi8-u/Makefile.am:
+	* nls/microsoft-cp1251/Makefile.am:
+	* nls/microsoft-cp1255/Makefile.am:
+	* nls/microsoft-cp1256/Makefile.am:
+	* nls/mulelao-1/Makefile.am:
+	* nls/nokhchi-1/Makefile.am:
+	* nls/pt_BR.UTF-8/Makefile.am:
+	* nls/tatar-cyr/Makefile.am:
+	* nls/th_TH.UTF-8/Makefile.am:
+	* nls/th_TH/Makefile.am:
+	* nls/tscii-0/Makefile.am:
+	* nls/vi_VN.tcvn/Makefile.am:
+	* nls/vi_VN.viscii/Makefile.am:
+	* nls/zh_CN.UTF-8/Makefile.am:
+	* nls/zh_CN.gb18030/Makefile.am:
+	* nls/zh_CN.gbk/Makefile.am:
+	* nls/zh_CN/Makefile.am:
+	* nls/zh_HK.UTF-8/Makefile.am:
+	* nls/zh_HK.big5/Makefile.am:
+	* nls/zh_HK.big5hkscs/Makefile.am:
+	* nls/zh_TW.UTF-8/Makefile.am:
+	* nls/zh_TW.big5/Makefile.am:
+	* nls/zh_TW/Makefile.am:
+	* src/Makefile.am:
+	* src/xcms/.cvsignore:
+	* src/xcms/Makefile.am:
+	* src/xim_trans.c:
+	* src/xkb/.cvsignore:
+	* src/xkb/Makefile.am:
+	* src/xlibi18n/.cvsignore:
+	* src/xlibi18n/Makefile.am:
+	* src/xlibi18n/im/.cvsignore:
+	* src/xlibi18n/im/Makefile.am:
+	* src/xlibi18n/im/ximcp/.cvsignore:
+	* src/xlibi18n/im/ximcp/Makefile.am:
+	* src/xlibi18n/lc/.cvsignore:
+	* src/xlibi18n/lc/Makefile.am:
+	* src/xlibi18n/lc/Utf8/.cvsignore:
+	* src/xlibi18n/lc/Utf8/Makefile.am:
+	* src/xlibi18n/lc/def/.cvsignore:
+	* src/xlibi18n/lc/def/Makefile.am:
+	* src/xlibi18n/lc/gen/.cvsignore:
+	* src/xlibi18n/lc/gen/Makefile.am:
+	* src/xlibi18n/lc/xlocale/.cvsignore:
+	* src/xlibi18n/lc/xlocale/Makefile.am:
+	* src/xlibi18n/om/.cvsignore:
+	* src/xlibi18n/om/Makefile.am:
+	* src/xlibi18n/om/generic/.cvsignore:
+	* src/xlibi18n/om/generic/Makefile.am:
+	* src/xlibi18n/xim_trans.c:
+	
+	Enable loadable i18n modules, making them 
+	configurable on the configure command line.
+	
+	Clean up conditionals for XKB, XCMS, XLOCALEDIR
+
+	Create new lib directory for locale modules
+	in ${X11_LIBDIR}/locale/lib. Add this to the
+	default XLOCALEDIR search path.
+
+	Create separate X11_LOCALEDATADIR variable
+	pointing at ${datadir}/X11/locale for
+	installing locale data.
+
+	Split out xcms, xkb, xlibi18n sources from
+	main xlib bits so they can be conditionally included
+	more easily. Lots of source files have been moved
+	with this step; the result seems like it might
+	be easier to maintain.
+
+	Display message at end of configure script with
+	selected options.
+	
+	Fix manual building with cpp to add -traditional
+	in cpprules.in. This isn't conditionalized at all,
+	so it will break on systems not using GNU cpp.
+
 2005-07-08  Keith Packard  <keithp@keithp.com>
 
 	* .cvsignore:

@@ -4,6 +4,7 @@
 LIBMANSUFFIX=@LIBMAN_SUFFIX@
 libmandir = $(mandir)/man$(LIBMANSUFFIX)
 
+if MANPAGES
 libman_SOURCES = \
 	AllPlanes.man \
 	BlackPixelOfScreen.man \
@@ -186,8 +187,9 @@ libman_SOURCES = \
 	XmbTextEscapement.man \
 	XmbTextExtents.man \
 	XmbTextPerCharExtents.man
+endif
 
-libman_DATA=$(libman_SOURCES:man=$(LIBMANSUFFIX))
+libman_DATA=$(libman_SOURCES:man=$(LIBMAN_SUFFIX))
 
 EXTRA_DIST = $(libman_SOURCES)
 

@@ -1,3 +1,3 @@
-x11thislocaledir = @X11_LOCALEDIR@/georgian-ps
+x11thislocaledir = @X11_LOCALEDATADIR@/georgian-ps
 
 include $(top_srcdir)/nls/localerules.in

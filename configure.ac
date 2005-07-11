@@ -44,6 +44,7 @@ XTRANS_CONNECTION_FLAGS
 XTRANS_SECURE_RPC_FLAGS
 
 # Check for dlopen
+AC_MSG_CHECKING([if run-time linking is supported])
 AC_SEARCH_LIBS(dlopen,[dl svld])
 if test "x$ac_cv_search_dlopen" = xno; then
 	AC_SEARCH_LIBS(shl_load,[dld])
@@ -57,10 +58,38 @@ else
 	AC_CHECK_HEADERS([dlfcn.h])
 fi
 if test x$ac_cv_header_dlcfn_h -o x$ac_cv_header_dl_h; then
+	HAVE_LOADABLE_MODULES=yes
+else
+	HAVE_LOADABLE_MODULES=no
+fi
+AC_MSG_RESULT($HAVE_LOADABLE_MODULES)
+
+AC_MSG_CHECKING([if loadable i18n module support should be enabled])
+AC_ARG_ENABLE(loadable-i18n,
+	      AC_HELP_STRING([--disable-loadable-i18n],
+	       [Controls loadable i18n module support]),
+	       [XLIB_LOADABLE_I18N=$enableval],
+	       [XLIB_LOADABLE_I18N=$HAVE_LOADABLE_MODULES])
+if test x$XLIB_LOADABLE_I18N = xyes; then
+	AC_DEFINE(USE_DYNAMIC_LC,1,
+		  [Split some i18n functions into loadable modules])
+fi
+AC_MSG_RESULT($XLIB_LOADABLE_I18N)
+	       
+AM_CONDITIONAL(XLIB_LOADABLE_I18N, test x$XLIB_LOADABLE_I18N = xyes)
+
+AC_MSG_CHECKING([if loadable Xcursor library support should be enabled])
+AC_ARG_ENABLE(loadable-xcursor,
+	      AC_HELP_STRING([--disable-loadable-xcursor],
+	       [Controls loadable xcursor library support]),
+	       [XLIB_LOADABLE_XCURSOR=$enableval],
+	       [XLIB_LOADABLE_XCURSOR=$HAVE_LOADABLE_MODULES])
+if test x$XLIB_LOADABLE_XCURSOR = xyes; then
 	AC_DEFINE(USE_DYNAMIC_XCURSOR,1,
 		  [Use the X cursor library to load cursors])
 fi
-
+AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
+		  
 # Checks for header files.
 AC_HEADER_STDC
 dnl AC_CHECK_HEADERS([stdio.h stdlib.h math.h])
@@ -153,17 +182,25 @@ esac
 AC_SUBST(KEYSYMDEF)
 
 AM_CONDITIONAL(UDC, test xfalse = xtrue)
-AM_CONDITIONAL(XCMS, test xtrue = xtrue)
 
 AC_ARG_ENABLE(xcms, 
               AC_HELP_STRING([--disable-xcms],
                 [Disable Xlib support for CMS *EXPERIMENTAL*]),
               [XCMS=$enableval],[XCMS=yes])
+AM_CONDITIONAL(XCMS, [test x$XCMS = xyes ])
+if test x"$XCMS" = "xyes"; then
+	AC_DEFINE(XCMS,1,[Include support for XCMS])
+fi
 
 AC_ARG_ENABLE(xlocale,
               AC_HELP_STRING([--disable-xlocale],
                 [Disable Xlib locale implementation *EXPERIMENTAL*]),
               [XLOCALE=$enableval],[XLOCALE=yes])
+
+AM_CONDITIONAL(XLOCALE, [ test x$XLOCALE = xyes ])
+if test x"$XLOCALE" = "xyes"; then
+	AC_DEFINE(XLOCALE,1,[support for X Locales])
+fi
 
 # This disables XLOCALEDIR.  Set it if you're using BuildLoadableXlibI18n,
 # don't have either issetugid() or getresuid(), and you need to protect
@@ -172,25 +209,20 @@ AC_MSG_CHECKING([if XLOCALEDIR support should be enabled])
 AC_ARG_ENABLE(xlocaledir,
 	      AC_HELP_STRING([--enable-xlocaledir],
 		[Enable XLOCALEDIR environment variable support]),
-	      [XLOCALEDIR=$enableval],[XLOCALEDIR=$XLOCALEDIR_IS_SAFE])
-if test "x$XLOCALEDIR" == "xno"; then
+	      [ENABLE_XLOCALEDIR=$enableval],[ENABLE_XLOCALEDIR=$XLOCALEDIR_IS_SAFE])
+if test "x$ENABLE_XLOCALEDIR" == "xno"; then
 	AC_DEFINE(NO_XLOCALEDIR,1,[Disable XLOCALEDIR environment variable])
 fi
-AC_MSG_RESULT($XLOCALEDIR)
+AC_MSG_RESULT($ENABLE_XLOCALEDIR)
 
 AC_ARG_ENABLE(xf86bigfont,
 	      AC_HELP_STRING([--disable-xf86bigfont],
 		[Disable XF86BigFont extension support]),
 	      [XF86BIGFONT=$enableval],[XF86BIGFONT="yes"])
-if test "x$XF86BIGFONT" == "xyes"; then
+if test "x$XF86BIGFONT" = "xyes"; then
     PKG_CHECK_MODULES(BIGFONTPROTO, xf86bigfontproto,
-	AC_DEFINE(XF86BIGFONT,1,[Enable XF86BIGFONT extension])
-        X11_CFLAGS="$X11_CFLAGS $BIGFONTPROTO_CFLAGS"
-        X11_LIBS="$X11_LIBS $BIGFONTPROTO_CFLAGS",
-        XF86BIGFONT="no")
+         AC_DEFINE(XF86BIGFONT,1,[Enable XF86BIGFONT extension]),XF86BIGFONT="no")
 fi
-AC_MSG_RESULT($XF86BIGFONT)
-
 
 AC_ARG_ENABLE(xkb, 
               AC_HELP_STRING([--disable-xkb],
@@ -201,24 +233,19 @@ AC_ARG_ENABLE(man-pages,
 	      AC_HELP_STRING([--enable-man-pages=section], 
 			     [Choose manual section for installing man pages]),
 		[LIBMAN_SUFFIX=$enableval],[LIBMAN_SUFFIX=3x])
+		
+if test "x$LIBMAN_SUFFIX" = "xyes"; then
+	LIBMAN_SUFFIX=3x
+fi
+
 AC_SUBST(LIBMAN_SUFFIX)
 
-# Finalization
-
-AM_CONDITIONAL(DISABLE_XCMS, [test x$XCMS = xno ])
-if test "$XCMS" = no; then
-	AC_DEFINE(DISABLE_XCMS,1,[No support for XCMS])
-fi
-
-AM_CONDITIONAL(DISABLE_XLOCALE, [ test x$XLOCALE = xno ])
-if test "$XLOCALE" = no; then
-	AC_DEFINE(DISABLE_XLOCALE,1,[No support for X Locales])
-fi
+AM_CONDITIONAL(MANPAGES, [ test x$LIBMAN_SUFFIX '!=' xno ])
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
-if test "$XKB" = yes; then
+if test x"$XKB" = "xyes"; then
    PKG_CHECK_MODULES(XKBPROTO, kbproto inputproto)
-   AC_DEFINE(XKB, YES, [Use XKB])
+   AC_DEFINE(XKB,1,[Use XKB])
    X11_CFLAGS="$X11_CFLAGS $XKBPROTO_CFLAGS"
    X11_LIBS="$X11_LIBS $XKBPROTO_LIBS"
 fi
@@ -231,12 +258,27 @@ if test "x$GCC" = "xyes"; then
 fi
 
 X11_DATADIR="${datadir}/X11"
-X11_LOCALEDIR="${X11_DATADIR}/locale"
+X11_LIBDIR="${libdir}/X11"
+
+#
+# Yes, it would be nice to put the locale data in
+# /usr/share, but the locale stuff includes loadable
+# libraries which must be located in the same directory
+# as the other locale data, so for now, everything lives
+# in ${libdir}
+#
+
+X11_LOCALEDATADIR="${X11_LIBDIR}/locale"
+X11_LOCALELIBDIR="${X11_LIBDIR}/locale/lib"
+X11_LOCALEDIR="${X11_LOCALEDATADIR}"
 XKEYSYMDB="${X11_DATADIR}/XKeysymDB"
 XERRORDB="${X11_DATADIR}/XErrorDB"
 
 AC_SUBST(X11_DATADIR)
-AC_SUBST(X11_LOCALEDIR)
+AC_SUBST(X11_LIBDIR)
+AC_SUBST(X11_LOCALEDATADIR)
+AC_SUBST(X11_LOCALELIBDIR)
+AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
 AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
@@ -246,6 +288,18 @@ AC_OUTPUT([Makefile
 	   man/Makefile
            src/Makefile
            src/util/Makefile
+	   src/xcms/Makefile
+	   src/xlibi18n/Makefile
+	   src/xlibi18n/im/Makefile
+	   src/xlibi18n/im/ximcp/Makefile
+	   src/xlibi18n/lc/Makefile
+	   src/xlibi18n/lc/def/Makefile
+	   src/xlibi18n/lc/gen/Makefile
+	   src/xlibi18n/lc/Utf8/Makefile
+	   src/xlibi18n/lc/xlocale/Makefile
+	   src/xlibi18n/om/Makefile
+	   src/xlibi18n/om/generic/Makefile
+	   src/xkb/Makefile
 	   nls/Makefile
 	   nls/armscii-8/Makefile
 	   nls/C/Makefile
@@ -304,3 +358,16 @@ AC_OUTPUT([Makefile
 	   nls/zh_TW.big5/Makefile
 	   nls/zh_TW.UTF-8/Makefile
 	   x11.pc])
+
+echo ""
+echo "X11 will be built with the following settings:"
+echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
+echo " Loadable xcursory library support:       "$XLIB_LOADABLE_XCURSOR
+echo " Threading support:                       "$xthreads
+echo " XCMS:                                    "$XCMS
+echo " Internationalization support:            "$XLOCALE
+echo " XF86BigFont support:                     "$XF86BIGFONT
+echo " XKB support:                             "$XKB
+echo " XLOCALEDIR environment variable support: "$ENABLE_XLOCALEDIR
+echo " Manual pages installed:                  "$LIBMAN_SUFFIX
+echo ""

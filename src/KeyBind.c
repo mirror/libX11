@@ -50,18 +50,17 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/keysymdef.h>
 #include <stdio.h>
 
-#include "XKBlib.h"
-
 #ifdef USE_OWN_COMPOSE
 #include "imComp.h"
 
 #endif
 
 #include "Xresource.h"
-#include "XKBlibint.h"
 #include "Key.h"
 
 #ifdef XKB
+#include "XKBlib.h"
+#include "XKBlibint.h"
 #define	XKeycodeToKeysym	_XKeycodeToKeysym
 #define	XKeysymToKeycode	_XKeysymToKeycode
 #define	XLookupKeysym		_XLookupKeysym

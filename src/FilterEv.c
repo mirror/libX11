@@ -58,9 +58,13 @@ from The Open Group.
 #define NEED_EVENTS
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#else
+#define XLOCALE 1
 #endif
 #include "Xlibint.h"
+#if XLOCALE
 #include "Xlcint.h"
+#endif
 
 extern long const _Xevent_to_mask[];
 
@@ -72,6 +76,7 @@ XFilterEvent(ev, window)
     XEvent *ev;
     Window window;
 {
+#if XLOCALE
     XFilterEventList	p;
     Window		win;
     long		mask;
@@ -99,5 +104,6 @@ XFilterEvent(ev, window)
 	}
     }
     UnlockDisplay(ev->xany.display);
+#endif
     return(False);
 }

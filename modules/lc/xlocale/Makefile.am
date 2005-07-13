@@ -26,8 +26,8 @@ endif
 
 
 xlocale_la_SOURCES = \
-	lcEuc.c
-	lcJis.c
+	lcEuc.c \
+	lcJis.c \
 	lcSjis.c
 	
 libxlocale_la_SOURCES = $(xlocale_la_SOURCES)

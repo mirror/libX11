@@ -6,6 +6,7 @@ AM_CFLAGS= \
 	-I$(top_srcdir)/src/xcms \
 	-I$(top_srcdir)/src/xkb \
 	-I$(top_srcdir)/src/xlibi18n \
+	-I$(top_srcdir)/src \
 	$(X11_CFLAGS) \
 	$(BIGREQS_CFLAGS) \
 	$(BIGFONT_CFLAGS) \

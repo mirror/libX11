@@ -189,7 +189,7 @@ libman_SOURCES = \
 	XmbTextPerCharExtents.man
 endif
 
-libman_DATA=$(libman_SOURCES:man=$(LIBMAN_SUFFIX))
+libman_DATA=$(libman_SOURCES:man=$(LIBMANSUFFIX))
 
 EXTRA_DIST = $(libman_SOURCES)
 

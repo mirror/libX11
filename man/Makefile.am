@@ -189,7 +189,7 @@ libman_SOURCES = \
 	XmbTextPerCharExtents.man
 endif
 
-libman_DATA=$(libman_SOURCES:man=$(LIBMANSUFFIX))
+libman_DATA=$(libman_SOURCES:man=@LIBMAN_SUFFIX@)
 
 EXTRA_DIST = $(libman_SOURCES)
 
@@ -207,5 +207,5 @@ MANDEFS = -D__libmansuffix__=$(LIBMANSUFFIX) \
 
 CPP_MAN_FLAGS = $(MANDEFS) $(EXTRAMANDEFS)
 
-.man.$(LIBMAN_SUFFIX):
+.man.$(LIBMANSUFFIX):
 	$(RAWCPP) $(RAWCPPFLAGS) $(CPP_MAN_FLAGS) < $< | $(CPP_SED_MAGIC) > $@

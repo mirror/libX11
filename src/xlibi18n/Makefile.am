@@ -1,5 +1,3 @@
-SUBDIRS=im lc om
-
 AM_CFLAGS= \
 	-I$(top_srcdir)/include \
 	-I$(top_srcdir)/include/X11 \
@@ -30,16 +28,16 @@ else
 # Static interfaces to input/output methods
 #
 IM_LIBS = \
-	im/ximcp/libximcp.la
+	${top_builddir}/modules/im/ximcp/libximcp.la
 
 LC_LIBS = \
-	lc/def/libxlcDef.la \
-	lc/gen/libxlibi18n.la \
-	lc/Utf8/libxlcUTF8Load.la \
-	lc/xlocale/libxlocale.la
+	${top_builddir}/modules/lc/def/libxlcDef.la \
+	${top_builddir}/modules/lc/gen/libxlibi18n.la \
+	${top_builddir}/modules/lc/Utf8/libxlcUTF8Load.la \
+	${top_builddir}/modules/lc/xlocale/libxlocale.la
 
 OM_LIBS = \
-	om/generic/libxomGeneric.la
+	${top_builddir}/modules/om/generic/libxomGeneric.la
 endif
 
 libi18n_la_LIBADD = \

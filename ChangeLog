@@ -1,3 +1,20 @@
+2005-07-14  Keith Packard  <keithp@keithp.com>
+
+	* Makefile.am:
+	* configure.ac:
+	* modules/im/ximcp/Makefile.am:
+	* modules/lc/Utf8/Makefile.am:
+	* modules/lc/def/Makefile.am:
+	* modules/lc/gen/Makefile.am:
+	* modules/lc/xlocale/Makefile.am:
+	* modules/om/generic/Makefile.am:
+	* src/xlibi18n/Makefile.am:
+	Move i18n modules to top-level so they can be
+	built in the right order (before xlib for non-loadable,
+	after xlib for loadable).
+	Link i18n modules against xlib to resolve Xlib symbols
+	used by them.
+
 2005-07-11  Keith Packard  <keithp@keithp.com>
 
 	* src/xcms/Makefile.am:

@@ -73,6 +73,7 @@ AC_ARG_ENABLE(loadable-i18n,
 if test x$XLIB_LOADABLE_I18N = xyes; then
 	AC_DEFINE(USE_DYNAMIC_LC,1,
 		  [Split some i18n functions into loadable modules])
+	AC_SUBST(I18N_MODULE_LIBS,'${top_builddir}/src/libX11.la')
 fi
 AC_MSG_RESULT($XLIB_LOADABLE_I18N)
 	       
@@ -290,15 +291,16 @@ AC_OUTPUT([Makefile
            src/util/Makefile
 	   src/xcms/Makefile
 	   src/xlibi18n/Makefile
-	   src/xlibi18n/im/Makefile
-	   src/xlibi18n/im/ximcp/Makefile
-	   src/xlibi18n/lc/Makefile
-	   src/xlibi18n/lc/def/Makefile
-	   src/xlibi18n/lc/gen/Makefile
-	   src/xlibi18n/lc/Utf8/Makefile
-	   src/xlibi18n/lc/xlocale/Makefile
-	   src/xlibi18n/om/Makefile
-	   src/xlibi18n/om/generic/Makefile
+	   modules/Makefile
+	   modules/im/Makefile
+	   modules/im/ximcp/Makefile
+	   modules/lc/Makefile
+	   modules/lc/def/Makefile
+	   modules/lc/gen/Makefile
+	   modules/lc/Utf8/Makefile
+	   modules/lc/xlocale/Makefile
+	   modules/om/Makefile
+	   modules/om/generic/Makefile
 	   src/xkb/Makefile
 	   nls/Makefile
 	   nls/armscii-8/Makefile

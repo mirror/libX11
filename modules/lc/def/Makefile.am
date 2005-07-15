@@ -17,6 +17,7 @@ if XLIB_LOADABLE_I18N
 commonlibdir = $(X11_LOCALELIBDIR)/common
 commonlib_LTLIBRARIES=xlcDef.la
 xlcDef_la_LDFLAGS = -module -version-number 2:0:0
+xlcDef_la_LIBADD = $(I18N_MODULE_LIBS)
 
 else
 

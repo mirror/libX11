@@ -1,4 +1,9 @@
-SUBDIRS=include src nls man
+if XLIB_LOADABLE_I18N
+ORDER=src modules
+else
+ORDER=modules src
+endif
+SUBDIRS=include $(ORDER) nls man
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = x11.pc

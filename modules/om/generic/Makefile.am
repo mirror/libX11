@@ -18,6 +18,7 @@ if XLIB_LOADABLE_I18N
 commonlibdir = $(X11_LOCALELIBDIR)/common
 commonlib_LTLIBRARIES=xomGeneric.la
 xomGeneric_la_LDFLAGS = -module -version-number 2:0:0
+xomGeneric_la_LIBADD = $(I18N_MODULE_LIBS)
 
 else
 

@@ -128,4 +128,4 @@ libi18n_la_SOURCES = \
 	lcUniConv/ucs2be.h\
 	lcUniConv/utf8.h\
 	lcUniConv/viscii.h
-	
+

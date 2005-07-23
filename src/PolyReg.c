@@ -55,7 +55,7 @@ SOFTWARE.
 #endif
 #include "Xlibint.h"
 #include "Xutil.h"
-#include "region.h"
+#include <X11/Xregion.h>
 #include "poly.h"
 
 /*

@@ -3,8 +3,8 @@
 
 AC_PREREQ(2.57)
 AC_INIT([libX11],
-        6.2.1,
-        [xorg@lists.freedesktop.org],
+        0.99.0,
+        [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
 AM_INIT_AUTOMAKE([dist-bzip2])
@@ -66,11 +66,14 @@ AC_MSG_RESULT($HAVE_LOADABLE_MODULES)
 
 AC_MSG_CHECKING([if loadable i18n module support should be enabled])
 AC_ARG_ENABLE(loadable-i18n,
-	      AC_HELP_STRING([--disable-loadable-i18n],
+	      AC_HELP_STRING([--enable-loadable-i18n],
 	       [Controls loadable i18n module support]),
 	       [XLIB_LOADABLE_I18N=$enableval],
-	       [XLIB_LOADABLE_I18N=$HAVE_LOADABLE_MODULES])
+	       [XLIB_LOADABLE_I18N="no"])
 if test x$XLIB_LOADABLE_I18N = xyes; then
+	if test x$HAVE_LOADABLE_MODULES = xno; then
+		AC_MSG_ERROR([Loadable module support is required to enable loadable i18n module support])
+	fi
 	AC_DEFINE(USE_DYNAMIC_LC,1,
 		  [Split some i18n functions into loadable modules])
 	AC_SUBST(I18N_MODULE_LIBS,'${top_builddir}/src/libX11.la')
@@ -283,6 +286,8 @@ AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
 AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
+
+XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile
            include/Makefile

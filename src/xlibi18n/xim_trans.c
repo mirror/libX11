@@ -1,5 +1,5 @@
 /*
- * $Id: xim_trans.c,v 1.2 2005/05/16 22:35:28 sandmann Exp $
+ * $Id: xim_trans.c,v 1.1 2005/07/11 08:29:25 keithp Exp $
  *
  * Copyright © 2003 Keith Packard
  *
@@ -22,7 +22,11 @@
  * PERFORMANCE OF THIS SOFTWARE.
  */
 
-#define XIM_t
-#define TRANS_CLIENT
+#ifdef HAVE_CONFIG_H
+# include "config.h"
+#endif
+
+#define XIM_t 1
+#define TRANS_CLIENT 1
 
 #include <X11/Xtrans/transport.c>

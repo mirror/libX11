@@ -17,7 +17,7 @@ AM_CFLAGS= \
 	$(BIGREQS_CFLAGS) \
 	$(BIGFONT_CFLAGS) \
 	$(XDMCP_CFLAGS) \
-	-D_BSD_SOURCE
+	-D_BSD_SOURCE -DX11_t -DTRANS_CLIENT
 
 #
 # =============================== I18N =============================

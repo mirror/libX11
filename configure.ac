@@ -369,7 +369,7 @@ AC_OUTPUT([Makefile
 echo ""
 echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
-echo " Loadable xcursory library support:       "$XLIB_LOADABLE_XCURSOR
+echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
 echo " Threading support:                       "$xthreads
 echo " XCMS:                                    "$XCMS
 echo " Internationalization support:            "$XLOCALE

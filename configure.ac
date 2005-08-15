@@ -17,9 +17,8 @@ AC_CONFIG_HEADER([include/X11/XlibConf.h])
 # Checks for programs.
 AC_PROG_LIBTOOL
 AC_PROG_CC
-AC_PROG_CPP
-AC_PATH_PROGS(RAWCPP, [cpp], [$(CPP)], 
-   [$PATH:/bin:/usr/bin:/usr/lib:/usr/libexec:/usr/ccs/lib:/usr/ccs/lbin:/lib])
+
+XORG_PROG_RAWCPP
 
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(BIGREQS, bigreqsproto)

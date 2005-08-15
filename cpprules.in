@@ -10,8 +10,6 @@ WCHAR32_FLAGS = -DWCHAR32=@WCHAR32@
 
 CPP_FILES_FLAGS = $(WCHAR32_FLAGS)
 
-RAWCPPFLAGS = -traditional
-
 # Translate XCOMM into pound sign with sed, rather than passing -DXCOMM=XCOMM
 # to cpp, because that trick does not work on all ANSI C preprocessors.
 # Delete line numbers from the cpp output (-P is not portable, I guess).

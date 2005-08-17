@@ -200,14 +200,14 @@ You can pass
 .ZN Convex , 
 or 
 .ZN Nonconvex .
-.ds Wh , which are the dimensions of the rectangle to be filled
+.ds Wh , which are the dimensions of the rectangle to be filled \
 or the major and minor axes of the arc
 .IP \fIwidth\fP 1i
 .br
 .ns
 .IP \fIheight\fP 1i
 Specify the width and height\*(Wh.
-.ds Xy , which are relative to the origin of the drawable
+.ds Xy , which are relative to the origin of the drawable \
 and specify the upper-left corner of the rectangle
 .IP \fIx\fP 1i
 .br

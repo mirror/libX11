@@ -167,7 +167,7 @@ Specify the two regions.
 .ns
 .IP \fIheight\fP 1i
 Specify the width and height\*(Wh.
-.ds Xy , which define the point
+.ds Xy , which define the point \
 or the coordinates of the upper-left corner of the rectangle
 .IP \fIx\fP 1i
 .br

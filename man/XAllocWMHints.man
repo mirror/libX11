@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
 .\" $XFree86: xc/doc/man/X11/XAWMHints.man,v 1.4 2003/04/28 22:17:54 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XAllocWMHints.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\" $XdotOrg: lib/X11/man/XAllocWMHints.man,v 1.3 2005-08-17 01:27:08 alanc Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -226,56 +226,56 @@ T{
 T}	T{
 .ZN InputHint
 T}	T{
-(1L << 0);
+(1L << 0)
 T}
 T{
 \&#define
 T}	T{
 .ZN StateHint
 T}	T{
-(1L << 1);
+(1L << 1)
 T}
 T{
 \&#define
 T}	T{
 .ZN IconPixmapHint
 T}	T{
-(1L << 2);
+(1L << 2)
 T}
 T{
 \&#define
 T}	T{
 .ZN IconWindowHint
 T}	T{
-(1L << 3);
+(1L << 3)
 T}
 T{
 \&#define
 T}	T{
 .ZN IconPositionHint
 T}	T{
-(1L << 4);
+(1L << 4)
 T}
 T{
 \&#define
 T}	T{
 .ZN IconMaskHint
 T}	T{
-(1L << 5);
+(1L << 5)
 T}
 T{
 \&#define
 T}	T{
 .ZN WindowGroupHint
 T}	T{
-(1L << 6);
+(1L << 6)
 T}
 T{
 \&#define
 T}	T{
 .ZN UrgencyHint
 T}	T{
-(1L << 8);
+(1L << 8)
 T}
 T{
 \&#define
@@ -286,7 +286,7 @@ T}	T{
 .br
 IconWindowHint|IconPositionHint|
 .br
-IconMaskHint|WindowGroupHint);
+IconMaskHint|WindowGroupHint)
 T}
 .TE
 .IN "XWMHints" "" "@DEF@"
@@ -391,7 +391,7 @@ contents to be urgent, requiring the timely response of the user.  The
 window manager will make some effort to draw the user's attention to this
 window while this flag is set.  The client must provide some means by which the
 user can cause the urgency flag to be cleared (either mitigating
-the condition that made the window urgent or merely shutting off the alarm);
+the condition that made the window urgent or merely shutting off the alarm)
 or the window to be withdrawn.
 .SH DIAGNOSTICS
 .TP 1i

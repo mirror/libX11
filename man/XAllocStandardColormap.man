@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
 .\" $XFree86: xc/doc/man/X11/XASCmap.man,v 1.5 2003/04/28 22:17:54 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XAllocStandardColormap.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\" $XdotOrg: lib/X11/man/XAllocStandardColormap.man,v 1.3 2005-08-17 01:27:08 alanc Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -292,7 +292,7 @@ T{
 T}	T{
 .ZN ReleaseByFreeingColormap
 T}	T{
-( (XID) 1L);
+( (XID) 1L)
 T}
 .TE
 /\(** Values */
@@ -330,7 +330,7 @@ green_max = 5, and blue_max = 5.
 .LP
 The red_mult, green_mult, and blue_mult members give the
 scale factors used to compose a full pixel value. 
-(See the discussion of the base_pixel members for further information.);
+(See the discussion of the base_pixel members for further information.)
 For a 3/3/2 allocation, red_mult might be 32,
 green_mult might be 4, and blue_mult might be 1.  
 For a 6-colors-each allocation, red_mult might be 36, 
@@ -382,7 +382,7 @@ the cells held by this standard colormap are to be released
 by freeing the colormap ID or by calling the
 .ZN XKillClient
 function on the indicated resource.
-(Note that this method is necessary for allocating out of an existing colormap.);
+(Note that this method is necessary for allocating out of an existing colormap.)
 .LP
 The properties containing the 
 .ZN XStandardColormap 

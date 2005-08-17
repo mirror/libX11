@@ -42,7 +42,7 @@
 .\" It is provided ``as is'' without express or implied warranty.
 .\" 
 .\" $XFree86: xc/doc/man/X11/XCreWin.man,v 1.5 2003/04/28 22:17:54 herrb Exp $
-.\" $XdotOrg: lib/X11/man/XCreateWindow.man,v 1.2 2004-04-23 18:42:09 eich Exp $
+.\" $XdotOrg: lib/X11/man/XCreateWindow.man,v 1.3 2005-08-17 01:27:08 alanc Exp $
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -196,14 +196,14 @@ A visual of
 .ZN CopyFromParent 
 means the visual type is taken from the 
 parent.
-.ds Wh , which are the created window's inside dimensions
+.ds Wh , which are the created window's inside dimensions \
 and do not include the created window's borders
 .IP \fIwidth\fP 1i
 .br
 .ns
 .IP \fIheight\fP 1i
 Specify the width and height\*(Wh.
-.ds Xy , which are the top-left outside corner of the window's
+.ds Xy , which are the top-left outside corner of the window's \
 borders and are relative to the inside of the parent window's borders
 .IP \fIx\fP 1i
 .br

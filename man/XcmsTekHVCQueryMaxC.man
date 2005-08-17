@@ -174,20 +174,20 @@ such that the Chroma is the maximum attainable for the Value and Hue.
 The white point associated with the returned
 color specification is the Screen White Point.
 The value returned in the pixel member is undefined.
-.ds Lc maximum Chroma along with the actual Hue and Value (MaxC),
-maximum Value along with the Hue and Chroma (MaxV),
-color specification in XcmsTekHVC for the maximum Chroma,
-the Value at which that maximum Chroma is reached and actual Hue (MaxVC)
+.ds Lc maximum Chroma along with the actual Hue and Value (MaxC), \
+maximum Value along with the Hue and Chroma (MaxV), \
+color specification in XcmsTekHVC for the maximum Chroma, \
+the Value at which that maximum Chroma is reached and actual Hue (MaxVC) \
 or minimum Value and the actual Hue and Chroma (MinL)
-.ds lC maximum Chroma (MaxC and MaxVC), maximum Value (MaxV), or
+.ds lC maximum Chroma (MaxC and MaxVC), maximum Value (MaxV), or \
 minimum Value (MinL)
 .IP \fIcolor_return\fP 1i
 Returns the \*(Lc at which the \*(lC was found.
 The white point associated with the returned
 color specification is the Screen White Point.
 The value returned in the pixel member is undefined.
-.ds Hu in which to find the maximum Chroma (MaxC and MaxVC),
-maximum Value (MaxV), the maximum Chroma/Value samples (MaxVSamples),
+.ds Hu in which to find the maximum Chroma (MaxC and MaxVC), \
+maximum Value (MaxV), the maximum Chroma/Value samples (MaxVSamples), \
 or the minimum Value (MinL)
 .IP \fIhue\fP 1i
 Specifies the Hue \*(Hu.

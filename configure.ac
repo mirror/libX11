@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.57)
 AC_INIT([libX11],
-        0.99.0,
+        0.99.1,
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
@@ -138,6 +138,15 @@ xyes)
 esac
 AC_SUBST(XTHREADS)
 AC_SUBST(XUSE_MTSAFE_API)
+
+dnl XXX incomplete, please fill this in
+if test x$xthreads == xyes ; then
+    case $host_os in
+    linux*)
+        XTHREADLIB=-lpthread ;;
+    esac
+fi
+AC_SUBST(XTHREADLIB)
 
 AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
 

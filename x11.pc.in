@@ -3,6 +3,8 @@ exec_prefix=@exec_prefix@
 libdir=@libdir@
 includedir=@includedir@
 
+xthreadlib=@XTHREADLIB@
+
 Name: X11
 Description: X Library
 Version: @PACKAGE_VERSION@

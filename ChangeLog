@@ -1,3 +1,11 @@
+2005-08-21  Matthieu Herrb <matthieu.herrb@laas.fr>
+
+	* configure.ac:
+	* src/Makefile.am:
+	Threads support for BSD systems: 
+	- add a test if USE_MT_SAFE_API should be defined
+	- build UIThrStubs if needed. 
+
 2005-08-17  Adam Jackson  <ajax@freedesktop.org>
 
 	* configure.ac:

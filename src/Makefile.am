@@ -326,13 +326,18 @@ if UDC
 libX11_la_SOURCES+=udcInf.c
 endif
 
+if THRSTUBS
+libX11_la_SOURCES+=UIThrStubs.c
+endif
+
 x11datadir = @X11_DATADIR@
 x11data_DATA = XKeysymDB XErrorDB
 
 EXTRA_DIST = \
 	$(x11data_DATA) \
 	os2Stubs.c \
-	udcInf.c
+	udcInf.c \
+	UIThrStubs.c 
 
 #
 # Figure out which sub-libraries to link into Xlib

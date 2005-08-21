@@ -128,16 +128,24 @@ AC_ARG_ENABLE(xthreads,
                 [Disable Xlib support for Multithreading]),
               [xthreads=$enableval],[xthreads=yes])
 
+AC_CHECK_LIB(c, getpwuid_r, [mtsafeapi="yes"], [mtsafeapi="no"])
+
 case x$xthreads in
 xyes)
 	AC_DEFINE(XTHREADS,[],[Whether libX11 is compiled with thread support])
+	if test x$mtsafeapi = xyes
+	then
 	AC_DEFINE(XUSE_MTSAFE_API,[],[Whether libX11 needs to use MT safe API's])
+	fi
 	;;
 *)
 	;;
 esac
 AC_SUBST(XTHREADS)
 AC_SUBST(XUSE_MTSAFE_API)
+
+AC_CHECK_LIB(c, pthread_self, [thrstubs="no"], [thrstubs="yes"])
+AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
 
 dnl XXX incomplete, please fill this in
 if test x$xthreads == xyes ; then
@@ -379,6 +387,8 @@ echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
 echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
 echo " Threading support:                       "$xthreads
+echo " Use Threads safe API:                    "$mtsafeapi
+echo " Threads stubs in libX11:                 "$thrstubs
 echo " XCMS:                                    "$XCMS
 echo " Internationalization support:            "$XLOCALE
 echo " XF86BigFont support:                     "$XF86BIGFONT

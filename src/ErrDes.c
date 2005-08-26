@@ -1,6 +1,6 @@
 /*
  * $Xorg: ErrDes.c,v 1.4 2001/02/09 02:03:32 xorgcvs Exp $
- * $XdotOrg: lib/X11/src/ErrDes.c,v 1.7 2005-07-03 07:00:55 daniels Exp $
+ * $XdotOrg: lib/X11/src/ErrDes.c,v 1.8 2005-08-26 05:16:46 daniels Exp $
  */
 
 /***********************************************************
@@ -60,7 +60,11 @@ SOFTWARE.
 #include <stdio.h>
 
 #ifndef ERRORDB
+#ifndef XERRORDB
 #define ERRORDB "/usr/lib/X11/XErrorDB"
+#else
+#define ERRORDB XERRORDB
+#endif
 #endif
 
 /*

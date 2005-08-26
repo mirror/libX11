@@ -39,7 +39,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Key.h"
 
 #ifndef KEYSYMDB
+#ifndef XKEYSYMDB
 #define KEYSYMDB "/usr/lib/X11/XKeysymDB"
+#else
+#define KEYSYMDB XKEYSYMDB
+#endif
 #endif
 
 static Bool initialized;

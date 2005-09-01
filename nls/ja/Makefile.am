@@ -1,3 +1,3 @@
-x11thislocaledir = @X11_LOCALEDATADIR@/ja
+x11thislocaledir = $(X11_LOCALEDATADIR)/ja
 
 include $(top_srcdir)/nls/localerules.in

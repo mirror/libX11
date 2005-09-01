@@ -1,4 +1,4 @@
-x11localedir = @X11_LOCALEDATADIR@
+x11localedir = $(X11_LOCALEDATADIR)
 
 EXTRA_DIST = locale.alias.pre compose.dir.pre
 

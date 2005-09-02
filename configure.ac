@@ -36,6 +36,15 @@ AC_SUBST(X11_LIBS)
 AC_SUBST(XDMCP_CFLAGS)
 AC_SUBST(XDMCP_LIBS)
 
+dnl Issue an error if xtrans.m4 was not found and XTRANS_CONNECTION_FLAGS macro
+dnl was not expanded, since libX11 with no transport types is rather useless.
+dnl
+dnl If you're seeing an error here, be sure you installed the lib/xtrans module
+dnl first and if it's not in the default location, that you set the ACLOCAL
+dnl environment variable to find it, such as:
+dnl	ACLOCAL="aclocal -I ${PREFIX}/share/aclocal"
+m4_pattern_forbid(XTRANS_CONNECTION_FLAGS)
+
 # Transport selection macro from xtrans.m4
 XTRANS_CONNECTION_FLAGS
 

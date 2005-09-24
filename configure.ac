@@ -29,10 +29,12 @@ PKG_CHECK_MODULES(XPROTO, xproto)
 AC_SUBST(XPROTO_LIBS)
 AC_SUBST(XPROTO_CFLAGS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto xdmcp)
+PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto)
 
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)
+
+PKG_CHECK_MODULES(XDMCP, xdmcp)
 AC_SUBST(XDMCP_CFLAGS)
 AC_SUBST(XDMCP_LIBS)
 
@@ -161,9 +163,13 @@ if test x$xthreads == xyes ; then
     case $host_os in
     linux*|openbsd*)
         XTHREADLIB=-lpthread ;;
+    solaris*)
+	XTHREAD_CFLAGS="-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS" ;;
     esac
 fi
 AC_SUBST(XTHREADLIB)
+AC_SUBST(XTHREAD_CFLAGS)
+X11_CFLAGS="$X11_CFLAGS $XTHREAD_CFLAGS"
 
 AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
 

@@ -1,3 +1,12 @@
+2005-09-21  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* x11.pc.in: 
+	* configure.ac:
+	Add XTHREAD_CFLAGS for platforms that need special defines like
+	-D_REENTRANT or -D_POSIX_whatever to get re-entrant function
+	definitions.
+	Set XDMCP_LIBS correctly for later libXdmcp tests.
+
 2005-09-01  Kristian Høgsberg  <krh@redhat.com>
 
 	* nls/C/Makefile.am:

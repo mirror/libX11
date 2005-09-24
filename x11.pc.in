@@ -9,4 +9,4 @@ Name: X11
 Description: X Library
 Version: @PACKAGE_VERSION@
 Libs: -L${libdir} -lX11 @XPROTO_LIBS@ @LIBS@
-Cflags: -I${includedir} @XPROTO_CFLAGS@
+Cflags: -I${includedir} @XPROTO_CFLAGS@ @XTHREAD_CFLAGS@

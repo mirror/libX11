@@ -109,6 +109,7 @@ libman_SOURCES = \
 	XrmPutResource.man \
 	XQueryBestSize.man \
 	XQueryColor.man \
+	XQueryExtension.man \
 	XQueryPointer.man \
 	XQueryTree.man \
 	XReparentEvent.man \

@@ -1,4 +1,4 @@
-XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.9 2005-08-04 02:55:49 alanc Exp $
+XCOMM	$XdotOrg: lib/X11/nls/locale.alias.pre,v 1.10 2005-09-30 07:40:03 daniels Exp $
 XCOMM	$Xorg: locale.alias,v 1.3 2000/08/17 19:46:48 cpqbld Exp $
 XCOMM
 XCOMM	This file contains alias name of locale.
@@ -25,6 +25,7 @@ af:						af_ZA.ISO8859-1
 af_ZA:						af_ZA.ISO8859-1
 af_ZA.iso88591:					af_ZA.ISO8859-1
 af_ZA.ISO-8859-1:				af_ZA.ISO8859-1
+af_ZA.utf8:				af_ZA.UTF-8
 am:						am_ET.UTF-8
 am_ET:						am_ET.UTF-8
 ar:						ar_AA.ISO8859-6
@@ -803,6 +804,14 @@ no_NO.ISO-8859-1:				no_NO.ISO8859-1
 no_NO.iso885915:				no_NO.ISO8859-15
 no_NO.ISO-8859-15:				no_NO.ISO8859-15
 no_NO.utf8:					no_NO.UTF-8
+nr:							nr_ZA.ISO8859-1
+nr_ZA:						nr_ZA.ISO8859-1
+nr_ZA.iso88591:				nr_ZA.ISO8859-1
+nr_ZA.utf8:					nr_ZA.UTF-8
+nso:						nso_ZA.ISO8859-15
+nso_ZA:						nso_ZA.ISO8859-15
+nso_ZA.iso885915:			nso_ZA.ISO8859-15
+nso_ZA.utf8:				nso_ZA.UTF-8
 ny:						ny_NO.ISO8859-1
 ny_NO:						ny_NO.ISO8859-1
 ny_NO.88591:					ny_NO.ISO8859-1
@@ -929,6 +938,14 @@ sr_YU.microsoft-cp1251@cyrillic:		sr_YU.CP1251
 sr_YU.MICROSOFT-CP1251@cyrillic:		sr_YU.CP1251
 sr_YU.utf8:					sr_YU.UTF-8
 sr_YU.UTF-8@cyrillic:				sr_YU.UTF-8
+ss:							ss_ZA.ISO8859-1
+ss_ZA:						ss_ZA.ISO8859-1
+ss_ZA.iso88591:				ss_ZA.ISO8859-1
+ss_ZA.utf8:					ss_ZA.UTF-8
+st:							st_ZA.ISO8859-1
+st_ZA:						st_ZA.ISO8859-1
+st_ZA.iso88591:				st_ZA.ISO8859-1
+st_ZA.utf8:					st_ZA.UTF-8
 sv:						sv_SE.ISO8859-1
 sv_FI:						sv_FI.ISO8859-1
 sv_FI.iso88591:					sv_FI.ISO8859-1
@@ -967,6 +984,10 @@ tl:						tl_PH.ISO8859-1
 tl_PH:						tl_PH.ISO8859-1
 tl_PH.iso88591:					tl_PH.ISO8859-1
 tl_PH.ISO-8859-1:				tl_PH.ISO8859-1
+tn:						tn_ZA.ISO8859-15
+tn_ZA:					tn_ZA.ISO8859-15
+tn_ZA.iso8859-15:		tn_ZA.ISO8859-15
+tn_ZA.utf8:				tn_ZA.UTF-8
 tr:						tr_TR.ISO8859-9
 tr_TR:						tr_TR.ISO8859-9
 TR_TR:						tr_TR.ISO8859-9
@@ -974,6 +995,10 @@ tr_TR.iso88599:					tr_TR.ISO8859-9
 tr_TR.ISO-8859-9:				tr_TR.ISO8859-9
 tr_TR.utf8:					tr_TR.UTF-8
 TR_TR.utf8:					tr_TR.UTF-8
+ts:							ts_ZA.ISO8859-1
+ts_ZA:						ts_ZA.ISO8859-1
+ts_ZA.iso88591:				ts_ZA.ISO8859-1
+ts_ZA.utf8:					ts_ZA.UTF-8
 tt:						tt_RU.TATAR-CYR
 tt_RU:						tt_RU.TATAR-CYR
 tt_RU.tatarcyr:					tt_RU.TATAR-CYR
@@ -998,6 +1023,9 @@ uz_UZ:						uz_UZ.UTF-8
 uz_UZ.ISO-8859-1:				uz_UZ.ISO8859-1
 uz_UZ@cyrillic:					uz_UZ.UTF-8
 uz_UZ.UTF-8@cyrillic:				uz_UZ.UTF-8
+ve:						ve_ZA.UTF-8
+ve_ZA:					ve_ZA.UTF-8
+ve_ZA.utf8:				ve_ZA.UTF-8
 vi:						vi_VN.TCVN
 vi_VN:						vi_VN.TCVN
 Vi_VN:						vi_VN.TCVN
@@ -1016,6 +1044,10 @@ wa_BE.iso885915:				wa_BE.ISO8859-15
 wa_BE.ISO-8859-15:				wa_BE.ISO8859-15
 wa_BE.ISO-8859-15@euro:				wa_BE.ISO8859-15
 wa_BE@euro:					wa_BE.ISO8859-15
+xh:							xh_ZA.ISO8859-1
+xh_ZA:						xh_ZA.ISO8859-1
+xh_ZA.iso88591:				xh_ZA.ISO8859-1
+xh_ZA.utf8:					xh_ZA.UTF-8
 yi:						yi_US.CP1255
 yi_US:						yi_US.CP1255
 yi_US.cp1255:					yi_US.CP1255
@@ -1051,6 +1083,10 @@ zh_TW.EUC:					zh_TW.eucTW
 zh_TW.EUC-TW:					zh_TW.eucTW
 zh_TW.utf8:					zh_TW.UTF-8
 ZH_TW.UTF-8:					zh_TW.UTF-8
+zu:							zu_ZA.ISO8859-1
+zu_ZA:						zu_ZA.ISO8859-1
+zu_ZA.iso88591:				zu_ZA.ISO8859-1
+zu_ZA.utf8:					zu_ZA.UTF-8
 
 XCOMM The following locale names are used in SCO 3.0
 english_uk.8859:				en_GB.ISO8859-1

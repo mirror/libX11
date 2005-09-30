@@ -31,7 +31,7 @@ microsoft-cp1251/Compose:	bg_BG.CP1251
 iso8859-1/Compose:		br_FR.ISO8859-1
 iso8859-14/Compose:		br_FR.ISO8859-14
 iso8859-15/Compose:		br_FR.ISO8859-15
-iso8859-2/Compose              bs_BA.ISO8859-2
+iso8859-2/Compose:		bs_BA.ISO8859-2
 iso8859-1/Compose:		ca_ES.ISO8859-1
 iso8859-15/Compose:		ca_ES.ISO8859-15
 iso8859-2/Compose:		cs_CZ.ISO8859-2
@@ -168,6 +168,8 @@ iso8859-1/Compose:		nb_NO.ISO8859-1
 iso8859-15/Compose:		nb_NO.ISO8859-15
 iso8859-1/Compose:		nn_NO.ISO8859-1
 iso8859-15/Compose:		nn_NO.ISO8859-15
+iso8859-1/Compose:		nr_ZA.ISO8859-1
+iso8859-15/Compose:		nso_ZA.ISO8859-15
 iso8859-1/Compose:		ny_NO.ISO8859-1
 iso8859-15/Compose:		ny_NO.ISO8859-15
 iso8859-1/Compose:		oc_FR.ISO8859-1
@@ -186,15 +188,17 @@ koi8-r/Compose:			ru_RU.KOI8-R
 iso8859-5/Compose:		ru_RU.ISO8859-5
 microsoft-cp1251/Compose:	ru_RU.CP1251
 koi8-u/Compose:			ru_UA.KOI8-U
-iso8859-2/Compose: 		sh_YU.ISO8859-2
-iso8859-2/Compose: 		sk_SK.ISO8859-2
-iso8859-2/Compose: 		sl_CS.ISO8859-2
-iso8859-2/Compose: 		sl_SI.ISO8859-2
+iso8859-2/Compose:		sh_YU.ISO8859-2
+iso8859-2/Compose:		sk_SK.ISO8859-2
+iso8859-2/Compose:		sl_CS.ISO8859-2
+iso8859-2/Compose:		sl_SI.ISO8859-2
 iso8859-5/Compose:		sp_YU.ISO8859-5
-iso8859-2/Compose: 		sq_AL.ISO8859-2
+iso8859-2/Compose:		sq_AL.ISO8859-2
 iso8859-2/Compose:		sr_SP.ISO8859-2
 iso8859-2/Compose:		sr_YU.ISO8859-2
 iso8859-5/Compose:		sr_YU.ISO8859-5
+iso8859-1/Compose:		ss_ZA.ISO8859-1
+iso8859-1/Compose:		st_ZA.ISO8859-1
 iso8859-1/Compose:		sv_FI.ISO8859-1
 iso8859-15/Compose:		sv_FI.ISO8859-15
 iso8859-1/Compose:		sv_SE.ISO8859-1
@@ -202,7 +206,9 @@ iso8859-15/Compose:		sv_SE.ISO8859-15
 tscii-0/Compose:		ta_IN.TSCII-0
 koi8-c/Compose:			tg_TJ.KOI8-C
 iso8859-1/Compose:		tl_PH.ISO8859-1
+iso8859-15/Compose:		tn_ZA.ISO8859-15
 iso8859-9/Compose:		tr_TR.ISO8859-9
+iso8859-1/Compose:		ts_ZA.ISO8859-1
 tatar-cyr/Compose:		tt_RU.TATAR-CYR
 koi8-c/Compose:			tt_RU.KOI8-C
 koi8-u/Compose:			uk_UA.KOI8-U
@@ -210,6 +216,7 @@ microsoft-cp1256/Compose:	ur_PK.CP1256
 vi_VN.viscii/Compose:		vi_VN.VISCII
 vi_VN.tcvn/Compose:		vi_VN.TCVN
 iso8859-1/Compose:		wa_BE.ISO8859-1
+iso8859-1/Compose:		xh_ZA.ISO8859-1
 microsoft-cp1255/Compose:	yi_US.CP1256
 zh_CN/Compose:			zh_CN.eucCN
 zh_CN/Compose:			zh_CN.GB2312
@@ -222,6 +229,7 @@ zh_HK.big5hkscs/Compose:	zh_HK.Big5HKSCS
 zh_TW.big5/Compose:		zh_TW.big5
 zh_TW.big5/Compose:		zh_TW.Big5
 zh_TW/Compose:			zh_TW.eucTW
+iso8859-1/Compose:		zu_ZA.ISO8859-1
 XCOMM
 XCOMM
 en_US.UTF-8/Compose:		af_ZA.UTF-8
@@ -240,7 +248,7 @@ en_US.UTF-8/Compose:		ar_QA.UTF-8
 en_US.UTF-8/Compose:		ar_SA.UTF-8
 en_US.UTF-8/Compose:		ar_TN.UTF-8
 en_US.UTF-8/Compose:		ar_YE.UTF-8
-en_US.UTF-8/Compose            bs_BA.UTF-8
+en_US.UTF-8/Compose:		bs_BA.UTF-8
 en_US.UTF-8/Compose:		az_AZ.UTF-8
 en_US.UTF-8/Compose:		a3_AZ.UTF-8
 en_US.UTF-8/Compose:		be_BY.UTF-8
@@ -330,6 +338,8 @@ en_US.UTF-8/Compose:		nl_BE.UTF-8
 en_US.UTF-8/Compose:		nl_NL.UTF-8
 en_US.UTF-8/Compose:		no_NO.UTF-8
 en_US.UTF-8/Compose:		nb_NO.UTF-8
+en_US.UTF-8/Compose:		nr_ZA.UTF-8
+en_US.UTF-8/Compose:		nso_ZA.UTF-8
 en_US.UTF-8/Compose:		ny_NO.UTF-8
 en_US.UTF-8/Compose:		oc_FR.UTF-8
 en_US.UTF-8/Compose:		pa_IN.UTF-8
@@ -348,20 +358,26 @@ en_US.UTF-8/Compose:		sk_SK.UTF-8
 en_US.UTF-8/Compose:		sl_SI.UTF-8
 en_US.UTF-8/Compose:		sq_AL.UTF-8
 en_US.UTF-8/Compose:		sr_YU.UTF-8
+en_US.UTF-8/Compose:		ss_ZA.UTF-8
+en_US.UTF-8/Compose:		st_ZA.UTF-8
 en_US.UTF-8/Compose:		sv_FI.UTF-8
 en_US.UTF-8/Compose:		sv_SE.UTF-8
 en_US.UTF-8/Compose:		ta_IN.UTF-8
 en_US.UTF-8/Compose:		tg_TJ.UTF-8
 en_US.UTF-8/Compose:		th_TH.UTF-8
 en_US.UTF-8/Compose:		tl_PH.UTF-8
+en_US.UTF-8/Compose:		tn_ZA.UTF-8
 en_US.UTF-8/Compose:		tr_TR.UTF-8
+en_US.UTF-8/Compose:		ts_ZA.UTF-8
 en_US.UTF-8/Compose:		tt_RU.UTF-8
 en_US.UTF-8/Compose:		uk_UA.UTF-8
 en_US.UTF-8/Compose:		ur_PK.UTF-8
 en_US.UTF-8/Compose:		uz_UZ.UTF-8
+en_US.UTF-8/Compose:		ve_ZA.UTF-8
 en_US.UTF-8/Compose:		vi_VN.UTF-8
 en_US.UTF-8/Compose:		wa_BE.UTF-8
 en_US.UTF-8/Compose:		yi_US.UTF-8
+en_US.UTF-8/Compose:		xh_ZA.UTF-8
 en_US.UTF-8/Compose:		zh_TW.UTF-8
-iso8859-2/Compose:             bs_BA.ISO8859-2
-en_US.UTF-8/Compose:           bs_BA.UTF-8
+en_US.UTF-8/Compose:		zu_ZA.UTF-8
+en_US.UTF-8/Compose:		bs_BA.UTF-8

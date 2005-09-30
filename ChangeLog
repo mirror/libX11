@@ -1,3 +1,10 @@
+2005-09-30  Daniel Stone  <daniel@fooishbar.org>
+
+	* nls/Makefile.am:
+	Generate locale.alias and compose.dir exactly like we do in the monolith,
+	which fixes non-UTF-8 locales in particular (so we get foo: bar, as well as
+	foo bar).  Switch to generating locale.dir the same way.
+
 2005-09-21  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* x11.pc.in: 

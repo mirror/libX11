@@ -13,6 +13,7 @@ DISTCLEANFILES= \
 SUBDIRS= \
 	armscii-8		\
 	C			\
+	el_GR.UTF-8		\
 	en_US.UTF-8		\
 	georgian-academy	\
 	georgian-ps		\

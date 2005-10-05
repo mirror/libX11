@@ -341,6 +341,7 @@ AC_OUTPUT([Makefile
 	   nls/Makefile
 	   nls/armscii-8/Makefile
 	   nls/C/Makefile
+	   nls/el_GR.UTF-8/Makefile
 	   nls/en_US.UTF-8/Makefile
 	   nls/georgian-academy/Makefile
 	   nls/georgian-ps/Makefile

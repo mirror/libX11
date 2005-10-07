@@ -5,4 +5,4 @@ EXTRA_DIST = XLC_LOCALE.pre Compose.pre
 dist_x11thislocale_DATA = XI18N_OBJS
 x11thislocale_DATA = XLC_LOCALE Compose
 
-DISTCLEANFILES = XLC_LOCALE Compose
+CLEANFILES = XLC_LOCALE Compose

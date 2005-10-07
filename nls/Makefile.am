@@ -4,7 +4,7 @@ EXTRA_DIST = locale.alias.pre compose.dir.pre locale.dir.pre
 
 x11locale_DATA = locale.alias locale.dir compose.dir
 
-DISTCLEANFILES= \
+CLEANFILES= \
 	locale.alias locale.alias.l1 locale.alias.l2 \
 	compose.dir compose.dir.l1 compose.dir.l2 \
 	locale.dir locale.dir.l1 locale.dir.l2 \

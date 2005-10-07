@@ -129,3 +129,8 @@ libi18n_la_SOURCES = \
 	lcUniConv/utf8.h\
 	lcUniConv/viscii.h
 
+EXTRA_DIST = \
+	lcUniConv/README \
+	lcUniConv/COPYRIGHT \
+	lcUniConv/8bit_tab_to_h.c \
+	lcUniConv/cjk_tab_to_h.c

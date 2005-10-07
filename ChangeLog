@@ -1,3 +1,13 @@
+2005-10-07  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* nls/Makefile.am:
+	* nls/localerules.in:
+	Clean up generated files
+
+	* src/util/Makefile.am:
+	* src/xlibi18n/Makefile.am:
+	Add missing dist tarball files
+
 2005-09-30  Daniel Stone  <daniel@fooishbar.org>
 
 	* nls/Makefile.am:

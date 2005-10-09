@@ -1,4 +1,6 @@
 ! $Xorg: XErrorDB,v 1.3 2000/08/17 19:44:59 cpqbld Exp $
+! $XdotOrg: lib/X11/src/XErrorDB,v 1.3 2005-10-09 22:28:39 alanc Exp $
+!
 ! Copyright 1993, 1995, 1998  The Open Group
 
 ! Permission to use, copy, modify, distribute, and sell this software and its
@@ -883,3 +885,35 @@ XProtoError.RENDER.3: RenderBadGlyphSet (invalid GlyphSet parameter)
 XlibMessage.RENDER.3: GlyphSet id in failed request: 0x%lx
 XProtoError.RENDER.4: RenderBadGlyph (invalid Glyph parameter)
 XlibMessage.RENDER.4: Glyph in failed request: 0x%lx
+! XFixes
+XRequest.XFIXES.0: XFixesQueryVersion
+XRequest.XFIXES.1: XFixesChangeSaveSet
+XRequest.XFIXES.2: XFixesSelectSelectionInput
+XRequest.XFIXES.3: XFixesSelectCursorInput
+XRequest.XFIXES.4: XFixesGetCursorImage
+XRequest.XFIXES.5: XFixesCreateRegion
+XRequest.XFIXES.6: XFixesCreateRegionFromBitmap
+XRequest.XFIXES.7: XFixesCreateRegionFromWindow
+XRequest.XFIXES.8: XFixesCreateRegionFromGC
+XRequest.XFIXES.9: XFixesCreateRegionFromPicture
+XRequest.XFIXES.10: XFixesDestroyRegion
+XRequest.XFIXES.11: XFixesSetRegion
+XRequest.XFIXES.12: XFixesCopyRegion
+XRequest.XFIXES.13: XFixesUnionRegion
+XRequest.XFIXES.14: XFixesIntersectRegion
+XRequest.XFIXES.15: XFixesSubtractRegion
+XRequest.XFIXES.16: XFixesInvertRegion
+XRequest.XFIXES.17: XFixesTranslateRegion
+XRequest.XFIXES.18: XFixesRegionExtents
+XRequest.XFIXES.19: XFixesFetchRegion
+XRequest.XFIXES.20: XFixesSetGCClipRegion
+XRequest.XFIXES.21: XFixesSetWindowShapeRegion
+XRequest.XFIXES.22: XFixesSetPictureClipRegion
+XRequest.XFIXES.23: XFixesSetCursorName
+XRequest.XFIXES.24: XFixesGetCursorName
+XRequest.XFIXES.25: XFixesGetCursorImageAndName
+XRequest.XFIXES.26: XFixesChangeCursor
+XRequest.XFIXES.27: XFixesChangeCursorByName
+XRequest.XFIXES.28: XFixesExpandRegion
+XProtoError.XFIXES.0: BadRegion (invalid Region parameter)
+XlibMessage.XFIXES.0: Region id in failed request:  0x%lx

@@ -163,6 +163,9 @@ if test x$xthreads == xyes ; then
     case $host_os in
     linux*|openbsd*)
         XTHREADLIB=-lpthread ;;
+    freebsd*)
+        XTHREAD_CFLAGS="-D_THREAD_SAFE"
+        XTHREADLIB="-pthread" ;;
     solaris*)
 	XTHREAD_CFLAGS="-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS" ;;
     esac

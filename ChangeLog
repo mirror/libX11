@@ -1,3 +1,9 @@
+2005-10-10  Eric Anholt  <anholt@FreeBSD.org>
+
+	* configure.ac:
+	Add appropriate pthread libs/flags for FreeBSD, fixing the build of ico
+	and probably others.
+
 2005-10-07  Kevin E. Martin  <kem-at-freedesktop-dot-org>
 
 	* nls/Makefile.am:

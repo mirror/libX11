@@ -267,18 +267,18 @@ AC_ARG_ENABLE(xkb,
                 [Disable XKB support *EXPERIMENTAL*]),
               [XKB=$enableval],[XKB=yes])
 
+XORG_MANPAGE_SECTIONS
+
 AC_ARG_ENABLE(man-pages, 
 	      AC_HELP_STRING([--enable-man-pages=section], 
 			     [Choose manual section for installing man pages]),
-		[LIBMAN_SUFFIX=$enableval],[LIBMAN_SUFFIX=3x])
+		[LIBMAN=$enableval],[LIBMAN=yes])
 		
-if test "x$LIBMAN_SUFFIX" = "xyes"; then
-	LIBMAN_SUFFIX=3x
+if test "x$LIBMAN" != "xyes"; then
+	LIB_MAN_SUFFIX=$LIBMAN
 fi
 
-AC_SUBST(LIBMAN_SUFFIX)
-
-AM_CONDITIONAL(MANPAGES, [ test x$LIBMAN_SUFFIX '!=' xno ])
+AM_CONDITIONAL(MANPAGES, [ test x$LIBMAN '!=' xno ])
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
 if test x"$XKB" = "xyes"; then

@@ -1,3 +1,10 @@
+2005-10-11  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* man/Makefile.am: 
+	* configure.ac
+	Use XORG_MAN_SECTIONS instead of custom man section configuration.
+	Add shadow man pages for man pages that document multiple functions.
+	
 2005-10-10  Eric Anholt  <anholt@FreeBSD.org>
 
 	* configure.ac:

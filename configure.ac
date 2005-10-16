@@ -159,7 +159,7 @@ AC_CHECK_LIB(c, pthread_self, [thrstubs="no"], [thrstubs="yes"])
 AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
 
 dnl XXX incomplete, please fill this in
-if test x$xthreads == xyes ; then
+if test x$xthreads = xyes ; then
     case $host_os in
     linux*|openbsd*)
         XTHREADLIB=-lpthread ;;
@@ -248,7 +248,7 @@ AC_ARG_ENABLE(xlocaledir,
 	      AC_HELP_STRING([--enable-xlocaledir],
 		[Enable XLOCALEDIR environment variable support]),
 	      [ENABLE_XLOCALEDIR=$enableval],[ENABLE_XLOCALEDIR=$XLOCALEDIR_IS_SAFE])
-if test "x$ENABLE_XLOCALEDIR" == "xno"; then
+if test "x$ENABLE_XLOCALEDIR" = "xno"; then
 	AC_DEFINE(NO_XLOCALEDIR,1,[Disable XLOCALEDIR environment variable])
 fi
 AC_MSG_RESULT($ENABLE_XLOCALEDIR)

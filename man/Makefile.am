@@ -193,7 +193,7 @@ if MANPAGES
 libman_DATA = $(libman_SOURCES:man=$(LIB_MAN_SUFFIX)) \
 	      $(all_shadows:=.$(LIB_MAN_SUFFIX))
 
-BUILT_SOURCES = .shadows.DONE
+BUILT_SOURCES = shadows.DONE
 endif
 
 EXTRA_DIST = $(libman_SOURCES)
@@ -1070,7 +1070,7 @@ XmbTextExtents_shadows =                    \
 XmbTextPerCharExtents_shadows =             \
     XwcTextPerCharExtents                   \
     Xutf8TextPerCharExtents
-.shadows.DONE:
+shadows.DONE:
 	-rm -f $(all_aliases:=.$(LIB_MAN_SUFFIX))
 	(for i in $(AllPlanes_shadows:=.$(LIB_MAN_SUFFIX)) ; do \
 	 echo .so man$(LIB_MAN_SUFFIX)/AllPlanes.$(LIB_MAN_SUFFIX) > $$i; \

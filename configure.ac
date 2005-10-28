@@ -29,7 +29,7 @@ PKG_CHECK_MODULES(XPROTO, xproto)
 AC_SUBST(XPROTO_LIBS)
 AC_SUBST(XPROTO_CFLAGS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto)
+PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto inputproto)
 
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)

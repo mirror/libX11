@@ -1,5 +1,10 @@
 2005-10-28  Donnie Berkholz  <spyderous@gentoo.org>
 
+	* configure.ac: Revert that, it's redundant. But it is worth noting that
+	--disable-xkb is broken, if anyone cares.
+
+2005-10-28  Donnie Berkholz  <spyderous@gentoo.org>
+
 	* configure.ac: Add dependency on inputproto for XI.h.
 
 2005-10-18  Kevin E. Martin  <kem-at-freedesktop-dot-org>

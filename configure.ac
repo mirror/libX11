@@ -26,13 +26,9 @@ AC_SUBST(BIGREQS_CFLAGS)
 AC_SUBST(BIGREQS_LIBS)
 
 PKG_CHECK_MODULES(XPROTO, xproto)
-AC_SUBST(XPROTO_LIBS)
 AC_SUBST(XPROTO_CFLAGS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto)
-
-AC_SUBST(X11_CFLAGS)
-AC_SUBST(X11_LIBS)
+PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto xf86bigfontproto)
 
 PKG_CHECK_MODULES(XDMCP, xdmcp)
 AC_SUBST(XDMCP_CFLAGS)
@@ -297,6 +293,10 @@ fi
 
 X11_DATADIR="${datadir}/X11"
 X11_LIBDIR="${libdir}/X11"
+
+X11_CFLAGS="$X11_CFLAGS $XPROTO_CFLAGS"
+AC_SUBST(X11_CFLAGS)
+AC_SUBST(X11_LIBS)
 
 #
 # Yes, it would be nice to put the locale data in

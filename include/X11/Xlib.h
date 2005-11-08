@@ -1,4 +1,4 @@
-/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.5 2005-07-03 07:00:55 daniels Exp $ */
+/* $XdotOrg: lib/X11/include/X11/Xlib.h,v 1.6 2005-11-08 06:33:25 jkj Exp $ */
 /* $Xorg: Xlib.h,v 1.6 2001/02/09 02:03:38 xorgcvs Exp $ */
 /* 
 
@@ -53,7 +53,7 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #endif /* USG */
 
-#if defined(SCO325) || defined(__USLC__)
+#if defined(__SCO__) || defined(__UNIXWARE__)
 #include <stdint.h>
 #endif
 
@@ -65,10 +65,8 @@ in this Software without prior written authorization from The Open Group.
 
 #ifndef X_WCHAR
 #ifdef X_NOT_STDC_ENV
-#ifndef SCO324
 #ifndef ISC
 #define X_WCHAR
-#endif
 #endif
 #endif
 #endif

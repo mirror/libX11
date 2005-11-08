@@ -43,6 +43,10 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef XTHREADS
 
+#ifdef __UNIXWARE__
+#include <dlfcn.h>
+#endif
+
 #include "locking.h"
 #ifdef XTHREADS_WARN
 #include <stdio.h>		/* for warn/debug stuff */
@@ -587,11 +591,27 @@ static int _XInitDisplayLock(
     return 0;
 }
 
+#ifdef __UNIXWARE__
+xthread_t __x11_thr_self() { return 0; }
+xthread_t (*_x11_thr_self)() = __x11_thr_self;
+#endif
+
 
 Status XInitThreads()
 {
     if (_Xglobal_lock)
 	return 1;
+#ifdef __UNIXWARE__
+    else {
+       void *dl_handle = dlopen(NULL, RTLD_LAZY);
+       if (!dl_handle ||
+         ((_x11_thr_self = (xthread_t(*)())dlsym(dl_handle,"thr_self")) == 0)) {
+	       _x11_thr_self = __x11_thr_self;
+	       (void) fprintf (stderr,
+	"XInitThreads called, but no libthread in the calling program!\n" );
+       }
+    }
+#endif /* __UNIXWARE__ */
 #ifdef xthread_init
     xthread_init();		/* return value? */
 #endif

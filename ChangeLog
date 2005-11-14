@@ -1,3 +1,8 @@
+2005-11-14  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* configure.ac:
+	Fix xf86bigfont pkgconfig dep typo.
+
 2005-11-09  Kevin E. Martin  <kem-at-freedesktop-dot-org>
 
 	* configure.ac:

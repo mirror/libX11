@@ -280,11 +280,15 @@ AM_CONDITIONAL(MANPAGES, [ test x$LIBMAN '!=' xno ])
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
 if test x"$XKB" = "xyes"; then
-   PKG_CHECK_MODULES(XKBPROTO, kbproto inputproto)
+   XKBPROTO_REQUIRES="kbproto inputproto"
+   PKG_CHECK_MODULES(XKBPROTO, $XKBPROTO_REQUIRES)
    AC_DEFINE(XKB,1,[Use XKB])
    X11_CFLAGS="$X11_CFLAGS $XKBPROTO_CFLAGS"
    X11_LIBS="$X11_LIBS $XKBPROTO_LIBS"
+else
+   XKBPROTO_REQUIRES=""
 fi
+AC_SUBST(XKBPROTO_REQUIRES)
 
 if test "x$GCC" = "xyes"; then
 	GCC_WARNINGS="-Wall -Wpointer-arith -Wstrict-prototypes \

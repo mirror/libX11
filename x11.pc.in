@@ -8,5 +8,8 @@ xthreadlib=@XTHREADLIB@
 Name: X11
 Description: X Library
 Version: @PACKAGE_VERSION@
-Libs: -L${libdir} -lX11 @XPROTO_LIBS@ @LIBS@
-Cflags: -I${includedir} @XPROTO_CFLAGS@ @XTHREAD_CFLAGS@
+Requires: xproto @XKBPROTO_REQUIRES@
+Requires.private: xau xdmcp
+Cflags: -I${includedir} @XTHREAD_CFLAGS@
+Libs: -L${libdir} -lX11
+Libs.private: @XTHREADLIB@

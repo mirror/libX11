@@ -1,6 +1,8 @@
 compose.dir
 compose.dir.l1
+compose.dir.l2
 locale.alias
 locale.alias.l1
+locale.alias.l2
 Makefile
 Makefile.in

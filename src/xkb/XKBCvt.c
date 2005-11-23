@@ -274,7 +274,12 @@ _XkbGetCharset()
 #else
         char *cf = __XOS2RedirRoot(CHARSET_FILE);
 #endif
-	if ( (stat(cf,&sbuf)==0) && (sbuf.st_mode&S_IFREG) &&
+
+#ifndef S_ISREG
+# define S_ISREG(mode)   (((mode) & S_IFMT) == S_IFREG)
+#endif
+	
+	if ( (stat(cf,&sbuf)==0) && S_ISREG(sbuf.st_mode) &&
 	    (file = fopen(cf,"r")) ) {
 	    tmp = _XkbAlloc(sbuf.st_size+1);
 	    if (tmp!=NULL) {

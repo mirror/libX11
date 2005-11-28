@@ -1,7 +1,7 @@
 # Have to fake out automake by calling our man pages "DATA" since "MANS" won't
 # accept .3x as a valid man page suffix
 
-libmandir = $(mandir)/man$(LIB_MAN_SUFFIX)
+libmandir = $(LIB_MAN_DIR)
 
 libman_SOURCES = \
 	AllPlanes.man \

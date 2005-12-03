@@ -1,3 +1,15 @@
+2005-12-02  Kevin E. Martin  <kem-at-freedesktop-dot-org>
+
+	* configure.ac:
+	* modules/im/ximcp/Makefile.am:
+	Add check and cflags for malloc(0) returning NULL.
+	* modules/lc/Utf8/Makefile.am:
+	* modules/om/generic/Makefile.am:
+	* src/Makefile.am:
+	* src/xcms/Makefile.am:
+	* src/xkb/Makefile.am:
+	* src/xlibi18n/Makefile.am:
+
 2005-11-19  Kevin E. Martin  <kem-at-freedesktop-dot-org>
 
 	* x11.pc.in:

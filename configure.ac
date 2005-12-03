@@ -327,6 +327,7 @@ AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
 AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
 
+XORG_CHECK_MALLOC_ZERO
 XORG_RELEASE_VERSION
 
 AC_OUTPUT([Makefile

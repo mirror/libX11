@@ -3,7 +3,7 @@
 
 libmandir = $(LIB_MAN_DIR)
 
-libman_SOURCES = \
+libman_PRE = \
 	AllPlanes.man \
 	BlackPixelOfScreen.man \
 	DisplayOfCCC.man \
@@ -190,13 +190,13 @@ libman_SOURCES = \
 # What we actually install 
 
 if MANPAGES
-libman_DATA = $(libman_SOURCES:man=@LIB_MAN_SUFFIX@) \
+libman_DATA = $(libman_PRE:man=@LIB_MAN_SUFFIX@) \
 	      $(all_shadows:=.@LIB_MAN_SUFFIX@)
 
 BUILT_SOURCES = shadows.DONE
 endif
 
-EXTRA_DIST = $(libman_SOURCES)
+EXTRA_DIST = $(libman_PRE)
 
 CLEANFILES = $(libman_DATA)
 

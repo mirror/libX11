@@ -1,3 +1,9 @@
+2006-02-12  Alan Coopersmith  <alan.coopersmith@sun.com>
+
+	* man/Makefile.am: 
+	Bug #5628 <https://bugs.freedesktop.org/show_bug.cgi?id=5628>
+	Shadow pages not created correctly when MANDIR & MANSUFFIX don't match.
+
 2006-02-03  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* man/XSupportsLocale.man: 

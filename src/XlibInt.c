@@ -577,6 +577,18 @@ int _XSeqSyncFunction(
     return 0;
 }
 
+static
+void _XSetSeqSyncFunction(
+    register Display *dpy)
+{
+    if ((dpy->request - dpy->last_request_read) >= SEQLIMIT &&
+	!(dpy->flags & XlibDisplayPrivSync)) {
+	dpy->savedsynchandler = dpy->synchandler;
+	dpy->synchandler = _XSeqSyncFunction;
+	dpy->flags |= XlibDisplayPrivSync;
+    }
+}
+
 #ifdef XTHREADS
 static void _XFlushInt(
         register Display *dpy,
@@ -689,12 +701,7 @@ static void _XFlushInt(
 	    }
 	}
 	dpy->last_req = (char *)&_dummy_request;
-	if ((dpy->request - dpy->last_request_read) >= SEQLIMIT &&
-	    !(dpy->flags & XlibDisplayPrivSync)) {
-	    dpy->savedsynchandler = dpy->synchandler;
-	    dpy->synchandler = _XSeqSyncFunction;
-	    dpy->flags |= XlibDisplayPrivSync;
-	}
+	_XSetSeqSyncFunction(dpy);
 	dpy->bufptr = dpy->buffer;
 #ifdef XTHREADS
 	dpy->flags &= ~XlibDisplayWriting;
@@ -1452,12 +1459,7 @@ _XSend (
 	    }
 	}
 	dpy->last_req = (char *) & _dummy_request;
-	if ((dpy->request - dpy->last_request_read) >= SEQLIMIT &&
-	    !(dpy->flags & XlibDisplayPrivSync)) {
-	    dpy->savedsynchandler = dpy->synchandler;
-	    dpy->synchandler = _XSeqSyncFunction;
-	    dpy->flags |= XlibDisplayPrivSync;
-	}
+	_XSetSeqSyncFunction(dpy);
 	dpy->bufptr = dpy->buffer;
 #ifdef XTHREADS
 	dpy->flags &= ~XlibDisplayWriting;

@@ -1,3 +1,10 @@
+2006-02-13  Jamey Sharp  <jamey@minilop.net>
+
+	* src/XlibInt.c:
+	Refactor _XFlush and _XSend code that sets dpy->synchandler to
+	_XSeqSyncFunction into a new function, _XSetSeqSyncFunction. It makes
+	the patch for XCB cleaner, but is arguably a good idea anyway.
+
 2006-02-12  Alan Coopersmith  <alan.coopersmith@sun.com>
 
 	* man/Makefile.am: 

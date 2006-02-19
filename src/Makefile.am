@@ -77,7 +77,6 @@ libX11_la_SOURCES = \
                   Clear.c \
 		  Cmap.h \
                   ConfWind.c \
-                  ConnDis.c \
                   Context.c \
                   ConvSel.c \
                   CopyArea.c \
@@ -184,7 +183,6 @@ libX11_la_SOURCES = \
                   LiProps.c \
                   ListExt.c \
                   LoadFont.c \
-                  LockDis.c \
                   locking.c \
                   locking.h \
                   LookupCol.c \
@@ -303,7 +301,6 @@ libX11_la_SOURCES = \
                   WMGeom.c \
                   WMProps.c \
                   WrBitF.c \
-                  x11_trans.c \
                   Xatomtype.h \
                   Xintatom.h \
                   Xintconn.h \
@@ -338,6 +335,18 @@ EXTRA_DIST = \
 	os2Stubs.c \
 	udcInf.c \
 	UIThrStubs.c 
+
+if XCB
+libX11_la_SOURCES += \
+                  xcl/xcblock.c \
+                  xcl/display.c \
+                  xcl/io.c
+else
+libX11_la_SOURCES += \
+                  ConnDis.c \
+                  LockDis.c \
+                  x11_trans.c
+endif
 
 #
 # Figure out which sub-libraries to link into Xlib

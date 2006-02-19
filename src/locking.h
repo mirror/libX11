@@ -40,11 +40,13 @@ in this Software without prior written authorization from The Open Group.
 #define xfree(s) Xfree(s)
 #include <X11/Xthreads.h>
 
+#if !USE_XCB
 struct _XCVList {
     xcondition_t cv;
     xReply *buf;
     struct _XCVList *next;
 };
+#endif /* !USE_XCB */
 
 extern xthread_t (*_Xthread_self_fn)( /* in XlibInt.c */
     void
@@ -52,6 +54,7 @@ extern xthread_t (*_Xthread_self_fn)( /* in XlibInt.c */
 
 /* Display->lock is a pointer to one of these */
 
+#if !USE_XCB
 struct _XLockInfo {
 	xmutex_t mutex;		/* mutex for critical sections */
 	int reply_bytes_left;	/* nbytes of the reply still to read */
@@ -144,6 +147,7 @@ struct _XLockInfo {
 #define ConditionBroadcast(d,c) if ((d)->lock) \
 	(*(d)->lock->condition_broadcast)(c)
 #endif
+#endif /* !USE_XCB */
 
 typedef struct _LockInfoRec {
 	xmutex_t	lock;
@@ -152,5 +156,11 @@ typedef struct _LockInfoRec {
 /* XOpenDis.c */
 extern int (*_XInitDisplayLock_fn)(Display *dpy);
 extern void (*_XFreeDisplayLock_fn)(Display *dpy);
+
+/* xcl/xcblock.c */
+#if USE_XCB
+int _XInitDisplayLock(Display *dpy);
+void _XFreeDisplayLock(Display *dpy);
+#endif /* USE_XCB */
 
 #endif /* _X_locking_H_ */

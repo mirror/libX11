@@ -20,15 +20,32 @@ AC_PROG_CC
 
 XORG_PROG_RAWCPP
 
+# Build XCL? or traditional Xlib?
+AC_ARG_WITH(xcb,
+	AC_HELP_STRING([--with-xcb], [use XCB for low-level protocol implementation]),
+	[ac_cv_use_xcb=$withval], [ac_cv_use_xcb=yes])
+AC_CACHE_CHECK([whether to use XCB], [ac_cv_use_xcb], [ac_cv_use_xcb=yes])
+AM_CONDITIONAL(XCB, test x$ac_cv_use_xcb != xno)
+
 # Checks for pkg-config packages
 PKG_CHECK_MODULES(XPROTO, xproto)
 AC_SUBST(XPROTO_CFLAGS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto bigreqsproto)
-
-PKG_CHECK_MODULES(XDMCP, xdmcp)
-AC_SUBST(XDMCP_CFLAGS)
-AC_SUBST(XDMCP_LIBS)
+case "$ac_cv_use_xcb" in
+no)
+	X11_REQUIRES="xau xcmiscproto bigreqsproto"
+	PKG_CHECK_MODULES(XDMCP, xdmcp)
+	AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
+	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
+	;;
+*)
+	X11_REQUIRES="xcb"
+	xdmauth="no" # XCB handles all auth
+	AC_CHECK_HEADERS([features.h])
+	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
+	;;
+esac
+PKG_CHECK_MODULES(X11, xextproto xtrans $X11_REQUIRES)
 
 dnl Issue an error if xtrans.m4 was not found and XTRANS_CONNECTION_FLAGS macro
 dnl was not expanded, since libX11 with no transport types is rather useless.
@@ -165,8 +182,6 @@ fi
 AC_SUBST(XTHREADLIB)
 AC_SUBST(XTHREAD_CFLAGS)
 X11_CFLAGS="$X11_CFLAGS $XTHREAD_CFLAGS"
-
-AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
 
 case x$xdmauth in
 xyes)
@@ -408,6 +423,7 @@ echo ""
 echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
 echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
+echo " Use XCB:                                 "$ac_cv_use_xcb
 echo " Threading support:                       "$xthreads
 echo " Use Threads safe API:                    "$mtsafeapi
 echo " Threads stubs in libX11:                 "$thrstubs

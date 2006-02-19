@@ -43,8 +43,10 @@ from The Open Group.
 #endif
 #include "Xlibint.h"
 #include <X11/Xpoll.h>
+#if !USE_XCB
 #include <X11/Xtrans/Xtrans.h>
 #include <X11/extensions/xcmiscstr.h>
+#endif /* !USE_XCB */
 #include <stdio.h>
 #ifdef WIN32
 #include <direct.h>
@@ -76,6 +78,7 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 
 #define XThread_Self()	((*_Xthread_self_fn)())
 
+#if !USE_XCB
 #define UnlockNextReplyReader(d) if ((d)->lock) \
     (*(d)->lock->pop_reader)((d),&(d)->lock->reply_awaiters,&(d)->lock->reply_awaiters_tail)
 
@@ -91,12 +94,15 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 #define InternalLockDisplay(d,wskip) if ((d)->lock) \
     (*(d)->lock->internal_lock_display)(d,wskip)
 #endif
+#endif /* !USE_XCB */
 
 #else /* XTHREADS else */
 
+#if !USE_XCB
 #define UnlockNextReplyReader(d)   
 #define UnlockNextEventReader(d)
 #define InternalLockDisplay(d,wskip)
+#endif /* !USE_XCB */
 
 #endif /* XTHREADS else */ 
 
@@ -151,11 +157,14 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 #endif
 
 #ifdef __UNIXOS2__
+#if !USE_XCB
 #define select(n,r,w,x,t) os2ClientSelect(n,r,w,x,t)
+#endif /* !USE_XCB */
 #include <limits.h>
 #define MAX_PATH _POSIX_PATH_MAX
 #endif
 
+#if !USE_XCB
 #ifdef MUSTCOPY
 
 #define STARTITERATE(tpvar,type,start,endcond) \
@@ -190,10 +199,7 @@ static char *_XAsyncReply(
     char *buf,
     register int *lenp,
     Bool discard);
-
-static void _XProcessInternalConnection(
-    Display *dpy,
-    struct _XConnectionInfo *conn_info);
+#endif /* !USE_XCB */
 
 #define SEQLIMIT (65535 - (BUFSIZE / SIZEOF(xReq)) - 10)
 
@@ -215,6 +221,7 @@ static void _XProcessInternalConnection(
  * the object they have created.
  */
 
+#if !USE_XCB
 static xReq _dummy_request = {
 	0, 0, 0
 };
@@ -368,6 +375,7 @@ _XWaitForWritable(
 	}
     }
 }
+#endif /* !USE_XCB */
 
 
 #define POLLFD_CACHE_SIZE 5
@@ -425,6 +433,7 @@ void _XPollfdCacheDel(
 #endif
 }
 
+#if !USE_XCB
 /* returns True iff there is an event in the queue newer than serial_num */
 
 static Bool
@@ -554,6 +563,7 @@ _XWaitForReadable(
 #endif
     return 0;
 }
+#endif /* !USE_XCB */
 
 static
 int _XSeqSyncFunction(
@@ -577,7 +587,6 @@ int _XSeqSyncFunction(
     return 0;
 }
 
-static
 void _XSetSeqSyncFunction(
     register Display *dpy)
 {
@@ -589,6 +598,7 @@ void _XSetSeqSyncFunction(
     }
 }
 
+#if !USE_XCB
 #ifdef XTHREADS
 static void _XFlushInt(
         register Display *dpy,
@@ -1118,6 +1128,7 @@ int _XRead(
 #endif /* XTHREADS*/
 	return 0;
 }
+#endif /* !USE_XCB */
 
 #ifdef LONG64
 void _XRead32(
@@ -1259,6 +1270,7 @@ void _XRead16Pad(
 #endif /* WORD64 */
 
 
+#if !USE_XCB
 /*
  * _XReadPad - Read bytes from the socket taking into account incomplete
  * reads.  If the number of bytes is not 0 mod 4, read additional pad
@@ -1908,6 +1920,7 @@ _XAsyncReply(
     }
     return nbuf;
 }
+#endif /* !USE_XCB */
 
 /*
  * Support for internal connections, such as an IM might use.
@@ -2053,12 +2066,12 @@ XInternalConnectionNumbers(
     return 1;
 }
 
-static void _XProcessInternalConnection(
+void _XProcessInternalConnection(
     Display *dpy,
     struct _XConnectionInfo *conn_info)
 {
     dpy->flags |= XlibDisplayProcConni;
-#ifdef XTHREADS
+#if defined(XTHREADS) && !USE_XCB
     if (dpy->lock) {
 	/* check cache to avoid call to thread_self */
 	if (xthread_have_id(dpy->lock->reading_thread))
@@ -2066,14 +2079,14 @@ static void _XProcessInternalConnection(
 	else
 	    dpy->lock->conni_thread = XThread_Self();
     }
-#endif /* XTHREADS */
+#endif /* XTHREADS && !USE_XCB */
     UnlockDisplay(dpy);
     (*conn_info->read_callback) (dpy, conn_info->fd, conn_info->call_data);
     LockDisplay(dpy);
-#ifdef XTHREADS
+#if defined(XTHREADS) && !USE_XCB
     if (dpy->lock)
 	xthread_clear_id(dpy->lock->conni_thread);
-#endif /* XTHREADS */
+#endif /* XTHREADS && !USE_XCB */
     dpy->flags &= ~XlibDisplayProcConni;
 }
 
@@ -2202,6 +2215,7 @@ XRemoveConnectionWatch(
 /* end of internal connections support */
 
 
+#if !USE_XCB
 /* Read and discard "n" 8-bit bytes of data */
 
 void _XEatData(
@@ -2218,6 +2232,7 @@ void _XEatData(
     }
 #undef SCRATCHSIZE
 }
+#endif /* !USE_XCB */
 
 
 /*
@@ -2880,17 +2895,17 @@ int _XError (
 	return 0;
     if (_XErrorFunction != NULL) {
 	int rtn_val;
-#ifdef XTHREADS
+#if defined(XTHREADS) && !USE_XCB
 	if (dpy->lock)
 	    (*dpy->lock->user_lock_display)(dpy);
 	UnlockDisplay(dpy);
-#endif /* XTHREADS */
+#endif /* XTHREADS && !USE_XCB */
 	rtn_val = (*_XErrorFunction)(dpy, (XErrorEvent *)&event); /* upcall */
-#ifdef XTHREADS
+#if defined(XTHREADS) && !USE_XCB
 	LockDisplay(dpy);
 	if (dpy->lock)
 	    (*dpy->lock->user_unlock_display)(dpy);
-#endif /* XTHREADS */
+#endif /* XTHREADS && !USE_XCB */
 	return rtn_val;
     } else {
 	return _XDefaultError(dpy, (XErrorEvent *)&event);

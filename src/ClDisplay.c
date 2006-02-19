@@ -32,7 +32,11 @@ from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#if USE_XCB
+#include "xclint.h"
+#else /* !USE_XCB */
 #include <X11/Xtrans/Xtrans.h>
+#endif /* USE_XCB */
 #include "Xlib.h"
 #include "Xlibint.h"
 #include "Xintconn.h"
@@ -70,7 +74,11 @@ XCloseDisplay (
 	    if (dpy->request != dpy->last_request_read)
 		XSync(dpy, 1);
 	}
+#if USE_XCB
+	XCBDisconnect(XCBConnectionOfDisplay(dpy));
+#else /* !USE_XCB */
 	_XDisconnectDisplay(dpy->trans_conn);
+#endif /* USE_XCB */
 	_XFreeDisplayStructure (dpy);
 	return 0;
 }

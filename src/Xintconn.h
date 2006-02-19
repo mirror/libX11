@@ -7,6 +7,7 @@
 
 _XFUNCPROTOBEGIN
 
+#if !USE_XCB
 /* ConnDis.c */
 
 int _XConnectDisplay (
@@ -27,6 +28,7 @@ extern XtransConnInfo _X11TransConnectDisplay(char *display_name,
 				int *screenp, char **auth_namep,
 				int *auth_namelenp, char **auth_datap,
 				int *auth_datalenp);
+#endif /* !USE_XCB */
 
 /* OpenDis.c */
 extern void _XFreeDisplayStructure(Display *dpy);

@@ -1,6 +1,25 @@
 2006-02-14  Jamey Sharp  <jamey@minilop.net>
 
 	* configure.ac:
+	* include/Makefile.am:
+	* include/X11/Xlibint.h:
+	* include/X11/xcl.h (new):
+	* src/Makefile.am:
+	* src/ClDisplay.c:
+	* src/OpenDis.c:
+	* src/Xintconn.h:
+	* src/XlibInt.c:
+	* src/locking.c:
+	* src/locking.h:
+	* src/xclint.h (new):
+	* src/xcl/display.c (new):
+	* src/xcl/io.c (new):
+	* src/xcl/xcblock.c (new):
+	Land XCB support on X.org HEAD.
+
+2006-02-14  Jamey Sharp  <jamey@minilop.net>
+
+	* configure.ac:
 	* modules/im/ximcp/Makefile.am:
 	* modules/lc/Utf8/Makefile.am:
 	* modules/lc/def/Makefile.am:

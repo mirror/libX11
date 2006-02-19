@@ -184,6 +184,7 @@ struct _XDisplay
 	int xcmisc_opcode;	/* major opcode for XC-MISC */
 	struct _XkbInfoRec *xkb_info; /* XKB info */
 	struct _XtransConnInfo *trans_conn; /* transport connection object */
+	struct XCLPrivate *xcl;	/* XCB glue private data */
 };
 
 #define XAllocIDs(dpy,ids,n) (*(dpy)->idlist_alloc)(dpy,ids,n)
@@ -958,6 +959,9 @@ extern void _XGetAsyncData(
     int		/* datalen */,
     int		/* discardtotal */
 );
+extern void _XSetSeqSyncFunction(
+    Display*	/* dpy */
+);
 extern void _XFlush(
     Display*	/* dpy */
 );
@@ -1212,6 +1216,11 @@ extern Status _XRegisterInternalConnection(
 extern void _XUnregisterInternalConnection(
     Display*			/* dpy */,
     int				/* fd */
+);
+
+extern void _XProcessInternalConnection(
+    Display*			/* dpy */,
+    struct _XConnectionInfo*	/* conn_info */
 );
 
 /* Display structure has pointers to these */

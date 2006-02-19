@@ -202,6 +202,7 @@ static void _XLockDisplayWarn(
 }
 #endif /* XTHREADS_WARN */
 
+#if !USE_XCB
 #if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
 static void _XUnlockDisplay(dpy,file,line)
     Display *dpy;
@@ -590,6 +591,7 @@ static int _XInitDisplayLock(
 
     return 0;
 }
+#endif /* !USE_XCB */
 
 #ifdef __UNIXWARE__
 xthread_t __x11_thr_self() { return 0; }

@@ -1,3 +1,20 @@
+2006-02-14  Jamey Sharp  <jamey@minilop.net>
+
+	* configure.ac:
+	* modules/im/ximcp/Makefile.am:
+	* modules/lc/Utf8/Makefile.am:
+	* modules/lc/def/Makefile.am:
+	* modules/lc/gen/Makefile.am:
+	* modules/lc/xlocale/Makefile.am:
+	* modules/om/generic/Makefile.am:
+	* src/Makefile.am:
+	* src/util/Makefile.am:
+	* src/xcms/Makefile.am:
+	* src/xkb/Makefile.am:
+	* src/xlibi18n/Makefile.am:
+	Merge the X11 and BIGREQS package sets: they were used in
+	exactly the same places.
+
 2006-02-13  Jamey Sharp  <jamey@minilop.net>
 
 	* src/XlibInt.c:

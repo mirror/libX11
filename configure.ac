@@ -21,14 +21,10 @@ AC_PROG_CC
 XORG_PROG_RAWCPP
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(BIGREQS, bigreqsproto)
-AC_SUBST(BIGREQS_CFLAGS)
-AC_SUBST(BIGREQS_LIBS)
-
 PKG_CHECK_MODULES(XPROTO, xproto)
 AC_SUBST(XPROTO_CFLAGS)
 
-PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto)
+PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto bigreqsproto)
 
 PKG_CHECK_MODULES(XDMCP, xdmcp)
 AC_SUBST(XDMCP_CFLAGS)

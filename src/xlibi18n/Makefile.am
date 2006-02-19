@@ -8,7 +8,6 @@ AM_CFLAGS= \
 	-I$(top_srcdir)/src/xlibi18n \
 	-I$(top_srcdir)/src \
 	$(X11_CFLAGS) \
-	$(BIGREQS_CFLAGS) \
 	$(BIGFONT_CFLAGS) \
 	$(XDMCP_CFLAGS) \
 	-D_BSD_SOURCE \

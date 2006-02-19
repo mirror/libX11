@@ -14,7 +14,6 @@ AM_CFLAGS= \
 	-I$(top_srcdir)/src/xkb \
 	-I$(top_srcdir)/src/xlibi18n \
 	$(X11_CFLAGS) \
-	$(BIGREQS_CFLAGS) \
 	$(BIGFONT_CFLAGS) \
 	$(XDMCP_CFLAGS) \
 	-D_BSD_SOURCE -DX11_t -DTRANS_CLIENT \
@@ -363,7 +362,6 @@ libX11_la_LIBADD = \
 	$(USE_XCMS_LIBS) \
 	$(USE_XKB_LIBS) \
 	$(X11_LIBS) \
-	$(BIGREQS_LIBS) \
 	$(XDMCP_LIBS)
 
 preprocess: $(patsubst %.c,%.ii,$(libX11_la_SOURCES))

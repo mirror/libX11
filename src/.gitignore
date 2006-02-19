@@ -1,4 +1,3 @@
-
 config.h
 config.h.in
 .deps
@@ -7,6 +6,7 @@ ks_tables.h
 *.la
 .libs
 *.lo
+*.o
 Makefile
 Makefile.in
 stamp-h1

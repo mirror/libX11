@@ -146,7 +146,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	 * automatically pushes requests down into XCB, so Xlib's buffer
 	 * is empty most of the time. Since setting a synchandler has no
 	 * effect until after UnlockDisplay returns, we may as well do
-	 * the check in _XPutXCBBuffer. */
+	 * the check in _XUnlockDisplay. */
 }
 
 /*

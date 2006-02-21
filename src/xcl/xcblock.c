@@ -154,7 +154,6 @@ void _XPutXCBBuffer(Display *dpy)
     XCBConnection *c = XCBConnectionOfDisplay(dpy);
     XCBProtocolRequest xcb_req = { /* count */ 1 };
     char *bufptr = dpy->buffer;
-    PendingRequest ***req = &dpy->xcl->pending_requests_tail;
 
     assert_sequence_less(dpy->last_request_read, dpy->request);
     assert_sequence_less(XCBGetRequestSent(c), dpy->request);
@@ -199,11 +198,12 @@ void _XPutXCBBuffer(Display *dpy)
 	 * so we needn't look for them. */
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue || dpy->async_handlers)
 	{
-	    **req = malloc(sizeof(PendingRequest));
-	    assert(**req);
-	    (**req)->next = 0;
-	    XCBSendRequest(c, &(**req)->sequence, iov, &xcb_req);
-	    *req = &(**req)->next;
+	    PendingRequest *req = malloc(sizeof(PendingRequest));
+	    assert(req);
+	    req->next = 0;
+	    XCBSendRequest(c, &req->sequence, iov, &xcb_req);
+	    *dpy->xcl->pending_requests_tail = req;
+	    dpy->xcl->pending_requests_tail = &req->next;
 	}
 	else
 	{

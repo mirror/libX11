@@ -333,7 +333,7 @@ int _XRead(Display *dpy, char *data, long size)
 void _XReadPad(Display *dpy, char *data, long size)
 {
 	_XRead(dpy, data, size);
-	dpy->xcl->reply_consumed += XCL_PAD(size);
+	dpy->xcl->reply_consumed += -size & 3;
 	_XFreeReplyData(dpy, False);
 }
 

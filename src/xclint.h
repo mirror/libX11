@@ -7,8 +7,6 @@
 #include <assert.h>
 #include <X11/xcl.h>
 
-#define XCL_PAD(i) ((4 - (i & 3)) & 3)
-
 #define assert_sequence_less(a,b) assert((b) - (a) < 65536)
 
 typedef struct PendingRequest PendingRequest;

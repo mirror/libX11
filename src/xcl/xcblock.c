@@ -145,7 +145,7 @@ static void _XBeforeFlush(Display *dpy, struct iovec *iov)
 	for (ext = dpy->flushes; ext; ext = ext->next_flush) {
 		ext->before_flush(dpy, &ext->codes, iov->iov_base, iov->iov_len);
 		if((iov->iov_len & 3) != 0)
-			ext->before_flush(dpy, &ext->codes, pad, XCL_PAD(iov->iov_len));
+			ext->before_flush(dpy, &ext->codes, pad, -iov->iov_len & 3);
 	}
 }
 

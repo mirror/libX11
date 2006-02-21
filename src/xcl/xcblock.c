@@ -137,32 +137,33 @@ void _XGetXCBBuffer(Display *dpy)
     assert_sequence_less(dpy->last_request_read, dpy->request);
 }
 
-static void _XBeforeFlush(Display *dpy, struct iovec *iov)
-{
-	static char const pad[3];
-
-	_XExtension *ext;
-	for (ext = dpy->flushes; ext; ext = ext->next_flush) {
-		ext->before_flush(dpy, &ext->codes, iov->iov_base, iov->iov_len);
-		if((iov->iov_len & 3) != 0)
-			ext->before_flush(dpy, &ext->codes, pad, -iov->iov_len & 3);
-	}
-}
-
 void _XPutXCBBuffer(Display *dpy)
 {
     XCBConnection *c = XCBConnectionOfDisplay(dpy);
+    _XExtension *ext;
     XCBProtocolRequest xcb_req = { /* count */ 1 };
     char *bufptr = dpy->buffer;
 
     assert_sequence_less(dpy->last_request_read, dpy->request);
     assert_sequence_less(XCBGetRequestSent(c), dpy->request);
 
+    for(ext = dpy->flushes; ext; ext = ext->next_flush)
+    {
+	ext->before_flush(dpy, &ext->codes, dpy->buffer, dpy->bufptr - dpy->buffer);
+	if(dpy->xcl->request_extra)
+	{
+	    static char const pad[3];
+	    int padsize = -dpy->xcl->request_extra_size & 3;
+	    ext->before_flush(dpy, &ext->codes, dpy->xcl->request_extra, dpy->xcl->request_extra_size);
+	    if(padsize)
+		ext->before_flush(dpy, &ext->codes, pad, padsize);
+	}
+    }
+
     while(bufptr < dpy->bufptr)
     {
 	struct iovec iov[2];
 	unsigned int sequence;
-	int i;
 	CARD32 len = ((CARD16 *) bufptr)[1];
 	if(len == 0)
 	    len = ((CARD32 *) bufptr)[1];
@@ -186,9 +187,6 @@ void _XPutXCBBuffer(Display *dpy)
 
 	bufptr += iov[0].iov_len;
 	assert(bufptr <= dpy->bufptr);
-
-	for(i = 0; i < xcb_req.count; ++i)
-	    _XBeforeFlush(dpy, &iov[i]);
 
 	XCBSendRequest(c, &sequence, iov, &xcb_req);
 

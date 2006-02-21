@@ -161,6 +161,7 @@ void _XPutXCBBuffer(Display *dpy)
     while(bufptr < dpy->bufptr)
     {
 	struct iovec iov[2];
+	unsigned int sequence;
 	int i;
 	CARD32 len = ((CARD16 *) bufptr)[1];
 	if(len == 0)
@@ -189,6 +190,8 @@ void _XPutXCBBuffer(Display *dpy)
 	for(i = 0; i < xcb_req.count; ++i)
 	    _XBeforeFlush(dpy, &iov[i]);
 
+	XCBSendRequest(c, &sequence, iov, &xcb_req);
+
 	/* For requests we issue, we need to get back replies and
 	 * errors. That's true even if we don't own the event queue, and
 	 * also if there are async handlers registered. If we do own the
@@ -201,14 +204,9 @@ void _XPutXCBBuffer(Display *dpy)
 	    PendingRequest *req = malloc(sizeof(PendingRequest));
 	    assert(req);
 	    req->next = 0;
-	    XCBSendRequest(c, &req->sequence, iov, &xcb_req);
+	    req->sequence = sequence;
 	    *dpy->xcl->pending_requests_tail = req;
 	    dpy->xcl->pending_requests_tail = &req->next;
-	}
-	else
-	{
-	    unsigned int dummy;
-	    XCBSendRequest(c, &dummy, iov, &xcb_req);
 	}
     }
     assert(XCBGetRequestSent(c) == dpy->request);

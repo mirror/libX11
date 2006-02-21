@@ -41,11 +41,17 @@ static void _XUnlockDisplay(Display *dpy)
 {
     --dpy->xcl->lock_count;
     _XPutXCBBufferIf(dpy, _XBufferUnlocked);
-    assert(XCBGetRequestSent(XCBConnectionOfDisplay(dpy)) == dpy->request);
 
-    /* Traditional Xlib does this in _XSend; see the Xlib/XCB version
-     * of that function for why we do it here instead. */
-    _XSetSeqSyncFunction(dpy);
+    /* If we're unlocking all the way, make sure that our deferred
+     * invariants hold. */
+    if(!dpy->xcl->lock_count)
+    {
+	assert(XCBGetRequestSent(XCBConnectionOfDisplay(dpy)) == dpy->request);
+
+	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
+	 * of that function for why we do it here instead. */
+	_XSetSeqSyncFunction(dpy);
+    }
 
     pthread_mutex_unlock(XCBGetIOLock(XCBConnectionOfDisplay(dpy)));
 }

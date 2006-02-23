@@ -132,7 +132,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	/* give dpy->buffer to XCB */
 	_XPutXCBBuffer(dpy);
 
-	if(XCBFlush(c) < 0)
+	if(XCBFlush(c) <= 0)
 		_XIOError(dpy);
 
 	/* get a new dpy->buffer */

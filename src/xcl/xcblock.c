@@ -127,7 +127,7 @@ void _XGetXCBBuffer(Display *dpy)
 	PendingRequest *req = dpy->xcl->pending_requests;
 	/* If this request hasn't been read off the wire yet, save the
 	 * rest for later. */
-	if((signed int) (XCBGetRequestRead(c) - req->sequence) <= 0)
+	if((signed int) (XCBGetQueuedRequestRead(c) - req->sequence) <= 0)
 	    break;
 	dpy->xcl->pending_requests = req->next;
 	/* This can't block due to the above test, but it could "fail"
@@ -145,7 +145,7 @@ void _XGetXCBBuffer(Display *dpy)
     if(!dpy->xcl->pending_requests)
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
 
-    dpy->last_request_read = XCBGetRequestRead(c);
+    dpy->last_request_read = XCBGetQueuedRequestRead(c);
     assert_sequence_less(dpy->last_request_read, dpy->request);
 }
 

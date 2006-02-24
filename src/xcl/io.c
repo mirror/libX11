@@ -4,6 +4,7 @@
 #include "Xlibint.h"
 #include "xclint.h"
 #include <X11/XCB/xcbext.h>
+#include <X11/XCB/xcbxlib.h>
 
 #include <assert.h>
 #include <stdlib.h>
@@ -186,7 +187,7 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 unsigned long _XSetLastRequestRead(Display *dpy, xGenericReply *rep)
 {
 	unsigned long newseq;
-	unsigned int xcb_seqnum = XCBGetRequestRead(dpy->xcl->connection);
+	unsigned int xcb_seqnum = XCBGetQueuedRequestRead(dpy->xcl->connection);
 
 	/*
 	 * KeymapNotify has no sequence number, but is always guaranteed

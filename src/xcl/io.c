@@ -90,7 +90,7 @@ int _XEventsQueued(Display *dpy, int mode)
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return 0;
 
-	c = XCBConnectionOfDisplay(dpy);
+	c = dpy->xcl->connection;
 	if(mode == QueuedAfterFlush)
 		_XSend(dpy, 0, 0);
 	else
@@ -110,7 +110,7 @@ void _XReadEvents(Display *dpy)
 	_XSend(dpy, 0, 0);
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return;
-	handle_event(dpy, XCBWaitForEvent(XCBConnectionOfDisplay(dpy)));
+	handle_event(dpy, XCBWaitForEvent(dpy->xcl->connection));
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
 
@@ -123,7 +123,7 @@ void _XReadEvents(Display *dpy)
  */
 void _XSend(Display *dpy, const char *data, long size)
 {
-	XCBConnection *c = XCBConnectionOfDisplay(dpy);
+	XCBConnection *c = dpy->xcl->connection;
 
 	assert(!dpy->xcl->request_extra);
 	dpy->xcl->request_extra = data;
@@ -163,7 +163,7 @@ void _XFlush(Display *dpy)
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
-	return XCBGenerateID(XCBConnectionOfDisplay(dpy));
+	return XCBGenerateID(dpy->xcl->connection);
 }
 
 /* _XAllocIDs - multiple resource ID allocation routine. */
@@ -186,7 +186,7 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 unsigned long _XSetLastRequestRead(Display *dpy, xGenericReply *rep)
 {
 	unsigned long newseq;
-	unsigned int xcb_seqnum = XCBGetRequestRead(XCBConnectionOfDisplay(dpy));
+	unsigned int xcb_seqnum = XCBGetRequestRead(dpy->xcl->connection);
 
 	/*
 	 * KeymapNotify has no sequence number, but is always guaranteed
@@ -230,7 +230,7 @@ static void _XFreeReplyData(Display *dpy, Bool force)
 Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 {
 	XCBGenericError *error;
-	XCBConnection *c = XCBConnectionOfDisplay(dpy);
+	XCBConnection *c = dpy->xcl->connection;
 	char *reply;
 
 	assert(!dpy->xcl->reply_data);

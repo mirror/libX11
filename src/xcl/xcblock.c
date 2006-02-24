@@ -20,7 +20,7 @@
 
 static void _XLockDisplay(Display *dpy)
 {
-    pthread_mutex_lock(XCBGetIOLock(XCBConnectionOfDisplay(dpy)));
+    pthread_mutex_lock(XCBGetIOLock(dpy->xcl->connection));
     _XGetXCBBufferIf(dpy, _XBufferUnlocked);
     ++dpy->xcl->lock_count;
 }
@@ -46,14 +46,14 @@ static void _XUnlockDisplay(Display *dpy)
      * invariants hold. */
     if(!dpy->xcl->lock_count)
     {
-	assert(XCBGetRequestSent(XCBConnectionOfDisplay(dpy)) == dpy->request);
+	assert(XCBGetRequestSent(dpy->xcl->connection) == dpy->request);
 
 	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
 	 * of that function for why we do it here instead. */
 	_XSetSeqSyncFunction(dpy);
     }
 
-    pthread_mutex_unlock(XCBGetIOLock(XCBConnectionOfDisplay(dpy)));
+    pthread_mutex_unlock(XCBGetIOLock(dpy->xcl->connection));
 }
 
 void XUnlockDisplay(Display* dpy)
@@ -67,12 +67,12 @@ int _XInitDisplayLock(Display *dpy)
 {
 #ifdef PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP
     pthread_mutex_t lock = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
-    *XCBGetIOLock(XCBConnectionOfDisplay(dpy)) = lock;
+    *XCBGetIOLock(dpy->xcl->connection) = lock;
 #else
     pthread_mutexattr_t attr;
     pthread_mutexattr_init(&attr);
     pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-    pthread_mutex_init(XCBGetIOLock(XCBConnectionOfDisplay(dpy)), &attr);
+    pthread_mutex_init(XCBGetIOLock(dpy->xcl->connection), &attr);
     pthread_mutexattr_destroy(&attr);
 #endif
 
@@ -114,7 +114,7 @@ void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
 
-    XCBConnection *c = XCBConnectionOfDisplay(dpy);
+    XCBConnection *c = dpy->xcl->connection;
 
     dpy->last_req = (char *) &dummy_request;
 
@@ -214,7 +214,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     }
 
     /* send the accumulated request. */
-    XCBSendRequest(XCBConnectionOfDisplay(dpy), &sequence, vec, &xcb_req);
+    XCBSendRequest(dpy->xcl->connection, &sequence, vec, &xcb_req);
 
     /* update the iovecs to refer only to data not yet sent. */
     vec[i].iov_base = (char *) vec[i].iov_base + vec[i].iov_len;
@@ -243,7 +243,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 
 void _XPutXCBBuffer(Display *dpy)
 {
-    XCBConnection *c = XCBConnectionOfDisplay(dpy);
+    XCBConnection *c = dpy->xcl->connection;
     _XExtension *ext;
     struct iovec iov[2];
 

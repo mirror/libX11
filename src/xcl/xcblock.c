@@ -153,6 +153,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 {
     XCBProtocolRequest xcb_req = { 0 };
     unsigned int sequence;
+    int flags = 0;
     int bigreq = 0;
     int i;
     CARD32 len;
@@ -213,8 +214,13 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 	vec[0].iov_len -= 4;
     }
 
+    /* if we don't own the event queue, we have to ask XCB to set our
+     * errors aside for us. */
+    if(dpy->xcl->event_owner != XlibOwnsEventQueue)
+	flags |= XCB_REQUEST_CHECKED;
+
     /* send the accumulated request. */
-    XCBSendRequest(dpy->xcl->connection, &sequence, vec, &xcb_req);
+    XCBSendRequest(dpy->xcl->connection, &sequence, flags, vec, &xcb_req);
 
     /* update the iovecs to refer only to data not yet sent. */
     vec[i].iov_base = (char *) vec[i].iov_base + vec[i].iov_len;
@@ -222,14 +228,11 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     while(--i >= 0)
 	vec[i].iov_len = 0;
 
-    /* For requests we issue, we need to get back replies and
-     * errors. That's true even if we don't own the event queue, and
-     * also if there are async handlers registered. If we do own the
-     * event queue then errors can be handled elsewhere more
-     * cheaply; and if there aren't any async handlers (but the
-     * pure-Xlib code was correct) then there won't be any replies
-     * so we needn't look for them. */
-    if(dpy->xcl->event_owner != XlibOwnsEventQueue || dpy->async_handlers)
+    /* iff we asked XCB to set aside errors, we must pick those up
+     * eventually. iff there are async handlers, we may have just
+     * issued requests that will generate replies. in either case,
+     * we need to remember to check later. */
+    if(flags & XCB_REQUEST_CHECKED || dpy->async_handlers)
     {
 	PendingRequest *req = malloc(sizeof(PendingRequest));
 	assert(req);

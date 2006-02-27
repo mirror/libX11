@@ -153,8 +153,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 {
     XCBProtocolRequest xcb_req = { 0 };
     unsigned int sequence;
-    int flags = 0;
-    int bigreq = 0;
+    int flags = XCB_REQUEST_RAW;
     int i;
     CARD32 len;
     size_t rem;
@@ -170,11 +169,8 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
      * fixed-length request parts. */
     len = ((CARD16 *) vec[0].iov_base)[1];
     if(len == 0)
-    {
 	/* it's a bigrequest. dig out the *real* length field. */
 	len = ((CARD32 *) vec[0].iov_base)[1];
-	bigreq = 1;
-    }
 
     /* do we have enough data for a complete request? how many iovec
      * elements does it span? */
@@ -204,15 +200,6 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     vec[i].iov_len -= rem;
     xcb_req.count = i + 1;
     xcb_req.opcode = ((CARD8 *) vec[0].iov_base)[0];
-
-    /* undo bigrequest formatting. XCBSendRequest will redo it. */
-    if(bigreq)
-    {
-	CARD32 *p = vec[0].iov_base;
-	p[1] = p[0];
-	vec[0].iov_base = (char *) vec[0].iov_base + 4;
-	vec[0].iov_len -= 4;
-    }
 
     /* if we don't own the event queue, we have to ask XCB to set our
      * errors aside for us. */

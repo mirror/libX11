@@ -232,6 +232,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 {
 	XCBGenericError *error;
 	XCBConnection *c = dpy->xcl->connection;
+	unsigned long request = dpy->request;
 	char *reply;
 
 	assert(!dpy->xcl->reply_data);
@@ -239,10 +240,29 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	UnlockDisplay(dpy);
 	/* release buffer if UnlockDisplay didn't already */
 	_XPutXCBBufferIf(dpy, _XBufferLocked);
-	reply = XCBWaitForReply(c, dpy->request, &error);
+	reply = XCBWaitForReply(c, request, &error);
 	/* re-acquire buffer if LockDisplay won't otherwise */
 	_XGetXCBBufferIf(dpy, _XBufferLocked);
 	LockDisplay(dpy);
+
+	check_internal_connections(dpy);
+
+	if(dpy->xcl->event_owner == XlibOwnsEventQueue)
+	{
+		XCBGenericEvent *e;
+		int ret;
+		while((e = XCBPollForEvent(c, &ret)))
+		{
+			/* FIXME: This should use _XSetLastRequestRead
+			 * to decide if the sequence number is the one
+			 * we're looking for, or XCB should provide the
+			 * 32-bit sequence with every event. */
+			if(e->response_type == 0 && e->sequence == (request & 0xffff))
+				error = (XCBGenericError *) e;
+			else
+				handle_event(dpy, e);
+		}
+	}
 
 	if(error)
 	{
@@ -308,8 +328,6 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 
 	memcpy(rep, dpy->xcl->reply_data, dpy->xcl->reply_consumed);
 	_XFreeReplyData(dpy, discard);
-
-	_XEventsQueued(dpy, QueuedAfterReading);
 	return 1;
 }
 

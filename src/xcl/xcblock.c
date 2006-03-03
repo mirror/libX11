@@ -208,10 +208,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     XCBSendRequest(dpy->xcl->connection, &sequence, flags, vec, &xcb_req);
 
     /* update the iovecs to refer only to data not yet sent. */
-    vec[i].iov_base = (char *) vec[i].iov_base + vec[i].iov_len;
     vec[i].iov_len = -len;
-    while(--i >= 0)
-	vec[i].iov_len = 0;
 
     /* iff we asked XCB to set aside errors, we must pick those up
      * eventually. iff there are async handlers, we may have just
@@ -251,17 +248,17 @@ void _XPutXCBBuffer(Display *dpy)
 	}
     }
 
-    iov[0].iov_base = dpy->buffer;
-    iov[0].iov_len = dpy->bufptr - dpy->buffer;
-    iov[1].iov_base = (caddr_t) dpy->xcl->request_extra;
-    iov[1].iov_len = dpy->xcl->request_extra_size;
-    iov[2].iov_base = (caddr_t) pad;
-    iov[2].iov_len = padsize;
+    iov[2].iov_base = dpy->buffer;
+    iov[2].iov_len = dpy->bufptr - dpy->buffer;
+    iov[3].iov_base = (caddr_t) dpy->xcl->request_extra;
+    iov[3].iov_len = dpy->xcl->request_extra_size;
+    iov[4].iov_base = (caddr_t) pad;
+    iov[4].iov_len = padsize;
 
-    while(issue_complete_request(dpy, 3, iov))
+    while(issue_complete_request(dpy, 3, iov + 2))
 	/* empty */;
 
-    assert(iov[0].iov_len == 0 && iov[1].iov_len == 0 && iov[2].iov_len == 0);
+    assert(iov[2].iov_len == 0 && iov[3].iov_len == 0 && iov[4].iov_len == 0);
 
     dpy->xcl->request_extra = 0;
     dpy->xcl->request_extra_size = 0;

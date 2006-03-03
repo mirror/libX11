@@ -207,7 +207,9 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 	flags |= XCB_REQUEST_CHECKED;
 
     /* send the accumulated request. */
-    XCBSendRequest(dpy->xcl->connection, &sequence, flags, vec, &xcb_req);
+    sequence = XCBSendRequest(dpy->xcl->connection, flags, vec, &xcb_req);
+    if(!sequence)
+	_XIOError(dpy);
 
     /* update the iovecs to refer only to data not yet sent. */
     vec[i].iov_len = -len;

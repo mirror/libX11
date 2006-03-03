@@ -158,6 +158,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     size_t len;
 
     /* skip empty iovecs. if no iovecs remain, we're done. */
+    assert(veclen >= 0);
     while(veclen > 0 && vec[0].iov_len == 0)
 	--veclen, ++vec;
     if(!veclen)
@@ -166,10 +167,14 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     /* we have at least part of a request. dig out the length field.
      * note that length fields are always in vec[0]: Xlib doesn't split
      * fixed-length request parts. */
+    assert(vec[0].iov_len >= 4);
     len = ((CARD16 *) vec[0].iov_base)[1];
     if(len == 0)
+    {
 	/* it's a bigrequest. dig out the *real* length field. */
+	assert(vec[0].iov_len >= 8);
 	len = ((CARD32 *) vec[0].iov_base)[1];
+    }
     len <<= 2;
 
     /* do we have enough data for a complete request? how many iovec

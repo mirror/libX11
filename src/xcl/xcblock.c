@@ -99,7 +99,6 @@ void _XFreeDisplayLock(Display *dpy)
 static void call_handlers(Display *dpy, XCBGenericRep *buf)
 {
 	_XAsyncHandler *async, *next;
-	_XSetLastRequestRead(dpy, (xGenericReply *) buf);
 	for(async = dpy->async_handlers; async; async = next)
 	{
 		next = async->next;
@@ -135,11 +134,14 @@ void _XGetXCBBuffer(Display *dpy)
 	 * don't care. In any failure cases, we must not have wanted
 	 * an entry in the reply queue for this request after all. */
 	reply = XCBWaitForReply(c, req->sequence, &error);
-	free(req);
 	if(!reply)
 	    reply = (XCBGenericRep *) error;
 	if(reply)
+	{
+	    dpy->last_request_read = req->sequence;
 	    call_handlers(dpy, reply);
+	}
+	free(req);
 	free(reply);
     }
     if(!dpy->xcl->pending_requests)

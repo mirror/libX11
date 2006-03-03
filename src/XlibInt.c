@@ -1622,6 +1622,7 @@ void _XAllocIDs(
     for (i = grep.count; i < count; i++)
 	ids[i] = XAllocID(dpy);
 }
+#endif /* !USE_XCB */
 
 /*
  * The hard part about this is that we only get 16 bits from a reply.
@@ -1666,6 +1667,7 @@ _XSetLastRequestRead(
     return(newseq);
 }
 
+#if !USE_XCB
 /*
  * _XReply - Wait for a reply packet and copy its contents into the
  * specified rep.  Meanwhile we must handle error and event packets that

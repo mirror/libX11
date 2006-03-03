@@ -71,6 +71,7 @@ static void handle_event(Display *dpy, XCBGenericEvent *e)
 {
 	if(!e)
 		_XIOError(dpy);
+	dpy->last_request_read = e->full_sequence;
 	if(e->response_type == X_Error)
 		_XError(dpy, (xError *) e);
 	else
@@ -175,45 +176,6 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 		ids[i] = XAllocID(dpy);
 }
 
-/*
- * The hard part about this is that we only get 16 bits from a reply.
- * We have three values that will march along, with the following invariant:
- *	dpy->last_request_read <= rep->sequenceNumber <= dpy->request
- * We have to keep
- *	dpy->request - dpy->last_request_read < 2^16
- * or else we won't know for sure what value to use in events.  We do this
- * by forcing syncs when we get close.
- */
-unsigned long _XSetLastRequestRead(Display *dpy, xGenericReply *rep)
-{
-	unsigned long newseq;
-	unsigned int xcb_seqnum = XCBGetQueuedRequestRead(dpy->xcl->connection);
-
-	/*
-	 * KeymapNotify has no sequence number, but is always guaranteed
-	 * to immediately follow another event, except when generated via
-	 * SendEvent (hmmm).
-	 */
-	if ((rep->type & 0x7f) == KeymapNotify)
-		return(dpy->last_request_read);
-
-	newseq = (xcb_seqnum & ~((unsigned long)0xffff)) | rep->sequenceNumber;
-
-	/* We're always trailing XCB's processing of responses here:
-	 * when we see a response, it's always one that XCB has already
-	 * counted in its sequence number stream. So we ensure that the
-	 * 32-bit sequence number that we pick is, in fact, less than or
-	 * equal to the last thing XCB processed, taking wrap into
-	 * account. */
-	if (newseq > xcb_seqnum)
-		newseq -= 0x10000;
-	assert_sequence_less(newseq, dpy->request);
-
-	dpy->last_request_read = newseq;
-	assert_sequence_less(dpy->last_request_read, xcb_seqnum);
-	return(newseq);
-}
-
 static void _XFreeReplyData(Display *dpy, Bool force)
 {
 	if(!force && dpy->xcl->reply_consumed < dpy->xcl->reply_length)
@@ -252,16 +214,10 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		XCBGenericEvent *e;
 		int ret;
 		while((e = XCBPollForEvent(c, &ret)))
-		{
-			/* FIXME: This should use _XSetLastRequestRead
-			 * to decide if the sequence number is the one
-			 * we're looking for, or XCB should provide the
-			 * 32-bit sequence with every event. */
-			if(e->response_type == 0 && e->sequence == (request & 0xffff))
+			if(e->response_type == 0 && e->full_sequence == request)
 				error = (XCBGenericError *) e;
 			else
 				handle_event(dpy, e);
-		}
 	}
 
 	if(error)
@@ -269,6 +225,8 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		_XExtension *ext;
 		xError *err = (xError *) error;
 		int ret_code;
+
+		dpy->last_request_read = error->full_sequence;
 
 		/* Xlib is evil and assumes that even errors will be
 		 * copied into rep. */
@@ -314,6 +272,8 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		_XIOError(dpy);
 		return 0;
 	}
+
+	dpy->last_request_read = request;
 
 	/* there's no error and we have a reply. */
 	dpy->xcl->reply_data = reply;

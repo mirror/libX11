@@ -4,6 +4,7 @@
 #include "Xlibint.h"
 #include "xclint.h"
 #include <X11/XCB/xcbext.h>
+#include <X11/XCB/xcbxlib.h>
 
 #include <assert.h>
 #include <stdlib.h>
@@ -70,6 +71,7 @@ static void handle_event(Display *dpy, XCBGenericEvent *e)
 {
 	if(!e)
 		_XIOError(dpy);
+	dpy->last_request_read = e->full_sequence;
 	if(e->response_type == X_Error)
 		_XError(dpy, (xError *) e);
 	else
@@ -90,7 +92,7 @@ int _XEventsQueued(Display *dpy, int mode)
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return 0;
 
-	c = XCBConnectionOfDisplay(dpy);
+	c = dpy->xcl->connection;
 	if(mode == QueuedAfterFlush)
 		_XSend(dpy, 0, 0);
 	else
@@ -110,7 +112,7 @@ void _XReadEvents(Display *dpy)
 	_XSend(dpy, 0, 0);
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return;
-	handle_event(dpy, XCBWaitForEvent(XCBConnectionOfDisplay(dpy)));
+	handle_event(dpy, XCBWaitForEvent(dpy->xcl->connection));
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
 
@@ -123,7 +125,7 @@ void _XReadEvents(Display *dpy)
  */
 void _XSend(Display *dpy, const char *data, long size)
 {
-	XCBConnection *c = XCBConnectionOfDisplay(dpy);
+	XCBConnection *c = dpy->xcl->connection;
 
 	assert(!dpy->xcl->request_extra);
 	dpy->xcl->request_extra = data;
@@ -132,7 +134,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	/* give dpy->buffer to XCB */
 	_XPutXCBBuffer(dpy);
 
-	if(XCBFlush(c) < 0)
+	if(XCBFlush(c) <= 0)
 		_XIOError(dpy);
 
 	/* get a new dpy->buffer */
@@ -163,7 +165,7 @@ void _XFlush(Display *dpy)
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
-	return XCBGenerateID(XCBConnectionOfDisplay(dpy));
+	return XCBGenerateID(dpy->xcl->connection);
 }
 
 /* _XAllocIDs - multiple resource ID allocation routine. */
@@ -172,45 +174,6 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 	int i;
 	for (i = 0; i < count; i++)
 		ids[i] = XAllocID(dpy);
-}
-
-/*
- * The hard part about this is that we only get 16 bits from a reply.
- * We have three values that will march along, with the following invariant:
- *	dpy->last_request_read <= rep->sequenceNumber <= dpy->request
- * We have to keep
- *	dpy->request - dpy->last_request_read < 2^16
- * or else we won't know for sure what value to use in events.  We do this
- * by forcing syncs when we get close.
- */
-unsigned long _XSetLastRequestRead(Display *dpy, xGenericReply *rep)
-{
-	unsigned long newseq;
-	unsigned int xcb_seqnum = XCBGetRequestRead(XCBConnectionOfDisplay(dpy));
-
-	/*
-	 * KeymapNotify has no sequence number, but is always guaranteed
-	 * to immediately follow another event, except when generated via
-	 * SendEvent (hmmm).
-	 */
-	if ((rep->type & 0x7f) == KeymapNotify)
-		return(dpy->last_request_read);
-
-	newseq = (xcb_seqnum & ~((unsigned long)0xffff)) | rep->sequenceNumber;
-
-	/* We're always trailing XCB's processing of responses here:
-	 * when we see a response, it's always one that XCB has already
-	 * counted in its sequence number stream. So we ensure that the
-	 * 32-bit sequence number that we pick is, in fact, less than or
-	 * equal to the last thing XCB processed, taking wrap into
-	 * account. */
-	if (newseq > xcb_seqnum)
-		newseq -= 0x10000;
-	assert_sequence_less(newseq, dpy->request);
-
-	dpy->last_request_read = newseq;
-	assert_sequence_less(dpy->last_request_read, xcb_seqnum);
-	return(newseq);
 }
 
 static void _XFreeReplyData(Display *dpy, Bool force)
@@ -230,7 +193,8 @@ static void _XFreeReplyData(Display *dpy, Bool force)
 Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 {
 	XCBGenericError *error;
-	XCBConnection *c = XCBConnectionOfDisplay(dpy);
+	XCBConnection *c = dpy->xcl->connection;
+	unsigned long request = dpy->request;
 	char *reply;
 
 	assert(!dpy->xcl->reply_data);
@@ -238,16 +202,31 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	UnlockDisplay(dpy);
 	/* release buffer if UnlockDisplay didn't already */
 	_XPutXCBBufferIf(dpy, _XBufferLocked);
-	reply = XCBWaitForReply(c, dpy->request, &error);
+	reply = XCBWaitForReply(c, request, &error);
 	/* re-acquire buffer if LockDisplay won't otherwise */
 	_XGetXCBBufferIf(dpy, _XBufferLocked);
 	LockDisplay(dpy);
+
+	check_internal_connections(dpy);
+
+	if(dpy->xcl->event_owner == XlibOwnsEventQueue)
+	{
+		XCBGenericEvent *e;
+		int ret;
+		while((e = XCBPollForEvent(c, &ret)))
+			if(e->response_type == 0 && e->full_sequence == request)
+				error = (XCBGenericError *) e;
+			else
+				handle_event(dpy, e);
+	}
 
 	if(error)
 	{
 		_XExtension *ext;
 		xError *err = (xError *) error;
 		int ret_code;
+
+		dpy->last_request_read = error->full_sequence;
 
 		/* Xlib is evil and assumes that even errors will be
 		 * copied into rep. */
@@ -294,6 +273,8 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		return 0;
 	}
 
+	dpy->last_request_read = request;
+
 	/* there's no error and we have a reply. */
 	dpy->xcl->reply_data = reply;
 	dpy->xcl->reply_consumed = sizeof(xReply) + (extra * 4);
@@ -307,8 +288,6 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 
 	memcpy(rep, dpy->xcl->reply_data, dpy->xcl->reply_consumed);
 	_XFreeReplyData(dpy, discard);
-
-	_XEventsQueued(dpy, QueuedAfterReading);
 	return 1;
 }
 

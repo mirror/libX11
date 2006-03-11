@@ -20,7 +20,7 @@
 
 static void _XLockDisplay(Display *dpy)
 {
-    pthread_mutex_lock(XCBGetIOLock(XCBConnectionOfDisplay(dpy)));
+    pthread_mutex_lock(XCBGetIOLock(dpy->xcl->connection));
     _XGetXCBBufferIf(dpy, _XBufferUnlocked);
     ++dpy->xcl->lock_count;
 }
@@ -46,14 +46,14 @@ static void _XUnlockDisplay(Display *dpy)
      * invariants hold. */
     if(!dpy->xcl->lock_count)
     {
-	assert(XCBGetRequestSent(XCBConnectionOfDisplay(dpy)) == dpy->request);
+	assert(XCBGetRequestSent(dpy->xcl->connection) == dpy->request);
 
 	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
 	 * of that function for why we do it here instead. */
 	_XSetSeqSyncFunction(dpy);
     }
 
-    pthread_mutex_unlock(XCBGetIOLock(XCBConnectionOfDisplay(dpy)));
+    pthread_mutex_unlock(XCBGetIOLock(dpy->xcl->connection));
 }
 
 void XUnlockDisplay(Display* dpy)
@@ -67,12 +67,12 @@ int _XInitDisplayLock(Display *dpy)
 {
 #ifdef PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP
     pthread_mutex_t lock = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
-    *XCBGetIOLock(XCBConnectionOfDisplay(dpy)) = lock;
+    *XCBGetIOLock(dpy->xcl->connection) = lock;
 #else
     pthread_mutexattr_t attr;
     pthread_mutexattr_init(&attr);
     pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-    pthread_mutex_init(XCBGetIOLock(XCBConnectionOfDisplay(dpy)), &attr);
+    pthread_mutex_init(XCBGetIOLock(dpy->xcl->connection), &attr);
     pthread_mutexattr_destroy(&attr);
 #endif
 
@@ -99,7 +99,6 @@ void _XFreeDisplayLock(Display *dpy)
 static void call_handlers(Display *dpy, XCBGenericRep *buf)
 {
 	_XAsyncHandler *async, *next;
-	_XSetLastRequestRead(dpy, (xGenericReply *) buf);
 	for(async = dpy->async_handlers; async; async = next)
 	{
 		next = async->next;
@@ -114,7 +113,7 @@ void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
 
-    XCBConnection *c = XCBConnectionOfDisplay(dpy);
+    XCBConnection *c = dpy->xcl->connection;
 
     dpy->last_req = (char *) &dummy_request;
 
@@ -127,7 +126,7 @@ void _XGetXCBBuffer(Display *dpy)
 	PendingRequest *req = dpy->xcl->pending_requests;
 	/* If this request hasn't been read off the wire yet, save the
 	 * rest for later. */
-	if((signed int) (XCBGetRequestRead(c) - req->sequence) <= 0)
+	if((signed int) (XCBGetQueuedRequestRead(c) - req->sequence) <= 0)
 	    break;
 	dpy->xcl->pending_requests = req->next;
 	/* This can't block due to the above test, but it could "fail"
@@ -135,17 +134,20 @@ void _XGetXCBBuffer(Display *dpy)
 	 * don't care. In any failure cases, we must not have wanted
 	 * an entry in the reply queue for this request after all. */
 	reply = XCBWaitForReply(c, req->sequence, &error);
-	free(req);
 	if(!reply)
 	    reply = (XCBGenericRep *) error;
 	if(reply)
+	{
+	    dpy->last_request_read = req->sequence;
 	    call_handlers(dpy, reply);
+	}
+	free(req);
 	free(reply);
     }
     if(!dpy->xcl->pending_requests)
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
 
-    dpy->last_request_read = XCBGetRequestRead(c);
+    dpy->last_request_read = XCBGetQueuedRequestRead(c);
     assert_sequence_less(dpy->last_request_read, dpy->request);
 }
 
@@ -153,12 +155,12 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 {
     XCBProtocolRequest xcb_req = { 0 };
     unsigned int sequence;
-    int bigreq = 0;
+    int flags = XCB_REQUEST_RAW;
     int i;
-    CARD32 len;
-    size_t rem;
+    size_t len;
 
     /* skip empty iovecs. if no iovecs remain, we're done. */
+    assert(veclen >= 0);
     while(veclen > 0 && vec[0].iov_len == 0)
 	--veclen, ++vec;
     if(!veclen)
@@ -167,20 +169,22 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     /* we have at least part of a request. dig out the length field.
      * note that length fields are always in vec[0]: Xlib doesn't split
      * fixed-length request parts. */
+    assert(vec[0].iov_len >= 4);
     len = ((CARD16 *) vec[0].iov_base)[1];
     if(len == 0)
     {
 	/* it's a bigrequest. dig out the *real* length field. */
+	assert(vec[0].iov_len >= 8);
 	len = ((CARD32 *) vec[0].iov_base)[1];
-	bigreq = 1;
     }
+    len <<= 2;
 
     /* do we have enough data for a complete request? how many iovec
      * elements does it span? */
     for(i = 0; i < veclen; ++i)
     {
-	CARD32 oldlen = len;
-	len -= (vec[i].iov_len + 3) >> 2;
+	size_t oldlen = len;
+	len -= vec[i].iov_len;
 	/* if len is now 0 or has wrapped, we have enough data. */
 	if((len - 1) > oldlen)
 	    break;
@@ -191,45 +195,30 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     /* we have enough data to issue one complete request. the remaining
      * code can't fail. */
 
-    /* len says how far we overshot our data needs in 4-byte units.
-     * (it's negative if we actually overshot, or 0 if we're right on.)
-     * rem is overshoot in 1-byte units, so it needs to have trailing
-     * padding subtracted off if we're not using that padding in this
-     * request. */
-    if(len)
-	rem = (-len << 2) - (-vec[i].iov_len & 3);
-    else
-	rem = 0;
-    vec[i].iov_len -= rem;
+    /* len says how far we overshot our data needs. (it's "negative" if
+     * we actually overshot, or 0 if we're right on.) */
+    vec[i].iov_len += len;
     xcb_req.count = i + 1;
     xcb_req.opcode = ((CARD8 *) vec[0].iov_base)[0];
 
-    /* undo bigrequest formatting. XCBSendRequest will redo it. */
-    if(bigreq)
-    {
-	CARD32 *p = vec[0].iov_base;
-	p[1] = p[0];
-	vec[0].iov_base = (char *) vec[0].iov_base + 4;
-	vec[0].iov_len -= 4;
-    }
+    /* if we don't own the event queue, we have to ask XCB to set our
+     * errors aside for us. */
+    if(dpy->xcl->event_owner != XlibOwnsEventQueue)
+	flags |= XCB_REQUEST_CHECKED;
 
     /* send the accumulated request. */
-    XCBSendRequest(XCBConnectionOfDisplay(dpy), &sequence, vec, &xcb_req);
+    sequence = XCBSendRequest(dpy->xcl->connection, flags, vec, &xcb_req);
+    if(!sequence)
+	_XIOError(dpy);
 
     /* update the iovecs to refer only to data not yet sent. */
-    vec[i].iov_base = (char *) vec[i].iov_base + vec[i].iov_len;
-    vec[i].iov_len = rem;
-    while(--i >= 0)
-	vec[i].iov_len = 0;
+    vec[i].iov_len = -len;
 
-    /* For requests we issue, we need to get back replies and
-     * errors. That's true even if we don't own the event queue, and
-     * also if there are async handlers registered. If we do own the
-     * event queue then errors can be handled elsewhere more
-     * cheaply; and if there aren't any async handlers (but the
-     * pure-Xlib code was correct) then there won't be any replies
-     * so we needn't look for them. */
-    if(dpy->xcl->event_owner != XlibOwnsEventQueue || dpy->async_handlers)
+    /* iff we asked XCB to set aside errors, we must pick those up
+     * eventually. iff there are async handlers, we may have just
+     * issued requests that will generate replies. in either case,
+     * we need to remember to check later. */
+    if(flags & XCB_REQUEST_CHECKED || dpy->async_handlers)
     {
 	PendingRequest *req = malloc(sizeof(PendingRequest));
 	assert(req);
@@ -243,9 +232,11 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 
 void _XPutXCBBuffer(Display *dpy)
 {
-    XCBConnection *c = XCBConnectionOfDisplay(dpy);
+    static char const pad[3];
+    const int padsize = -dpy->xcl->request_extra_size & 3;
+    XCBConnection *c = dpy->xcl->connection;
     _XExtension *ext;
-    struct iovec iov[2];
+    struct iovec iov[5];
 
     assert_sequence_less(dpy->last_request_read, dpy->request);
     assert_sequence_less(XCBGetRequestSent(c), dpy->request);
@@ -255,23 +246,23 @@ void _XPutXCBBuffer(Display *dpy)
 	ext->before_flush(dpy, &ext->codes, dpy->buffer, dpy->bufptr - dpy->buffer);
 	if(dpy->xcl->request_extra)
 	{
-	    static char const pad[3];
-	    int padsize = -dpy->xcl->request_extra_size & 3;
 	    ext->before_flush(dpy, &ext->codes, dpy->xcl->request_extra, dpy->xcl->request_extra_size);
 	    if(padsize)
 		ext->before_flush(dpy, &ext->codes, pad, padsize);
 	}
     }
 
-    iov[0].iov_base = dpy->buffer;
-    iov[0].iov_len = dpy->bufptr - dpy->buffer;
-    iov[1].iov_base = (caddr_t) dpy->xcl->request_extra;
-    iov[1].iov_len = dpy->xcl->request_extra_size;
+    iov[2].iov_base = dpy->buffer;
+    iov[2].iov_len = dpy->bufptr - dpy->buffer;
+    iov[3].iov_base = (caddr_t) dpy->xcl->request_extra;
+    iov[3].iov_len = dpy->xcl->request_extra_size;
+    iov[4].iov_base = (caddr_t) pad;
+    iov[4].iov_len = padsize;
 
-    while(issue_complete_request(dpy, 2, iov))
+    while(issue_complete_request(dpy, 3, iov + 2))
 	/* empty */;
 
-    assert(iov[0].iov_len == 0 && iov[1].iov_len == 0);
+    assert(iov[2].iov_len == 0 && iov[3].iov_len == 0 && iov[4].iov_len == 0);
 
     dpy->xcl->request_extra = 0;
     dpy->xcl->request_extra_size = 0;

@@ -1,3 +1,9 @@
+2006-03-17  Daniel Stone  <daniel@freedesktop.org>
+
+	* src/xkb/XKBGeom.c:
+	Properly clip bounds when outline is defined by a single point.
+	(Octavio Alvarez Piza)
+
 2006-02-14  Jamey Sharp  <jamey@minilop.net>
 
 	* configure.ac:

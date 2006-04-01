@@ -26,6 +26,7 @@ typedef struct XCLPrivate {
 	int reply_consumed;
 	int lock_count;
 	enum XEventQueueOwner event_owner;
+	XID next_xid;
 } XCLPrivate;
 
 /* xcl/display.c */

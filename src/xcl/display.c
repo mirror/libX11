@@ -3,6 +3,7 @@
 
 #include "Xlibint.h"
 #include "xclint.h"
+#include <X11/XCB/xcbext.h>
 #include <X11/Xatom.h>
 #include <X11/Xresource.h>
 #include <stdio.h>
@@ -91,6 +92,7 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 	dpy->xcl->connection = c;
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
+	dpy->xcl->next_xid = XCBGenerateID(dpy->xcl->connection);
 	return 1;
 }
 

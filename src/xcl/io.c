@@ -162,18 +162,43 @@ void _XFlush(Display *dpy)
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
 
+static int
+_XIDHandler(Display *dpy)
+{
+	XID next = XCBGenerateID(dpy->xcl->connection);
+	LockDisplay(dpy);
+	dpy->xcl->next_xid = next;
+	if(dpy->flags & XlibDisplayPrivSync)
+	{
+		dpy->synchandler = dpy->savedsynchandler;
+		dpy->flags &= ~XlibDisplayPrivSync;
+	}
+	UnlockDisplay(dpy);
+	SyncHandle();
+	return 0;
+}
+
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
-	return XCBGenerateID(dpy->xcl->connection);
+	XID ret = dpy->xcl->next_xid;
+	dpy->xcl->next_xid = 0;
+
+	assert(!(dpy->flags & XlibDisplayPrivSync));
+	dpy->savedsynchandler = dpy->synchandler;
+	dpy->flags |= XlibDisplayPrivSync;
+	dpy->synchandler = _XIDHandler;
+	return ret;
 }
 
 /* _XAllocIDs - multiple resource ID allocation routine. */
 void _XAllocIDs(Display *dpy, XID *ids, int count)
 {
 	int i;
+	_XPutXCBBuffer(dpy);
 	for (i = 0; i < count; i++)
-		ids[i] = XAllocID(dpy);
+		ids[i] = XCBGenerateID(dpy->xcl->connection);
+	_XGetXCBBuffer(dpy);
 }
 
 static void _XFreeReplyData(Display *dpy, Bool force)

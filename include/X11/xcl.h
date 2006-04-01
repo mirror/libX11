@@ -4,6 +4,7 @@
 #ifndef XCL_H
 #define XCL_H
 
+#include <X11/Xmd.h>
 #include <X11/XCB/xcb.h>
 #include <X11/Xlib.h>
 

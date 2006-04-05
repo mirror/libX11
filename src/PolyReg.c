@@ -524,8 +524,10 @@ XPolygonRegion(Pts, Count, rule)
     if (Count < 2) return region;
 
     if (! (pETEs = (EdgeTableEntry *)
-	   Xmalloc((unsigned) (sizeof(EdgeTableEntry) * Count))))
+	   Xmalloc((unsigned) (sizeof(EdgeTableEntry) * Count)))) {
+	XDestroyRegion(region);
 	return (Region) NULL;
+    }
 
     pts = FirstPtBlock.pts;
     CreateETandAET(Count, Pts, &ET, &AET, pETEs, &SLLBlock);

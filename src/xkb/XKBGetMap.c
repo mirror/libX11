@@ -776,7 +776,11 @@ XkbGetKeyVirtualModMap(Display *dpy,unsigned first,unsigned num,XkbDescPtr xkb)
 	if ((num>0)&&(first>=xkb->min_key_code)&&(first+num<=xkb->max_key_code))
 	    bzero(&xkb->server->vmodmap[first],num*sizeof(unsigned short));
     }
-    status= _XkbHandleGetMapReply(dpy, xkb);
+
+    if (xkb)
+        status= _XkbHandleGetMapReply(dpy, xkb);
+    else
+        status = BadMatch;
 
     UnlockDisplay(dpy);
     SyncHandle();

@@ -362,7 +362,7 @@ XOpenDisplay (
 
 #if USE_XCB
 	{
-		XCBConnSetupSuccessRep *xcbsetup = XCBGetSetup(XCBConnectionOfDisplay(dpy));
+		const XCBSetup *xcbsetup = XCBGetSetup(XCBConnectionOfDisplay(dpy));
 		setuplength = xcbsetup->length << 2;
 		memcpy(&prefix, xcbsetup, sizeof(prefix));
 		setup = (char *) xcbsetup;

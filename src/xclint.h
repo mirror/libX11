@@ -21,6 +21,8 @@ typedef struct XCLPrivate {
 	PendingRequest **pending_requests_tail;
 	const char *request_extra;
 	int request_extra_size;
+	char *partial_request;
+	int partial_request_offset;
 	char *reply_data;
 	int reply_length;
 	int reply_consumed;

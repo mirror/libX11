@@ -151,6 +151,23 @@ void _XGetXCBBuffer(Display *dpy)
     assert_sequence_less(dpy->last_request_read, dpy->request);
 }
 
+static size_t request_length(struct iovec *vec)
+{
+    /* we have at least part of a request. dig out the length field.
+     * note that length fields are always in vec[0]: Xlib doesn't split
+     * fixed-length request parts. */
+    size_t len;
+    assert(vec[0].iov_len >= 4);
+    len = ((CARD16 *) vec[0].iov_base)[1];
+    if(len == 0)
+    {
+	/* it's a bigrequest. dig out the *real* length field. */
+	assert(vec[0].iov_len >= 8);
+	len = ((CARD32 *) vec[0].iov_base)[1];
+    }
+    return len << 2;
+}
+
 static inline int issue_complete_request(Display *dpy, int veclen, struct iovec *vec)
 {
     XCBProtocolRequest xcb_req = { 0 };
@@ -166,18 +183,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     if(!veclen)
 	return 0;
 
-    /* we have at least part of a request. dig out the length field.
-     * note that length fields are always in vec[0]: Xlib doesn't split
-     * fixed-length request parts. */
-    assert(vec[0].iov_len >= 4);
-    len = ((CARD16 *) vec[0].iov_base)[1];
-    if(len == 0)
-    {
-	/* it's a bigrequest. dig out the *real* length field. */
-	assert(vec[0].iov_len >= 8);
-	len = ((CARD32 *) vec[0].iov_base)[1];
-    }
-    len <<= 2;
+    len = request_length(vec);
 
     /* do we have enough data for a complete request? how many iovec
      * elements does it span? */
@@ -236,7 +242,7 @@ void _XPutXCBBuffer(Display *dpy)
     const int padsize = -dpy->xcl->request_extra_size & 3;
     XCBConnection *c = dpy->xcl->connection;
     _XExtension *ext;
-    struct iovec iov[5];
+    struct iovec iov[6];
 
     assert_sequence_less(dpy->last_request_read, dpy->request);
     assert_sequence_less(XCBGetRequestSent(c), dpy->request);
@@ -252,17 +258,43 @@ void _XPutXCBBuffer(Display *dpy)
 	}
     }
 
-    iov[2].iov_base = dpy->buffer;
-    iov[2].iov_len = dpy->bufptr - dpy->buffer;
-    iov[3].iov_base = (caddr_t) dpy->xcl->request_extra;
-    iov[3].iov_len = dpy->xcl->request_extra_size;
-    iov[4].iov_base = (caddr_t) pad;
-    iov[4].iov_len = padsize;
+    iov[2].iov_base = dpy->xcl->partial_request;
+    iov[2].iov_len = dpy->xcl->partial_request_offset;
+    iov[3].iov_base = dpy->buffer;
+    iov[3].iov_len = dpy->bufptr - dpy->buffer;
+    iov[4].iov_base = (caddr_t) dpy->xcl->request_extra;
+    iov[4].iov_len = dpy->xcl->request_extra_size;
+    iov[5].iov_base = (caddr_t) pad;
+    iov[5].iov_len = padsize;
 
-    while(issue_complete_request(dpy, 3, iov + 2))
+    while(issue_complete_request(dpy, 4, iov + 2))
 	/* empty */;
 
-    assert(iov[2].iov_len == 0 && iov[3].iov_len == 0 && iov[4].iov_len == 0);
+    /* first discard any completed partial_request. */
+    if(iov[2].iov_len == 0 && dpy->xcl->partial_request)
+    {
+	free(dpy->xcl->partial_request);
+	dpy->xcl->partial_request = 0;
+	dpy->xcl->partial_request_offset = 0;
+    }
+
+    /* is there anything to copy into partial_request? */
+    if(iov[3].iov_len != 0 || iov[4].iov_len != 0 || iov[5].iov_len != 0)
+    {
+	int i;
+	if(!dpy->xcl->partial_request)
+	{
+	    size_t len = request_length(iov + 3);
+	    assert(!dpy->xcl->partial_request_offset);
+	    dpy->xcl->partial_request = malloc(len);
+	    assert(dpy->xcl->partial_request);
+	}
+	for(i = 3; i < sizeof(iov) / sizeof(*iov); ++i)
+	{
+	    memcpy(dpy->xcl->partial_request + dpy->xcl->partial_request_offset, iov[i].iov_base, iov[i].iov_len);
+	    dpy->xcl->partial_request_offset += iov[i].iov_len;
+	}
+    }
 
     dpy->xcl->request_extra = 0;
     dpy->xcl->request_extra_size = 0;

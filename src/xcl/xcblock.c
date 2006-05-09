@@ -112,12 +112,16 @@ static void call_handlers(Display *dpy, XCBGenericRep *buf)
 void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
+    unsigned int xcb_req;
 
     XCBConnection *c = dpy->xcl->connection;
 
     dpy->last_req = (char *) &dummy_request;
 
-    dpy->request = XCBGetRequestSent(c);
+    xcb_req = XCBGetRequestSent(c);
+    /* FIXME: handle 32-bit wrap */
+    assert(xcb_req >= dpy->request);
+    dpy->request = xcb_req;
 
     while(dpy->xcl->pending_requests)
     {

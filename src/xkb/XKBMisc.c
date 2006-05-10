@@ -482,7 +482,7 @@ unsigned		changed,tmp;
 	pActs= XkbResizeKeyActions(xkb,key,nSyms);
 	if (!pActs) {
             if (nSyms > IBUF_SIZE)
-                xfree(interps);
+                Xfree(interps);
 	    return False;
         }
 	new_vmodmask= 0;

@@ -46,6 +46,7 @@ static void _XUnlockDisplay(Display *dpy)
      * invariants hold. */
     if(!dpy->xcl->lock_count)
     {
+	assert(dpy->xcl->partial_request == 0);
 	assert(XCBGetRequestSent(dpy->xcl->connection) == dpy->request);
 
 	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
@@ -119,6 +120,11 @@ void _XGetXCBBuffer(Display *dpy)
     dpy->last_req = (char *) &dummy_request;
 
     xcb_req = XCBGetRequestSent(c);
+    /* if Xlib has a partial request pending then XCB doesn't know about
+     * the current request yet */
+    if(dpy->xcl->partial_request)
+	++xcb_req;
+
     /* FIXME: handle 32-bit wrap */
     assert(xcb_req >= dpy->request);
     dpy->request = xcb_req;

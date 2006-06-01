@@ -1,5 +1,5 @@
 if XKB
-XKB_SUDDIRS = xkb
+XKB_SUBDIRS = xkb
 endif
 SUBDIRS = util xcms xlibi18n $(XKB_SUBDIRS)
 

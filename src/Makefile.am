@@ -1,4 +1,7 @@
-SUBDIRS=util xcms xlibi18n xkb
+if XKB
+XKB_SUDDIRS = xkb
+endif
+SUBDIRS = util xcms xlibi18n $(XKB_SUBDIRS)
 
 lib_LTLIBRARIES=libX11.la
 

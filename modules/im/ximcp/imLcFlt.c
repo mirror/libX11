@@ -51,15 +51,42 @@ _XimLocalFilter(d, w, ev, client_data)
     static char	 buf[256];
     DefTree	*p;
 
-    if(   (ev->type != KeyPress)
-       || (ev->xkey.keycode == 0)
-       || (((Xim)ic->core.im)->private.local.top == (DefTree *)NULL) )
-	return(False);
+    if(ev->xkey.keycode == 0)
+	return (False);
 
     XLookupString((XKeyEvent *)ev, buf, sizeof(buf), &keysym, NULL);
 
     if(IsModifierKey(keysym))
 	return (False);
+
+    if(keysym >= XK_braille_dot_1 && keysym <= XK_braille_dot_8) {
+	if(ev->type == KeyPress) {
+	    ic->private.local.brl_pressed |=
+		1<<(keysym-XK_braille_dot_1);
+	} else {
+	    if(!ic->private.local.brl_committing
+		    || ev->xkey.time - ic->private.local.brl_release_start > 300) {
+	    	ic->private.local.brl_committing = ic->private.local.brl_pressed;
+		ic->private.local.brl_release_start = ev->xkey.time;
+	    }
+	    ic->private.local.brl_pressed &= ~(1<<(keysym-XK_braille_dot_1));
+	    if(!ic->private.local.brl_pressed) {
+		if(ic->private.local.brl_committing) {
+		    ic->private.local.brl_committed =
+			ic->private.local.brl_committing;
+		    ic->private.local.composed = NULL;
+		    ev->type = KeyPress;
+		    ev->xkey.keycode = 0;
+		    _XPutBackEvent(d, ev);
+		}
+	    }
+	}
+	return(True);
+    }
+
+    if(   (ev->type != KeyPress)
+       || (((Xim)ic->core.im)->private.local.top == (DefTree *)NULL) )
+	return(False);
 
     for(p = ic->private.local.context; p; p = p->next) {
 	if(((ev->xkey.state & p->modifier_mask) == p->modifier) &&
@@ -74,6 +101,7 @@ _XimLocalFilter(d, w, ev, client_data)
 	    return(True);
 	} else { /* Terminate (reached to leaf) */
 	    ic->private.local.composed = p;
+	    ic->private.local.brl_committed = 0;
 	    /* return back to client KeyPressEvent keycode == 0 */
 	    ev->xkey.keycode = 0;
 	    _XPutBackEvent(d, ev);

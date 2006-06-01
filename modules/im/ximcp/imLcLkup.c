@@ -42,6 +42,7 @@ PERFORMANCE OF THIS SOFTWARE.
 #include <X11/Xutil.h>
 #include "Xlibint.h"
 #include "Xlcint.h"
+#include "XlcPubI.h"
 #include "Ximint.h"
 
 Public int
@@ -60,25 +61,43 @@ _XimLocalMbLookupString(xic, ev, buffer, bytes, keysym, status)
 	if(status) *status = XLookupNone;
 	return(0);
     }
-    if(ev->keycode == 0 && ic->private.local.composed != NULL) { /* Composed Event */
-	ret = strlen(ic->private.local.composed->mb);
-	if(ret > bytes) {
-	    if(status) *status = XBufferOverflow;
-	    return(ret);
-	}
-	memcpy(buffer, ic->private.local.composed->mb, ret);
-	if(keysym) *keysym = ic->private.local.composed->ks;
-	if (ret > 0) {
-	    if (keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupBoth;
-	    } else {
-		if(status) *status = XLookupChars;
+    if(ev->keycode == 0 && 
+	   (  (ic->private.local.composed != NULL)
+	    ||(ic->private.local.brl_committed != 0))) {
+	if (ic->private.local.brl_committed != 0) { /* Braille Event */
+	    unsigned char pattern = ic->private.local.brl_committed;
+	    char mb[XLC_PUBLIC(ic->core.im->core.lcd, mb_cur_max)];
+	    ret = _Xlcwctomb(ic->core.im->core.lcd, mb, BRL_UC_ROW | pattern);
+	    if(ret > bytes) {
+		if(status) *status = XBufferOverflow;
+		return(ret);
 	    }
-	} else {
-	    if(keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupKeySym;
+	    if(keysym) {
+		*keysym = XK_braille_blank | pattern;
+		if(status) *status = XLookupBoth;
+	    } else
+		if(status) *status = XLookupChars;
+	    memcpy(buffer, mb, ret);
+	} else { /* Composed Event */
+	    ret = strlen(ic->private.local.composed->mb);
+	    if(ret > bytes) {
+		if(status) *status = XBufferOverflow;
+		return(ret);
+	    }
+	    memcpy(buffer, ic->private.local.composed->mb, ret);
+	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    if (ret > 0) {
+		if (keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupBoth;
+		} else {
+		    if(status) *status = XLookupChars;
+		}
 	    } else {
-		if(status) *status = XLookupNone;
+		if(keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupKeySym;
+		} else {
+		    if(status) *status = XLookupNone;
+		}
 	    }
 	}
 	return (ret);
@@ -119,26 +138,41 @@ _XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
 	if(status) *status = XLookupNone;
 	return(0);
     }
-    if(ev->keycode == 0) { /* Composed Event */
-	ret = _Xwcslen(ic->private.local.composed->wc);
-	if(ret > wlen) {
-	    if(status) *status = XBufferOverflow;
-	    return (ret);
-	}
-	memcpy((char *)buffer, (char *)ic->private.local.composed->wc,
-	       ret * sizeof(wchar_t));
-	if(keysym) *keysym = ic->private.local.composed->ks;
-	if (ret > 0) {
-	    if (keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupBoth;
-	    } else {
-		if(status) *status = XLookupChars;
+    if(ev->keycode == 0) {
+	if (ic->private.local.brl_committed != 0) { /* Braille Event */
+	    unsigned char pattern = ic->private.local.brl_committed;
+	    ret = 1;
+	    if (ret > wlen) {
+		if(status) *status = XBufferOverflow;
+		return (ret);
 	    }
-	} else {
-	    if(keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupKeySym;
+	    *buffer = BRL_UC_ROW | pattern;
+	    if(keysym) {
+		*keysym = XK_braille_blank | pattern;
+		if(status) *status = XLookupBoth;
+	    } else
+		if(status) *status = XLookupChars;
+	} else { /* Composed Event */
+	    ret = _Xwcslen(ic->private.local.composed->wc);
+	    if(ret > wlen) {
+		if(status) *status = XBufferOverflow;
+		return (ret);
+	    }
+	    memcpy((char *)buffer, (char *)ic->private.local.composed->wc,
+		   ret * sizeof(wchar_t));
+	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    if (ret > 0) {
+		if (keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupBoth;
+		} else {
+		    if(status) *status = XLookupChars;
+		}
 	    } else {
-		if(status) *status = XLookupNone;
+		if(keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupKeySym;
+		} else {
+		    if(status) *status = XLookupNone;
+		}
 	    }
 	}
 	return (ret);
@@ -179,25 +213,37 @@ _XimLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
 	if(status) *status = XLookupNone;
 	return(0);
     }
-    if(ev->keycode == 0) { /* Composed Event */
-	ret = strlen(ic->private.local.composed->utf8);
-	if(ret > bytes) {
-	    if(status) *status = XBufferOverflow;
-	    return (ret);
-	}
-	memcpy(buffer, ic->private.local.composed->utf8, ret);
-	if(keysym) *keysym = ic->private.local.composed->ks;
-	if (ret > 0) {
-	    if (keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupBoth;
-	    } else {
-		if(status) *status = XLookupChars;
+    if(ev->keycode == 0) {
+	if (ic->private.local.brl_committed != 0) { /* Braille Event */
+	    unsigned char pattern = ic->private.local.brl_committed;
+	    ret = 3;
+	    if (ret > bytes) {
+		if(status) *status = XBufferOverflow;
+		return (ret);
 	    }
-	} else {
-	    if(keysym && *keysym != NoSymbol) {
-		if(status) *status = XLookupKeySym;
+	    buffer[0] = 0xe0 | ((BRL_UC_ROW >> 12) & 0x0f);
+	    buffer[1] = 0x80 | ((BRL_UC_ROW >> 8) & 0x30) | (pattern >> 6);
+	    buffer[2] = 0x80 | (pattern & 0x3f);
+	} else { /* Composed Event */
+	    ret = strlen(ic->private.local.composed->utf8);
+	    if(ret > bytes) {
+		if(status) *status = XBufferOverflow;
+		return (ret);
+	    }
+	    memcpy(buffer, ic->private.local.composed->utf8, ret);
+	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    if (ret > 0) {
+		if (keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupBoth;
+		} else {
+		    if(status) *status = XLookupChars;
+		}
 	    } else {
-		if(status) *status = XLookupNone;
+		if(keysym && *keysym != NoSymbol) {
+		    if(status) *status = XLookupKeySym;
+		} else {
+		    if(status) *status = XLookupNone;
+		}
 	    }
 	}
 	return (ret);

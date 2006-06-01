@@ -21,7 +21,7 @@ AC_PROG_CC
 XORG_PROG_RAWCPP
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(XPROTO, xproto)
+PKG_CHECK_MODULES(XPROTO, [xproto >= 7.0.6])
 AC_SUBST(XPROTO_CFLAGS)
 
 PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto bigreqsproto)

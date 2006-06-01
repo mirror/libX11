@@ -195,6 +195,8 @@ iso8859-2/Compose:		sl_CS.ISO8859-2
 iso8859-2/Compose:		sl_SI.ISO8859-2
 iso8859-5/Compose:		sp_YU.ISO8859-5
 iso8859-2/Compose:		sq_AL.ISO8859-2
+iso8859-2/Compose:		sr_CS.ISO8859-2
+iso8859-5/Compose:		sr_CS.ISO8859-5
 iso8859-2/Compose:		sr_SP.ISO8859-2
 iso8859-2/Compose:		sr_YU.ISO8859-2
 iso8859-5/Compose:		sr_YU.ISO8859-5
@@ -360,6 +362,7 @@ en_US.UTF-8/Compose:		si_LK.UTF-8
 en_US.UTF-8/Compose:		sk_SK.UTF-8
 en_US.UTF-8/Compose:		sl_SI.UTF-8
 en_US.UTF-8/Compose:		sq_AL.UTF-8
+en_US.UTF-8/Compose:		sr_CS.UTF-8
 en_US.UTF-8/Compose:		sr_YU.UTF-8
 en_US.UTF-8/Compose:		ss_ZA.UTF-8
 en_US.UTF-8/Compose:		st_ZA.UTF-8

@@ -904,11 +904,14 @@ rw_RW.ISO-8859-1:           rw_RW.ISO8859-1
 rw_RW.utf8:                 rw_RW.UTF-8
 se_NO:						se_NO.UTF-8
 se_NO.utf8:					se_NO.UTF-8
-sh:						sh_YU.ISO8859-2
-sh_HR.iso88592:					sh_HR.ISO8859-2
-sh_SP:						sh_YU.ISO8859-2
-sh_YU:						sh_YU.ISO8859-2
-sh_YU.utf8:					sh_YU.UTF-8
+XCOMM sh was the old ISO code for Serbo-Croatian (now individual sr and hr).
+XCOMM YU was the old ISO code for Yugoslavia (now CS for Serbia&Montenegro).
+XCOMM These lines should be deleted in the future.
+sh:						sr_CS.ISO8859-2
+sh_HR.iso88592:					hr_HR.ISO8859-2
+sh_SP:						sr_CS.ISO8859-2
+sh_YU:						sr_CS.ISO8859-2
+sh_YU.utf8:					sr_CS.UTF-8
 si:						si_LK.UTF-8
 si_LK:						si_LK.UTF-8
 sk:						sk_SK.ISO8859-2
@@ -921,32 +924,49 @@ sl_SI:						sl_SI.ISO8859-2
 sl_SI.iso88592:					sl_SI.ISO8859-2
 sl_SI.ISO-8859-2:				sl_SI.ISO8859-2
 sl_SI.utf8:					sl_SI.UTF-8
-sp:						sp_YU.ISO8859-5
-sp_YU:						sp_YU.ISO8859-5
+XCOMM sp is not an ISO 639 language code, but in Cyrillic, "R" looks like "P".
+XCOMM YU was the old ISO code for Yugoslavia (now CS for Serbia&Montenegro).
+XCOMM These lines should be deleted in the future.
+sp:						sr_CS.ISO8859-5
+sp_YU:						sr_CS.ISO8859-5
 sq:						sq_AL.ISO8859-2
 sq_AL:						sq_AL.ISO8859-2
 sq_AL.iso88592:					sq_AL.ISO8859-2
 sq_AL.ISO-8859-2:				sq_AL.ISO8859-2
 sq_AL.utf8:					sq_AL.UTF-8
-sr_SP:						sr_SP.ISO8859-2
-sr:						sr_YU.ISO8859-5
-sr_YU:						sr_YU.ISO8859-5
-sr_YU.iso88592:					sr_YU.ISO8859-2
-sr_YU.ISO-8859-2:				sr_YU.ISO8859-2
-sr_YU.iso88595:					sr_YU.ISO8859-5
-sr_YU.ISO-8859-5:				sr_YU.ISO8859-5
-sr@cyrillic:					sr_YU.ISO8859-5
-sr_YU@cyrillic:					sr_YU.ISO8859-5
-sr_YU.iso88595@cyrillic:			sr_YU.ISO8859-5
-sr_YU.ISO-8859-5@cyrillic:			sr_YU.ISO8859-5
-sr_YU.ISO8859-5@cyrillic:			sr_YU.ISO8859-5
-sr_YU.cp1251@cyrillic:				sr_YU.CP1251
-sr_YU.CP1251@cyrillic:				sr_YU.CP1251
-sr_YU.microsoftcp1251@cyrillic:			sr_YU.CP1251
-sr_YU.microsoft-cp1251@cyrillic:		sr_YU.CP1251
-sr_YU.MICROSOFT-CP1251@cyrillic:		sr_YU.CP1251
-sr_YU.utf8:					sr_YU.UTF-8
-sr_YU.UTF-8@cyrillic:				sr_YU.UTF-8
+XCOMM SP is not an ISO 639 country code, but in Cyrillic, "R" looks like "P".
+XCOMM YU was the old ISO code for Yugoslavia (now CS for Serbia&Montenegro).
+XCOMM Some of these lines should be deleted in the future.
+sr_SP:						sr_CS.ISO8859-2
+sr:						sr_CS.ISO8859-5
+sr_YU:						sr_CS.ISO8859-5
+sr_YU.iso88592:					sr_CS.ISO8859-2
+sr_YU.ISO-8859-2:				sr_CS.ISO8859-2
+sr_YU.iso88595:					sr_CS.ISO8859-5
+sr_YU.ISO-8859-5:				sr_CS.ISO8859-5
+sr@cyrillic:					sr_CS.ISO8859-5
+sr_YU@cyrillic:					sr_CS.ISO8859-5
+sr_YU.iso88595@cyrillic:			sr_CS.ISO8859-5
+sr_YU.ISO-8859-5@cyrillic:			sr_CS.ISO8859-5
+sr_YU.ISO8859-5@cyrillic:			sr_CS.ISO8859-5
+sr_YU.cp1251@cyrillic:				sr_CS.CP1251
+sr_YU.CP1251@cyrillic:				sr_CS.CP1251
+sr_YU.microsoftcp1251@cyrillic:			sr_CS.CP1251
+sr_YU.microsoft-cp1251@cyrillic:		sr_CS.CP1251
+sr_YU.MICROSOFT-CP1251@cyrillic:		sr_CS.CP1251
+sr_YU.utf8:					sr_CS.UTF-8
+sr_YU.UTF-8@cyrillic:				sr_CS.UTF-8
+sr_CS.iso88592:					sr_CS.ISO8859-2
+sr_CS.ISO-8859-2:				sr_CS.ISO8859-2
+sr_CS.iso88595:					sr_CS.ISO8859-5
+sr_CS.ISO-8859-5:				sr_CS.ISO8859-5
+sr@Latn:					sr_CS.ISO8859-2
+sr_CS@Latn:					sr_CS.ISO8859-2
+sr_CS.iso88592@Latn:				sr_CS.ISO8859-2
+sr_CS.ISO-8859-2@Latn:				sr_CS.ISO8859-2
+sr_CS.ISO8859-2@Latn:				sr_CS.ISO8859-2
+sr_CS.utf8:					sr_CS.UTF-8
+sr_CS.UTF-8@Latn:				sr_CS.UTF-8
 ss:							ss_ZA.ISO8859-1
 ss_ZA:						ss_ZA.ISO8859-1
 ss_ZA.iso88591:				ss_ZA.ISO8859-1
@@ -1159,7 +1179,7 @@ portuguese.iso88591:				pt_PT.ISO8859-1
 romanian:					ro_RO.ISO8859-2
 rumanian:					ro_RO.ISO8859-2
 russian:					ru_RU.ISO8859-5
-serbocroatian:					sh_YU.ISO8859-2
+serbocroatian:					sr_CS.ISO8859-2
 sinhala:					si_LK.UTF-8
 slovak:						sk_SK.ISO8859-2
 slovene:					sl_SI.ISO8859-2
@@ -1269,7 +1289,7 @@ Russian_Russia.1251:				ru_RU.iso8859-5
 Slovak_Slovakia.1250:				sk_SK.iso8859-2
 Slovene_Slovenia.1250:				sl_SI.iso8859-2
 Albanian_Albania.1250:				sq_AL.iso8859-2
-Serbian (Latin)_Serbia.1250:			sr_YU.iso8859-2
+Serbian (Latin)_Serbia.1250:			sr_CS.iso8859-2
 Swedish_Finland.1252:				sv_FI.iso8859-1
 Swedish_Sweden.1252:				sv_SE.iso8859-1
 Turkish_Turkey.1254:				tr_TR.iso8859-9

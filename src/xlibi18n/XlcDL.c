@@ -403,21 +403,25 @@ _XlcDynamicLoad(const char *lc_name)
     dynamicLoadProc lc_loader = (dynamicLoadProc)NULL;
     int count;
     XI18NObjectsList objects_list;
-    char lc_dir[BUFSIZE];
+    char lc_dir[BUFSIZE], lc_lib_dir[BUFSIZE];
 
     if (lc_name == NULL) return (XLCd)NULL;
 
-    if (_XlcLocaleDirName(lc_dir, BUFSIZE, (char *)lc_name) == (char*)NULL)
+    if (_XlcLocaleDirName(lc_dir, BUFSIZE, (char *)lc_name) == (char *)NULL)
+        return (XLCd)NULL;
+    if (_XlcLocaleLibDirName(lc_lib_dir, BUFSIZE, (char *)lc_name) == (char*)NULL)
 	return (XLCd)NULL;
 
     resolve_object(lc_dir, lc_name);
+    resolve_object(lc_lib_dir, lc_name);
 
     objects_list = xi18n_objects_list;
     count = lc_count;
     for (; count-- > 0; objects_list++) {
         if (objects_list->type != XLC_OBJECT ||
 	    strcmp(objects_list->locale_name, lc_name)) continue;
-	if (!open_object (objects_list, lc_dir))
+	if (!open_object (objects_list, lc_dir) && \
+            !open_object (objects_list, lc_lib_dir))
 	    continue;
 
 	lc_loader = (dynamicLoadProc)fetch_symbol (objects_list, objects_list->open);
@@ -448,7 +452,7 @@ _XDynamicOpenIM(XLCd lcd, Display *display, XrmDatabase rdb,
 
   lc_name = lcd->core->name;
 
-  if (_XlcLocaleDirName(lc_dir, BUFSIZE, lc_name) == NULL) return (XIM)0;
+  if (_XlcLocaleLibDirName(lc_dir, BUFSIZE, lc_name) == NULL) return (XIM)0;
 
   count = lc_count;
   for (; count-- > 0; objects_list++) {
@@ -496,7 +500,7 @@ _XDynamicRegisterIMInstantiateCallback(
 
   lc_name = lcd->core->name;
 
-  if (_XlcLocaleDirName(lc_dir, BUFSIZE, lc_name) == NULL) return False;
+  if (_XlcLocaleLibDirName(lc_dir, BUFSIZE, lc_name) == NULL) return False;
 
   count = lc_count;
   for (; count-- > 0; objects_list++) {
@@ -600,7 +604,7 @@ _XDynamicOpenOM(XLCd lcd, Display *display, XrmDatabase rdb,
 
   lc_name = lcd->core->name;
 
-  if (_XlcLocaleDirName(lc_dir, BUFSIZE, lc_name) == NULL) return (XOM)0;
+  if (_XlcLocaleLibDirName(lc_dir, BUFSIZE, lc_name) == NULL) return (XOM)0;
 
   count = lc_count;
   for (; count-- > 0; objects_list++) {

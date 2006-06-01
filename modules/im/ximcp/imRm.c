@@ -2702,7 +2702,7 @@ _XimEncodeLocalTopValue(
 	if (flag) {
 	    _XRegisterFilterByType(ic->core.im->core.display,
 			ic->core.focus_window,
-			KeyPress, KeyPress, _XimLocalFilter, (XPointer)ic);
+			KeyPress, KeyRelease, _XimLocalFilter, (XPointer)ic);
 	}
     } else if (res->xrm_name == XrmStringToQuark(XNFocusWindow)) {
 	if (ic->core.client_window) {
@@ -2713,7 +2713,7 @@ _XimEncodeLocalTopValue(
 	    ic->core.focus_window = (Window)p->value;
 	    if (flag) {
 	        _XRegisterFilterByType(ic->core.im->core.display,
-			ic->core.focus_window, KeyPress, KeyPress,
+			ic->core.focus_window, KeyPress, KeyRelease,
 			_XimLocalFilter, (XPointer)ic);
 	    }
 	} else

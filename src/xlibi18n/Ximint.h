@@ -180,6 +180,8 @@ typedef struct _XimDefICValues {
 #define	XIM_FALSE	False
 #define	XIM_OVERFLOW	(-1)
 
+#define BRL_UC_ROW	0x2800
+
 /*
  * Global symbols
  */

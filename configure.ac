@@ -28,7 +28,7 @@ AC_CACHE_CHECK([whether to use XCB], [ac_cv_use_xcb], [ac_cv_use_xcb=yes])
 AM_CONDITIONAL(XCB, test x$ac_cv_use_xcb != xno)
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(XPROTO, xproto)
+PKG_CHECK_MODULES(XPROTO, [xproto >= 7.0.6])
 AC_SUBST(XPROTO_CFLAGS)
 
 case "$ac_cv_use_xcb" in

@@ -30,9 +30,9 @@ XCOMM Spacing versions of dead accents
 <dead_caron> <dead_caron>		: "ˇ"	caron
 <dead_cedilla> <space>			: "¸"	cedilla
 <dead_cedilla> <dead_cedilla>		: "¸"	cedilla
-<dead_ogonek> <dead_space>		: "˛"	ogonek
+<dead_ogonek> <space>			: "˛"	ogonek
 <dead_ogonek> <dead_ogonek>		: "˛"	ogonek
-<dead_iota> <dead_space>		: "ͺ"	U37a
+<dead_iota> <space>			: "ͺ"	U37a
 <dead_iota> <dead_iota>			: "ͺ"	U37a
 
 XCOMM ASCII characters that may be difficult to access

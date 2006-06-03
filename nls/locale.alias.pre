@@ -157,6 +157,7 @@ cs_CS:						cs_CZ.ISO8859-2
 cs_CS.ISO8859-2:				cs_CZ.ISO8859-2
 cs_CZ:						cs_CZ.ISO8859-2
 cs_CZ.iso88592:					cs_CZ.ISO8859-2
+cs_CS.iso8859-2:                                cs_CS.ISO8859-2
 cs_CZ.ISO-8859-2:				cs_CZ.ISO8859-2
 cs_CZ.ISO_8859-2:				cs_CZ.ISO8859-2
 cs_CZ.utf8:					cs_CZ.UTF-8

@@ -153,7 +153,7 @@ AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
 dnl XXX incomplete, please fill this in
 if test x$xthreads = xyes ; then
     case $host_os in
-    linux*|openbsd*)
+    linux*|openbsd*|gnu*|k*bsd*-gnu)
         XTHREADLIB=-lpthread ;;
     freebsd*)
         XTHREAD_CFLAGS="-D_THREAD_SAFE"

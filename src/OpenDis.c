@@ -438,11 +438,8 @@ XOpenDisplay (
   	(void) strncpy(dpy->vendor, u.vendor, vendorlen);
 	dpy->vendor[vendorlen] = '\0';
  	vendorlen = (vendorlen + 3) & ~3;	/* round up */
+	u.vendor += vendorlen;
 
-
-	memmove (setup, u.vendor + vendorlen,
-		 (int) setuplength - sz_xConnSetup - vendorlen);
- 	u.vendor = setup;
 /*
  * Now iterate down setup information.....
  */

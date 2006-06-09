@@ -78,23 +78,29 @@ _XimCheckIfLocalProcessing(im)
 
 Private void
 XimFreeDefaultTree(
-    DefTree *top)
+    DefTreeBase *b)
 {
-    if (!top) return;
-    if (top->succession) XimFreeDefaultTree(top->succession);
-    if (top->next) XimFreeDefaultTree(top->next);
-    if (top->mb) Xfree(top->mb);
-    if (top->wc) Xfree(top->wc);
-    if (top->utf8) Xfree(top->utf8);
-    Xfree(top);
+    if (!b) return;
+    if (b->tree)  Xfree (b->tree);
+    if (b->mb)    Xfree (b->mb);
+    if (b->wc)    Xfree (b->wc);
+    if (b->utf8)  Xfree (b->utf8);
+    b->tree = NULL;
+    b->mb   = NULL;
+    b->wc   = NULL;
+    b->utf8 = NULL;
+    b->treeused = b->treesize = 0;
+    b->mbused   = b->mbsize   = 0;
+    b->wcused   = b->wcsize   = 0;
+    b->utf8used = b->utf8size = 0;
 }
 
 Public void
 _XimLocalIMFree(
     Xim		im)
 {
-    XimFreeDefaultTree(im->private.local.top);
-    im->private.local.top = NULL;
+    XimFreeDefaultTree(&im->private.local.base);
+    im->private.local.top = 0;
 
     if(im->core.im_resources) {
 	Xfree(im->core.im_resources);
@@ -326,6 +332,11 @@ _XimLocalOpenIM(
     if (!(conv = _XlcOpenConverter(lcd,	XlcNUcsChar, lcd, XlcNUtf8String)))
 	goto Open_Error;
     private->ucstoutf8_conv = conv;
+
+    private->base.treeused = 1;
+    private->base.mbused   = 1;
+    private->base.wcused   = 1;
+    private->base.utf8used = 1;
 
     _XimCreateDefaultTree(im);
 

@@ -3371,6 +3371,26 @@ int _XOpenFile(path, flags)
     return ret;
 }
 
+int _XOpenFileMode(path, flags, mode)
+    _Xconst char* path;
+    int flags;
+    mode_t mode;
+{
+    char buf[MAX_PATH];
+    char* bufp = NULL;
+    int ret = -1;
+    UINT olderror = SetErrorMode (SEM_FAILCRITICALERRORS);
+
+    if (AccessFile (path, buf, MAX_PATH, &bufp))
+	ret = open (bufp, flags, mode);
+
+    (void) SetErrorMode (olderror);
+
+    if (bufp != buf) Xfree (bufp);
+
+    return ret;
+}
+
 void* _XFopenFile(path, mode)
     _Xconst char* path;
     _Xconst char* mode;

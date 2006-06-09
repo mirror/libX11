@@ -56,13 +56,15 @@ _XimLocalMbLookupString(xic, ev, buffer, bytes, keysym, status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
+    DefTree	*b  = ic->private.local.base.tree;
+    char	*mb = ic->private.local.base.mb;
 
     if(ev->type != KeyPress) {
 	if(status) *status = XLookupNone;
 	return(0);
     }
     if(ev->keycode == 0 && 
-	   (  (ic->private.local.composed != NULL)
+	   (  (ic->private.local.composed != 0)
 	    ||(ic->private.local.brl_committed != 0))) {
 	if (ic->private.local.brl_committed != 0) { /* Braille Event */
 	    unsigned char pattern = ic->private.local.brl_committed;
@@ -79,13 +81,13 @@ _XimLocalMbLookupString(xic, ev, buffer, bytes, keysym, status)
 		if(status) *status = XLookupChars;
 	    memcpy(buffer, mb, ret);
 	} else { /* Composed Event */
-	    ret = strlen(ic->private.local.composed->mb);
+	    ret = strlen(&mb[b[ic->private.local.composed].mb]);
 	    if(ret > bytes) {
 		if(status) *status = XBufferOverflow;
 		return(ret);
 	    }
-	    memcpy(buffer, ic->private.local.composed->mb, ret);
-	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    memcpy(buffer, &mb[b[ic->private.local.composed].mb], ret);
+	    if(keysym) *keysym = b[ic->private.local.composed].ks;
 	    if (ret > 0) {
 		if (keysym && *keysym != NoSymbol) {
 		    if(status) *status = XLookupBoth;
@@ -133,6 +135,8 @@ _XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
+    DefTree	*b  = ic->private.local.base.tree;
+    wchar_t	*wc = ic->private.local.base.wc;
 
     if(ev->type != KeyPress) {
 	if(status) *status = XLookupNone;
@@ -153,14 +157,14 @@ _XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
 	    } else
 		if(status) *status = XLookupChars;
 	} else { /* Composed Event */
-	    ret = _Xwcslen(ic->private.local.composed->wc);
+	    ret = _Xwcslen(&wc[b[ic->private.local.composed].wc]);
 	    if(ret > wlen) {
 		if(status) *status = XBufferOverflow;
 		return (ret);
 	    }
-	    memcpy((char *)buffer, (char *)ic->private.local.composed->wc,
+	    memcpy((char *)buffer, (char *)&wc[b[ic->private.local.composed].wc],
 		   ret * sizeof(wchar_t));
-	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    if(keysym) *keysym = b[ic->private.local.composed].ks;
 	    if (ret > 0) {
 		if (keysym && *keysym != NoSymbol) {
 		    if(status) *status = XLookupBoth;
@@ -208,6 +212,8 @@ _XimLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
+    DefTree	*b    = ic->private.local.base.tree;
+    char	*utf8 = ic->private.local.base.utf8;
 
     if(ev->type != KeyPress) {
 	if(status) *status = XLookupNone;
@@ -225,13 +231,13 @@ _XimLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
 	    buffer[1] = 0x80 | ((BRL_UC_ROW >> 8) & 0x30) | (pattern >> 6);
 	    buffer[2] = 0x80 | (pattern & 0x3f);
 	} else { /* Composed Event */
-	    ret = strlen(ic->private.local.composed->utf8);
+	    ret = strlen(&utf8[b[ic->private.local.composed].utf8]);
 	    if(ret > bytes) {
 		if(status) *status = XBufferOverflow;
 		return (ret);
 	    }
-	    memcpy(buffer, ic->private.local.composed->utf8, ret);
-	    if(keysym) *keysym = ic->private.local.composed->ks;
+	    memcpy(buffer, &utf8[b[ic->private.local.composed].utf8], ret);
+	    if(keysym) *keysym = b[ic->private.local.composed].ks;
 	    if (ret > 0) {
 		if (keysym && *keysym != NoSymbol) {
 		    if(status) *status = XLookupBoth;

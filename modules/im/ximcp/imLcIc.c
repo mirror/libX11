@@ -97,7 +97,7 @@ _XimLocalReset(
     XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
-    ic->private.local.composed       = (DefTree *)NULL;
+    ic->private.local.composed       = 0;
     ic->private.local.context        = ((Xim)ic->core.im)->private.local.top;
     ic->private.local.brl_pressed    = 0;
     ic->private.local.brl_committing = 0;
@@ -152,8 +152,9 @@ _XimLocalCreateIC(
 
     ic->methods = &Local_ic_methods;
     ic->core.im = im;
+    ic->private.local.base           = ((Xim)im)->private.local.base;
     ic->private.local.context        = ((Xim)im)->private.local.top;
-    ic->private.local.composed       = (DefTree *)NULL;
+    ic->private.local.composed       = 0;
     ic->private.local.brl_pressed    = 0;
     ic->private.local.brl_committing = 0;
     ic->private.local.brl_committed  = 0;

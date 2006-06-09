@@ -1255,6 +1255,12 @@ extern int _XOpenFile(
     int			/* flags */
 );
 
+extern int _XOpenFileMode(
+    _Xconst char*	/* path */,
+    int			/* flags */,
+    mode_t              /* mode */
+);
+
 extern void* _XFopenFile(
     _Xconst char*	/* path */,
     _Xconst char*	/* mode */
@@ -1265,6 +1271,7 @@ extern int _XAccessFile(
 );
 #else
 #define _XOpenFile(path,flags) open(path,flags)
+#define _XOpenFileMode(path,flags,mode) open(path,flags,mode)
 #define _XFopenFile(path,mode) fopen(path,mode)
 #endif
 

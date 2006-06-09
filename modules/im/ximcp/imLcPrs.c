@@ -422,11 +422,13 @@ parseline(
     char* tokenbuf)
 {
     int token;
-    unsigned modifier_mask;
-    unsigned modifier;
-    unsigned tmp;
+    DTModifier modifier_mask;
+    DTModifier modifier;
+    DTModifier tmp;
     KeySym keysym = NoSymbol;
-    DefTree **top = &im->private.local.top;
+    DTIndex *top = &im->private.local.top;
+    DefTreeBase *b   = &im->private.local.base;
+    DTIndex t;
     DefTree *p = NULL;
     Bool exclam, tilde;
     KeySym rhs_keysym = 0;
@@ -438,8 +440,8 @@ parseline(
     char local_utf8_buf[LOCAL_UTF8_BUFSIZE], *rhs_string_utf8;
 
     struct DefBuffer {
-	unsigned modifier_mask;
-	unsigned modifier;
+	DTModifier modifier_mask;
+	DTModifier modifier;
 	KeySym keysym;
     };
 
@@ -536,20 +538,24 @@ parseline(
 
     token = nexttoken(fp, tokenbuf, &lastch);
     if (token == STRING) {
-	if( (rhs_string_mb = Xmalloc(strlen(tokenbuf) + 1)) == NULL )
-	    goto error;
+	l = strlen(tokenbuf) + 1;
+	while (b->mbused + l > b->mbsize) {
+	    b->mbsize = b->mbsize ? b->mbsize * 1.5 : 1024;
+	    if (! (b->mb = Xrealloc (b->mb, b->mbsize)) )
+		goto error;
+	}
+	rhs_string_mb = &b->mb[b->mbused];
+	b->mbused    += l;
 	strcpy(rhs_string_mb, tokenbuf);
 	token = nexttoken(fp, tokenbuf, &lastch);
 	if (token == KEY) {
 	    rhs_keysym = XStringToKeysym(tokenbuf);
 	    if (rhs_keysym == NoSymbol) {
-		Xfree(rhs_string_mb);
 		goto error;
 	    }
 	    token = nexttoken(fp, tokenbuf, &lastch);
 	}
 	if (token != ENDOFLINE && token != ENDOFFILE) {
-	    Xfree(rhs_string_mb);
 	    goto error;
 	}
     } else if (token == KEY) {
@@ -563,14 +569,13 @@ parseline(
 	}
 
         l = get_mb_string(im, local_mb_buf, rhs_keysym);
-        if (l == 0) {
-            rhs_string_mb = Xmalloc(1);
-	} else {
-            rhs_string_mb = Xmalloc(l + 1);
-        }
-	if( rhs_string_mb == NULL ) {
-	    goto error;
+	while (b->mbused + l + 1 > b->mbsize) {
+	    b->mbsize = b->mbsize ? b->mbsize * 1.5 : 1024;
+	    if (! (b->mb = Xrealloc (b->mb, b->mbsize)) )
+		goto error;
 	}
+	rhs_string_mb = &b->mb[b->mbused];
+	b->mbused    += l + 1;
         memcpy(rhs_string_mb, local_mb_buf, l);
 	rhs_string_mb[l] = '\0';
     } else {
@@ -581,62 +586,70 @@ parseline(
     if (l == LOCAL_WC_BUFSIZE - 1) {
 	local_wc_buf[l] = (wchar_t)'\0';
     }
-    if( (rhs_string_wc = (wchar_t *)Xmalloc((l + 1) * sizeof(wchar_t))) == NULL ) {
-	Xfree( rhs_string_mb );
-	return( 0 );
+    while (b->wcused + l + 1 > b->wcsize) {
+	b->wcsize = b->wcsize ? b->wcsize * 1.5 : 512;
+	if (! (b->wc = Xrealloc (b->wc, sizeof(wchar_t) * b->wcsize)) )
+	    goto error;
     }
+    rhs_string_wc = &b->wc[b->wcused];
+    b->wcused    += l + 1;
     memcpy((char *)rhs_string_wc, (char *)local_wc_buf, (l + 1) * sizeof(wchar_t) );
 
     l = _Xmbstoutf8(local_utf8_buf, rhs_string_mb, LOCAL_UTF8_BUFSIZE - 1);
     if (l == LOCAL_UTF8_BUFSIZE - 1) {
 	local_wc_buf[l] = '\0';
     }
-    if( (rhs_string_utf8 = (char *)Xmalloc(l + 1)) == NULL ) {
-	Xfree( rhs_string_wc );
-	Xfree( rhs_string_mb );
-	return( 0 );
+    while (b->utf8used + l + 1 > b->utf8size) {
+	b->utf8size = b->utf8size ? b->utf8size * 1.5 : 1024;
+	if (! (b->utf8 = Xrealloc (b->utf8, b->utf8size)) )
+	    goto error;
     }
+    rhs_string_utf8 = &b->utf8[b->utf8used];
+    b->utf8used    += l + 1;
     memcpy(rhs_string_utf8, local_utf8_buf, l + 1);
 
     for (i = 0; i < n; i++) {
-	for (p = *top; p; p = p->next) {
-	    if (buf[i].keysym        == p->keysym &&
-		buf[i].modifier      == p->modifier &&
-		buf[i].modifier_mask == p->modifier_mask) {
+	for (t = *top; t; t = b->tree[t].next) {
+	    if (buf[i].keysym        == b->tree[t].keysym &&
+		buf[i].modifier      == b->tree[t].modifier &&
+		buf[i].modifier_mask == b->tree[t].modifier_mask) {
 		break;
 	    }
 	}
-	if (p) {
+	if (t) {
+	    p = &b->tree[t];
 	    top = &p->succession;
 	} else {
-	    if( (p = (DefTree*)Xmalloc(sizeof(DefTree))) == NULL ) {
-		Xfree( rhs_string_mb );
-		goto error;
+	    while (b->treeused >= b->treesize) {
+		DefTree *old     = b->tree;
+		int      oldsize = b->treesize;
+		b->treesize = b->treesize ? b->treesize * 1.5 : 256;
+		if (! (b->tree = Xrealloc (b->tree, sizeof(DefTree) * b->treesize)) )
+		    goto error;
+		if (top >= (DTIndex *) old && top < (DTIndex *) &old[oldsize])
+		    top = (DTIndex *) (((char *) top) + (((char *)b->tree)-(char *)old));
 	    }
+	    p = &b->tree[b->treeused];
 	    p->keysym        = buf[i].keysym;
 	    p->modifier      = buf[i].modifier;
 	    p->modifier_mask = buf[i].modifier_mask;
-	    p->succession    = NULL;
+	    p->succession    = 0;
 	    p->next          = *top;
-	    p->mb            = NULL;
-	    p->wc            = NULL;
-	    p->utf8          = NULL;
+	    p->mb            = 0;
+	    p->wc            = 0;
+	    p->utf8          = 0;
 	    p->ks            = NoSymbol;
-	    *top = p;
+	    *top = b->treeused;
 	    top = &p->succession;
+	    b->treeused++;
 	}
     }
 
-    if( p->mb != NULL )
-	Xfree( p->mb );
-    p->mb = rhs_string_mb;
-    if( p->wc != NULL )
-	Xfree( p->wc );
-    p->wc = rhs_string_wc;
-    if( p->utf8 != NULL )
-	Xfree( p->utf8 );
-    p->utf8 = rhs_string_utf8;
-    p->ks = rhs_keysym;
+    /* old entries no longer freed... */
+    p->mb   = rhs_string_mb   - b->mb;
+    p->wc   = rhs_string_wc   - b->wc;
+    p->utf8 = rhs_string_utf8 - b->utf8;
+    p->ks   = rhs_keysym;
     return(n);
 error:
     while (token != ENDOFLINE && token != ENDOFFILE) {

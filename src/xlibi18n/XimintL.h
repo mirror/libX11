@@ -40,20 +40,35 @@ THIS SOFTWARE.
 #define	COMPOSE_FILE	"Compose"
 
 /*
- * Data Structure for Local Processing
+ * Data Structures for Local Processing
  */
+typedef INT32  DTIndex;
+typedef INT32  DTCharIndex;
+typedef BITS32 DTModifier;
+
 typedef struct _DefTree {
-    struct _DefTree *next; 		/* another Key definition */
-    struct _DefTree *succession;	/* successive Key Sequence */
+    DTIndex          next;
+    DTIndex          succession;	/* successive Key Sequence */
 					/* Key definitions */
-    unsigned         modifier_mask;
-    unsigned         modifier;
+    DTModifier       modifier_mask;
+    DTModifier       modifier;
     KeySym           keysym;		/* leaf only */
-    char            *mb;
-    wchar_t         *wc;		/* make from mb */
-    char            *utf8;		/* make from mb */
+    DTCharIndex      mb;
+    DTCharIndex      wc;		/* make from mb */
+    DTCharIndex      utf8;		/* make from mb */
     KeySym           ks;
 } DefTree;
+
+typedef struct _DefTreeBase {
+    DefTree         *tree;
+    char            *mb;
+    wchar_t         *wc;
+    char            *utf8;
+    DTIndex          treeused, treesize;
+    DTCharIndex      mbused,   mbsize;
+    DTCharIndex      wcused,   wcsize;
+    DTCharIndex      utf8used, utf8size;
+} DefTreeBase;
 
 typedef struct _XimLocalPrivateRec {
 	/* The first fields are identical with XimCommonPrivateRec. */
@@ -67,7 +82,8 @@ typedef struct _XimLocalPrivateRec {
 	XlcConv		 ucstoutf8_conv;
 
 	XIC		 current_ic;
-	DefTree		*top;
+	DefTreeBase	 base;
+	DTIndex          top;
 } XimLocalPrivateRec;
 
 typedef struct _XicThaiPart {
@@ -78,8 +94,9 @@ typedef struct _XicThaiPart {
 
 typedef struct _XicLocalPrivateRec {
 	long			 value_mask;
-	DefTree			*context;
-	DefTree			*composed;
+	DefTreeBase              base;
+	DTIndex			 context;
+	DTIndex			 composed;
 	XicThaiPart		 thai;
 
 	XIMResourceList		 ic_resources;

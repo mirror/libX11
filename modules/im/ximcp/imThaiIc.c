@@ -62,6 +62,8 @@ _XimThaiDestroyIC(
     XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
+    DefTreeBase *b = &ic->private.local.base;
+
     if(((Xim)ic->core.im)->private.local.current_ic == (XIC)ic) {
 	_XimThaiUnSetFocus(xic);
     }
@@ -70,14 +72,14 @@ _XimThaiDestroyIC(
 	ic->private.local.ic_resources = NULL;
     }
 
-    Xfree(ic->private.local.context->mb);
-    Xfree(ic->private.local.context->wc);
-    Xfree(ic->private.local.context->utf8);
-    Xfree(ic->private.local.context);
-    Xfree(ic->private.local.composed->mb);
-    Xfree(ic->private.local.composed->wc);
-    Xfree(ic->private.local.composed->utf8);
-    Xfree(ic->private.local.composed);
+    if (b->tree)  Xfree (b->tree);
+    if (b->mb)    Xfree (b->mb);
+    if (b->wc)    Xfree (b->wc);
+    if (b->utf8)  Xfree (b->utf8);
+    b->tree = NULL;
+    b->mb   = NULL;
+    b->wc   = NULL;
+    b->utf8 = NULL;
     return;
 }
 
@@ -107,11 +109,12 @@ _XimThaiReset(
     XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
+    DefTreeBase *b   = &ic->private.local.base;
     ic->private.local.thai.comp_state = 0;
     ic->private.local.thai.keysym = 0;
-    ic->private.local.composed->mb[0] = '\0';
-    ic->private.local.composed->wc[0] = 0;
-    ic->private.local.composed->utf8[0] = '\0';
+    b->mb[b->tree[ic->private.local.composed].mb] = '\0';
+    b->wc[b->tree[ic->private.local.composed].wc] = '\0';
+    b->utf8[b->tree[ic->private.local.composed].utf8] = '\0';
 }
 
 Private char *
@@ -154,6 +157,7 @@ _XimThaiCreateIC(
     XIMResourceList	 res;
     unsigned int	 num;
     int			 len;
+    DefTree             *tree;
 
     if((ic = (Xic)Xmalloc(sizeof(XicRec))) == (Xic)NULL) {
 	return ((XIC)NULL);
@@ -163,30 +167,23 @@ _XimThaiCreateIC(
     ic->methods = &Thai_ic_methods;
     ic->core.im = im;
     ic->core.filter_events = KeyPressMask;
-    if ((ic->private.local.context = (DefTree *)Xmalloc(sizeof(DefTree)))
-		== (DefTree *)NULL)
+
+    if (! (ic->private.local.base.tree = tree = (DefTree *)Xmalloc(sizeof(DefTree)*3)) )
 	goto Set_Error;
-    if ((ic->private.local.context->mb = (char *)Xmalloc(10))
-		== (char *)NULL)
+    if (! (ic->private.local.base.mb = (char *)Xmalloc(21)) )
 	goto Set_Error;
-    if ((ic->private.local.context->wc = (wchar_t *)Xmalloc(10*sizeof(wchar_t)))
-		== (wchar_t *)NULL)
+    if (! (ic->private.local.base.wc = (wchar_t*)Xmalloc(sizeof(wchar_t)*21)) )
 	goto Set_Error;
-    if ((ic->private.local.context->utf8 = (char *)Xmalloc(10))
-		== (char *)NULL)
+    if (! (ic->private.local.base.utf8 = (char *)Xmalloc(21)) )
 	goto Set_Error;
-    if ((ic->private.local.composed = (DefTree *)Xmalloc(sizeof(DefTree)))
-	    == (DefTree *)NULL)
-	goto Set_Error;
-    if ((ic->private.local.composed->mb = (char *)Xmalloc(10))
-		== (char *)NULL)
-	goto Set_Error;
-    if ((ic->private.local.composed->wc = (wchar_t *)Xmalloc(10*sizeof(wchar_t)))
-		== (wchar_t *)NULL)
-	goto Set_Error;
-    if ((ic->private.local.composed->utf8 = (char *)Xmalloc(10))
-		== (char *)NULL)
-	goto Set_Error;
+    ic->private.local.context = 1;
+    tree[1].mb   = 1;
+    tree[1].wc   = 1;
+    tree[1].utf8 = 1;
+    ic->private.local.composed = 2;
+    tree[2].mb   = 11;
+    tree[2].wc   = 11;
+    tree[2].utf8 = 11;
 
     ic->private.local.thai.comp_state = 0;
     ic->private.local.thai.keysym = 0;

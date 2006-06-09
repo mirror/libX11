@@ -49,7 +49,8 @@ _XimLocalFilter(d, w, ev, client_data)
     Xic		 ic = (Xic)client_data;
     KeySym	 keysym;
     static char	 buf[256];
-    DefTree	*p;
+    DefTree	*b = ic->private.local.base.tree;
+    DTIndex	 t;
 
     if(ev->xkey.keycode == 0)
 	return (False);
@@ -74,7 +75,7 @@ _XimLocalFilter(d, w, ev, client_data)
 		if(ic->private.local.brl_committing) {
 		    ic->private.local.brl_committed =
 			ic->private.local.brl_committing;
-		    ic->private.local.composed = NULL;
+		    ic->private.local.composed = 0;
 		    ev->type = KeyPress;
 		    ev->xkey.keycode = 0;
 		    _XPutBackEvent(d, ev);
@@ -85,22 +86,21 @@ _XimLocalFilter(d, w, ev, client_data)
     }
 
     if(   (ev->type != KeyPress)
-       || (((Xim)ic->core.im)->private.local.top == (DefTree *)NULL) )
+       || (((Xim)ic->core.im)->private.local.top == 0 ) )
 	return(False);
 
-    for(p = ic->private.local.context; p; p = p->next) {
-	if(((ev->xkey.state & p->modifier_mask) == p->modifier) &&
-	    (keysym == p->keysym)) {
+    for(t = ic->private.local.context; t; t = b[t].next) {
+	if(((ev->xkey.state & b[t].modifier_mask) == b[t].modifier) &&
+	   (keysym == b[t].keysym))
 	    break;
-	}
     }
 
-    if(p) { /* Matched */
-	if(p->succession) { /* Intermediate */
-	    ic->private.local.context = p->succession;
+    if(t) { /* Matched */
+	if(b[t].succession) { /* Intermediate */
+	    ic->private.local.context = b[t].succession;
 	    return(True);
 	} else { /* Terminate (reached to leaf) */
-	    ic->private.local.composed = p;
+	    ic->private.local.composed = t;
 	    ic->private.local.brl_committed = 0;
 	    /* return back to client KeyPressEvent keycode == 0 */
 	    ev->xkey.keycode = 0;

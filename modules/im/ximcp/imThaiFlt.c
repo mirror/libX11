@@ -522,9 +522,9 @@ Private Bool ThaiComposeConvert(
  * Macros to save and recall last input character in XIC
  */
 #define IC_SavePreviousChar(ic,ch) \
-		(*((ic)->private.local.context->mb) = (char) (ch))
+                ((ic)->private.local.base.mb[(ic)->private.local.base.tree[(ic)->private.local.context].mb] = (char) (ch))
 #define IC_ClearPreviousChar(ic) \
-		(*((ic)->private.local.context->mb) = 0)
+                ((ic)->private.local.base.mb[(ic)->private.local.base.tree[(ic)->private.local.context].mb] = 0)
 #define IC_GetPreviousChar(ic) \
 		(IC_RealGetPreviousChar(ic,1))
 #define IC_GetContextChar(ic) \
@@ -536,6 +536,7 @@ Private unsigned char
 IC_RealGetPreviousChar(Xic ic, unsigned short pos)
 {
     XICCallback* cb = &ic->core.string_conversion_callback;
+    DefTreeBase *b = &ic->private.local.base;
 
     if (cb && cb->callback) {
         XIMStringConversionCallbackStruct screc;
@@ -552,7 +553,7 @@ IC_RealGetPreviousChar(Xic ic, unsigned short pos)
 
         (cb->callback)((XIC)ic, cb->client_data, (XPointer)&screc);
         if (!screc.text)
-            return (unsigned char) *((ic)->private.local.context->mb);
+            return (unsigned char) b->mb[b->tree[(ic)->private.local.context].mb];
         if ((screc.text->feedback &&
              *screc.text->feedback == XIMStringConversionLeftEdge) ||
             screc.text->length < 1)
@@ -570,7 +571,7 @@ IC_RealGetPreviousChar(Xic ic, unsigned short pos)
         XFree(screc.text);
         return c;
     } else {
-        return (unsigned char) *((ic)->private.local.context->mb);
+        return (unsigned char) b->mb[b->tree[(ic)->private.local.context].mb];
     }
 }
 
@@ -1193,13 +1194,14 @@ Private void InitIscMode(Xic ic)
 Private Bool
 ThaiFltAcceptInput(Xic ic, unsigned char new_char, KeySym symbol)
 {
-    ic->private.local.composed->wc[0] = tis2ucs(new_char);
-    ic->private.local.composed->wc[1] = '\0';
+    DefTreeBase *b = &ic->private.local.base;
+    b->wc[b->tree[ic->private.local.composed].wc+0] = tis2ucs(new_char);
+    b->wc[b->tree[ic->private.local.composed].wc+1] = '\0';
 
     if ((new_char <= 0x1f) || (new_char == 0x7f))
-        ic->private.local.composed->keysym = symbol;
+        b->tree[ic->private.local.composed].keysym = symbol;
     else
-        ic->private.local.composed->keysym = NoSymbol;
+        b->tree[ic->private.local.composed].keysym = NoSymbol;
 
     return True;
 }
@@ -1207,12 +1209,13 @@ ThaiFltAcceptInput(Xic ic, unsigned char new_char, KeySym symbol)
 Private Bool
 ThaiFltReorderInput(Xic ic, unsigned char previous_char, unsigned char new_char)
 {
+    DefTreeBase *b = &ic->private.local.base;
     if (!IC_DeletePreviousChar(ic)) return False;
-    ic->private.local.composed->wc[0] = tis2ucs(new_char);
-    ic->private.local.composed->wc[1] = tis2ucs(previous_char);
-    ic->private.local.composed->wc[2] = '\0';
+    b->wc[b->tree[ic->private.local.composed].wc+0] = tis2ucs(new_char);
+    b->wc[b->tree[ic->private.local.composed].wc+1] = tis2ucs(previous_char);
+    b->wc[b->tree[ic->private.local.composed].wc+2] = '\0';
 
-    ic->private.local.composed->keysym = NoSymbol;
+    b->tree[ic->private.local.composed].keysym = NoSymbol;
 
     return True;
 }
@@ -1220,14 +1223,15 @@ ThaiFltReorderInput(Xic ic, unsigned char previous_char, unsigned char new_char)
 Private Bool
 ThaiFltReplaceInput(Xic ic, unsigned char new_char, KeySym symbol)
 {
+    DefTreeBase *b = &ic->private.local.base;
     if (!IC_DeletePreviousChar(ic)) return False;
-    ic->private.local.composed->wc[0] = tis2ucs(new_char);
-    ic->private.local.composed->wc[1] = '\0';
+    b->wc[b->tree[ic->private.local.composed].wc+0] = tis2ucs(new_char);
+    b->wc[b->tree[ic->private.local.composed].wc+1] = '\0';
 
     if ((new_char <= 0x1f) || (new_char == 0x7f))
-        ic->private.local.composed->keysym = symbol;
+        b->tree[ic->private.local.composed].keysym = symbol;
     else
-        ic->private.local.composed->keysym = NoSymbol;
+        b->tree[ic->private.local.composed].keysym = NoSymbol;
 
     return True;
 }
@@ -1256,6 +1260,7 @@ XPointer	client_data;
 #endif
     wchar_t	    wbuf[10];
     Bool            isReject;
+    DefTreeBase    *b = &ic->private.local.base;
 
     if ((ev->type != KeyPress)
         || (ev->xkey.keycode == 0))
@@ -1358,11 +1363,11 @@ XPointer	client_data;
         return True;
     }
 
-    _Xlcwcstombs(ic->core.im->core.lcd, ic->private.local.composed->mb,
-		 ic->private.local.composed->wc, 10);
+    _Xlcwcstombs(ic->core.im->core.lcd, &b->mb[b->tree[ic->private.local.composed].mb],
+		 &b->wc[b->tree[ic->private.local.composed].wc], 10);
 
-    _Xlcmbstoutf8(ic->core.im->core.lcd, ic->private.local.composed->utf8,
-		  ic->private.local.composed->mb, 10);
+    _Xlcmbstoutf8(ic->core.im->core.lcd, &b->utf8[b->tree[ic->private.local.composed].utf8],
+		  &b->mb[b->tree[ic->private.local.composed].mb], 10);
 
     /* Remember the last character inputted
      * (as fallback in case StringConversionCallback is not provided)

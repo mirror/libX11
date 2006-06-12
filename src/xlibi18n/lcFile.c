@@ -647,6 +647,15 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
     char *target_name = (char*)0;
     char *target_dir = (char*)0;
     char *nlc_name = NULL;
+    static char*  last_dir_name = 0;
+    static size_t last_dir_len = 0;
+    static char*  last_lc_name = 0;
+
+    if (last_lc_name != 0 && strcmp (last_lc_name, lc_name) == 0
+       && dir_len >= last_dir_len) {
+        strcpy (dir_name, last_dir_name);
+        return dir_name;
+    }
 
     xlocaledir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, 256);
@@ -714,6 +723,17 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
     }
     if (target_name != lc_name)
  	Xfree(target_name);
+
+    if (last_dir_name != 0)
+	Xfree (last_dir_name);
+    if (last_lc_name != 0)
+	Xfree (last_lc_name);
+    last_dir_len = strlen (dir_name) + 1;
+    last_dir_name = Xmalloc (last_dir_len);
+    strcpy (last_dir_name, dir_name);
+    last_lc_name = Xmalloc (strlen (lc_name) + 1);
+    strcpy (last_lc_name, lc_name);
+
     return dir_name;
 }
 
@@ -730,6 +750,15 @@ _XlcLocaleLibDirName(dir_name, dir_len, lc_name)
     char *target_name = (char*)0;
     char *target_dir = (char*)0;
     char *nlc_name = NULL;
+    static char*  last_dir_name = 0;
+    static size_t last_dir_len = 0;
+    static char*  last_lc_name = 0;
+
+    if (last_lc_name != 0 && strcmp (last_lc_name, lc_name) == 0
+       && dir_len >= last_dir_len) {
+	strcpy (dir_name, last_dir_name);
+	return dir_name;
+    }
 
     xlocalelibdir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, 256);
@@ -797,5 +826,16 @@ _XlcLocaleLibDirName(dir_name, dir_len, lc_name)
     }
     if (target_name != lc_name)
  	Xfree(target_name);
+
+    if (last_dir_name != 0)
+	Xfree (last_dir_name);
+    if (last_lc_name != 0)
+	Xfree (last_lc_name);
+    last_dir_len = strlen (dir_name) + 1;
+    last_dir_name = Xmalloc (last_dir_len);
+    strcpy (last_dir_name, dir_name);
+    last_lc_name = Xmalloc (strlen (lc_name) + 1);
+    strcpy (last_lc_name, lc_name);
+
     return dir_name;
 }

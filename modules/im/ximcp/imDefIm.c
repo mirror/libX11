@@ -76,7 +76,7 @@ _XimSetHeader(
     return;
 }
 
-Private char
+Public char
 _XimGetMyEndian(void)
 {
     CARD16	 test_card = 1;

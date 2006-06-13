@@ -50,6 +50,49 @@ THIS SOFTWARE.
 #include "XlcPubI.h"
 #include "Ximint.h"
 #include <ctype.h>
+#include <assert.h>
+
+#ifdef COMPOSECACHE
+#  include <sys/types.h>
+#  include <sys/stat.h>
+#  include <sys/mman.h>
+#endif
+
+
+#ifdef COMPOSECACHE
+
+/* include trailing '/' for cache directory, file prefix otherwise */
+#define XIM_GLOBAL_CACHE_DIR "/var/X11R6/compose-cache/"
+#define XIM_HOME_CACHE_DIR "/.compose-cache/"
+#define XIM_CACHE_MAGIC ('X' | 'i'<<8 | 'm'<<16 | 'C'<<24)
+#define XIM_CACHE_VERSION 2
+
+#define XIM_HASH_PRIME_1 13
+#define XIM_HASH_PRIME_2 1234096939
+
+typedef INT32 DTStructIndex;
+struct _XimCacheStruct {
+    INT32           id;
+    INT32           version;
+    DTStructIndex   tree;
+    DTStructIndex   mb;
+    DTStructIndex   wc;
+    DTStructIndex   utf8;
+    DTStructIndex   size;
+    DTIndex         top;
+    DTIndex         treeused;
+    DTCharIndex     mbused;
+    DTCharIndex     wcused;
+    DTCharIndex     utf8used;
+    char            fname[1];
+};
+
+Private struct  _XimCacheStruct* _XimCache_mmap = NULL;
+Private DefTreeBase _XimCachedDefaultTreeBase;
+Private int     _XimCachedDefaultTreeRefcount = 0;
+
+#endif
+
 
 Public Bool
 _XimCheckIfLocalProcessing(im)
@@ -81,6 +124,14 @@ XimFreeDefaultTree(
     DefTreeBase *b)
 {
     if (!b) return;
+    if (b->tree == NULL) return;
+#ifdef COMPOSECACHE
+    if (b->tree == _XimCachedDefaultTreeBase.tree) {
+        _XimCachedDefaultTreeRefcount--;
+        /* No deleting, it's a cache after all. */
+        return;
+    }
+#endif
     if (b->tree)  Xfree (b->tree);
     if (b->mb)    Xfree (b->mb);
     if (b->wc)    Xfree (b->wc);
@@ -219,28 +270,255 @@ _XimLocalSetIMValues(
     return(name);
 }
 
+
+#ifdef COMPOSECACHE
+
+Private Bool
+_XimReadCachedDefaultTree(
+    int          fd_cache,
+    const char  *name,
+    DTStructIndex size)
+{
+    struct _XimCacheStruct* m;
+    m = mmap (NULL, size, PROT_READ, MAP_PRIVATE, fd_cache, 0);
+    if (m == NULL || m == MAP_FAILED)
+        return False;
+    assert (m->id == XIM_CACHE_MAGIC);
+    assert (m->version == XIM_CACHE_VERSION);
+    if (size != m->size ||
+	size <= XOffsetOf (struct _XimCacheStruct, fname) + strlen (name)) {
+	fprintf (stderr, "Ignoring broken XimCache %s\n", name);
+        munmap (m, size);
+        return False;
+    }
+    if (strncmp (name, m->fname, strlen (name)+1) != 0) {
+	/* m->defs[0].mb may *not* be terminated - but who cares here */
+	fprintf (stderr, "Hash clash - expected %s, got %s\n",
+		 name, m->fname);
+        munmap (m, size);
+        return False;
+    }
+    _XimCache_mmap    = m;
+    _XimCachedDefaultTreeBase.tree = (DefTree *) (((char *) m) + m->tree);
+    _XimCachedDefaultTreeBase.mb   =             (((char *) m) + m->mb);
+    _XimCachedDefaultTreeBase.wc   = (wchar_t *) (((char *) m) + m->wc);
+    _XimCachedDefaultTreeBase.utf8 =             (((char *) m) + m->utf8);
+    _XimCachedDefaultTreeBase.treeused = m->treeused;
+    _XimCachedDefaultTreeBase.mbused   = m->mbused;
+    _XimCachedDefaultTreeBase.wcused   = m->wcused;
+    _XimCachedDefaultTreeBase.utf8used = m->utf8used;
+    /* treesize etc. is ignored because only used during parsing */
+    _XimCachedDefaultTreeRefcount = 0;
+/* fprintf (stderr, "read cached tree at %p: %s\n", (void *) m, name); */
+    return True;
+}
+
+Private unsigned int strToHash (
+    const char *name)
+{
+    unsigned int hash = 0;
+    while (*name)
+	hash = hash * XIM_HASH_PRIME_1 + *(unsigned const char *)name++;
+    return hash % XIM_HASH_PRIME_2;
+}
+
+
+/* Returns read-only fd of cache file, -1 if none.
+ * Sets *res to cache filename if safe. Sets *size to file size of cache. */
+Private int _XimCachedFileName (
+    const char *dir, const char *name, const char *intname,
+    uid_t uid, int isglobal, char **res, off_t *size)
+{
+    struct stat st_name, st;
+    int    fd;
+    unsigned int len, hash;
+    struct _XimCacheStruct* m;
+    /* There are some races here with 'dir', but we are either in our own home
+     * or the global cache dir, and not inside some public writable dir */
+/* fprintf (stderr, "XimCachedFileName for dir %s name %s intname %s uid %d\n", dir, name, intname, uid); */
+    if (stat (name, &st_name) == -1 || ! S_ISREG (st_name.st_mode)
+       || stat (dir, &st) == -1 || ! S_ISDIR (st.st_mode) || st.st_uid != uid
+       || (st.st_mode & 0022) != 0000) {
+       *res = NULL;
+       return -1;
+    }
+    len  = strlen (dir);
+    hash = strToHash (intname);
+    *res = Xmalloc (len + 1 + 18 + 1);  /* Max VERSION 9999 */
+
+    if (len == 0 || dir [len-1] != '/')
+       sprintf (*res, "%s/%c%d_%03x_%08x", dir, _XimGetMyEndian(),
+		XIM_CACHE_VERSION, sizeof (DefTree), hash);
+    else
+       sprintf (*res, "%s%c%d_%03x_%08x", dir, _XimGetMyEndian(),
+		XIM_CACHE_VERSION, sizeof (DefTree), hash);
+    
+/* fprintf (stderr, "-> %s\n", *res); */
+    if ( (fd = _XOpenFile (*res, O_RDONLY)) == -1)
+       return -1;
+
+    if (fstat (fd, &st) == -1) {
+       Xfree (*res);
+       *res = NULL;
+       close (fd);
+       return -1;
+    }
+    *size = st.st_size;
+
+    if (! S_ISREG (st.st_mode) || st.st_uid != uid
+       || (st.st_mode & 0022) != 0000 || st.st_mtime <= st_name.st_mtime
+       || (st.st_mtime < time (NULL) - 24*60*60 && ! isglobal)) {
+
+       close (fd);
+       if (unlink (*res) != 0) {
+           Xfree (*res);
+           *res = NULL;                /* cache is not safe */
+       }
+       return -1;
+    }
+
+    m = mmap (NULL, sizeof (struct _XimCacheStruct), PROT_READ, MAP_PRIVATE,
+	      fd, 0);
+    if (m == NULL || m == MAP_FAILED) {
+	close (fd);
+	Xfree (*res);
+	*res = NULL;
+        return -1;
+    }
+    if (*size < sizeof (struct _XimCacheStruct) || m->id != XIM_CACHE_MAGIC) {
+	munmap (m, sizeof (struct _XimCacheStruct));
+	close (fd);
+	fprintf (stderr, "Ignoring broken XimCache %s\n", *res);
+	Xfree (*res);
+	*res = NULL;
+        return -1;
+    }
+    if (m->version != XIM_CACHE_VERSION) {
+	munmap (m, sizeof (struct _XimCacheStruct));
+	close (fd);
+	if (unlink (*res) != 0) {
+	    Xfree (*res);
+	    *res = NULL;                /* cache is not safe */
+	}
+	return -1;
+    }
+    munmap (m, sizeof (struct _XimCacheStruct));
+    
+    return fd;
+}
+
+
+Private Bool _XimLoadCache (
+    int         fd,
+    const char *name,
+    off_t       size,
+    Xim         im)
+{
+    if (_XimCache_mmap ||
+       _XimReadCachedDefaultTree (fd, name, size)) {
+       _XimCachedDefaultTreeRefcount++;
+       memcpy (&im->private.local.base, &_XimCachedDefaultTreeBase,
+	       sizeof (_XimCachedDefaultTreeBase));
+       im->private.local.top = _XimCache_mmap->top;
+       return True;
+    }
+
+    return False;
+}
+
+
+Private void
+_XimWriteCachedDefaultTree(
+    const char *name,
+    const char *cachename,
+    Xim                im)
+{
+    int   fd;
+    FILE *fp;
+    struct _XimCacheStruct *m;
+    int   msize = XOffsetOf(struct _XimCacheStruct, fname) + strlen(name) + 1;
+    DefTreeBase *b = &im->private.local.base;
+
+    if (! b->tree && ! (b->tree = Xmalloc (sizeof(DefTree))) )
+	return;
+    if (! b->mb   && ! (b->mb   = Xmalloc (1)) )
+	return;
+    if (! b->wc   && ! (b->wc   = Xmalloc (sizeof(wchar_t))) )
+	return;
+    if (! b->utf8 && ! (b->utf8 = Xmalloc (1)) )
+	return;
+
+    m = Xmalloc (msize);
+    m->id       = XIM_CACHE_MAGIC;
+    m->version  = XIM_CACHE_VERSION;
+    m->tree     = msize;
+    m->top      = im->private.local.top;
+    m->treeused = b->treeused;
+    m->mbused   = b->mbused;
+    m->wcused   = b->wcused;
+    m->utf8used = b->utf8used;
+    m->mb       = msize   + sizeof (DefTree) * m->treeused;
+    m->wc       = m->mb   +                    m->mbused;
+    m->utf8     = m->wc   + sizeof (wchar_t) * m->wcused;
+    m->size     = m->utf8 +                    m->utf8used;
+    strcpy (m->fname, name);
+
+    /* Should use getpwent() instead of $HOME (cross-platform?) */
+    /* This STILL might be racy on NFS */
+    if ( (fd = _XOpenFileMode (cachename, O_WRONLY | O_CREAT | O_EXCL,
+			       0600)) < 0)
+       return;
+    if (! (fp = fdopen (fd, "wb")) ) {
+       close (fd);
+       return;
+    }
+    fwrite (m, msize, 1, fp);
+    fwrite (im->private.local.base.tree, sizeof(DefTree), m->treeused, fp);
+    fwrite (im->private.local.base.mb,   1,               m->mbused,   fp);
+    fwrite (im->private.local.base.wc,   sizeof(wchar_t), m->wcused,   fp);
+    fwrite (im->private.local.base.utf8, 1,               m->utf8used, fp);
+    if (fclose (fp) != 0)
+	unlink (cachename);
+    _XimCache_mmap = m;
+    memcpy (&_XimCachedDefaultTreeBase, &im->private.local.base,
+	    sizeof (_XimCachedDefaultTreeBase));
+/* fprintf (stderr, "wrote tree %s size %ld to %s\n", name, m->size, cachename); */
+}
+
+#endif
+
+
 Private void
 _XimCreateDefaultTree(
     Xim		im)
 {
     FILE *fp = NULL;
-    char *name, *tmpname = NULL;
+    char *name, *tmpname = NULL, *intname;
+    char *cachename = NULL;
+    char *home = getenv("HOME");
+    char *cachedir = NULL;
+    char *tmpcachedir = NULL;
+    int   hl = home ? strlen (home) : 0;
+#ifdef COMPOSECACHE
+    uid_t euid = geteuid ();
+    gid_t egid = getegid ();
+    int   cachefd = -1;
+    off_t size;
+#endif
 
     name = getenv("XCOMPOSEFILE");
-
     if (name == (char *) NULL) {
-    	char *home = getenv("HOME");
     	if (home != (char *) NULL) {
-    	    int hl = strlen(home);
             tmpname = name = Xmalloc(hl + 10 + 1);
             if (name != (char *) NULL) {
+		int fd;
             	strcpy(name, home);
             	strcpy(name + hl, "/.XCompose");
-                fp = _XFopenFile (name, "r");
-                if (fp == (FILE *) NULL) {
-                    Xfree(name);
-                    name = tmpname = NULL;
-                }
+		if ( (fd = _XOpenFile (name, O_RDONLY)) < 0) {
+		    Xfree (name);
+		    name = tmpname = NULL;
+		} else
+		    close (fd);
             }
         }
     }
@@ -248,19 +526,95 @@ _XimCreateDefaultTree(
     if (name == (char *) NULL) {
         tmpname = name = _XlcFileName(im->core.lcd, COMPOSE_FILE);
     }
+    intname = name;
+    
+#ifdef COMPOSECACHE
+    if (getuid () == euid && getgid () == egid && euid != 0) {
+	char *c;
+	/* Usage: XCOMPOSECACHE=<cachedir>[=<filename>]
+	 * cachedir: directory of cache files
+	 * filename: internally used name for cache file */
+        cachedir = getenv("XCOMPOSECACHE");
+	if (cachedir && (c = strchr (cachedir, '='))) {
+	    tmpcachedir = strdup (cachedir);
+	    intname = tmpcachedir + (c-cachedir) + 1;
+	    tmpcachedir[c-cachedir] = '\0';
+	    cachedir = tmpcachedir;
+	}
+    }
 
-    if (name == (char *) NULL)
+    if (! cachedir) {
+	cachefd = _XimCachedFileName (XIM_GLOBAL_CACHE_DIR, name, intname,
+				      0, 1, &cachename, &size);
+	if (cachefd != -1) {
+	    if (_XimLoadCache (cachefd, intname, size, im)) {
+		if (tmpcachedir)
+		    Xfree  (tmpcachedir);
+		if (tmpname)
+		    Xfree (tmpname);
+		if (cachename)
+		    Xfree (cachename);
+		close (cachefd);
+		return;
+	    }
+	    close (cachefd);
+	}
+	if (cachename)
+	    Xfree (cachename);
+	cachename = NULL;
+    }
+    
+    if (getuid () == euid && getgid () == egid && euid != 0 && home) {
+
+	if (! cachedir) {
+	    tmpcachedir = cachedir = Xmalloc (hl+strlen(XIM_HOME_CACHE_DIR)+1);
+	    strcpy (cachedir, home);
+	    strcat (cachedir, XIM_HOME_CACHE_DIR);
+	}
+	cachefd = _XimCachedFileName (cachedir, name, intname, euid, 0,
+				      &cachename, &size);
+	if (cachefd != -1) {
+	    if (_XimLoadCache (cachefd, intname, size, im)) {
+		if (tmpcachedir)
+		    Xfree  (tmpcachedir);
+		if (tmpname)
+		    Xfree (tmpname);
+		if (cachename)
+		    Xfree (cachename);
+		close (cachefd);
+		return;
+	    }
+	    close (cachefd);
+	}
+    }
+#endif
+
+    fp = _XFopenFile (name, "r");
+    if (! (fp = _XFopenFile (name, "r"))) {
+	if (tmpcachedir)
+	    Xfree  (tmpcachedir);
+	if (tmpname)
+	    Xfree (tmpname);
+	if (cachename)
+	    Xfree (cachename);
         return;
-    if (fp == (FILE *) NULL) {
-        fp = _XFopenFile (name, "r");
     }
-    if (tmpname != (char *) NULL) {
-        Xfree(tmpname);
-    }
-    if (fp == (FILE *) NULL)
-	return;
     _XimParseStringFile(fp, im);
     fclose(fp);
+
+#ifdef COMPOSECACHE
+    if (cachename) {
+	assert (euid != 0);
+	_XimWriteCachedDefaultTree (intname, cachename, im);
+    }
+#endif
+    
+    if (tmpcachedir)
+	Xfree  (tmpcachedir);
+    if (tmpname)
+	Xfree (tmpname);
+    if (cachename)
+	Xfree (cachename);
 }
 
 Private XIMMethodsRec      Xim_im_local_methods = {

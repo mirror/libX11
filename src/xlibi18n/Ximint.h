@@ -672,6 +672,10 @@ extern int	_XimLcctstoutf8(
     Status	*state
 );
 
+extern char _XimGetMyEndian(
+    void
+);
+
 extern int	_XimCheckDataSize(
     XPointer	 buf,
     int		 len

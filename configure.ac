@@ -289,10 +289,12 @@ fi
 AC_SUBST(XKBPROTO_REQUIRES)
 
 AC_FUNC_MMAP()
+composecache_default=$ac_cv_func_mmap_fixed_mapped
+AC_CHECK_FUNC(nl_langinfo, , [composecache_default=no])
 AC_ARG_ENABLE(composecache, 
               AC_HELP_STRING([--disable-composecache],
                 [Disable compose table cache support]),
-              [COMPOSECACHE=$enableval],[COMPOSECACHE=$ac_cv_func_mmap_fixed_mapped])
+              [COMPOSECACHE=$enableval],[COMPOSECACHE=$composecache_default])
 if test x"$COMPOSECACHE" = "xyes"; then
 	AC_DEFINE(COMPOSECACHE,1,[Include compose table cache support])
 fi

@@ -56,6 +56,7 @@ THIS SOFTWARE.
 #  include <sys/types.h>
 #  include <sys/stat.h>
 #  include <sys/mman.h>
+#  include <langinfo.h>
 #endif
 
 
@@ -65,7 +66,7 @@ THIS SOFTWARE.
 #define XIM_GLOBAL_CACHE_DIR "/var/X11R6/compose-cache/"
 #define XIM_HOME_CACHE_DIR "/.compose-cache/"
 #define XIM_CACHE_MAGIC ('X' | 'i'<<8 | 'm'<<16 | 'C'<<24)
-#define XIM_CACHE_VERSION 2
+#define XIM_CACHE_VERSION 3
 
 #define XIM_HASH_PRIME_1 13
 #define XIM_HASH_PRIME_2 1234096939
@@ -85,6 +86,7 @@ struct _XimCacheStruct {
     DTCharIndex     wcused;
     DTCharIndex     utf8used;
     char            fname[1];
+    /* char encoding[1] */
 };
 
 Private struct  _XimCacheStruct* _XimCache_mmap = NULL;
@@ -132,7 +134,7 @@ XimFreeDefaultTree(
         return;
     }
 #endif
-    if (b->tree)  Xfree (b->tree);
+    Xfree (b->tree);
     if (b->mb)    Xfree (b->mb);
     if (b->wc)    Xfree (b->wc);
     if (b->utf8)  Xfree (b->utf8);
@@ -277,24 +279,35 @@ Private Bool
 _XimReadCachedDefaultTree(
     int          fd_cache,
     const char  *name,
+    const char  *encoding,
     DTStructIndex size)
 {
     struct _XimCacheStruct* m;
+    int namelen = strlen (name) + 1;
+    int encodinglen = strlen (encoding) + 1;
+
     m = mmap (NULL, size, PROT_READ, MAP_PRIVATE, fd_cache, 0);
     if (m == NULL || m == MAP_FAILED)
         return False;
     assert (m->id == XIM_CACHE_MAGIC);
     assert (m->version == XIM_CACHE_VERSION);
     if (size != m->size ||
-	size <= XOffsetOf (struct _XimCacheStruct, fname) + strlen (name)) {
-	fprintf (stderr, "Ignoring broken XimCache %s\n", name);
+	size < XOffsetOf (struct _XimCacheStruct, fname) + namelen + encodinglen) {
+	fprintf (stderr, "Ignoring broken XimCache %s [%s]\n", name, encoding);
         munmap (m, size);
         return False;
     }
-    if (strncmp (name, m->fname, strlen (name)+1) != 0) {
-	/* m->defs[0].mb may *not* be terminated - but who cares here */
-	fprintf (stderr, "Hash clash - expected %s, got %s\n",
+    if (strncmp (name, m->fname, namelen) != 0) {
+	/* m->fname may *not* be terminated - but who cares here */
+	fprintf (stderr, "Filename hash clash - expected %s, got %s\n",
 		 name, m->fname);
+        munmap (m, size);
+        return False;
+    }
+    if (strncmp (encoding, m->fname + namelen, encodinglen) != 0) {
+	/* m->fname+namelen may *not* be terminated - but who cares here */
+	fprintf (stderr, "Enoding hash clash - expected %s, got %s\n",
+		 encoding, m->fname + namelen);
         munmap (m, size);
         return False;
     }
@@ -326,32 +339,34 @@ Private unsigned int strToHash (
 /* Returns read-only fd of cache file, -1 if none.
  * Sets *res to cache filename if safe. Sets *size to file size of cache. */
 Private int _XimCachedFileName (
-    const char *dir, const char *name, const char *intname,
+    const char *dir, const char *name,
+    const char *intname, const char *encoding,
     uid_t uid, int isglobal, char **res, off_t *size)
 {
     struct stat st_name, st;
     int    fd;
-    unsigned int len, hash;
-    struct _XimCacheStruct* m;
+    unsigned int len, hash, hash2;
+    struct _XimCacheStruct *m;
     /* There are some races here with 'dir', but we are either in our own home
      * or the global cache dir, and not inside some public writable dir */
-/* fprintf (stderr, "XimCachedFileName for dir %s name %s intname %s uid %d\n", dir, name, intname, uid); */
+/* fprintf (stderr, "XimCachedFileName for dir %s name %s intname %s encoding %s uid %d\n", dir, name, intname, encoding, uid); */
     if (stat (name, &st_name) == -1 || ! S_ISREG (st_name.st_mode)
        || stat (dir, &st) == -1 || ! S_ISDIR (st.st_mode) || st.st_uid != uid
        || (st.st_mode & 0022) != 0000) {
        *res = NULL;
        return -1;
     }
-    len  = strlen (dir);
-    hash = strToHash (intname);
-    *res = Xmalloc (len + 1 + 18 + 1);  /* Max VERSION 9999 */
+    len   = strlen (dir);
+    hash  = strToHash (intname);
+    hash2 = strToHash (encoding);
+    *res  = Xmalloc (len + 1 + 27 + 1);  /* Max VERSION 9999 */
 
     if (len == 0 || dir [len-1] != '/')
-       sprintf (*res, "%s/%c%d_%03x_%08x", dir, _XimGetMyEndian(),
-		XIM_CACHE_VERSION, sizeof (DefTree), hash);
+       sprintf (*res, "%s/%c%d_%03x_%08x_%08x", dir, _XimGetMyEndian(),
+		XIM_CACHE_VERSION, sizeof (DefTree), hash, hash2);
     else
-       sprintf (*res, "%s%c%d_%03x_%08x", dir, _XimGetMyEndian(),
-		XIM_CACHE_VERSION, sizeof (DefTree), hash);
+       sprintf (*res, "%s%c%d_%03x_%08x_%08x", dir, _XimGetMyEndian(),
+		XIM_CACHE_VERSION, sizeof (DefTree), hash, hash2);
     
 /* fprintf (stderr, "-> %s\n", *res); */
     if ( (fd = _XOpenFile (*res, O_RDONLY)) == -1)
@@ -411,11 +426,12 @@ Private int _XimCachedFileName (
 Private Bool _XimLoadCache (
     int         fd,
     const char *name,
+    const char *encoding,
     off_t       size,
     Xim         im)
 {
     if (_XimCache_mmap ||
-       _XimReadCachedDefaultTree (fd, name, size)) {
+       _XimReadCachedDefaultTree (fd, name, encoding, size)) {
        _XimCachedDefaultTreeRefcount++;
        memcpy (&im->private.local.base, &_XimCachedDefaultTreeBase,
 	       sizeof (_XimCachedDefaultTreeBase));
@@ -430,13 +446,14 @@ Private Bool _XimLoadCache (
 Private void
 _XimWriteCachedDefaultTree(
     const char *name,
+    const char *encoding,
     const char *cachename,
     Xim                im)
 {
     int   fd;
     FILE *fp;
     struct _XimCacheStruct *m;
-    int   msize = XOffsetOf(struct _XimCacheStruct, fname) + strlen(name) + 1;
+    int   msize = XOffsetOf(struct _XimCacheStruct, fname) + strlen(name) + strlen(encoding) + 2;
     DefTreeBase *b = &im->private.local.base;
 
     if (! b->tree && ! (b->tree = Xmalloc (sizeof(DefTree))) )
@@ -462,8 +479,8 @@ _XimWriteCachedDefaultTree(
     m->utf8     = m->wc   + sizeof (wchar_t) * m->wcused;
     m->size     = m->utf8 +                    m->utf8used;
     strcpy (m->fname, name);
+    strcpy (m->fname+strlen(name)+1, encoding);
 
-    /* Should use getpwent() instead of $HOME (cross-platform?) */
     /* This STILL might be racy on NFS */
     if ( (fd = _XOpenFileMode (cachename, O_WRONLY | O_CREAT | O_EXCL,
 			       0600)) < 0)
@@ -495,11 +512,13 @@ _XimCreateDefaultTree(
     FILE *fp = NULL;
     char *name, *tmpname = NULL, *intname;
     char *cachename = NULL;
+    /* Should use getpwent() instead of $HOME (cross-platform?) */
     char *home = getenv("HOME");
     char *cachedir = NULL;
     char *tmpcachedir = NULL;
     int   hl = home ? strlen (home) : 0;
 #ifdef COMPOSECACHE
+    const char *encoding = nl_langinfo (CODESET);
     uid_t euid = geteuid ();
     gid_t egid = getegid ();
     int   cachefd = -1;
@@ -545,9 +564,9 @@ _XimCreateDefaultTree(
 
     if (! cachedir) {
 	cachefd = _XimCachedFileName (XIM_GLOBAL_CACHE_DIR, name, intname,
-				      0, 1, &cachename, &size);
+				      encoding, 0, 1, &cachename, &size);
 	if (cachefd != -1) {
-	    if (_XimLoadCache (cachefd, intname, size, im)) {
+	    if (_XimLoadCache (cachefd, intname, encoding, size, im)) {
 		if (tmpcachedir)
 		    Xfree  (tmpcachedir);
 		if (tmpname)
@@ -571,10 +590,10 @@ _XimCreateDefaultTree(
 	    strcpy (cachedir, home);
 	    strcat (cachedir, XIM_HOME_CACHE_DIR);
 	}
-	cachefd = _XimCachedFileName (cachedir, name, intname, euid, 0,
-				      &cachename, &size);
+	cachefd = _XimCachedFileName (cachedir, name, intname, encoding,
+				      euid, 0, &cachename, &size);
 	if (cachefd != -1) {
-	    if (_XimLoadCache (cachefd, intname, size, im)) {
+	    if (_XimLoadCache (cachefd, intname, encoding, size, im)) {
 		if (tmpcachedir)
 		    Xfree  (tmpcachedir);
 		if (tmpname)
@@ -605,7 +624,7 @@ _XimCreateDefaultTree(
 #ifdef COMPOSECACHE
     if (cachename) {
 	assert (euid != 0);
-	_XimWriteCachedDefaultTree (intname, cachename, im);
+	_XimWriteCachedDefaultTree (intname, encoding, cachename, im);
     }
 #endif
     

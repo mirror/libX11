@@ -162,7 +162,24 @@ CIELab_ParseString(
 	    &pColor->spec.CIELab.L_star,
 	    &pColor->spec.CIELab.a_star,
 	    &pColor->spec.CIELab.b_star) != 3) {
-	return(XcmsFailure);
+        char *s; /* Maybe failed due to locale */
+        int f;
+        if (s = strdup(spec)) {
+            for (f = 0; s[f]; ++f)
+                if (s[f] == '.')
+                    s[f] = ',';
+                else if (s[f] == ',')
+                    s[f] = '.';
+	    if (sscanf(s + n + 1, "%lf/%lf/%lf",
+		       &pColor->spec.CIELab.L_star,
+		       &pColor->spec.CIELab.a_star,
+		       &pColor->spec.CIELab.b_star) != 3) {
+                free(s);
+                return(XcmsFailure);
+            }
+            free(s);
+        } else
+	    return(XcmsFailure);
     }
     pColor->format = XcmsCIELabFormat;
     pColor->pixel = 0;

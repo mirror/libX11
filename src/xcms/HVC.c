@@ -201,7 +201,24 @@ TekHVC_ParseString(
 	    &pColor->spec.TekHVC.H,
 	    &pColor->spec.TekHVC.V,
 	    &pColor->spec.TekHVC.C) != 3) {
-	return(XcmsFailure);
+        char *s; /* Maybe failed due to locale */
+        int f;
+        if ((s = strdup(spec))) {
+            for (f = 0; s[f]; ++f)
+                if (s[f] == '.')
+                    s[f] = ',';
+                else if (s[f] == ',')
+                    s[f] = '.';
+	    if (sscanf(s + n + 1, "%lf/%lf/%lf",
+		       &pColor->spec.TekHVC.H,
+		       &pColor->spec.TekHVC.V,
+		       &pColor->spec.TekHVC.C) != 3) {
+                free(s);
+                return(XcmsFailure);
+            }
+            free(s);
+        } else
+	    return(XcmsFailure);
     }
     pColor->format = XcmsTekHVCFormat;
     pColor->pixel = 0;

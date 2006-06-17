@@ -159,7 +159,24 @@ CIEuvY_ParseString(
 	    &pColor->spec.CIEuvY.u_prime,
 	    &pColor->spec.CIEuvY.v_prime,
 	    &pColor->spec.CIEuvY.Y) != 3) {
-	return(XcmsFailure);
+        char *s; /* Maybe failed due to locale */
+        int f;
+        if (s = strdup(spec)) {
+            for (f = 0; s[f]; ++f)
+                if (s[f] == '.')
+                    s[f] = ',';
+                else if (s[f] == ',')
+                    s[f] = '.';
+	    if (sscanf(s + n + 1, "%lf/%lf/%lf",
+		       &pColor->spec.CIEuvY.u_prime,
+		       &pColor->spec.CIEuvY.v_prime,
+		       &pColor->spec.CIEuvY.Y) != 3) {
+                free(s);
+                return(XcmsFailure);
+            }
+            free(s);
+        } else
+	    return(XcmsFailure);
     }
     pColor->format = XcmsCIEuvYFormat;
     pColor->pixel = 0;

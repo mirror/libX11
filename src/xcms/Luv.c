@@ -165,6 +165,23 @@ CIELuv_ParseString(
 	    &pColor->spec.CIELuv.L_star,
 	    &pColor->spec.CIELuv.u_star,
 	    &pColor->spec.CIELuv.v_star) != 3) {
+        char *s; /* Maybe failed due to locale */
+        int f;
+        if (s = strdup(spec)) {
+            for (f = 0; s[f]; ++f)
+                if (s[f] == '.')
+                    s[f] = ',';
+                else if (s[f] == ',')
+                    s[f] = '.';
+	    if (sscanf(s + n + 1, "%lf/%lf/%lf",
+		       &pColor->spec.CIELuv.L_star,
+		       &pColor->spec.CIELuv.u_star,
+		       &pColor->spec.CIELuv.v_star) != 3) {
+                free(s);
+                return(XcmsFailure);
+            }
+            free(s);
+        } else
 	return(XcmsFailure);
     }
     pColor->format = XcmsCIELuvFormat;

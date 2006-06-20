@@ -269,7 +269,11 @@ xlocaledir(
 	    if (seteuid(0) != 0) {
 		priv = 0;
 	    } else {
-		seteuid(oldeuid);
+		if (seteuid(oldeuid) == -1) {
+		    /* XXX ouch, coudn't get back to original uid 
+		     what can we do ??? */
+		    _exit(127);
+		}
 		priv = 1;
 	    }
 #endif

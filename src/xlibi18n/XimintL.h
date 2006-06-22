@@ -84,5 +84,8 @@ typedef struct _XicLocalPrivateRec {
 
 	XIMResourceList		 ic_resources;
 	unsigned int		 ic_num_resources;
+
+	unsigned char	 	 brl_pressed, brl_committing, brl_committed;
+	Time		 	 brl_release_start;
 } XicLocalPrivateRec;
 #endif /* _XIMINTL_H */

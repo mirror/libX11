@@ -49,7 +49,7 @@ static struct info {
     KeySym	val;
 } info[KTNUM];
 
-#define MIN_REHASH 10
+#define MIN_REHASH 15
 #define MATCHES 10
 
 char tab[KTNUM];

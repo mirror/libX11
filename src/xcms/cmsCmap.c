@@ -146,7 +146,7 @@ CmapRecForColormap(
 	visualTemplate.screen = i;
 	visualList = XGetVisualInfo(dpy, VisualScreenMask, &visualTemplate,
 	    &nVisualsMatched);
-	if (nVisualsMatched == 0) {
+	if (visualList == NULL) {
 	    continue;
 	}
 

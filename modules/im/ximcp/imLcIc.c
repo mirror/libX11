@@ -87,7 +87,7 @@ _XimLocalSetFocus(
 
     if (ic->core.focus_window)
 	_XRegisterFilterByType(ic->core.im->core.display,
-			ic->core.focus_window, KeyPress, KeyPress,
+			ic->core.focus_window, KeyPress, KeyRelease,
 			_XimLocalFilter, (XPointer)ic);
     return;
 }
@@ -97,8 +97,11 @@ _XimLocalReset(
     XIC	 xic)
 {
     Xic	 ic = (Xic)xic;
-    ic->private.local.composed = (DefTree *)NULL;
-    ic->private.local.context  = ((Xim)ic->core.im)->private.local.top;
+    ic->private.local.composed       = (DefTree *)NULL;
+    ic->private.local.context        = ((Xim)ic->core.im)->private.local.top;
+    ic->private.local.brl_pressed    = 0;
+    ic->private.local.brl_committing = 0;
+    ic->private.local.brl_committed  = 0;
 }
 
 Private char *
@@ -149,8 +152,11 @@ _XimLocalCreateIC(
 
     ic->methods = &Local_ic_methods;
     ic->core.im = im;
-    ic->private.local.context   = ((Xim)im)->private.local.top;
-    ic->private.local.composed  = (DefTree *)NULL;
+    ic->private.local.context        = ((Xim)im)->private.local.top;
+    ic->private.local.composed       = (DefTree *)NULL;
+    ic->private.local.brl_pressed    = 0;
+    ic->private.local.brl_committing = 0;
+    ic->private.local.brl_committed  = 0;
 
     num = im->core.ic_num_resources;
     len = sizeof(XIMResource) * num;

@@ -21,7 +21,7 @@ AC_PROG_CC
 XORG_PROG_RAWCPP
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(XPROTO, xproto)
+PKG_CHECK_MODULES(XPROTO, [xproto >= 7.0.6])
 AC_SUBST(XPROTO_CFLAGS)
 
 PKG_CHECK_MODULES(X11, xextproto xtrans xau xcmiscproto bigreqsproto)
@@ -157,6 +157,8 @@ if test x$xthreads = xyes ; then
         XTHREADLIB=-lpthread ;;
     freebsd*)
         XTHREAD_CFLAGS="-D_THREAD_SAFE"
+        XTHREADLIB="-pthread" ;;
+    dragonfly*)
         XTHREADLIB="-pthread" ;;
     solaris*)
 	XTHREAD_CFLAGS="-D_REENTRANT -D_POSIX_PTHREAD_SEMANTICS" ;;
@@ -308,8 +310,8 @@ AC_SUBST(X11_LIBS)
 # in ${libdir}
 #
 
-X11_LOCALEDATADIR="${X11_LIBDIR}/locale"
-X11_LOCALELIBDIR="${X11_LIBDIR}/locale/lib"
+X11_LOCALEDATADIR="${X11_DATADIR}/locale"
+X11_LOCALELIBDIR="${X11_LIBDIR}/locale"
 X11_LOCALEDIR="${X11_LOCALEDATADIR}"
 XKEYSYMDB="${X11_DATADIR}/XKeysymDB"
 XERRORDB="${X11_DATADIR}/XErrorDB"
@@ -322,6 +324,7 @@ AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
 AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
+AC_DEFINE_DIR(XLOCALELIBDIR, X11_LOCALELIBDIR, [Location of libX11 locale libraries])
 
 XORG_CHECK_MALLOC_ZERO
 XORG_RELEASE_VERSION

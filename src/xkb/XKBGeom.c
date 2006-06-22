@@ -75,6 +75,9 @@ XkbPointPtr	pt;
 	for (pt=outline->points,p=0;p<outline->num_points;p++,pt++) {
 	    _XkbCheckBounds(&shape->bounds,pt->x,pt->y);
 	}
+        if (outline->num_points<2) {
+            _XkbCheckBounds(&shape->bounds,0,0);
+        }
     }
     return True;
 }

@@ -256,6 +256,8 @@ XFontSetExtents *
 XExtentsOfFontSet(font_set)
     XFontSet        font_set;
 {
+    if (!font_set)
+	return NULL;
     return &font_set->core.font_set_extents;
 }
 

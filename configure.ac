@@ -303,6 +303,17 @@ else
 fi
 AC_SUBST(XKBPROTO_REQUIRES)
 
+AC_FUNC_MMAP()
+composecache_default=$ac_cv_func_mmap_fixed_mapped
+AC_CHECK_FUNC(nl_langinfo, , [composecache_default=no])
+AC_ARG_ENABLE(composecache, 
+              AC_HELP_STRING([--disable-composecache],
+                [Disable compose table cache support]),
+              [COMPOSECACHE=$enableval],[COMPOSECACHE=$composecache_default])
+if test x"$COMPOSECACHE" = "xyes"; then
+	AC_DEFINE(COMPOSECACHE,1,[Include compose table cache support])
+fi
+
 if test "x$GCC" = "xyes"; then
 	GCC_WARNINGS="-Wall -Wpointer-arith -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \
@@ -436,4 +447,5 @@ echo " XF86BigFont support:                     "$XF86BIGFONT
 echo " XKB support:                             "$XKB
 echo " XLOCALEDIR environment variable support: "$ENABLE_XLOCALEDIR
 echo " Manual pages installed:                  "$LIBMAN_SUFFIX
+echo " Compose table cache enabled:             "$COMPOSECACHE
 echo ""

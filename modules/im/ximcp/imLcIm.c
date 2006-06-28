@@ -465,6 +465,12 @@ _XimWriteCachedDefaultTree(
     if (! b->utf8 && ! (b->utf8 = Xmalloc (1)) )
 	return;
 
+    /* First entry is always unused */
+    memset (b->tree, 0, sizeof(DefTree));
+    b->mb[0]   = 0;
+    b->wc[0]   = 0;
+    b->utf8[0] = 0;
+
     m = Xmalloc (msize);
     m->id       = XIM_CACHE_MAGIC;
     m->version  = XIM_CACHE_VERSION;

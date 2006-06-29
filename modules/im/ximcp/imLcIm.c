@@ -61,7 +61,7 @@ THIS SOFTWARE.
 #ifdef COMPOSECACHE
 
 /* include trailing '/' for cache directory, file prefix otherwise */
-#define XIM_GLOBAL_CACHE_DIR "/var/X11R6/compose-cache/"
+#define XIM_GLOBAL_CACHE_DIR "/var/cache/libx11/compose/"
 #define XIM_HOME_CACHE_DIR   "/.compose-cache/"
 #define XIM_CACHE_MAGIC      ('X' | 'i'<<8 | 'm'<<16 | 'C'<<24)
 #define XIM_CACHE_VERSION    4

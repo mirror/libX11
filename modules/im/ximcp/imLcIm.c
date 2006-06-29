@@ -38,9 +38,7 @@ THIS SOFTWARE.
 #include <config.h>
 #endif
 #include <stdio.h>
-/*
-#include <X11/Xlib.h>
-*/
+
 #include <X11/Xmd.h>
 #include <X11/Xatom.h>
 #include <X11/Xos.h>
@@ -64,9 +62,10 @@ THIS SOFTWARE.
 
 /* include trailing '/' for cache directory, file prefix otherwise */
 #define XIM_GLOBAL_CACHE_DIR "/var/X11R6/compose-cache/"
-#define XIM_HOME_CACHE_DIR "/.compose-cache/"
-#define XIM_CACHE_MAGIC ('X' | 'i'<<8 | 'm'<<16 | 'C'<<24)
-#define XIM_CACHE_VERSION 3
+#define XIM_HOME_CACHE_DIR   "/.compose-cache/"
+#define XIM_CACHE_MAGIC      ('X' | 'i'<<8 | 'm'<<16 | 'C'<<24)
+#define XIM_CACHE_VERSION    4
+#define XIM_CACHE_TREE_ALIGNMENT 4
 
 #define XIM_HASH_PRIME_1 13
 #define XIM_HASH_PRIME_2 1234096939
@@ -453,7 +452,9 @@ _XimWriteCachedDefaultTree(
     int   fd;
     FILE *fp;
     struct _XimCacheStruct *m;
-    int   msize = XOffsetOf(struct _XimCacheStruct, fname) + strlen(name) + strlen(encoding) + 2;
+    int   msize = (XOffsetOf(struct _XimCacheStruct, fname)
+		   + strlen(name) + strlen(encoding) + 2
+		   + XIM_CACHE_TREE_ALIGNMENT-1) & -XIM_CACHE_TREE_ALIGNMENT;
     DefTreeBase *b = &im->private.local.base;
 
     if (! b->tree && ! (b->tree = Xmalloc (sizeof(DefTree))) )
@@ -472,17 +473,19 @@ _XimWriteCachedDefaultTree(
     b->utf8[0] = 0;
 
     m = Xmalloc (msize);
+    memset (m, 0, msize);
     m->id       = XIM_CACHE_MAGIC;
     m->version  = XIM_CACHE_VERSION;
-    m->tree     = msize;
     m->top      = im->private.local.top;
     m->treeused = b->treeused;
     m->mbused   = b->mbused;
     m->wcused   = b->wcused;
     m->utf8used = b->utf8used;
-    m->mb       = msize   + sizeof (DefTree) * m->treeused;
-    m->wc       = m->mb   +                    m->mbused;
-    m->utf8     = m->wc   + sizeof (wchar_t) * m->wcused;
+    /* Tree first, then wide chars, then the rest due to alignment */
+    m->tree     = msize;
+    m->wc       = msize   + sizeof (DefTree) * m->treeused;
+    m->mb       = m->wc   + sizeof (wchar_t) * m->wcused;
+    m->utf8     = m->mb   +                    m->mbused;
     m->size     = m->utf8 +                    m->utf8used;
     strcpy (m->fname, name);
     strcpy (m->fname+strlen(name)+1, encoding);
@@ -497,8 +500,8 @@ _XimWriteCachedDefaultTree(
     }
     fwrite (m, msize, 1, fp);
     fwrite (im->private.local.base.tree, sizeof(DefTree), m->treeused, fp);
-    fwrite (im->private.local.base.mb,   1,               m->mbused,   fp);
     fwrite (im->private.local.base.wc,   sizeof(wchar_t), m->wcused,   fp);
+    fwrite (im->private.local.base.mb,   1,               m->mbused,   fp);
     fwrite (im->private.local.base.utf8, 1,               m->utf8used, fp);
     if (fclose (fp) != 0)
 	unlink (cachename);

@@ -7,7 +7,8 @@
 #include <assert.h>
 #include <X11/xcl.h>
 
-#define assert_sequence_less(a,b) assert((b) - (a) < 65536)
+#define XCB_SEQUENCE_COMPARE(a,op,b)	((int) ((a) - (b)) op 0)
+#define assert_sequence_less(a,b) assert(XCB_SEQUENCE_COMPARE((a), <=, (b)))
 
 typedef struct PendingRequest PendingRequest;
 struct PendingRequest {

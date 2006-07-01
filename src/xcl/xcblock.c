@@ -125,8 +125,7 @@ void _XGetXCBBuffer(Display *dpy)
     if(dpy->xcl->partial_request)
 	++xcb_req;
 
-    /* FIXME: handle 32-bit wrap */
-    assert(xcb_req >= dpy->request);
+    assert(XCB_SEQUENCE_COMPARE(xcb_req, >=, dpy->request));
     dpy->request = xcb_req;
 
     while(dpy->xcl->pending_requests)
@@ -136,7 +135,7 @@ void _XGetXCBBuffer(Display *dpy)
 	PendingRequest *req = dpy->xcl->pending_requests;
 	/* If this request hasn't been read off the wire yet, save the
 	 * rest for later. */
-	if((signed int) (XCBGetQueuedRequestRead(c) - req->sequence) <= 0)
+	if(XCB_SEQUENCE_COMPARE(XCBGetQueuedRequestRead(c), <=, req->sequence))
 	    break;
 	dpy->xcl->pending_requests = req->next;
 	/* This can't block due to the above test, but it could "fail"
@@ -222,6 +221,9 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
     if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 	flags |= XCB_REQUEST_CHECKED;
 
+    /* XCB will always skip request 0; account for that in the Xlib count */
+    if (XCBGetRequestSent(dpy->xcl->connection) == 0xffffffff)
+	dpy->request++;
     /* send the accumulated request. */
     sequence = XCBSendRequest(dpy->xcl->connection, flags, vec, &xcb_req);
     if(!sequence)

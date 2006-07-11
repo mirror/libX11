@@ -12,6 +12,8 @@ EXTRA_DIST=x11.pc.in ChangeLog
 
 CLEANFILES=ChangeLog
 
+.PHONY: ChangeLog
+
 ChangeLog:
 	git-log > ChangeLog
 

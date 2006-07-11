@@ -100,6 +100,9 @@ ar_TN:						ar_TN.ISO8859-6
 ar_TN.iso88596:					ar_TN.ISO8859-6
 ar_TN.ISO-8859-6:				ar_TN.ISO8859-6
 ar_TN.utf8:					ar_TN.UTF-8
+as:						as_IN.UTF-8
+as_IN.utf8:					as_IN.UTF-8
+as_IN.UTF-8:					as_IN.UTF-8
 ar_YE:						ar_YE.ISO8859-6
 ar_YE.iso88596:					ar_YE.ISO8859-6
 ar_YE.ISO-8859-6:				ar_YE.ISO8859-6
@@ -690,6 +693,9 @@ kl_GL.iso88591:					kl_GL.ISO8859-1
 kl_GL.ISO-8859-1:				kl_GL.ISO8859-1
 kl_GL.iso885915:				kl_GL.ISO8859-15
 kl_GL.utf8:					kl_GL.UTF-8
+kn:						kn_IN.UTF-8
+kn_IN.utf8:					kn_IN.UTF-8
+kn_IN.UTF-8:					kn_IN.UTF-8
 ko:						ko_KR.eucKR
 ko_KR:						ko_KR.eucKR
 KO_KR:						ko_KR.eucKR
@@ -752,6 +758,9 @@ mk_MK.microsoftcp1251:				mk_MK.CP1251
 mk_MK.microsoft-cp1251:				mk_MK.CP1251
 mk_MK.MICROSOFT-CP1251:				mk_MK.CP1251
 mk_MK.utf8:					mk_MK.UTF-8
+ml:						ml_IN.UTF-8
+ml_IN.utf8:					ml_IN.UTF-8
+ml_IN.UTF-8:					ml_IN.UTF-8
 mr_IN:						mr_IN.UTF-8
 mr_IN.utf8:					mr_IN.UTF-8
 ms:						ms_MY.ISO8859-1
@@ -831,6 +840,9 @@ oc_FR.ISO-8859-1:				oc_FR.ISO8859-1
 oc_FR.iso885915:				oc_FR.ISO8859-15
 oc_FR.ISO-8859-15:				oc_FR.ISO8859-15
 oc_FR@euro:					oc_FR.ISO8859-15
+or:						or_IN.UTF-8
+or_IN.utf8:					or_IN.UTF-8
+or_IN.UTF-8:					or_IN.UTF-8
 pa_IN.utf8:					pa_IN.UTF-8
 pa_IN.UTF-8:					pa_IN.UTF-8
 pd:						pd_US.ISO8859-1
@@ -1000,6 +1012,9 @@ ta:						ta_IN.TSCII-0
 ta_IN:						ta_IN.TSCII-0
 ta_IN.tscii:					ta_IN.TSCII-0
 ta_IN.tscii0:					ta_IN.TSCII-0
+te:						te_IN.UTF-8
+te_IN.utf8:					te_IN.UTF-8
+te_IN.UTF-8:					te_IN.UTF-8
 tg:						tg_TJ.KOI8-C
 tg_TJ:						tg_TJ.KOI8-C
 tg_TJ.koi8c:					tg_TJ.KOI8-C
@@ -1042,6 +1057,9 @@ uk_UA.microsoftcp1251:				uk_UA.CP1251
 uk_UA.microsoft-cp1251:				uk_UA.CP1251
 uk_UA.MICROSOFT-CP1251:				uk_UA.CP1251
 uk_UA.utf8:					uk_UA.UTF-8
+ur:						ur_IN.UTF-8
+ur_IN.utf8:					ur_IN.UTF-8
+ur_IN.UTF-8:					ur_IN.UTF-8
 ur:						ur_PK.CP1256
 ur_PK:						ur_PK.CP1256
 ur_PK.cp1256:					ur_PK.CP1256

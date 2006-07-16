@@ -15,6 +15,6 @@ CLEANFILES=ChangeLog
 .PHONY: ChangeLog
 
 ChangeLog:
-	git-log > ChangeLog
+	GIT_DIR=${srcdir}/.git git-log > ChangeLog
 
 dist-hook: ChangeLog

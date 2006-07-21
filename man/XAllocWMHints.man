@@ -273,7 +273,7 @@ T}
 T{
 \&#define
 T}	T{
-.ZN UrgencyHint
+.ZN XUrgencyHint
 T}	T{
 (1L << 8)
 T}

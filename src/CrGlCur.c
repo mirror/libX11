@@ -78,7 +78,7 @@ open_library (void)
 	    break;
 	*dot = '\0';
     }
-    return 0;
+    return NULL;
 }
 
 static void *

@@ -36,7 +36,7 @@ from The Open Group.
 #include "Xutil.h"
 #include <stdio.h>
 
-#define ERR_RETURN 0
+#define ERR_RETURN NULL
 
 static char *Format_Image(
     XImage *image,

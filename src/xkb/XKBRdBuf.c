@@ -176,7 +176,7 @@ _XkbPeekAtReadBuffer(XkbReadBufferPtr from,int size)
 {
     if ((from==NULL)||(from->error)||(size<1)||
 					(_XkbReadBufferDataLeft(from)<size))
-	return 0;
+	return NULL;
     return from->data;
 }
 
@@ -186,7 +186,7 @@ _XkbGetReadBufferPtr(XkbReadBufferPtr from,int size)
 char	*ptr;
     if ((from==NULL)||(from->error)||(size<1)||
 					(_XkbReadBufferDataLeft(from)<size))
-	return 0;
+	return NULL;
     ptr= from->data;
     from->data+= size;
     return ptr;

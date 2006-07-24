@@ -52,7 +52,7 @@ XHostAddress *XListHosts (
     int *nhosts,	/* RETURN */
     Bool *enabled)	/* RETURN */
 {
-    register XHostAddress *outbuf = 0, *op;
+    register XHostAddress *outbuf = NULL, *op;
     xListHostsReply reply;
     long nbytes;
     unsigned char *buf, *bp;

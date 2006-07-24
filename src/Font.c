@@ -600,7 +600,7 @@ _XF86BigfontQueryFont (dpy, extcodes, fid, seq)
 	       signature. Then we set the CAP_VerifiedLocal bit to indicate
 	       the verification was successful. */
 
-	    if ((addr = shmat(reply.shmid, 0, SHM_RDONLY)) == (char *)-1) {
+	    if ((addr = shmat(reply.shmid, NULL, SHM_RDONLY)) == (char *)-1) {
 		if (extcodes->serverCapabilities & CAP_VerifiedLocal)
 		    fprintf(stderr, "_XF86BigfontQueryFont: could not attach shm segment\n");
 	        Xfree((char *) pData);
@@ -689,7 +689,7 @@ int _XF86LoadQueryLocaleFont(
     l = strlen(name);
     if (l < 2 || name[l - 1] != '*' || name[l - 2] != '-')
 	return 0;
-    charset = 0;
+    charset = NULL;
     /* next three lines stolen from _XkbGetCharset() */
     lcd = _XlcCurrentLC();
     if ((lcd = _XlcCurrentLC()) != 0)

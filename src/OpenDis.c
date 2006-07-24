@@ -753,12 +753,12 @@ XOpenDisplay (
 
 #if !USE_XCB
 static Bool
-_XBigReqHandler(dpy, rep, buf, len, data)
-    register Display *dpy;
-    register xReply *rep;
-    char *buf;
-    int len;
-    XPointer data;
+_XBigReqHandler(
+    register Display *dpy,
+    register xReply *rep,
+    char *buf,
+    int len,
+    XPointer data)
 {
     _XBigReqState *state;
     xQueryExtensionReply replbuf;

@@ -180,10 +180,10 @@ XFreeFont(dpy, fs)
 
 
 static XFontStruct *
-_XQueryFont (dpy, fid, seq)
-    register Display *dpy;
-    Font fid;
-    unsigned long seq;
+_XQueryFont (
+    register Display *dpy,
+    Font fid,
+    unsigned long seq)
 {
     register XFontStruct *fs;
     register long nbytes;
@@ -430,11 +430,11 @@ _XF86BigfontFreeNop (
 }
 
 static XFontStruct *
-_XF86BigfontQueryFont (dpy, extcodes, fid, seq)
-    register Display *dpy;
-    XF86BigfontCodes *extcodes;
-    Font fid;
-    unsigned long seq;
+_XF86BigfontQueryFont (
+    register Display *dpy,
+    XF86BigfontCodes *extcodes,
+    Font fid,
+    unsigned long seq)
 {
     register XFontStruct *fs;
     register long nbytes;
@@ -652,8 +652,7 @@ _XF86BigfontQueryFont (dpy, extcodes, fid, seq)
 }
 
 void
-_XF86BigfontFreeFontMetrics (fs)
-    XFontStruct *fs;
+_XF86BigfontFreeFontMetrics (XFontStruct *fs)
 {
 #ifdef HAS_SHM
     XExtData *pData;

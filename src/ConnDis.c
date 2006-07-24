@@ -712,11 +712,11 @@ void XSetAuthorization (name, namelen, data, datalen)
  * Create a credential that we can send to the X server.
  */
 static int
-auth_ezencode(servername, window, cred_out, len)
-        char           *servername;
-        int             window;
-	char	       *cred_out;
-        int            *len;
+auth_ezencode(
+    char           *servername,
+    int             window,
+    char	   *cred_out,
+    int            *len)
 {
         AUTH           *a;
         XDR             xdr;

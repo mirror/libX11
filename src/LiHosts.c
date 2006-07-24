@@ -71,11 +71,8 @@ XHostAddress *XListHosts (
     }
 
     if (reply.nHosts) {
-	unsigned int l;
 	nbytes = reply.length << 2;	/* compute number of bytes in reply */
-	l = (unsigned) (nbytes + 
-	      (reply.nHosts * sizeof(XHostAddress)) +
-	  (reply.nHosts * sizeof(XServerInterpretedAddress)));
+
 	op = outbuf = (XHostAddress *)
 	    Xmalloc((unsigned) (nbytes + 
 	      (reply.nHosts * sizeof(XHostAddress)) +

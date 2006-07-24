@@ -84,3 +84,15 @@ libxcms_la_SOURCES = \
 
 X11dir = $(libdir)/X11
 dist_X11_DATA = Xcms.txt
+
+
+if LINT
+# Check source code with tools like lint & sparse
+
+ALL_LINT_FLAGS=$(LINT_FLAGS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+		$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS)
+
+lint:
+	$(LINT) $(ALL_LINT_FLAGS) $(libxcms_la_SOURCES) -lm
+
+endif LINT

@@ -134,3 +134,14 @@ EXTRA_DIST = \
 	lcUniConv/COPYRIGHT \
 	lcUniConv/8bit_tab_to_h.c \
 	lcUniConv/cjk_tab_to_h.c
+
+if LINT
+# Check source code with tools like lint & sparse
+
+ALL_LINT_FLAGS=$(LINT_FLAGS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+		$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS)
+
+lint:
+	$(LINT) $(ALL_LINT_FLAGS) $(libi18n_la_SOURCES)
+
+endif LINT

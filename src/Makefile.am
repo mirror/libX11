@@ -380,6 +380,22 @@ preprocess: $(patsubst %.c,%.ii,$(libX11_la_SOURCES))
 .c.ii:
 	$(COMPILE) -E -o $@ `test -f '$<' || echo '$(srcdir)/'`$<
 
+if LINT
+# Check source code with tools like lint & sparse
+
+ALL_LINT_FLAGS=$(LINT_FLAGS) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+		$(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS)
+
+lint:	$(BUILT_SOURCES)
+	for f in $(libX11_la_SOURCES) ; do \
+		$(LINT) $(ALL_LINT_FLAGS) $$f ; \
+	done
+	@for subdir in $(SUBDIRS) ; do \
+		echo "Making $@ in src/$$subdir"; \
+		(cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) lint) ; \
+	done
+endif LINT
+
 #
 # Building ks_tables.h requires the makekeys utility
 #

@@ -314,6 +314,10 @@ if test x"$COMPOSECACHE" = "xyes"; then
 	AC_DEFINE(COMPOSECACHE,1,[Include compose table cache support])
 fi
 
+dnl Allow checking code with lint, sparse, etc.
+XORG_WITH_LINT
+LINT_FLAGS="${LINT_FLAGS} ${X11_CFLAGS} ${XPROTO_CFLAGS}"
+
 if test "x$GCC" = "xyes"; then
 	GCC_WARNINGS="-Wall -Wpointer-arith -Wstrict-prototypes \
 	-Wmissing-prototypes -Wmissing-declarations \

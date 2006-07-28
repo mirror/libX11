@@ -213,6 +213,12 @@ Returns the length of the properties array.
 Specifies the rotation amount.
 .IP \fIprop_return\fP 1i
 Returns the data in the specified format.
+If the returned format is 8, the returned data is represented as a
+char array. If the returned format is 16, the returned data is
+represented as a array of short int type and should be cast to that
+type to obtain the elements. If the returned format is 32, the
+property data will be stored as an array of longs (which in a 64-bit
+application will be 64-bit values that are padded in the upper 4 bytes).
 .IP \fIproperty\fP 1i
 Specifies the property name.
 .IP \fIproperties\fP 1i

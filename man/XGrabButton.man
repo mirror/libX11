@@ -220,7 +220,10 @@ The interpretation of the remaining arguments is as for
 .ZN XGrabPointer .
 The active grab is terminated automatically when the logical state of the
 pointer has all buttons released
-(independent of the state of the logical modifier keys).
+(independent of the state of the logical modifier keys),
+at which point a 
+.ZN ButtonRelease
+event is reported to the grabbing window.
 .LP
 Note that the logical state of a device (as seen by client applications)
 may lag the physical state if device event processing is frozen.

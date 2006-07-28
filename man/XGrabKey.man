@@ -207,7 +207,10 @@ The interpretation of the remaining arguments is as for
 .ZN XGrabKeyboard .
 The active grab is terminated automatically when the logical state of the
 keyboard has the specified key released
-(independent of the logical state of the modifier keys).
+(independent of the logical state of the modifier keys),
+at which point a 
+.ZN KeyRelease
+event is reported to the grabbing window.
 .LP
 Note that the logical state of a device (as seen by client applications)
 may lag the physical state if device event processing is frozen.

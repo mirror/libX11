@@ -152,6 +152,9 @@ _X11TransConnectDisplay (
     int connect_stat;
 #ifdef LOCALCONN
     struct utsname sys;
+# ifdef UNIXCONN    
+    Bool try_unix_socket = False;	/* Try unix if local fails */
+# endif    
 #endif
 #ifdef TCPCONN
     char *tcphostname = NULL;		/* A place to save hostname pointer */
@@ -222,18 +225,25 @@ _X11TransConnectDisplay (
 
 #ifdef LOCALCONN
     /* check if phostname == localnodename AND protocol not specified */
-    if (!pprotocol && phostname && uname(&sys) >= 0 &&
+    if (!pprotocol && (!phostname || (phostname && uname(&sys) >= 0 &&
 	!strncmp(phostname, sys.nodename, 
 	(strlen(sys.nodename) < strlen(phostname) ? 
-	strlen(phostname) : strlen(sys.nodename))))
+	 strlen(phostname) : strlen(sys.nodename))))))
     {
-#ifdef TCPCONN
 	/*
 	 * We'll first attempt to connect using the local transport.  If
+	 * that fails, we'll try again using the Unix socket transport.  If
 	 * this fails (which is the case if sshd X protocol forwarding is
 	 * being used), retry using tcp and this hostname.
 	 */
-	tcphostname = copystring(phostname, strlen(phostname));
+#ifdef UNIXCONN
+	try_unix_socket = True;
+#endif
+#ifdef TCPCONN
+	if (phostname)
+	    tcphostname = copystring(phostname, strlen(phostname));
+	else
+	    tcphostname = copystring("localhost", 9);
 #endif
 	Xfree (phostname);
 	phostname = copystring ("unix", 4);
@@ -454,6 +464,15 @@ _X11TransConnectDisplay (
     if (phostname) Xfree (phostname);
     if (address && address != addrbuf) { Xfree(address); address = addrbuf; }
 
+#if defined(LOCALCONN) && defined(UNIXCONN)
+    if (try_unix_socket) {
+	pprotocol = copystring ("unix", 4);
+	phostname = NULL;
+	try_unix_socket = False; /* Do this only once */
+	goto connect;
+    }
+#endif
+    
 #if defined(TCPCONN)
     if (tcphostname) {
 	pprotocol = copystring("tcp", 3);

@@ -2,7 +2,7 @@
 #
 #	XI18N objects table for euro locales
 #
-XLC	common/xlcUTF-8		_XlcUnicodeLoader	# XLC_open
+XLC	common/xlcUTF8Load	_XlcUtf8Loader	        # XLC_open
 XOM	common/xomLTRTTB	_XomGenericOpenOM	# XOM_open
 XIM	common/xiiimp		_SwitchOpenIM		# XIM_open
 XIM	common/xiiimp		_XimpLocalOpenIM	# XIM_open

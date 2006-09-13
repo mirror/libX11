@@ -114,6 +114,9 @@ void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
     unsigned int xcb_req;
+    void *reply;
+    XCBGenericError *error;
+    PendingRequest *req;
 
     XCBConnection *c = dpy->xcl->connection;
 
@@ -128,23 +131,13 @@ void _XGetXCBBuffer(Display *dpy)
     assert(XCB_SEQUENCE_COMPARE(xcb_req, >=, dpy->request));
     dpy->request = xcb_req;
 
-    while(dpy->xcl->pending_requests)
+    while((req = dpy->xcl->pending_requests)
+	  && dpy->request != req->sequence
+	  && XCBPollForReply(c, req->sequence, &reply, &error))
     {
-	XCBGenericRep *reply;
-	XCBGenericError *error;
-	PendingRequest *req = dpy->xcl->pending_requests;
-	/* If this request hasn't been read off the wire yet, save the
-	 * rest for later. */
-	if(XCB_SEQUENCE_COMPARE(XCBGetQueuedRequestRead(c), <=, req->sequence))
-	    break;
 	dpy->xcl->pending_requests = req->next;
-	/* This can't block due to the above test, but it could "fail"
-	 * by returning null for any of several different reasons. We
-	 * don't care. In any failure cases, we must not have wanted
-	 * an entry in the reply queue for this request after all. */
-	reply = XCBWaitForReply(c, req->sequence, &error);
 	if(!reply)
-	    reply = (XCBGenericRep *) error;
+	    reply = error;
 	if(reply)
 	{
 	    dpy->last_request_read = req->sequence;
@@ -156,7 +149,6 @@ void _XGetXCBBuffer(Display *dpy)
     if(!dpy->xcl->pending_requests)
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
 
-    dpy->last_request_read = XCBGetQueuedRequestRead(c);
     assert_sequence_less(dpy->last_request_read, dpy->request);
 }
 

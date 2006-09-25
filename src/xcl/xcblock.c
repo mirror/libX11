@@ -20,7 +20,7 @@
 
 static void _XLockDisplay(Display *dpy)
 {
-    pthread_mutex_lock(XCBGetIOLock(dpy->xcl->connection));
+    pthread_mutex_lock(xcb_get_io_lock(dpy->xcl->connection));
     _XGetXCBBufferIf(dpy, _XBufferUnlocked);
     ++dpy->xcl->lock_count;
 }
@@ -47,14 +47,14 @@ static void _XUnlockDisplay(Display *dpy)
     if(!dpy->xcl->lock_count)
     {
 	assert(dpy->xcl->partial_request == 0);
-	assert(XCBGetRequestSent(dpy->xcl->connection) == dpy->request);
+	assert(xcb_get_request_sent(dpy->xcl->connection) == dpy->request);
 
 	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
 	 * of that function for why we do it here instead. */
 	_XSetSeqSyncFunction(dpy);
     }
 
-    pthread_mutex_unlock(XCBGetIOLock(dpy->xcl->connection));
+    pthread_mutex_unlock(xcb_get_io_lock(dpy->xcl->connection));
 }
 
 void XUnlockDisplay(Display* dpy)
@@ -68,12 +68,12 @@ int _XInitDisplayLock(Display *dpy)
 {
 #ifdef PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP
     pthread_mutex_t lock = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
-    *XCBGetIOLock(dpy->xcl->connection) = lock;
+    *xcb_get_io_lock(dpy->xcl->connection) = lock;
 #else
     pthread_mutexattr_t attr;
     pthread_mutexattr_init(&attr);
     pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-    pthread_mutex_init(XCBGetIOLock(dpy->xcl->connection), &attr);
+    pthread_mutex_init(xcb_get_io_lock(dpy->xcl->connection), &attr);
     pthread_mutexattr_destroy(&attr);
 #endif
 
@@ -97,7 +97,7 @@ void _XFreeDisplayLock(Display *dpy)
     }
 }
 
-static void call_handlers(Display *dpy, XCBGenericRep *buf)
+static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 {
 	_XAsyncHandler *async, *next;
 	for(async = dpy->async_handlers; async; async = next)
@@ -115,14 +115,14 @@ void _XGetXCBBuffer(Display *dpy)
     static const xReq dummy_request;
     unsigned int xcb_req;
     void *reply;
-    XCBGenericError *error;
+    xcb_generic_error_t *error;
     PendingRequest *req;
 
-    XCBConnection *c = dpy->xcl->connection;
+    xcb_connection_t *c = dpy->xcl->connection;
 
     dpy->last_req = (char *) &dummy_request;
 
-    xcb_req = XCBGetRequestSent(c);
+    xcb_req = xcb_get_request_sent(c);
     /* if Xlib has a partial request pending then XCB doesn't know about
      * the current request yet */
     if(dpy->xcl->partial_request)
@@ -133,7 +133,7 @@ void _XGetXCBBuffer(Display *dpy)
 
     while((req = dpy->xcl->pending_requests)
 	  && dpy->request != req->sequence
-	  && XCBPollForReply(c, req->sequence, &reply, &error))
+	  && xcb_poll_for_reply(c, req->sequence, &reply, &error))
     {
 	dpy->xcl->pending_requests = req->next;
 	if(!reply)
@@ -159,19 +159,19 @@ static size_t request_length(struct iovec *vec)
      * fixed-length request parts. */
     size_t len;
     assert(vec[0].iov_len >= 4);
-    len = ((CARD16 *) vec[0].iov_base)[1];
+    len = ((uint16_t *) vec[0].iov_base)[1];
     if(len == 0)
     {
 	/* it's a bigrequest. dig out the *real* length field. */
 	assert(vec[0].iov_len >= 8);
-	len = ((CARD32 *) vec[0].iov_base)[1];
+	len = ((uint32_t *) vec[0].iov_base)[1];
     }
     return len << 2;
 }
 
 static inline int issue_complete_request(Display *dpy, int veclen, struct iovec *vec)
 {
-    XCBProtocolRequest xcb_req = { 0 };
+    xcb_protocol_request_t xcb_req = { 0 };
     unsigned int sequence;
     int flags = XCB_REQUEST_RAW;
     int i;
@@ -206,7 +206,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
      * we actually overshot, or 0 if we're right on.) */
     vec[i].iov_len += len;
     xcb_req.count = i + 1;
-    xcb_req.opcode = ((CARD8 *) vec[0].iov_base)[0];
+    xcb_req.opcode = ((uint8_t *) vec[0].iov_base)[0];
 
     /* if we don't own the event queue, we have to ask XCB to set our
      * errors aside for us. */
@@ -214,10 +214,10 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 	flags |= XCB_REQUEST_CHECKED;
 
     /* XCB will always skip request 0; account for that in the Xlib count */
-    if (XCBGetRequestSent(dpy->xcl->connection) == 0xffffffff)
+    if (xcb_get_request_sent(dpy->xcl->connection) == 0xffffffff)
 	dpy->request++;
     /* send the accumulated request. */
-    sequence = XCBSendRequest(dpy->xcl->connection, flags, vec, &xcb_req);
+    sequence = xcb_send_request(dpy->xcl->connection, flags, vec, &xcb_req);
     if(!sequence)
 	_XIOError(dpy);
 
@@ -244,12 +244,12 @@ void _XPutXCBBuffer(Display *dpy)
 {
     static char const pad[3];
     const int padsize = -dpy->xcl->request_extra_size & 3;
-    XCBConnection *c = dpy->xcl->connection;
+    xcb_connection_t *c = dpy->xcl->connection;
     _XExtension *ext;
     struct iovec iov[6];
 
     assert_sequence_less(dpy->last_request_read, dpy->request);
-    assert_sequence_less(XCBGetRequestSent(c), dpy->request);
+    assert_sequence_less(xcb_get_request_sent(c), dpy->request);
 
     for(ext = dpy->flushes; ext; ext = ext->next_flush)
     {

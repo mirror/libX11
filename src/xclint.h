@@ -17,7 +17,7 @@ struct PendingRequest {
 };
 
 typedef struct XCLPrivate {
-	XCBConnection *connection;
+	xcb_connection_t *connection;
 	PendingRequest *pending_requests;
 	PendingRequest **pending_requests_tail;
 	const char *request_extra;

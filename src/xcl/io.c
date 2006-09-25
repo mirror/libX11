@@ -67,7 +67,7 @@ static void check_internal_connections(Display *dpy)
 		}
 }
 
-static void handle_event(Display *dpy, XCBGenericEvent *e)
+static void handle_event(Display *dpy, xcb_generic_event_t *e)
 {
 	if(!e)
 		_XIOError(dpy);
@@ -86,8 +86,8 @@ void XSetEventQueueOwner(Display *dpy, enum XEventQueueOwner owner)
 
 int _XEventsQueued(Display *dpy, int mode)
 {
-	XCBConnection *c;
-	XCBGenericEvent *e;
+	xcb_connection_t *c;
+	xcb_generic_event_t *e;
 	int ret;
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return 0;
@@ -97,7 +97,7 @@ int _XEventsQueued(Display *dpy, int mode)
 		_XSend(dpy, 0, 0);
 	else
 		check_internal_connections(dpy);
-	while((e = XCBPollForEvent(c, &ret)))
+	while((e = xcb_poll_for_event(c, &ret)))
 		handle_event(dpy, e);
 	if(ret)
 		_XIOError(dpy);
@@ -112,7 +112,7 @@ void _XReadEvents(Display *dpy)
 	_XSend(dpy, 0, 0);
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return;
-	handle_event(dpy, XCBWaitForEvent(dpy->xcl->connection));
+	handle_event(dpy, xcb_wait_for_event(dpy->xcl->connection));
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
 
@@ -125,7 +125,7 @@ void _XReadEvents(Display *dpy)
  */
 void _XSend(Display *dpy, const char *data, long size)
 {
-	XCBConnection *c = dpy->xcl->connection;
+	xcb_connection_t *c = dpy->xcl->connection;
 
 	assert(!dpy->xcl->request_extra);
 	dpy->xcl->request_extra = data;
@@ -134,7 +134,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	/* give dpy->buffer to XCB */
 	_XPutXCBBuffer(dpy);
 
-	if(XCBFlush(c) <= 0)
+	if(xcb_flush(c) <= 0)
 		_XIOError(dpy);
 
 	/* get a new dpy->buffer */
@@ -165,7 +165,7 @@ void _XFlush(Display *dpy)
 static int
 _XIDHandler(Display *dpy)
 {
-	XID next = XCBGenerateID(dpy->xcl->connection);
+	XID next = xcb_generate_id(dpy->xcl->connection);
 	LockDisplay(dpy);
 	dpy->xcl->next_xid = next;
 	if(dpy->flags & XlibDisplayPrivSync)
@@ -197,7 +197,7 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 	int i;
 	_XPutXCBBuffer(dpy);
 	for (i = 0; i < count; i++)
-		ids[i] = XCBGenerateID(dpy->xcl->connection);
+		ids[i] = xcb_generate_id(dpy->xcl->connection);
 	_XGetXCBBuffer(dpy);
 }
 
@@ -217,8 +217,8 @@ static void _XFreeReplyData(Display *dpy, Bool force)
  */
 Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 {
-	XCBGenericError *error;
-	XCBConnection *c = dpy->xcl->connection;
+	xcb_generic_error_t *error;
+	xcb_connection_t *c = dpy->xcl->connection;
 	unsigned long request = dpy->request;
 	char *reply;
 
@@ -227,7 +227,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	UnlockDisplay(dpy);
 	/* release buffer if UnlockDisplay didn't already */
 	_XPutXCBBufferIf(dpy, _XBufferLocked);
-	reply = XCBWaitForReply(c, request, &error);
+	reply = xcb_wait_for_reply(c, request, &error);
 	/* re-acquire buffer if LockDisplay won't otherwise */
 	_XGetXCBBufferIf(dpy, _XBufferLocked);
 	LockDisplay(dpy);
@@ -236,11 +236,11 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 
 	if(dpy->xcl->event_owner == XlibOwnsEventQueue)
 	{
-		XCBGenericEvent *e;
+		xcb_generic_event_t *e;
 		int ret;
-		while((e = XCBPollForEvent(c, &ret)))
+		while((e = xcb_poll_for_event(c, &ret)))
 			if(e->response_type == 0 && e->full_sequence == request)
-				error = (XCBGenericError *) e;
+				error = (xcb_generic_error_t *) e;
 			else
 				handle_event(dpy, e);
 	}
@@ -305,7 +305,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	dpy->xcl->reply_consumed = sizeof(xReply) + (extra * 4);
 	dpy->xcl->reply_length = sizeof(xReply);
 	if(dpy->xcl->reply_data[0] == 1)
-		dpy->xcl->reply_length += (((XCBGenericRep *) dpy->xcl->reply_data)->length * 4);
+		dpy->xcl->reply_length += (((xcb_generic_reply_t *) dpy->xcl->reply_data)->length * 4);
 
 	/* error: Xlib asks too much. give them what we can anyway. */
 	if(dpy->xcl->reply_length < dpy->xcl->reply_consumed)

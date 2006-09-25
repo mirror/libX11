@@ -13,37 +13,37 @@
  * instructions. */
 
 #define XCLCASTDECL(src_t, dst_t, field)			\
-	static inline XCB##dst_t XCL##dst_t(src_t src)		\
+	static inline xcb_##dst_t xcl_##dst_t(src_t src)	\
 	{							\
-		XCB##dst_t dst;					\
+		xcb_##dst_t dst;				\
 		dst.field = src;				\
 		return dst;					\
 	}
 #define XCLXIDCASTDECL(src_t, dst_t) XCLCASTDECL(src_t, dst_t, xid)
 #define XCLIDCASTDECL(src_t, dst_t) XCLCASTDECL(src_t, dst_t, id)
 
-XCLXIDCASTDECL(Window, WINDOW)
-XCLXIDCASTDECL(Pixmap, PIXMAP)
-XCLXIDCASTDECL(Cursor, CURSOR)
-XCLXIDCASTDECL(Font, FONT)
-XCLXIDCASTDECL(GContext, GCONTEXT)
-XCLXIDCASTDECL(Colormap, COLORMAP)
-XCLXIDCASTDECL(Atom, ATOM)
+XCLXIDCASTDECL(Window, window_t)
+XCLXIDCASTDECL(Pixmap, pixmap_t)
+XCLXIDCASTDECL(Cursor, cursor_t)
+XCLXIDCASTDECL(Font, font_t)
+XCLXIDCASTDECL(GContext, gcontext_t)
+XCLXIDCASTDECL(Colormap, colormap_t)
+XCLXIDCASTDECL(Atom, atom_t)
 
 /* For the union types, pick an arbitrary field of the union to hold the
  * Xlib XID. Assumes the bit pattern is the same regardless of the field. */
-XCLCASTDECL(Drawable, DRAWABLE, window.xid)
-XCLCASTDECL(Font, FONTABLE, font.xid)
+XCLCASTDECL(Drawable, drawable_t, window.xid)
+XCLCASTDECL(Font, fontable_t, font.xid)
 
-XCLIDCASTDECL(VisualID, VISUALID)
-XCLIDCASTDECL(Time, TIMESTAMP)
-XCLIDCASTDECL(KeySym, KEYSYM)
-XCLIDCASTDECL(KeyCode, KEYCODE)
-XCLIDCASTDECL(CARD8, BUTTON)
+XCLIDCASTDECL(VisualID, visualid_t)
+XCLIDCASTDECL(Time, timestamp_t)
+XCLIDCASTDECL(KeySym, keysym_t)
+XCLIDCASTDECL(KeyCode, keycode_t)
+XCLIDCASTDECL(CARD8, button_t)
 
 /* xcl/display.c */
 
-XCBConnection *XCBConnectionOfDisplay(Display *dpy);
+xcb_connection_t *XGetXCBConnection(Display *dpy);
 
 /* xcl/io.c */
 

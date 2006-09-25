@@ -10,7 +10,7 @@
 
 void _XFreeDisplayStructure(Display *dpy);
 
-static XCBAuthInfo xauth;
+static xcb_auth_info_t xauth;
 
 static void *alloc_copy(const void *src, int *dstn, size_t n)
 {
@@ -28,7 +28,7 @@ static void *alloc_copy(const void *src, int *dstn, size_t n)
 	return dst;
 }
 
-XCBConnection *XCBConnectionOfDisplay(Display *dpy)
+xcb_connection_t *XGetXCBConnection(Display *dpy)
 {
 	return dpy->xcl->connection;
 }
@@ -62,7 +62,7 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	char *host;
 	int n = 0;
 	int len;
-	XCBConnection *c;
+	xcb_connection_t *c;
 
 	dpy->fd = -1;
 
@@ -70,7 +70,7 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	if(!dpy->xcl)
 		return 0;
 
-	if(!XCBParseDisplay(display, &host, &n, screenp))
+	if(!xcb_parse_display(display, &host, &n, screenp))
 		return 0;
 
 	len = strlen(host) + (1 + 20 + 1 + 20 + 1);
@@ -80,19 +80,19 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 	_XLockMutex(_Xglobal_lock);
 	if(xauth.name && xauth.data)
-		c = XCBConnectToDisplayWithAuthInfo(display, &xauth, 0);
+		c = xcb_connect_to_display_with_auth_info(display, &xauth, 0);
 	else
-		c = XCBConnect(display, 0);
+		c = xcb_connect(display, 0);
 	_XUnlockMutex(_Xglobal_lock);
 
 	if(!c)
 		return 0;
 
-	dpy->fd = XCBGetFileDescriptor(c);
+	dpy->fd = xcb_get_file_descriptor(c);
 
 	dpy->xcl->connection = c;
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
-	dpy->xcl->next_xid = XCBGenerateID(dpy->xcl->connection);
+	dpy->xcl->next_xid = xcb_generate_id(dpy->xcl->connection);
 	return 1;
 }
 

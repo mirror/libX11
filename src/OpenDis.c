@@ -362,7 +362,7 @@ XOpenDisplay (
 
 #if USE_XCB
 	{
-		const XCBSetup *xcbsetup = XCBGetSetup(XCBConnectionOfDisplay(dpy));
+		const xcb_setup_t *xcbsetup = xcb_get_setup(XGetXCBConnection(dpy));
 		setuplength = xcbsetup->length << 2;
 		memcpy(&prefix, xcbsetup, sizeof(prefix));
 		setup = (char *) xcbsetup;
@@ -672,7 +672,7 @@ XOpenDisplay (
 	(void) XSynchronize(dpy, _Xdebug);
 
 #if USE_XCB
-	dpy->bigreq_size = XCBGetMaximumRequestLength(XCBConnectionOfDisplay(dpy));
+	dpy->bigreq_size = xcb_get_maximum_request_length(XGetXCBConnection(dpy));
 	if(dpy->bigreq_size <= dpy->max_request_size)
 		dpy->bigreq_size = 0;
 #endif /* USE_XCB */
@@ -920,7 +920,7 @@ static void OutOfMemory (dpy, setup)
     char *setup;
 {
 #if USE_XCB
-    XCBDisconnect(XCBConnectionOfDisplay(dpy));
+    xcb_disconnect(XGetXCBConnection(dpy));
 #else /* !USE_XCB */
     _XDisconnectDisplay (dpy->trans_conn);
 #endif /* USE_XCB */

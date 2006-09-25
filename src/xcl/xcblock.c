@@ -13,8 +13,8 @@
 #include "Xlibint.h"
 #include "locking.h"
 #include "xclint.h"
-#include <X11/XCB/xcbext.h>
-#include <X11/XCB/xcbxlib.h>
+#include <xcb/xcbext.h>
+#include <xcb/xcbxlib.h>
 
 #include <pthread.h>
 

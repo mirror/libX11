@@ -5,7 +5,7 @@
 #define XCL_H
 
 #include <X11/Xmd.h>
-#include <X11/XCB/xcb.h>
+#include <xcb/xcb.h>
 #include <X11/Xlib.h>
 
 /* Coercions from Xlib XID types to XCB XID types.

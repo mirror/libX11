@@ -6,6 +6,7 @@
 
 #include <assert.h>
 #include <X11/xcl.h>
+#include <X11/Xlibint.h>
 
 #define XCB_SEQUENCE_COMPARE(a,op,b)	((int) ((a) - (b)) op 0)
 #define assert_sequence_less(a,b) assert(XCB_SEQUENCE_COMPARE((a), <=, (b)))
@@ -17,6 +18,7 @@ struct PendingRequest {
 };
 
 typedef struct XCLPrivate {
+	struct _XLockPtrs lock_fns;
 	xcb_connection_t *connection;
 	PendingRequest *pending_requests;
 	PendingRequest **pending_requests_tail;
@@ -27,27 +29,23 @@ typedef struct XCLPrivate {
 	char *reply_data;
 	int reply_length;
 	int reply_consumed;
-	int lock_count;
 	enum XEventQueueOwner event_owner;
 	XID next_xid;
 } XCLPrivate;
 
 /* xcl/display.c */
 
-int _XConnectSetupXCB(Display *dpy);
 int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *screenp);
 void _XFreeXCLStructure(Display *dpy);
 
 /* xcl/xcblock.c */
+
+int _XCBInitDisplayLock(Display *dpy);
 
 /* _XGetXCBBuffer and _XPutXCBBuffer calls must be paired and must not
  * be nested. */
 
 void _XGetXCBBuffer(Display *dpy);
 void _XPutXCBBuffer(Display *dpy);
-
-enum _XBufferCondition { _XBufferUnlocked, _XBufferLocked };
-void _XGetXCBBufferIf(Display *dpy, enum _XBufferCondition locked);
-void _XPutXCBBufferIf(Display *dpy, enum _XBufferCondition locked);
 
 #endif /* XCLINT_H */

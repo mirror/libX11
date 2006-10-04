@@ -41,7 +41,6 @@ no)
 *)
 	X11_REQUIRES="xcb-xlib"
 	xdmauth="no" # XCB handles all auth
-	AC_CHECK_HEADERS([features.h])
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
 	;;
 esac

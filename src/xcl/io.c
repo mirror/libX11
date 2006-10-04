@@ -225,11 +225,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	assert(!dpy->xcl->reply_data);
 
 	UnlockDisplay(dpy);
-	/* release buffer if UnlockDisplay didn't already */
-	_XPutXCBBufferIf(dpy, _XBufferLocked);
 	reply = xcb_wait_for_reply(c, request, &error);
-	/* re-acquire buffer if LockDisplay won't otherwise */
-	_XGetXCBBufferIf(dpy, _XBufferLocked);
 	LockDisplay(dpy);
 
 	check_internal_connections(dpy);

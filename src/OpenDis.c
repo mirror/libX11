@@ -67,14 +67,8 @@ typedef struct {
 int  (*_XInitDisplayLock_fn)(Display *dpy) = NULL;
 void (*_XFreeDisplayLock_fn)(Display *dpy) = NULL;
 
-#if USE_XCB
-#define InitDisplayLock(d)	_XInitDisplayLock(d)
-#define FreeDisplayLock(d)	_XFreeDisplayLock(d)
-#else /* if !USE_XCB */
 #define InitDisplayLock(d)	(_XInitDisplayLock_fn ? (*_XInitDisplayLock_fn)(d) : Success)
 #define FreeDisplayLock(d)	if (_XFreeDisplayLock_fn) (*_XFreeDisplayLock_fn)(d)
-#endif /* !USE_XCB */
-
 #else
 #define InitDisplayLock(dis) Success
 #define FreeDisplayLock(dis)
@@ -265,6 +259,13 @@ XOpenDisplay (
 	        OutOfMemory (dpy, setup);
 		return(NULL);
 	}
+
+#if USE_XCB
+	if (!_XCBInitDisplayLock(dpy)) {
+	        OutOfMemory (dpy, setup);
+		return(NULL);
+	}
+#endif
 
 	if (!_XPollfdCacheInit(dpy)) {
 	        OutOfMemory (dpy, setup);

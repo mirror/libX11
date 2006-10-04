@@ -186,6 +186,7 @@ libX11_la_SOURCES = \
                   LiProps.c \
                   ListExt.c \
                   LoadFont.c \
+                  LockDis.c \
                   locking.c \
                   locking.h \
                   LookupCol.c \
@@ -347,7 +348,6 @@ libX11_la_SOURCES += \
 else
 libX11_la_SOURCES += \
                   ConnDis.c \
-                  LockDis.c \
                   x11_trans.c
 endif
 

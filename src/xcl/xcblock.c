@@ -5,11 +5,6 @@
 #include <config.h>
 #endif
 
-#if HAVE_FEATURES_H
-#define _GNU_SOURCE /* for PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP */
-#include <features.h>
-#endif
-
 #include "Xlibint.h"
 #include "locking.h"
 #include "xclint.h"
@@ -18,83 +13,38 @@
 
 #include <pthread.h>
 
-static void _XLockDisplay(Display *dpy)
+static void _XCBLockDisplay(Display *dpy)
 {
-    pthread_mutex_lock(xcb_get_io_lock(dpy->xcl->connection));
-    _XGetXCBBufferIf(dpy, _XBufferUnlocked);
-    ++dpy->xcl->lock_count;
+    if(dpy->xcl->lock_fns.lock_display)
+	dpy->xcl->lock_fns.lock_display(dpy);
+    xcb_xlib_lock(dpy->xcl->connection);
+    _XGetXCBBuffer(dpy);
 }
 
-void XLockDisplay(Display* dpy)
+static void _XCBUnlockDisplay(Display *dpy)
 {
-    LockDisplay(dpy);
-    /* We want the threads in the reply queue to all get out before
-     * XLockDisplay returns, in case they have any side effects the
-     * caller of XLockDisplay was trying to protect against.
-     * XLockDisplay puts itself at the head of the event waiters queue
-     * to wait for all the replies to come in.
-     * TODO: Restore this behavior on XCB.
-     */
+    _XPutXCBBuffer(dpy);
+    assert(dpy->xcl->partial_request == 0);
+    assert(xcb_get_request_sent(dpy->xcl->connection) == dpy->request);
+
+    /* Traditional Xlib does this in _XSend; see the Xlib/XCB version
+     * of that function for why we do it here instead. */
+    _XSetSeqSyncFunction(dpy);
+
+    xcb_xlib_unlock(dpy->xcl->connection);
+    if(dpy->xcl->lock_fns.unlock_display)
+	dpy->xcl->lock_fns.unlock_display(dpy);
 }
 
-static void _XUnlockDisplay(Display *dpy)
+int _XCBInitDisplayLock(Display *dpy)
 {
-    --dpy->xcl->lock_count;
-    _XPutXCBBufferIf(dpy, _XBufferUnlocked);
-
-    /* If we're unlocking all the way, make sure that our deferred
-     * invariants hold. */
-    if(!dpy->xcl->lock_count)
-    {
-	assert(dpy->xcl->partial_request == 0);
-	assert(xcb_get_request_sent(dpy->xcl->connection) == dpy->request);
-
-	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
-	 * of that function for why we do it here instead. */
-	_XSetSeqSyncFunction(dpy);
-    }
-
-    pthread_mutex_unlock(xcb_get_io_lock(dpy->xcl->connection));
-}
-
-void XUnlockDisplay(Display* dpy)
-{
-    UnlockDisplay(dpy);
-}
-
-/* returns 0 if initialized ok, -1 if unable to allocate
-   a mutex or other memory */
-int _XInitDisplayLock(Display *dpy)
-{
-#ifdef PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP
-    pthread_mutex_t lock = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
-    *xcb_get_io_lock(dpy->xcl->connection) = lock;
-#else
-    pthread_mutexattr_t attr;
-    pthread_mutexattr_init(&attr);
-    pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-    pthread_mutex_init(xcb_get_io_lock(dpy->xcl->connection), &attr);
-    pthread_mutexattr_destroy(&attr);
-#endif
-
-    dpy->lock_fns = (struct _XLockPtrs*)Xmalloc(sizeof(struct _XLockPtrs));
-    if (dpy->lock_fns == NULL)
-	return -1;
-
-    dpy->lock = 0;
-    dpy->lock_fns->lock_display = _XLockDisplay;
-    dpy->lock_fns->unlock_display = _XUnlockDisplay;
-
-    return 0;
-}
-
-void _XFreeDisplayLock(Display *dpy)
-{
-    assert(dpy->lock == NULL);
-    if (dpy->lock_fns != NULL) {
-	Xfree((char *)dpy->lock_fns);
-	dpy->lock_fns = NULL;
-    }
+    if(!dpy->lock_fns && !(dpy->lock_fns = Xcalloc(1, sizeof(dpy->lock_fns))))
+	return 0;
+    dpy->xcl->lock_fns.lock_display = dpy->lock_fns->lock_display;
+    dpy->lock_fns->lock_display = _XCBLockDisplay;
+    dpy->xcl->lock_fns.unlock_display = dpy->lock_fns->unlock_display;
+    dpy->lock_fns->unlock_display = _XCBUnlockDisplay;
+    return 1;
 }
 
 static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
@@ -303,18 +253,4 @@ void _XPutXCBBuffer(Display *dpy)
     dpy->xcl->request_extra = 0;
     dpy->xcl->request_extra_size = 0;
     dpy->bufptr = dpy->buffer;
-}
-
-/*  */
-
-void _XGetXCBBufferIf(Display *dpy, enum _XBufferCondition locked)
-{
-    if((dpy->xcl->lock_count > 0) == locked)
-	_XGetXCBBuffer(dpy);
-}
-
-void _XPutXCBBufferIf(Display *dpy, enum _XBufferCondition locked)
-{
-    if((dpy->xcl->lock_count > 0) == locked)
-	_XPutXCBBuffer(dpy);
 }

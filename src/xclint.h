@@ -5,8 +5,8 @@
 #define XCLINT_H
 
 #include <assert.h>
-#include <X11/xcl.h>
 #include <X11/Xlibint.h>
+#include <X11/xcl.h>
 
 #define XCB_SEQUENCE_COMPARE(a,op,b)	((int) ((a) - (b)) op 0)
 #define assert_sequence_less(a,b) assert(XCB_SEQUENCE_COMPARE((a), <=, (b)))

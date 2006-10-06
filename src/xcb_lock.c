@@ -1,4 +1,4 @@
-/* Copyright (C) 2003-2004 Jamey Sharp.
+/* Copyright (C) 2003-2006 Jamey Sharp, Josh Triplett
  * This file is licensed under the MIT license. See the file COPYING. */
 
 #ifdef HAVE_CONFIG_H
@@ -7,7 +7,7 @@
 
 #include "Xlibint.h"
 #include "locking.h"
-#include "xclint.h"
+#include "Xxcbint.h"
 #include <xcb/xcbext.h>
 #include <xcb/xcbxlib.h>
 
@@ -15,34 +15,34 @@
 
 static void _XCBLockDisplay(Display *dpy)
 {
-    if(dpy->xcl->lock_fns.lock_display)
-	dpy->xcl->lock_fns.lock_display(dpy);
-    xcb_xlib_lock(dpy->xcl->connection);
+    if(dpy->xcb->lock_fns.lock_display)
+	dpy->xcb->lock_fns.lock_display(dpy);
+    xcb_xlib_lock(dpy->xcb->connection);
     _XGetXCBBuffer(dpy);
 }
 
 static void _XCBUnlockDisplay(Display *dpy)
 {
     _XPutXCBBuffer(dpy);
-    assert(dpy->xcl->partial_request == 0);
-    assert(xcb_get_request_sent(dpy->xcl->connection) == dpy->request);
+    assert(dpy->xcb->partial_request == 0);
+    assert(xcb_get_request_sent(dpy->xcb->connection) == dpy->request);
 
     /* Traditional Xlib does this in _XSend; see the Xlib/XCB version
      * of that function for why we do it here instead. */
     _XSetSeqSyncFunction(dpy);
 
-    xcb_xlib_unlock(dpy->xcl->connection);
-    if(dpy->xcl->lock_fns.unlock_display)
-	dpy->xcl->lock_fns.unlock_display(dpy);
+    xcb_xlib_unlock(dpy->xcb->connection);
+    if(dpy->xcb->lock_fns.unlock_display)
+	dpy->xcb->lock_fns.unlock_display(dpy);
 }
 
 int _XCBInitDisplayLock(Display *dpy)
 {
     if(!dpy->lock_fns && !(dpy->lock_fns = Xcalloc(1, sizeof(dpy->lock_fns))))
 	return 0;
-    dpy->xcl->lock_fns.lock_display = dpy->lock_fns->lock_display;
+    dpy->xcb->lock_fns.lock_display = dpy->lock_fns->lock_display;
     dpy->lock_fns->lock_display = _XCBLockDisplay;
-    dpy->xcl->lock_fns.unlock_display = dpy->lock_fns->unlock_display;
+    dpy->xcb->lock_fns.unlock_display = dpy->lock_fns->unlock_display;
     dpy->lock_fns->unlock_display = _XCBUnlockDisplay;
     return 1;
 }
@@ -50,10 +50,10 @@ int _XCBInitDisplayLock(Display *dpy)
 void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
-    unsigned int xcb_req = xcb_get_request_sent(dpy->xcl->connection);
+    unsigned int xcb_req = xcb_get_request_sent(dpy->xcb->connection);
     /* if Xlib has a partial request pending then XCB doesn't know about
      * the current request yet */
-    if(dpy->xcl->partial_request)
+    if(dpy->xcb->partial_request)
 	++xcb_req;
 
     assert(XCB_SEQUENCE_COMPARE(xcb_req, >=, dpy->request));
@@ -120,14 +120,14 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 
     /* if we don't own the event queue, we have to ask XCB to set our
      * errors aside for us. */
-    if(dpy->xcl->event_owner != XlibOwnsEventQueue)
+    if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 	flags |= XCB_REQUEST_CHECKED;
 
     /* XCB will always skip request 0; account for that in the Xlib count */
-    if (xcb_get_request_sent(dpy->xcl->connection) == 0xffffffff)
+    if (xcb_get_request_sent(dpy->xcb->connection) == 0xffffffff)
 	dpy->request++;
     /* send the accumulated request. */
-    sequence = xcb_send_request(dpy->xcl->connection, flags, vec, &xcb_req);
+    sequence = xcb_send_request(dpy->xcb->connection, flags, vec, &xcb_req);
     if(!sequence)
 	_XIOError(dpy);
 
@@ -144,8 +144,8 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 	assert(req);
 	req->next = 0;
 	req->sequence = sequence;
-	*dpy->xcl->pending_requests_tail = req;
-	dpy->xcl->pending_requests_tail = &req->next;
+	*dpy->xcb->pending_requests_tail = req;
+	dpy->xcb->pending_requests_tail = &req->next;
     }
     return 1;
 }
@@ -153,8 +153,8 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 void _XPutXCBBuffer(Display *dpy)
 {
     static char const pad[3];
-    const int padsize = -dpy->xcl->request_extra_size & 3;
-    xcb_connection_t *c = dpy->xcl->connection;
+    const int padsize = -dpy->xcb->request_extra_size & 3;
+    xcb_connection_t *c = dpy->xcb->connection;
     _XExtension *ext;
     struct iovec iov[6];
 
@@ -164,20 +164,20 @@ void _XPutXCBBuffer(Display *dpy)
     for(ext = dpy->flushes; ext; ext = ext->next_flush)
     {
 	ext->before_flush(dpy, &ext->codes, dpy->buffer, dpy->bufptr - dpy->buffer);
-	if(dpy->xcl->request_extra)
+	if(dpy->xcb->request_extra)
 	{
-	    ext->before_flush(dpy, &ext->codes, dpy->xcl->request_extra, dpy->xcl->request_extra_size);
+	    ext->before_flush(dpy, &ext->codes, dpy->xcb->request_extra, dpy->xcb->request_extra_size);
 	    if(padsize)
 		ext->before_flush(dpy, &ext->codes, pad, padsize);
 	}
     }
 
-    iov[2].iov_base = dpy->xcl->partial_request;
-    iov[2].iov_len = dpy->xcl->partial_request_offset;
+    iov[2].iov_base = dpy->xcb->partial_request;
+    iov[2].iov_len = dpy->xcb->partial_request_offset;
     iov[3].iov_base = dpy->buffer;
     iov[3].iov_len = dpy->bufptr - dpy->buffer;
-    iov[4].iov_base = (caddr_t) dpy->xcl->request_extra;
-    iov[4].iov_len = dpy->xcl->request_extra_size;
+    iov[4].iov_base = (caddr_t) dpy->xcb->request_extra;
+    iov[4].iov_len = dpy->xcb->request_extra_size;
     iov[5].iov_base = (caddr_t) pad;
     iov[5].iov_len = padsize;
 
@@ -185,32 +185,32 @@ void _XPutXCBBuffer(Display *dpy)
 	/* empty */;
 
     /* first discard any completed partial_request. */
-    if(iov[2].iov_len == 0 && dpy->xcl->partial_request)
+    if(iov[2].iov_len == 0 && dpy->xcb->partial_request)
     {
-	free(dpy->xcl->partial_request);
-	dpy->xcl->partial_request = 0;
-	dpy->xcl->partial_request_offset = 0;
+	free(dpy->xcb->partial_request);
+	dpy->xcb->partial_request = 0;
+	dpy->xcb->partial_request_offset = 0;
     }
 
     /* is there anything to copy into partial_request? */
     if(iov[3].iov_len != 0 || iov[4].iov_len != 0 || iov[5].iov_len != 0)
     {
 	int i;
-	if(!dpy->xcl->partial_request)
+	if(!dpy->xcb->partial_request)
 	{
 	    size_t len = request_length(iov + 3);
-	    assert(!dpy->xcl->partial_request_offset);
-	    dpy->xcl->partial_request = malloc(len);
-	    assert(dpy->xcl->partial_request);
+	    assert(!dpy->xcb->partial_request_offset);
+	    dpy->xcb->partial_request = malloc(len);
+	    assert(dpy->xcb->partial_request);
 	}
 	for(i = 3; i < sizeof(iov) / sizeof(*iov); ++i)
 	{
-	    memcpy(dpy->xcl->partial_request + dpy->xcl->partial_request_offset, iov[i].iov_base, iov[i].iov_len);
-	    dpy->xcl->partial_request_offset += iov[i].iov_len;
+	    memcpy(dpy->xcb->partial_request + dpy->xcb->partial_request_offset, iov[i].iov_base, iov[i].iov_len);
+	    dpy->xcb->partial_request_offset += iov[i].iov_len;
 	}
     }
 
-    dpy->xcl->request_extra = 0;
-    dpy->xcl->request_extra_size = 0;
+    dpy->xcb->request_extra = 0;
+    dpy->xcb->request_extra_size = 0;
     dpy->bufptr = dpy->buffer;
 }

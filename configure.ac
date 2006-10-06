@@ -20,7 +20,7 @@ AC_PROG_CC
 
 XORG_PROG_RAWCPP
 
-# Build XCL? or traditional Xlib?
+# Build with XCB support?
 AC_ARG_WITH(xcb,
 	AC_HELP_STRING([--with-xcb], [use XCB for low-level protocol implementation]),
 	[ac_cv_use_xcb=$withval], [ac_cv_use_xcb=yes])

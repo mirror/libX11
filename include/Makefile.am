@@ -16,5 +16,5 @@ EXTRA_DIST=\
 	X11/XlibConf.h.in
 
 if XCB
-x11include_HEADERS += X11/xcl.h
+x11include_HEADERS += X11/Xlib-xcb.h
 endif

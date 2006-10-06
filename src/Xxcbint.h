@@ -1,12 +1,12 @@
-/* Copyright (C) 2003-2005 Jamey Sharp.
+/* Copyright (C) 2003-2006 Jamey Sharp, Josh Triplett
  * This file is licensed under the MIT license. See the file COPYING. */
 
-#ifndef XCLINT_H
-#define XCLINT_H
+#ifndef XXCBINT_H
+#define XXCBINT_H
 
 #include <assert.h>
 #include <X11/Xlibint.h>
-#include <X11/xcl.h>
+#include <X11/Xlib-xcb.h>
 
 #define XCB_SEQUENCE_COMPARE(a,op,b)	((int) ((a) - (b)) op 0)
 #define assert_sequence_less(a,b) assert(XCB_SEQUENCE_COMPARE((a), <=, (b)))
@@ -17,7 +17,7 @@ struct PendingRequest {
 	unsigned int sequence;
 };
 
-typedef struct XCLPrivate {
+typedef struct _X11XCBPrivate {
 	struct _XLockPtrs lock_fns;
 	xcb_connection_t *connection;
 	PendingRequest *pending_requests;
@@ -32,14 +32,14 @@ typedef struct XCLPrivate {
 	int reply_consumed;
 	enum XEventQueueOwner event_owner;
 	XID next_xid;
-} XCLPrivate;
+} _X11XCBPrivate;
 
-/* xcl/display.c */
+/* xcb_disp.c */
 
 int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *screenp);
-void _XFreeXCLStructure(Display *dpy);
+void _XFreeX11XCBStructure(Display *dpy);
 
-/* xcl/xcblock.c */
+/* xcb_lock.c */
 
 int _XCBInitDisplayLock(Display *dpy);
 
@@ -49,4 +49,4 @@ int _XCBInitDisplayLock(Display *dpy);
 void _XGetXCBBuffer(Display *dpy);
 void _XPutXCBBuffer(Display *dpy);
 
-#endif /* XCLINT_H */
+#endif /* XXCBINT_H */

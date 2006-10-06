@@ -33,7 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 #if USE_XCB
-#include "xclint.h"
+#include "Xxcbint.h"
 #else /* !USE_XCB */
 #include <X11/Xtrans/Xtrans.h>
 #include <X11/extensions/bigreqstr.h>
@@ -363,7 +363,7 @@ XOpenDisplay (
 
 #if USE_XCB
 	{
-		const xcb_setup_t *xcbsetup = xcb_get_setup(dpy->xcl->connection);
+		const xcb_setup_t *xcbsetup = xcb_get_setup(dpy->xcb->connection);
 		setuplength = xcbsetup->length << 2;
 		memcpy(&prefix, xcbsetup, sizeof(prefix));
 		setup = (char *) xcbsetup;
@@ -673,7 +673,7 @@ XOpenDisplay (
 	(void) XSynchronize(dpy, _Xdebug);
 
 #if USE_XCB
-	dpy->bigreq_size = xcb_get_maximum_request_length(dpy->xcl->connection);
+	dpy->bigreq_size = xcb_get_maximum_request_length(dpy->xcb->connection);
 	if(dpy->bigreq_size <= dpy->max_request_size)
 		dpy->bigreq_size = 0;
 #endif /* USE_XCB */
@@ -907,7 +907,7 @@ void _XFreeDisplayStructure(dpy)
 	    Xfree (dpy->filedes);
 
 #if USE_XCB
-	_XFreeXCLStructure(dpy);
+	_XFreeX11XCBStructure(dpy);
 #endif /* USE_XCB */
 
 	Xfree ((char *)dpy);
@@ -921,8 +921,8 @@ static void OutOfMemory (dpy, setup)
     char *setup;
 {
 #if USE_XCB
-    if(dpy->xcl->connection)
-	xcb_disconnect(dpy->xcl->connection);
+    if(dpy->xcb->connection)
+	xcb_disconnect(dpy->xcb->connection);
 #else /* !USE_XCB */
     _XDisconnectDisplay (dpy->trans_conn);
 #endif /* USE_XCB */

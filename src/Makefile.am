@@ -342,12 +342,12 @@ EXTRA_DIST = \
 
 if XCB
 libX11_la_SOURCES += \
-                  xcl/xcblock.c \
-                  xcl/display.c \
-                  xcl/io.c
+                  xcb_lock.c \
+                  xcb_disp.c \
+                  xcb_io.c
 
 lib_LTLIBRARIES += libX11-xcb.la
-libX11_xcb_la_SOURCES = xcl/x11-xcb.c
+libX11_xcb_la_SOURCES = x11_xcb.c
 libX11_xcb_la_LDFLAGS = -version-info 1:0:0 -no-undefined
 libX11_xcb_la_LIBADD = libX11.la
 else

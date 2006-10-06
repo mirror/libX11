@@ -1,8 +1,8 @@
-/* Copyright (C) 2003 Jamey Sharp.
+/* Copyright (C) 2003-2006 Jamey Sharp, Josh Triplett
  * This file is licensed under the MIT license. See the file COPYING. */
 
 #include "Xlibint.h"
-#include "xclint.h"
+#include "Xxcbint.h"
 #include <xcb/xcbext.h>
 #include <X11/Xatom.h>
 #include <X11/Xresource.h>
@@ -61,8 +61,8 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 	dpy->fd = -1;
 
-	dpy->xcl = Xcalloc(1, sizeof(XCLPrivate));
-	if(!dpy->xcl)
+	dpy->xcb = Xcalloc(1, sizeof(_X11XCBPrivate));
+	if(!dpy->xcb)
 		return 0;
 
 	if(!xcb_parse_display(display, &host, &n, screenp))
@@ -82,22 +82,22 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 	dpy->fd = xcb_get_file_descriptor(c);
 
-	dpy->xcl->connection = c;
-	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
-	dpy->xcl->next_xid = xcb_generate_id(dpy->xcl->connection);
+	dpy->xcb->connection = c;
+	dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
+	dpy->xcb->next_xid = xcb_generate_id(dpy->xcb->connection);
 
 	return !xcb_connection_has_error(c);
 }
 
-void _XFreeXCLStructure(Display *dpy)
+void _XFreeX11XCBStructure(Display *dpy)
 {
 	/* reply_data was allocated by system malloc, not Xmalloc */
-	free(dpy->xcl->reply_data);
-	while(dpy->xcl->pending_requests)
+	free(dpy->xcb->reply_data);
+	while(dpy->xcb->pending_requests)
 	{
-		PendingRequest *tmp = dpy->xcl->pending_requests;
-		dpy->xcl->pending_requests = tmp->next;
+		PendingRequest *tmp = dpy->xcb->pending_requests;
+		dpy->xcb->pending_requests = tmp->next;
 		free(tmp);
 	}
-	Xfree(dpy->xcl);
+	Xfree(dpy->xcb);
 }

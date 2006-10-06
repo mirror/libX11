@@ -1,8 +1,8 @@
-/* Copyright (C) 2003-2004 Jamey Sharp.
+/* Copyright (C) 2003-2006 Jamey Sharp, Josh Triplett
  * This file is licensed under the MIT license. See the file COPYING. */
 
 #include "Xlibint.h"
-#include "xclint.h"
+#include "Xxcbint.h"
 #include <xcb/xcbext.h>
 #include <xcb/xcbxlib.h>
 
@@ -95,12 +95,12 @@ static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 static void process_responses(Display *dpy, int wait_for_first_event, xcb_generic_error_t **current_error, unsigned long current_request)
 {
 	void *reply;
-	xcb_generic_event_t *event = dpy->xcl->next_event;
+	xcb_generic_event_t *event = dpy->xcb->next_event;
 	xcb_generic_error_t *error;
 	PendingRequest *req;
 	int ret;
-	xcb_connection_t *c = dpy->xcl->connection;
-	if(!event && dpy->xcl->event_owner == XlibOwnsEventQueue)
+	xcb_connection_t *c = dpy->xcb->connection;
+	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
 	{
 		if(wait_for_first_event)
 		{
@@ -114,7 +114,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 
 	while(1)
 	{
-		req = dpy->xcl->pending_requests;
+		req = dpy->xcb->pending_requests;
 		if(event && XCB_SEQUENCE_COMPARE(event->full_sequence, <=, current_request)
 		         && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
 		{
@@ -128,9 +128,9 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 			event = xcb_poll_for_event(c, &ret);
 		}
 		else if(req && XCB_SEQUENCE_COMPARE(req->sequence, <, current_request)
-		            && xcb_poll_for_reply(dpy->xcl->connection, req->sequence, &reply, &error))
+		            && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))
 		{
-			dpy->xcl->pending_requests = req->next;
+			dpy->xcb->pending_requests = req->next;
 			if(!reply)
 				reply = error;
 			if(reply)
@@ -144,10 +144,10 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		else
 			break;
 	}
-	if(!dpy->xcl->pending_requests)
-		dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
+	if(!dpy->xcb->pending_requests)
+		dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
 
-	dpy->xcl->next_event = event;
+	dpy->xcb->next_event = event;
 
 	if(xcb_connection_has_error(c))
 		_XIOError(dpy);
@@ -157,7 +157,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 
 int _XEventsQueued(Display *dpy, int mode)
 {
-	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
+	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return 0;
 
 	if(mode == QueuedAfterFlush)
@@ -174,7 +174,7 @@ int _XEventsQueued(Display *dpy, int mode)
 void _XReadEvents(Display *dpy)
 {
 	_XSend(dpy, 0, 0);
-	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
+	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return;
 	check_internal_connections(dpy);
 	process_responses(dpy, 1, 0, dpy->request);
@@ -189,11 +189,11 @@ void _XReadEvents(Display *dpy)
  */
 void _XSend(Display *dpy, const char *data, long size)
 {
-	xcb_connection_t *c = dpy->xcl->connection;
+	xcb_connection_t *c = dpy->xcb->connection;
 
-	assert(!dpy->xcl->request_extra);
-	dpy->xcl->request_extra = data;
-	dpy->xcl->request_extra_size = size;
+	assert(!dpy->xcb->request_extra);
+	dpy->xcb->request_extra = data;
+	dpy->xcb->request_extra_size = size;
 
 	/* give dpy->buffer to XCB */
 	_XPutXCBBuffer(dpy);
@@ -229,9 +229,9 @@ void _XFlush(Display *dpy)
 static int
 _XIDHandler(Display *dpy)
 {
-	XID next = xcb_generate_id(dpy->xcl->connection);
+	XID next = xcb_generate_id(dpy->xcb->connection);
 	LockDisplay(dpy);
-	dpy->xcl->next_xid = next;
+	dpy->xcb->next_xid = next;
 	if(dpy->flags & XlibDisplayPrivSync)
 	{
 		dpy->synchandler = dpy->savedsynchandler;
@@ -245,8 +245,8 @@ _XIDHandler(Display *dpy)
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
-	XID ret = dpy->xcl->next_xid;
-	dpy->xcl->next_xid = 0;
+	XID ret = dpy->xcb->next_xid;
+	dpy->xcb->next_xid = 0;
 
 	assert(!(dpy->flags & XlibDisplayPrivSync));
 	dpy->savedsynchandler = dpy->synchandler;
@@ -261,16 +261,16 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 	int i;
 	_XPutXCBBuffer(dpy);
 	for (i = 0; i < count; i++)
-		ids[i] = xcb_generate_id(dpy->xcl->connection);
+		ids[i] = xcb_generate_id(dpy->xcb->connection);
 	_XGetXCBBuffer(dpy);
 }
 
 static void _XFreeReplyData(Display *dpy, Bool force)
 {
-	if(!force && dpy->xcl->reply_consumed < dpy->xcl->reply_length)
+	if(!force && dpy->xcb->reply_consumed < dpy->xcb->reply_length)
 		return;
-	free(dpy->xcl->reply_data);
-	dpy->xcl->reply_data = 0;
+	free(dpy->xcb->reply_data);
+	dpy->xcb->reply_data = 0;
 }
 
 /*
@@ -282,11 +282,11 @@ static void _XFreeReplyData(Display *dpy, Bool force)
 Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 {
 	xcb_generic_error_t *error;
-	xcb_connection_t *c = dpy->xcl->connection;
+	xcb_connection_t *c = dpy->xcb->connection;
 	unsigned long request = dpy->request;
 	char *reply;
 
-	assert(!dpy->xcl->reply_data);
+	assert(!dpy->xcb->reply_data);
 
 	UnlockDisplay(dpy);
 	reply = xcb_wait_for_reply(c, request, &error);
@@ -351,17 +351,17 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	dpy->last_request_read = request;
 
 	/* there's no error and we have a reply. */
-	dpy->xcl->reply_data = reply;
-	dpy->xcl->reply_consumed = sizeof(xReply) + (extra * 4);
-	dpy->xcl->reply_length = sizeof(xReply);
-	if(dpy->xcl->reply_data[0] == 1)
-		dpy->xcl->reply_length += (((xcb_generic_reply_t *) dpy->xcl->reply_data)->length * 4);
+	dpy->xcb->reply_data = reply;
+	dpy->xcb->reply_consumed = sizeof(xReply) + (extra * 4);
+	dpy->xcb->reply_length = sizeof(xReply);
+	if(dpy->xcb->reply_data[0] == 1)
+		dpy->xcb->reply_length += (((xcb_generic_reply_t *) dpy->xcb->reply_data)->length * 4);
 
 	/* error: Xlib asks too much. give them what we can anyway. */
-	if(dpy->xcl->reply_length < dpy->xcl->reply_consumed)
-		dpy->xcl->reply_consumed = dpy->xcl->reply_length;
+	if(dpy->xcb->reply_length < dpy->xcb->reply_consumed)
+		dpy->xcb->reply_consumed = dpy->xcb->reply_length;
 
-	memcpy(rep, dpy->xcl->reply_data, dpy->xcl->reply_consumed);
+	memcpy(rep, dpy->xcb->reply_data, dpy->xcb->reply_consumed);
 	_XFreeReplyData(dpy, discard);
 	return 1;
 }
@@ -371,10 +371,10 @@ int _XRead(Display *dpy, char *data, long size)
 	assert(size >= 0);
 	if(size == 0)
 		return 0;
-	assert(dpy->xcl->reply_data != 0);
-	assert(dpy->xcl->reply_consumed + size <= dpy->xcl->reply_length);
-	memcpy(data, dpy->xcl->reply_data + dpy->xcl->reply_consumed, size);
-	dpy->xcl->reply_consumed += size;
+	assert(dpy->xcb->reply_data != 0);
+	assert(dpy->xcb->reply_consumed + size <= dpy->xcb->reply_length);
+	memcpy(data, dpy->xcb->reply_data + dpy->xcb->reply_consumed, size);
+	dpy->xcb->reply_consumed += size;
 	_XFreeReplyData(dpy, False);
 	return 0;
 }
@@ -387,13 +387,13 @@ int _XRead(Display *dpy, char *data, long size)
 void _XReadPad(Display *dpy, char *data, long size)
 {
 	_XRead(dpy, data, size);
-	dpy->xcl->reply_consumed += -size & 3;
+	dpy->xcb->reply_consumed += -size & 3;
 	_XFreeReplyData(dpy, False);
 }
 
 /* Read and discard "n" 8-bit bytes of data */
 void _XEatData(Display *dpy, unsigned long n)
 {
-	dpy->xcl->reply_consumed += n;
+	dpy->xcb->reply_consumed += n;
 	_XFreeReplyData(dpy, False);
 }

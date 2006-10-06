@@ -2,14 +2,14 @@
  * This file is licensed under the MIT license. See the file COPYING. */
 
 #include "Xlibint.h"
-#include "xclint.h"
+#include "Xxcbint.h"
 
 xcb_connection_t *XGetXCBConnection(Display *dpy)
 {
-	return dpy->xcl->connection;
+	return dpy->xcb->connection;
 }
 
 void XSetEventQueueOwner(Display *dpy, enum XEventQueueOwner owner)
 {
-	dpy->xcl->event_owner = owner;
+	dpy->xcb->event_owner = owner;
 }

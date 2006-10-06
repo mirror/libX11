@@ -13,7 +13,7 @@ endif
 
 EXTRA_DIST=x11.pc.in x11-xcb.pc.in ChangeLog
 
-CLEANFILES=ChangeLog
+MAINTAINERCLEANFILES=ChangeLog
 
 .PHONY: ChangeLog
 

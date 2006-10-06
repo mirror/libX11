@@ -98,7 +98,6 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 	xcb_generic_event_t *event = dpy->xcb->next_event;
 	xcb_generic_error_t *error;
 	PendingRequest *req;
-	int ret;
 	xcb_connection_t *c = dpy->xcb->connection;
 	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
 	{
@@ -109,7 +108,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 			LockDisplay(dpy);
 		}
 		else
-			event = xcb_poll_for_event(c, &ret);
+			event = xcb_poll_for_event(c);
 	}
 
 	while(1)
@@ -125,7 +124,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				break;
 			}
 			handle_event(dpy, event);
-			event = xcb_poll_for_event(c, &ret);
+			event = xcb_poll_for_event(c);
 		}
 		else if(req && XCB_SEQUENCE_COMPARE(req->sequence, <, current_request)
 		            && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))

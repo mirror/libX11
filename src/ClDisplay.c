@@ -75,7 +75,7 @@ XCloseDisplay (
 		XSync(dpy, 1);
 	}
 #if USE_XCB
-	xcb_disconnect(XGetXCBConnection(dpy));
+	xcb_disconnect(dpy->xcl->connection);
 #else /* !USE_XCB */
 	_XDisconnectDisplay(dpy->trans_conn);
 #endif /* USE_XCB */

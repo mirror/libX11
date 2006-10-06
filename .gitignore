@@ -16,4 +16,5 @@ MakeOut
 missing
 mkinstalldirs
 x11.pc
+x11-xcb.pc
 *~

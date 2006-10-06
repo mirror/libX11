@@ -79,11 +79,6 @@ static void handle_event(Display *dpy, xcb_generic_event_t *e)
 	free(e);
 }
 
-void XSetEventQueueOwner(Display *dpy, enum XEventQueueOwner owner)
-{
-	dpy->xcl->event_owner = owner;
-}
-
 int _XEventsQueued(Display *dpy, int mode)
 {
 	xcb_connection_t *c;

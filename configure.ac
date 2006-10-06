@@ -442,7 +442,8 @@ AC_OUTPUT([Makefile
 	   nls/zh_TW/Makefile
 	   nls/zh_TW.big5/Makefile
 	   nls/zh_TW.UTF-8/Makefile
-	   x11.pc])
+	   x11.pc
+	   x11-xcb.pc])
 
 echo ""
 echo "X11 will be built with the following settings:"

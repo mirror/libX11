@@ -28,11 +28,6 @@ static void *alloc_copy(const void *src, int *dstn, size_t n)
 	return dst;
 }
 
-xcb_connection_t *XGetXCBConnection(Display *dpy)
-{
-	return dpy->xcl->connection;
-}
-
 void XSetAuthorization(char *name, int namelen, char *data, int datalen)
 {
 	_XLockMutex(_Xglobal_lock);

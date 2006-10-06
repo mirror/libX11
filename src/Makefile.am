@@ -344,10 +344,11 @@ if XCB
 libX11_la_SOURCES += \
                   xcb_lock.c \
                   xcb_disp.c \
-                  xcb_io.c
+                  xcb_io.c \
+                  Xxcbint.h
 
 lib_LTLIBRARIES += libX11-xcb.la
-libX11_xcb_la_SOURCES = x11_xcb.c
+libX11_xcb_la_SOURCES = x11_xcb.c Xxcbint.h
 libX11_xcb_la_LDFLAGS = -version-info 1:0:0 -no-undefined
 libX11_xcb_la_LIBADD = libX11.la
 else

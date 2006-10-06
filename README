@@ -1,6 +1,6 @@
 #define S(x, y)  y##x
 
-Please contact S(south.rr.com, wt@mid, and jim.gettys@hp.com) before doing 
+Please contact S(south.rr.com, wt@mid) and jim.gettys@hp.com before doing
 any commits on this module.
 
 This is the libX11 from XFree86.

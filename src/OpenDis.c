@@ -921,7 +921,8 @@ static void OutOfMemory (dpy, setup)
     char *setup;
 {
 #if USE_XCB
-    xcb_disconnect(dpy->xcl->connection);
+    if(dpy->xcl->connection)
+	xcb_disconnect(dpy->xcl->connection);
 #else /* !USE_XCB */
     _XDisconnectDisplay (dpy->trans_conn);
 #endif /* USE_XCB */

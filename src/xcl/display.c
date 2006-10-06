@@ -80,15 +80,13 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 		c = xcb_connect(display, 0);
 	_XUnlockMutex(_Xglobal_lock);
 
-	if(!c)
-		return 0;
-
 	dpy->fd = xcb_get_file_descriptor(c);
 
 	dpy->xcl->connection = c;
 	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
 	dpy->xcl->next_xid = xcb_generate_id(dpy->xcl->connection);
-	return 1;
+
+	return !xcb_connection_has_error(c);
 }
 
 void _XFreeXCLStructure(Display *dpy)

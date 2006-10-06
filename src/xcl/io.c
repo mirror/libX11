@@ -79,23 +79,92 @@ static void handle_event(Display *dpy, xcb_generic_event_t *e)
 	free(e);
 }
 
+static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
+{
+	_XAsyncHandler *async, *next;
+	for(async = dpy->async_handlers; async; async = next)
+	{
+		next = async->next;
+		if(async->handler(dpy, (xReply *) buf, (char *) buf, sizeof(xReply) + (buf->length << 2), async->data))
+			return;
+	}
+	if(buf->response_type == 0) /* unhandled error */
+	    _XError(dpy, (xError *) buf);
+}
+
+static void process_responses(Display *dpy, int wait_for_first_event, xcb_generic_error_t **current_error, unsigned long current_request)
+{
+	void *reply;
+	xcb_generic_event_t *event = dpy->xcl->next_event;
+	xcb_generic_error_t *error;
+	PendingRequest *req;
+	int ret;
+	xcb_connection_t *c = dpy->xcl->connection;
+	if(!event && dpy->xcl->event_owner == XlibOwnsEventQueue)
+	{
+		if(wait_for_first_event)
+		{
+			UnlockDisplay(dpy);
+			event = xcb_wait_for_event(c);
+			LockDisplay(dpy);
+		}
+		else
+			event = xcb_poll_for_event(c, &ret);
+	}
+
+	while(1)
+	{
+		req = dpy->xcl->pending_requests;
+		if(event && XCB_SEQUENCE_COMPARE(event->full_sequence, <=, current_request)
+		         && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
+		{
+			if(current_error && event->response_type == 0 && event->full_sequence == current_request)
+			{
+				*current_error = (xcb_generic_error_t *) event;
+				event = 0;
+				break;
+			}
+			handle_event(dpy, event);
+			event = xcb_poll_for_event(c, &ret);
+		}
+		else if(req && XCB_SEQUENCE_COMPARE(req->sequence, <, current_request)
+		            && xcb_poll_for_reply(dpy->xcl->connection, req->sequence, &reply, &error))
+		{
+			dpy->xcl->pending_requests = req->next;
+			if(!reply)
+				reply = error;
+			if(reply)
+			{
+				dpy->last_request_read = req->sequence;
+				call_handlers(dpy, reply);
+			}
+			free(req);
+			free(reply);
+		}
+		else
+			break;
+	}
+	if(!dpy->xcl->pending_requests)
+		dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
+
+	dpy->xcl->next_event = event;
+
+	if(xcb_connection_has_error(c))
+		_XIOError(dpy);
+
+	assert_sequence_less(dpy->last_request_read, dpy->request);
+}
+
 int _XEventsQueued(Display *dpy, int mode)
 {
-	xcb_connection_t *c;
-	xcb_generic_event_t *e;
-	int ret;
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return 0;
 
-	c = dpy->xcl->connection;
 	if(mode == QueuedAfterFlush)
 		_XSend(dpy, 0, 0);
 	else
 		check_internal_connections(dpy);
-	while((e = xcb_poll_for_event(c, &ret)))
-		handle_event(dpy, e);
-	if(ret)
-		_XIOError(dpy);
+	process_responses(dpy, 0, 0, dpy->request);
 	return dpy->qlen;
 }
 
@@ -107,8 +176,8 @@ void _XReadEvents(Display *dpy)
 	_XSend(dpy, 0, 0);
 	if(dpy->xcl->event_owner != XlibOwnsEventQueue)
 		return;
-	handle_event(dpy, xcb_wait_for_event(dpy->xcl->connection));
-	_XEventsQueued(dpy, QueuedAfterReading);
+	check_internal_connections(dpy);
+	process_responses(dpy, 1, 0, dpy->request);
 }
 
 /*
@@ -224,17 +293,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	LockDisplay(dpy);
 
 	check_internal_connections(dpy);
-
-	if(dpy->xcl->event_owner == XlibOwnsEventQueue)
-	{
-		xcb_generic_event_t *e;
-		int ret;
-		while((e = xcb_poll_for_event(c, &ret)))
-			if(e->response_type == 0 && e->full_sequence == request)
-				error = (xcb_generic_error_t *) e;
-			else
-				handle_event(dpy, e);
-	}
+	process_responses(dpy, 0, &error, request);
 
 	if(error)
 	{

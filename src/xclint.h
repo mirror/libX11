@@ -22,6 +22,7 @@ typedef struct XCLPrivate {
 	xcb_connection_t *connection;
 	PendingRequest *pending_requests;
 	PendingRequest **pending_requests_tail;
+	xcb_generic_event_t *next_event;
 	const char *request_extra;
 	int request_extra_size;
 	char *partial_request;

@@ -47,32 +47,10 @@ int _XCBInitDisplayLock(Display *dpy)
     return 1;
 }
 
-static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
-{
-	_XAsyncHandler *async, *next;
-	for(async = dpy->async_handlers; async; async = next)
-	{
-		next = async->next;
-		if(async->handler(dpy, (xReply *) buf, (char *) buf, sizeof(xReply) + (buf->length << 2), async->data))
-			return;
-	}
-	if(buf->response_type == 0) /* unhandled error */
-	    _XError(dpy, (xError *) buf);
-}
-
 void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
-    unsigned int xcb_req;
-    void *reply;
-    xcb_generic_error_t *error;
-    PendingRequest *req;
-
-    xcb_connection_t *c = dpy->xcl->connection;
-
-    dpy->last_req = (char *) &dummy_request;
-
-    xcb_req = xcb_get_request_sent(c);
+    unsigned int xcb_req = xcb_get_request_sent(dpy->xcl->connection);
     /* if Xlib has a partial request pending then XCB doesn't know about
      * the current request yet */
     if(dpy->xcl->partial_request)
@@ -81,25 +59,7 @@ void _XGetXCBBuffer(Display *dpy)
     assert(XCB_SEQUENCE_COMPARE(xcb_req, >=, dpy->request));
     dpy->request = xcb_req;
 
-    while((req = dpy->xcl->pending_requests)
-	  && dpy->request != req->sequence
-	  && xcb_poll_for_reply(c, req->sequence, &reply, &error))
-    {
-	dpy->xcl->pending_requests = req->next;
-	if(!reply)
-	    reply = error;
-	if(reply)
-	{
-	    dpy->last_request_read = req->sequence;
-	    call_handlers(dpy, reply);
-	}
-	free(req);
-	free(reply);
-    }
-    if(!dpy->xcl->pending_requests)
-	dpy->xcl->pending_requests_tail = &dpy->xcl->pending_requests;
-
-    assert_sequence_less(dpy->last_request_read, dpy->request);
+    dpy->last_req = (char *) &dummy_request;
 }
 
 static size_t request_length(struct iovec *vec)

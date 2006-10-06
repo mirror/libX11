@@ -8,8 +8,6 @@
 #include <X11/Xresource.h>
 #include <stdio.h>
 
-void _XFreeDisplayStructure(Display *dpy);
-
 static xcb_auth_info_t xauth;
 
 static void *alloc_copy(const void *src, int *dstn, size_t n)

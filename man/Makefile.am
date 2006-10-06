@@ -76,6 +76,7 @@ libman_PRE = \
 	XGetVisualInfo.man \
 	XGetWindowAttributes.man \
 	XGetWindowProperty.man \
+	XGetXCBConnection.man \
 	XGrabButton.man \
 	XGrabKey.man \
 	XGrabKeyboard.man \
@@ -132,6 +133,7 @@ libman_PRE = \
 	XSetCloseDownMode.man \
 	XSetCommand.man \
 	XSetErrorHandler.man \
+	XSetEventQueueOwner.man \
 	XSendEvent.man \
 	XSetFillStyle.man \
 	XSetFont.man \

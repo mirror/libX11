@@ -363,9 +363,9 @@ XOpenDisplay (
 
 #if USE_XCB
 	{
-		const xcb_setup_t *xcbsetup = xcb_get_setup(dpy->xcb->connection);
-		setuplength = xcbsetup->length << 2;
+		const struct xcb_setup_t *xcbsetup = xcb_get_setup(dpy->xcb->connection);
 		memcpy(&prefix, xcbsetup, sizeof(prefix));
+		setuplength = prefix.length << 2;
 		setup = (char *) xcbsetup;
 		setup += SIZEOF(xConnSetupPrefix);
 		u.setup = (xConnSetup *) setup;

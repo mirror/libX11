@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.57)
 AC_INIT([libX11],
-        1.0.99.0,
+        1.0.99.1,
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
@@ -39,7 +39,7 @@ no)
 	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
 	;;
 *)
-	X11_REQUIRES="xcb-xlib"
+	X11_REQUIRES="xcb-xlib >= 0.9.92"
 	xdmauth="no" # XCB handles all auth
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
 	;;

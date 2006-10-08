@@ -1,2 +1,37 @@
-Xlib is autotooled!
+Version 1.1 RC1 - 2006-10-06
 
+This release includes the Xlib/XCB work, which uses XCB as the Xlib transport
+layer, and allows a client to use both Xlib and XCB on the same connection.
+This allows clients to transition from Xlib to XCB incrementally.
+
+Clients which link only to libX11, and do not use XCB, should not notice any
+differences in this release.  Clients desiring XCB interoperability should
+additionally #include <X11/Xlib-xcb.h>, link to libX11-xcb, use
+XGetXCBConnection(dpy) to obtain the underlying XCB connection, and then use
+XCB functions directly on that connection.
+
+Note that while a client can issue requests and handle their replies or errors
+with either Xlib or XCB, only one can own and handle the event queue.  By
+default, Xlib must own the event queue, for compatibility with legacy Xlib
+clients.  Clients can use the function XSetEventQueueOwner immediately after
+XOpenDisplay to let XCB own the event queue instead.  Clients may not call
+this function after processing any responses, as this will potentially lose
+responses.
+
+We expect to have an RC2 release corresponding to the Xorg RC2 schedule, which
+should include additional internal architecture enhancements, but no
+user-visible changes.  1.0 final should match RC2.
+
+Other smaller changes in this release:
+* correct ChangeLog generation
+* support running lint and sparse
+* Autoconf 2.60
+* fix man page for XUrgencyHint
+* improve man pages for XGrabButton, XGrabKey, XGetWindowProperty
+* new locales: as_IN.UTF-8, kn_IN.UTF-8, ml_IN.UTF-8, or_IN.UTF-8,
+  te_IN.UTF-8, ur_IN.UTF-8
+* on systems with both UNIXCONN and LOCALCONN, try unix if local fails
+* fix sparse warnings
+* ansify static functions
+
+-- Josh Triplett <josh@freedesktop.org>, Jamey Sharp <jamey@minilop.net>

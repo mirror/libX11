@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawText 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDrawText __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawText, XDrawText16, XTextItem, XTextItem16 \- draw polytext text and text drawing structures
 .SH SYNTAX

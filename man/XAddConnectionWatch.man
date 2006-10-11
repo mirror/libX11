@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAddConnectionWatch 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAddConnectionWatch __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAddConnectionWatch, XRemoveConnectionWatch, XProcessInternalConnection, XInternalConnectionNumbers \- handle Xlib internal connections
 .SH SYNTAX

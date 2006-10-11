@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XInternAtom 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XInternAtom __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XInternAtom, XInternAtoms, XGetAtomName, XGetAtomNames \- create or return atom names
 .SH SYNTAX

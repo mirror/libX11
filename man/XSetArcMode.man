@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetArcMode 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetArcMode __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetArcMode, XSetSubwindowMode, XSetGraphicsExposure \- GC convenience routines
 .SH SYNTAX

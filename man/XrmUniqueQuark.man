@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XrmUniqueQuark 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmUniqueQuark __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmUniqueQuark, XrmStringToQuark, XrmPermStringToQuark, XrmQuarkToString, XrmStringToQuarkList, XrmStringToBindingQuarkList \- manipulate resource quarks
 .SH SYNTAX

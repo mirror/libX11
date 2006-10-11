@@ -19,7 +19,7 @@
 .\" ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 .\" OTHER DEALINGS IN THE SOFTWARE.
 .\"
-.TH XGetXCBConnection 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGetXCBConnection __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGetXCBConnection \- get the XCB connection for an Xlib Display
 .SH SYNTAX

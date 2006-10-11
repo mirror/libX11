@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XFillRectangle 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XFillRectangle __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XFillRectangle, XFillRectangles, XFillPolygon, XFillArc, XFillArcs \- fill rectangles, polygons, or arcs
 .SH SYNTAX

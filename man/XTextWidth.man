@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XTextWidth 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XTextWidth __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XTextWidth, XTextWidth16 \- compute text width
 .SH SYNTAX

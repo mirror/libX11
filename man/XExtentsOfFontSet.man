@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XExtentsOfFontSet 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XExtentsOfFontSet __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XExtentsOfFontSet \- obtain the maximum extents structure for a font set
 .SH SYNTAX

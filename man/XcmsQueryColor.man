@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsQueryColor 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsQueryColor __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsQueryColor, XcmsQueryColors, XcmsLookupColor \- obtain color values
 .SH SYNTAX

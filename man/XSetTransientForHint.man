@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetTransientForHint 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetTransientForHint __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetTransientForHint, XGetTransientForHint \- set or read a window's WM_TRANSIENT_FOR property
 .SH SYNTAX

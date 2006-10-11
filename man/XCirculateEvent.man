@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCirculateEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCirculateEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCirculateEvent \- CirculateNotify event structure
 .SH STRUCTURES

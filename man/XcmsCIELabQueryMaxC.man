@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsCIELabQueryMax 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsCIELabQueryMax __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsCIELabQueryMaxC, XcmsCIELabQueryMaxL, XcmsCIELabQueryMaxLC, XcmsCIELabQueryMinL \- obtain the CIE L*a*b* coordinates
 .SH SYNTAX

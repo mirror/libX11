@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XIntersectRegion 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XIntersectRegion __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XIntersectRegion, XUnionRegion, XUnionRectWithRegion, XSubtractRegion, XXorRegion, XOffsetRegion, XShrinkRegion \- region arithmetic
 .SH SYNTAX

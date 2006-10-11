@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsDefaultCCC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsDefaultCCC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsDefaultCCC \- obtain the default CCC for a screen
 .SH SYNTAX

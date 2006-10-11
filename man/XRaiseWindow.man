@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XRaiseWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XRaiseWindow __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XRaiseWindow, XLowerWindow, XCirculateSubwindows, XCirculateSubwindowsUp, XCirculateSubwindowsDown, XRestackWindows \- change window stacking order
 .SH SYNTAX

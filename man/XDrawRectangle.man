@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawRectangle 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDrawRectangle __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawRectangle, XDrawRectangles, XRectangle \- draw rectangles and rectangles structure
 .SH SYNTAX

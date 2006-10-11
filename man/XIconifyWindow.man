@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XIconifyWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XIconifyWindow __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XIconifyWindow, XWithdrawWindow, XReconfigureWMWindow \- manipulate top-level windows
 .SH SYNTAX

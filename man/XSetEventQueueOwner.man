@@ -19,7 +19,7 @@
 .\" ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 .\" OTHER DEALINGS IN THE SOFTWARE.
 .\"
-.TH XSetEventQueueOwner 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetEventQueueOwner __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetEventQueueOwner \- set event queue owner on a shared Xlib/XCB connection
 .SH SYNTAX

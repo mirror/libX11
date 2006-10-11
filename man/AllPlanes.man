@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH AllPlanes 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH AllPlanes __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 AllPlanes, BlackPixel, WhitePixel, ConnectionNumber, DefaultColormap, DefaultDepth, XListDepths, DefaultGC, DefaultRootWindow, DefaultScreenOfDisplay, DefaultScreen, DefaultVisual, DisplayCells, DisplayPlanes, DisplayString, XMaxRequestSize, XExtendedMaxRequestSize, LastKnownRequestProcessed, NextRequest, ProtocolVersion, ProtocolRevision, QLength, RootWindow, ScreenCount, ScreenOfDisplay, ServerVendor, VendorRelease \- Display macros and functions
 .SH SYNTAX

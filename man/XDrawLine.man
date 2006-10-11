@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawLine 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDrawLine __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawLine, XDrawLines, XDrawSegments, XSegment \- draw lines, polygons, and line structure
 .SH SYNTAX

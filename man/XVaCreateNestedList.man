@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XVaCreateNestedList 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XVaCreateNestedList __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XVaCreateNestedList \- allocate a nested variable argument list
 .SH SYNTAX

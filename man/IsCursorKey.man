@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH IsCursorKey 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH IsCursorKey __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 IsCursorKey, IsFunctionKey, IsKeypadKey, IsMiscFunctionKey, IsModifierKey, IsPFKey, IsPrivateKeypadKey \- keysym classification macros
 .SH SYNTAX

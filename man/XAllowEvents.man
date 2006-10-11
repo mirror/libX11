@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAllowEvents 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAllowEvents __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllowEvents \- release queued events
 .SH SYNTAX

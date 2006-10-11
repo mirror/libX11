@@ -142,7 +142,7 @@
 ..
 .ny0
 '\" t
-.TH XrmEnumerateDatabase 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmEnumerateDatabase __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmEnumerateDatabase \- enumerate resource database entries
 .SH SYNTAX

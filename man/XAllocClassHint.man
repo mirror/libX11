@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAllocClassHint 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAllocClassHint __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocClassHint, XSetClassHint, XGetClassHint, XClassHint \- allocate class hints structure and set or read a window's WM_CLASS property
 .SH SYNTAX

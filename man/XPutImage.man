@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XPutImage 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XPutImage __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XPutImage, XGetImage, XGetSubImage \- transfer images
 .SH SYNTAX

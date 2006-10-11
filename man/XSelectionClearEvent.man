@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSelectionClearEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSelectionClearEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSelectionClearEvent \- SelectionClear event structure
 .SH STRUCTURES

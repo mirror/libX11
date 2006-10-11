@@ -142,7 +142,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbDrawText 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbDrawText __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbDrawText, XwcDrawText, Xutf8DrawText \- draw text using multiple font sets 
 .SH SYNTAX

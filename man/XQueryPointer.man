@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XQueryPointer 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XQueryPointer __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XQueryPointer \- get pointer coordinates
 .SH SYNTAX

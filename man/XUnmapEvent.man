@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XUnmapEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XUnmapEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XUnmapEvent \- UnmapNotify event structure
 .SH STRUCTURES

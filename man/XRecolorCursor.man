@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XRecolorCursor 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XRecolorCursor __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XRecolorCursor, XFreeCursor, XQueryBestCursor \- manipulate cursors
 .SH SYNTAX

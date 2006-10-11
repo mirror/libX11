@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XListFonts 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XListFonts __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XListFonts, XFreeFontNames, XListFontsWithInfo, XFreeFontInfo \- obtain or free font names and information
 .SH SYNTAX

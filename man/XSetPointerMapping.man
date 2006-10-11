@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetPointerMapping 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetPointerMapping __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetPointerMapping, XGetPointerMapping \- manipulate pointer settings
 .SH SYNTAX

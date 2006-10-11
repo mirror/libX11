@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCrossingEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCrossingEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCrossingEvent \- EnterNotify and LeaveNotify event structure
 .SH STRUCTURES

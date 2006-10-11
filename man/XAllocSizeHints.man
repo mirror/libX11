@@ -143,7 +143,7 @@
 ..
 .ny0
 '\" t
-.TH XAllocSizeHints 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAllocSizeHints __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocSizeHints, XSetWMNormalHints, XGetWMNormalHints, XSetWMSizeHints, XGetWMSizeHints, XSizeHints \- allocate size hints structure and set or read a window's WM_NORMAL_HINTS property
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsCCCOfColormap 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsCCCOfColormap __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsCCCOfColormap, XcmsSetCCCOfColormap \- query and modify CCC of a colormap
 .SH SYNTAX

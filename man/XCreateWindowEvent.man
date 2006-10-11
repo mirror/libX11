@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateWindowEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateWindowEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateWindowEvent \- CreateNotify event structure
 .SH STRUCTURES

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XClearArea 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XClearArea __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XClearArea, XClearWindow \- clear area or window
 .SH SYNTAX

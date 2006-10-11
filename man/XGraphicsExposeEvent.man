@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XGraphicsExposeEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGraphicsExposeEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGraphicsExposeEvent, XNoExposeEvent \- GraphicsExpose and NoExpose event structures
 .SH STRUCTURES

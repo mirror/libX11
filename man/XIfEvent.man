@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XIfEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XIfEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XIfEvent, XCheckIfEvent, XPeekIfEvent \- check the event queue with a predicate procedure
 .SH SYNTAX

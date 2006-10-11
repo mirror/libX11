@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsSetWhitePoint 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsSetWhitePoint __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsSetWhitePoint, XcmsSetWhiteAdjustProc \- modifying CCC attributes
 .SH SYNTAX

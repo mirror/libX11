@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetFillStyle 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetFillStyle __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetFillStyle, XSetFillRule \- GC convenience routines
 .SH SYNTAX

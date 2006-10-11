@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XChangeSaveSet 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XChangeSaveSet __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XChangeSaveSet, XAddToSaveSet, XRemoveFromSaveSet \- change a client's save set
 .SH SYNTAX

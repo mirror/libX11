@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAllocIconSize 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAllocIconSize __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocIconSize, XSetIconSizes, XGetIconSizes, XIconSize \- allocate icon size structure and set or read a window's WM_ICON_SIZES property
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsColor 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsColor __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsColor, XcmsRGB, XcmsRGBi, XcmsCIEXYZ, XcmsCIEuvY, XcmsCIExyY, XcmsCIELab, XcmsCIELuv, XcmsTekHVC, XcmsPad \- Xcms color struture
 .SH STRUCTURES

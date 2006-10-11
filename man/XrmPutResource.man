@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XrmPutResource 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmPutResource __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmPutResource, XrmQPutResource, XrmPutStringResource, XrmQPutStringResource, XrmPutLineResource \- store database resources
 .SH SYNTAX

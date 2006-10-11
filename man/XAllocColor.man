@@ -142,7 +142,7 @@
 ..
 .ny0
 '\" e
-.TH XAllocColor 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAllocColor __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAllocColor, XAllocNamedColor, XAllocColorCells, XAllocColorPlanes, XFreeColors \- allocate and free colors
 .SH SYNTAX

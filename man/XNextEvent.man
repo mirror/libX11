@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XNextEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XNextEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XNextEvent, XPeekEvent, XWindowEvent, XCheckWindowEvent, XMaskEvent, XCheckMaskEvent, XCheckTypedEvent, XCheckTypedWindowEvent \- select events by type
 .SH SYNTAX

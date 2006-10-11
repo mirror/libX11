@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateImage 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateImage __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XInitImage, XCreateImage, XGetPixel, XPutPixel, XSubImage, XAddPixel, XDestroyImage \- image utilities
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsTekHVCQueryMaxC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsTekHVCQueryMaxC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsTekHVCQueryMaxC, XcmsTekHVCQueryMaxV, XcmsTekHVCQueryMaxVC, XcmsTekHVCQueryMaxVSamples, XcmsTekHVCQueryMinV \- obtain the TekHVC coordinates
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XEmptyRegion 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XEmptyRegion __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XEmptyRegion, XEqualRegion, XPointInRegion, XRectInRegion \- determine if regions are empty or equal
 .SH SYNTAX

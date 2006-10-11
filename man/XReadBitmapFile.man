@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XReadBitmapFile 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XReadBitmapFile __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XReadBitmapFile, XReadBitmapFileData, XWriteBitmapFile, XCreatePixmapFromBitmapData, XCreateBitmapFromData \- manipulate bitmaps
 .SH SYNTAX

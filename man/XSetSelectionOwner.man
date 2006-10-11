@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetSelectionOwner 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetSelectionOwner __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetSelectionOwner, XGetSelectionOwner, XConvertSelection \- manipulate window selection
 .SH SYNTAX

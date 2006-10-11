@@ -143,7 +143,7 @@
 ..
 .ny0
 '\" t
-.TH XCreateWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateWindow __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateWindow, XCreateSimpleWindow, XSetWindowAttributes \- create windows and window attributes structure
 .SH SYNTAX

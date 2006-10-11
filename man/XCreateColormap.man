@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateColormap 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateColormap __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateColormap, XCopyColormapAndFree, XFreeColormap, XColor \- create, copy, or destroy colormaps and color structure
 .SH SYNTAX

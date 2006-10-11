@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetTextProperty 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetTextProperty __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetTextProperty, XGetTextProperty \- set and read text properties
 .SH SYNTAX

@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XColormapEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XColormapEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XColormapEvent \- ColormapNotify event structure
 .SH STRUCTURES

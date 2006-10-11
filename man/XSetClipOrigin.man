@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetClipOrigin 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetClipOrigin __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetClipOrigin, XSetClipMask, XSetClipRectangles \- GC convenience routines
 .SH SYNTAX

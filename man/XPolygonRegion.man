@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XPolygonRegion 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XPolygonRegion __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XPolygonRegion, XClipBox \- generate regions
 .SH SYNTAX

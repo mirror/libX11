@@ -143,7 +143,7 @@
 ..
 .ny0
 '\" t
-.TH XGetVisualInfo 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGetVisualInfo __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGetVisualInfo, XMatchVisualInfo, XVisualIDFromVisual, XVisualInfo \- obtain visual information and visual structure
 .SH SYNTAX

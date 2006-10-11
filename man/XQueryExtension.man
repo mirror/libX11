@@ -15,7 +15,7 @@
 .\" express or implied warranty.
 .\"
 .dS xL Programming with Xlib
-.TH XQueryExtension 3X11 7.0 Release "X Version 11" "X FUNCTIONS"
+.TH XQueryExtension __libmansuffix__ __xorgversion__ "X FUNCTIONS"
 .SH NAME
 XQueryExtension, XListExtensions, XFreeExtensionList \- list available extensions
 .SH SYNTAX

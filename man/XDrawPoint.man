@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawPoint 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDrawPoint __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawPoint, XDrawPoints, XPoint \- draw points and points structure
 .SH SYNTAX

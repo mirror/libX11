@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XChangeKeyboardMapping 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XChangeKeyboardMapping __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XChangeKeyboardMapping, XGetKeyboardMapping, XDisplayKeycodes, XSetModifierMapping, XGetModifierMapping, XNewModifiermap, XInsertModifiermapEntry, XDeleteModifiermapEntry, XFreeModifierMap XModifierKeymap \- manipulate keyboard encoding and keyboard encoding structure
 .SH SYNTAX

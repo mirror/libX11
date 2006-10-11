@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XChangeWindowAttributes 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XChangeWindowAttributes __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XChangeWindowAttributes, XSetWindowBackground, XSetWindowBackgroundPixmap, XSetWindowBorder, XSetWindowBorderPixmap, XSetWindowColormap \- change window attributes
 .SH SYNTAX

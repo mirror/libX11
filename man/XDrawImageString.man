@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDrawImageString 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDrawImageString __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDrawImageString, XDrawImageString16 \- draw image text
 .SH SYNTAX

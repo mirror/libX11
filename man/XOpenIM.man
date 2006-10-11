@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XOpenIM 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XOpenIM __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XOpenIM, XCloseIM, XSetIMValues, XGetIMValues, XDisplayOfIM, XLocaleOfIM, XRegisterIMInstantiateCallback, XUnregisterIMInstantiateCallback \- open, close, and otain input method information
 .SH SYNTAX

@@ -632,21 +632,27 @@ XkbGetGeometry(Display *dpy,XkbDescPtr xkb)
 {
 xkbGetGeometryReq	*req;
 xkbGetGeometryReply	 rep;
+Status			 status;
 
     if ( (!xkb) || (dpy->flags & XlibDisplayNoXkb) ||
 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
 	return BadAccess;
     
+    LockDisplay(dpy);
     GetReq(kbGetGeometry, req);
     req->reqType = dpy->xkb_info->codes->major_opcode;
     req->xkbReqType = X_kbGetGeometry;
     req->deviceSpec = xkb->device_spec;
     req->name= None;
     if (!_XReply(dpy, (xReply *)&rep, 0, xFalse))
-	return BadImplementation;
-    if (!rep.found)
-	return BadName;
-    return _XkbReadGetGeometryReply(dpy,&rep,xkb,NULL);
+	status = BadImplementation;
+    else if (!rep.found)
+	status = BadName;
+    else
+	status = _XkbReadGetGeometryReply(dpy,&rep,xkb,NULL);
+    UnlockDisplay(dpy);
+    SyncHandle();
+    return status;
 }
 
 Status
@@ -654,20 +660,26 @@ XkbGetNamedGeometry(Display *dpy,XkbDescPtr xkb,Atom name)
 {
 xkbGetGeometryReq	*req;
 xkbGetGeometryReply	 rep;
+Status			 status;
 
     if ( (name==None) || (dpy->flags & XlibDisplayNoXkb) ||
 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)) )
 	return BadAccess;
     
+    LockDisplay(dpy);
     GetReq(kbGetGeometry, req);
     req->reqType = dpy->xkb_info->codes->major_opcode;
     req->xkbReqType = X_kbGetGeometry;
     req->deviceSpec = xkb->device_spec;
     req->name= (CARD32)name;
     if ((!_XReply(dpy, (xReply *)&rep, 0, xFalse))||(!rep.found))
-	return BadImplementation;
-    if (!rep.found)
-	return BadName;
-    return _XkbReadGetGeometryReply(dpy,&rep,xkb,NULL);
+	status = BadImplementation;
+    else if (!rep.found)
+	status = BadName;
+    else
+	status = _XkbReadGetGeometryReply(dpy,&rep,xkb,NULL);
+    UnlockDisplay(dpy);
+    SyncHandle();
+    return status;
 }
 

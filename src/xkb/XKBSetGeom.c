@@ -446,6 +446,7 @@ Status ret;
 	(!dpy->xkb_info && !XkbUseExtension(dpy,NULL,NULL)))
 	return BadAccess;
     
+    LockDisplay(dpy);
     GetReq(kbSetGeometry, req);
     req->reqType = dpy->xkb_info->codes->major_opcode;
     req->xkbReqType = X_kbSetGeometry;

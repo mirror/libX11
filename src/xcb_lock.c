@@ -51,6 +51,9 @@ void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;
     unsigned int xcb_req = xcb_get_request_sent(dpy->xcb->connection);
+    if(xcb_connection_has_error(dpy->xcb->connection))
+	_XIOError(dpy);
+
     /* if Xlib has a partial request pending then XCB doesn't know about
      * the current request yet */
     if(dpy->xcb->partial_request)

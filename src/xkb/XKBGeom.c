@@ -255,9 +255,15 @@ Status	rtrn;
 	char *name,*value;
 	ok= True;
 	for (i=0;(i<rep->nProperties)&&ok;i++) {
+	    name=NULL;
+	    value=NULL;
 	    ok= _XkbGetReadBufferCountedString(buf,&name)&&ok;
 	    ok= _XkbGetReadBufferCountedString(buf,&value)&&ok;
 	    ok= ok&&(XkbAddGeomProperty(geom,name,value)!=NULL);
+	    if (name)
+		_XkbFree(name);
+	    if (value)
+		_XkbFree(value);
 	}
 	if (ok)	rtrn= Success;
 	else	rtrn= BadLength;
@@ -300,10 +306,15 @@ Status	rtrn;
 	register int i;
 	char *spec;
 	for (i=0;i<rep->nColors;i++) {
+	    spec = NULL;
 	    if (!_XkbGetReadBufferCountedString(buf,&spec))
-		return BadLength;
-	    if (XkbAddGeomColor(geom,spec,geom->num_colors)==NULL)
-		return BadAlloc;
+		rtrn = BadLength;
+	    else if (XkbAddGeomColor(geom,spec,geom->num_colors)==NULL)
+		rtrn = BadAlloc;
+	    if (spec)
+		_XkbFree(spec);
+	    if (rtrn != Success)
+		return rtrn;
 	}
 	return Success;
     }

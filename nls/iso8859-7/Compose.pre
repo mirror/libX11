@@ -176,8 +176,6 @@ XCOMM Special Character
 <dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_circumflex> <space>		: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_doubleacute> <space>		: "\""	quotedbl
 <dead_abovering> <space>		: "\260"	degree
 <dead_abovering> <dead_abovering>	: "\260"	degree
@@ -216,7 +214,6 @@ XCOMM Accented Alphabet (plus some more symbols)
 <dead_diaeresis> <Greek_IOTA>		: "\332"	Greek_IOTAdiaeresis
 <dead_diaeresis> <Greek_IOTA>		: "\332"	Greek_IOTAdieresis
 <dead_diaeresis> <Greek_UPSILON>	: "\333"	Greek_UPSILONdieresis
-<dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_diaeresis> <dead_diaeresis>	: "\250"	diaeresis
 <dead_diaeresis> <period>		: "\267"	periodcentered
 <dead_diaeresis> <less>			: "\253"	guillemotleft

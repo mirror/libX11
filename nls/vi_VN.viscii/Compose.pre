@@ -9,10 +9,8 @@ XCOMM
 XCOMM dead key accent keysyms
 XCOMM Special Character
 <dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_hook> <space>			: " "	space
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
 <dead_acute> <space>			: "'"	apostrophe
 <dead_acute> <apostrophe>		: "\264"	acute
 XCOMM Accented Alphabet

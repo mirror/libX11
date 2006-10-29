@@ -287,8 +287,6 @@ XCOMM Special Character
 <dead_acute> <space>			: "'"	apostrophe
 <dead_circumflex> <space>		: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 
 XCOMM Accented Alphabet
 <dead_grave> <A>			: "\300"	Agrave

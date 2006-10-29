@@ -67,7 +67,6 @@ XCOMM are for compose sequences.
 <Multi_key> <asterisk> <0>		: "\260"	degree
 <Multi_key> <a> <comma>			: "\261"	aogonek
 <Multi_key> <comma> <a>			: "\261"	aogonek
-<Multi_key> <comma> <comma>		: "\262"	ogonek
 <Multi_key> <r> <comma>			: "\263"	rcedilla
 <Multi_key> <comma> <r>			: "\263"	rcedilla
 <Multi_key> <apostrophe> <apostrophe>	: "\264"	acute

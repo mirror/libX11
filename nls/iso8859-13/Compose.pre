@@ -56,10 +56,6 @@ XCOMM are for compose sequences.
 <Multi_key> <bar> <C>                   : "\242"        cent
 <Multi_key> <c> <bar>                   : "\242"        cent
 <Multi_key> <bar> <c>                   : "\242"        cent
-<Multi_key> <l> <minus>                 : "\243"        sterling
-<Multi_key> <minus> <l>                 : "\243"        sterling
-<Multi_key> <L> <minus>                 : "\243"        sterling
-<Multi_key> <minus> <L>                 : "\243"        sterling
 <Multi_key> <l> <equal>                 : "\243"        sterling
 <Multi_key> <equal> <l>                 : "\243"        sterling
 <Multi_key> <L> <equal>                 : "\243"        sterling
@@ -240,8 +236,6 @@ XCOMM Accented Alphabet
 <Multi_key> <quotedbl> <O>		: "\326"	Odiaeresis
 <Multi_key> <O> <slash>			: "\250"	Ooblique
 <Multi_key> <slash> <O>			: "\250"	Ooblique
-<Multi_key> <o> <slash>			: "\270"	oslash
-<Multi_key> <slash> <o>			: "\270"	oslash
 <Multi_key> <U> <semicolon>		: "\330"	Uogonek
 <Multi_key> <semicolon> <U>		: "\330"	Uogonek
 <Multi_key> <U> <comma>			: "\330"	Uogonek
@@ -372,7 +366,7 @@ XCOMM Accented Alphabet
 <dead_caron> <C>			: "\310"	Ccaron
 <dead_caron> <S>			: "\320"	Scaron
 <dead_caron> <Z>			: "\336"	Zcaron
-<dead_caron> <s>			: "\350"	ccaron
+<dead_caron> <c>			: "\350"	ccaron
 <dead_caron> <s>			: "\360"	scaron
 <dead_caron> <z>			: "\376"	zcaron
 <dead_cedilla> <R>			: "\252"	Rcedilla

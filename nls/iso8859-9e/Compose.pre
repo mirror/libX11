@@ -10,7 +10,6 @@ XCOMM Special Character
 <Multi_key> <plus> <plus>		: "#"	numbersign
 <Multi_key> <apostrophe> <space>	: "'"	apostrophe
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
-<Multi_key> <A> <A>			: "@"	at
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft
 <Multi_key> <slash> <slash>		: "\\"	backslash
 <Multi_key> <slash> <less>		: "\\"	backslash

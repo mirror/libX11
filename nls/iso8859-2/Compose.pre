@@ -112,9 +112,7 @@ XCOMM are for compose sequences.
 <Multi_key> <comma> <a>			: "\261"	aogonek
 <Multi_key> <a> <ogonek>		: "\261"	aogonek
 <Multi_key> <ogonek> <a>		: "\261"	aogonek
-<Multi_key> <comma> <comma>		: "\262"	ogonek
 <Multi_key> <l> <minus>			: "\263"	lstroke
-<Multi_key> <apostrophe> <apostrophe>	: "\264"	acute
 <Multi_key> <l> <less>			: "\265"	lcaron
 <Multi_key> <less> <l>			: "\265"	lcaron
 <Multi_key> <l> <caron>			: "\265"	lcaron
@@ -383,8 +381,6 @@ XCOMM are for compose sequences.
 <dead_acute> <u>			: "\372"	uacute
 <dead_acute> <y>			: "\375"	yacute
 <dead_acute> <z>			: "\274"	zacute
-<dead_acute> <acute>			: "\275"	doubleacute
-<dead_acute> <dead_acute>		: "\275"	doubleacute
 <dead_breve> <A>			: "\303"	Abreve
 <dead_breve> <a>			: "\343"	abreve
 <dead_diaeresis> <A>			: "\304"	Adiaeresis

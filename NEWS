@@ -1,3 +1,25 @@
+Version 1.1 RC2 - 2006-11-02
+
+Benno Schulenberg:
+      nls: remove duplicate compose entries (bug #2286)
+      nls: remove shadowed compose entries (bug #2286)
+      nls (en_US): remove long compositions that override shorter (bug #2286)
+
+Caolan McNamara:
+      XKB geometry: fix leaks in GetKeyboardByName (bug #8099)
+
+David Nusinow:
+      Dynamically generate internal manpage section using __libmanpagesuffix__ so that it actually matches the section if you don't use 3X11
+
+Jamey Sharp:
+      Add correct Display locking to XKB functions.
+      XKB bugfix: SyncHandle must be called after UnlockDisplay, not before.
+      XCB: check for and handle I/O errors in _XGetXCBBuffer.
+
+Matthias Hopf:
+      Fix double open of compose file.
+
+
 Version 1.1 RC1 - 2006-10-06
 
 This release includes the Xlib/XCB work, which uses XCB as the Xlib transport

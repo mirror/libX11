@@ -40,10 +40,12 @@ no)
 	;;
 *)
 	X11_REQUIRES="xcb-xlib >= 0.9.92"
+	X11_EXTRA_DEPS="xcb-xlib"
 	xdmauth="no" # XCB handles all auth
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
 	;;
 esac
+AC_SUBST(X11_EXTRA_DEPS)
 PKG_CHECK_MODULES(X11, xextproto xtrans $X11_REQUIRES)
 
 dnl Issue an error if xtrans.m4 was not found and XTRANS_CONNECTION_FLAGS macro

@@ -146,6 +146,7 @@ static inline int issue_complete_request(Display *dpy, int veclen, struct iovec 
 	PendingRequest *req = malloc(sizeof(PendingRequest));
 	assert(req);
 	req->next = 0;
+	req->waiters = -1;
 	req->sequence = sequence;
 	*dpy->xcb->pending_requests_tail = req;
 	dpy->xcb->pending_requests_tail = &req->next;

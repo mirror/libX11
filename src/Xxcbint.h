@@ -7,6 +7,7 @@
 #include <assert.h>
 #include <X11/Xlibint.h>
 #include <X11/Xlib-xcb.h>
+#include "locking.h" /* really just want X11/Xthreads.h but can't have it. */
 
 #define XCB_SEQUENCE_COMPARE(a,op,b)	((int) ((a) - (b)) op 0)
 #define assert_sequence_less(a,b) assert(XCB_SEQUENCE_COMPARE((a), <=, (b)))
@@ -14,6 +15,8 @@
 typedef struct PendingRequest PendingRequest;
 struct PendingRequest {
 	PendingRequest *next;
+	xcondition_rec condition;
+	int waiters; /* Number of threads waiting; -1 if no wait needed */
 	unsigned int sequence;
 };
 

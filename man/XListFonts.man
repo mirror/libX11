@@ -253,6 +253,12 @@ is passed, the structure is freed,
 but the font is not closed; use
 .ZN XUnloadFont
 to close the font.
+.LP
+Note that
+.ZN XListFontsWithInfo
+is not thread-safe. If other threads make X requests on the same
+.ZN Display ,
+then this function's behavior is undefined.
 .SH "SEE ALSO"
 XLoadFont(3X11),
 XSetFontPath(3X11)

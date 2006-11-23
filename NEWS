@@ -1,3 +1,29 @@
+Version 1.1 - 2006-11-23
+
+* Add note in man-page that XListFontsWithInfo is not thread-safe.  _XReply
+  drops the Display lock, so the value of dpy->request may change before
+  _XReply is called again.  Jamey Sharp discovered this by inspection a few
+  years ago.
+
+* Fix Bug #8622, by fixing the response processing order for threaded apps.
+  process_responses (the common code for _XReply, _XReadEvents, and
+  _XEventsQueued) now handles responses in order, by adding condition variables
+  to the list of outstanding requests in dpy->xcb->pending_requests, and
+  blocking on them when those requests should get processed, to allow _XReply
+  to process them; if actually called from _XReply, it returns when _XReply's
+  request should get processed.  _XReply broadcasts on its condition variable
+  after it has read its reply and re-acquired the display lock.
+
+* Don't hold the display lock around callbacks to the application. This avoids
+  recursive locking of the display lock (which triggers an XCB locking
+  assertion), particularly with emacs.
+
+* Add xcb-xlib dependency to x11.pc when built against XCB.
+
+* Allocate the right amount of memory for dpy->lock_fns.  Fixes a crash on
+  startup with gdk.
+
+
 Version 1.1 RC2 - 2006-11-02
 
 Benno Schulenberg:

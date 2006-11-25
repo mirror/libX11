@@ -193,7 +193,8 @@ The
 .ZN XGetWindowAttributes
 function returns the current attributes for the specified window to an
 .ZN XWindowAttributes
-structure.
+structure.  It returns a nonzero status on success; otherwise, it returns a
+zero status.
 .LP
 .ZN XGetWindowAttributes
 can generate
@@ -210,6 +211,8 @@ border width, and depth.
 These are described in the argument list.
 It is legal to pass to this function a window whose class is
 .ZN InputOnly .
+It returns a nonzero status on success; otherwise, it returns a
+zero status.
 .SH STRUCTURES
 The
 .ZN XWindowAttributes

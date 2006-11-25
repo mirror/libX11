@@ -346,6 +346,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	xcb_connection_t *c = dpy->xcb->connection;
 	char *reply;
 	PendingRequest *current;
+	unsigned int current_sequence;
 
 	assert(!dpy->xcb->reply_data);
 
@@ -363,13 +364,18 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	check_internal_connections(dpy);
 	process_responses(dpy, 0, &error, current->sequence);
 
+	current_sequence = current->sequence;
+
 	remove_pending_request(dpy, current);
 	if(current->waiters)
 	{ /* The ConditionBroadcast macro contains an if; braces needed here. */
 		ConditionBroadcast(dpy, &current->condition);
 	}
 	else
+	{
 		free(current);
+		current = NULL;
+	}
 
 	if(error)
 	{
@@ -424,7 +430,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		return 0;
 	}
 
-	dpy->last_request_read = current->sequence;
+	dpy->last_request_read = current_sequence;
 
 	/* there's no error and we have a reply. */
 	dpy->xcb->reply_data = reply;

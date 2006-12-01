@@ -1,3 +1,31 @@
+Version 1.1.1 - 2006-11-30
+
+The "xcompmgr is hard, let's go releasing" release
+
+* Fix Bug #9154 and friends, to unbreak xcompmgr:
+  Always process an event for _XReadEvents, even if an error occurs.
+  Previously, process_responses (in the wait_for_first_event case called
+  from _XReadEvents) considered any return from xcb_wait_for_event
+  sufficient to think it had processed an event. If xcb_wait_for_event
+  returned an error, and no more events occurred before process_responses
+  called xcb_poll_for_event, process_responses would try to return with
+  dpy->head NULL, and would fail an assertion for the _XReadEvents
+  postcondition. Now, process_responses continues using xcb_wait_for_event
+  until it gets an event.
+
+* Bug #9153: Fix access to freed memory.
+  The fix for bug #8622 introduced a smaller bug where _XReply would
+  read memory shortly after freeing it. This patch caches the needed
+  value in a stack-allocated variable before the heap-allocated memory
+  is freed.
+
+* libx11 doesn't use inputproto in public headers; don't require it in x11.pc.
+  Based on a Debian patch.
+
+* Debian bug #354315: Clarify return value in XGetWindowAttributes man page.
+  Patch by Debian user Ross Combs.
+
+
 Version 1.1 - 2006-11-23
 
 * Add note in man-page that XListFontsWithInfo is not thread-safe.  _XReply

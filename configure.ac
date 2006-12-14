@@ -172,6 +172,9 @@ if test x$xthreads = xyes ; then
     case $host_os in
     linux*|openbsd*|gnu*|k*bsd*-gnu)
         XTHREADLIB=-lpthread ;;
+    netbsd*)
+	XTHREAD_CFLAGS="-D_POSIX_THREAD_SAFE_FUNCTIONS"
+	XTHREADLIB="-lpthread" ;;
     freebsd*)
         XTHREAD_CFLAGS="-D_THREAD_SAFE"
         XTHREADLIB="-pthread" ;;

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateIC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateIC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateIC, XDestroyIC, XIMOfIC \- create, destroy, and obtain the input method of an input context
 .SH SYNTAX

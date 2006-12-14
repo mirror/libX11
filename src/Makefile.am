@@ -186,6 +186,7 @@ libX11_la_SOURCES = \
                   LiProps.c \
                   ListExt.c \
                   LoadFont.c \
+                  LockDis.c \
                   locking.c \
                   locking.h \
                   LookupCol.c \
@@ -341,13 +342,18 @@ EXTRA_DIST = \
 
 if XCB
 libX11_la_SOURCES += \
-                  xcl/xcblock.c \
-                  xcl/display.c \
-                  xcl/io.c
+                  xcb_lock.c \
+                  xcb_disp.c \
+                  xcb_io.c \
+                  Xxcbint.h
+
+lib_LTLIBRARIES += libX11-xcb.la
+libX11_xcb_la_SOURCES = x11_xcb.c Xxcbint.h
+libX11_xcb_la_LDFLAGS = -version-info 1:0:0 -no-undefined
+libX11_xcb_la_LIBADD = libX11.la
 else
 libX11_la_SOURCES += \
                   ConnDis.c \
-                  LockDis.c \
                   x11_trans.c
 endif
 

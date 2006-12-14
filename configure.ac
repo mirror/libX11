@@ -3,7 +3,7 @@
 
 AC_PREREQ(2.57)
 AC_INIT([libX11],
-        1.0.99.0,
+        1.1.1,
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
@@ -20,7 +20,7 @@ AC_PROG_CC
 
 XORG_PROG_RAWCPP
 
-# Build XCL? or traditional Xlib?
+# Build with XCB support?
 AC_ARG_WITH(xcb,
 	AC_HELP_STRING([--with-xcb], [use XCB for low-level protocol implementation]),
 	[ac_cv_use_xcb=$withval], [ac_cv_use_xcb=yes])
@@ -39,12 +39,13 @@ no)
 	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
 	;;
 *)
-	X11_REQUIRES="xcb-xlib"
+	X11_REQUIRES="xcb-xlib >= 0.9.92"
+	X11_EXTRA_DEPS="xcb-xlib"
 	xdmauth="no" # XCB handles all auth
-	AC_CHECK_HEADERS([features.h])
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
 	;;
 esac
+AC_SUBST(X11_EXTRA_DEPS)
 PKG_CHECK_MODULES(X11, xextproto xtrans $X11_REQUIRES)
 
 dnl Issue an error if xtrans.m4 was not found and XTRANS_CONNECTION_FLAGS macro
@@ -296,8 +297,8 @@ AM_CONDITIONAL(MANPAGES, [ test x$LIBMAN '!=' xno ])
 
 AM_CONDITIONAL(XKB, [ test x$XKB = xyes ])
 if test x"$XKB" = "xyes"; then
-   XKBPROTO_REQUIRES="kbproto inputproto"
-   PKG_CHECK_MODULES(XKBPROTO, $XKBPROTO_REQUIRES)
+   XKBPROTO_REQUIRES="kbproto"
+   PKG_CHECK_MODULES(XKBPROTO, kbproto inputproto)
    AC_DEFINE(XKB,1,[Use XKB])
    X11_CFLAGS="$X11_CFLAGS $XKBPROTO_CFLAGS"
    X11_LIBS="$X11_LIBS $XKBPROTO_LIBS"
@@ -446,7 +447,8 @@ AC_OUTPUT([Makefile
 	   nls/zh_TW/Makefile
 	   nls/zh_TW.big5/Makefile
 	   nls/zh_TW.UTF-8/Makefile
-	   x11.pc])
+	   x11.pc
+	   x11-xcb.pc])
 
 echo ""
 echo "X11 will be built with the following settings:"

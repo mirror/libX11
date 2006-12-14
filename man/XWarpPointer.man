@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XWarpPointer 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XWarpPointer __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XWarpPointer \- move pointer
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XOpenDisplay 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XOpenDisplay __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XOpenDisplay, XCloseDisplay \- connect or disconnect to X server
 .SH SYNTAX

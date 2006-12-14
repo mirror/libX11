@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XErrorEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XErrorEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XErrorEvent \- X error event structure
 .SH STRUCTURES

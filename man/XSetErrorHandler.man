@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetErrorHandler 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetErrorHandler __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetErrorHandler, XGetErrorText, XDisplayName, XSetIOErrorHandler, XGetErrorDatabaseText \- default error handlers
 .SH SYNTAX

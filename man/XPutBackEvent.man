@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XPutBackEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XPutBackEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XPutBackEvent \- put events back on the queue
 .SH SYNTAX

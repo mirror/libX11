@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XResizeRequestEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XResizeRequestEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XResizeRequestEvent \- ResizeRequest event structure
 .SH STRUCTURES

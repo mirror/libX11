@@ -142,7 +142,7 @@
 ..
 .ny0
 '\" e
-.TH XrmGetResource 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmGetResource __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmGetResource, XrmQGetResource, XrmQGetSearchList, XrmQGetSearchResource \- retrieve database resources and search lists
 .SH SYNTAX

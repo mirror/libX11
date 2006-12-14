@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbTextExtents 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbTextExtents __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbTextExtents, XwcTextExtents, Xutf8TextExtents \- compute text extents
 .SH SYNTAX

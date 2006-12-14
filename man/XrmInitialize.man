@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XrmInitialize 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmInitialize __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmInitialize, XrmParseCommand, XrmValue, XrmOptionKind, XrmOptionDescRec \- initialize the Resource Manager, Resource Manager structures, and parse the command line
 .SH SYNTAX

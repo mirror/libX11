@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreatePixmap 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreatePixmap __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreatePixmap, XFreePixmap \- create or destroy pixmaps
 .SH SYNTAX

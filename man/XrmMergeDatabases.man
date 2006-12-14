@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XrmMergeDatabases 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmMergeDatabases __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmMergeDatabases, XrmCombineDatabase, XrmCombineFileDatabase \- merge resource databases
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH DisplayOfCCC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH DisplayOfCCC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 DisplayOfCCC, VisualOfCCC, ScreenNumberOfCCC, ScreenWhitePointOfCCC, ClientWhitePointOfCCC \- Color Conversion Context macros
 .SH SYNTAX

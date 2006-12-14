@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XFocusChangeEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XFocusChangeEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XFocusChangeEvent \- FocusIn and FocusOut event structure
 .SH STRUCTURES

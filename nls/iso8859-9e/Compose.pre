@@ -10,7 +10,6 @@ XCOMM Special Character
 <Multi_key> <plus> <plus>		: "#"	numbersign
 <Multi_key> <apostrophe> <space>	: "'"	apostrophe
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
-<Multi_key> <A> <A>			: "@"	at
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft
 <Multi_key> <slash> <slash>		: "\\"	backslash
 <Multi_key> <slash> <less>		: "\\"	backslash
@@ -408,8 +407,6 @@ XCOMM Special Character
 <dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_circumflex> <space>		: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_circumflex> <0>			: "\260"	degree
 <dead_circumflex> <1>			: "\271"	onesuperior
 <dead_circumflex> <2>			: "\262"	twosuperior

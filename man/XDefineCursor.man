@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDefineCursor 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDefineCursor __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDefineCursor, XUndefineCursor \- define cursors
 .SH SYNTAX

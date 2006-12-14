@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsQueryBlack 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsQueryBlack __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsQueryBlack, XcmsQueryBlue, XcmsQueryGreen, XcmsQueryRed, XcmsQueryWhite \- obtain black, blue, green, red, and white CCC color specifications
 .SH SYNTAX

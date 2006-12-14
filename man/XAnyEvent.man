@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAnyEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAnyEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAnyEvent, XEvent \- generic X event structures
 .SH STRUCTURES

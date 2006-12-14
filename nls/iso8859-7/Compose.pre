@@ -133,8 +133,6 @@ XCOMM Accented Alphabet
 <Multi_key> <apostrophe> <Greek_UPSILON>: "\276" Greek_UPSILONaccent
 <Multi_key> <Greek_OMEGA> <apostrophe>	: "\277" Greek_OMEGAaccent
 <Multi_key> <apostrophe> <Greek_OMEGA>	: "\277" Greek_OMEGAaccent
-<Multi_key> <Greek_IOTA> <quotedbl>	: "\332" Greek_IOTAdiaeresis
-<Multi_key> <quotedbl> <Greek_IOTA>	: "\332" Greek_IOTAdiaeresis
 <Multi_key> <Greek_IOTA> <quotedbl>	: "\332" Greek_IOTAdieresis
 <Multi_key> <quotedbl> <Greek_IOTA>	: "\332" Greek_IOTAdieresis
 <Multi_key> <Greek_UPSILON> <quotedbl>	: "\333" Greek_UPSILONdieresis
@@ -172,12 +170,9 @@ XCOMM dead key accent keysyms
 XCOMM Special Character
 <dead_circumflex> <slash>		: "|"	bar
 <dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_circumflex> <space>		: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_doubleacute> <space>		: "\""	quotedbl
 <dead_abovering> <space>		: "\260"	degree
 <dead_abovering> <dead_abovering>	: "\260"	degree
@@ -213,10 +208,8 @@ XCOMM Accented Alphabet (plus some more symbols)
 
 <dead_diaeresis> <Greek_iota>		: "\372"	Greek_iotadieresis
 <dead_diaeresis> <Greek_upsilon>	: "\373"	Greek_upsilondieresis
-<dead_diaeresis> <Greek_IOTA>		: "\332"	Greek_IOTAdiaeresis
 <dead_diaeresis> <Greek_IOTA>		: "\332"	Greek_IOTAdieresis
 <dead_diaeresis> <Greek_UPSILON>	: "\333"	Greek_UPSILONdieresis
-<dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_diaeresis> <dead_diaeresis>	: "\250"	diaeresis
 <dead_diaeresis> <period>		: "\267"	periodcentered
 <dead_diaeresis> <less>			: "\253"	guillemotleft

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetFontPath 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetFontPath __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetFontPath, XGetFontPath, XFreeFontPath \- set, get, or free the font search path
 .SH SYNTAX

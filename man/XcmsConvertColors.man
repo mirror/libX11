@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XcmsConvertColors 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XcmsConvertColors __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XcmsConvertColors \- convert CCC color specifications
 .SH SYNTAX

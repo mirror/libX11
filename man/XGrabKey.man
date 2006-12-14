@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XGrabKey 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGrabKey __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGrabKey, XUngrabKey \- grab keyboard keys
 .SH SYNTAX

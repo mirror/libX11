@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSelectInput 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSelectInput __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSelectInput \- select input events
 .SH SYNTAX

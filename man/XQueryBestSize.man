@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XQueryBestSize 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XQueryBestSize __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XQueryBestSize, XQueryBestTile, XQueryBestStipple \- determine efficient sizes
 .SH SYNTAX

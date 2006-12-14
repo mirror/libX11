@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XTextExtents 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XTextExtents __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XTextExtents, XTextExtents16, XQueryTextExtents, XQueryTextExtents16 \- compute or query text extents
 .SH SYNTAX

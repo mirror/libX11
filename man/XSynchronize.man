@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSynchronize 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSynchronize __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSynchronize, XSetAfterFunction \- enable or disable synchronization 
 .SH SYNTAX

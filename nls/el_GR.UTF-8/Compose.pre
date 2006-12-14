@@ -38,7 +38,6 @@ XCOMM Special Character
 <Multi_key> <space> <apostrophe>	: "'"	apostrophe
 <Multi_key> <A> <T>			: "@"	at
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft
-<Multi_key> <slash> <slash>		: "\\"	backslash
 <Multi_key> <slash> <less>		: "\\"	backslash
 <Multi_key> <less> <slash>		: "\\"	backslash
 <Multi_key> <parenright> <parenright>	: "]"	bracketright
@@ -757,32 +756,18 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <dead_tilde> <dead_ogonek> <Greek_OMEGA>                : "Ὧ"  U1f6f
 <Multi_key> <grave> <Greek_alpha>                       : "ὰ"  U1f70
 <dead_grave> <Greek_alpha>                              : "ὰ"  U1f70
-<Multi_key> <apostrophe> <Greek_alpha>                  : "ά"  U1f71
-<dead_acute> <Greek_alpha>                              : "ά"  U1f71
 <Multi_key> <grave> <Greek_epsilon>                     : "ὲ"  U1f72
 <dead_grave> <Greek_epsilon>                            : "ὲ"  U1f72
-<Multi_key> <apostrophe> <Greek_epsilon>                : "έ"  U1f73
-<dead_acute> <Greek_epsilon>                            : "έ"  U1f73
 <Multi_key> <grave> <Greek_eta>                         : "ὴ"  U1f74
 <dead_grave> <Greek_eta>                                : "ὴ"  U1f74
-<Multi_key> <apostrophe> <Greek_eta>                    : "ή"  U1f75
-<dead_acute> <Greek_eta>                                : "ή"  U1f75
 <Multi_key> <grave> <Greek_iota>                        : "ὶ"  U1f76
 <dead_grave> <Greek_iota>                               : "ὶ"  U1f76
-<Multi_key> <apostrophe> <Greek_iota>                   : "ί"  U1f77
-<dead_acute> <Greek_iota>                               : "ί"  U1f77
 <Multi_key> <grave> <Greek_omicron>                     : "ὸ"  U1f78
 <dead_grave> <Greek_omicron>                            : "ὸ"  U1f78
-<Multi_key> <apostrophe> <Greek_omicron>                : "ό"  U1f79
-<dead_acute> <Greek_omicron>                            : "ό"  U1f79
 <Multi_key> <grave> <Greek_upsilon>                     : "ὺ"  U1f7a
 <dead_grave> <Greek_upsilon>                            : "ὺ"  U1f7a
-<Multi_key> <apostrophe> <Greek_upsilon>                : "ύ"  U1f7b
-<dead_acute> <Greek_upsilon>                            : "ύ"  U1f7b
 <Multi_key> <grave> <Greek_omega>                       : "ὼ"  U1f7c
 <dead_grave> <Greek_omega>                              : "ὼ"  U1f7c
-<Multi_key> <apostrophe> <Greek_omega>                  : "ώ"  U1f7d
-<dead_acute> <Greek_omega>                              : "ώ"  U1f7d
 <Multi_key> <bar> <greater> <Greek_alpha>               : "ᾀ"  U1f80
 <Multi_key> <greater> <bar> <Greek_alpha>               : "ᾀ"  U1f80
 <dead_iota> <dead_horn> <Greek_alpha>                   : "ᾀ"  U1f80
@@ -1277,32 +1262,18 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <dead_macron> <Greek_UPSILON>                           : "Ῡ"  U1fe9
 <Multi_key> <grave> <Greek_ALPHA>                       : "Ὰ"  U1fba
 <dead_grave> <Greek_ALPHA>                              : "Ὰ"  U1fba
-<Multi_key> <apostrophe> <Greek_ALPHA>                  : "Ά"  U1fbb
-<dead_acute> <Greek_ALPHA>                              : "Ά"  U1fbb
 <Multi_key> <grave> <Greek_EPSILON>                     : "Ὲ"  U1fc8
 <dead_grave> <Greek_EPSILON>                            : "Ὲ"  U1fc8
-<Multi_key> <apostrophe> <Greek_EPSILON>                : "Έ"  U1fc9
-<dead_acute> <Greek_EPSILON>                            : "Έ"  U1fc9
 <Multi_key> <grave> <Greek_ETA>                         : "Ὴ"  U1fca
 <dead_grave> <Greek_ETA>                                : "Ὴ"  U1fca
-<Multi_key> <apostrophe> <Greek_ETA>                    : "Ή"  U1fcb
-<dead_acute> <Greek_ETA>                                : "Ή"  U1fcb
 <Multi_key> <grave> <Greek_IOTA>                        : "Ὶ"  U1fda
 <dead_grave> <Greek_IOTA>                               : "Ὶ"  U1fda
-<Multi_key> <apostrophe> <Greek_IOTA>                   : "Ί"  U1fdb
-<dead_acute> <Greek_IOTA>                               : "Ί"  U1fdb
 <Multi_key> <grave> <Greek_UPSILON>                     : "Ὺ"  U1fea
 <dead_grave> <Greek_UPSILON>                            : "Ὺ"  U1fea
-<Multi_key> <apostrophe> <Greek_UPSILON>                : "Ύ"  U1feb
-<dead_acute> <Greek_UPSILON>                            : "Ύ"  U1feb
 <Multi_key> <grave> <Greek_OMICRON>                     : "Ὸ"  U1ff8
 <dead_grave> <Greek_OMICRON>                            : "Ὸ"  U1ff8
-<Multi_key> <apostrophe> <Greek_OMICRON>                : "Ό"  U1ff9
-<dead_acute> <Greek_OMICRON>                            : "Ό"  U1ff9
 <Multi_key> <grave> <Greek_OMEGA>                       : "Ὼ"  U1ffa
 <dead_grave> <Greek_OMEGA>                              : "Ὼ"  U1ffa
-<Multi_key> <apostrophe> <Greek_OMEGA>                  : "Ώ"  U1ffb
-<dead_acute> <Greek_OMEGA>                              : "Ώ"  U1ffb
 <Multi_key> <bar> <grave> <Greek_alpha>                 : "ᾲ"  U1fb2
 <Multi_key> <grave> <bar> <Greek_alpha>                 : "ᾲ"  U1fb2
 <dead_iota> <dead_grave> <Greek_alpha>                  : "ᾲ"  U1fb2
@@ -1339,10 +1310,6 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <Multi_key> <grave> <quotedbl> <Greek_iota>             : "ῒ"  U1fd2
 <dead_diaeresis> <dead_grave> <Greek_iota>              : "ῒ"  U1fd2
 <dead_grave> <dead_diaeresis> <Greek_iota>              : "ῒ"  U1fd2
-<Multi_key> <quotedbl> <apostrophe> <Greek_iota>        : "ΐ"  U1fd3
-<Multi_key> <apostrophe> <quotedbl> <Greek_iota>        : "ΐ"  U1fd3
-<dead_diaeresis> <dead_acute> <Greek_iota>              : "ΐ"  U1fd3
-<dead_acute> <dead_diaeresis> <Greek_iota>              : "ΐ"  U1fd3
 <Multi_key> <asciitilde> <Greek_iota>                   : "ῖ"  U1fd6
 <dead_tilde> <Greek_iota>                               : "ῖ"  U1fd6
 <Multi_key> <quotedbl> <asciitilde> <Greek_iota>        : "ῗ"  U1fd7
@@ -1353,10 +1320,6 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <Multi_key> <grave> <quotedbl> <Greek_upsilon>          : "ῢ"  U1fe2
 <dead_diaeresis> <dead_grave> <Greek_upsilon>           : "ῢ"  U1fe2
 <dead_grave> <dead_diaeresis> <Greek_upsilon>           : "ῢ"  U1fe2
-<Multi_key> <quotedbl> <apostrophe> <Greek_upsilon>     : "ΰ"  U1fe3
-<Multi_key> <apostrophe> <quotedbl> <Greek_upsilon>     : "ΰ"  U1fe3
-<dead_diaeresis> <dead_acute> <Greek_upsilon>           : "ΰ"  U1fe3
-<dead_acute> <dead_diaeresis> <Greek_upsilon>           : "ΰ"  U1fe3
 <Multi_key> <asciitilde> <Greek_upsilon>                : "ῦ"  U1fe6
 <dead_tilde> <Greek_upsilon>                            : "ῦ"  U1fe6
 <Multi_key> <quotedbl> <asciitilde> <Greek_upsilon>     : "ῧ"  U1fe7
@@ -1405,8 +1368,6 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <dead_tilde> <dead_ogonek> <space>                      : "῟"  U1fdf
 <dead_diaeresis> <dead_grave> <space>                   : "῭"  U1fed
 <dead_grave> <dead_diaeresis> <space>                   : "῭"  U1fed
-<dead_diaeresis> <dead_acute> <space>                   : "΅"  U1fee
-<dead_acute> <dead_diaeresis> <space>                   : "΅"  U1fee
 <dead_diaeresis> <dead_tilde> <space>                   : "῁"  U1fc1
 <dead_tilde> <dead_diaeresis> <space>                   : "῁"  U1fc1
 <dead_horn> <space>                                     : "᾿"  U1fbf
@@ -1415,28 +1376,12 @@ XCOMM	http://hal.csd.auth.gr/~vvas/i18n/xkb/polytonic-compose.pl
 <dead_ogonek> <dead_ogonek>                             : "῾"  U1ffe
 <dead_grave> <space>                                    : "`"  U1fef
 <dead_grave> <dead_grave>                               : "`"  U1fef
-<dead_acute> <space>                                    : "´"  U1ffd
-<dead_acute> <dead_acute>                               : "´"  U1ffd
 <dead_tilde> <space>                                    : "῀"  U1fc0
 <dead_tilde> <dead_tilde>                               : "῀"  U1fc0
 <dead_horn> <underscore>                                : "᾽"  U1fbd
 <dead_iota> <underscore>                                : "ι"  U1fbe
-<dead_diaeresis> <space>                                : "¨"  U00a8
-<dead_diaeresis> <dead_diaeresis>                       : "¨"  U00a8
-<dead_macron> <space>                                   : "¯"  U00af
-<dead_macron> <dead_macron>                             : "¯"  U00af
-<dead_breve> <space>                                    : "˘"  U02d8
-<dead_breve> <dead_breve>                               : "˘"  U02d8
 <dead_iota> <space>                                     : "ͺ"  U037a
 <dead_iota> <dead_iota>                                 : "ͺ"  U037a
-<Multi_key> <quotedbl> <Greek_IOTA>                     : "Ϊ"  U03aa
-<dead_diaeresis> <Greek_IOTA>                           : "Ϊ"  U03aa
-<Multi_key> <quotedbl> <Greek_UPSILON>                  : "Ϋ"  U03ab
-<dead_diaeresis> <Greek_UPSILON>                        : "Ϋ"  U03ab
-<Multi_key> <quotedbl> <Greek_iota>                     : "ϊ"  U03ca
-<dead_diaeresis> <Greek_iota>                           : "ϊ"  U03ca
-<Multi_key> <quotedbl> <Greek_upsilon>                  : "ϋ"  U03cb
-<dead_diaeresis> <Greek_upsilon>                        : "ϋ"  U03cb
 
 XCOMM Part 3
 XCOMM
@@ -1457,8 +1402,6 @@ XCOMM converted from the iso8859-7/Compose file.
 <Multi_key> <apostrophe> <Greek_UPSILON>: "Ύ" Greek_UPSILONaccent
 <Multi_key> <Greek_OMEGA> <apostrophe>	: "Ώ" Greek_OMEGAaccent
 <Multi_key> <apostrophe> <Greek_OMEGA>	: "Ώ" Greek_OMEGAaccent
-<Multi_key> <Greek_IOTA> <quotedbl>	: "Ϊ" Greek_IOTAdiaeresis
-<Multi_key> <quotedbl> <Greek_IOTA>	: "Ϊ" Greek_IOTAdiaeresis
 <Multi_key> <Greek_IOTA> <quotedbl>	: "Ϊ" Greek_IOTAdieresis
 <Multi_key> <quotedbl> <Greek_IOTA>	: "Ϊ" Greek_IOTAdieresis
 <Multi_key> <Greek_UPSILON> <quotedbl>	: "Ϋ" Greek_UPSILONdieresis
@@ -1512,7 +1455,6 @@ XCOMM converted from the iso8859-7/Compose file.
 
 <dead_diaeresis> <Greek_iota>		: "ϊ"	Greek_iotadieresis
 <dead_diaeresis> <Greek_upsilon>	: "ϋ"	Greek_upsilondieresis
-<dead_diaeresis> <Greek_IOTA>		: "Ϊ"	Greek_IOTAdiaeresis
 <dead_diaeresis> <Greek_IOTA>		: "Ϊ"	Greek_IOTAdieresis
 <dead_diaeresis> <Greek_UPSILON>	: "Ϋ"	Greek_UPSILONdieresis
 <dead_diaeresis> <space>		: "¨"	diaeresis

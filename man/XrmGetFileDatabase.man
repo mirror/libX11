@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XrmGetFileDatabase 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XrmGetFileDatabase __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmGetFileDatabase, XrmPutFileDatabase, XrmGetStringDatabase, XrmLocaleOfDatabase, XrmGetDatabase, XrmSetDatabase, XrmDestroyDatabase \- retrieve and store resource databases
 .SH SYNTAX

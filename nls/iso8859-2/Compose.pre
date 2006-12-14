@@ -63,18 +63,6 @@ XCOMM are for compose sequences.
 <Multi_key> <ogonek> <A>		: "\241"	Aogonek
 <Multi_key> <U> <space>			: "\242"	breve
 <Multi_key> <L> <minus>			: "\243"	Lstroke
-<Multi_key> <x> <o>			: "\244"	currency
-<Multi_key> <o> <x>			: "\244"	currency
-<Multi_key> <X> <O>			: "\244"	currency
-<Multi_key> <O> <X>			: "\244"	currency
-<Multi_key> <x> <O>			: "\244"	currency
-<Multi_key> <O> <x>			: "\244"	currency
-<Multi_key> <X> <o>			: "\244"	currency
-<Multi_key> <o> <X>			: "\244"	currency
-<Multi_key> <x> <0>			: "\244"	currency
-<Multi_key> <0> <x>			: "\244"	currency
-<Multi_key> <X> <0>			: "\244"	currency
-<Multi_key> <0> <X>			: "\244"	currency
 <Multi_key> <L> <less>			: "\245"	Lcaron
 <Multi_key> <less> <L>			: "\245"	Lcaron
 <Multi_key> <L> <caron>			: "\245"	Lcaron
@@ -124,9 +112,7 @@ XCOMM are for compose sequences.
 <Multi_key> <comma> <a>			: "\261"	aogonek
 <Multi_key> <a> <ogonek>		: "\261"	aogonek
 <Multi_key> <ogonek> <a>		: "\261"	aogonek
-<Multi_key> <comma> <comma>		: "\262"	ogonek
 <Multi_key> <l> <minus>			: "\263"	lstroke
-<Multi_key> <apostrophe> <apostrophe>	: "\264"	acute
 <Multi_key> <l> <less>			: "\265"	lcaron
 <Multi_key> <less> <l>			: "\265"	lcaron
 <Multi_key> <l> <caron>			: "\265"	lcaron
@@ -395,18 +381,8 @@ XCOMM are for compose sequences.
 <dead_acute> <u>			: "\372"	uacute
 <dead_acute> <y>			: "\375"	yacute
 <dead_acute> <z>			: "\274"	zacute
-<dead_acute> <acute>			: "\275"	doubleacute
-<dead_acute> <dead_acute>		: "\275"	doubleacute
-<dead_circumflex> <A>			: "\302"	Acircumflex
-<dead_circumflex> <I>			: "\316"	Icircumflex
-<dead_circumflex> <O>			: "\324"	Ocircumflex
-<dead_circumflex> <a>			: "\342"	acircumflex
-<dead_circumflex> <i>			: "\356"	icircumflex
-<dead_circumflex> <o>			: "\364"	ocircumflex
 <dead_breve> <A>			: "\303"	Abreve
 <dead_breve> <a>			: "\343"	abreve
-<dead_abovedot> <Z> 			: "\257"	Zabovedot
-<dead_abovedot> <z>			: "\277"	zabovedot
 <dead_diaeresis> <A>			: "\304"	Adiaeresis
 <dead_diaeresis> <E>			: "\313"	Ediaeresis
 <dead_diaeresis> <O>			: "\326"	Odiaeresis
@@ -445,10 +421,6 @@ XCOMM are for compose sequences.
 <dead_cedilla> <c>			: "\347"	ccedilla
 <dead_cedilla> <s>			: "\272"	scedilla
 <dead_cedilla> <t>			: "\376"	tcedilla
-<dead_ogonek> <A>			: "\241"	Aogonek
-<dead_ogonek> <E>			: "\312"	Eogonek
-<dead_ogonek> <a>			: "\261"	aogonek
-<dead_ogonek> <e>			: "\352"	eogonek
 XCOMM those are for ease of use
 <dead_abovedot> <U>			: "\331"	Uring
 <dead_abovedot> <u>			: "\371"	uring
@@ -489,7 +461,6 @@ XCOMM traditional sequences
 <dead_circumflex> <i>                   : "\356"        icircumflex
 <dead_circumflex> <o>                   : "\364"        ocircumflex
 <dead_circumflex> <u>                   : "\373"        ucircumflex      
-<dead_circumflex> <u>                   : "\373"        ucircumflex      
 <dead_circumflex> <dead_circumflex>	: "\136"	asciicircum
 <dead_circumflex> <asciicircum>		: "\136"	asciicircum
 <dead_circumflex> <space>		: "\136"	asciicircum
@@ -503,12 +474,10 @@ XCOMM traditional sequences
 <dead_breve> <space>			: "\242"	breve
 <dead_breve> <nobreakspace>		: "\242"	breve
 <dead_ogonek> <A>                       : "\241"        Aogonek
-<dead_ogonek> <a>                       : "\261"        aogonek
-<dead_ogonek> <ogonek>                  : "\262"        ogonek
-<dead_ogonek> <dead_ogonek>             : "\262"        ogonek
 <dead_ogonek> <I>                       : "\307"        Iogonek
 <dead_ogonek> <E>                       : "\312"        Eogonek
 <dead_ogonek> <U>                       : "\331"        Uogonek
+<dead_ogonek> <a>                       : "\261"        aogonek
 <dead_ogonek> <i>                       : "\347"        iogonek
 <dead_ogonek> <e>                       : "\352"        eogonek
 <dead_ogonek> <u>                       : "\371"        uogonek          

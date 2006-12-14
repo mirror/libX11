@@ -823,8 +823,8 @@ XkbGetMapChanges(Display *dpy,XkbDescPtr xkb,XkbMapChangesPtr changes)
 	req->firstVModMapKey = changes->first_vmodmap_key;
 	req->nVModMapKeys = changes->num_vmodmap_keys;
 	status= _XkbHandleGetMapReply(dpy, xkb);
-	SyncHandle();
 	UnlockDisplay(dpy);
+	SyncHandle();
 	return status;
     }
     UnlockDisplay(dpy);

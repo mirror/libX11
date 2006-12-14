@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSendEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSendEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSendEvent, XDisplayMotionBufferSize, XGetMotionEvents, XTimeCoord \- send events and pointer motion history structure
 .SH SYNTAX

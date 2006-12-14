@@ -56,10 +56,6 @@ XCOMM are for compose sequences.
 <Multi_key> <bar> <C>                   : "\242"        cent
 <Multi_key> <c> <bar>                   : "\242"        cent
 <Multi_key> <bar> <c>                   : "\242"        cent
-<Multi_key> <l> <minus>                 : "\243"        sterling
-<Multi_key> <minus> <l>                 : "\243"        sterling
-<Multi_key> <L> <minus>                 : "\243"        sterling
-<Multi_key> <minus> <L>                 : "\243"        sterling
 <Multi_key> <l> <equal>                 : "\243"        sterling
 <Multi_key> <equal> <l>                 : "\243"        sterling
 <Multi_key> <L> <equal>                 : "\243"        sterling
@@ -167,10 +163,6 @@ XCOMM Accented Alphabet
 <Multi_key> <comma> <R>			: "\252"	Rcedilla
 <Multi_key> <L> <comma>			: "\317"	Lcedilla
 <Multi_key> <comma> <L>			: "\317"	Lcedilla
-<Multi_key> <S> <exclam>		: "\247"	section
-<Multi_key> <exclam> <S>		: "\247"	section
-<Multi_key> <s> <exclam>		: "\247"	section
-<Multi_key> <exclam> <s>		: "\247"	section
 <Multi_key> <S> <less>			: "\320"	Scaron
 <Multi_key> <less> <S>			: "\320"	Scaron
 <Multi_key> <E> <minus>			: "\307"	Emacron
@@ -179,11 +171,8 @@ XCOMM Accented Alphabet
 <Multi_key> <underscore> <E>		: "\307"	Emacron
 <Multi_key> <G> <comma>			: "\314"	Gcedilla
 <Multi_key> <comma> <G>			: "\314"	Gcedilla
-<Multi_key> <minus> <minus>		: "\255"	hyphen
 <Multi_key> <Z> <less>			: "\336"	Zcaron
 <Multi_key> <less> <Z>			: "\336"	Zcaron
-<Multi_key> <0> <asterisk>		: "\260"	degree
-<Multi_key> <asterisk> <0>		: "\260"	degree
 <Multi_key> <a> <semicolon>		: "\340"	aogonek
 <Multi_key> <semicolon> <a>		: "\340"	aogonek
 <Multi_key> <a> <comma>			: "\340"	aogonek
@@ -245,11 +234,8 @@ XCOMM Accented Alphabet
 <Multi_key> <asciitilde> <O>		: "\325"	Otilde
 <Multi_key> <O> <quotedbl>		: "\326"	Odiaeresis
 <Multi_key> <quotedbl> <O>		: "\326"	Odiaeresis
-<Multi_key> <x> <x>			: "\327"	multiply
 <Multi_key> <O> <slash>			: "\250"	Ooblique
 <Multi_key> <slash> <O>			: "\250"	Ooblique
-<Multi_key> <o> <slash>			: "\270"	oslash
-<Multi_key> <slash> <o>			: "\270"	oslash
 <Multi_key> <U> <semicolon>		: "\330"	Uogonek
 <Multi_key> <semicolon> <U>		: "\330"	Uogonek
 <Multi_key> <U> <comma>			: "\330"	Uogonek
@@ -349,6 +335,8 @@ XCOMM Accented Alphabet
 <Multi_key> <z> <period>		: "\375"	zabovedot
 <Multi_key> <period> <z>		: "\375"	zabovedot
 
+<dead_abovedot> <A>			: "\305"	Aring
+<dead_abovedot> <a>			: "\345"	aring
 <dead_abovedot> <E> 			: "\313"	Eabovedot
 <dead_abovedot> <e>			: "\353"	eabovedot
 <dead_abovedot> <Z>			: "\335"	Zabovedot
@@ -360,8 +348,8 @@ XCOMM Accented Alphabet
 <dead_abovering> <e>			: "\353"	eabovedot
 <dead_abovering> <Z>			: "\335"	Zabovedot
 <dead_abovering> <z>			: "\375"	zabovedot
-<dead_abovedot> <A>			: "\305"	Aring
-<dead_abovedot> <a>			: "\345"	aring
+<dead_abovering> <ring>			: "\260"	ring
+<dead_abovering> <dead_abovering>	: "\260"	ring
 <dead_acute> <dead_acute>		: "\377"	rightsinglequotemark
 <dead_acute> <C>			: "\303"	Cacute
 <dead_acute> <E>			: "\311"	Eacute
@@ -378,7 +366,7 @@ XCOMM Accented Alphabet
 <dead_caron> <C>			: "\310"	Ccaron
 <dead_caron> <S>			: "\320"	Scaron
 <dead_caron> <Z>			: "\336"	Zcaron
-<dead_caron> <s>			: "\350"	ccaron
+<dead_caron> <c>			: "\350"	ccaron
 <dead_caron> <s>			: "\360"	scaron
 <dead_caron> <z>			: "\376"	zcaron
 <dead_cedilla> <R>			: "\252"	Rcedilla
@@ -417,14 +405,6 @@ XCOMM Accented Alphabet
 <dead_ogonek> <i>			: "\341"	iogonek
 <dead_ogonek> <e>			: "\346"	eogonek
 <dead_ogonek> <u>			: "\370"	uogonek
-<dead_abovering> <A>			: "\305"	Aring
-<dead_abovering> <a>			: "\345"	aring
-<dead_abovering> <E>	 		: "\313"	Eabovedot
-<dead_abovering> <e>			: "\353"	eabovedot
-<dead_abovering> <Z>			: "\335"	Zabovedot
-<dead_abovering> <z>			: "\375"	zabovedot
-<dead_abovering> <ring>			: "\260"	ring
-<dead_abovering> <dead_abovering>	: "\260"	ring
 <dead_tilde> <O>			: "\325"	Otilde
 <dead_tilde> <o>			: "\365"	otilde
 <dead_tilde> <asciitilde>		: "~"		asciitilde

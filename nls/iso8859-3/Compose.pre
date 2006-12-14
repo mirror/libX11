@@ -382,8 +382,6 @@ XCOMM Special Character
 <dead_diaeresis> <space>		: "\250"	diaeresis
 <dead_circumflex> <space>		: "^"	asciicircum
 <dead_tilde> <space>			: "~"	asciitilde
-<dead_grave> <space>			: "`"	grave
-<dead_acute> <space>			: "'"	apostrophe
 <dead_circumflex> <0>			: "\260"	degree
 <dead_circumflex> <1>			: "\271"	onesuperior
 <dead_circumflex> <2>			: "\262"	twosuperior

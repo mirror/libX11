@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XConfigureEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XConfigureEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XConfigureEvent \- ConfigureNotify event structure
 .SH STRUCTURES

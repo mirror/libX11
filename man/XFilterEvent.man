@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XFilterEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XFilterEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XFilterEvent \- filter X events for an input method
 .SH SYNTAX

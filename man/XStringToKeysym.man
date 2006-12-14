@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStringToKeysym 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XStringToKeysym __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStringToKeysym, XKeysymToString, XKeycodeToKeysym, XKeysymToKeycode, XConvertCase \- convert keysyms
 .SH SYNTAX

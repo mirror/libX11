@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetWMName 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetWMName __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetWMName, XGetWMName, XStoreName, XFetchName \- set or read a window's WM_NAME property
 .SH SYNTAX

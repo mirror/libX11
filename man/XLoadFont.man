@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XLoadFont 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XLoadFont __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XLoadFont, XQueryFont, XLoadQueryFont, XFreeFont, XGetFontProperty, XUnloadFont, XCharStruct, XFontProp, XChar2b, XFontStruct \- load or unload fonts and font metric structures
 .SH SYNTAX

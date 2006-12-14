@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbTextPerCharExtents 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbTextPerCharExtents __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbTextPerCharExtents, XwcTextPerCharExtents, Xutf8TextPerCharExtents \- obtain per-character information for a text string
 .SH SYNTAX

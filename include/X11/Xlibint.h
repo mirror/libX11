@@ -184,7 +184,7 @@ struct _XDisplay
 	int xcmisc_opcode;	/* major opcode for XC-MISC */
 	struct _XkbInfoRec *xkb_info; /* XKB info */
 	struct _XtransConnInfo *trans_conn; /* transport connection object */
-	struct XCLPrivate *xcl;	/* XCB glue private data */
+	struct _X11XCBPrivate *xcb; /* XCB glue private data */
 };
 
 #define XAllocIDs(dpy,ids,n) (*(dpy)->idlist_alloc)(dpy,ids,n)

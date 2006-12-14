@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetWMProperties 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetWMProperties __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetWMProperties, XmbSetWMProperties, Xutf8SetWMProperties \- set standard window properties
 .SH SYNTAX

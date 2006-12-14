@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XGrabPointer 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGrabPointer __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGrabPointer, XUngrabPointer, XChangeActivePointerGrab \- grab the pointer
 .SH SYNTAX

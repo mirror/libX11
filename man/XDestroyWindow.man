@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDestroyWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDestroyWindow __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDestroyWindow, XDestroySubwindows \- destroy windows
 .SH SYNTAX

@@ -96,9 +96,9 @@ XFilterEvent(ev, window)
 	if (win == p->window) {
 	    if ((mask & p->event_mask) ||
 		(ev->type >= p->start_type && ev->type <= p->end_type)) {
+		UnlockDisplay(ev->xany.display);
 		ret = (*(p->filter))(ev->xany.display, p->window, ev,
 				      p->client_data);
-		UnlockDisplay(ev->xany.display);
 		return(ret);
 	    }
 	}

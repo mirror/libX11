@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XPropertyEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XPropertyEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XPropertyEvent \- PropertyNotify event structure
 .SH STRUCTURES

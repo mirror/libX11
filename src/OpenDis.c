@@ -33,7 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 #if USE_XCB
-#include "xclint.h"
+#include "Xxcbint.h"
 #else /* !USE_XCB */
 #include <X11/Xtrans/Xtrans.h>
 #include <X11/extensions/bigreqstr.h>
@@ -67,14 +67,8 @@ typedef struct {
 int  (*_XInitDisplayLock_fn)(Display *dpy) = NULL;
 void (*_XFreeDisplayLock_fn)(Display *dpy) = NULL;
 
-#if USE_XCB
-#define InitDisplayLock(d)	_XInitDisplayLock(d)
-#define FreeDisplayLock(d)	_XFreeDisplayLock(d)
-#else /* if !USE_XCB */
 #define InitDisplayLock(d)	(_XInitDisplayLock_fn ? (*_XInitDisplayLock_fn)(d) : Success)
 #define FreeDisplayLock(d)	if (_XFreeDisplayLock_fn) (*_XFreeDisplayLock_fn)(d)
-#endif /* !USE_XCB */
-
 #else
 #define InitDisplayLock(dis) Success
 #define FreeDisplayLock(dis)
@@ -266,6 +260,13 @@ XOpenDisplay (
 		return(NULL);
 	}
 
+#if USE_XCB
+	if (!_XCBInitDisplayLock(dpy)) {
+	        OutOfMemory (dpy, setup);
+		return(NULL);
+	}
+#endif
+
 	if (!_XPollfdCacheInit(dpy)) {
 	        OutOfMemory (dpy, setup);
 		return(NULL);
@@ -362,9 +363,9 @@ XOpenDisplay (
 
 #if USE_XCB
 	{
-		const xcb_setup_t *xcbsetup = xcb_get_setup(XGetXCBConnection(dpy));
-		setuplength = xcbsetup->length << 2;
+		const struct xcb_setup_t *xcbsetup = xcb_get_setup(dpy->xcb->connection);
 		memcpy(&prefix, xcbsetup, sizeof(prefix));
+		setuplength = prefix.length << 2;
 		setup = (char *) xcbsetup;
 		setup += SIZEOF(xConnSetupPrefix);
 		u.setup = (xConnSetup *) setup;
@@ -672,7 +673,7 @@ XOpenDisplay (
 	(void) XSynchronize(dpy, _Xdebug);
 
 #if USE_XCB
-	dpy->bigreq_size = xcb_get_maximum_request_length(XGetXCBConnection(dpy));
+	dpy->bigreq_size = xcb_get_maximum_request_length(dpy->xcb->connection);
 	if(dpy->bigreq_size <= dpy->max_request_size)
 		dpy->bigreq_size = 0;
 #endif /* USE_XCB */
@@ -906,7 +907,7 @@ void _XFreeDisplayStructure(dpy)
 	    Xfree (dpy->filedes);
 
 #if USE_XCB
-	_XFreeXCLStructure(dpy);
+	_XFreeX11XCBStructure(dpy);
 #endif /* USE_XCB */
 
 	Xfree ((char *)dpy);
@@ -920,7 +921,8 @@ static void OutOfMemory (dpy, setup)
     char *setup;
 {
 #if USE_XCB
-    xcb_disconnect(XGetXCBConnection(dpy));
+    if(dpy->xcb->connection)
+	xcb_disconnect(dpy->xcb->connection);
 #else /* !USE_XCB */
     _XDisconnectDisplay (dpy->trans_conn);
 #endif /* USE_XCB */

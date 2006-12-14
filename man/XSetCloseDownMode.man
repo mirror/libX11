@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetCloseDownMode 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetCloseDownMode __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetCloseDownMode, XKillClient \- control clients
 .SH SYNTAX

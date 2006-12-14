@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetCommand 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetCommand __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetCommand, XGetCommand \- set or read a window's WM_COMMAND property
 .SH SYNTAX

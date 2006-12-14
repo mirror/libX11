@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSelectionRequestEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSelectionRequestEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSelectionRequestEvent \- SelectionRequest event structure
 .SH STRUCTURES

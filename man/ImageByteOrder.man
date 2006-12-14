@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH ImageByteOrder 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH ImageByteOrder __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 ImageByteOrder, BitmapBitOrder, BitmapPad, BitmapUnit, DisplayHeight, DisplayHeightMM, DisplayWidth, DisplayWidthMM, XListPixmapFormats, XPixmapFormatValues \- image format functions and macros
 .SH SYNTAX

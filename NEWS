@@ -1,2 +1,113 @@
-Xlib is autotooled!
+Version 1.1.1 - 2006-11-30
 
+The "xcompmgr is hard, let's go releasing" release
+
+* Fix Bug #9154 and friends, to unbreak xcompmgr:
+  Always process an event for _XReadEvents, even if an error occurs.
+  Previously, process_responses (in the wait_for_first_event case called
+  from _XReadEvents) considered any return from xcb_wait_for_event
+  sufficient to think it had processed an event. If xcb_wait_for_event
+  returned an error, and no more events occurred before process_responses
+  called xcb_poll_for_event, process_responses would try to return with
+  dpy->head NULL, and would fail an assertion for the _XReadEvents
+  postcondition. Now, process_responses continues using xcb_wait_for_event
+  until it gets an event.
+
+* Bug #9153: Fix access to freed memory.
+  The fix for bug #8622 introduced a smaller bug where _XReply would
+  read memory shortly after freeing it. This patch caches the needed
+  value in a stack-allocated variable before the heap-allocated memory
+  is freed.
+
+* libx11 doesn't use inputproto in public headers; don't require it in x11.pc.
+  Based on a Debian patch.
+
+* Debian bug #354315: Clarify return value in XGetWindowAttributes man page.
+  Patch by Debian user Ross Combs.
+
+
+Version 1.1 - 2006-11-23
+
+* Add note in man-page that XListFontsWithInfo is not thread-safe.  _XReply
+  drops the Display lock, so the value of dpy->request may change before
+  _XReply is called again.  Jamey Sharp discovered this by inspection a few
+  years ago.
+
+* Fix Bug #8622, by fixing the response processing order for threaded apps.
+  process_responses (the common code for _XReply, _XReadEvents, and
+  _XEventsQueued) now handles responses in order, by adding condition variables
+  to the list of outstanding requests in dpy->xcb->pending_requests, and
+  blocking on them when those requests should get processed, to allow _XReply
+  to process them; if actually called from _XReply, it returns when _XReply's
+  request should get processed.  _XReply broadcasts on its condition variable
+  after it has read its reply and re-acquired the display lock.
+
+* Don't hold the display lock around callbacks to the application. This avoids
+  recursive locking of the display lock (which triggers an XCB locking
+  assertion), particularly with emacs.
+
+* Add xcb-xlib dependency to x11.pc when built against XCB.
+
+* Allocate the right amount of memory for dpy->lock_fns.  Fixes a crash on
+  startup with gdk.
+
+
+Version 1.1 RC2 - 2006-11-02
+
+Benno Schulenberg:
+      nls: remove duplicate compose entries (bug #2286)
+      nls: remove shadowed compose entries (bug #2286)
+      nls (en_US): remove long compositions that override shorter (bug #2286)
+
+Caolan McNamara:
+      XKB geometry: fix leaks in GetKeyboardByName (bug #8099)
+
+David Nusinow:
+      Dynamically generate internal manpage section using __libmanpagesuffix__ so that it actually matches the section if you don't use 3X11
+
+Jamey Sharp:
+      Add correct Display locking to XKB functions.
+      XKB bugfix: SyncHandle must be called after UnlockDisplay, not before.
+      XCB: check for and handle I/O errors in _XGetXCBBuffer.
+
+Matthias Hopf:
+      Fix double open of compose file.
+
+
+Version 1.1 RC1 - 2006-10-06
+
+This release includes the Xlib/XCB work, which uses XCB as the Xlib transport
+layer, and allows a client to use both Xlib and XCB on the same connection.
+This allows clients to transition from Xlib to XCB incrementally.
+
+Clients which link only to libX11, and do not use XCB, should not notice any
+differences in this release.  Clients desiring XCB interoperability should
+additionally #include <X11/Xlib-xcb.h>, link to libX11-xcb, use
+XGetXCBConnection(dpy) to obtain the underlying XCB connection, and then use
+XCB functions directly on that connection.
+
+Note that while a client can issue requests and handle their replies or errors
+with either Xlib or XCB, only one can own and handle the event queue.  By
+default, Xlib must own the event queue, for compatibility with legacy Xlib
+clients.  Clients can use the function XSetEventQueueOwner immediately after
+XOpenDisplay to let XCB own the event queue instead.  Clients may not call
+this function after processing any responses, as this will potentially lose
+responses.
+
+We expect to have an RC2 release corresponding to the Xorg RC2 schedule, which
+should include additional internal architecture enhancements, but no
+user-visible changes.  1.0 final should match RC2.
+
+Other smaller changes in this release:
+* correct ChangeLog generation
+* support running lint and sparse
+* Autoconf 2.60
+* fix man page for XUrgencyHint
+* improve man pages for XGrabButton, XGrabKey, XGetWindowProperty
+* new locales: as_IN.UTF-8, kn_IN.UTF-8, ml_IN.UTF-8, or_IN.UTF-8,
+  te_IN.UTF-8, ur_IN.UTF-8
+* on systems with both UNIXCONN and LOCALCONN, try unix if local fails
+* fix sparse warnings
+* ansify static functions
+
+-- Josh Triplett <josh@freedesktop.org>, Jamey Sharp <jamey@minilop.net>

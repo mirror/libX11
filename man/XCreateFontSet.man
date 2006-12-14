@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateFontSet 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateFontSet __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateFontSet, XFreeFontSet \- create and free an international text drawing font set
 .SH SYNTAX

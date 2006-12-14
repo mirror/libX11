@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XButtonEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XButtonEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XButtonEvent, XKeyEvent, XMotionEvent \- KeyPress, KeyRelease, ButtonPress, ButtonRelease, and MotionNotify event structures
 .SH STRUCTURES

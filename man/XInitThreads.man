@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XInitThreads 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XInitThreads __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XInitThreads, XLockDisplay, XUnlockDisplay \- multi-threading support
 .SH SYNTAX

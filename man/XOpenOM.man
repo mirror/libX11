@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XOpenOM 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XOpenOM __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XOpenOM, XCloseOM, XSetOMValues, XGetOMValues, XDisplayOfOM, XLocaleOfOM \- open output methods
 .SH SYNTAX

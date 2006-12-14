@@ -147,7 +147,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XAddHost 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XAddHost __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XAddHost, XAddHosts, XListHosts, XRemoveHost, XRemoveHosts, XSetAccessControl, XEnableAccessControl, XDisableAccessControl, XHostAddress, XServerInterpretedAddress \- control host access and host control structure
 .SH SYNTAX

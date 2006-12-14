@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbResetIC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbResetIC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbResetIC, XwcResetIC, Xutf8ResetIC \- reset the state of an input context
 .SH SYNTAX

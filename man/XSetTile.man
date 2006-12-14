@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetTile 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetTile __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetTile, XSetStipple, XSetTSOrigin \- GC convenience routines
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XResourceManagerString 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XResourceManagerString __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XResourceManagerString, XScreenResourceString \- obtain server resource properties
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XLookupKeysym 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XLookupKeysym __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XLookupKeysym, XRefreshKeyboardMapping, XLookupString, XRebindKeysym \- handle keyboard input events in Latin-1
 .SH SYNTAX

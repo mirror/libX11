@@ -144,7 +144,7 @@
 ..
 .ny0
 '\" t
-.TH XmbTextListToTextProperty 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbTextListToTextProperty __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbTextListToTextProperty, XwcTextListToTextProperty, Xutf8TextListToTextProperty, XmbTextPropertyToTextList, XwcTextPropertyToTextList, Xutf8TextPropertyToTextList, XwcFreeStringList, XDefaultString \- convert text lists and text property structures
 .SH SYNTAX

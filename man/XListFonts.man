@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XListFonts 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XListFonts __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XListFonts, XFreeFontNames, XListFontsWithInfo, XFreeFontInfo \- obtain or free font names and information
 .SH SYNTAX
@@ -253,6 +253,12 @@ is passed, the structure is freed,
 but the font is not closed; use
 .ZN XUnloadFont
 to close the font.
+.LP
+Note that
+.ZN XListFontsWithInfo
+is not thread-safe. If other threads make X requests on the same
+.ZN Display ,
+then this function's behavior is undefined.
 .SH "SEE ALSO"
 XLoadFont(3X11),
 XSetFontPath(3X11)

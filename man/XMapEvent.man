@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XMapEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XMapEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XMapEvent, XMappingEvent \- MapNotify and MappingNotify event structures
 .SH STRUCTURES

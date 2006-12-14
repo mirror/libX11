@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XGrabServer 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XGrabServer __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XGrabServer, XUngrabServer \- grab the server
 .SH SYNTAX

@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbDrawImageString 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbDrawImageString __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbDrawImageString, XwcDrawImageString, Xutf8DrawImageString \- draw image text using a single font set
 .SH SYNTAX

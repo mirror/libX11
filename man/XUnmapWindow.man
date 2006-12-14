@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XUnmapWindow 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XUnmapWindow __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XUnmapWindow, XUnmapSubwindows \- unmap windows
 .SH SYNTAX

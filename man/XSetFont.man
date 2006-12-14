@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetFont 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetFont __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetFont \- GC convenience routines
 .SH SYNTAX

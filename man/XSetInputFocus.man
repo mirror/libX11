@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetInputFocus 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetInputFocus __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetInputFocus, XGetInputFocus \- control input focus
 .SH SYNTAX

@@ -1,5 +1,6 @@
 aclocal.m4
 autom4te.cache
+ChangeLog
 compile
 config.guess
 config.log
@@ -16,4 +17,6 @@ MakeOut
 missing
 mkinstalldirs
 x11.pc
+x11-xcb.pc
 *~
+libX11-*

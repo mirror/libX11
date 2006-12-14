@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetLineAttributes 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetLineAttributes __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetLineAttributes, XSetDashes \- GC convenience routines
 .SH SYNTAX

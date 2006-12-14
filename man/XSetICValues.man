@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSetICValues 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSetICValues __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSetICValues, XGetICValues \- set and obtain XIC values
 .SH SYNTAX

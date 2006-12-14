@@ -617,7 +617,6 @@ _XimCreateDefaultTree(
     }
 #endif
 
-    fp = _XFopenFile (name, "r");
     if (! (fp = _XFopenFile (name, "r"))) {
 	if (tmpcachedir)
 	    Xfree  (tmpcachedir);

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XChangePointerControl 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XChangePointerControl __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XChangePointerControl, XGetPointerControl \- control pointer 
 .SH SYNTAX

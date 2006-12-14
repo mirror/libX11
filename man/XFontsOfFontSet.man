@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XFontsOfFontSet 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XFontsOfFontSet __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XFontsOfFontSet, XBaseFontNameListOfFontSet, XLocaleOfFontSet, XContextDependentDrawing, XContextualDrawing, XDirectionalDependentDrawing \- obtain fontset information
 .SH SYNTAX

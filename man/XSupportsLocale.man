@@ -142,7 +142,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSupportsLocale 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSupportsLocale __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSupportsLocale, XSetLocaleModifiers \- determine locale support and configure locale modifiers
 .SH SYNTAX

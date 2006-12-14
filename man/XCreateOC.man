@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XCreateOC 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XCreateOC __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XCreateOC, XDestroyOC, XSetOCValues, XGetOCValues, XOMOfOC \- create output contexts
 .SH SYNTAX

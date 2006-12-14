@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XmbTextEscapement 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XmbTextEscapement __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XmbTextEscapement, XwcTextEscapement, Xutf8TextEscapement \- obtain the escapement of text
 .SH SYNTAX

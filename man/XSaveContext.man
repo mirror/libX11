@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XSaveContext 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XSaveContext __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XSaveContext, XFindContext, XDeleteContext, XUniqueContext \- associative look-up routines
 .SH SYNTAX

@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStoreBytes 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XStoreBytes __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStoreBytes, XStoreBuffer, XFetchBytes, XFetchBuffer, XRotateBuffers \- manipulate cut and paste buffers
 .SH SYNTAX

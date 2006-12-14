@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XClientMessageEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XClientMessageEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XClientMessageEvent \- ClientMessage event structure
 .SH STRUCTURES

@@ -33,7 +33,7 @@ from The Open Group.
 #include <config.h>
 #endif
 #if USE_XCB
-#include "xclint.h"
+#include "Xxcbint.h"
 #else /* !USE_XCB */
 #include <X11/Xtrans/Xtrans.h>
 #endif /* USE_XCB */
@@ -75,7 +75,7 @@ XCloseDisplay (
 		XSync(dpy, 1);
 	}
 #if USE_XCB
-	xcb_disconnect(XGetXCBConnection(dpy));
+	xcb_disconnect(dpy->xcb->connection);
 #else /* !USE_XCB */
 	_XDisconnectDisplay(dpy->trans_conn);
 #endif /* USE_XCB */

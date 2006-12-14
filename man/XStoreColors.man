@@ -140,7 +140,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XStoreColors 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XStoreColors __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XStoreColors, XStoreColor, XStoreNamedColor \- set colors
 .SH SYNTAX

@@ -141,7 +141,7 @@
 .el .sp 10p
 ..
 .ny0
-.TH XDestroyWindowEvent 3X11 __xorgversion__ "XLIB FUNCTIONS"
+.TH XDestroyWindowEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XDestroyWindowEvent \- DestroyNotify event structure
 .SH STRUCTURES

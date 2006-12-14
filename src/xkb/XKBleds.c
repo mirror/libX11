@@ -228,6 +228,8 @@ XkbGetNamedDeviceIndicator(	Display *		dpy,
 	SyncHandle();
 	return False;
     }
+    UnlockDisplay(dpy);
+    SyncHandle();
     if ((!rep.found)||(!rep.supported))
 	return False;
     if (pNdxRtrn!=NULL)

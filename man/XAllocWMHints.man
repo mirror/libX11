@@ -46,8 +46,7 @@
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
-.ds xL Xlib \- C Language X Interface, \fRO'Reilly and Associates, Sebastopol,
-1991. 
+.ds xL Xlib \- C Language X Interface, \fRO'Reilly and Associates, Sebastopol, 1991. 
 .ds xC Inter-Client Communication Conventions Manual
 .na
 .de Ds

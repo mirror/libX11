@@ -221,7 +221,6 @@ has first called
 .ZN XLockDisplay .
 .LP
 The predicate procedure and its associated arguments are:
-.sM
 .HP
 Bool (\^*\fIpredicate\fP\^)\^(\^Display *\fIdisplay\fP, XEvent *\fIevent\fP, XPointer \fIarg\fP\^)
 .IP \fIdisplay\fP 1i
@@ -238,7 +237,6 @@ or
 .ZN XPeekIfEvent 
 function.
 .LP
-.eM
 The predicate procedure is called once for each
 event in the queue until it finds a match. 
 After finding a match, the predicate procedure must return 

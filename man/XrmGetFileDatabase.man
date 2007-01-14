@@ -140,6 +140,16 @@
 .el .sp 10p
 ..
 .ny0
+.de EX
+.sp
+.nf
+.ft CW
+..
+.de EE
+.ft R
+.fi
+.sp
+..
 .TH XrmGetFileDatabase __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmGetFileDatabase, XrmPutFileDatabase, XrmGetStringDatabase, XrmLocaleOfDatabase, XrmGetDatabase, XrmSetDatabase, XrmDestroyDatabase \- retrieve and store resource databases
@@ -247,9 +257,7 @@ terminated by newline characters or the end of the file.
 The syntax of an individual resource line is:
 .LP
 .\" Start marker code here
-.Ds 0
-.TA 1.5i 1.75i
-.ta 1.5i 1.75i
+.EX
 ResourceLine	=	Comment | IncludeFile | ResourceSpec | <empty line>
 Comment	=	"!" {<any character except null or newline>}
 IncludeFile	=	"#" WhiteSpace "include" WhiteSpace FileName WhiteSpace
@@ -262,8 +270,7 @@ Component	=	"?" | ComponentName
 ComponentName	=	NameChar {NameChar}
 NameChar	=	"a"\-"z" | "A"\-"Z" | "0"\-"9" | "_" | "-"
 Value	=	{<any character except null or unescaped newline>}
-.De
-.\" End marker code here
+.EE
 .LP
 Elements separated by vertical bar (|) are alternatives.
 Curly braces ({\&.\&.\&.}) indicate zero or more repetitions

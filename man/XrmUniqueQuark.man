@@ -143,7 +143,7 @@
 .TH XrmUniqueQuark __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XrmUniqueQuark, XrmStringToQuark, XrmPermStringToQuark, XrmQuarkToString, XrmStringToQuarkList, XrmStringToBindingQuarkList \- manipulate resource quarks
-.SH SYNTAX
+.SH SYNOPSIS
 .HP
 XrmQuark XrmUniqueQuark\^(void); 
 .LP
@@ -267,9 +267,9 @@ A binding list is a list of type
 and indicates if components of name or class lists are bound tightly or loosely
 (that is, if wildcarding of intermediate components is specified).
 .LP
-.Ds 0
+.EX
 typedef enum {XrmBindTightly, XrmBindLoosely} XrmBinding, *XrmBindingList;
-.De
+.EE
 .LP
 .ZN XrmBindTightly
 indicates that a period separates the components, and
@@ -290,17 +290,15 @@ If the string does not start with period or asterisk,
 a period is assumed.
 For example, ``*a.b*c'' becomes:
 .LP
-.Ds 0
-.TA .75i 1.5i 2.25i
-.ta .75i 1.5i 2.25i
+.TS
+l l l.
 quarks	a	b	c
-.br
 bindings	loose	tight	loose
-.De
+.TE
 .SH "SEE ALSO"
 XrmGetResource(3X11),
 XrmInitialize(3X11),
 XrmMergeDatabases(3X11),
 XrmPutResource(3X11)
-.br
+.LP
 \fI\*(xL\fP

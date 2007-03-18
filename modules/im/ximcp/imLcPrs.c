@@ -471,6 +471,7 @@ parseline(
             if (infp == NULL)
                 goto error;
             _XimParseStringFile(infp, im);
+            fclose(infp);
             return (0);
 	} else if ((token == KEY) && (strcmp("None", tokenbuf) == 0)) {
 	    modifier = 0;

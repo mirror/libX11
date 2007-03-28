@@ -882,6 +882,10 @@ void _XFreeDisplayStructure(dpy)
  	    Xfree (dpy->scratch_buffer);
 	FreeDisplayLock(dpy);
 
+#if USE_XCB
+	_XCBShutdownDisplayLock(dpy);
+#endif /* USE_XCB */
+
 	if (dpy->qfree) {
 	    register _XQEvent *qelt = dpy->qfree;
 

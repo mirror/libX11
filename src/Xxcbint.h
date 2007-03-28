@@ -45,6 +45,7 @@ void _XFreeX11XCBStructure(Display *dpy);
 /* xcb_lock.c */
 
 int _XCBInitDisplayLock(Display *dpy);
+void _XCBShutdownDisplayLock(Display *dpy);
 
 /* _XGetXCBBuffer and _XPutXCBBuffer calls must be paired and must not
  * be nested. */

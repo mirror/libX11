@@ -47,6 +47,14 @@ int _XCBInitDisplayLock(Display *dpy)
     return 1;
 }
 
+void _XCBShutdownDisplayLock(Display *dpy)
+{
+    if(dpy->lock_fns) {
+	Xfree((char *)dpy->lock_fns);
+	dpy->lock_fns = NULL;
+    }
+}
+
 void _XGetXCBBuffer(Display *dpy)
 {
     static const xReq dummy_request;

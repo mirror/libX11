@@ -52,6 +52,11 @@ XSendEvent(dpy, w, propagate, event_mask, event)
                 xEvent *        /* event */);
     Status status;
 
+    /* initialize all of the event's fields first, before setting
+     * the meaningful ones later.
+     */
+    memset (ev, 0, sizeof (ev));
+
     LockDisplay (dpy);
 
     /* call through display to find proper conversion routine */

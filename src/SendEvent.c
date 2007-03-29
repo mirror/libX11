@@ -55,7 +55,7 @@ XSendEvent(dpy, w, propagate, event_mask, event)
     /* initialize all of the event's fields first, before setting
      * the meaningful ones later.
      */
-    memset (ev, 0, sizeof (ev));
+    memset (&ev, 0, sizeof (ev));
 
     LockDisplay (dpy);
 

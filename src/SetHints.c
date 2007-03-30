@@ -66,22 +66,35 @@ XSetSizeHints(dpy, w, hints, property)		/* old routine */
 	XSizeHints *hints;
         Atom property;
 {
-        xPropSizeHints prop;
+	xPropSizeHints prop;
+	memset(&prop, 0, sizeof(prop));
 	prop.flags = (hints->flags & (USPosition|USSize|PAllHints));
-	prop.x = hints->x;
-	prop.y = hints->y;
-	prop.width = hints->width;
-	prop.height = hints->height;
-	prop.minWidth = hints->min_width;
-	prop.minHeight = hints->min_height;
-	prop.maxWidth  = hints->max_width;
-	prop.maxHeight = hints->max_height;
-	prop.widthInc = hints->width_inc;
-	prop.heightInc = hints->height_inc;
-	prop.minAspectX = hints->min_aspect.x;
-	prop.minAspectY = hints->min_aspect.y;
-	prop.maxAspectX = hints->max_aspect.x;
-	prop.maxAspectY = hints->max_aspect.y;
+	if (hints->flags & (USPosition|PPosition)) {
+	    prop.x = hints->x;
+	    prop.y = hints->y;
+	}
+	if (hints->flags & (USSize|PSize)) {
+	    prop.width = hints->width;
+	    prop.height = hints->height;
+	}
+	if (hints->flags & PMinSize) {
+	    prop.minWidth = hints->min_width;
+	    prop.minHeight = hints->min_height;
+	}
+	if (hints->flags & PMaxSize) {
+	    prop.maxWidth  = hints->max_width;
+	    prop.maxHeight = hints->max_height;
+	}
+	if (hints->flags & PResizeInc) {
+	    prop.widthInc = hints->width_inc;
+	    prop.heightInc = hints->height_inc;
+	}
+	if (hints->flags & PAspect) {
+	    prop.minAspectX = hints->min_aspect.x;
+	    prop.minAspectY = hints->min_aspect.y;
+	    prop.maxAspectX = hints->max_aspect.x;
+	    prop.maxAspectY = hints->max_aspect.y;
+	}
 	return XChangeProperty (dpy, w, property, XA_WM_SIZE_HINTS, 32,
 				PropModeReplace, (unsigned char *) &prop, 
 				OldNumPropSizeElements);
@@ -99,15 +112,24 @@ XSetWMHints (dpy, w, wmhints)
 	XWMHints *wmhints; 
 {
 	xPropWMHints prop;
+	memset(&prop, 0, sizeof(prop));
 	prop.flags = wmhints->flags;
-	prop.input = (wmhints->input == True ? 1 : 0);
-	prop.initialState = wmhints->initial_state;
-	prop.iconPixmap = wmhints->icon_pixmap;
-	prop.iconWindow = wmhints->icon_window;
-	prop.iconX = wmhints->icon_x;
-	prop.iconY = wmhints->icon_y;
-	prop.iconMask = wmhints->icon_mask;
-	prop.windowGroup = wmhints->window_group;
+	if (wmhints->flags & InputHint)
+	    prop.input = (wmhints->input == True ? 1 : 0);
+	if (wmhints->flags & StateHint)
+	    prop.initialState = wmhints->initial_state;
+	if (wmhints->flags & IconPixmapHint)
+	    prop.iconPixmap = wmhints->icon_pixmap;
+	if (wmhints->flags & IconWindowHint)
+	    prop.iconWindow = wmhints->icon_window;
+	if (wmhints->flags & IconPositionHint) {
+	    prop.iconX = wmhints->icon_x;
+	    prop.iconY = wmhints->icon_y;
+	}
+	if (wmhints->flags & IconMaskHint)
+	    prop.iconMask = wmhints->icon_mask;
+	if (wmhints->flags & WindowGroupHint)
+	    prop.windowGroup = wmhints->window_group;
 	return XChangeProperty (dpy, w, XA_WM_HINTS, XA_WM_HINTS, 32,
 				PropModeReplace, (unsigned char *) &prop, 
 				NumPropWMHintsElements);

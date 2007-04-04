@@ -146,7 +146,7 @@ CIEXYZ_ParseString(
 	    &pColor->spec.CIEXYZ.Z) != 3) {
 	char *s; /* Maybe failed due to locale */
 	int f;
-	if (s = strdup(spec)) {
+	if ((s = strdup(spec))) {
 	    for (f = 0; s[f]; ++f)
 		if (s[f] == '.')
 		    s[f] = ',';

@@ -519,7 +519,8 @@ append_value_list (void)
 	goto err1;
     }
     if (value != *value_list) {
-	int delta, i;
+	int i;
+	ssize_t delta;
 	delta = value - *value_list;
 	*value_list = value;
 	for (i = 1; i < value_num; ++i) {

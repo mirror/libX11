@@ -65,7 +65,7 @@ SOFTWARE.
 #include <stdio.h>
 
 
-static void _XReportParseError(XrmOptionDescRec *arg, char *msg)
+static void _XReportParseError(XrmOptionDescRec *arg, const char *msg)
 {
     (void) fprintf(stderr, "Error parsing argument \"%s\" (%s); %s\n",
 		   arg->option, arg->specifier, msg);

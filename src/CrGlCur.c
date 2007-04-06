@@ -82,10 +82,10 @@ open_library (void)
 }
 
 static void *
-fetch_symbol (XModuleType module, char *under_symbol)
+fetch_symbol (XModuleType module, const char *under_symbol)
 {
     void *result = NULL;
-    char *symbol = under_symbol + 1;
+    const char *symbol = under_symbol + 1;
 #if defined(hpux)
     int getsyms_cnt, i;
     struct shl_symbol *symbols;

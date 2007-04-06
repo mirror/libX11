@@ -55,7 +55,7 @@ _XInitKeysymDB(void)
 {
     if (!initialized)
     {
-	char *dbname;
+	const char *dbname;
 
 	XrmInitialize();
 	/* use and name of this env var is not part of the standard */

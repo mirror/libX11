@@ -229,7 +229,7 @@ extern Bool _XimCheckCreateICValues(
 extern XIMResourceList _XimGetResourceListRec(
     XIMResourceList	 res_list,
     unsigned int	 list_num,
-    char		*name
+    const char		*name
 );
 
 extern void _XimSetIMMode(

@@ -36,7 +36,7 @@ OR PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 
 typedef struct {
-    char	*transportname;
+    const char	*transportname;
     Bool	 (*config)(
 			Xim,
 			char *

@@ -51,7 +51,7 @@ PERFORMANCE OF THIS SOFTWARE.
 
 typedef struct	_XIM_QueryExtRec {
     Bool	 is_support;
-    char	*name;
+    const char	*name;
     int		 name_len;
     CARD16	 major_opcode;
     CARD16	 minor_opcode;

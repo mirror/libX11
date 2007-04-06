@@ -1616,7 +1616,7 @@ static XOCMethodsRec oc_generic_methods = {
 };
 
 typedef struct _XOCMethodsListRec {
-    char *name;
+    const char *name;
     XOCMethods methods;
 } XOCMethodsListRec, *XOCMethodsList;
 

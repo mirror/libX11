@@ -67,8 +67,8 @@ typedef int (*ucstocsConvProc)(
 );
 
 struct SubstRec {
-    char*  encoding_name;
-    char*  charset_name;
+    const char*  encoding_name;
+    const char*  charset_name;
 };
 
 static struct SubstRec SubstTable[] = {

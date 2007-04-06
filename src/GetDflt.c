@@ -164,7 +164,7 @@ InitDefaults(
      */
 
     if (dpy->xdefaults == NULL) {
-	char *slashDotXdefaults = "/.Xdefaults";
+	const char *slashDotXdefaults = "/.Xdefaults";
 
 	(void) GetHomeDir (fname, PATH_MAX - strlen (slashDotXdefaults) - 1);
 	(void) strcat (fname, slashDotXdefaults);
@@ -174,7 +174,7 @@ InitDefaults(
     }
 
     if (!(xenv = getenv ("XENVIRONMENT"))) {
-	char *slashDotXdefaultsDash = "/.Xdefaults-";
+	const char *slashDotXdefaultsDash = "/.Xdefaults-";
 	int len;
 
 	(void) GetHomeDir (fname, PATH_MAX - strlen (slashDotXdefaultsDash) - 1);

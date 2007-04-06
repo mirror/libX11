@@ -709,7 +709,7 @@ LoadColornameDB(void)
 {
     int size;
     FILE *stream;
-    char *pathname;
+    const char *pathname;
     struct stat txt;
     int length;
 

@@ -151,10 +151,10 @@ _XimServerReconectableDestroy()
 }
 #endif /* XIM_CONNECTABLE */
 
-Private char	*
+Private const char *
 _XimStrstr(
-    register char	*src,
-    register char	*dest)
+    register const char *src,
+    register const char *dest)
 {
     int			 len;
     
@@ -171,10 +171,10 @@ Private char *
 _XimMakeImName(
     XLCd	   lcd)
 {
-    char* begin = NULL;
-    char* end = NULL;
+    const char* begin = NULL;
+    const char* end = NULL;
     char* ret = NULL;
-    char* ximmodifier = XIMMODIFIER;
+    const char* ximmodifier = XIMMODIFIER;
 
     if(lcd->core->modifiers != NULL && *lcd->core->modifiers != '\0') {
 	begin = _XimStrstr(lcd->core->modifiers, ximmodifier);

@@ -112,7 +112,7 @@ typedef struct {
  * and Input Context
  */
 typedef struct {
-    char		*resource_name;		/* Resource string */
+    const char		*resource_name;		/* Resource string */
     XrmQuark		xrm_name;		/* Resource name quark */
     int			resource_size;		/* Size in bytes of data */
     long		resource_offset;	/* Offset from base */
@@ -354,7 +354,7 @@ typedef struct {
 } XlcArg, *XlcArgList;
 
 typedef struct _XlcResource {
-    char *name;
+    const char *name;
     XrmQuark xrm_name;
     int size;
     int offset;

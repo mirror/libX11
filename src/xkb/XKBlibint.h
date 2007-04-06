@@ -297,8 +297,8 @@ extern char	*_XkbGetCharset(
 );
 
 extern int	 _XkbGetConverters(
-    char *		/* encoding_name */,
-    XkbConverters *	/* cvt_rtrn */
+    const char *       /* encoding_name */,
+    XkbConverters *    /* cvt_rtrn */
 );
 
 #ifdef	NEED_MAP_READERS

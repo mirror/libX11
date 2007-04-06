@@ -438,7 +438,7 @@ _XomInitConverter(
 {
     XOCGenericPart *gen = XOC_GENERIC(oc);
     XlcConv *convp;
-    char *conv_type;
+    const char *conv_type;
     XlcConv conv;
     XLCd lcd;
 

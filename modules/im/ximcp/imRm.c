@@ -43,7 +43,7 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Xresource.h"
 
 typedef struct _XimValueOffsetInfo {
-    char		*name;
+    const char		*name;
     XrmQuark		 quark;
     unsigned int	 offset;
     Bool		 (*defaults)(
@@ -206,7 +206,7 @@ _XimSetProtoResource(im)
 }
 #endif /* XIM_CONNECTABLE */
 
-static char *supported_local_im_values_list[] = {
+static const char *supported_local_im_values_list[] = {
     XNQueryInputStyle,
     XNResourceName,
     XNResourceClass,
@@ -214,10 +214,10 @@ static char *supported_local_im_values_list[] = {
     XNQueryIMValuesList,
     XNQueryICValuesList,
     XNVisiblePosition,
-    (char *)NULL
+    NULL
 };
 
-static char *supported_local_ic_values_list[] = {
+static const char *supported_local_ic_values_list[] = {
     XNInputStyle,
     XNClientWindow,
     XNFocusWindow,
@@ -253,7 +253,7 @@ static char *supported_local_ic_values_list[] = {
     XNStatusDrawCallback,
     XNPreeditState,
     XNPreeditStateNotifyCallback,
-    (char *)NULL
+    NULL
 };
 
 static XIMStyle const supported_local_styles[] = {
@@ -1655,7 +1655,7 @@ static XimValueOffsetInfoRec ic_sts_attr_info[] = {
 };
 
 typedef struct _XimIMMode {
-    char		*name;
+    const char		*name;
     XrmQuark		 quark;
     unsigned short	 mode;
 } XimIMMode;
@@ -1678,7 +1678,7 @@ static XimIMMode	im_mode[] = {
 };
 
 typedef struct _XimICMode {
-    char		*name;
+    const char		*name;
     XrmQuark		 quark;
     unsigned short	 preedit_callback_mode;
     unsigned short	 preedit_position_mode;
@@ -2156,7 +2156,7 @@ Public XIMResourceList
 _XimGetResourceListRec(
     XIMResourceList	 res_list,
     unsigned int	 list_num,
-    char		*name)
+    const char		*name)
 {
     XrmQuark		 quark = XrmStringToQuark(name);
 

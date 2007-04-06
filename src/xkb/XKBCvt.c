@@ -189,7 +189,7 @@ Strcmp(char *str1, char *str2)
 #endif
 
 int 
-_XkbGetConverters(char *encoding_name, XkbConverters *cvt_rtrn)
+_XkbGetConverters(const char *encoding_name, XkbConverters *cvt_rtrn)
 {
     if ( !cvt_rtrn ) return 0;
 

@@ -60,8 +60,8 @@
 #endif
 
 typedef struct _CTDataRec {
-    char *name;
-    char *encoding;             /* Compound Text encoding */
+    const char *name;
+    const char *encoding; /* Compound Text encoding */
 } CTDataRec, *CTData;
 
 static CTDataRec directionality_data[] =

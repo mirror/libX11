@@ -169,7 +169,7 @@ Private Bool
 _XimCheckTransport(
     char	  *address,
     int		   address_len,
-    char	  *transport,
+    const char	  *transport,
     int		   len,
     char	 **trans_addr)
 {

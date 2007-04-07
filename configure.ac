@@ -329,6 +329,14 @@ if test "x$GCC" = "xyes"; then
 	X11_CFLAGS="$GCC_WARNINGS $X11_CFLAGS"
 fi
 
+AC_TRY_COMPILE([
+#include <features.h>
+#ifndef __GLIBC__
+#error not glibc
+#endif
+], [], [AC_DEFINE(_GNU_SOURCE, 1,
+    [ Enable GNU and other extensions to the C environment for glibc])])
+
 X11_DATADIR="${datadir}/X11"
 AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_SUBST(X11_DATADIR)

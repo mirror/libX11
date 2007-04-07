@@ -34,11 +34,7 @@
 #include "Xlibint.h"
 #include "XlcPubI.h"
 #include <X11/Xos.h>
-#if 0
-#include <unistd.h>  /* in theory delivers getresuid/gid prototypes,
-		      * in practice only the Linux syscall wrapper is there. */
-#endif
-
+#include <unistd.h>
 
 /************************************************************************/
 

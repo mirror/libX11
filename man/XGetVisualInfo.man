@@ -300,7 +300,7 @@ typedef struct {
 	Visual *visual;
 	VisualID visualid;
 	int screen;
-	unsigned int depth;
+	int depth;
 	int class;
 	unsigned long red_mask;
 	unsigned long green_mask;

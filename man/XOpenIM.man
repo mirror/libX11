@@ -285,7 +285,7 @@ locale and modifiers.
 .LP
 The function returns 
 .ZN True
- if it succeeds; otherwise, it returns 
+if it succeeds; otherwise, it returns 
 .ZN False .
 .LP
 The

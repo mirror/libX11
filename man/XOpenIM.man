@@ -159,12 +159,12 @@ Display *XDisplayOfIM\^(\^XIM \fIim\fP\^);
 char *XLocaleOfIM\^(\^XIM \fIim\fP\^); 
 .HP
 Bool XRegisterIMInstantiateCallback\^(\^Display *\fIdisplay\fP\^, XrmDatabase
-\fIdb\fP\^, char *\fIres_name\fP\^, char *\fIres_class\fP\^, XIMProc
-\fIcallback\fP\^, XPointer *\fIclient_data\fP\^); 
+\fIdb\fP\^, char *\fIres_name\fP\^, char *\fIres_class\fP\^, XIDProc
+\fIcallback\fP\^, XPointer \fIclient_data\fP\^); 
 .HP
 Bool XUnregisterIMInstantiateCallback\^(\^Display *\fIdisplay\fP\^,
 XrmDatabase \fIdb\fP\^, char *\fIres_name\fP\^, char *\fIres_class\fP\^,
-XIMProc  \fIcallback\fP\^, XPointer *\fIclient_data\fP\^); 
+XIDProc \fIcallback\fP\^, XPointer \fIclient_data\fP\^); 
 .LP
 .SH ARGUMENTS
 .IP \fIcallback\fP 1i

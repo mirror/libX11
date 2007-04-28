@@ -325,11 +325,11 @@ The XkbControlsChangesRec structure is defined as follows:
 .nf
 
 typedef struct _XkbControlsChanges {
-    unsigned int  changed_ctrls;         /* bits indicating changed control data 
+    unsigned int  changed_ctrls;         /\(** bits indicating changed control data 
 */
-    unsigned int  enabled_ctrls_changes; /* bits indicating enabled/disabled 
+    unsigned int  enabled_ctrls_changes; /\(** bits indicating enabled/disabled 
 controls */
-    Bool          num_groups_changed;    /* True if number of keyboard groups 
+    Bool          num_groups_changed;    /\(** True if number of keyboard groups 
 changed */
 } XkbControlsChangesRec,*XkbControlsChangesPtr;
 

@@ -382,6 +382,7 @@ XORG_RELEASE_VERSION
 AC_OUTPUT([Makefile
            include/Makefile
 	   man/Makefile
+           man/xkb/Makefile	   
            src/Makefile
            src/util/Makefile
 	   src/xcms/Makefile

@@ -1,6 +1,8 @@
 # Have to fake out automake by calling our man pages "DATA" since "MANS" won't
 # accept .3x as a valid man page suffix
 
+SUBDIRS = xkb
+
 libmandir = $(LIB_MAN_DIR)
 
 LIB_MAN_DIR_SUFFIX = $(LIB_MAN_DIR:@mandir@/man%=%)

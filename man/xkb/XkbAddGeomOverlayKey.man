@@ -42,7 +42,7 @@ XkbAddGeomOverlayKey \- Add a key to an existing overlay row
       XkbRowPtr \fIrow\fP\^;
 .br
       char * \fIunder\fP\^;
-..if n .ti +5n
+.if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP

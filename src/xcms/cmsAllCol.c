@@ -49,11 +49,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsAllocColor(dpy, colormap, pXcmsColor_in_out, result_format)
-    Display *dpy;
-    Colormap colormap;
-    XcmsColor *pXcmsColor_in_out;
-    XcmsColorFormat result_format;
+XcmsAllocColor(
+    Display *dpy,
+    Colormap colormap,
+    XcmsColor *pXcmsColor_in_out,
+    XcmsColorFormat result_format)
 /*
  *	DESCRIPTION
  *		Given a device-dependent or device-independent color

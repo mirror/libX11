@@ -32,13 +32,14 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawText(dpy, d, gc, x, y, items, nitems)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    int x, y;
-    XTextItem *items;
-    int nitems;
+XDrawText(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    int x,
+    int y,
+    XTextItem *items,
+    int nitems)
 {   
     register int i;
     register XTextItem *item;

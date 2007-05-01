@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XChangeSaveSet(dpy, win, mode)
-register Display *dpy;
-Window win;
-int mode;
+XChangeSaveSet(
+    register Display *dpy,
+    Window win,
+    int mode)
 {
     register xChangeSaveSetReq *req;
 
@@ -49,17 +49,17 @@ int mode;
 }
 
 int
-XAddToSaveSet(dpy, win)
-    register Display *dpy;
-    Window win;
+XAddToSaveSet(
+    register Display *dpy,
+    Window win)
 {
     return XChangeSaveSet(dpy,win,SetModeInsert);
 }
 
 int
-XRemoveFromSaveSet (dpy, win)
-    register Display *dpy;
-    Window win;
+XRemoveFromSaveSet (
+    register Display *dpy,
+    Window win)
 {
     return XChangeSaveSet(dpy,win,SetModeDelete);
 }

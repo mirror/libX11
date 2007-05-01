@@ -31,12 +31,16 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Bool XQueryPointer(dpy, w, root, child, root_x, root_y, win_x, win_y, mask)
-     register Display *dpy;
-     Window w, *root, *child;
-     int *root_x, *root_y, *win_x, *win_y;
-     unsigned int *mask;
-
+Bool XQueryPointer(
+     register Display *dpy,
+     Window w, 
+     Window *root,
+     Window *child,
+     int *root_x, 
+     int *root_y,
+     int *win_x,
+     int *win_y,
+     unsigned int *mask)
 {       
     xQueryPointerReply rep;
     xResourceReq *req;

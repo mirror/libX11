@@ -54,12 +54,11 @@ in this Software without prior written authorization from The Open Group.
  *		VisualAllMask
  */
 
-XVisualInfo *XGetVisualInfo( dpy, visual_info_mask, 
-			    visual_info_template, nitems)
-Display *dpy;
-register long visual_info_mask; 
-register XVisualInfo *visual_info_template;
-int *nitems;	/* RETURN */
+XVisualInfo *XGetVisualInfo(
+    Display *dpy,
+    register long visual_info_mask,
+    register XVisualInfo *visual_info_template,
+    int *nitems)	/* RETURN */
 {
 
   register Visual *vp;
@@ -190,12 +189,12 @@ int *nitems;	/* RETURN */
  *	otherwise False is returned.
  */
 
-Status XMatchVisualInfo( dpy, screen, depth, class, visual_info)
-	Display *dpy;
-	int screen;
-	int depth;
-	int class;
-	XVisualInfo *visual_info; /* RETURNED */
+Status XMatchVisualInfo(
+	Display *dpy,
+	int screen,
+	int depth,
+	int class,
+	XVisualInfo *visual_info) /* RETURNED */
 {
 
   Visual *vp;

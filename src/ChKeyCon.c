@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XChangeKeyboardControl(dpy, mask, value_list)
-    register Display *dpy;
-    unsigned long mask;
-    XKeyboardControl *value_list;
+XChangeKeyboardControl(
+    register Display *dpy,
+    unsigned long mask,
+    XKeyboardControl *value_list)
 {
     unsigned long values[8];
     register unsigned long *value = values;

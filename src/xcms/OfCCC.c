@@ -56,8 +56,8 @@
  */
 
 Display *
-XcmsDisplayOfCCC(ccc)
-    XcmsCCC ccc;
+XcmsDisplayOfCCC(
+    XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Queries the Display of the specified CCC.
@@ -79,8 +79,8 @@ XcmsDisplayOfCCC(ccc)
  */
 
 Visual *
-XcmsVisualOfCCC(ccc)
-    XcmsCCC ccc;
+XcmsVisualOfCCC(
+    XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Queries the Visual of the specified CCC.
@@ -102,8 +102,8 @@ XcmsVisualOfCCC(ccc)
  */
 
 int
-XcmsScreenNumberOfCCC(ccc)
-    XcmsCCC ccc;
+XcmsScreenNumberOfCCC(
+    XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Queries the screen number of the specified CCC.
@@ -125,8 +125,8 @@ XcmsScreenNumberOfCCC(ccc)
  */
 
 XcmsColor *
-XcmsScreenWhitePointOfCCC(ccc)
-    XcmsCCC ccc;
+XcmsScreenWhitePointOfCCC(
+    XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Queries the screen white point of the specified CCC.
@@ -148,8 +148,8 @@ XcmsScreenWhitePointOfCCC(ccc)
  */
 
 XcmsColor *
-XcmsClientWhitePointOfCCC(ccc)
-    XcmsCCC ccc;
+XcmsClientWhitePointOfCCC(
+    XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Queries the client white point of the specified CCC.

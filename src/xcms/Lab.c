@@ -232,11 +232,11 @@ XcmsCIELab_ValidSpec(
  *	SYNOPSIS
  */
 Status
-XcmsCIELabToCIEXYZ(ccc, pLab_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *pLab_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsCIELabToCIEXYZ(
+    XcmsCCC ccc,
+    XcmsColor *pLab_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor
@@ -335,11 +335,11 @@ XcmsCIELabToCIEXYZ(ccc, pLab_WhitePt, pColors_in_out, nColors)
  *	SYNOPSIS
  */
 Status
-XcmsCIEXYZToCIELab(ccc, pLab_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *pLab_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsCIEXYZToCIELab(
+    XcmsCCC ccc,
+    XcmsColor *pLab_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor

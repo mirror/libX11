@@ -227,11 +227,11 @@ _XcmsCIEuvY_ValidSpec(
  *	SYNOPSIS
  */
 Status
-XcmsCIEuvYToCIEXYZ(ccc, puvY_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *puvY_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsCIEuvYToCIEXYZ(
+    XcmsCCC ccc,
+    XcmsColor *puvY_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor
@@ -342,11 +342,11 @@ XcmsCIEuvYToCIEXYZ(ccc, puvY_WhitePt, pColors_in_out, nColors)
  *	SYNOPSIS
  */
 Status
-XcmsCIEXYZToCIEuvY(ccc, puvY_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *puvY_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsCIEXYZToCIEuvY(
+    XcmsCCC ccc,
+    XcmsColor *puvY_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor

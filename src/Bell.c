@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XBell(dpy, percent)
-    register Display *dpy;
-    int percent;
+XBell(
+    register Display *dpy,
+    int percent)
 {
     register xBellReq *req;
 

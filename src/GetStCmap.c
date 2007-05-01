@@ -62,11 +62,11 @@ SOFTWARE.
  * in the XStandardColormap structure.
  */
 
-Status XGetStandardColormap (dpy, w, cmap, property)
-    Display *dpy;
-    Window w;
-    XStandardColormap *cmap;
-    Atom property;		/* XA_RGB_BEST_MAP, etc. */
+Status XGetStandardColormap (
+    Display *dpy,
+    Window w,
+    XStandardColormap *cmap,
+    Atom property)		/* XA_RGB_BEST_MAP, etc. */
 {
     Status stat;			/* return value */
     XStandardColormap *stdcmaps;	/* will get malloced value */

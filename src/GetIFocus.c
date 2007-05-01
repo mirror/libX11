@@ -33,10 +33,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGetInputFocus(dpy, focus, revert_to)
-     register Display *dpy;
-     Window *focus;
-     int *revert_to;
+XGetInputFocus(
+     register Display *dpy,
+     Window *focus,
+     int *revert_to)
 {       
     xGetInputFocusReply rep;
     register xReq *req;

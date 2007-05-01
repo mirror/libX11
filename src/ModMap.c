@@ -33,8 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 XModifierKeymap *
-XGetModifierMapping(dpy)
-     register Display *dpy;
+XGetModifierMapping(register Display *dpy)
 {       
     xGetModifierMappingReply rep;
     register xReq *req;
@@ -69,9 +68,9 @@ XGetModifierMapping(dpy)
  *	2	Failed - one or more new modifiers unacceptable
  */
 int
-XSetModifierMapping(dpy, modifier_map)
-    register Display *dpy;
-    register XModifierKeymap *modifier_map;
+XSetModifierMapping(
+    register Display *dpy,
+    register XModifierKeymap *modifier_map)
 {
     register xSetModifierMappingReq *req;
     xSetModifierMappingReply rep;
@@ -94,8 +93,7 @@ XSetModifierMapping(dpy, modifier_map)
 }
 
 XModifierKeymap *
-XNewModifiermap(keyspermodifier)
-    int keyspermodifier;
+XNewModifiermap(int keyspermodifier)
 {
     XModifierKeymap *res = (XModifierKeymap *) Xmalloc((sizeof (XModifierKeymap)));
     if (res) {
@@ -113,8 +111,7 @@ XNewModifiermap(keyspermodifier)
 
 
 int
-XFreeModifiermap(map)
-    XModifierKeymap *map;
+XFreeModifiermap(XModifierKeymap *map)
 {
     if (map) {
 	if (map->modifiermap)

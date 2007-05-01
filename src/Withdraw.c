@@ -64,10 +64,10 @@ from The Open Group.
  * This function instructs the window manager to change this window from
  * NormalState or IconicState to Withdrawn.
  */
-Status XWithdrawWindow (dpy, w, screen)
-    Display *dpy;
-    Window w;
-    int screen;
+Status XWithdrawWindow (
+    Display *dpy,
+    Window w,
+    int screen)
 {
     XUnmapEvent ev;
     Window root = RootWindow (dpy, screen);

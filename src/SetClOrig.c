@@ -32,10 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetClipOrigin (dpy, gc, xorig, yorig)
-register Display *dpy;
-GC gc;
-int xorig, yorig;
+XSetClipOrigin (
+    register Display *dpy,
+    GC gc,
+    int xorig, 
+    int yorig)
 {
     XGCValues *gv = &gc->values;
 

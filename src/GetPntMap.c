@@ -38,10 +38,10 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #define MIN(a, b) ((a) < (b) ? (a) : (b))
 
-int XGetPointerMapping (dpy, map, nmaps)
-    register Display *dpy;
-    unsigned char *map;	/* RETURN */
-    int nmaps;
+int XGetPointerMapping (
+    register Display *dpy,
+    unsigned char *map,	/* RETURN */
+    int nmaps)
 
 {
     unsigned char mapping[256];	/* known fixed size */

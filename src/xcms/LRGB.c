@@ -1469,11 +1469,11 @@ XcmsLRGB_RGBi_ParseString(
  */
 /* ARGSUSED */
 Status 
-XcmsCIEXYZToRGBi(ccc, pXcmsColors_in_out, nColors, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pXcmsColors_in_out;/* pointer to XcmsColors to convert 	*/
-    unsigned int nColors;	/* Number of colors			*/
-    Bool *pCompressed;		/* pointer to an array of Bool		*/
+XcmsCIEXYZToRGBi(
+    XcmsCCC ccc,
+    XcmsColor *pXcmsColors_in_out,/* pointer to XcmsColors to convert 	*/
+    unsigned int nColors,	/* Number of colors			*/
+    Bool *pCompressed)		/* pointer to an array of Bool		*/
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor
@@ -1591,11 +1591,11 @@ XcmsCIEXYZToRGBi(ccc, pXcmsColors_in_out, nColors, pCompressed)
  */
 /* ARGSUSED */
 Status 
-XcmsRGBiToCIEXYZ(ccc, pXcmsColors_in_out, nColors, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pXcmsColors_in_out;/* pointer to XcmsColors to convert 	*/
-    unsigned int nColors;	/* Number of colors			*/
-    Bool *pCompressed;		/* pointer to a bit array		*/
+XcmsRGBiToCIEXYZ(
+    XcmsCCC ccc,
+    XcmsColor *pXcmsColors_in_out,/* pointer to XcmsColors to convert 	*/
+    unsigned int nColors,	/* Number of colors			*/
+    Bool *pCompressed)		/* pointer to a bit array		*/
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor
@@ -1644,11 +1644,11 @@ XcmsRGBiToCIEXYZ(ccc, pXcmsColors_in_out, nColors, pCompressed)
  */
 /* ARGSUSED */
 Status 
-XcmsRGBiToRGB(ccc, pXcmsColors_in_out, nColors, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pXcmsColors_in_out;/* pointer to XcmsColors to convert 	*/
-    unsigned int nColors;	/* Number of colors			*/
-    Bool *pCompressed;		/* pointer to a bit array		*/
+XcmsRGBiToRGB(
+    XcmsCCC ccc,
+    XcmsColor *pXcmsColors_in_out,/* pointer to XcmsColors to convert 	*/
+    unsigned int nColors,	/* Number of colors			*/
+    Bool *pCompressed)		/* pointer to a bit array		*/
 /*
  *	DESCRIPTION
  *		Converts color specifications in an array of XcmsColor

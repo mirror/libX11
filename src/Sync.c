@@ -36,9 +36,9 @@ in this Software without prior written authorization from The Open Group.
 /* Synchronize with errors and events, optionally discarding pending events */
 
 int
-XSync (dpy, discard)
-    register Display *dpy;
-    Bool discard;
+XSync (
+    register Display *dpy,
+    Bool discard)
 {
     xGetInputFocusReply rep;
     register xReq *req;

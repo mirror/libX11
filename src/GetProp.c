@@ -33,19 +33,19 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGetWindowProperty(dpy, w, property, offset, length, delete, 
-	req_type, actual_type, actual_format, nitems, bytesafter, prop)
-    register Display *dpy;
-    Window w;
-    Atom property;
-    Bool delete;
-    Atom req_type;
-    Atom *actual_type;		/* RETURN */
-    int *actual_format;  	/* RETURN  8, 16, or 32 */
-    long offset, length;
-    unsigned long *nitems; 	/* RETURN  # of 8-, 16-, or 32-bit entities */
-    unsigned long *bytesafter;	/* RETURN */
-    unsigned char **prop;	/* RETURN */
+XGetWindowProperty(
+    register Display *dpy,
+    Window w,
+    Atom property,
+    long offset,
+    long length,
+    Bool delete,
+    Atom req_type,
+    Atom *actual_type,		/* RETURN */
+    int *actual_format,  	/* RETURN  8, 16, or 32 */
+    unsigned long *nitems, 	/* RETURN  # of 8-, 16-, or 32-bit entities */
+    unsigned long *bytesafter,	/* RETURN */
+    unsigned char **prop)	/* RETURN */
 {
     xGetPropertyReply reply;
     register xGetPropertyReq *req;

@@ -55,10 +55,10 @@
  *	SYNOPSIS
  */
 Status
-XcmsStoreColor(dpy, colormap, pColor_in)
-    Display *dpy;
-    Colormap colormap;
-    XcmsColor *pColor_in;
+XcmsStoreColor(
+    Display *dpy,
+    Colormap colormap,
+    XcmsColor *pColor_in)
 /*
  *	DESCRIPTION
  *		Given a device-dependent or device-independent color

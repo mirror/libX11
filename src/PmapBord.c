@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetWindowBorderPixmap(dpy, w, pixmap)
-    register Display *dpy;
-    Window w;
-    Pixmap pixmap;
+XSetWindowBorderPixmap(
+    register Display *dpy,
+    Window w,
+    Pixmap pixmap)
 {
     register xChangeWindowAttributesReq *req;
     LockDisplay(dpy);

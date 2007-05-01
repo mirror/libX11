@@ -63,11 +63,11 @@ static void _XGenerateGCList(
     GC gc,
     xReq *req);
 
-GC XCreateGC (dpy, d, valuemask, values)
-     register Display *dpy;
-     Drawable d;		/* Window or Pixmap for which depth matches */
-     unsigned long valuemask;	/* which ones to set initially */
-     XGCValues *values;		/* the values themselves */
+GC XCreateGC (
+     register Display *dpy,
+     Drawable d,		/* Window or Pixmap for which depth matches */
+     unsigned long valuemask,	/* which ones to set initially */
+     XGCValues *values)		/* the values themselves */
 {
     register GC gc;
     register xCreateGCReq *req;
@@ -163,11 +163,11 @@ _XGenerateGCList (
 
 
 int
-_XUpdateGCCache (gc, mask, attr)
-    register unsigned long mask;
-    register XGCValues *attr;
-    register GC gc;
-    {
+_XUpdateGCCache (
+    register GC gc,
+    register unsigned long mask,
+    register XGCValues *attr)
+{
     register XGCValues *gv = &gc->values;
 
     if (mask & GCFunction)
@@ -310,13 +310,13 @@ _XUpdateGCCache (gc, mask, attr)
 	    gc->dashes = 0;
 	    }
     return 0;
-    }
+}
 
 /* can only call when display is already locked. */
 
-void _XFlushGCCache(dpy, gc)
-     Display *dpy;
-     GC gc;
+void _XFlushGCCache(
+     Display *dpy,
+     GC gc)
 {
     register xChangeGCReq *req;
     register _XExtension *ext;
@@ -333,13 +333,15 @@ void _XFlushGCCache(dpy, gc)
     }
 }
 
-void XFlushGC(dpy, gc)
-     Display *dpy;
-     GC gc;
+void 
+XFlushGC(
+    Display *dpy,
+    GC gc)
 {
     FlushGC(dpy, gc);
 }
 
-GContext XGContextFromGC(gc)
-    GC gc;
-    { return (gc->gid); }
+GContext XGContextFromGC(GC gc)
+{ 
+    return (gc->gid);
+}

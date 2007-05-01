@@ -32,12 +32,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawRectangles(dpy, d, gc, rects, n_rects)
-register Display *dpy;
-Drawable d;
-GC gc;
-XRectangle *rects;
-int n_rects;
+XDrawRectangles(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    XRectangle *rects,
+    int n_rects)
 {
     register xPolyRectangleReq *req;
     long len;

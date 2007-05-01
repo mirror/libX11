@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUngrabKeyboard (dpy, time)
-        register Display *dpy;
-	Time time;
+XUngrabKeyboard (
+        register Display *dpy,
+	Time time)
 {
         register xResourceReq *req;
 

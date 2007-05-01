@@ -32,13 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawLines (dpy, d, gc, points, npoints, mode)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    XPoint *points;
-    int npoints;
-    int mode;
+XDrawLines (
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    XPoint *points,
+    int npoints,
+    int mode)
 {
     register xPolyLineReq *req;
     register long length;

@@ -54,12 +54,12 @@
  *	SYNOPSIS
  */
 Status
-XcmsQueryColors(dpy, colormap, pXcmsColors_in_out, nColors, result_format)
-    Display *dpy;
-    Colormap colormap;
-    XcmsColor *pXcmsColors_in_out;
-    unsigned int nColors;
-    XcmsColorFormat result_format;
+XcmsQueryColors(
+    Display *dpy,
+    Colormap colormap,
+    XcmsColor *pXcmsColors_in_out,
+    unsigned int nColors,
+    XcmsColorFormat result_format)
 /*
  *	DESCRIPTION
  *		This routine uses XQueryColors to obtain the X RGB values

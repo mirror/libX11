@@ -32,10 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XFreePixmap(dpy, pixmap)
-    register Display *dpy;
-    Pixmap pixmap;
-
+XFreePixmap(
+    register Display *dpy,
+    Pixmap pixmap)
 {   
     register xResourceReq *req;    
     LockDisplay(dpy);

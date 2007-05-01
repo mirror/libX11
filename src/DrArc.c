@@ -38,13 +38,16 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawArc(dpy, d, gc, x, y, width, height, angle1, angle2)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    int x, y; /* INT16 */
-    unsigned int width, height; /* CARD16 */
-    int angle1, angle2; /* INT16 */
+XDrawArc(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    int x,
+    int y, /* INT16 */
+    unsigned int width,
+    unsigned int height, /* CARD16 */
+    int angle1, 
+    int angle2) /* INT16 */
 {
     register xPolyArcReq *req;
     register xArc *arc;

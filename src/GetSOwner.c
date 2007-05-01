@@ -31,9 +31,9 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Window XGetSelectionOwner(dpy, selection)
-register Display *dpy;
-Atom selection;
+Window XGetSelectionOwner(
+    register Display *dpy,
+    Atom selection)
 {
     xGetSelectionOwnerReply rep;
     register xResourceReq *req;

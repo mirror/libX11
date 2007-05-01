@@ -54,12 +54,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsCIELuvClipL (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsCIELuvClipL (
+    XcmsCCC ccc,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Return the closest L* for a specific hue and chroma.

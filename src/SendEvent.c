@@ -37,12 +37,12 @@ in this Software without prior written authorization from The Open Group.
  * event converter here if it has never been installed.
  */
 Status
-XSendEvent(dpy, w, propagate, event_mask, event)
-    register Display *dpy;
-    Window w;
-    Bool propagate;
-    long event_mask;
-    XEvent *event;
+XSendEvent(
+    register Display *dpy,
+    Window w,
+    Bool propagate,
+    long event_mask,
+    XEvent *event)
 {
     register xSendEventReq *req;
     xEvent ev;

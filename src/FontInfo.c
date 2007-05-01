@@ -226,10 +226,10 @@ XFontStruct **info)	/* RETURN */
 }
 
 int
-XFreeFontInfo (names, info, actualCount)
-char **names;
-XFontStruct *info;
-int actualCount;
+XFreeFontInfo (
+    char **names,
+    XFontStruct *info,
+    int actualCount)
 {
 	register int i;
 	if (names) {

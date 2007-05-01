@@ -56,15 +56,14 @@
  *	SYNOPSIS
  */
 Status
-XcmsCIELuvWhiteShiftColors(ccc, pWhitePtFrom, pWhitePtTo, destSpecFmt,
-	pColors_in_out, nColors, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pWhitePtFrom;
-    XcmsColor *pWhitePtTo;
-    XcmsColorFormat destSpecFmt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    Bool *pCompressed;
+XcmsCIELuvWhiteShiftColors(
+    XcmsCCC ccc,
+    XcmsColor *pWhitePtFrom,
+    XcmsColor *pWhitePtTo,
+    XcmsColorFormat destSpecFmt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Adjusts color specifications in an array of XcmsColor

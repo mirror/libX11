@@ -44,10 +44,10 @@ extern long const _Xevent_to_mask[];
  */
 
 int
-XMaskEvent (dpy, mask, event)
-	register Display *dpy;
-	long mask;		/* Selected event mask. */
-	register XEvent *event;	/* XEvent to be filled in. */
+XMaskEvent (
+	register Display *dpy,
+	long mask,		/* Selected event mask. */
+	register XEvent *event)	/* XEvent to be filled in. */
 {
 	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;

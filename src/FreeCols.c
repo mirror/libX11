@@ -32,12 +32,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XFreeColors(dpy, cmap, pixels, npixels, planes)
-register Display *dpy;
-Colormap cmap;
-unsigned long *pixels; /* LISTofCARD32 */
-int npixels;
-unsigned long planes; /* CARD32 */
+XFreeColors(
+    register Display *dpy,
+    Colormap cmap,
+    unsigned long *pixels, /* LISTofCARD32 */
+    int npixels,
+    unsigned long planes) /* CARD32 */
 {
     register xFreeColorsReq *req;
     register long nbytes;

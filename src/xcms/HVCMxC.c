@@ -74,11 +74,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCQueryMaxC(ccc, hue, value, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue;
-    XcmsFloat value;
-    XcmsColor *pColor_return;
+XcmsTekHVCQueryMaxC(
+    XcmsCCC ccc, 
+    XcmsFloat hue,
+    XcmsFloat value,
+    XcmsColor *pColor_return)
 /*
  *	DESCRIPTION
  *		Return the maximum chroma for a specific hue and value.

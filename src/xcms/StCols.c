@@ -55,13 +55,12 @@
  *	SYNOPSIS
  */
 Status
-XcmsStoreColors(dpy, colormap, pColors_in,
-	nColors, pCompressed)
-    Display *dpy;
-    Colormap colormap;
-    XcmsColor *pColors_in;
-    unsigned int nColors;
-    Bool *pCompressed;
+XcmsStoreColors(
+    Display *dpy,
+    Colormap colormap,
+    XcmsColor *pColors_in,
+    unsigned int nColors,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Given device-dependent or device-independent color

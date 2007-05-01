@@ -38,15 +38,15 @@ in this Software without prior written authorization from The Open Group.
  * matches, return.  If all else fails, tell the user no events found.
  */
 
-Bool XCheckIfEvent (dpy, event, predicate, arg)
-        register Display *dpy;
+Bool XCheckIfEvent (
+	register Display *dpy,
+	register XEvent *event,		/* XEvent to be filled in. */
 	Bool (*predicate)(
 			  Display*			/* display */,
 			  XEvent*			/* event */,
 			  char*				/* arg */
-			  );		/* function to call */
-	register XEvent *event;		/* XEvent to be filled in. */
-	char *arg;
+			  ),		/* function to call */
+	char *arg)
 {
 	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;

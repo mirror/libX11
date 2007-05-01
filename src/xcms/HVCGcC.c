@@ -67,12 +67,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsTekHVCClipC (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsTekHVCClipC (
+    XcmsCCC ccc, 
+    XcmsColor *pColors_in_out, 
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Reduce the Chroma for a specific hue and value to

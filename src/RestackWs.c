@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XRestackWindows (dpy, windows, n)
-    register Display *dpy;
-    register Window *windows;
-    int n;
-    {
+XRestackWindows (
+    register Display *dpy,
+    register Window *windows,
+    int n)
+{
     int i = 0;
 #ifdef MUSTCOPY
     unsigned long val = Below;		/* needed for macro below */

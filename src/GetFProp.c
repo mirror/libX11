@@ -30,11 +30,11 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Bool XGetFontProperty (fs, name, valuePtr)
-    XFontStruct *fs;
-    register Atom name;
-    unsigned long *valuePtr;
-    {
+Bool XGetFontProperty (
+    XFontStruct *fs,
+    register Atom name,
+    unsigned long *valuePtr)
+{
     /* XXX this is a simple linear search for now.  If the
       protocol is changed to sort the property list, this should
       become a binary search. */

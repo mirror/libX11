@@ -32,13 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XRotateWindowProperties(dpy, w, properties, nprops, npositions)
-    register Display *dpy;
-    Window w;
-    Atom *properties;
-    register int nprops;
-    int npositions;
-    {
+XRotateWindowProperties(
+    register Display *dpy,
+    Window w,
+    Atom *properties,
+    register int nprops,
+    int npositions)
+{
     register long nbytes;
     register xRotatePropertiesReq *req;
 

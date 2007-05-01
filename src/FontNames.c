@@ -101,8 +101,7 @@ int *actualCount)	/* RETURN */
 }
 
 int
-XFreeFontNames(list)
-char **list;
+XFreeFontNames(char **list)
 {       
 	if (list) {
 		if (!*(list[0]-1)) { /* from ListFontsWithInfo */

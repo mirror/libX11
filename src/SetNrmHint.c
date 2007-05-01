@@ -60,11 +60,11 @@ from The Open Group.
 #include <X11/Xatom.h>
 #include <X11/Xos.h>
 
-void XSetWMSizeHints (dpy, w, hints, prop)
-    Display *dpy;
-    Window w;
-    XSizeHints *hints;
-    Atom prop;
+void XSetWMSizeHints (
+    Display *dpy,
+    Window w,
+    XSizeHints *hints,
+    Atom prop)
 {
     xPropSizeHints data;
 
@@ -118,10 +118,10 @@ void XSetWMSizeHints (dpy, w, hints, prop)
 }
 
 
-void XSetWMNormalHints (dpy, w, hints)
-    Display *dpy;
-    Window w;
-    XSizeHints *hints;
+void XSetWMNormalHints (
+    Display *dpy,
+    Window w,
+    XSizeHints *hints)
 {
     XSetWMSizeHints (dpy, w, hints, XA_WM_NORMAL_HINTS);
 }

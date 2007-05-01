@@ -34,12 +34,12 @@ in this Software without prior written authorization from The Open Group.
 #define arc_scale (SIZEOF(xArc) / 4)
 
 int
-XFillArcs(dpy, d, gc, arcs, n_arcs)
-register Display *dpy;
-Drawable d;
-GC gc;
-XArc *arcs;
-int n_arcs;
+XFillArcs(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    XArc *arcs,
+    int n_arcs)
 {
     register xPolyFillArcReq *req;
     long len;

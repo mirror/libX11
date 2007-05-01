@@ -72,9 +72,9 @@ extern long const _Xevent_to_mask[];
  * Look up if there is a specified filter for the event.
  */
 Bool
-XFilterEvent(ev, window)
-    XEvent *ev;
-    Window window;
+XFilterEvent(
+    XEvent *ev,
+    Window window)
 {
 #if XLOCALE
     XFilterEventList	p;

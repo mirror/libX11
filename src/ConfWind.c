@@ -32,11 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XMoveResizeWindow(dpy, w, x, y, width, height)
-register Display *dpy;
-Window w;
-int x, y;
-unsigned int width, height;
+XMoveResizeWindow(
+    register Display *dpy,
+    Window w,
+    int x,
+    int y,
+    unsigned int width,
+    unsigned int height)
 {
     register xConfigureWindowReq *req;
 

@@ -32,15 +32,17 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XCopyArea(dpy, src_drawable, dst_drawable, gc,
-	  src_x, src_y, width, height,
-	  dst_x, dst_y)
-     register Display *dpy;
-     Drawable src_drawable, dst_drawable;
-     GC gc;
-     int src_x, src_y;
-     unsigned int width, height;
-     int dst_x, dst_y;
+XCopyArea(
+     register Display *dpy,
+     Drawable src_drawable,
+     Drawable dst_drawable,
+     GC gc,
+     int src_x,
+     int src_y,
+     unsigned int width,
+     unsigned int height,
+     int dst_x, 
+     int dst_y)
 
 {
     register xCopyAreaReq *req;

@@ -47,8 +47,7 @@ XOpenOM(Display *dpy, XrmDatabase rdb, _Xconst char *res_name,
 }
 
 Status
-XCloseOM(om)
-    XOM om;
+XCloseOM(XOM om)
 {
     XOC oc, next;
     XLCd lcd = om->core.lcd;
@@ -120,15 +119,13 @@ XGetOMValues(XOM om, ...)
 }
 
 Display *
-XDisplayOfOM(om)
-    XOM om;
+XDisplayOfOM(XOM om)
 {
     return om->core.display;
 }
 
 char *
-XLocaleOfOM(om)
-    XOM om;
+XLocaleOfOM(XOM om)
 {
     return om->core.lcd->core->name;
 }

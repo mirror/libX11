@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XFreeCursor(dpy, cursor)
-    register Display *dpy;
-    Cursor cursor;
+XFreeCursor(
+    register Display *dpy,
+    Cursor cursor)
 {
     register xResourceReq *req;
     LockDisplay(dpy);

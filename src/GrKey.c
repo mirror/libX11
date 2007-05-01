@@ -32,14 +32,14 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGrabKey(dpy, key, modifiers, grab_window, owner_events, 
-	 pointer_mode, keyboard_mode)
-    register Display *dpy;
-    int key;
-    unsigned int modifiers;
-    Window grab_window;
-    Bool owner_events;
-    int pointer_mode, keyboard_mode;
+XGrabKey(
+    register Display *dpy,
+    int key,
+    unsigned int modifiers,
+    Window grab_window,
+    Bool owner_events,
+    int pointer_mode, 
+    int keyboard_mode)
 
 {
     register xGrabKeyReq *req;

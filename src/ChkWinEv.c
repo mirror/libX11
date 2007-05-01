@@ -43,11 +43,11 @@ extern long const _Xevent_to_mask[];
  * matches, return.  If all else fails, tell the user no events found.
  */
 
-Bool XCheckWindowEvent (dpy, w, mask, event)
-        register Display *dpy;
-	Window w;		/* Selected window. */
-	long mask;		/* Selected event mask. */
-	register XEvent *event;	/* XEvent to be filled in. */
+Bool XCheckWindowEvent (
+	register Display *dpy,
+	Window w,		/* Selected window. */
+	long mask,		/* Selected event mask. */
+	register XEvent *event)	/* XEvent to be filled in. */
 {
  	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;

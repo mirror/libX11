@@ -75,12 +75,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsTekHVCClipVC (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsTekHVCClipVC (
+    XcmsCCC ccc, 
+    XcmsColor *pColors_in_out, 
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		This routine will find the closest value and chroma 

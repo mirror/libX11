@@ -32,12 +32,14 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XClearArea (dpy, w, x, y, width, height, exposures)
-    register Display *dpy;
-    Window w;
-    int x, y;
-    unsigned int width, height;
-    Bool exposures;
+XClearArea (
+    register Display *dpy,
+    Window w,
+    int x, 
+    int y,
+    unsigned int width,
+    unsigned int height,
+    Bool exposures)
 {
     register xClearAreaReq *req;
 

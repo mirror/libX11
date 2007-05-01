@@ -39,9 +39,9 @@ in this Software without prior written authorization from The Open Group.
  */
 
 int
-XPeekEvent (dpy, event)
-	register Display *dpy;
-	register XEvent *event;
+XPeekEvent (
+	register Display *dpy,
+	register XEvent *event)
 {
 	LockDisplay(dpy);
 	if (dpy->head == NULL)

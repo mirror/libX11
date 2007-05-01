@@ -330,11 +330,11 @@ XcmsTekHVC_ValidSpec(
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCToCIEuvY(ccc, pHVC_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *pHVC_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsTekHVCToCIEuvY(
+    XcmsCCC ccc,
+    XcmsColor *pHVC_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Transforms an array of TekHVC color specifications, given
@@ -451,11 +451,11 @@ XcmsTekHVCToCIEuvY(ccc, pHVC_WhitePt, pColors_in_out, nColors)
  *	SYNOPSIS
  */
 Status
-XcmsCIEuvYToTekHVC(ccc, pHVC_WhitePt, pColors_in_out, nColors)
-    XcmsCCC ccc;
-    XcmsColor *pHVC_WhitePt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
+XcmsCIEuvYToTekHVC(
+    XcmsCCC ccc,
+    XcmsColor *pHVC_WhitePt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors)
 /*
  *	DESCRIPTION
  *		Transforms an array of CIECIEuvY.color specifications, given

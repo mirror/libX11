@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDestroySubwindows(dpy, win)
-register Display *dpy;
-Window win;
+XDestroySubwindows(
+    register Display *dpy,
+    Window win)
 {
     register xResourceReq *req;
 

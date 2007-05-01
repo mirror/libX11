@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XMapRaised (dpy, w)
-    Window w;
-    register Display *dpy;
+XMapRaised (
+    register Display *dpy,
+    Window w)
 {
     register xConfigureWindowReq *req;
     register xResourceReq *req2;

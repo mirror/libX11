@@ -31,8 +31,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 #include <X11/Xatom.h>
 
-char *XScreenResourceString(screen)
-	Screen *screen;
+char *XScreenResourceString(Screen *screen)
 {
     Atom prop_name;
     Atom actual_type;

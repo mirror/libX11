@@ -39,10 +39,10 @@ in this Software without prior written authorization from The Open Group.
  * count.
  */
 
-Status XStringListToTextProperty (argv, argc, textprop)
-    char **argv;
-    int argc;
-    XTextProperty *textprop;
+Status XStringListToTextProperty (
+    char **argv,
+    int argc,
+    XTextProperty *textprop)
 {
     register int i;
     register unsigned int nbytes;

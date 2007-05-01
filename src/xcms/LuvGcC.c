@@ -54,12 +54,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsCIELuvClipuv (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsCIELuvClipuv (
+    XcmsCCC ccc,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Reduce the Chroma for a specific hue and chroma to

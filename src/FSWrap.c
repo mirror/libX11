@@ -208,10 +208,10 @@ XCreateFontSet (
 }
 
 int
-XFontsOfFontSet(font_set, font_struct_list, font_name_list)
-    XFontSet        font_set;
-    XFontStruct  ***font_struct_list;
-    char         ***font_name_list;
+XFontsOfFontSet(
+    XFontSet        font_set,
+    XFontStruct  ***font_struct_list,
+    char         ***font_name_list)
 {
     *font_name_list   = font_set->core.font_info.font_name_list;
     *font_struct_list = font_set->core.font_info.font_struct_list;
@@ -219,42 +219,37 @@ XFontsOfFontSet(font_set, font_struct_list, font_name_list)
 }
 
 char *
-XBaseFontNameListOfFontSet(font_set)
-    XFontSet        font_set;
+XBaseFontNameListOfFontSet(XFontSet font_set)
 {
     return font_set->core.base_name_list;
 }
 
 char *
-XLocaleOfFontSet(font_set)
-    XFontSet        font_set;
+XLocaleOfFontSet(XFontSet font_set)
 {
     return font_set->core.om->core.lcd->core->name;
 }
 
-extern Bool XContextDependentDrawing(font_set)
-    XFontSet        font_set;
+Bool
+XContextDependentDrawing(XFontSet font_set)
 {
     return font_set->core.om->core.context_dependent;
 }
 
 Bool
-XDirectionalDependentDrawing(font_set)
-    XFontSet        font_set;
+XDirectionalDependentDrawing(XFontSet font_set)
 {
     return font_set->core.om->core.directional_dependent;
 }
 
 Bool
-XContextualDrawing(font_set)
-    XFontSet        font_set;
+XContextualDrawing(XFontSet font_set)
 {
     return font_set->core.om->core.contextual_drawing;
 }
 
 XFontSetExtents *
-XExtentsOfFontSet(font_set)
-    XFontSet        font_set;
+XExtentsOfFontSet(XFontSet font_set)
 {
     if (!font_set)
 	return NULL;
@@ -262,9 +257,9 @@ XExtentsOfFontSet(font_set)
 }
 
 void
-XFreeFontSet(dpy, font_set)
-    Display        *dpy;
-    XFontSet        font_set;
+XFreeFontSet(
+    Display        *dpy,
+    XFontSet        font_set)
 {
     XCloseOM(font_set->core.om);
 }

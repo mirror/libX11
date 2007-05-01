@@ -33,11 +33,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XQueryColors(dpy, cmap, defs, ncolors)
-    register Display *dpy;
-    Colormap cmap;
-    XColor *defs; 		/* RETURN */
-    int ncolors;
+XQueryColors(
+    register Display *dpy,
+    Colormap cmap,
+    XColor *defs, 		/* RETURN */
+    int ncolors)
 {
     register int i;
     xrgb *color;

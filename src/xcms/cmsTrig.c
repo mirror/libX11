@@ -509,8 +509,7 @@ static double _XcmsPolynomial(
  */
 
 double
-_XcmsSine (x)
-double x;
+_XcmsSine (double x)
 {
     double y;
     double yt2;
@@ -550,8 +549,7 @@ double x;
  *	SYNOPSIS
  */
 double
-_XcmsArcTangent(x)
-    double x;
+_XcmsArcTangent(double x)
 /*
  *	DESCRIPTION
  *		Computes the arctangent.

@@ -37,11 +37,14 @@ in this Software without prior written authorization from The Open Group.
 #define zsize (SIZEOF(xPolySegmentReq) + ZLNSPERBATCH * SIZEOF(xSegment))
 
 int
-XDrawLine (dpy, d, gc, x1, y1, x2, y2)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    int x1, y1, x2, y2;
+XDrawLine (
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    int x1,
+    int y1, 
+    int x2, 
+    int y2)
 {
     register xSegment *segment;
 #ifdef MUSTCOPY

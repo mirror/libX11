@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XRaiseWindow (dpy, w)
-    register Display *dpy;
-    Window w;
+XRaiseWindow (
+    register Display *dpy,
+    Window w)
 {
     register xConfigureWindowReq *req;
     unsigned long val = Above;		/* needed for macro below */

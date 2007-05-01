@@ -44,17 +44,17 @@ static Atom n_to_atom[8] = {
 	XA_CUT_BUFFER7};
 
 int
-XRotateBuffers (dpy, rotate)
-    register Display *dpy;
-    int rotate;
+XRotateBuffers (
+    register Display *dpy,
+    int rotate)
 {
     return XRotateWindowProperties(dpy, RootWindow(dpy, 0), n_to_atom, 8, rotate);
 }
     
-char *XFetchBuffer (dpy, nbytes, buffer)
-    register Display *dpy;
-    int *nbytes;
-    register int buffer;
+char *XFetchBuffer (
+    register Display *dpy,
+    int *nbytes,
+    register int buffer)
 {
     Atom actual_type;
     int actual_format;
@@ -77,9 +77,9 @@ char *XFetchBuffer (dpy, nbytes, buffer)
     return(NULL);
 }
 
-char *XFetchBytes (dpy, nbytes)
-    register Display *dpy;
-    int *nbytes;
+char *XFetchBytes (
+    register Display *dpy,
+    int *nbytes)
 {
     return (XFetchBuffer (dpy, nbytes, 0));
 }

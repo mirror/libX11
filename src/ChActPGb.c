@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XChangeActivePointerGrab(dpy, event_mask, curs, time)
-register Display *dpy;
-unsigned int event_mask; /* CARD16 */
-Cursor curs;
-Time time;
+XChangeActivePointerGrab(
+    register Display *dpy,
+    unsigned int event_mask, /* CARD16 */
+    Cursor curs,
+    Time time)
 {
     register xChangeActivePointerGrabReq *req;
 

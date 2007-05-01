@@ -37,10 +37,9 @@ struct kmap {
 };
 
 int
-XQueryKeymap(dpy, keys)
-    register Display *dpy;
-    char keys[32];
-
+XQueryKeymap(
+    register Display *dpy,
+    char keys[32])
 {       
     xQueryKeymapReply rep;
     register xReq *req;

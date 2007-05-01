@@ -32,13 +32,16 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XWarpPointer(dpy, src_win, dest_win, src_x, src_y, src_width, src_height,
-	     dest_x, dest_y)
-     register Display *dpy;
-     Window src_win, dest_win;
-     int src_x, src_y;
-     unsigned int src_width, src_height;
-     int dest_x, dest_y;
+XWarpPointer(
+     register Display *dpy,
+     Window src_win,
+     Window dest_win,
+     int src_x,
+     int src_y,
+     unsigned int src_width,
+     unsigned int src_height,
+     int dest_x,
+     int dest_y)
 {       
     register xWarpPointerReq *req;
 

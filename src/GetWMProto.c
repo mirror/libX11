@@ -54,11 +54,11 @@ SOFTWARE.
 #include <X11/Xatom.h>
 #include <stdio.h>
 
-Status XGetWMProtocols (dpy, w, protocols, countReturn)
-    Display *dpy;
-    Window w;
-    Atom **protocols;
-    int *countReturn;
+Status XGetWMProtocols (
+    Display *dpy,
+    Window w,
+    Atom **protocols,
+    int *countReturn)
 {
     Atom *data = NULL;
     Atom actual_type;

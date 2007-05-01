@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSelectInput (dpy, w, mask)
-    register Display *dpy;
-    Window w;
-    long mask;
+XSelectInput (
+    register Display *dpy,
+    Window w,
+    long mask)
 {
     register xChangeWindowAttributesReq *req;
 

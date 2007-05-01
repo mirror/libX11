@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUnloadFont(dpy, font)
-     register Display *dpy;
-     Font font;
+XUnloadFont(
+     register Display *dpy,
+     Font font)
 {       
     register xResourceReq *req;
 

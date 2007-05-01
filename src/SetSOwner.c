@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetSelectionOwner(dpy, selection, owner, time)
-register Display *dpy;
-Atom selection;
-Window owner;
-Time time;
+XSetSelectionOwner(
+    register Display *dpy,
+    Atom selection,
+    Window owner,
+    Time time)
 {
     register xSetSelectionOwnerReq *req;
 

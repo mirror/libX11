@@ -38,9 +38,9 @@ in this Software without prior written authorization from The Open Group.
  */
 
 int
-XNextEvent (dpy, event)
-	register Display *dpy;
-	register XEvent *event;
+XNextEvent (
+	register Display *dpy,
+	register XEvent *event)
 {
 	register _XQEvent *qelt;
 	

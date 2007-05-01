@@ -54,11 +54,11 @@ SOFTWARE.
 #include <X11/Xatom.h>
 #include <stdio.h>
 
-Status XGetWMColormapWindows (dpy, w, colormapWindows, countReturn)
-    Display *dpy;
-    Window w;
-    Window **colormapWindows;
-    int *countReturn;
+Status XGetWMColormapWindows (
+    Display *dpy,
+    Window w,
+    Window **colormapWindows,
+    int *countReturn)
 {
     Atom *data = NULL;
     Atom actual_type;

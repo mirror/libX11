@@ -58,11 +58,11 @@ SOFTWARE.
  *	WM_COLORMAP_WINDOWS 	type: WINDOW	format:32
  */
 
-Status XSetWMColormapWindows (dpy, w, windows, count)
-    Display *dpy;
-    Window w;
-    Window *windows;
-    int count;
+Status XSetWMColormapWindows (
+    Display *dpy,
+    Window w,
+    Window *windows,
+    int count)
 {
     Atom prop;
 

@@ -42,9 +42,9 @@ extern XcmsCmapRec * _XcmsCopyCmapRecAndFree(Display *dpy,
 					     Colormap copy_cmap);
 #endif
 
-Colormap XCopyColormapAndFree(dpy, src_cmap)
-register Display *dpy;
-Colormap src_cmap;
+Colormap XCopyColormapAndFree(
+    register Display *dpy,
+    Colormap src_cmap)
 {
     Colormap mid;
     register xCopyColormapAndFreeReq *req;

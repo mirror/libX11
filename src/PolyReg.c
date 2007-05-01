@@ -473,10 +473,10 @@ static int PtsToRegion(
  *     encoding is in the form of an array of rectangles.
  */
 Region 
-XPolygonRegion(Pts, Count, rule)
-    int       Count;                 /* number of pts           */
-    XPoint     *Pts;		     /* the pts                 */
-    int	rule;			     /* winding rule */
+XPolygonRegion(
+    XPoint     *Pts,		     /* the pts                 */
+    int       Count,                 /* number of pts           */
+    int	rule)			     /* winding rule */
 {
     Region region;
     register EdgeTableEntry *pAET;   /* Active Edge Table       */

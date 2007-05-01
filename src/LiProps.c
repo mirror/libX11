@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Atom *XListProperties(dpy, window, n_props)
-register Display *dpy;
-Window window;
-int *n_props;  /* RETURN */
+Atom *XListProperties(
+    register Display *dpy,
+    Window window,
+    int *n_props)  /* RETURN */
 {
     long nbytes;
     xListPropertiesReply rep;

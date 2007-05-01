@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetWindowColormap(dpy, w, colormap)
-    register Display *dpy;
-    Window w;
-    Colormap colormap;
+XSetWindowColormap(
+    register Display *dpy,
+    Window w,
+    Colormap colormap)
 {
     register xChangeWindowAttributesReq *req;
 

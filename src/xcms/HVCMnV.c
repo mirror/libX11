@@ -71,11 +71,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCQueryMinV (ccc, hue, chroma, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue;
-    XcmsFloat chroma;
-    XcmsColor *pColor_return;
+XcmsTekHVCQueryMinV (
+    XcmsCCC ccc,
+    XcmsFloat hue,
+    XcmsFloat chroma,
+    XcmsColor *pColor_return)
 
 /*
  *	DESCRIPTION

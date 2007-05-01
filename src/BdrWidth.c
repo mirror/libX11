@@ -35,10 +35,10 @@ from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetWindowBorderWidth(dpy, w, width)
-Display *dpy;
-Window w;
-unsigned int width;
+XSetWindowBorderWidth(
+    Display *dpy,
+    Window w,
+    unsigned int width)
 {
     unsigned long lwidth = width;	/* must be CARD32 */
 

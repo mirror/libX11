@@ -94,11 +94,11 @@ static const char * const _XErrorList[] = {
 
 
 int
-XGetErrorText(dpy, code, buffer, nbytes)
-    register int code;
-    register Display *dpy;
-    char *buffer;
-    int nbytes;
+XGetErrorText(
+    register Display *dpy,
+    register int code,
+    char *buffer,
+    int nbytes)
 {
     char buf[150];
     register _XExtension *ext;

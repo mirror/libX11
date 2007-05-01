@@ -33,11 +33,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGetPointerControl(dpy, accel_numer, accel_denom, threshold)
-     register Display *dpy;
+XGetPointerControl(
+     register Display *dpy,
      /* the following are return only vars */
-     int *accel_numer, *accel_denom;
-     int *threshold;
+     int *accel_numer,
+     int *accel_denom,
+     int *threshold)
 {       
     xGetPointerControlReply rep;
     xReq *req;

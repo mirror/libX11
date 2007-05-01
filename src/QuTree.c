@@ -32,13 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Status XQueryTree (dpy, w, root, parent, children, nchildren)
-    register Display *dpy;
-    Window w;
-    Window *root;	/* RETURN */
-    Window *parent;	/* RETURN */
-    Window **children;	/* RETURN */
-    unsigned int *nchildren;  /* RETURN */
+Status XQueryTree (
+    register Display *dpy,
+    Window w,
+    Window *root,	/* RETURN */
+    Window *parent,	/* RETURN */
+    Window **children,	/* RETURN */
+    unsigned int *nchildren)  /* RETURN */
 {
     long nbytes;
     xQueryTreeReply rep;

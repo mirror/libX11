@@ -307,20 +307,19 @@ void _XInitImageFuncPtrs (
  * 
  */
 
-XImage *XCreateImage (dpy, visual, depth, format, offset, data, width, height,
-    xpad, image_bytes_per_line)
-    register Display *dpy;
-    register Visual *visual;
-    unsigned int depth;
-    int format;
-    int offset; /*How many pixels from the start of the data does the
+XImage *XCreateImage (
+    register Display *dpy,
+    register Visual *visual,
+    unsigned int depth,
+    int format,
+    int offset, /*How many pixels from the start of the data does the
 		picture to be transmitted start?*/
 
-    char *data;
-    unsigned int width;
-    unsigned int height;
-    int xpad;	
-    int image_bytes_per_line; 
+    char *data,
+    unsigned int width,
+    unsigned int height,
+    int xpad,
+    int image_bytes_per_line) 
 		/*How many bytes between a pixel on one line and the pixel with
 		  the same X coordinate on the next line? 0 means
 		  XCreateImage can calculate it.*/
@@ -387,8 +386,7 @@ XImage *XCreateImage (dpy, visual, depth, format, offset, data, width, height,
 	return image;
 }
 
-Status XInitImage (image)
-    XImage *image;
+Status XInitImage (XImage *image)
 {
 	int min_bytes_per_line;
 
@@ -435,9 +433,7 @@ Status XInitImage (image)
  * entirely by the library.
  */
 
-static int _XDestroyImage (ximage)
-    XImage *ximage;
-
+static int _XDestroyImage (XImage *ximage)
 {
 	if (ximage->data != NULL) Xfree((char *)ximage->data);
 	if (ximage->obdata != NULL) Xfree((char *)ximage->obdata);
@@ -472,10 +468,10 @@ static unsigned long const low_bits_table[] = {
     0xffffffff
 };
 
-static unsigned long _XGetPixel (ximage, x, y)
-    register XImage *ximage;
-    int x;
-    int y;
+static unsigned long _XGetPixel (
+    register XImage *ximage,
+    int x,
+    int y)
 
 {
 	unsigned long pixel, px;
@@ -537,10 +533,10 @@ static unsigned long _XGetPixel (ximage, x, y)
 static CARD32 const byteorderpixel = MSBFirst << 24;
 #endif
 
-static unsigned long _XGetPixel32 (ximage, x, y)
-    register XImage *ximage;
-    int x;
-    int y;
+static unsigned long _XGetPixel32 (
+    register XImage *ximage,
+    int x,
+    int y)
 {
 	register unsigned char *addr;
 	unsigned long pixel;
@@ -572,10 +568,10 @@ static unsigned long _XGetPixel32 (ximage, x, y)
 	}
 }
 
-static unsigned long _XGetPixel16 (ximage, x, y)
-    register XImage *ximage;
-    int x;
-    int y;
+static unsigned long _XGetPixel16 (
+    register XImage *ximage,
+    int x,
+    int y)
 {
 	register unsigned char *addr;
 	unsigned long pixel;
@@ -596,10 +592,10 @@ static unsigned long _XGetPixel16 (ximage, x, y)
 	}
 }
 
-static unsigned long _XGetPixel8 (ximage, x, y)
-    register XImage *ximage;
-    int x;
-    int y;
+static unsigned long _XGetPixel8 (
+    register XImage *ximage,
+    int x,
+    int y)
 {
 	unsigned char pixel;
 
@@ -615,10 +611,10 @@ static unsigned long _XGetPixel8 (ximage, x, y)
 	}
 }
 
-static unsigned long _XGetPixel1 (ximage, x, y)
-    register XImage *ximage;
-    int x;
-    int y;
+static unsigned long _XGetPixel1 (
+    register XImage *ximage,
+    int x,
+    int y)
 {
 	unsigned char bit;
 	int xoff, yoff;
@@ -655,11 +651,11 @@ static unsigned long _XGetPixel1 (ximage, x, y)
  *
  */
 
-static int _XPutPixel (ximage, x, y, pixel)
-    register XImage *ximage;
-    int x;
-    int y;
-    unsigned long pixel;
+static int _XPutPixel (
+    register XImage *ximage,
+    int x,
+    int y,
+    unsigned long pixel)
 
 {
 	unsigned long px, npixel;
@@ -728,11 +724,11 @@ static int _XPutPixel (ximage, x, y, pixel)
 	return 1;
 }
 
-static int _XPutPixel32 (ximage, x, y, pixel)
-    register XImage *ximage;
-    int x;
-    int y;
-    unsigned long pixel;
+static int _XPutPixel32 (
+    register XImage *ximage,
+    int x,
+    int y,
+    unsigned long pixel)
 {
 	unsigned char *addr;
 
@@ -762,11 +758,11 @@ static int _XPutPixel32 (ximage, x, y, pixel)
 	}
 }
 
-static int _XPutPixel16 (ximage, x, y, pixel)
-    register XImage *ximage;
-    int x;
-    int y;
-    unsigned long pixel;
+static int _XPutPixel16 (
+    register XImage *ximage,
+    int x,
+    int y,
+    unsigned long pixel)
 {
 	unsigned char *addr;
 
@@ -787,11 +783,11 @@ static int _XPutPixel16 (ximage, x, y, pixel)
 	}
 }
 
-static int _XPutPixel8 (ximage, x, y, pixel)
-    register XImage *ximage;
-    int x;
-    int y;
-    unsigned long pixel;
+static int _XPutPixel8 (
+    register XImage *ximage,
+    int x,
+    int y,
+    unsigned long pixel)
 {
 	if ((ximage->format == ZPixmap) && (ximage->bits_per_pixel == 8)) {
 	    ximage->data[y * ximage->bytes_per_line + x] = pixel;
@@ -802,11 +798,11 @@ static int _XPutPixel8 (ximage, x, y, pixel)
 	}
 }
 
-static int _XPutPixel1 (ximage, x, y, pixel)
-    register XImage *ximage;
-    int x;
-    int y;
-    unsigned long pixel;
+static int _XPutPixel1 (
+    register XImage *ximage,
+    int x,
+    int y,
+    unsigned long pixel)
 {
 	unsigned char bit;
 	int xoff, yoff;
@@ -841,12 +837,12 @@ static int _XPutPixel1 (ximage, x, y, pixel)
  *
  */
 
-static XImage *_XSubImage (ximage, x, y, width, height)
-    XImage *ximage;
-    register int x;	/* starting x coordinate in existing image */
-    register int y;	/* starting y coordinate in existing image */
-    unsigned int width;	/* width in pixels of new subimage */
-    unsigned int height;/* height in pixels of new subimage */
+static XImage *_XSubImage (
+    XImage *ximage,
+    register int x,	/* starting x coordinate in existing image */
+    register int y,	/* starting y coordinate in existing image */
+    unsigned int width,	/* width in pixels of new subimage */
+    unsigned int height)/* height in pixels of new subimage */
 
 {
 	register XImage *subimage;
@@ -973,9 +969,9 @@ int _XSetImage(
  */
 
 static int
-_XAddPixel (ximage, value)
-    register XImage *ximage;
-    register long value;
+_XAddPixel (
+    register XImage *ximage,
+    register long value)
 {
 	register int x;
 	register int y;

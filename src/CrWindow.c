@@ -30,14 +30,16 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Window XCreateSimpleWindow(dpy, parent, x, y, width, height, 
-                      borderWidth, border, background)
-    register Display *dpy;
-    Window parent;
-    int x, y;
-    unsigned int width, height, borderWidth;
-    unsigned long border;
-    unsigned long background;
+Window XCreateSimpleWindow(
+    register Display *dpy,
+    Window parent,
+    int x, 
+    int y,
+    unsigned int width, 
+    unsigned int height,
+    unsigned int borderWidth,
+    unsigned long border,
+    unsigned long background)
 {
     Window wid;
     register xCreateWindowReq *req;

@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XAllowEvents(dpy, mode, time)
-    register Display *dpy;
-    int mode;
-    Time time;
+XAllowEvents(
+    register Display *dpy,
+    int mode,
+    Time time)
 
 {
     register xAllowEventsReq *req;

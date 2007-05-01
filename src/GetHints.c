@@ -58,11 +58,11 @@ SOFTWARE.
 #include <X11/Xatom.h>
 #include <stdio.h>
 
-Status XGetSizeHints (dpy, w, hints, property)
-	Display *dpy;
-	Window w;
-	XSizeHints *hints;
-        Atom property;
+Status XGetSizeHints (
+	Display *dpy,
+	Window w,
+	XSizeHints *hints,
+        Atom property)
 {
 	xPropSizeHints *prop = NULL;
         Atom actual_type;
@@ -105,9 +105,9 @@ Status XGetSizeHints (dpy, w, hints, property)
  * on.
  */
 
-XWMHints *XGetWMHints (dpy, w)
-	Display *dpy;
-	Window w;
+XWMHints *XGetWMHints (
+	Display *dpy,
+	Window w)
 {
 	xPropWMHints *prop = NULL;
 	register XWMHints *hints;
@@ -149,19 +149,19 @@ XWMHints *XGetWMHints (dpy, w)
 }
 
 Status
-XGetZoomHints (dpy, w, zhints)
-	Display *dpy;
-	Window w;
-	XSizeHints *zhints;
+XGetZoomHints (
+	Display *dpy,
+	Window w,
+	XSizeHints *zhints)
 {
 	return (XGetSizeHints(dpy, w, zhints, XA_WM_ZOOM_HINTS));
 }
 
 Status
-XGetNormalHints (dpy, w, hints)
-	Display *dpy;
-	Window w;
-	XSizeHints *hints;
+XGetNormalHints (
+	Display *dpy,
+	Window w,
+	XSizeHints *hints)
 {
 	return (XGetSizeHints(dpy, w, hints, XA_WM_NORMAL_HINTS));
 }
@@ -172,11 +172,11 @@ XGetNormalHints (dpy, w, hints)
  *	ICONSIZE_ATOM	type: ICONSIZE_ATOM format: 32
  */
 
-Status XGetIconSizes (dpy, w, size_list, count)
-	Display *dpy;
-	Window w;	/* typically, root */
-	XIconSize **size_list;	/* RETURN */
-	int *count; 		/* RETURN number of items on the list */
+Status XGetIconSizes (
+	Display *dpy,
+	Window w,	/* typically, root */
+	XIconSize **size_list,	/* RETURN */
+	int *count) 		/* RETURN number of items on the list */
 {
 	xPropIconSize *prop = NULL;
 	register xPropIconSize *pp;
@@ -229,11 +229,11 @@ Status XGetIconSizes (dpy, w, size_list, count)
 }
 
 
-Status XGetCommand (dpy, w, argvp, argcp)
-    Display *dpy;
-    Window w;
-    char ***argvp;
-    int *argcp;
+Status XGetCommand (
+    Display *dpy,
+    Window w,
+    char ***argvp,
+    int *argcp)
 {
     XTextProperty tp;
     int argc;
@@ -269,10 +269,10 @@ Status XGetCommand (dpy, w, argvp, argcp)
 
 
 Status
-XGetTransientForHint(dpy, w, propWindow)
-	Display *dpy;
-	Window w;
-	Window *propWindow;
+XGetTransientForHint(
+	Display *dpy,
+	Window w,
+	Window *propWindow)
 {
     Atom actual_type;
     int actual_format;
@@ -299,10 +299,10 @@ XGetTransientForHint(dpy, w, propWindow)
 }
 
 Status
-XGetClassHint(dpy, w, classhint)
-	Display *dpy;
-	Window w;
-	XClassHint *classhint;	/* RETURN */
+XGetClassHint(
+	Display *dpy,
+	Window w,
+	XClassHint *classhint)	/* RETURN */
 {
     int len_name, len_class;
 

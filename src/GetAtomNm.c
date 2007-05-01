@@ -59,9 +59,9 @@ char *_XGetAtomName(
     return (char *)NULL;
 }
 
-char *XGetAtomName(dpy, atom)
-    register Display *dpy;
-    Atom atom;
+char *XGetAtomName(
+    register Display *dpy,
+    Atom atom)
 {
     xGetAtomNameReply rep;
     char *name;
@@ -142,11 +142,11 @@ Bool _XGetAtomNameHandler(
 }
 
 Status
-XGetAtomNames (dpy, atoms, count, names_return)
-    Display *dpy;
-    Atom *atoms;
-    int count;
-    char **names_return;
+XGetAtomNames (
+    Display *dpy,
+    Atom *atoms,
+    int count,
+    char **names_return)
 {
     _XAsyncHandler async;
     _XGetAtomNameState async_state;

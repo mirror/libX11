@@ -32,8 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-_XFreeExtData (extension)
-     XExtData *extension;
+_XFreeExtData (XExtData *extension)
 {
 	XExtData *temp;
 	while (extension) {

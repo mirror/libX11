@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetFunction (dpy, gc, function)
-register Display *dpy;
-GC gc;
-int function;
+XSetFunction (
+    register Display *dpy,
+    GC gc,
+    int function)
 {
     LockDisplay(dpy);
     if (gc->values.function != function) {

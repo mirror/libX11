@@ -32,13 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetLineAttributes(dpy, gc, linewidth, linestyle, capstyle, joinstyle)
-register Display *dpy;
-GC gc;
-unsigned int linewidth; /* CARD16 */
-int linestyle;
-int capstyle;
-int joinstyle;
+XSetLineAttributes(
+    register Display *dpy,
+    GC gc,
+    unsigned int linewidth, /* CARD16 */
+    int linestyle,
+    int capstyle,
+    int joinstyle)
 {
     XGCValues *gv = &gc->values;
 

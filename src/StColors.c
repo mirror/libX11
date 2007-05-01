@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XStoreColors(dpy, cmap, defs, ncolors)
-register Display *dpy;
-Colormap cmap;
-XColor *defs;
-int ncolors;
+XStoreColors(
+    register Display *dpy,
+    Colormap cmap,
+    XColor *defs,
+    int ncolors)
 {
     register int i;
     xColorItem citem;

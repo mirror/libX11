@@ -136,9 +136,9 @@ XKeycodeToKeysym(Display *dpy,
 }
 
 KeyCode
-XKeysymToKeycode(dpy, ks)
-    Display *dpy;
-    KeySym ks;
+XKeysymToKeycode(
+    Display *dpy,
+    KeySym ks)
 {
     register int i, j;
 
@@ -154,9 +154,9 @@ XKeysymToKeycode(dpy, ks)
 }
 
 KeySym
-XLookupKeysym(event, col)
-    register XKeyEvent *event;
-    int col;
+XLookupKeysym(
+    register XKeyEvent *event,
+    int col)
 {
     if ((! event->display->keysyms) && (! _XKeyInitialize(event->display)))
 	return NoSymbol;
@@ -232,8 +232,7 @@ InitModMap(
 }
 
 int
-XRefreshKeyboardMapping(event)
-    register XMappingEvent *event;
+XRefreshKeyboardMapping(register XMappingEvent *event)
 {
 
     if(event->request == MappingKeyboard) {
@@ -645,10 +644,10 @@ UCSConvertCase( register unsigned code,
 }
 
 void
-XConvertCase(sym, lower, upper)
-    register KeySym sym;
-    KeySym *lower;
-    KeySym *upper;
+XConvertCase(
+    register KeySym sym,
+    KeySym *lower,
+    KeySym *upper)
 {
     /* Latin 1 keysym */
     if (sym < 0x100) {
@@ -820,12 +819,12 @@ _XTranslateKey(	register Display *dpy,
 }
 
 int
-_XTranslateKeySym(dpy, symbol, modifiers, buffer, nbytes)
-    Display *dpy;
-    register KeySym symbol;
-    unsigned int modifiers;
-    char *buffer;
-    int nbytes;
+_XTranslateKeySym(
+    Display *dpy,
+    register KeySym symbol,
+    unsigned int modifiers,
+    char *buffer,
+    int nbytes)
 {
     register struct _XKeytrans *p; 
     int length;
@@ -880,12 +879,12 @@ _XTranslateKeySym(dpy, symbol, modifiers, buffer, nbytes)
   
 /*ARGSUSED*/
 int
-XLookupString (event, buffer, nbytes, keysym, status)
-    register XKeyEvent *event;
-    char *buffer;	/* buffer */
-    int nbytes;	/* space in buffer for characters */
-    KeySym *keysym;
-    XComposeStatus *status;	/* not implemented */
+XLookupString (
+    register XKeyEvent *event,
+    char *buffer,	/* buffer */
+    int nbytes,	/* space in buffer for characters */
+    KeySym *keysym,
+    XComposeStatus *status)	/* not implemented */
 {
     unsigned int modifiers;
     KeySym symbol;

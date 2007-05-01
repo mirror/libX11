@@ -49,8 +49,7 @@
  *	SYNOPSIS
  */
 XcmsColorFormat
-XcmsFormatOfPrefix(prefix)
-    char *prefix;
+XcmsFormatOfPrefix(char *prefix)
 /*
  *	DESCRIPTION
  *		Returns the Color Space ID for the specified prefix

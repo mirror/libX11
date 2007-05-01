@@ -32,10 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XMoveWindow (dpy, w, x, y)
-    register Display *dpy;
-    Window w;
-    int x, y;
+XMoveWindow (
+    register Display *dpy,
+    Window w,
+    int x, 
+    int y)
 {
     register xConfigureWindowReq *req;
 

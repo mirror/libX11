@@ -67,15 +67,14 @@
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCWhiteShiftColors(ccc, pWhitePtFrom, pWhitePtTo, destSpecFmt,
-	pColors_in_out, nColors, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pWhitePtFrom;
-    XcmsColor *pWhitePtTo;
-    XcmsColorFormat destSpecFmt;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    Bool *pCompressed;
+XcmsTekHVCWhiteShiftColors(
+    XcmsCCC ccc,
+    XcmsColor *pWhitePtFrom,
+    XcmsColor *pWhitePtTo,
+    XcmsColorFormat destSpecFmt,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Convert color specifications in an array of XcmsColor structures

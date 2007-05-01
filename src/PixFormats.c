@@ -35,9 +35,9 @@ in this Software without prior written authorization from The Open Group.
  * XListPixmapFormats - return info from connection setup
  */
 
-XPixmapFormatValues *XListPixmapFormats (dpy, count)
-    Display *dpy;
-    int *count;	/* RETURN */
+XPixmapFormatValues *XListPixmapFormats (
+    Display *dpy,
+    int *count)	/* RETURN */
 {
     XPixmapFormatValues *formats = (XPixmapFormatValues *)
 	Xmalloc((unsigned) (dpy->nformats * sizeof (XPixmapFormatValues)));

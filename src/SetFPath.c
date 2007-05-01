@@ -34,10 +34,10 @@ in this Software without prior written authorization from The Open Group.
 #define safestrlen(s) ((s) ? strlen(s) : 0)
 
 int
-XSetFontPath (dpy, directories, ndirs)
-register Display *dpy;
-char **directories;
-int ndirs;
+XSetFontPath (
+    register Display *dpy,
+    char **directories,
+    int ndirs)
 {
 	register int n = 0;
 	register int i;

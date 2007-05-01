@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDeleteProperty(dpy, window, property)
-register Display *dpy;
-Window window;
-Atom property;
+XDeleteProperty(
+    register Display *dpy,
+    Window window,
+    Atom property)
 {
     register xDeletePropertyReq *req;
 

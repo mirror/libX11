@@ -31,42 +31,38 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-long XMaxRequestSize(dpy)
-    Display *dpy;
+long XMaxRequestSize(Display *dpy)
 {
     return dpy->max_request_size;
 }
 
-char *XResourceManagerString(dpy)
-    Display *dpy;
+char *XResourceManagerString(Display *dpy)
 {
     return dpy->xdefaults;
 }
 
-unsigned long XDisplayMotionBufferSize(dpy)
-    Display *dpy;
+unsigned long XDisplayMotionBufferSize(Display *dpy)
 {
     return dpy->motion_buffer;
 }
 
 int
-XDisplayKeycodes(dpy, min_keycode_return, max_keycode_return)
-    Display *dpy;
-    int *min_keycode_return, *max_keycode_return;
+XDisplayKeycodes(
+    Display *dpy,
+    int *min_keycode_return,
+    int *max_keycode_return)
 {
     *min_keycode_return = dpy->min_keycode;
     *max_keycode_return = dpy->max_keycode;
     return 1;
 }
 
-VisualID XVisualIDFromVisual(visual)
-    Visual *visual;
+VisualID XVisualIDFromVisual(Visual *visual)
 {
     return visual->visualid;
 }
 
-long XExtendedMaxRequestSize(dpy)
-    Display *dpy;
+long XExtendedMaxRequestSize(Display *dpy)
 {
     return dpy->bigreq_size;
 }

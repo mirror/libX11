@@ -31,10 +31,10 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Status XAllocColor(dpy, cmap, def)
-register Display *dpy;
-Colormap cmap;
-XColor *def;
+Status XAllocColor(
+    register Display *dpy,
+    Colormap cmap,
+    XColor *def)
 {
     Status status;
     xAllocColorReply rep;

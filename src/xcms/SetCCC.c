@@ -57,9 +57,9 @@
  */
 
 Status
-XcmsSetWhitePoint(ccc, pColor)
-    XcmsCCC ccc;
-    XcmsColor *pColor;
+XcmsSetWhitePoint(
+    XcmsCCC ccc,
+    XcmsColor *pColor)
 /*
  *	DESCRIPTION
  *		Sets the Client White Point in the specified CCC.

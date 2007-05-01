@@ -57,8 +57,7 @@
  *	SYNOPSIS
  */
 Status
-XcmsAddFunctionSet(pNewFS)
-    XcmsFunctionSet *pNewFS;
+XcmsAddFunctionSet(XcmsFunctionSet *pNewFS)
 /*
  *	DESCRIPTION
  *		Additional Screen Color Characterization Function Sets are

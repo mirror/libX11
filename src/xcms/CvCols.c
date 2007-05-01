@@ -714,12 +714,12 @@ Continue:
  *	SYNOPSIS
  */
 Status
-XcmsConvertColors(ccc, pColors_in_out, nColors, targetFormat, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    XcmsColorFormat targetFormat;
-    Bool *pCompressed;
+XcmsConvertColors(
+    XcmsCCC ccc,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    XcmsColorFormat targetFormat,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Convert XcmsColor structures to another format

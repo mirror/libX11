@@ -64,10 +64,10 @@ from The Open Group.
  * This function instructs the window manager to change this window from
  * NormalState to IconicState.
  */
-Status XIconifyWindow (dpy, w, screen)
-    Display *dpy;
-    Window w;
-    int screen;
+Status XIconifyWindow (
+    Display *dpy,
+    Window w,
+    int screen)
 {
     XClientMessageEvent ev;
     Window root = RootWindow (dpy, screen);

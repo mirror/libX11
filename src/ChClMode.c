@@ -32,10 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetCloseDownMode(dpy, mode)
-    register Display *dpy; 
-    int mode;
-
+XSetCloseDownMode(
+    register Display *dpy, 
+    int mode)
 {
     register xSetCloseDownModeReq *req;
 

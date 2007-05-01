@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetClipMask (dpy, gc, mask)
-register Display *dpy;
-GC gc;
-Pixmap mask;
+XSetClipMask (
+    register Display *dpy,
+    GC gc,
+    Pixmap mask)
 {
     LockDisplay(dpy);
     /* always update, since client may have changed pixmap contents */

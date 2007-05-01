@@ -56,14 +56,13 @@ XSetPointerMapping (
     }
 
 int
-XChangeKeyboardMapping (dpy, first_keycode, keysyms_per_keycode, 
-		     keysyms, nkeycodes)
-    register Display *dpy;
-    int first_keycode;
-    int keysyms_per_keycode;
-    KeySym *keysyms;
-    int nkeycodes;
-    {
+XChangeKeyboardMapping (
+    register Display *dpy,
+    int first_keycode,
+    int keysyms_per_keycode,
+    KeySym *keysyms,
+    int nkeycodes)
+{
     register long nbytes;
     register xChangeKeyboardMappingReq *req;
 

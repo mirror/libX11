@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 
 /* Read in pending events if needed and return the number of queued events. */
 
-int XEventsQueued (dpy, mode)
-    register Display *dpy;
-    int mode;
+int XEventsQueued (
+    register Display *dpy,
+    int mode)
 {
     int ret_val;
     LockDisplay(dpy);
@@ -46,8 +46,7 @@ int XEventsQueued (dpy, mode)
     return ret_val;
 }
 
-int XPending (dpy)
-    register Display *dpy;
+int XPending (register Display *dpy)
 {
     int ret_val;
     LockDisplay(dpy);

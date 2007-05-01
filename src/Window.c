@@ -99,17 +99,19 @@ void _XProcessWindowAttributes (
 		     CWOverrideRedirect|CWSaveUnder|CWEventMask|\
 		     CWDontPropagate|CWColormap|CWCursor)
 
-Window XCreateWindow(dpy, parent, x, y, width, height, 
-                borderWidth, depth, class, visual, valuemask, attributes)
-    register Display *dpy;
-    Window parent;
-    int x, y;
-    unsigned int width, height, borderWidth;
-    int depth;
-    unsigned int class;
-    Visual *visual;
-    unsigned long valuemask;
-    XSetWindowAttributes *attributes;
+Window XCreateWindow(
+    register Display *dpy,
+    Window parent,
+    int x, 
+    int y,
+    unsigned int width, 
+    unsigned int height, 
+    unsigned int borderWidth,
+    int depth,
+    unsigned int class,
+    Visual *visual,
+    unsigned long valuemask,
+    XSetWindowAttributes *attributes)
 {
     Window wid;
     register xCreateWindowReq *req;

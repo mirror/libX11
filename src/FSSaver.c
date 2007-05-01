@@ -32,28 +32,23 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XActivateScreenSaver(dpy) 
-    register Display *dpy;
-
+XActivateScreenSaver(register Display *dpy)
 {
     XForceScreenSaver (dpy, ScreenSaverActive);
     return 1;
 }
 
 int
-XResetScreenSaver(dpy) 
-    register Display *dpy;
-
+XResetScreenSaver(register Display *dpy)
 {
     XForceScreenSaver (dpy, ScreenSaverReset);
     return 1;
 }
 
 int
-XForceScreenSaver(dpy, mode)
-    register Display *dpy; 
-    int mode;
-
+XForceScreenSaver(
+    register Display *dpy,
+    int mode)
 {
     register xForceScreenSaverReq *req;
 

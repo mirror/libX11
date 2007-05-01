@@ -32,12 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUngrabKey(dpy, key, modifiers, grab_window)
-     register Display *dpy;
-     int key;
-     unsigned int modifiers;
-     Window grab_window;
-
+XUngrabKey(
+     register Display *dpy,
+     int key,
+     unsigned int modifiers,
+     Window grab_window)
 {
     register xUngrabKeyReq *req;
 

@@ -182,10 +182,10 @@ _XcmsTekHVCQueryMaxVCRGB(
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCQueryMaxVC (ccc, hue, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue;
-    XcmsColor *pColor_return;
+XcmsTekHVCQueryMaxVC (
+    XcmsCCC ccc,
+    XcmsFloat hue,
+    XcmsColor *pColor_return)
 
 /*
  *	DESCRIPTION

@@ -32,10 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XRecolorCursor(dpy, cursor, foreground, background)
-     register Display *dpy;
-     Cursor cursor;
-     XColor *foreground, *background;
+XRecolorCursor(
+     register Display *dpy,
+     Cursor cursor,
+     XColor *foreground,
+     XColor *background)
 {       
     register xRecolorCursorReq *req;
 

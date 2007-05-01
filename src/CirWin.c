@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XCirculateSubwindows(dpy, w, direction)
-    register Display *dpy;
-    Window w;
-    int direction;
+XCirculateSubwindows(
+    register Display *dpy,
+    Window w,
+    int direction)
 {
     register xCirculateWindowReq *req;
 

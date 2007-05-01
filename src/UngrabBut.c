@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUngrabButton(dpy, button, modifiers, grab_window)
-register Display *dpy;
-unsigned int button; /* CARD8 */
-unsigned int modifiers; /* CARD16 */
-Window grab_window;
+XUngrabButton(
+    register Display *dpy,
+    unsigned int button, /* CARD8 */
+    unsigned int modifiers, /* CARD16 */
+    Window grab_window)
 {
     register xUngrabButtonReq *req;
 

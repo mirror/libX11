@@ -39,26 +39,26 @@ in this Software without prior written authorization from The Open Group.
  * longer at some point.
  */
 
-XSizeHints *XAllocSizeHints ()
+XSizeHints *XAllocSizeHints (void)
 {
     return ((XSizeHints *) Xcalloc (1, (unsigned) sizeof (XSizeHints)));
 }
 
 
-XStandardColormap *XAllocStandardColormap ()
+XStandardColormap *XAllocStandardColormap (void)
 {
     return ((XStandardColormap *)
 	    Xcalloc (1, (unsigned) sizeof (XStandardColormap)));
 }
 
 
-XWMHints *XAllocWMHints ()
+XWMHints *XAllocWMHints (void)
 {
     return ((XWMHints *) Xcalloc (1, (unsigned) sizeof (XWMHints)));
 }
 
 
-XClassHint *XAllocClassHint ()
+XClassHint *XAllocClassHint (void)
 {
     register XClassHint *h;
 
@@ -69,7 +69,7 @@ XClassHint *XAllocClassHint ()
 }
 
 
-XIconSize *XAllocIconSize ()
+XIconSize *XAllocIconSize (void)
 {
     return ((XIconSize *) Xcalloc (1, (unsigned) sizeof (XIconSize)));
 }

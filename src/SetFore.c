@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetForeground (dpy, gc, foreground)
-register Display *dpy;
-GC gc;
-unsigned long foreground; /* CARD32 */
+XSetForeground (
+    register Display *dpy,
+    GC gc,
+    unsigned long foreground) /* CARD32 */
 {
     LockDisplay(dpy);
     if (gc->values.foreground != foreground) {

@@ -62,11 +62,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsCIELabQueryMinL(ccc, hue_angle, chroma, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue_angle;	    /* hue angle in degrees */
-    XcmsFloat chroma;
-    XcmsColor *pColor_return;
+XcmsCIELabQueryMinL(
+    XcmsCCC ccc,
+    XcmsFloat hue_angle,	    /* hue angle in degrees */
+    XcmsFloat chroma,
+    XcmsColor *pColor_return)
 /*
  *	DESCRIPTION
  *		Return the maximum Lstar for a specified hue_angle and chroma.

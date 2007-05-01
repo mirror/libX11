@@ -57,8 +57,7 @@
  *	SYNOPSIS
  */
 Status
-XcmsAddColorSpace(pCS)
-    XcmsColorSpace *pCS;
+XcmsAddColorSpace(XcmsColorSpace *pCS)
 /*
  *	DESCRIPTION
  *		DI Color Spaces are managed on a global basis.

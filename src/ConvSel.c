@@ -32,12 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XConvertSelection(dpy, selection, target, property, requestor, time)
-register Display *dpy;
-Atom selection, target;
-Atom property;
-Window requestor;
-Time time;
+XConvertSelection(
+    register Display *dpy,
+    Atom selection, 
+    Atom target,
+    Atom property,
+    Window requestor,
+    Time time)
 {
     register xConvertSelectionReq *req;
 

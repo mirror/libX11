@@ -32,10 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XCopyGC (dpy, srcGC, mask, destGC)
-     register Display *dpy;
-     unsigned long mask;		/* which ones to set initially */
-     GC srcGC, destGC;
+XCopyGC (
+     register Display *dpy,
+     GC srcGC,
+     unsigned long mask,		/* which ones to set initially */
+     GC destGC)
 {
     register XGCValues *destgv = &destGC->values,
     		       *srcgv = &srcGC->values;

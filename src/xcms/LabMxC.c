@@ -65,11 +65,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsCIELabQueryMaxC(ccc, hue_angle, L_star, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue_angle;	    /* hue angle in degrees */
-    XcmsFloat L_star;
-    XcmsColor *pColor_return;
+XcmsCIELabQueryMaxC(
+    XcmsCCC ccc,
+    XcmsFloat hue_angle,	    /* hue angle in degrees */
+    XcmsFloat L_star,
+    XcmsColor *pColor_return)
 /*
  *	DESCRIPTION
  *		Return the maximum chroma for a specific hue_angle and L_star.

@@ -58,36 +58,36 @@ from The Open Group.
 #include <X11/Xos.h>
 #include <stdio.h>
 
-void XSetTextProperty (dpy, w, tp, property)
-    Display *dpy;
-    Window w;
-    Atom property;
-    XTextProperty *tp;
+void XSetTextProperty (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp,
+    Atom property)
 {
     XChangeProperty (dpy, w, property, tp->encoding, tp->format,
 		     PropModeReplace, tp->value, tp->nitems);
 }
 
-void XSetWMName (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+void XSetWMName (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     XSetTextProperty (dpy, w, tp, XA_WM_NAME);
 }
 
-void XSetWMIconName (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+void XSetWMIconName (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     XSetTextProperty (dpy, w, tp, XA_WM_ICON_NAME);
 }
 
-void XSetWMClientMachine (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+void XSetWMClientMachine (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     XSetTextProperty (dpy, w, tp, XA_WM_CLIENT_MACHINE);
 }

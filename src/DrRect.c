@@ -37,12 +37,14 @@ in this Software without prior written authorization from The Open Group.
 #define zsize (SIZEOF(xPolyRectangleReq) + ZRCTSPERBATCH * SIZEOF(xRectangle))
 
 int
-XDrawRectangle(dpy, d, gc, x, y, width, height)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    int x, y; /* INT16 */
-    unsigned int width, height; /* CARD16 */
+XDrawRectangle(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    int x, 
+    int y, /* INT16 */
+    unsigned int width,
+    unsigned int height) /* CARD16 */
 {
     xRectangle *rect;
 #ifdef MUSTCOPY

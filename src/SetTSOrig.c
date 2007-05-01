@@ -32,10 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetTSOrigin (dpy, gc, x, y)
-register Display *dpy;
-GC gc;
-int x, y;
+XSetTSOrigin (
+    register Display *dpy,
+    GC gc,
+    int x,
+    int y)
 {
     XGCValues *gv = &gc->values;
 

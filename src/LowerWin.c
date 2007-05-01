@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XLowerWindow(dpy, w)
-Display *dpy;
-Window w;
+XLowerWindow(
+    Display *dpy,
+    Window w)
 {
     register xConfigureWindowReq *req;
     unsigned long val = Below;		/* needed for macro */

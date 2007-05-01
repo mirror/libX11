@@ -32,13 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawPoints(dpy, d, gc, points, n_points, mode)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    XPoint *points;
-    int n_points;
-    int mode; /* CoordMode */
+XDrawPoints(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    XPoint *points,
+    int n_points,
+    int mode) /* CoordMode */
 {
     register xPolyPointReq *req;
     register long nbytes;

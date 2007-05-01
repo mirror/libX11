@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetWindowBorder(dpy, w, pixel)
-    register Display *dpy;
-    Window w;
-    unsigned long pixel;
+XSetWindowBorder(
+    register Display *dpy,
+    Window w,
+    unsigned long pixel)
 {
     register xChangeWindowAttributesReq *req;
 

@@ -56,10 +56,10 @@
  */
 
 Status
-XcmsQueryWhite(ccc, target_format, pColor_ret)
-    XcmsCCC ccc;
-    XcmsColorFormat target_format;
-    XcmsColor *pColor_ret;
+XcmsQueryWhite(
+    XcmsCCC ccc,
+    XcmsColorFormat target_format,
+    XcmsColor *pColor_ret)
 /*
  *	DESCRIPTION
  *		Returns the color specification in the target format for

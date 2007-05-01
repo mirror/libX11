@@ -38,15 +38,15 @@ in this Software without prior written authorization from The Open Group.
  */
 
 int
-XIfEvent (dpy, event, predicate, arg)
-	register Display *dpy;
+XIfEvent (
+	register Display *dpy,
+	register XEvent *event,
 	Bool (*predicate)(
 			  Display*			/* display */,
 			  XEvent*			/* event */,
 			  char*				/* arg */
-			  );		/* function to call */
-	register XEvent *event;
-	char *arg;
+			  ),		/* function to call */
+	char *arg)
 {
 	register _XQEvent *qelt, *prev;
 	unsigned long qe_serial = 0;

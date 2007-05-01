@@ -39,10 +39,12 @@ _XNoticeCreateBitmap (Display	    *dpy,
 		      unsigned int  height);
 #endif
 
-Pixmap XCreatePixmap (dpy, d, width, height, depth)
-    register Display *dpy;
-    Drawable d;
-    unsigned int width, height, depth;
+Pixmap XCreatePixmap (
+    register Display *dpy,
+    Drawable d,
+    unsigned int width,
+    unsigned int height,
+    unsigned int depth)
 {
     Pixmap pid;
     register xCreatePixmapReq *req;

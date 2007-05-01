@@ -32,11 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XChangePointerControl(dpy, do_acc, do_thresh, acc_numerator,
-		      acc_denominator, threshold)
-     register Display *dpy;
-     Bool do_acc, do_thresh;
-     int acc_numerator, acc_denominator, threshold;
+XChangePointerControl(
+     register Display *dpy,
+     Bool do_acc,
+     Bool do_thresh,
+     int acc_numerator,
+     int acc_denominator,
+     int threshold)
 
 {
     register xChangePointerControlReq *req;

@@ -32,12 +32,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XDrawSegments (dpy, d, gc, segments, nsegments)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    XSegment *segments;
-    int nsegments;
+XDrawSegments (
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    XSegment *segments,
+    int nsegments)
 {
     register xPolySegmentReq *req;
     long len;

@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetFont (dpy, gc, font)
-register Display *dpy;
-GC gc;
-Font font;
+XSetFont (
+    register Display *dpy,
+    GC gc,
+    Font font)
 {
     LockDisplay(dpy);
     if (gc->values.font != font) {

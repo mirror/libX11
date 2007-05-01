@@ -242,17 +242,17 @@ _CloseIM(XIM xim)
 }
 
 static char *
-_SetIMValues(xim, arg)
-XIM xim;
-XIMArg *arg;
+_SetIMValues(
+    XIM xim,
+    XIMArg *arg)
 {
     return(arg->name);		/* evil */
 }
 
 static char *
-_GetIMValues(xim, values)
-XIM xim;
-XIMArg *values;
+_GetIMValues(
+    XIM xim,
+    XIMArg *values)
 {
     XIMArg *p;
     XIMStyles *styles;
@@ -359,8 +359,7 @@ _DestroyIC(XIC ic)
 }
 
 static void
-_SetFocus(ic)
-XIC ic;
+_SetFocus(XIC ic)
 {
 }
 

@@ -61,12 +61,12 @@ from The Open Group.
 #include <X11/Xutil.h>
 #include <stdio.h>
 
-Status XGetWMSizeHints (dpy, w, hints, supplied, property)
-    Display *dpy;
-    Window w;
-    XSizeHints *hints;
-    long *supplied;
-    Atom property;
+Status XGetWMSizeHints (
+    Display *dpy,
+    Window w,
+    XSizeHints *hints,
+    long *supplied,
+    Atom property)
 {
     xPropSizeHints *prop = NULL;
     Atom actual_type;
@@ -118,11 +118,11 @@ Status XGetWMSizeHints (dpy, w, hints, supplied, property)
 }
 
 
-Status XGetWMNormalHints (dpy, w, hints, supplied)
-    Display *dpy;
-    Window w;
-    XSizeHints *hints;
-    long *supplied;
+Status XGetWMNormalHints (
+    Display *dpy,
+    Window w,
+    XSizeHints *hints,
+    long *supplied)
 {
     return (XGetWMSizeHints (dpy, w, hints, supplied, XA_WM_NORMAL_HINTS));
 }

@@ -32,9 +32,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetScreenSaver(dpy, timeout, interval, prefer_blank, allow_exp)
-    register Display *dpy;
-    int timeout, interval, prefer_blank, allow_exp;
+XSetScreenSaver(
+    register Display *dpy,
+    int timeout,
+    int interval, 
+    int prefer_blank,
+    int allow_exp)
 
 {
     register xSetScreenSaverReq *req;

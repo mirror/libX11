@@ -42,11 +42,14 @@ _XTryShapeBitmapCursor (Display		*dpy,
 			unsigned int	y);
 #endif
     
-Cursor XCreatePixmapCursor(dpy, source, mask, foreground, background, x, y)
-     register Display *dpy;
-     Pixmap source, mask;
-     XColor *foreground, *background;
-     unsigned int  x, y;
+Cursor XCreatePixmapCursor(
+     register Display *dpy,
+     Pixmap source,
+     Pixmap mask,
+     XColor *foreground, 
+     XColor *background,
+     unsigned int x,
+     unsigned int y)
 
 {       
     register xCreateCursorReq *req;

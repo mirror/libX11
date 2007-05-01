@@ -32,10 +32,12 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XReparentWindow(dpy, w, p, x, y)
-    register Display *dpy;
-    Window w, p;
-    int x, y;
+XReparentWindow(
+    register Display *dpy,
+    Window w, 
+    Window p,
+    int x, 
+    int y)
 {
     register xReparentWindowReq *req;
 

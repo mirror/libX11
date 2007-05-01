@@ -58,11 +58,11 @@ from The Open Group.
 #include <X11/Xos.h>
 #include <stdio.h>
 
-Status XGetTextProperty (display, window, tp, property)
-    Display *display;
-    Window window;
-    XTextProperty *tp;
-    Atom property;
+Status XGetTextProperty (
+    Display *display,
+    Window window,
+    XTextProperty *tp,
+    Atom property)
 {
     Atom actual_type;
     int actual_format = 0;
@@ -88,26 +88,26 @@ Status XGetTextProperty (display, window, tp, property)
     return False;
 }
 
-Status XGetWMName (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+Status XGetWMName (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     return (XGetTextProperty (dpy, w, tp, XA_WM_NAME));
 }
 
-Status XGetWMIconName (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+Status XGetWMIconName (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     return (XGetTextProperty (dpy, w, tp, XA_WM_ICON_NAME));
 }
 
-Status XGetWMClientMachine (dpy, w, tp)
-    Display *dpy;
-    Window w;
-    XTextProperty *tp;
+Status XGetWMClientMachine (
+    Display *dpy,
+    Window w,
+    XTextProperty *tp)
 {
     return (XGetTextProperty (dpy, w, tp, XA_WM_CLIENT_MACHINE));
 }

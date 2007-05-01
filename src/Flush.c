@@ -35,9 +35,8 @@ in this Software without prior written authorization from The Open Group.
 /* NOTE: NOT necessary when calling any of the Xlib routines. */
 
 int
-XFlush (dpy)
-    register Display *dpy;
-    {
+XFlush (register Display *dpy)
+{
     LockDisplay(dpy);
     _XFlush (dpy);
     UnlockDisplay(dpy);

@@ -34,10 +34,10 @@ in this Software without prior written authorization from The Open Group.
 /*
  * XListDepths - return info from connection setup
  */
-int *XListDepths (dpy, scrnum, countp)
-    Display *dpy;
-    int scrnum;
-    int *countp;
+int *XListDepths (
+    Display *dpy,
+    int scrnum,
+    int *countp)
 {
     Screen *scr;
     int count;

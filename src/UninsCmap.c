@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUninstallColormap(dpy, cmap)
-register Display *dpy;
-Colormap cmap;
+XUninstallColormap(
+    register Display *dpy,
+    Colormap cmap)
 {
     register xResourceReq *req;
 

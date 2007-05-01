@@ -36,11 +36,12 @@ in this Software without prior written authorization from The Open Group.
 #define size (SIZEOF(xPolyPointReq) + PTSPERBATCH * SIZEOF(xPoint))
 
 int
-XDrawPoint(dpy, d, gc, x, y)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    int x, y; /* INT16 */
+XDrawPoint(
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    int x,
+    int y) /* INT16 */
 {
     xPoint *point;
 #ifdef MUSTCOPY

@@ -62,12 +62,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsCIELuvClipLuv (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsCIELuvClipLuv (
+    XcmsCCC ccc,
+    XcmsColor *pColors_in_out,
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		This routine will find the closest L* and chroma 

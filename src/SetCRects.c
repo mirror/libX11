@@ -64,14 +64,14 @@ void _XSetClipRectangles (
 }
 
 int
-XSetClipRectangles (dpy, gc, clip_x_origin, clip_y_origin, rectangles, n,
-                    ordering)
-    register Display *dpy;
-    GC gc;
-    int clip_x_origin, clip_y_origin;
-    XRectangle *rectangles;
-    int n;
-    int ordering;
+XSetClipRectangles (
+    register Display *dpy,
+    GC gc,
+    int clip_x_origin, 
+    int clip_y_origin,
+    XRectangle *rectangles,
+    int n,
+    int ordering)
 {
     LockDisplay(dpy);
     _XSetClipRectangles (dpy, gc, clip_x_origin, clip_y_origin, rectangles, n,

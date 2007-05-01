@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XUndefineCursor (dpy,w)
-    register Display *dpy;
-    Window w;
+XUndefineCursor (
+    register Display *dpy,
+    Window w)
 {
     register xChangeWindowAttributesReq *req;
     unsigned long defcurs = None;

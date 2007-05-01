@@ -67,11 +67,11 @@
  *	SYNOPSIS
  */
 Status
-XcmsTekHVCQueryMaxVSamples(ccc, hue, pColor_in_out, nSamples)
-    XcmsCCC ccc;
-    XcmsFloat hue;
-    XcmsColor *pColor_in_out;
-    unsigned int nSamples;
+XcmsTekHVCQueryMaxVSamples(
+    XcmsCCC ccc,
+    XcmsFloat hue,
+    XcmsColor *pColor_in_out,
+    unsigned int nSamples)
 
 /*
  *	DESCRIPTION

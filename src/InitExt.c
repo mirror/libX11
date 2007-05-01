@@ -69,8 +69,7 @@ XExtCodes *XInitExtension (
 	return (&ext->codes);		/* tell him which extension */
 }
 
-XExtCodes *XAddExtension (dpy)
-    Display *dpy;
+XExtCodes *XAddExtension (Display *dpy)
 {
     register _XExtension *ext;
 
@@ -99,25 +98,24 @@ static _XExtension *XLookupExtension (
 	return (NULL);
 }
 
-XExtData **XEHeadOfExtensionList(object)
-    XEDataObject object;
+XExtData **XEHeadOfExtensionList(XEDataObject object)
 {
     return *(XExtData ***)&object;
 }
 
 int
-XAddToExtensionList(structure, ext_data)
-    XExtData **structure;
-    XExtData *ext_data;
+XAddToExtensionList(
+    XExtData **structure,
+    XExtData *ext_data)
 {
     ext_data->next = *structure;
     *structure = ext_data;
     return 1;
 }
 
-XExtData *XFindOnExtensionList(structure, number)
-    XExtData **structure;
-    int number;
+XExtData *XFindOnExtensionList(
+    XExtData **structure,
+    int number)
 {
     XExtData *ext;
 
@@ -130,10 +128,10 @@ XExtData *XFindOnExtensionList(structure, number)
 /*
  * Routines to hang procs on the extension structure.
  */
-CreateGCType XESetCreateGC(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	CreateGCType proc;	/* routine to call when GC created */
+CreateGCType XESetCreateGC(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	CreateGCType proc)	/* routine to call when GC created */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register CreateGCType oldproc;
@@ -145,10 +143,10 @@ CreateGCType XESetCreateGC(dpy, extension, proc)
 	return (CreateGCType)oldproc;
 }
 
-CopyGCType XESetCopyGC(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	CopyGCType proc;	/* routine to call when GC copied */
+CopyGCType XESetCopyGC(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	CopyGCType proc)	/* routine to call when GC copied */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register CopyGCType oldproc;
@@ -160,10 +158,10 @@ CopyGCType XESetCopyGC(dpy, extension, proc)
 	return (CopyGCType)oldproc;
 }
 
-FlushGCType XESetFlushGC(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	FlushGCType proc;	/* routine to call when GC copied */
+FlushGCType XESetFlushGC(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	FlushGCType proc)	/* routine to call when GC copied */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register FlushGCType oldproc;
@@ -175,10 +173,10 @@ FlushGCType XESetFlushGC(dpy, extension, proc)
 	return (FlushGCType)oldproc;
 }
 
-FreeGCType XESetFreeGC(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	FreeGCType proc;	/* routine to call when GC freed */
+FreeGCType XESetFreeGC(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	FreeGCType proc)	/* routine to call when GC freed */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register FreeGCType oldproc;
@@ -190,10 +188,10 @@ FreeGCType XESetFreeGC(dpy, extension, proc)
 	return (FreeGCType)oldproc;
 }
 
-CreateFontType XESetCreateFont(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	CreateFontType proc;	/* routine to call when font created */
+CreateFontType XESetCreateFont(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	CreateFontType proc)	/* routine to call when font created */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register CreateFontType oldproc;
@@ -205,10 +203,10 @@ CreateFontType XESetCreateFont(dpy, extension, proc)
 	return (CreateFontType)oldproc;
 }
 
-FreeFontType XESetFreeFont(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	FreeFontType proc;	/* routine to call when font freed */
+FreeFontType XESetFreeFont(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	FreeFontType proc)	/* routine to call when font freed */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register FreeFontType oldproc;
@@ -220,10 +218,10 @@ FreeFontType XESetFreeFont(dpy, extension, proc)
 	return (FreeFontType)oldproc;
 }
 
-CloseDisplayType XESetCloseDisplay(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	CloseDisplayType proc;	/* routine to call when display closed */
+CloseDisplayType XESetCloseDisplay(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	CloseDisplayType proc)	/* routine to call when display closed */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register CloseDisplayType oldproc;
@@ -241,10 +239,10 @@ typedef Bool (*WireToEventType) (
     xEvent*	/* event */
 );
 
-WireToEventType XESetWireToEvent(dpy, event_number, proc)
-	Display *dpy;		/* display */
-	WireToEventType proc;	/* routine to call when converting event */
-	int event_number;	/* event routine to replace */
+WireToEventType XESetWireToEvent(
+	Display *dpy,		/* display */
+	int event_number,	/* event routine to replace */
+	WireToEventType proc)	/* routine to call when converting event */
 {
 	register WireToEventType oldproc;
 	if (proc == NULL) proc = (WireToEventType)_XUnknownWireEvent;
@@ -261,10 +259,10 @@ typedef Status (*EventToWireType) (
     xEvent*	/* event */
 );
 
-EventToWireType XESetEventToWire(dpy, event_number, proc)
-	Display *dpy;		/* display */
-	EventToWireType proc;	/* routine to call when converting event */
-	int event_number;	/* event routine to replace */
+EventToWireType XESetEventToWire(
+	Display *dpy,		/* display */
+	int event_number,	/* event routine to replace */
+	EventToWireType proc)	/* routine to call when converting event */
 {
 	register EventToWireType oldproc;
 	if (proc == NULL) proc = (EventToWireType) _XUnknownNativeEvent;
@@ -281,10 +279,10 @@ typedef Bool (*WireToErrorType) (
     xError*	/* we */
 );
 
-WireToErrorType XESetWireToError(dpy, error_number, proc)
-	Display *dpy;		/* display */
-	WireToErrorType proc;	/* routine to call when converting error */
-	int error_number;	/* error routine to replace */
+WireToErrorType XESetWireToError(
+	Display *dpy,		/* display */
+	int error_number,	/* error routine to replace */
+	WireToErrorType proc)	/* routine to call when converting error */
 {
 	register WireToErrorType oldproc = NULL;
 	if (proc == NULL) proc = (WireToErrorType)_XDefaultWireError;
@@ -303,10 +301,10 @@ WireToErrorType XESetWireToError(dpy, error_number, proc)
 	return (WireToErrorType)oldproc;
 }
 
-ErrorType XESetError(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	ErrorType proc;		/* routine to call when X error happens */
+ErrorType XESetError(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	ErrorType proc)		/* routine to call when X error happens */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register ErrorType oldproc;
@@ -318,10 +316,10 @@ ErrorType XESetError(dpy, extension, proc)
 	return (ErrorType)oldproc;
 }
 
-ErrorStringType XESetErrorString(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	ErrorStringType proc;	/* routine to call when I/O error happens */
+ErrorStringType XESetErrorString(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	ErrorStringType proc)	/* routine to call when I/O error happens */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register ErrorStringType oldproc;
@@ -333,10 +331,10 @@ ErrorStringType XESetErrorString(dpy, extension, proc)
 	return (ErrorStringType)oldproc;
 }
 
-PrintErrorType XESetPrintErrorValues(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	PrintErrorType proc;	/* routine to call to print */
+PrintErrorType XESetPrintErrorValues(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	PrintErrorType proc)	/* routine to call to print */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register PrintErrorType oldproc;
@@ -348,10 +346,10 @@ PrintErrorType XESetPrintErrorValues(dpy, extension, proc)
 	return (PrintErrorType)oldproc;
 }
 
-BeforeFlushType XESetBeforeFlush(dpy, extension, proc)
-	Display *dpy;		/* display */
-	int extension;		/* extension number */
-	BeforeFlushType proc;	/* routine to call on flush */
+BeforeFlushType XESetBeforeFlush(
+	Display *dpy,		/* display */
+	int extension,		/* extension number */
+	BeforeFlushType proc)	/* routine to call on flush */
 {
 	register _XExtension *e;	/* for lookup of extension */
 	register BeforeFlushType oldproc;

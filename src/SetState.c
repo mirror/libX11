@@ -32,12 +32,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetState(dpy, gc, foreground, background, function, planemask)
-register Display *dpy;
-GC gc;
-int function;
-unsigned long planemask;
-unsigned long foreground, background;
+XSetState(
+    register Display *dpy,
+    GC gc,
+    unsigned long foreground,
+    unsigned long background,
+    int function,
+    unsigned long planemask)
 {
     XGCValues *gv = &gc->values;
 

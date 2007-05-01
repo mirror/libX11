@@ -31,12 +31,16 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-Status XGetGeometry (dpy, d, root, x, y, width, height, borderWidth, depth)
-    register Display *dpy;
-    Drawable d;
-    Window *root; /* RETURN */
-    int *x, *y;  /* RETURN */
-    unsigned int *width, *height, *borderWidth, *depth;  /* RETURN */
+Status XGetGeometry (
+    register Display *dpy,
+    Drawable d,
+    Window *root, /* RETURN */
+    int *x, 
+    int *y,  /* RETURN */
+    unsigned int *width,
+    unsigned int *height, 
+    unsigned int *borderWidth,
+    unsigned int *depth)  /* RETURN */
 {
     xGetGeometryReply rep;
     register xResourceReq *req;

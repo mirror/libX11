@@ -33,11 +33,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xcmsint.h"
 
 
-Colormap XCreateColormap(dpy, w, visual, alloc)
-register Display *dpy;
-Window w;
-Visual *visual;
-int alloc;
+Colormap XCreateColormap(
+    register Display *dpy,
+    Window w,
+    Visual *visual,
+    int alloc)
 {
     register xCreateColormapReq *req;
     Colormap mid;

@@ -60,11 +60,11 @@ SOFTWARE.
 #define safestrlen(s) ((s) ? strlen(s) : 0)
 
 int
-XSetSizeHints(dpy, w, hints, property)		/* old routine */
-	Display *dpy;
-	Window w;
-	XSizeHints *hints;
-        Atom property;
+XSetSizeHints(		/* old routine */
+	Display *dpy,
+	Window w,
+	XSizeHints *hints,
+        Atom property)
 {
 	xPropSizeHints prop;
 	memset(&prop, 0, sizeof(prop));
@@ -106,10 +106,10 @@ XSetSizeHints(dpy, w, hints, property)		/* old routine */
  */
 
 int
-XSetWMHints (dpy, w, wmhints)
-	Display *dpy;
-	Window w;
-	XWMHints *wmhints; 
+XSetWMHints (
+	Display *dpy,
+	Window w,
+	XWMHints *wmhints)
 {
 	xPropWMHints prop;
 	memset(&prop, 0, sizeof(prop));
@@ -143,10 +143,10 @@ XSetWMHints (dpy, w, wmhints)
  */
 
 int
-XSetZoomHints (dpy, w, zhints)
-	Display *dpy;
-	Window w;
-	XSizeHints *zhints;
+XSetZoomHints (
+	Display *dpy,
+	Window w,
+	XSizeHints *zhints)
 {
 	return XSetSizeHints (dpy, w, zhints, XA_WM_ZOOM_HINTS);
 }
@@ -158,10 +158,10 @@ XSetZoomHints (dpy, w, zhints)
  */
 
 int
-XSetNormalHints (dpy, w, hints)			/* old routine */
-	Display *dpy;
-	Window w;
-	XSizeHints *hints;
+XSetNormalHints (			/* old routine */
+	Display *dpy,
+	Window w,
+	XSizeHints *hints)
 {
 	return XSetSizeHints (dpy, w, hints, XA_WM_NORMAL_HINTS);
 }
@@ -175,11 +175,11 @@ XSetNormalHints (dpy, w, hints)			/* old routine */
  */
 
 int
-XSetIconSizes (dpy, w, list, count)
-	Display *dpy;
-	Window w;	/* typically, root */
-	XIconSize *list;
-	int count; 	/* number of items on the list */
+XSetIconSizes (
+	Display *dpy,
+	Window w,	/* typically, root */
+	XIconSize *list,
+	int count) 	/* number of items on the list */
 {
 	register int i;
 	xPropIconSize *pp, *prop;
@@ -206,11 +206,11 @@ XSetIconSizes (dpy, w, list, count)
 }
 
 int
-XSetCommand (dpy, w, argv, argc)
-	Display *dpy;
-	Window w;
-	char **argv;
-	int argc;
+XSetCommand (
+	Display *dpy,
+	Window w,
+	char **argv,
+	int argc)
 {
 	register int i;
 	register int nbytes;
@@ -278,20 +278,20 @@ XSetStandardProperties (
 }
 
 int
-XSetTransientForHint(dpy, w, propWindow)
-	Display *dpy;
-	Window w;
-	Window propWindow;
+XSetTransientForHint(
+	Display *dpy,
+	Window w,
+	Window propWindow)
 {
 	return XChangeProperty(dpy, w, XA_WM_TRANSIENT_FOR, XA_WINDOW, 32,
 			       PropModeReplace, (unsigned char *) &propWindow, 1);
 }
 
 int
-XSetClassHint(dpy, w, classhint)
-	Display *dpy;
-	Window w;
-	XClassHint *classhint;
+XSetClassHint(
+	Display *dpy,
+	Window w,
+	XClassHint *classhint)
 {
 	char *class_string;
 	char *s;

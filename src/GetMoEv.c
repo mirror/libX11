@@ -31,11 +31,12 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-XTimeCoord *XGetMotionEvents(dpy, w, start, stop, nEvents)
-    register Display *dpy;
-    Time start, stop;
-    Window w;
-    int *nEvents;  /* RETURN */
+XTimeCoord *XGetMotionEvents(
+    register Display *dpy,
+    Time start, 
+    Time stop,
+    Window w,
+    int *nEvents)  /* RETURN */
 {       
     xGetMotionEventsReply rep;
     register xGetMotionEventsReq *req;

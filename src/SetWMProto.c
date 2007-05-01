@@ -58,11 +58,11 @@ SOFTWARE.
  *	WM_PROTOCOLS 	type: ATOM	format: 32
  */
 
-Status XSetWMProtocols (dpy, w, protocols, count)
-    Display *dpy;
-    Window w;
-    Atom *protocols;
-    int count;
+Status XSetWMProtocols (
+    Display *dpy,
+    Window w,
+    Atom *protocols,
+    int count)
 {
     Atom prop;
 

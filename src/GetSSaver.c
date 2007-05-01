@@ -33,11 +33,13 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGetScreenSaver(dpy, timeout, interval, prefer_blanking, allow_exp)
-     register Display *dpy;
+XGetScreenSaver(
+     register Display *dpy,
      /* the following are return only vars */
-     int *timeout, *interval;
-     int *prefer_blanking, *allow_exp;  /*boolean */
+     int *timeout,
+     int *interval,
+     int *prefer_blanking,
+     int *allow_exp)  /*boolean */
      
 {       
     xGetScreenSaverReply rep;

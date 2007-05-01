@@ -32,8 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XAutoRepeatOn (dpy)
-register Display *dpy;
+XAutoRepeatOn (register Display *dpy)
 {
 	XKeyboardControl values;
 	values.auto_repeat_mode = AutoRepeatModeOn;
@@ -42,8 +41,7 @@ register Display *dpy;
 }
 
 int
-XAutoRepeatOff (dpy)
-register Display *dpy;
+XAutoRepeatOff (register Display *dpy)
 {
 	XKeyboardControl values;
 	values.auto_repeat_mode = AutoRepeatModeOff;

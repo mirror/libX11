@@ -33,9 +33,9 @@ in this Software without prior written authorization from The Open Group.
 static XColor _Xconst foreground = { 0,    0,     0,     0  };  /* black */
 static XColor _Xconst background = { 0, 65535, 65535, 65535 };  /* white */
 
-Cursor XCreateFontCursor(dpy, which)
-	Display *dpy;
-	unsigned int which;
+Cursor XCreateFontCursor(
+	Display *dpy,
+	unsigned int which)
 {
 	/* 
 	 * the cursor font contains the shape glyph followed by the mask

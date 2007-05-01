@@ -172,10 +172,10 @@ _XcmsCIELabQueryMaxLCRGB(
  *	SYNOPSIS
  */
 Status
-XcmsCIELabQueryMaxLC (ccc, hue_angle, pColor_return)
-    XcmsCCC ccc;
-    XcmsFloat hue_angle;	    /* hue_angle in degrees */
-    XcmsColor *pColor_return;
+XcmsCIELabQueryMaxLC (
+    XcmsCCC ccc,
+    XcmsFloat hue_angle,	    /* hue_angle in degrees */
+    XcmsColor *pColor_return)
 
 /*
  *	DESCRIPTION

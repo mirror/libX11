@@ -32,9 +32,9 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Xlibint.h"
 
-char **XListExtensions(dpy, nextensions)
-register Display *dpy;
-int *nextensions;	/* RETURN */
+char **XListExtensions(
+    register Display *dpy,
+    int *nextensions)	/* RETURN */
 {
 	xListExtensionsReply rep;
 	char **list;
@@ -90,8 +90,7 @@ int *nextensions;	/* RETURN */
 }
 
 int
-XFreeExtensionList (list)
-char **list;
+XFreeExtensionList (char **list)
 {
 	if (list != NULL) {
 	    Xfree (list[0]-1);

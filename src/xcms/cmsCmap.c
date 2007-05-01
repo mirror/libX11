@@ -236,11 +236,11 @@ CmapRecForColormap(
  *	SYNOPSIS
  */
 XcmsCmapRec *
-_XcmsAddCmapRec(dpy, cmap, windowID, visual)
-    Display *dpy;
-    Colormap cmap;
-    Window windowID;
-    Visual *visual;
+_XcmsAddCmapRec(
+    Display *dpy,
+    Colormap cmap,
+    Window windowID,
+    Visual *visual)
 /*
  *	DESCRIPTION
  *		Create an XcmsCmapRec for the specified cmap, windowID,
@@ -412,9 +412,9 @@ _XcmsFreeClientCmaps(
  *	SYNOPSIS
  */
 XcmsCCC 
-XcmsCCCOfColormap(dpy, cmap)
-    Display *dpy;
-    Colormap cmap;
+XcmsCCCOfColormap(
+    Display *dpy,
+    Colormap cmap)
 /*
  *	DESCRIPTION
  *		Finds the XcmsCCC associated with the specified colormap.
@@ -480,10 +480,10 @@ XcmsCCCOfColormap(dpy, cmap)
     return(NULL);
 }
 
-XcmsCCC XcmsSetCCCOfColormap(dpy, cmap, ccc)
-    Display *dpy;
-    Colormap cmap;
-    XcmsCCC ccc;
+XcmsCCC XcmsSetCCCOfColormap(
+    Display *dpy,
+    Colormap cmap,
+    XcmsCCC ccc)
 {
     XcmsCCC prev_ccc = NULL;
     XcmsCmapRec *pRec;

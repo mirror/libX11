@@ -32,8 +32,7 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGrabServer (dpy)
-register Display *dpy;
+XGrabServer (register Display *dpy)
 {
 	register xReq *req;
 	LockDisplay(dpy);

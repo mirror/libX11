@@ -33,11 +33,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Cr.h"
 
 int
-XChangeGC (dpy, gc, valuemask, values)
-    register Display *dpy;
-    GC gc;
-    unsigned long valuemask;
-    XGCValues *values;
+XChangeGC (
+    register Display *dpy,
+    GC gc,
+    unsigned long valuemask,
+    XGCValues *values)
 {
     LockDisplay(dpy);
 

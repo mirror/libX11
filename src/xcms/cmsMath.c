@@ -53,8 +53,7 @@ int sqrt_loopcount;
 /* for cube roots, x^3 - a = 0,  x_new = x - 1/3 (x - a/x^2) */
 
 double
-_XcmsCubeRoot(a)
-    double a;
+_XcmsCubeRoot(double a)
 {
     register double abs_a, cur_guess, delta;
 
@@ -98,8 +97,7 @@ _XcmsCubeRoot(a)
 /* for square roots, x^2 - a = 0,  x_new = x - 1/2 (x - a/x) */
 
 double
-_XcmsSquareRoot(a)
-    double a;
+_XcmsSquareRoot(double a)
 {
     register double cur_guess, delta;
 

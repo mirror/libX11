@@ -32,10 +32,10 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetTile (dpy, gc, tile)
-register Display *dpy;
-GC gc;
-Pixmap tile;
+XSetTile (
+    register Display *dpy,
+    GC gc,
+    Pixmap tile)
 {
     LockDisplay(dpy);
     /* always update, since client may have changed pixmap contents */

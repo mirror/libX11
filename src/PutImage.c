@@ -941,15 +941,17 @@ PutSubImage (
 
 
 int
-XPutImage (dpy, d, gc, image, req_xoffset, req_yoffset, x, y, req_width,
-							      req_height)
-    register Display *dpy;
-    Drawable d;
-    GC gc;
-    register XImage *image;
-    int x, y;
-    unsigned int req_width, req_height;
-    int req_xoffset, req_yoffset;
+XPutImage (
+    register Display *dpy,
+    Drawable d,
+    GC gc,
+    register XImage *image,
+    int req_xoffset,
+    int req_yoffset,
+    int x,
+    int y,
+    unsigned int req_width, 
+    unsigned int req_height)
 
 {
     long width = req_width;

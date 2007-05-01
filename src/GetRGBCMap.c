@@ -36,12 +36,12 @@ from The Open Group.
 #include "Xatomtype.h"
 #include <X11/Xatom.h>
 
-Status XGetRGBColormaps (dpy, w, stdcmap, count, property)
-    Display *dpy;
-    Window w;
-    XStandardColormap **stdcmap;	/* RETURN */
-    int *count;				/* RETURN */
-    Atom property;			/* XA_RGB_BEST_MAP, etc. */
+Status XGetRGBColormaps (
+    Display *dpy,
+    Window w,
+    XStandardColormap **stdcmap,	/* RETURN */
+    int *count,				/* RETURN */
+    Atom property)			/* XA_RGB_BEST_MAP, etc. */
 {
     register int i;			/* iterator variable */
     xPropStandardColormap *data = NULL;	 /* data read in from prop */

@@ -49,13 +49,15 @@ in this Software without prior written authorization from The Open Group.
  *    xoffset=0
  *    no extra bytes per line
  */  
-Pixmap XCreatePixmapFromBitmapData(display,d,data,width,height,fg,bg,depth)
-    Display *display;
-    Drawable d;
-    char *data;
-    unsigned int width, height;
-    unsigned long fg, bg;
-    unsigned int depth;
+Pixmap XCreatePixmapFromBitmapData(
+    Display *display,
+    Drawable d,
+    char *data,
+    unsigned int width, 
+    unsigned int height,
+    unsigned long fg, 
+    unsigned long bg,
+    unsigned int depth)
 {
     XImage ximage;
     GC gc;

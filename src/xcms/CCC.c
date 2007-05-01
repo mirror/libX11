@@ -87,16 +87,15 @@ from The Open Group.
  */
 
 XcmsCCC 
-XcmsCreateCCC(dpy, screenNumber, visual, clientWhitePt, gamutCompProc,
-	gamutCompClientData, whitePtAdjProc, whitePtAdjClientData)
-    Display *dpy;
-    int	screenNumber;
-    Visual *visual;
-    XcmsColor *clientWhitePt;
-    XcmsCompressionProc gamutCompProc;
-    XPointer gamutCompClientData;
-    XcmsWhiteAdjustProc whitePtAdjProc;
-    XPointer whitePtAdjClientData;
+XcmsCreateCCC(
+    Display *dpy,
+    int screenNumber,
+    Visual *visual,
+    XcmsColor *clientWhitePt,
+    XcmsCompressionProc gamutCompProc,
+    XPointer gamutCompClientData,
+    XcmsWhiteAdjustProc whitePtAdjProc,
+    XPointer whitePtAdjClientData)
 /*
  *	DESCRIPTION
  *		Given a Display, Screen, Visual, etc., this routine creates
@@ -174,9 +173,9 @@ XcmsCreateCCC(dpy, screenNumber, visual, clientWhitePt, gamutCompProc,
  *	SYNOPSIS
  */
 XcmsCCC 
-XcmsDefaultCCC(dpy, screenNumber)
-    Display *dpy;
-    int screenNumber;
+XcmsDefaultCCC(
+    Display *dpy,
+    int screenNumber)
 /*
  *	DESCRIPTION
  *		Given a Display and Screen, this routine creates
@@ -256,8 +255,7 @@ XcmsDefaultCCC(dpy, screenNumber)
  *	SYNOPSIS
  */
 void
-XcmsFreeCCC(ccc)
-    XcmsCCC ccc;
+XcmsFreeCCC(XcmsCCC ccc)
 /*
  *	DESCRIPTION
  *		Frees memory associated with a Color Conversion Context

@@ -46,13 +46,15 @@ static unsigned int Ones(                /* HACKMEM 169 */
     return ((unsigned int) (((y + (y >> 3)) & 030707070707) % 077));
 }
 
-XImage *XGetImage (dpy, d, x, y, width, height, plane_mask, format)
-     register Display *dpy;
-     Drawable d;
-     int x, y;
-     unsigned int width, height;
-     unsigned long plane_mask;
-     int format;	/* either XYPixmap or ZPixmap */
+XImage *XGetImage (
+     register Display *dpy,
+     Drawable d,
+     int x,
+     int y,
+     unsigned int width,
+     unsigned int height,
+     unsigned long plane_mask,
+     int format)	/* either XYPixmap or ZPixmap */
 {
 	xGetImageReply rep;
 	register xGetImageReq *req;
@@ -105,16 +107,18 @@ XImage *XGetImage (dpy, d, x, y, width, height, plane_mask, format)
 	return (image);
 }
 
-XImage *XGetSubImage(dpy, d, x, y, width, height, plane_mask, format,
-		     dest_image, dest_x, dest_y)
-     register Display *dpy;
-     Drawable d;
-     int x, y;
-     unsigned int width, height;
-     unsigned long plane_mask;
-     int format;	/* either XYPixmap or ZPixmap */
-     XImage *dest_image;
-     int dest_x, dest_y;
+XImage *XGetSubImage(
+     register Display *dpy,
+     Drawable d,
+     int x,
+     int y,
+     unsigned int width,
+     unsigned int height,
+     unsigned long plane_mask,
+     int format,	/* either XYPixmap or ZPixmap */
+     XImage *dest_image,
+     int dest_x, 
+     int dest_y)
 {
 	XImage *temp_image;
 	temp_image = XGetImage(dpy, d, x, y, width, height, 

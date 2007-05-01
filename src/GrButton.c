@@ -32,17 +32,17 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XGrabButton(dpy, button, modifiers, grab_window, owner_events, event_mask,
-	    pointer_mode, keyboard_mode, confine_to, curs)
-register Display *dpy;
-unsigned int modifiers; /* CARD16 */
-unsigned int button; /* CARD8 */
-Window grab_window;
-Bool owner_events;
-unsigned int event_mask; /* CARD16 */
-int pointer_mode, keyboard_mode;
-Window confine_to;
-Cursor curs;
+XGrabButton(
+    register Display *dpy,
+    unsigned int button, /* CARD8 */
+    unsigned int modifiers, /* CARD16 */
+    Window grab_window,
+    Bool owner_events,
+    unsigned int event_mask, /* CARD16 */
+    int pointer_mode, 
+    int keyboard_mode,
+    Window confine_to,
+    Cursor curs)
 {
     register xGrabButtonReq *req;
     LockDisplay(dpy);

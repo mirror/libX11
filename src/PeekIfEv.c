@@ -39,15 +39,15 @@ in this Software without prior written authorization from The Open Group.
  */
 
 int
-XPeekIfEvent (dpy, event, predicate, arg)
-	register Display *dpy;
-	register XEvent *event;
+XPeekIfEvent (
+	register Display *dpy,
+	register XEvent *event,
 	Bool (*predicate)(
 			  Display*			/* display */,
 			  XEvent*			/* event */,
 			  char*				/* arg */
-			  );
-	char *arg;
+			  ),
+	char *arg)
 {
 	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;

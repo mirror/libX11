@@ -36,12 +36,12 @@ from The Open Group.
 
 /*ARGSUSED*/
 Bool
-_XAsyncErrorHandler(dpy, rep, buf, len, data)
-    register Display *dpy;
-    register xReply *rep;
-    char *buf;
-    int len;
-    XPointer data;
+_XAsyncErrorHandler(
+    register Display *dpy,
+    register xReply *rep,
+    char *buf,
+    int len,
+    XPointer data)
 {
     register _XAsyncErrorState *state;
 
@@ -64,9 +64,9 @@ _XAsyncErrorHandler(dpy, rep, buf, len, data)
     return False;
 }
 
-void _XDeqAsyncHandler(dpy, handler)
-    Display *dpy;
-    register _XAsyncHandler *handler;
+void _XDeqAsyncHandler(
+    Display *dpy,
+    register _XAsyncHandler *handler)
 {
     register _XAsyncHandler **prev;
     register _XAsyncHandler *async;
@@ -80,14 +80,14 @@ void _XDeqAsyncHandler(dpy, handler)
 }
 
 char *
-_XGetAsyncReply(dpy, replbuf, rep, buf, len, extra, discard)
-    register Display *dpy;
-    register char *replbuf;	/* data is read into this buffer */
-    register xReply *rep;	/* value passed to calling handler */
-    char *buf;			/* value passed to calling handler */
-    int len;			/* value passed to calling handler */
-    int extra;			/* extra words to read, ala _XReply */
-    Bool discard;		/* discard after extra?, ala _XReply */
+_XGetAsyncReply(
+    register Display *dpy,
+    register char *replbuf,	/* data is read into this buffer */
+    register xReply *rep,	/* value passed to calling handler */
+    char *buf,			/* value passed to calling handler */
+    int len,			/* value passed to calling handler */
+    int extra,			/* extra words to read, ala _XReply */
+    Bool discard)		/* discard after extra?, ala _XReply */
 {
     if (extra == 0) {
 	if (discard && (rep->generic.length << 2) > len)
@@ -127,15 +127,15 @@ _XGetAsyncReply(dpy, replbuf, rep, buf, len, extra, discard)
 }
 
 void
-_XGetAsyncData(dpy, data, buf, len, skip, datalen, discardtotal)
-    Display *dpy;
-    char *data;			/* data is read into this buffer */
-    char *buf;			/* value passed to calling handler */
-    int len;			/* value passed to calling handler */
-    int skip;			/* number of bytes already read in previous
+_XGetAsyncData(
+    Display *dpy,
+    char *data,			/* data is read into this buffer */
+    char *buf,			/* value passed to calling handler */
+    int len,			/* value passed to calling handler */
+    int skip,			/* number of bytes already read in previous
 				   _XGetAsyncReply or _XGetAsyncData calls */
-    int datalen;		/* size of data buffer in bytes */
-    int discardtotal;		/* min. bytes to consume (after skip) */
+    int datalen,		/* size of data buffer in bytes */
+    int discardtotal)		/* min. bytes to consume (after skip) */
 {
     buf += skip;
     len -= skip;

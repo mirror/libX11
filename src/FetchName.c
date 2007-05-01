@@ -34,10 +34,10 @@ in this Software without prior written authorization from The Open Group.
 #include <stdio.h>
 
 
-Status XFetchName (dpy, w, name)
-    register Display *dpy;
-    Window w;
-    char **name;
+Status XFetchName (
+    register Display *dpy,
+    Window w,
+    char **name)
 {
     Atom actual_type;
     int actual_format;
@@ -64,10 +64,10 @@ Status XFetchName (dpy, w, name)
     return(0);
 }
 
-Status XGetIconName (dpy, w, icon_name)
-    register Display *dpy;
-    Window w;
-    char **icon_name;
+Status XGetIconName (
+    register Display *dpy,
+    Window w,
+    char **icon_name)
 {
     Atom actual_type;
     int actual_format;

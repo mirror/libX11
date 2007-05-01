@@ -67,12 +67,12 @@
  */
 /* ARGSUSED */
 Status
-XcmsTekHVCClipV (ccc, pColors_in_out, nColors, i, pCompressed)
-    XcmsCCC ccc;
-    XcmsColor *pColors_in_out;
-    unsigned int nColors;
-    unsigned int i;
-    Bool *pCompressed;
+XcmsTekHVCClipV (
+    XcmsCCC ccc, 
+    XcmsColor *pColors_in_out, 
+    unsigned int nColors,
+    unsigned int i,
+    Bool *pCompressed)
 /*
  *	DESCRIPTION
  *		Return the closest value for a specific hue and chroma.

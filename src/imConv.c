@@ -158,13 +158,13 @@ static int lookup_string(
 #define BUF_SIZE (20)
 
 int
-_XimLookupMBText(ic, event, buffer, nbytes, keysym, status)
-    Xic			 ic;
-    XKeyEvent*		event;
-    char*		buffer;
-    int			nbytes;
-    KeySym*		keysym;
-    XComposeStatus*	status;
+_XimLookupMBText(
+    Xic			 ic,
+    XKeyEvent*		event,
+    char*		buffer,
+    int			nbytes,
+    KeySym*		keysym,
+    XComposeStatus*	status)
 {
     int count;
     KeySym symbol;
@@ -229,13 +229,13 @@ _XimLookupMBText(ic, event, buffer, nbytes, keysym, status)
 }
 
 int
-_XimLookupWCText(ic, event, buffer, nbytes, keysym, status)
-    Xic			 ic;
-    XKeyEvent*		event;
-    wchar_t*		buffer;
-    int			nbytes;
-    KeySym*		keysym;
-    XComposeStatus*	status;
+_XimLookupWCText(
+    Xic			 ic,
+    XKeyEvent*		event,
+    wchar_t*		buffer,
+    int			nbytes,
+    KeySym*		keysym,
+    XComposeStatus*	status)
 {
     int count;
     KeySym symbol;
@@ -301,13 +301,13 @@ _XimLookupWCText(ic, event, buffer, nbytes, keysym, status)
 }
 
 int
-_XimLookupUTF8Text(ic, event, buffer, nbytes, keysym, status)
-    Xic			 ic;
-    XKeyEvent*		event;
-    char*		buffer;
-    int			nbytes;
-    KeySym*		keysym;
-    XComposeStatus*	status;
+_XimLookupUTF8Text(
+    Xic			 ic,
+    XKeyEvent*		event,
+    char*		buffer,
+    int			nbytes,
+    KeySym*		keysym,
+    XComposeStatus*	status)
 {
     int count;
     KeySym symbol;

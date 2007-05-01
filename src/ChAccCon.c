@@ -32,25 +32,21 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XEnableAccessControl(dpy) 
-    register Display *dpy;
-
+XEnableAccessControl(register Display *dpy)
 {
     return XSetAccessControl(dpy, EnableAccess);
 }
 
 int
-XDisableAccessControl(dpy) 
-    register Display *dpy;
-
+XDisableAccessControl(register Display *dpy)
 {
     return XSetAccessControl(dpy, DisableAccess);
 }
 
 int
-XSetAccessControl(dpy, mode)
-    register Display *dpy; 
-    int mode;
+XSetAccessControl(
+    register Display *dpy,
+    int mode)
 
 {
     register xSetAccessControlReq *req;

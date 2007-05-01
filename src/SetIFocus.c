@@ -32,11 +32,11 @@ in this Software without prior written authorization from The Open Group.
 #include "Xlibint.h"
 
 int
-XSetInputFocus(dpy, focus, revert_to, time)
-    register Display *dpy;
-    Window focus;
-    int revert_to;
-    Time time;
+XSetInputFocus(
+    register Display *dpy,
+    Window focus,
+    int revert_to,
+    Time time)
 {       
     register xSetInputFocusReq *req;
 

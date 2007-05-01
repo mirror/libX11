@@ -382,7 +382,7 @@ XrmPermStringToQuark(
     return _XrmInternalStringToQuark(name, tname-(char *)name-1, sig, True);
 }
 
-XrmQuark XrmUniqueQuark()
+XrmQuark XrmUniqueQuark(void)
 {
     XrmQuark q;
 
@@ -395,8 +395,7 @@ XrmQuark XrmUniqueQuark()
     return q;
 }
 
-XrmString XrmQuarkToString(quark)
-    register XrmQuark quark;
+XrmString XrmQuarkToString(register XrmQuark quark)
 {
     XrmString s;
 

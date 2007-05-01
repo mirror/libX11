@@ -459,6 +459,11 @@ AC_OUTPUT([Makefile
 	   x11.pc
 	   x11-xcb.pc])
 
+man_pages_suffix=$LIBMAN_SUFFIX
+if test -z "$man_pages_suffix"; then
+    man_pages_suffix=none
+fi
+
 echo ""
 echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
@@ -472,6 +477,6 @@ echo " Internationalization support:            "$XLOCALE
 echo " XF86BigFont support:                     "$XF86BIGFONT
 echo " XKB support:                             "$XKB
 echo " XLOCALEDIR environment variable support: "$ENABLE_XLOCALEDIR
-echo " Manual pages installed:                  "$LIBMAN_SUFFIX
+echo " Manual pages suffix:                     "$man_pages_suffix
 echo " Compose table cache enabled:             "$COMPOSECACHE
 echo ""

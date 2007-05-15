@@ -971,6 +971,22 @@ typedef struct {
 	Window window;	/* window on which event was requested in event mask */
 } XAnyEvent;
 
+
+/***************************************************************
+ *
+ * GenericEvent.  This event is the standard event for all newer extensions.
+ */
+
+typedef struct 
+    {
+    int            type;         /* of event. Always GenericEvent */
+    unsigned long  serial;       /* # of last request processed */
+    Bool           send_event;   /* true if from SendEvent request */
+    Display        *display;     /* Display the event was read from */
+    int            extension;    /* major opcode of extension that caused the event */
+    int            evtype;       /* actual event type. */
+    } XGenericEvent;
+
 /*
  * this union is defined so Xlib can always use the same sized
  * event structure internally, to avoid memory fragmentation.

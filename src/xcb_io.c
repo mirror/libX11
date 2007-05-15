@@ -85,7 +85,17 @@ static void handle_event(Display *dpy, xcb_generic_event_t *e)
 	if(e->response_type == X_Error)
 		_XError(dpy, (xError *) e);
 	else
+        {
+		/* GenericEvents may be > 32 bytes. In this case, the event struct
+		 * is trailed by the additional bytes. the xcb_generic_event_t
+		 * struct uses 4 bytes for internal numbering, so we need to
+		 * shift the trailing data to be after the first 32 bytes.
+		 */
+		if (e->response_type == GenericEvent && ((xcb_ge_event_t*)e)->length) {
+			memmove(&e->full_sequence, &e[1], ((xcb_ge_event_t*)e)->length * 4);
+		}
 		_XEnq(dpy, (xEvent *) e);
+        }
 	free(e);
 }
 

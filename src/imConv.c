@@ -67,11 +67,11 @@ typedef int (*ucstocsConvProc)(
 );
 
 struct SubstRec {
-    const char*  encoding_name;
-    const char*  charset_name;
+    const char encoding_name[8];
+    const char charset_name[12];
 };
 
-static struct SubstRec SubstTable[] = {
+static const struct SubstRec SubstTable[] = {
     {"STRING", "ISO8859-1"},
     {"TIS620", "TIS620-0"},
     {"UTF-8",  "ISO10646-1"}

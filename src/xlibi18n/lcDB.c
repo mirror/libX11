@@ -99,10 +99,7 @@ typedef enum {
 
 typedef struct {
     Token token;	/* token id */
-    const char *name;	/* token sequence */
     int len;		/* length of token sequence */
-    int (*parse_proc)(const char *str, Token token, Database *db);
-			/* parsing procedure */
 } TokenTable;
 
 static int f_newline (const char *str, Token token, Database *db);
@@ -116,20 +113,20 @@ static int f_backslash (const char *str, Token token, Database *db);
 static int f_numeric (const char *str, Token token, Database *db);
 static int f_default (const char *str, Token token, Database *db);
 
-static TokenTable token_tbl[] = {
-    { T_NEWLINE,	"\n",	1,	f_newline },
-    { T_COMMENT,	"#",	1,	f_comment },
-    { T_SEMICOLON,	";",	1,	f_semicolon },
-    { T_DOUBLE_QUOTE,	"\"",	1,	f_double_quote },
-    { T_LEFT_BRACE,	"{",	1,	f_left_brace },
-    { T_RIGHT_BRACE,	"}",	1,	f_right_brace },
-    { T_SPACE,		" ",	1,	f_white },
-    { T_TAB,		"\t",	1,	f_white },
-    { T_BACKSLASH,	"\\",	1,	f_backslash },
-    { T_NUMERIC_HEX,	"\\x",	2,	f_numeric },
-    { T_NUMERIC_DEC,	"\\d",	2,	f_numeric },
-    { T_NUMERIC_OCT,	"\\o",	2,	f_numeric },
-    { T_DEFAULT,	" ",	1,	f_default }	/* any character */
+static const TokenTable token_tbl[] = {
+    { T_NEWLINE,      1 },
+    { T_COMMENT,      1 },
+    { T_SEMICOLON,    1 },
+    { T_DOUBLE_QUOTE, 1 },
+    { T_LEFT_BRACE,   1 },
+    { T_RIGHT_BRACE,  1 },
+    { T_SPACE,        1 },
+    { T_TAB,          1 },
+    { T_BACKSLASH,    1 },
+    { T_NUMERIC_HEX,  2 },
+    { T_NUMERIC_DEC,  2 },
+    { T_NUMERIC_OCT,  2 },
+    { T_DEFAULT,      1 } /* any character */
 };
 
 #define	SYM_CR          '\r'
@@ -1093,8 +1090,48 @@ CreateDatabase(
 	}
 	p = line.str;
 	while (*p) {
+            int (*parse_proc)(const char *str, Token token, Database *db) = NULL;
+
 	    token = get_token(p);
-	    len = (*token_tbl[token].parse_proc)(p, token, &db);
+
+            switch (token_tbl[token].token) {
+            case T_NEWLINE:
+                parse_proc = f_newline;
+                break;
+            case T_COMMENT:
+                parse_proc = f_comment;
+                break;
+            case T_SEMICOLON:
+                parse_proc = f_semicolon;
+                break;
+            case T_DOUBLE_QUOTE:
+                parse_proc = f_double_quote;
+                break;
+            case T_LEFT_BRACE:
+                parse_proc = f_left_brace;
+                break;
+            case T_RIGHT_BRACE:
+                parse_proc = f_right_brace;
+                break;
+            case T_SPACE:
+            case T_TAB:
+                parse_proc = f_white;
+                break;
+            case T_BACKSLASH:
+                parse_proc = f_backslash;
+                break;
+            case T_NUMERIC_HEX:
+            case T_NUMERIC_DEC:
+            case T_NUMERIC_OCT:
+                parse_proc = f_numeric;
+                break;
+            case T_DEFAULT:
+                parse_proc = f_default;
+                break;
+            }
+
+            len = parse_proc(p, token, &db);
+
 	    if (len < 1) {
 		error = 1;
 		break;

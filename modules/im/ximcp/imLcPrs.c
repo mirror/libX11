@@ -278,32 +278,26 @@ static long
 modmask(
     char *name)
 {
-    long mask;
-
     struct _modtbl {
-	const char *name;
+	const char name[6];
 	long mask;
     };
-    struct _modtbl *p;
 
-    static struct _modtbl tbl[] = {
+    static const struct _modtbl tbl[] = {
 	{ "Ctrl",	ControlMask	},
         { "Lock",	LockMask	},
         { "Caps",	LockMask	},
         { "Shift",	ShiftMask	},
         { "Alt",	Mod1Mask	},
-        { "Meta",	Mod1Mask	},
-        { NULL,		0		}};
+        { "Meta",	Mod1Mask	}};
 
-    p = tbl;
-    mask = 0;
-    for (p = tbl; p->name != NULL; p++) {
-	if (strcmp(name, p->name) == 0) {
-	    mask = p->mask;
-	    break;
-	}
-    }
-    return(mask);
+    int i, num_entries = sizeof (tbl) / sizeof (tbl[0]);
+
+    for (i = 0; i < num_entries; i++)
+        if (!strcmp (name, tbl[i].name))
+            return tbl[i].mask;
+
+    return 0;
 }
 
 static char*

@@ -71,25 +71,31 @@ SOFTWARE.
  * descriptions of errors in Section 4 of Protocol doc (pp. 350-351); more
  * verbose descriptions are given in the error database
  */
-static const char * const _XErrorList[] = {
-    /* No error	*/		"no error",
-    /* BadRequest */		"BadRequest",
-    /* BadValue	*/		"BadValue",
-    /* BadWindow */		"BadWindow",
-    /* BadPixmap */		"BadPixmap",
-    /* BadAtom */		"BadAtom",
-    /* BadCursor */		"BadCursor",
-    /* BadFont */		"BadFont",
-    /* BadMatch	*/		"BadMatch",
-    /* BadDrawable */		"BadDrawable",
-    /* BadAccess */		"BadAccess",
-    /* BadAlloc	*/		"BadAlloc",
-    /* BadColor */  		"BadColor",
-    /* BadGC */  		"BadGC",
-    /* BadIDChoice */		"BadIDChoice",
-    /* BadName */		"BadName",
-    /* BadLength */		"BadLength",
-    /* BadImplementation */	"BadImplementation",
+static const char _XErrorList[] =
+    /* No error */          "no error\0"
+    /* BadRequest */        "BadRequest\0"
+    /* BadValue */          "BadValue\0"
+    /* BadWindow */         "BadWindow\0"
+    /* BadPixmap */         "BadPixmap\0"
+    /* BadAtom */           "BadAtom\0"
+    /* BadCursor */         "BadCursor\0"
+    /* BadFont */           "BadFont\0"
+    /* BadMatch */          "BadMatch\0"
+    /* BadDrawable */       "BadDrawable\0"
+    /* BadAccess */         "BadAccess\0"
+    /* BadAlloc */          "BadAlloc\0"
+    /* BadColor */          "BadColor\0"
+    /* BadGC */             "BadGC\0"
+    /* BadIDChoice */       "BadIDChoice\0"
+    /* BadName */           "BadName\0"
+    /* BadLength */         "BadLength\0"
+    /* BadImplementation */ "BadImplementation"
+;
+
+/* offsets into _XErrorList */
+static const unsigned char _XErrorOffsets[] = {
+    0, 9, 20, 29, 39, 49, 57, 67, 75, 84, 96,
+    106, 115, 124, 130, 142, 150, 160
 };
 
 
@@ -107,7 +113,8 @@ XGetErrorText(
     if (nbytes == 0) return 0;
     if (code <= BadImplementation && code > 0) {
 	sprintf(buf, "%d", code);
-	(void) XGetErrorDatabaseText(dpy, "XProtoError", buf, _XErrorList[code],
+        (void) XGetErrorDatabaseText(dpy, "XProtoError", buf,
+                                     _XErrorList + _XErrorOffsets[code],
 				     buffer, nbytes);
     } else
 	buffer[0] = '\0';

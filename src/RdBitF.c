@@ -56,43 +56,23 @@ from The Open Group.
 #define MAX_SIZE 255
 
 /* shared data for the image read/parse logic */
-static short hexTable[256];		/* conversion value */
-static Bool initialized = False;	/* easier to fill in at run time */
+static const short hexTable[256] = {
+    ['0'] = 0,  ['1'] = 1,
+    ['2'] = 2,  ['3'] = 3,
+    ['4'] = 4,  ['5'] = 5,
+    ['6'] = 6,  ['7'] = 7,
+    ['8'] = 8,  ['9'] = 9,
+    ['A'] = 10, ['B'] = 11,
+    ['C'] = 12, ['D'] = 13,
+    ['E'] = 14, ['F'] = 15,
+    ['a'] = 10, ['b'] = 11,
+    ['c'] = 12, ['d'] = 13,
+    ['e'] = 14, ['f'] = 15,
 
-
-/*
- *	Table index for the hex values. Initialized once, first time.
- *	Used for translation value or delimiter significance lookup.
- */
-static void initHexTable(void)
-{
-    /*
-     * We build the table at run time for several reasons:
-     *
-     *     1.  portable to non-ASCII machines.
-     *     2.  still reentrant since we set the init flag after setting table.
-     *     3.  easier to extend.
-     *     4.  less prone to bugs.
-     */
-    hexTable['0'] = 0;	hexTable['1'] = 1;
-    hexTable['2'] = 2;	hexTable['3'] = 3;
-    hexTable['4'] = 4;	hexTable['5'] = 5;
-    hexTable['6'] = 6;	hexTable['7'] = 7;
-    hexTable['8'] = 8;	hexTable['9'] = 9;
-    hexTable['A'] = 10;	hexTable['B'] = 11;
-    hexTable['C'] = 12;	hexTable['D'] = 13;
-    hexTable['E'] = 14;	hexTable['F'] = 15;
-    hexTable['a'] = 10;	hexTable['b'] = 11;
-    hexTable['c'] = 12;	hexTable['d'] = 13;
-    hexTable['e'] = 14;	hexTable['f'] = 15;
-
-    /* delimiters of significance are flagged w/ negative value */
-    hexTable[' '] = -1;	hexTable[','] = -1;
-    hexTable['}'] = -1;	hexTable['\n'] = -1;
-    hexTable['\t'] = -1;
-	
-    initialized = True;
-}
+    [' '] = -1, [','] = -1,
+    ['}'] = -1, ['\n'] = -1,
+    ['\t'] = -1
+};
 
 /*
  *	read next hex value in the input stream, return -1 if EOF
@@ -150,9 +130,6 @@ XReadBitmapFileData (
     unsigned int hh = 0;		/* height */
     int hx = -1;			/* x hotspot */
     int hy = -1;			/* y hotspot */
-
-    /* first time initialization */
-    if (initialized == False) initHexTable();
 
 #ifdef __UNIXOS2__
     filename = __XOS2RedirRoot(filename);

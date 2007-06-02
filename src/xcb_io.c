@@ -370,7 +370,8 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	   unlock the display. */
 	_XPutXCBBuffer(dpy);
 	current = insert_pending_request(dpy);
-	xcb_xlib_unlock(dpy->xcb->connection);
+	if(!dpy->lock || dpy->lock->locking_level == 0)
+		xcb_xlib_unlock(dpy->xcb->connection);
 	if(dpy->xcb->lock_fns.unlock_display)
 		dpy->xcb->lock_fns.unlock_display(dpy);
 	reply = xcb_wait_for_reply(c, current->sequence, &error);

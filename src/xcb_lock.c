@@ -23,6 +23,7 @@ static void _XCBLockDisplay(Display *dpy)
 	_XGetXCBBuffer(dpy);
 }
 
+/* XXX: If you change this function, update _XReply's copy of its guts! */
 static void _XCBUnlockDisplay(Display *dpy)
 {
     if(!(dpy->flags & XlibDisplayIOError))

@@ -19,18 +19,22 @@ static void _XCBLockDisplay(Display *dpy)
 	dpy->xcb->lock_fns.lock_display(dpy);
     if(!dpy->lock || dpy->lock->locking_level == 0)
 	xcb_xlib_lock(dpy->xcb->connection);
-    _XGetXCBBuffer(dpy);
+    if(!(dpy->flags & XlibDisplayIOError))
+	_XGetXCBBuffer(dpy);
 }
 
 static void _XCBUnlockDisplay(Display *dpy)
 {
-    _XPutXCBBuffer(dpy);
-    assert(dpy->xcb->partial_request == 0);
-    assert(xcb_get_request_sent(dpy->xcb->connection) == dpy->request);
+    if(!(dpy->flags & XlibDisplayIOError))
+    {
+	_XPutXCBBuffer(dpy);
+	assert(dpy->xcb->partial_request == 0);
+	assert(xcb_get_request_sent(dpy->xcb->connection) == dpy->request);
 
-    /* Traditional Xlib does this in _XSend; see the Xlib/XCB version
-     * of that function for why we do it here instead. */
-    _XSetSeqSyncFunction(dpy);
+	/* Traditional Xlib does this in _XSend; see the Xlib/XCB version
+	 * of that function for why we do it here instead. */
+	_XSetSeqSyncFunction(dpy);
+    }
 
     if(!dpy->lock || dpy->lock->locking_level == 0)
 	xcb_xlib_unlock(dpy->xcb->connection);

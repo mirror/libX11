@@ -186,6 +186,8 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 
 int _XEventsQueued(Display *dpy, int mode)
 {
+	if(dpy->flags & XlibDisplayIOError)
+		return 0;
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return 0;
 
@@ -202,6 +204,8 @@ int _XEventsQueued(Display *dpy, int mode)
  */
 void _XReadEvents(Display *dpy)
 {
+	if(dpy->flags & XlibDisplayIOError)
+		return;
 	_XSend(dpy, 0, 0);
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return;
@@ -219,6 +223,8 @@ void _XReadEvents(Display *dpy)
 void _XSend(Display *dpy, const char *data, long size)
 {
 	xcb_connection_t *c = dpy->xcb->connection;
+	if(dpy->flags & XlibDisplayIOError)
+		return;
 
 	assert(!dpy->xcb->request_extra);
 	dpy->xcb->request_extra = data;
@@ -355,6 +361,9 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	unsigned int current_sequence;
 
 	assert(!dpy->xcb->reply_data);
+
+	if(dpy->flags & XlibDisplayIOError)
+		return 0;
 
 	/* Internals of UnlockDisplay done by hand here, so that we can
 	   insert_pending_request *after* we _XPutXCBBuffer, but before we

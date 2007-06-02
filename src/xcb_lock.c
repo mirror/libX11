@@ -17,7 +17,8 @@ static void _XCBLockDisplay(Display *dpy)
 {
     if(dpy->xcb->lock_fns.lock_display)
 	dpy->xcb->lock_fns.lock_display(dpy);
-    xcb_xlib_lock(dpy->xcb->connection);
+    if(!dpy->lock || dpy->lock->locking_level == 0)
+	xcb_xlib_lock(dpy->xcb->connection);
     _XGetXCBBuffer(dpy);
 }
 
@@ -31,7 +32,8 @@ static void _XCBUnlockDisplay(Display *dpy)
      * of that function for why we do it here instead. */
     _XSetSeqSyncFunction(dpy);
 
-    xcb_xlib_unlock(dpy->xcb->connection);
+    if(!dpy->lock || dpy->lock->locking_level == 0)
+	xcb_xlib_unlock(dpy->xcb->connection);
     if(dpy->xcb->lock_fns.unlock_display)
 	dpy->xcb->lock_fns.unlock_display(dpy);
 }

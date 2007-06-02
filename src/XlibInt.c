@@ -2926,6 +2926,16 @@ _XIOError (
     errno = WSAGetLastError();
 #endif
 
+    /* This assumes that the thread calling exit will call any atexit handlers.
+     * If this does not hold, then an alternate solution would involve
+     * registering an atexit handler to take over the lock, which would only
+     * assume that the same thread calls all the atexit handlers. */
+#ifdef XTHREADS
+    if (dpy->lock)
+	(*dpy->lock->user_lock_display)(dpy);
+#endif
+    UnlockDisplay(dpy);
+
     if (_XIOErrorFunction != NULL)
 	(*_XIOErrorFunction)(dpy);
     else

@@ -106,7 +106,7 @@ static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
 {
 	xcb_connection_t *c = dpy->xcb->connection;
 	xcb_generic_event_t *event;
-	if(wait && !dpy->head)
+	if(wait)
 	{
 		UnlockDisplay(dpy);
 		event = xcb_wait_for_event(c);
@@ -140,7 +140,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				break;
 			}
 			handle_event(dpy, event);
-			event = wait_or_poll_for_event(dpy, wait_for_first_event);
+			event = xcb_poll_for_event(c);
 		}
 		else if(req && req->waiters != -1)
 		{

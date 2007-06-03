@@ -102,21 +102,6 @@ static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 	    _XError(dpy, (xError *) buf);
 }
 
-static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
-{
-	xcb_connection_t *c = dpy->xcb->connection;
-	xcb_generic_event_t *event;
-	if(wait)
-	{
-		UnlockDisplay(dpy);
-		event = xcb_wait_for_event(c);
-		LockDisplay(dpy);
-	}
-	else
-		event = xcb_poll_for_event(c);
-	return event;
-}
-
 static void process_responses(Display *dpy, int wait_for_first_event, xcb_generic_error_t **current_error, unsigned int current_request)
 {
 	void *reply;
@@ -125,7 +110,16 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 	PendingRequest *req;
 	xcb_connection_t *c = dpy->xcb->connection;
 	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
-		event = wait_or_poll_for_event(dpy, wait_for_first_event);
+	{
+		if(wait_for_first_event)
+		{
+			UnlockDisplay(dpy);
+			event = xcb_wait_for_event(c);
+			LockDisplay(dpy);
+		}
+		else
+			event = xcb_poll_for_event(c);
+	}
 
 	while(1)
 	{

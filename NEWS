@@ -1,7 +1,9 @@
 Version 1.1.2 - 2007-06-03
 
-* Fix CVE-2007-1667: Multiple integer overflows in the XGetPixel() and
-  XInitImage() functions.
+* Security fixes:
+  * Fix CVE-2007-1667: Multiple integer overflows in the XGetPixel() and
+    XInitImage() functions.
+  * Bug #9279: Fixed a file descriptor leak.
 
 * Xlib/XCB: Ensure _XReadEvents reads at least one new event and blocks for
   exactly one event.  Large performance improvement for XIfEvent and similar.
@@ -30,16 +32,22 @@ Version 1.1.2 - 2007-06-03
 * Bug #7703: Fixed XSetSizeHints() et al wrt use of uninitialized data.
   Now only those fields of the respective hint struct are set that
   are actually valid in the input data.
+
 * Bug #10292: Fixed a memory leak related to XOpenDisplay() in the XCB code.
+
 * Bug #7713: Initialize all of the event's fields before sending it.
-* Bug #9279: Fixed a file descriptor leak.
+
 * Bug #10562: Define _GNU_SOURCE on glibc systems.
+
 * Use unistd.h to get getresuid() and friends, now that we have _GNU_SOURCE
   defined.
 
 * Switched function definitions from K&R to ANSI style.
+
 * Many constness fixes.
+
 * Fixed a few warnings.
+
 * Fix 64bit issues with reallocation.
 
 * Manpage fixes:

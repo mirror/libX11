@@ -77,18 +77,6 @@ static void condition_wait(Display *dpy, xcondition_t cv)
 	_XGetXCBBuffer(dpy);
 }
 
-static void handle_event(Display *dpy, xcb_generic_event_t *e)
-{
-	if(!e)
-		_XIOError(dpy);
-	dpy->last_request_read = e->full_sequence;
-	if(e->response_type == X_Error)
-		_XError(dpy, (xError *) e);
-	else
-		_XEnq(dpy, (xEvent *) e);
-	free(e);
-}
-
 static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 {
 	_XAsyncHandler *async, *next;
@@ -132,8 +120,13 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		assert(!(req && current_request && !XCB_SEQUENCE_COMPARE(req->sequence, <=, current_request)));
 		if(event && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
 		{
-			if(current_error && event->response_type == X_Error
-			   && event->full_sequence == current_request)
+			dpy->last_request_read = event->full_sequence;
+			if(event->response_type != X_Error)
+			{
+				_XEnq(dpy, (xEvent *) event);
+				wait_for_first_event = 0;
+			}
+			else if(current_error && event->full_sequence == current_request)
 			{
 				/* This can only occur when called from
 				 * _XReply, which doesn't need a new event. */
@@ -141,9 +134,9 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				event = 0;
 				break;
 			}
-			if(event->response_type != X_Error)
-				wait_for_first_event = 0;
-			handle_event(dpy, event);
+			else
+				_XError(dpy, (xError *) event);
+			free(event);
 			event = wait_or_poll_for_event(dpy, wait_for_first_event);
 		}
 		else if(req && req->waiters != -1)

@@ -102,6 +102,21 @@ static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 	    _XError(dpy, (xError *) buf);
 }
 
+static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
+{
+	xcb_connection_t *c = dpy->xcb->connection;
+	xcb_generic_event_t *event;
+	if(wait)
+	{
+		UnlockDisplay(dpy);
+		event = xcb_wait_for_event(c);
+		LockDisplay(dpy);
+	}
+	else
+		event = xcb_poll_for_event(c);
+	return event;
+}
+
 static void process_responses(Display *dpy, int wait_for_first_event, xcb_generic_error_t **current_error, unsigned int current_request)
 {
 	void *reply;
@@ -109,16 +124,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 	xcb_generic_error_t *error;
 	xcb_connection_t *c = dpy->xcb->connection;
 	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
-	{
-		if(wait_for_first_event)
-		{
-			UnlockDisplay(dpy);
-			event = xcb_wait_for_event(c);
-			LockDisplay(dpy);
-		}
-		else
-			event = xcb_poll_for_event(c);
-	}
+		event = wait_or_poll_for_event(dpy, wait_for_first_event);
 
 	while(1)
 	{
@@ -126,20 +132,25 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		assert(!(req && current_request && !XCB_SEQUENCE_COMPARE(req->sequence, <=, current_request)));
 		if(event && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
 		{
-			if(current_error && event->response_type == 0 && event->full_sequence == current_request)
+			if(current_error && event->response_type == X_Error
+			   && event->full_sequence == current_request)
 			{
+				/* This can only occur when called from
+				 * _XReply, which doesn't need a new event. */
 				*current_error = (xcb_generic_error_t *) event;
 				event = 0;
 				break;
 			}
+			if(event->response_type != X_Error)
+				wait_for_first_event = 0;
 			handle_event(dpy, event);
-			event = xcb_poll_for_event(c);
+			event = wait_or_poll_for_event(dpy, wait_for_first_event);
 		}
 		else if(req && req->waiters != -1)
 		{
 			if(req->sequence == current_request)
 				break;
-			if(!current_request && !(wait_for_first_event && !dpy->head))
+			if(!current_request && !wait_for_first_event)
 				break;
 			dpy->xcb->next_event = event;
 			req->waiters++;
@@ -176,7 +187,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		_XIOError(dpy);
 
 	assert_sequence_less(dpy->last_request_read, dpy->request);
-	assert(!wait_for_first_event || dpy->head);
+	assert(!wait_for_first_event);
 }
 
 int _XEventsQueued(Display *dpy, int mode)

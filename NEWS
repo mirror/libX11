@@ -23,6 +23,8 @@ Version 1.1.2 - 2007-06-03
 
 * Xlib/XCB: Avoid re-crashing after _XIOError.
 
+* Xlib/XCB: Only remove pending_requests when there are provably no more responses.
+
 * For NetBSD, define XTHREADLIB and XTHREAD_CFLAGS.
 
 * Bug #7703: Fixed XSetSizeHints() et al wrt use of uninitialized data.

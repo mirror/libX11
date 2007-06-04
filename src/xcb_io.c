@@ -107,7 +107,6 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 	void *reply;
 	xcb_generic_event_t *event = dpy->xcb->next_event;
 	xcb_generic_error_t *error;
-	PendingRequest *req;
 	xcb_connection_t *c = dpy->xcb->connection;
 	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
 	{
@@ -123,7 +122,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 
 	while(1)
 	{
-		req = dpy->xcb->pending_requests;
+		PendingRequest *req = dpy->xcb->pending_requests;
 		assert(!(req && current_request && !XCB_SEQUENCE_COMPARE(req->sequence, <=, current_request)));
 		if(event && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
 		{
@@ -146,24 +145,26 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 			req->waiters++;
 			assert(req->waiters > 0);
 			condition_wait(dpy, &req->condition);
-			if(--req->waiters == 0)
-				free(req);
+			--req->waiters;
 			event = dpy->xcb->next_event;
 		}
 		else if(req && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))
 		{
-			dpy->xcb->pending_requests = req->next;
-			if(!dpy->xcb->pending_requests)
-				dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
+			unsigned int sequence = req->sequence;
 			if(!reply)
+			{
+				dpy->xcb->pending_requests = req->next;
+				if(!dpy->xcb->pending_requests)
+					dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
+				free(req);
 				reply = error;
+			}
 			if(reply)
 			{
-				dpy->last_request_read = req->sequence;
+				dpy->last_request_read = sequence;
 				call_handlers(dpy, reply);
+				free(reply);
 			}
-			free(req);
-			free(reply);
 		}
 		else
 			break;
@@ -329,17 +330,6 @@ static PendingRequest * insert_pending_request(Display *dpy)
 	return *cur;
 }
 
-static void remove_pending_request(Display *dpy, PendingRequest *node)
-{
-	PendingRequest **cur = &dpy->xcb->pending_requests;
-	while(*cur && *cur != node)
-		cur = &((*cur)->next);
-	if(*cur == node)
-		*cur = node->next;
-	if(!dpy->xcb->pending_requests)
-		dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
-}
-
 /*
  * _XReply - Wait for a reply packet and copy its contents into the
  * specified rep.
@@ -352,7 +342,6 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	xcb_connection_t *c = dpy->xcb->connection;
 	char *reply;
 	PendingRequest *current;
-	unsigned int current_sequence;
 
 	assert(!dpy->xcb->reply_data);
 
@@ -374,18 +363,11 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	check_internal_connections(dpy);
 	process_responses(dpy, 0, &error, current->sequence);
 
-	current_sequence = current->sequence;
-
-	remove_pending_request(dpy, current);
 	if(current->waiters)
 	{ /* The ConditionBroadcast macro contains an if; braces needed here. */
 		ConditionBroadcast(dpy, &current->condition);
 	}
-	else
-	{
-		free(current);
-		current = NULL;
-	}
+	--current->waiters;
 
 	if(error)
 	{
@@ -440,7 +422,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		return 0;
 	}
 
-	dpy->last_request_read = current_sequence;
+	dpy->last_request_read = current->sequence;
 
 	/* there's no error and we have a reply. */
 	dpy->xcb->reply_data = reply;

@@ -33,9 +33,9 @@ in this Software without prior written authorization from The Open Group.
 
 XTimeCoord *XGetMotionEvents(
     register Display *dpy,
+    Window w,
     Time start, 
     Time stop,
-    Window w,
     int *nEvents)  /* RETURN */
 {       
     xGetMotionEventsReply rep;

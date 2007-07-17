@@ -152,6 +152,7 @@ _X11TransConnectDisplay (
     int connect_stat;
 #ifdef LOCALCONN
     struct utsname sys;
+    Bool reset_hostname = False;	/* Reset hostname? */
 # ifdef UNIXCONN    
     Bool try_unix_socket = False;	/* Try unix if local fails */
 # endif    
@@ -245,6 +246,8 @@ _X11TransConnectDisplay (
 	else
 	    tcphostname = copystring("localhost", 9);
 #endif
+	if (!phostname)
+	    reset_hostname = True;
 	Xfree (phostname);
 	phostname = copystring ("unix", 4);
     }
@@ -429,6 +432,12 @@ _X11TransConnectDisplay (
      *
      *     [host] : [:] dpy . scr \0
      */
+#ifdef LOCALCONN
+    if (reset_hostname) {
+	Xfree (phostname);
+	phostname = NULL;
+    }
+#endif
     len = ((phostname ? strlen(phostname) : 0) + 1 + (dnet ? 1 : 0) +
 	   strlen(pdpynum) + 1 + (pscrnum ? strlen(pscrnum) : 1) + 1);
     *fullnamep = (char *) Xmalloc (len);

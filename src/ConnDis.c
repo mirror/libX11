@@ -150,9 +150,11 @@ _X11TransConnectDisplay (
     char* address = addrbuf;
     XtransConnInfo trans_conn = NULL;	/* transport connection object */
     int connect_stat;
+#if defined(LOCALCONN) || defined(TCPCONN)
+    Bool reset_hostname = False;	/* Reset hostname? */
+#endif
 #ifdef LOCALCONN
     struct utsname sys;
-    Bool reset_hostname = False;	/* Reset hostname? */
 # ifdef UNIXCONN    
     Bool try_unix_socket = False;	/* Try unix if local fails */
 # endif    
@@ -432,7 +434,11 @@ _X11TransConnectDisplay (
      *
      *     [host] : [:] dpy . scr \0
      */
-#ifdef LOCALCONN
+#if defined(LOCALCONN) || defined(TCPCONN)
+    /*
+     *  If we computed the host name, get rid of it so that
+     *  XDisplayString() and XDisplayName() agree.
+     */ 
     if (reset_hostname) {
 	Xfree (phostname);
 	phostname = NULL;
@@ -487,6 +493,7 @@ _X11TransConnectDisplay (
 	pprotocol = copystring("tcp", 3);
 	phostname = tcphostname;
 	tcphostname = NULL;
+	reset_hostname = True;
 	goto connect;
     }
 #endif

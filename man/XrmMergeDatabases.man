@@ -145,10 +145,11 @@
 XrmMergeDatabases, XrmCombineDatabase, XrmCombineFileDatabase \- merge resource databases
 .SH SYNTAX
 .HP
-void XrmMergeDatabases(\^XrmDatabase \fIsource_db\fP, *\fItarget_db\fP\^); 
+void XrmMergeDatabases(\^XrmDatabase \fIsource_db\fP, XrmDatabase
+*\fItarget_db\fP\^); 
 .HP
 void XrmCombineDatabase(\^XrmDatabase \fIsource_db\fP, XrmDatabase
-*\fItarget_db\fP\^); 
+*\fItarget_db\fP, Bool \fIoverride\fP\^); 
 .HP
 Status XrmCombineFileDatabase(\^char *\fIfilename\fP, XrmDatabase
 *\fItarget_db\fP\^, Bool \fIoverride\fP); 

@@ -413,6 +413,6 @@ ks_tables.h: $(KEYSYMDEF) $(top_builddir)/src/util/makekeys$(EXEEXT)
 	mv ks_tables_h $@
 
 $(top_builddir)/src/util/makekeys$(EXEEXT): force
-	cd util; $(MAKE)
+	cd util && $(MAKE)
 
 force:

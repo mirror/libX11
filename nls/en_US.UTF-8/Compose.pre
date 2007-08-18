@@ -155,6 +155,11 @@ XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <equal> <c>          	: "€"   EuroSign # EURO SIGN
 <Multi_key> <E> <equal>          	: "€"   EuroSign # EURO SIGN
 <Multi_key> <equal> <E>          	: "€"   EuroSign # EURO SIGN
+<Multi_key> <Cyrillic_ES> <equal>	: "€"   EuroSign # EURO SIGN
+<Multi_key> <equal> <Cyrillic_ES>	: "€"   EuroSign # EURO SIGN
+<Multi_key> <Cyrillic_IE> <equal>	: "€"   EuroSign # EURO SIGN
+<Multi_key> <equal> <Cyrillic_IE>	: "€"   EuroSign # EURO SIGN
+
 
 <Multi_key> <bar> <c>            	: "¢"   U00A2 # CENT SIGN
 <Multi_key> <c> <bar>            	: "¢"   U00A2 # CENT SIGN
@@ -181,11 +186,17 @@ XCOMM Musical alterations
 XCOMM Other symbols
 <Multi_key> <s> <o>              	: "§"   section # SECTION SIGN
 <Multi_key> <o> <s>              	: "§"   section # SECTION SIGN
+<Multi_key> <Cyrillic_pe> <Cyrillic_a>	: "§"   section # SECTION SIGN
 
 <Multi_key> <o> <x>              	: "¤"   currency # CURRENCY SIGN
 <Multi_key> <x> <o>              	: "¤"   currency # CURRENCY SIGN
 
 <Multi_key> <P> <P>              	: "¶"   paragraph # PILCROW SIGN
+
+<Multi_key> <N> <o>			: "№" numerosign # NUMERO SIGN
+<Multi_key> <N> <O>			: "№" numerosign # NUMERO SIGN
+<Multi_key> <Cyrillic_EN> <Cyrillic_o>	: "№" numerosign # NUMERO SIGN
+<Multi_key> <Cyrillic_EN> <Cyrillic_O>	: "№" numerosign # NUMERO SIGN
 
 XCOMM Part 2
 
@@ -4982,8 +4993,20 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <underbar> <parenright> 	: "₎"   U208E # SUBSCRIPT RIGHT PARENTHESIS
 <dead_circumflex> <Multi_key> <S> <M> 	: "℠"   U2120 # SERVICE MARK
 <Multi_key> <S> <M>		 	: "℠"   U2120 # SERVICE MARK
+<dead_circumflex> <Multi_key> <s> <M> 	: "℠"   U2120 # SERVICE MARK
+<Multi_key> <s> <M>		 	: "℠"   U2120 # SERVICE MARK
+<dead_circumflex> <Multi_key> <S> <m> 	: "℠"   U2120 # SERVICE MARK
+<Multi_key> <S> <m>		 	: "℠"   U2120 # SERVICE MARK
+<dead_circumflex> <Multi_key> <s> <m> 	: "℠"   U2120 # SERVICE MARK
+<Multi_key> <s> <m>		 	: "℠"   U2120 # SERVICE MARK
 <dead_circumflex> <Multi_key> <T> <M> 	: "™"   U2122 # TRADE MARK SIGN
 <Multi_key> <T> <M>		 	: "™"   U2122 # TRADE MARK SIGN
+<dead_circumflex> <Multi_key> <t> <M> 	: "™"   U2122 # TRADE MARK SIGN
+<Multi_key> <t> <M>		 	: "™"   U2122 # TRADE MARK SIGN
+<dead_circumflex> <Multi_key> <T> <m> 	: "™"   U2122 # TRADE MARK SIGN
+<Multi_key> <T> <m>		 	: "™"   U2122 # TRADE MARK SIGN
+<dead_circumflex> <Multi_key> <t> <m> 	: "™"   U2122 # TRADE MARK SIGN
+<Multi_key> <t> <m>		 	: "™"   U2122 # TRADE MARK SIGN
 <Multi_key> <slash> <leftarrow>  	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <KP_Divide> <leftarrow> 	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <slash> <rightarrow> 	: "↛"   U219B # RIGHTWARDS ARROW WITH STROKE

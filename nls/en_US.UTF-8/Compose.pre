@@ -155,6 +155,8 @@ XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <equal> <c>          	: "€"   EuroSign # EURO SIGN
 <Multi_key> <E> <equal>          	: "€"   EuroSign # EURO SIGN
 <Multi_key> <equal> <E>          	: "€"   EuroSign # EURO SIGN
+<Multi_key> <e> <equal>          	: "€"   EuroSign # EURO SIGN
+<Multi_key> <equal> <e>          	: "€"   EuroSign # EURO SIGN
 <Multi_key> <Cyrillic_ES> <equal>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <equal> <Cyrillic_ES>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <Cyrillic_IE> <equal>	: "€"   EuroSign # EURO SIGN

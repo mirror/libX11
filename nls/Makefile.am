@@ -11,6 +11,7 @@ CLEANFILES= \
 	XLC_LOCALE
 
 SUBDIRS= \
+	am_ET.UTF-8		\
 	armscii-8		\
 	C			\
 	el_GR.UTF-8		\

@@ -399,6 +399,7 @@ AC_OUTPUT([Makefile
 	   modules/om/generic/Makefile
 	   src/xkb/Makefile
 	   nls/Makefile
+	   nls/am_ET.UTF-8/Makefile
 	   nls/armscii-8/Makefile
 	   nls/C/Makefile
 	   nls/el_GR.UTF-8/Makefile

@@ -498,6 +498,18 @@ XRequest.GLX.17: X_GLXVendorPrivateWithReply
 XRequest.GLX.18: X_GLXQueryExtensionsString
 XRequest.GLX.19: X_GLXQueryServerString
 XRequest.GLX.20: X_GLXClientInfo
+XRequest.GLX.21: X_GLXGetFBConfigs
+XRequest.GLX.22: X_GLXCreatePixmap
+XRequest.GLX.23: X_GLXDestroyPixmap
+XRequest.GLX.24: X_GLXCreateNewContext
+XRequest.GLX.25: X_GLXQueryContext
+XRequest.GLX.26: X_GLXMakeContextCurrent
+XRequest.GLX.27: X_GLXCreatePbuffer
+XRequest.GLX.28: X_GLXDestroyPbuffer
+XRequest.GLX.29: X_GLXGetDrawableAttributes
+XRequest.GLX.30: X_GLXChangeDrawableAttributes
+XRequest.GLX.31: X_GLXCreateWindow
+XRequest.GLX.32: X_GLXDestroyWindow
 ! GL Non-rendering Commands
 XRequest.GLX.103: X_GLXDeleteLists
 XRequest.GLX.102: X_GLXEndList
@@ -555,6 +567,10 @@ XProtoError.GLX.5: GLXBadCurrentWindow
 XProtoError.GLX.6: GLXBadRenderRequest
 XProtoError.GLX.7: GLXBadLargeRequest
 XProtoError.GLX.8: GLXUnsupportedPrivateRequest
+XProtoError.GLX.9: GLXBadFBConfig
+XProtoError.GLX.10: GLXBadPbuffer
+XProtoError.GLX.11: GLXBadCurrentDrawable
+XProtoError.GLX.12: GLXBadWindow
 ! XC-MISC extension, an X Consortium standard
 XRequest.XC-MISC.0: XCMiscGetVersion
 XRequest.XC-MISC.1: XCMiscGetXIDRange

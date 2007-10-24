@@ -53,7 +53,9 @@ Colormap XCreateColormap(
     UnlockDisplay(dpy);
     SyncHandle();
 
+#ifdef XCMS
     _XcmsAddCmapRec(dpy, mid, w, visual);
+#endif
 
     return(mid);
 }

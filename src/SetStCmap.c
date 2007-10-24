@@ -88,6 +88,9 @@ void XSetStandardColormap(
     stdcmap.visualid	= sp->root_visual->visualid;
     stdcmap.killid	= None;		/* don't know how to kill this one */
 
+#ifdef XCMS
     XSetRGBColormaps (dpy, w, &stdcmap, 1, property);
+#endif
+
     return;
 }

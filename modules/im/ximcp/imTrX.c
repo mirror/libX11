@@ -156,6 +156,8 @@ _XimXConnect(Xim im)
     event.xclient.data.l[0]    = (CARD32)spec->lib_connect_wid;
     event.xclient.data.l[1]    = spec->major_code;
     event.xclient.data.l[2]    = spec->minor_code;
+    event.xclient.data.l[3]    = 0;
+    event.xclient.data.l[4]    = 0;
 
     if(event.xclient.data.l[1] == 1 || event.xclient.data.l[1] == 2) {
 	XWindowAttributes	 atr;

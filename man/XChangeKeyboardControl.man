@@ -149,9 +149,9 @@ XChangeKeyboardControl, XGetKeyboardControl, XAutoRepeatOn, XAutoRepeatOff, XBel
 .SH SYNTAX
 .HP
 int XChangeKeyboardControl\^(\^Display *\fIdisplay\fP, unsigned long
-\fIvalue_mask\fP\^, XKeyBoardControl *\fIvalues\fP\^); 
+\fIvalue_mask\fP\^, XKeyboardControl *\fIvalues\fP\^); 
 .HP
-int XGetKeyboardControl\^(\^Display *\fIdisplay\fP, XKeyBoardState
+int XGetKeyboardControl\^(\^Display *\fIdisplay\fP, XKeyboardState
 *\fIvalues_return\fP\^); 
 .HP
 int XAutoRepeatOn\^(\^Display *\fIdisplay\fP\^); 

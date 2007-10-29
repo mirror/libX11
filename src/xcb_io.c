@@ -282,9 +282,11 @@ XID _XAllocID(Display *dpy)
 	XID ret = dpy->xcb->next_xid;
 	dpy->xcb->next_xid = 0;
 
-	assert(!(dpy->flags & XlibDisplayPrivSync));
-	dpy->savedsynchandler = dpy->synchandler;
-	dpy->flags |= XlibDisplayPrivSync;
+	if(!(dpy->flags & XlibDisplayPrivSync))
+	{
+		dpy->savedsynchandler = dpy->synchandler;
+		dpy->flags |= XlibDisplayPrivSync;
+	}
 	dpy->synchandler = _XIDHandler;
 	return ret;
 }

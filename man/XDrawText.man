@@ -228,10 +228,10 @@ structures contain:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	char *chars;	/\(** pointer to string */
-	int nchars;	/\(** number of characters */
-	int delta;	/\(** delta between strings */
-	Font font;	/\(** Font to print it in, None don't change */
+	char *chars;	/\&* pointer to string */
+	int nchars;	/\&* number of characters */
+	int delta;	/\&* delta between strings */
+	Font font;	/\&* Font to print it in, None don't change */
 } XTextItem;
 .De
 .LP
@@ -239,10 +239,10 @@ typedef struct {
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	XChar2b *chars;	/\(** pointer to two-byte characters */
-	int nchars;	/\(** number of characters */
-	int delta;	/\(** delta between strings */
-	Font font;	/\(** font to print it in, None don't change */
+	XChar2b *chars;	/\&* pointer to two-byte characters */
+	int nchars;	/\&* number of characters */
+	int delta;	/\&* delta between strings */
+	Font font;	/\&* font to print it in, None don't change */
 } XTextItem16;
 .De
 .LP

@@ -155,14 +155,14 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** FocusIn or FocusOut */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
-	Window window;	/\(** window of event */
-	int mode;	/\(** NotifyNormal, NotifyGrab, NotifyUngrab */
+	int type;	/\&* FocusIn or FocusOut */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
+	Window window;	/\&* window of event */
+	int mode;	/\&* NotifyNormal, NotifyGrab, NotifyUngrab */
 	int detail;
-		/\(**
+		/\&*
 	 	* NotifyAncestor, NotifyVirtual, NotifyInferior, 
 	 	* NotifyNonlinear,NotifyNonlinearVirtual, NotifyPointer,
 	 	* NotifyPointerRoot, NotifyDetailNone 

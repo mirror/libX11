@@ -153,9 +153,9 @@ have the following common members:
 .ta .5i 3i
 typedef struct {
 	int type;
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window window;
 } XAnyEvent;
 .De
@@ -186,7 +186,7 @@ structure is a union of the individual structures declared for each event type:
 .TA .5i 3i
 .ta .5i 3i
 typedef union _XEvent {
-	int type;	/\(** must not be changed */
+	int type;	/\&* must not be changed */
 	XAnyEvent xany;
 	XKeyEvent xkey;
 	XButtonEvent xbutton;

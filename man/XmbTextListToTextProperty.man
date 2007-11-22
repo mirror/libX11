@@ -408,10 +408,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	unsigned char *value;	/\(** property data */
-	Atom encoding;	/\(** type of property */
-	int format;	/\(** 8, 16, or 32 */
-	unsigned long nitems;	/\(** number of items in value */
+	unsigned char *value;	/\&* property data */
+	Atom encoding;	/\&* type of property */
+	int format;	/\&* 8, 16, or 32 */
+	unsigned long nitems;	/\&* number of items in value */
 } XTextProperty;
 .De
 .LP
@@ -447,11 +447,11 @@ T}
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef enum {
-	XStringStyle,		/\(** STRING */
-	XCompoundTextStyle,	/\(** COMPOUND_TEXT */
-	XTextStyle,		/\(** text in owner's encoding (current locale) */
-	XStdICCTextStyle,	/\(** STRING, else COMPOUND_TEXT */
-	XUTF8StringStyle	/\(** UTF8_STRING */
+	XStringStyle,		/\&* STRING */
+	XCompoundTextStyle,	/\&* COMPOUND_TEXT */
+	XTextStyle,		/\&* text in owner's encoding (current locale) */
+	XStdICCTextStyle,	/\&* STRING, else COMPOUND_TEXT */
+	XUTF8StringStyle	/\&* UTF8_STRING */
 } XICCEncodingStyle;
 .De
 .SH "SEE ALSO"

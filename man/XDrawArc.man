@@ -308,7 +308,7 @@ structure contains:
 typedef struct {
 	short x, y;
 	unsigned short width, height;
-	short angle1, angle2;             /\(** Degrees * 64 */
+	short angle1, angle2;             /\&* Degrees * 64 */
 } XArc;
 .EE
 .LP

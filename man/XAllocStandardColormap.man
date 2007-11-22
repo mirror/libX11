@@ -284,7 +284,7 @@ The
 .ZN XStandardColormap
 structure contains:
 .LP
-/\(** Hints */
+/\&* Hints */
 .TS
 lw(.5i) lw(2i) lw(1i).
 T{
@@ -295,7 +295,7 @@ T}	T{
 ( (XID) 1L)
 T}
 .TE
-/\(** Values */
+/\&* Values */
 .IN "XStandardColormap" "" "@DEF@"
 .Ds 0
 .TA .5i 2.5i

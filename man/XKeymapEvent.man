@@ -152,12 +152,12 @@ events contains:
 .Ds 0
 .TA .5i 3i
 .ta .5i 3i
-/\(** generated on EnterWindow and FocusIn when KeymapState selected */
+/\&* generated on EnterWindow and FocusIn when KeymapState selected */
 typedef struct {
-	int type;	/\(** KeymapNotify */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* KeymapNotify */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window window;
 	char key_vector[32];
 } XKeymapEvent;	

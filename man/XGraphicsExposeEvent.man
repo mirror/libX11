@@ -155,16 +155,16 @@ events contain:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** GraphicsExpose */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* GraphicsExpose */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Drawable drawable;
 	int x, y;
 	int width, height;
-	int count;	/\(** if nonzero, at least this many more */
-	int major_code;	/\(** core is CopyArea or CopyPlane */
-	int minor_code;	/\(** not defined in the core */
+	int count;	/\&* if nonzero, at least this many more */
+	int major_code;	/\&* core is CopyArea or CopyPlane */
+	int minor_code;	/\&* not defined in the core */
 } XGraphicsExposeEvent;
 .De
 .LP
@@ -172,13 +172,13 @@ typedef struct {
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** NoExpose */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* NoExpose */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Drawable drawable;
-	int major_code;	/\(** core is CopyArea or CopyPlane */
-	int minor_code;	/\(** not defined in the core */
+	int major_code;	/\&* core is CopyArea or CopyPlane */
+	int minor_code;	/\&* not defined in the core */
 } XNoExposeEvent;
 .De
 .LP

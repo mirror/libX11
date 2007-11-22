@@ -305,9 +305,9 @@ structure contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int family;	/\(** for example FamilyInternet */
-	int length;	/\(** length of address, in bytes */
-	char *address;	/\(** pointer to where to find the address */
+	int family;	/\&* for example FamilyInternet */
+	int length;	/\&* length of address, in bytes */
+	char *address;	/\&* pointer to where to find the address */
 } XHostAddress;
 .De
 .LP
@@ -331,10 +331,10 @@ structure which contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int typelength;		/\(** length of type string, in bytes */
-	int valuelength;	/\(** length of value string, in bytes */
-	char *type;		/\(** pointer to where to find the type string */
-	char *value;		/\(** pointer to where to find the address */
+	int typelength;		/\&* length of type string, in bytes */
+	int valuelength;	/\&* length of value string, in bytes */
+	char *type;		/\&* pointer to where to find the type string */
+	char *value;		/\&* pointer to where to find the address */
 } XServerInterpretedAddress;
 .De
 .LP

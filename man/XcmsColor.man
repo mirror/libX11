@@ -159,7 +159,7 @@ The structure for
 contains:
 .LP
 .EX
-typedef unsigned long XcmsColorFormat;			/\(** Color Specification Format */
+typedef unsigned long XcmsColorFormat;			/\&* Color Specification Format */
 
 typedef struct {
 	union {
@@ -175,73 +175,73 @@ typedef struct {
 	} spec;
 	unsigned long pixel;
 	XcmsColorFormat format;
-} XcmsColor;			/\(** Xcms Color Structure */
+} XcmsColor;			/\&* Xcms Color Structure */
 .EE
 .LP
 .EX
 typedef double XcmsFloat;
 
 typedef struct {
-	unsigned short red;	/\(** 0x0000 to 0xffff */
-	unsigned short green;	/\(** 0x0000 to 0xffff */
-	unsigned short blue;	/\(** 0x0000 to 0xffff */
-} XcmsRGB;		/\(** RGB Device */
+	unsigned short red;	/\&* 0x0000 to 0xffff */
+	unsigned short green;	/\&* 0x0000 to 0xffff */
+	unsigned short blue;	/\&* 0x0000 to 0xffff */
+} XcmsRGB;		/\&* RGB Device */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat red;	/\(** 0.0 to 1.0 */
-	XcmsFloat green;	/\(** 0.0 to 1.0 */
-	XcmsFloat blue;	/\(** 0.0 to 1.0 */
-} XcmsRGBi;		/\(** RGB Intensity */
+	XcmsFloat red;	/\&* 0.0 to 1.0 */
+	XcmsFloat green;	/\&* 0.0 to 1.0 */
+	XcmsFloat blue;	/\&* 0.0 to 1.0 */
+} XcmsRGBi;		/\&* RGB Intensity */
 .EE
 .LP
 .EX
 typedef struct {
 	XcmsFloat X;
-	XcmsFloat Y;	/\(** 0.0 to 1.0 */
+	XcmsFloat Y;	/\&* 0.0 to 1.0 */
 	XcmsFloat Z;
-} XcmsCIEXYZ;		/\(** CIE XYZ */
+} XcmsCIEXYZ;		/\&* CIE XYZ */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat u_prime;	/\(** 0.0 to ~0.6 */
-	XcmsFloat v_prime;	/\(** 0.0 to ~0.6 */
-	XcmsFloat Y; 	/\(** 0.0 to 1.0 */
-} XcmsCIEuvY;		/\(** CIE u'v'Y */
+	XcmsFloat u_prime;	/\&* 0.0 to ~0.6 */
+	XcmsFloat v_prime;	/\&* 0.0 to ~0.6 */
+	XcmsFloat Y; 	/\&* 0.0 to 1.0 */
+} XcmsCIEuvY;		/\&* CIE u'v'Y */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat x; 	/\(** 0.0 to ~.75 */
-	XcmsFloat y; 	/\(** 0.0 to ~.85 */
-	XcmsFloat Y; 	/\(** 0.0 to 1.0 */
-} XcmsCIExyY;		/\(** CIE xyY */
+	XcmsFloat x; 	/\&* 0.0 to ~.75 */
+	XcmsFloat y; 	/\&* 0.0 to ~.85 */
+	XcmsFloat Y; 	/\&* 0.0 to 1.0 */
+} XcmsCIExyY;		/\&* CIE xyY */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat L_star; 	/\(** 0.0 to 100.0 */
+	XcmsFloat L_star; 	/\&* 0.0 to 100.0 */
 	XcmsFloat a_star;
 	XcmsFloat b_star;
-} XcmsCIELab;		/\(** CIE L*a*b* */
+} XcmsCIELab;		/\&* CIE L*a*b* */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat L_star; 	/\(** 0.0 to 100.0 */
+	XcmsFloat L_star; 	/\&* 0.0 to 100.0 */
 	XcmsFloat u_star;
 	XcmsFloat v_star;
-} XcmsCIELuv;		/\(** CIE L*u*v* */
+} XcmsCIELuv;		/\&* CIE L*u*v* */
 .EE
 .LP
 .EX
 typedef struct {
-	XcmsFloat H; 	/\(** 0.0 to 360.0 */
-	XcmsFloat V; 	/\(** 0.0 to 100.0 */
-	XcmsFloat C; 	/\(** 0.0 to 100.0 */
-} XcmsTekHVC;		/\(** TekHVC */
+	XcmsFloat H; 	/\&* 0.0 to 360.0 */
+	XcmsFloat V; 	/\&* 0.0 to 100.0 */
+	XcmsFloat C; 	/\&* 0.0 to 100.0 */
+} XcmsTekHVC;		/\&* TekHVC */
 .EE
 .LP
 .EX
@@ -250,7 +250,7 @@ typedef struct {
 	XcmsFloat pad1;
 	XcmsFloat pad2;
 	XcmsFloat pad3;
-} XcmsPad;		/\(** four doubles */
+} XcmsPad;		/\&* four doubles */
 .EE
 .SH DESCRIPTION
 The

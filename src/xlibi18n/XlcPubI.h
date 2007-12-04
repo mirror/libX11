@@ -240,7 +240,7 @@ _Xsetlocale(
     int           category,
     _Xconst char  *name);
 #else
-#ifdef __DARWIN__
+#ifdef __APPLE__
 extern char *
 _Xsetlocale(
     int           category,

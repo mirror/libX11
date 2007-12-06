@@ -163,6 +163,15 @@ XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <equal> <Cyrillic_ES>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <Cyrillic_IE> <equal>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <equal> <Cyrillic_IE>	: "€"   EuroSign # EURO SIGN
+XCOMM "₭" U20ad KIP SIGN
+XCOMM "₮" U20ae TUGRIK SIGN
+XCOMM "₯" U20af DRACHMA SIGN
+XCOMM "₰" U20b0 GERMAN PENNY SIGN
+XCOMM "₱" U20b1 PESO SIGN
+XCOMM "₲" U20b2 GUARANI SIGN
+XCOMM "₳" U20b3 AUSTRAL SIGN
+XCOMM "₴" U20b4 HRYVNIA SIGN
+XCOMM "₵" U20b5 CEDI SIGN
 
 
 <Multi_key> <bar> <c>            	: "¢"   cent # CENT SIGN

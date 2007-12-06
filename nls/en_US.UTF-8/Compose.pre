@@ -92,7 +92,9 @@ XCOMM Spaces
 
 <Multi_key> <period> <greater>   	: "›"   U203a # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
 <Multi_key> <period> <less>      	: "‹"   U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
-<Multi_key> <period> <period>    	: "·"   periodcentered # MIDDLE DOT
+<Multi_key> <period> <period>    	: "…"   ellipsis # HORIZONTAL ELLIPSIS
+<Multi_key> <period> <minus>    	: "·"   periodcentered # MIDDLE DOT
+<Multi_key> <period> <equal>    	: "•"   enfilledcircbullet # BULLET
 <Multi_key> <exclam> <asciicircum> 	: "¦"   brokenbar # BROKEN BAR
 <Multi_key> <exclam> <exclam>    	: "¡"   exclamdown # INVERTED EXCLAMATION MARK
 <Multi_key> <p> <exclam>         	: "¶"   paragraph # PILCROW SIGN

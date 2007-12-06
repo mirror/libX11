@@ -167,7 +167,9 @@ XCOMM Special Character
 <Multi_key> <exclam> <P>		: "¶"	paragraph
 <Multi_key> <period> <asciicircum>	: "·"	periodcentered
 <Multi_key> <asciicircum> <period>	: "·"	periodcentered
-<Multi_key> <period> <period>		: "·"	periodcentered
+<Multi_key> <period> <minus>		: "·"	periodcentered
+<Multi_key> <period> <equal>		: "•"	enfilledcircbullet
+<Multi_key> <period> <period>		: "…"	ellipsis
 <Multi_key> <1> <4>			: "¼"	onequarter
 <Multi_key> <1> <2>			: "½"	onehalf
 <Multi_key> <3> <4>			: "¾"	threequarters

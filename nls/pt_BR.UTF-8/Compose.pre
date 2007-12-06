@@ -89,7 +89,9 @@ XCOMM Spaces
 
 <Multi_key> <period> <greater> : "›" U203a
 <Multi_key> <period> <less> : "‹" U2039
-<Multi_key> <period> <period> : "·" periodcentered
+<Multi_key> <period> <period> : "…" ellipsis
+<Multi_key> <period> <minus> : "·" periodcentered
+<Multi_key> <period> <equal> : "•" enfilledcircbullet
 <Multi_key> <exclam> <asciicircum> : "¦" brokenbar
 <Multi_key> <exclam> <exclam> : "¡" exclamdown
 <Multi_key> <p> <exclam> : "¶" paragraph

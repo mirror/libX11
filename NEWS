@@ -1,3 +1,75 @@
+Version 1.1.2 - 2007-06-03
+
+* Security fixes:
+  * Fix CVE-2007-1667: Multiple integer overflows in the XGetPixel() and
+    XInitImage() functions.
+  * Bug #9279: Fixed a file descriptor leak.
+
+* Xlib/XCB: Ensure _XReadEvents reads at least one new event and blocks for
+  exactly one event.  Large performance improvement for XIfEvent and similar.
+
+* Hold XCB's Xlib lock even when only the user lock (XLockDisplay) is held.
+  An Xlib client can query Display state, such as with NextRequest, while it
+  holds only the Xlib user lock (between XLockDisplay and XUnlockDisplay), so
+  XCB requests in other threads should be blocked when the Xlib user lock is
+  held.  We acquire the lock even when XInitThreads was not called, so that
+  pure XCB code can use multiple threads even in an otherwise single-threaded
+  Xlib application.
+
+* Allow re-entrant Xlib calls from _XIOError.
+  Some libraries try to clean up X resources from atexit handlers, _fini, or
+  C++ destructors. To make these work, downgrade the Display lock to a user
+  lock (as in XLockDisplay) before calling exit(3).  This blocks Xlib calls
+  from threads other than the one calling exit(3) while still allowing the
+  exit handlers to call Xlib.
+
+* Xlib/XCB: Avoid re-crashing after _XIOError.
+
+* Xlib/XCB: Only remove pending_requests when there are provably no more responses.
+
+* For NetBSD, define XTHREADLIB and XTHREAD_CFLAGS.
+
+* Bug #7703: Fixed XSetSizeHints() et al wrt use of uninitialized data.
+  Now only those fields of the respective hint struct are set that
+  are actually valid in the input data.
+
+* Bug #10292: Fixed a memory leak related to XOpenDisplay() in the XCB code.
+
+* Bug #7713: Initialize all of the event's fields before sending it.
+
+* Bug #10562: Define _GNU_SOURCE on glibc systems.
+
+* Use unistd.h to get getresuid() and friends, now that we have _GNU_SOURCE
+  defined.
+
+* Switched function definitions from K&R to ANSI style.
+
+* Many constness fixes.
+
+* Fixed a few warnings.
+
+* Fix 64bit issues with reallocation.
+
+* Manpage fixes:
+  * Add man pages for XKB APIs.
+    (Volunteer needed to convert prototypes in man pages to ANSI C style...)
+  * Protect C comments and #defines in XKB man pages from being mangled by cpp
+  * Fix typo in nroff macro in XkbAddGeomOverlayKey.man
+  * Bug #9695: Fixed a few argument types in the XOpenIM manpage.
+  * Markup tweak for XOpenIM.
+  * Bug #9696: refer to XDefineCursor() instead of XDefineCusor().
+  * Bug #9697: Fixed documentation of XVisualInfo struct.  The "depth" member
+    was said to be unsigned int, but it's signed.
+
+* nls fixes:
+  * Update el_GR.UTF-8/Compose.pre to match changes in xkeyboard-config cvs.
+  * For nls/*.pre, allow people to comment lines by starting them with '##'.
+
+* Build system fixes:
+  * Add autogen.sh to EXTRA_DIST.
+  * Makefile.am: make ChangeLog hook safer
+  * Don't distribute the configure-generated XlibConf.h in tarballs.
+
 Version 1.1.1 - 2006-11-30
 
 The "xcompmgr is hard, let's go releasing" release

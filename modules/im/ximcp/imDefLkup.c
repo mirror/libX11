@@ -466,7 +466,7 @@ _XimGetWindowEventmask(
     Xim			im = (Xim )ic->core.im;
     XWindowAttributes	atr;
 
-    if (!_XGetWindowAttributes(im->core.display, ic->core.focus_window, &atr))
+    if (!XGetWindowAttributes(im->core.display, ic->core.focus_window, &atr))
 	return 0;
     return (EVENTMASK)atr.your_event_mask;
 }

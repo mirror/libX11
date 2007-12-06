@@ -808,6 +808,7 @@ void XrmCombineDatabase(
 	    }
 	}
 	(from->methods->destroy)(from->mbstate);
+	_XUnlockMutex(&from->linfo);
 	_XFreeMutex(&from->linfo);
 	Xfree((char *)from);
 	_XUnlockMutex(&(*into)->linfo);
@@ -2656,6 +2657,7 @@ void XrmDestroyDatabase(
 	    else
 		DestroyNTable(table);
 	}
+	_XUnlockMutex(&db->linfo);
 	_XFreeMutex(&db->linfo);
 	(*db->methods->destroy)(db->mbstate);
 	Xfree((char *)db);

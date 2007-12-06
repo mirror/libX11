@@ -33,7 +33,7 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xatom.h>
 
 /* insulate predefined atom numbers from cut routines */
-static Atom n_to_atom[8] = { 
+static const Atom n_to_atom[8] = {
 	XA_CUT_BUFFER0,
 	XA_CUT_BUFFER1,
 	XA_CUT_BUFFER2,
@@ -48,6 +48,9 @@ XRotateBuffers (
     register Display *dpy,
     int rotate)
 {
+    /* XRotateWindowProperties wants a non-const Atom*, but it doesn't
+     * modify it, so this is safe.
+     */
     return XRotateWindowProperties(dpy, RootWindow(dpy, 0), n_to_atom, 8, rotate);
 }
     

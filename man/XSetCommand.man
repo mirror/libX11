@@ -189,7 +189,7 @@ If sufficient memory can be allocated to contain the string list,
 .ZN XGetCommand
 fills in the argv_return and argc_return arguments
 and returns a nonzero status.
-Otherwise, it returns a zero status.
+Otherwise, or if any other error is encountered, it returns a zero status.
 If the data returned by the server is in the Latin Portable Character Encoding,
 then the returned strings are in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.

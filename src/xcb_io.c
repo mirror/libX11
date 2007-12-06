@@ -77,28 +77,6 @@ static void condition_wait(Display *dpy, xcondition_t cv)
 	_XGetXCBBuffer(dpy);
 }
 
-static void handle_event(Display *dpy, xcb_generic_event_t *e)
-{
-	if(!e)
-		_XIOError(dpy);
-	dpy->last_request_read = e->full_sequence;
-	if(e->response_type == X_Error)
-		_XError(dpy, (xError *) e);
-	else
-        {
-		/* GenericEvents may be > 32 bytes. In this case, the event struct
-		 * is trailed by the additional bytes. the xcb_generic_event_t
-		 * struct uses 4 bytes for internal numbering, so we need to
-		 * shift the trailing data to be after the first 32 bytes.
-		 */
-		if (e->response_type == GenericEvent && ((xcb_ge_event_t*)e)->length) {
-			memmove(&e->full_sequence, &e[1], ((xcb_ge_event_t*)e)->length * 4);
-		}
-		_XEnq(dpy, (xEvent *) e);
-        }
-	free(e);
-}
-
 static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 {
 	_XAsyncHandler *async, *next;
@@ -116,7 +94,7 @@ static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
 {
 	xcb_connection_t *c = dpy->xcb->connection;
 	xcb_generic_event_t *event;
-	if(wait && !dpy->head)
+	if(wait)
 	{
 		UnlockDisplay(dpy);
 		event = xcb_wait_for_event(c);
@@ -132,54 +110,78 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 	void *reply;
 	xcb_generic_event_t *event = dpy->xcb->next_event;
 	xcb_generic_error_t *error;
-	PendingRequest *req;
 	xcb_connection_t *c = dpy->xcb->connection;
 	if(!event && dpy->xcb->event_owner == XlibOwnsEventQueue)
 		event = wait_or_poll_for_event(dpy, wait_for_first_event);
 
 	while(1)
 	{
-		req = dpy->xcb->pending_requests;
+		PendingRequest *req = dpy->xcb->pending_requests;
 		assert(!(req && current_request && !XCB_SEQUENCE_COMPARE(req->sequence, <=, current_request)));
 		if(event && (!req || XCB_SEQUENCE_COMPARE(event->full_sequence, <=, req->sequence)))
 		{
-			if(current_error && event->response_type == 0 && event->full_sequence == current_request)
+			dpy->last_request_read = event->full_sequence;
+			if(event->response_type != X_Error)
 			{
+				/* GenericEvents may be > 32 bytes. In this
+				 * case, the event struct is trailed by the
+				 * additional bytes. the xcb_generic_event_t
+				 * struct uses 4 bytes for internal numbering,
+				 * so we need to shift the trailing data to be
+				 * after the first 32 bytes.  */
+                                if (event->response_type == GenericEvent &&
+                                        ((xcb_ge_event_t*)event)->length) 
+				{
+					memmove(&event->full_sequence, 
+                                                &event[1],
+						((xcb_ge_event_t*)event)->length * 4); 
+				}
+				_XEnq(dpy, (xEvent *) event);
+				wait_for_first_event = 0;
+			}
+			else if(current_error && event->full_sequence == current_request)
+			{
+				/* This can only occur when called from
+				 * _XReply, which doesn't need a new event. */
 				*current_error = (xcb_generic_error_t *) event;
 				event = 0;
 				break;
 			}
-			handle_event(dpy, event);
+			else
+				_XError(dpy, (xError *) event);
+			free(event);
 			event = wait_or_poll_for_event(dpy, wait_for_first_event);
 		}
 		else if(req && req->waiters != -1)
 		{
 			if(req->sequence == current_request)
 				break;
-			if(!current_request && !(wait_for_first_event && !dpy->head))
+			if(!current_request && !wait_for_first_event)
 				break;
 			dpy->xcb->next_event = event;
 			req->waiters++;
 			assert(req->waiters > 0);
 			condition_wait(dpy, &req->condition);
-			if(--req->waiters == 0)
-				free(req);
+			--req->waiters;
 			event = dpy->xcb->next_event;
 		}
 		else if(req && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))
 		{
-			dpy->xcb->pending_requests = req->next;
-			if(!dpy->xcb->pending_requests)
-				dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
+			unsigned int sequence = req->sequence;
 			if(!reply)
+			{
+				dpy->xcb->pending_requests = req->next;
+				if(!dpy->xcb->pending_requests)
+					dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
+				free(req);
 				reply = error;
+			}
 			if(reply)
 			{
-				dpy->last_request_read = req->sequence;
+				dpy->last_request_read = sequence;
 				call_handlers(dpy, reply);
+				free(reply);
 			}
-			free(req);
-			free(reply);
 		}
 		else
 			break;
@@ -191,11 +193,13 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		_XIOError(dpy);
 
 	assert_sequence_less(dpy->last_request_read, dpy->request);
-	assert(!wait_for_first_event || dpy->head);
+	assert(!wait_for_first_event);
 }
 
 int _XEventsQueued(Display *dpy, int mode)
 {
+	if(dpy->flags & XlibDisplayIOError)
+		return 0;
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return 0;
 
@@ -212,6 +216,8 @@ int _XEventsQueued(Display *dpy, int mode)
  */
 void _XReadEvents(Display *dpy)
 {
+	if(dpy->flags & XlibDisplayIOError)
+		return;
 	_XSend(dpy, 0, 0);
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return;
@@ -229,6 +235,8 @@ void _XReadEvents(Display *dpy)
 void _XSend(Display *dpy, const char *data, long size)
 {
 	xcb_connection_t *c = dpy->xcb->connection;
+	if(dpy->flags & XlibDisplayIOError)
+		return;
 
 	assert(!dpy->xcb->request_extra);
 	dpy->xcb->request_extra = data;
@@ -339,17 +347,6 @@ static PendingRequest * insert_pending_request(Display *dpy)
 	return *cur;
 }
 
-static void remove_pending_request(Display *dpy, PendingRequest *node)
-{
-	PendingRequest **cur = &dpy->xcb->pending_requests;
-	while(*cur && *cur != node)
-		cur = &((*cur)->next);
-	if(*cur == node)
-		*cur = node->next;
-	if(!dpy->xcb->pending_requests)
-		dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
-}
-
 /*
  * _XReply - Wait for a reply packet and copy its contents into the
  * specified rep.
@@ -362,16 +359,19 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	xcb_connection_t *c = dpy->xcb->connection;
 	char *reply;
 	PendingRequest *current;
-	unsigned int current_sequence;
 
 	assert(!dpy->xcb->reply_data);
+
+	if(dpy->flags & XlibDisplayIOError)
+		return 0;
 
 	/* Internals of UnlockDisplay done by hand here, so that we can
 	   insert_pending_request *after* we _XPutXCBBuffer, but before we
 	   unlock the display. */
 	_XPutXCBBuffer(dpy);
 	current = insert_pending_request(dpy);
-	xcb_xlib_unlock(dpy->xcb->connection);
+	if(!dpy->lock || dpy->lock->locking_level == 0)
+		xcb_xlib_unlock(dpy->xcb->connection);
 	if(dpy->xcb->lock_fns.unlock_display)
 		dpy->xcb->lock_fns.unlock_display(dpy);
 	reply = xcb_wait_for_reply(c, current->sequence, &error);
@@ -380,18 +380,11 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	check_internal_connections(dpy);
 	process_responses(dpy, 0, &error, current->sequence);
 
-	current_sequence = current->sequence;
-
-	remove_pending_request(dpy, current);
 	if(current->waiters)
 	{ /* The ConditionBroadcast macro contains an if; braces needed here. */
 		ConditionBroadcast(dpy, &current->condition);
 	}
-	else
-	{
-		free(current);
-		current = NULL;
-	}
+	--current->waiters;
 
 	if(error)
 	{
@@ -446,7 +439,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		return 0;
 	}
 
-	dpy->last_request_read = current_sequence;
+	dpy->last_request_read = current->sequence;
 
 	/* there's no error and we have a reply. */
 	dpy->xcb->reply_data = reply;

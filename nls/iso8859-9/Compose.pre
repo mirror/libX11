@@ -55,6 +55,10 @@ XCOMM Special Character
 <Multi_key> <equal> <L>			: "\243"	sterling
 <Multi_key> <C> <equal>			: "\244"	EuroSign
 <Multi_key> <equal> <C>			: "\244"	EuroSign
+<Multi_key> <c> <equal>			: "\244"	EuroSign
+<Multi_key> <equal> <c>			: "\244"	EuroSign
+<Multi_key> <E> <equal>                 : "\244"        EuroSign
+<Multi_key> <equal> <E>                 : "\244"        EuroSign
 <Multi_key> <e> <equal>                 : "\244"        EuroSign
 <Multi_key> <equal> <e>                 : "\244"        EuroSign
 <Multi_key> <y> <minus>			: "\245"	yen

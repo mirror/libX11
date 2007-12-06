@@ -32,8 +32,14 @@ iso8859-1/Compose:		br_FR.ISO8859-1
 iso8859-14/Compose:		br_FR.ISO8859-14
 iso8859-15/Compose:		br_FR.ISO8859-15
 iso8859-2/Compose:		bs_BA.ISO8859-2
+iso8859-1/Compose:		ca_AD.ISO8859-1
+iso8859-15/Compose:		ca_AD.ISO8859-15
 iso8859-1/Compose:		ca_ES.ISO8859-1
 iso8859-15/Compose:		ca_ES.ISO8859-15
+iso8859-1/Compose:		ca_FR.ISO8859-1
+iso8859-15/Compose:		ca_FR.ISO8859-15
+iso8859-1/Compose:		ca_IT.ISO8859-1
+iso8859-15/Compose:		ca_IT.ISO8859-15
 iso8859-2/Compose:		cs_CZ.ISO8859-2
 iso8859-1/Compose:		cy_GB.ISO8859-1
 iso8859-14/Compose:		cy_GB.ISO8859-14
@@ -258,7 +264,10 @@ en_US.UTF-8/Compose:		be_BY.UTF-8
 en_US.UTF-8/Compose:		bg_BG.UTF-8
 en_US.UTF-8/Compose:		bn_IN.UTF-8
 en_US.UTF-8/Compose:		br_FR.UTF-8
+en_US.UTF-8/Compose:		ca_AD.UTF-8
 en_US.UTF-8/Compose:		ca_ES.UTF-8
+en_US.UTF-8/Compose:		ca_FR.UTF-8
+en_US.UTF-8/Compose:		ca_IT.UTF-8
 en_US.UTF-8/Compose:		cs_CZ.UTF-8
 en_US.UTF-8/Compose:		cy_GB.UTF-8
 en_US.UTF-8/Compose:		cz_CZ.UTF-8

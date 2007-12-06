@@ -42,8 +42,10 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 #include "Xresource.h"
 
+#define GET_NAME(x) name_table + x.name_offset
+
 typedef struct _XimValueOffsetInfo {
-    const char		*name;
+    unsigned short name_offset;
     XrmQuark		 quark;
     unsigned int	 offset;
     Bool		 (*defaults)(
@@ -206,54 +208,136 @@ _XimSetProtoResource(im)
 }
 #endif /* XIM_CONNECTABLE */
 
-static const char *supported_local_im_values_list[] = {
-    XNQueryInputStyle,
-    XNResourceName,
-    XNResourceClass,
-    XNDestroyCallback,
-    XNQueryIMValuesList,
-    XNQueryICValuesList,
-    XNVisiblePosition,
-    NULL
+static const char name_table[] =
+    /*   0 */ XNQueryInputStyle"\0"
+    /*  16 */ XNClientWindow"\0"
+    /*  29 */ XNInputStyle"\0"
+    /*  40 */ XNFocusWindow"\0"
+    /*  52 */ XNResourceName"\0"
+    /*  65 */ XNResourceClass"\0"
+    /*  79 */ XNGeometryCallback"\0"
+    /*  96 */ XNDestroyCallback"\0"
+    /* 112 */ XNFilterEvents"\0"
+    /* 125 */ XNPreeditStartCallback"\0"
+    /* 146 */ XNPreeditDoneCallback"\0"
+    /* 166 */ XNPreeditDrawCallback"\0"
+    /* 186 */ XNPreeditCaretCallback"\0"
+    /* 207 */ XNPreeditStateNotifyCallback"\0"
+    /* 234 */ XNPreeditAttributes"\0"
+    /* 252 */ XNStatusStartCallback"\0"
+    /* 272 */ XNStatusDoneCallback"\0"
+    /* 291 */ XNStatusDrawCallback"\0"
+    /* 310 */ XNStatusAttributes"\0"
+    /* 327 */ XNArea"\0"
+    /* 332 */ XNAreaNeeded"\0"
+    /* 343 */ XNSpotLocation"\0"
+    /* 356 */ XNColormap"\0"
+    /* 365 */ XNStdColormap"\0"
+    /* 377 */ XNForeground"\0"
+    /* 388 */ XNBackground"\0"
+    /* 399 */ XNBackgroundPixmap"\0"
+    /* 416 */ XNFontSet"\0"
+    /* 424 */ XNLineSpace"\0"
+    /* 434 */ XNCursor"\0"
+    /* 441 */ XNQueryIMValuesList"\0"
+    /* 459 */ XNQueryICValuesList"\0"
+    /* 477 */ XNVisiblePosition"\0"
+    /* 493 */ XNStringConversionCallback"\0"
+    /* 518 */ XNStringConversion"\0"
+    /* 535 */ XNResetState"\0"
+    /* 546 */ XNHotKey"\0"
+    /* 553 */ XNHotKeyState"\0"
+    /* 565 */ XNPreeditState
+;
+
+#define OFFSET_XNQUERYINPUTSTYLE 0
+#define OFFSET_XNCLIENTWINDOW 16
+#define OFFSET_XNINPUTSTYLE 29
+#define OFFSET_XNFOCUSWINDOW 40
+#define OFFSET_XNRESOURCENAME 52
+#define OFFSET_XNRESOURCECLASS 65
+#define OFFSET_XNGEOMETRYCALLBACK 79
+#define OFFSET_XNDESTROYCALLBACK 96
+#define OFFSET_XNFILTEREVENTS 112
+#define OFFSET_XNPREEDITSTARTCALLBACK 125
+#define OFFSET_XNPREEDITDONECALLBACK 146
+#define OFFSET_XNPREEDITDRAWCALLBACK 166
+#define OFFSET_XNPREEDITCARETCALLBACK 186
+#define OFFSET_XNPREEDITSTATENOTIFYCALLBACK 207
+#define OFFSET_XNPREEDITATTRIBUTES 234
+#define OFFSET_XNSTATUSSTARTCALLBACK 252
+#define OFFSET_XNSTATUSDONECALLBACK 272
+#define OFFSET_XNSTATUSDRAWCALLBACK 291
+#define OFFSET_XNSTATUSATTRIBUTES 310
+#define OFFSET_XNAREA 327
+#define OFFSET_XNAREANEEDED 332
+#define OFFSET_XNSPOTLOCATION 343
+#define OFFSET_XNCOLORMAP 356
+#define OFFSET_XNSTDCOLORMAP 365
+#define OFFSET_XNFOREGROUND 377
+#define OFFSET_XNBACKGROUND 388
+#define OFFSET_XNBACKGROUNDPIXMAP 399
+#define OFFSET_XNFONTSET 416
+#define OFFSET_XNLINESPACE 424
+#define OFFSET_XNCURSOR 434
+#define OFFSET_XNQUERYIMVALUESLIST 441
+#define OFFSET_XNQUERYICVALUESLIST 459
+#define OFFSET_XNVISIBLEPOSITION 477
+#define OFFSET_XNSTRINGCONVERSIONCALLBACK 493
+#define OFFSET_XNSTRINGCONVERSION 518
+#define OFFSET_XNRESETSTATE 535
+#define OFFSET_XNHOTKEY 546
+#define OFFSET_XNHOTKEYSTATE 553
+#define OFFSET_XNPREEDITSTATE 565
+
+/* offsets into name_table */
+static const unsigned short supported_local_im_values_list[] = {
+    OFFSET_XNQUERYINPUTSTYLE,
+    OFFSET_XNRESOURCENAME,
+    OFFSET_XNRESOURCECLASS,
+    OFFSET_XNDESTROYCALLBACK,
+    OFFSET_XNQUERYIMVALUESLIST,
+    OFFSET_XNQUERYICVALUESLIST,
+    OFFSET_XNVISIBLEPOSITION
 };
 
-static const char *supported_local_ic_values_list[] = {
-    XNInputStyle,
-    XNClientWindow,
-    XNFocusWindow,
-    XNResourceName,
-    XNResourceClass,
-    XNGeometryCallback,
-    XNFilterEvents,
-    XNDestroyCallback,
-    XNStringConversionCallback,
-    XNStringConversion,
-    XNResetState,
-    XNHotKey,
-    XNHotKeyState,
-    XNPreeditAttributes,
-    XNStatusAttributes,
-    XNArea,
-    XNAreaNeeded,
-    XNSpotLocation,
-    XNColormap,
-    XNStdColormap,
-    XNForeground,
-    XNBackground,
-    XNBackgroundPixmap,
-    XNFontSet,
-    XNLineSpace,
-    XNCursor,
-    XNPreeditStartCallback,
-    XNPreeditDoneCallback,
-    XNPreeditDrawCallback,
-    XNPreeditCaretCallback,
-    XNStatusStartCallback,
-    XNStatusDoneCallback,
-    XNStatusDrawCallback,
-    XNPreeditState,
-    XNPreeditStateNotifyCallback,
-    NULL
+/* offsets into name_table */
+static const unsigned short supported_local_ic_values_list[] = {
+    OFFSET_XNINPUTSTYLE,
+    OFFSET_XNCLIENTWINDOW,
+    OFFSET_XNFOCUSWINDOW,
+    OFFSET_XNRESOURCENAME,
+    OFFSET_XNRESOURCECLASS,
+    OFFSET_XNGEOMETRYCALLBACK,
+    OFFSET_XNFILTEREVENTS,
+    OFFSET_XNDESTROYCALLBACK,
+    OFFSET_XNSTRINGCONVERSIONCALLBACK,
+    OFFSET_XNSTRINGCONVERSIONCALLBACK,
+    OFFSET_XNRESETSTATE,
+    OFFSET_XNHOTKEY,
+    OFFSET_XNHOTKEYSTATE,
+    OFFSET_XNPREEDITATTRIBUTES,
+    OFFSET_XNSTATUSATTRIBUTES,
+    OFFSET_XNAREA,
+    OFFSET_XNAREANEEDED,
+    OFFSET_XNSPOTLOCATION,
+    OFFSET_XNCOLORMAP,
+    OFFSET_XNSTDCOLORMAP,
+    OFFSET_XNFOREGROUND,
+    OFFSET_XNBACKGROUND,
+    OFFSET_XNBACKGROUNDPIXMAP,
+    OFFSET_XNFONTSET,
+    OFFSET_XNLINESPACE,
+    OFFSET_XNCURSOR,
+    OFFSET_XNPREEDITSTARTCALLBACK,
+    OFFSET_XNPREEDITDONECALLBACK,
+    OFFSET_XNPREEDITDRAWCALLBACK,
+    OFFSET_XNPREEDITCARETCALLBACK,
+    OFFSET_XNSTATUSSTARTCALLBACK,
+    OFFSET_XNSTATUSDONECALLBACK,
+    OFFSET_XNSTATUSDRAWCALLBACK,
+    OFFSET_XNPREEDITSTATE,
+    OFFSET_XNPREEDITSTATENOTIFYCALLBACK
 };
 
 static XIMStyle const supported_local_styles[] = {
@@ -312,7 +396,7 @@ _XimDefaultIMValues(
     int			  len;
     XPointer		  tmp;
 
-    n = XIMNumber(supported_local_im_values_list) - 1;
+    n = XIMNumber(supported_local_im_values_list);
     len = sizeof(XIMValuesList) + sizeof(char **) * n;
     if(!(tmp = (XPointer)Xmalloc(len))) {
 	return False;
@@ -325,8 +409,8 @@ _XimDefaultIMValues(
 	values_list->supported_values
 			 = (char **)((char *)tmp + sizeof(XIMValuesList));
 	for(i = 0; i < n; i++) {
-	    values_list->supported_values[i]
-				 = supported_local_im_values_list[i];
+	    values_list->supported_values[i] =
+                name_table + supported_local_im_values_list[i];
 	}
     }
 
@@ -349,7 +433,7 @@ _XimDefaultICValues(
     int			  len;
     XPointer		  tmp;
 
-    n = XIMNumber(supported_local_ic_values_list) - 1;
+    n = XIMNumber(supported_local_ic_values_list);
     len = sizeof(XIMValuesList) + sizeof(char **) * n;
     if(!(tmp = (XPointer)Xmalloc(len))) {
 	return False;
@@ -362,8 +446,8 @@ _XimDefaultICValues(
 	values_list->supported_values
 			 = (char **)((char *)tmp + sizeof(XIMValuesList));
 	for(i = 0; i < n; i++) {
-	    values_list->supported_values[i]
-				 = supported_local_ic_values_list[i];
+	    values_list->supported_values[i] =
+                name_table + supported_local_ic_values_list[i];
 	}
     }
 
@@ -1439,247 +1523,245 @@ static	XIMResource	ic_inner_resources[] = {
 };
 
 static XimValueOffsetInfoRec im_attr_info[] = {
-    {XNQueryInputStyle,		 0,
+    {OFFSET_XNQUERYINPUTSTYLE,		 0,
 	XOffsetOf(XimDefIMValues, styles),
 	_XimDefaultStyles,	 NULL,			_XimDecodeStyles},
 
-    {XNDestroyCallback,		 0,
+    {OFFSET_XNDESTROYCALLBACK,		 0,
 	XOffsetOf(XimDefIMValues, destroy_callback),
 	NULL,		 	 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNResourceName,		 0,
+    {OFFSET_XNRESOURCENAME,		 0,
 	XOffsetOf(XimDefIMValues, res_name),
 	NULL,		 	 _XimEncodeString,	_XimDecodeString},
 
-    {XNResourceClass,		 0,
+    {OFFSET_XNRESOURCECLASS,		 0,
 	XOffsetOf(XimDefIMValues, res_class),
 	NULL,		 	 _XimEncodeString,	_XimDecodeString},
 
-    {XNQueryIMValuesList,		 0,
+    {OFFSET_XNQUERYIMVALUESLIST,		 0,
 	XOffsetOf(XimDefIMValues, im_values_list),
 	_XimDefaultIMValues,	 NULL,			_XimDecodeValues},
 
-    {XNQueryICValuesList,		 0,
+    {OFFSET_XNQUERYICVALUESLIST,		 0,
 	XOffsetOf(XimDefIMValues, ic_values_list),
 	_XimDefaultICValues,	 NULL,			_XimDecodeValues},
 
-    {XNVisiblePosition,			 0,
+    {OFFSET_XNVISIBLEPOSITION,			 0,
 	XOffsetOf(XimDefIMValues, visible_position),
 	_XimDefaultVisiblePos,	 NULL,			_XimDecodeBool}
 };
 
 static XimValueOffsetInfoRec ic_attr_info[] = {
-    {XNInputStyle,		 0,
+    {OFFSET_XNINPUTSTYLE,		 0,
 	XOffsetOf(XimDefICValues, input_style),
 	NULL,			 _XimEncodeStyle,	_XimDecodeStyle},
 
-    {XNClientWindow,		 0,
+    {OFFSET_XNCLIENTWINDOW,		 0,
 	XOffsetOf(XimDefICValues, client_window),
 	NULL,			 _XimEncodeWindow,	_XimDecodeWindow},
 
-    {XNFocusWindow,		 0,
+    {OFFSET_XNFOCUSWINDOW,		 0,
 	XOffsetOf(XimDefICValues, focus_window),
 	_XimDefaultFocusWindow,  _XimEncodeWindow,	_XimDecodeWindow},
 
-    {XNResourceName,		 0,
+    {OFFSET_XNRESOURCENAME,		 0,
 	XOffsetOf(XimDefICValues, res_name),
 	_XimDefaultResName,	 _XimEncodeString,	_XimDecodeString},
 
-    {XNResourceClass,		 0,
+    {OFFSET_XNRESOURCECLASS,		 0,
 	XOffsetOf(XimDefICValues, res_class),
 	_XimDefaultResClass,	 _XimEncodeString,	_XimDecodeString},
 
-    {XNGeometryCallback,	 0,
+    {OFFSET_XNGEOMETRYCALLBACK,	 0,
 	XOffsetOf(XimDefICValues, geometry_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNFilterEvents,		 0,
+    {OFFSET_XNFILTEREVENTS,		 0,
 	XOffsetOf(XimDefICValues, filter_events),
 	NULL,			 NULL,			_XimDecodeLong},
 
-    {XNDestroyCallback,		 0,
+    {OFFSET_XNDESTROYCALLBACK,		 0,
 	XOffsetOf(XimDefICValues, destroy_callback),
 	_XimDefaultDestroyCB,	 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNStringConversionCallback, 0,
+    {OFFSET_XNSTRINGCONVERSIONCALLBACK, 0,
 	XOffsetOf(XimDefICValues, string_conversion_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNStringConversion,	 0,
+    {OFFSET_XNSTRINGCONVERSION,	 0,
 	XOffsetOf(XimDefICValues, string_conversion),
 	NULL,			 _XimEncodeStringConv,	_XimDecodeStringConv},
 
-    {XNResetState,		 0,
+    {OFFSET_XNRESETSTATE,		 0,
 	XOffsetOf(XimDefICValues, reset_state),
 	_XimDefaultResetState,	 _XimEncodeResetState,	_XimDecodeResetState},
 
-    {XNHotKey,			 0,
+    {OFFSET_XNHOTKEY,			 0,
 	XOffsetOf(XimDefICValues, hotkey),
 	NULL,			 _XimEncodeHotKey,	_XimDecodeHotKey},
 
-    {XNHotKeyState,		 0,
+    {OFFSET_XNHOTKEYSTATE,		 0,
 	XOffsetOf(XimDefICValues, hotkey_state),
 	_XimDefaultHotKeyState,	 _XimEncodeHotKetState,	_XimDecodeHotKetState},
 
-    {XNPreeditAttributes,	 0,
+    {OFFSET_XNPREEDITATTRIBUTES,	 0,
 	XOffsetOf(XimDefICValues, preedit_attr),
 	_XimDefaultNest,	 _XimEncodeNest,	_XimDecodeNest},
 
-    {XNStatusAttributes,	 0,
+    {OFFSET_XNSTATUSATTRIBUTES,	 0,
 	XOffsetOf(XimDefICValues, status_attr),
 	_XimDefaultNest,	 _XimEncodeNest,	_XimDecodeNest},
 };
 
 static XimValueOffsetInfoRec ic_pre_attr_info[] = {
-    {XNArea,			 0,
+    {OFFSET_XNAREA,			 0,
 	XOffsetOf(ICPreeditAttributes, area),
 	_XimDefaultArea,	 _XimEncodeRectangle,	_XimDecodeRectangle},
 
-    {XNAreaNeeded,		 0,
+    {OFFSET_XNAREANEEDED,		 0,
 	XOffsetOf(ICPreeditAttributes, area_needed),
 	NULL,			 _XimEncodeRectangle,	_XimDecodeRectangle},
 
-    {XNSpotLocation,		 0,
+    {OFFSET_XNSPOTLOCATION,		 0,
 	XOffsetOf(ICPreeditAttributes, spot_location),
 	NULL,			 _XimEncodeSpot,	_XimDecodeSpot},
 
-    {XNColormap,		 0,
+    {OFFSET_XNCOLORMAP,		 0,
 	XOffsetOf(ICPreeditAttributes, colormap),
 	_XimDefaultColormap,	 _XimEncodeColormap,	_XimDecodeColormap},
 
-    {XNStdColormap,		 0,
+    {OFFSET_XNSTDCOLORMAP,		 0,
 	XOffsetOf(ICPreeditAttributes, std_colormap),
 	_XimDefaultStdColormap,	 _XimEncodeStdColormap,	_XimDecodeStdColormap},
 
-    {XNForeground,		 0,
+    {OFFSET_XNFOREGROUND,		 0,
 	XOffsetOf(ICPreeditAttributes, foreground),
 	_XimDefaultFg,		 _XimEncodeLong,	_XimDecodeLong},
 
-    {XNBackground,		 0,
+    {OFFSET_XNBACKGROUND,		 0,
 	XOffsetOf(ICPreeditAttributes, background),
 	_XimDefaultBg,		 _XimEncodeLong,	_XimDecodeLong},
 
-    {XNBackgroundPixmap,	 0,
+    {OFFSET_XNBACKGROUNDPIXMAP,	 0,
 	XOffsetOf(ICPreeditAttributes, background_pixmap),
 	_XimDefaultBgPixmap, 	 _XimEncodeBgPixmap,	_XimDecodeBgPixmap},
 
-    {XNFontSet,			 0,
+    {OFFSET_XNFONTSET,			 0,
 	XOffsetOf(ICPreeditAttributes, fontset),
 	_XimDefaultFontSet,	 _XimEncodeFontSet,	_XimDecodeFontSet},
 
-    {XNLineSpace,		 0,
+    {OFFSET_XNLINESPACE,		 0,
 	XOffsetOf(ICPreeditAttributes, line_spacing),
 	_XimDefaultLineSpace,	 _XimEncodeLineSpace,	_XimDecodeLineSpace},
 
-    {XNCursor,			 0,
+    {OFFSET_XNCURSOR,			 0,
 	XOffsetOf(ICPreeditAttributes, cursor),
 	_XimDefaultCursor,	 _XimEncodeCursor,	_XimDecodeCursor},
 
-    {XNPreeditStartCallback,	 0,
+    {OFFSET_XNPREEDITSTARTCALLBACK,	 0,
 	XOffsetOf(ICPreeditAttributes, start_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNPreeditDoneCallback,	 0,
+    {OFFSET_XNPREEDITDONECALLBACK,	 0,
 	XOffsetOf(ICPreeditAttributes, done_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNPreeditDrawCallback,	 0,
+    {OFFSET_XNPREEDITDRAWCALLBACK,	 0,
 	XOffsetOf(ICPreeditAttributes, draw_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNPreeditCaretCallback,	 0,
+    {OFFSET_XNPREEDITCARETCALLBACK,	 0,
 	XOffsetOf(ICPreeditAttributes, caret_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNPreeditState,		 0,
+    {OFFSET_XNPREEDITSTATE,		 0,
 	XOffsetOf(ICPreeditAttributes, preedit_state),
 	_XimDefaultPreeditState, _XimEncodePreeditState,_XimDecodePreeditState},
 
-    {XNPreeditStateNotifyCallback, 0,
+    {OFFSET_XNPREEDITSTATENOTIFYCALLBACK, 0,
 	XOffsetOf(ICPreeditAttributes, state_notify_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 };
 
 static XimValueOffsetInfoRec ic_sts_attr_info[] = {
-    {XNArea,			 0,
+    {OFFSET_XNAREA,			 0,
 	XOffsetOf(ICStatusAttributes, area),
 	_XimDefaultArea,	 _XimEncodeRectangle,	_XimDecodeRectangle},
 
-    {XNAreaNeeded,		 0,
+    {OFFSET_XNAREANEEDED,		 0,
 	XOffsetOf(ICStatusAttributes, area_needed),
 	NULL,			 _XimEncodeRectangle,	_XimDecodeRectangle},
 
-    {XNColormap,		 0,
+    {OFFSET_XNCOLORMAP,		 0,
 	XOffsetOf(ICStatusAttributes, colormap),
 	_XimDefaultColormap,	 _XimEncodeColormap,	_XimDecodeColormap},
 
-    {XNStdColormap,		 0,
+    {OFFSET_XNSTDCOLORMAP,		 0,
 	XOffsetOf(ICStatusAttributes, std_colormap),
 	_XimDefaultStdColormap,	 _XimEncodeStdColormap,	_XimDecodeStdColormap},
 
-    {XNForeground,		 0,
+    {OFFSET_XNFOREGROUND,		 0,
 	XOffsetOf(ICStatusAttributes, foreground),
 	_XimDefaultFg,		 _XimEncodeLong,	_XimDecodeLong},
 
-    {XNBackground,		 0,
+    {OFFSET_XNBACKGROUND,		 0,
 	XOffsetOf(ICStatusAttributes, background),
 	_XimDefaultBg,		 _XimEncodeLong,	_XimDecodeLong},
 
-    {XNBackgroundPixmap,	 0,
+    {OFFSET_XNBACKGROUNDPIXMAP,	 0,
 	XOffsetOf(ICStatusAttributes, background_pixmap),
 	_XimDefaultBgPixmap, 	 _XimEncodeBgPixmap,	_XimDecodeBgPixmap},
 
-    {XNFontSet,			 0,
+    {OFFSET_XNFONTSET,			 0,
 	XOffsetOf(ICStatusAttributes, fontset),
 	_XimDefaultFontSet,	 _XimEncodeFontSet,	_XimDecodeFontSet},
 
-    {XNLineSpace,		 0,
+    {OFFSET_XNLINESPACE,		 0,
 	XOffsetOf(ICStatusAttributes, line_spacing),
 	_XimDefaultLineSpace,	 _XimEncodeLineSpace,	_XimDecodeLineSpace},
 
-    {XNCursor,			 0,
+    {OFFSET_XNCURSOR,			 0,
 	XOffsetOf(ICStatusAttributes, cursor),
 	_XimDefaultCursor,	 _XimEncodeCursor,	_XimDecodeCursor},
 
-    {XNStatusStartCallback,	 0,
+    {OFFSET_XNSTATUSSTARTCALLBACK,	 0,
 	XOffsetOf(ICStatusAttributes, start_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNStatusDoneCallback,	 0,
+    {OFFSET_XNSTATUSDONECALLBACK,	 0,
 	XOffsetOf(ICStatusAttributes, done_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback},
 
-    {XNStatusDrawCallback,	 0,
+    {OFFSET_XNSTATUSDRAWCALLBACK,	 0,
 	XOffsetOf(ICStatusAttributes, draw_callback),
 	NULL,			 _XimEncodeCallback,	_XimDecodeCallback}
 };
 
 typedef struct _XimIMMode {
-    const char		*name;
-    XrmQuark		 quark;
+    unsigned short name_offset;
     unsigned short	 mode;
 } XimIMMode;
 
-static XimIMMode	im_mode[] = {
-    {XNQueryInputStyle,		0,
+static const XimIMMode im_mode[] = {
+    {OFFSET_XNQUERYINPUTSTYLE,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_GET)},
-    {XNDestroyCallback,		0,
+    {OFFSET_XNDESTROYCALLBACK,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_SET | XIM_MODE_IM_GET)},
-    {XNResourceName,		0,
+    {OFFSET_XNRESOURCENAME,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_SET | XIM_MODE_IM_GET)},
-    {XNResourceClass,		0,
+    {OFFSET_XNRESOURCECLASS,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_SET | XIM_MODE_IM_GET)},
-    {XNQueryIMValuesList,		0,
+    {OFFSET_XNQUERYIMVALUESLIST,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_GET)},
-    {XNQueryICValuesList,		0,
+    {OFFSET_XNQUERYICVALUESLIST,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_GET)},
-    {XNVisiblePosition,			0,
+    {OFFSET_XNVISIBLEPOSITION,
 		(XIM_MODE_IM_DEFAULT | XIM_MODE_IM_GET)}
 };
 
 typedef struct _XimICMode {
-    const char		*name;
-    XrmQuark		 quark;
+    unsigned short name_offset;
     unsigned short	 preedit_callback_mode;
     unsigned short	 preedit_position_mode;
     unsigned short	 preedit_area_mode;
@@ -1691,8 +1773,8 @@ typedef struct _XimICMode {
     unsigned short	 status_none_mode;
 } XimICMode;
 
-static XimICMode	ic_mode[] = {
-    {XNInputStyle, 0,
+static const XimICMode ic_mode[] = {
+    {OFFSET_XNINPUTSTYLE,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_GET),
@@ -1702,7 +1784,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_CREATE | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_CREATE | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_CREATE | XIM_MODE_STS_GET)},
-    {XNClientWindow, 0,
+    {OFFSET_XNCLIENTWINDOW,
 		(XIM_MODE_PRE_ONCE | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_ONCE | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_ONCE | XIM_MODE_PRE_GET),
@@ -1712,7 +1794,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_ONCE | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_ONCE | XIM_MODE_STS_GET),
 		0},
-    {XNFocusWindow, 0,
+    {OFFSET_XNFOCUSWINDOW,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1722,7 +1804,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNResourceName, 0,
+    {OFFSET_XNRESOURCENAME,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1732,7 +1814,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNResourceClass, 0,
+    {OFFSET_XNRESOURCECLASS,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1742,7 +1824,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNGeometryCallback, 0,
+    {OFFSET_XNGEOMETRYCALLBACK,
 		0,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1752,7 +1834,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0,
 		0},
-    {XNFilterEvents, 0,
+    {OFFSET_XNFILTEREVENTS,
 		XIM_MODE_PRE_GET,
 		XIM_MODE_PRE_GET,
 		XIM_MODE_PRE_GET,
@@ -1762,7 +1844,7 @@ static XimICMode	ic_mode[] = {
 		XIM_MODE_STS_GET,
 		XIM_MODE_STS_GET,
 		XIM_MODE_STS_GET},
-    {XNDestroyCallback, 0,
+    {OFFSET_XNDESTROYCALLBACK,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1772,7 +1854,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStringConversionCallback, 0,
+    {OFFSET_XNSTRINGCONVERSIONCALLBACK,
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1782,7 +1864,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStringConversion, 0,
+    {OFFSET_XNSTRINGCONVERSION,
 		XIM_MODE_PRE_SET,
 		XIM_MODE_PRE_SET,
 		XIM_MODE_PRE_SET,
@@ -1792,7 +1874,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNResetState, 0,
+    {OFFSET_XNRESETSTATE,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1802,7 +1884,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNHotKey, 0,
+    {OFFSET_XNHOTKEY,
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1812,7 +1894,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNHotKeyState, 0,
+    {OFFSET_XNHOTKEYSTATE,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1822,7 +1904,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditAttributes, 0,
+    {OFFSET_XNPREEDITATTRIBUTES,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1832,7 +1914,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStatusAttributes, 0,
+    {OFFSET_XNSTATUSATTRIBUTES,
 		0,
 		0,
 		0,
@@ -1842,7 +1924,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNArea, 0,
+    {OFFSET_XNAREA,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1852,7 +1934,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0,
 		0},
-    {XNAreaNeeded, 0,
+    {OFFSET_XNAREANEEDED,
 		0,
 		0,
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1862,7 +1944,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0,
 		0},
-    {XNSpotLocation, 0,
+    {OFFSET_XNSPOTLOCATION,
 		0, /*(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),*/
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		0,
@@ -1872,7 +1954,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNColormap, 0,
+    {OFFSET_XNCOLORMAP,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1882,7 +1964,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNStdColormap, 0,
+    {OFFSET_XNSTDCOLORMAP,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1892,7 +1974,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNForeground, 0,
+    {OFFSET_XNFOREGROUND,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1902,7 +1984,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNBackground, 0,
+    {OFFSET_XNBACKGROUND,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1912,7 +1994,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNBackgroundPixmap, 0,
+    {OFFSET_XNBACKGROUNDPIXMAP,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1922,7 +2004,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNFontSet, 0,
+    {OFFSET_XNFONTSET,
 		0,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1932,7 +2014,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_CREATE | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNLineSpace, 0,
+    {OFFSET_XNLINESPACE,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1942,7 +2024,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNCursor, 0,
+    {OFFSET_XNCURSOR,
 		0,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -1952,7 +2034,7 @@ static XimICMode	ic_mode[] = {
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		(XIM_MODE_STS_DEFAULT | XIM_MODE_STS_SET | XIM_MODE_STS_GET),
 		0},
-    {XNPreeditStartCallback, 0,
+    {OFFSET_XNPREEDITSTARTCALLBACK,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		0,
 		0,
@@ -1962,7 +2044,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditDoneCallback, 0,
+    {OFFSET_XNPREEDITDONECALLBACK,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		0,
 		0,
@@ -1972,7 +2054,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditDrawCallback, 0,
+    {OFFSET_XNPREEDITDRAWCALLBACK,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		0,
 		0,
@@ -1982,7 +2064,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditCaretCallback, 0,
+    {OFFSET_XNPREEDITCARETCALLBACK,
 		(XIM_MODE_PRE_CREATE | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		0,
 		0,
@@ -1992,7 +2074,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditState, 0,
+    {OFFSET_XNPREEDITSTATE,
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_DEFAULT | XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -2002,7 +2084,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNPreeditStateNotifyCallback, 0,
+    {OFFSET_XNPREEDITSTATENOTIFYCALLBACK,
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
 		(XIM_MODE_PRE_SET | XIM_MODE_PRE_GET),
@@ -2012,7 +2094,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStatusStartCallback, 0,
+    {OFFSET_XNSTATUSSTARTCALLBACK,
 		0,
 		0,
 		0,
@@ -2022,7 +2104,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStatusDoneCallback, 0,
+    {OFFSET_XNSTATUSDONECALLBACK,
 		0,
 		0,
 		0,
@@ -2032,7 +2114,7 @@ static XimICMode	ic_mode[] = {
 		0,
 		0,
 		0},
-    {XNStatusDrawCallback, 0,
+    {OFFSET_XNSTATUSDRAWCALLBACK,
 		0,
 		0,
 		0,
@@ -2043,6 +2125,12 @@ static XimICMode	ic_mode[] = {
 		0,
 		0}
 };
+
+/* the quarks are separated from im_mode/ic_mode so those arrays
+ * can be const.
+ */
+static XrmQuark im_mode_quark[sizeof(im_mode) / sizeof(im_mode[0])];
+static XrmQuark ic_mode_quark[sizeof(ic_mode) / sizeof(ic_mode[0])];
 
 Private Bool
 _XimSetResourceList(
@@ -2234,7 +2322,7 @@ _XimSetIMMode(
 
     for(i = 0; i < n; i++) {
 	if(!(res = _XimGetResourceListRecByQuark(res_list,
-						list_num, im_mode[i].quark))) {
+						list_num, im_mode_quark[i]))) {
 	    continue;
 	}
 	res->mode = im_mode[i].mode;
@@ -2327,7 +2415,7 @@ _XimSetICMode(res_list, list_num, style)
 
     for(i = 0; i < n; i++) {
 	if(!(res = _XimGetResourceListRecByQuark(res_list,
-						list_num, ic_mode[i].quark))) {
+						list_num, ic_mode_quark[i]))) {
 	    continue;
 	}
 	res->mode = ( (*(unsigned short *)((char *)&ic_mode[i] + pre_offset))
@@ -3069,7 +3157,7 @@ _XimInitialIMOffsetInfo(void)
     register int	 i;
 
     for(i = 0; i < n; i++) {
-	im_attr_info[i].quark = XrmStringToQuark(im_attr_info[i].name);
+	im_attr_info[i].quark = XrmStringToQuark(GET_NAME(im_attr_info[i]));
     }
 }
 
@@ -3081,17 +3169,17 @@ _XimInitialICOffsetInfo(void)
 
     n = XIMNumber(ic_attr_info);
     for(i = 0; i < n; i++) {
-	ic_attr_info[i].quark = XrmStringToQuark(ic_attr_info[i].name);
+	ic_attr_info[i].quark = XrmStringToQuark(GET_NAME(ic_attr_info[i]));
     }
 
     n = XIMNumber(ic_pre_attr_info);
     for(i = 0; i < n; i++) {
-	ic_pre_attr_info[i].quark = XrmStringToQuark(ic_pre_attr_info[i].name);
+	ic_pre_attr_info[i].quark = XrmStringToQuark(GET_NAME(ic_pre_attr_info[i]));
     }
 
     n = XIMNumber(ic_sts_attr_info);
     for(i = 0; i < n; i++) {
-	ic_sts_attr_info[i].quark = XrmStringToQuark(ic_sts_attr_info[i].name);
+	ic_sts_attr_info[i].quark = XrmStringToQuark(GET_NAME(ic_sts_attr_info[i]));
     }
 }
 
@@ -3102,7 +3190,7 @@ _XimInitialIMMode(void)
     register int	i;
 
     for(i = 0; i < n; i++) {
-	im_mode[i].quark = XrmStringToQuark(im_mode[i].name);
+	im_mode_quark[i] = XrmStringToQuark(GET_NAME(im_mode[i]));
     }
 }
 
@@ -3113,7 +3201,7 @@ _XimInitialICMode(void)
     register int	i;
 
     for(i = 0; i < n; i++) {
-	ic_mode[i].quark = XrmStringToQuark(ic_mode[i].name);
+	ic_mode_quark[i] = XrmStringToQuark(GET_NAME(ic_mode[i]));
     }
 }
 

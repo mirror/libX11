@@ -53,11 +53,11 @@
  * Static representation of a character set that can be used in Compound Text.
  */
 typedef struct _CTDataRec {
-    const char *name;
-    const char *ct_sequence;	/* Compound Text encoding, ESC sequence */
+    const char name[19];
+    const char ct_sequence[5];	/* Compound Text encoding, ESC sequence */
 } CTDataRec, *CTData;
 
-static CTDataRec default_ct_data[] =
+static const CTDataRec default_ct_data[] =
 {
     /*                                                                    */
     /* X11 registry name       MIME name         ISO-IR      ESC sequence */
@@ -1265,7 +1265,7 @@ Bool
 _XlcInitCTInfo()
 {
     if (ct_list == NULL) {
-        CTData ct_data;
+        const CTDataRec *ct_data;
         int num;
         XlcCharSet charset;
 

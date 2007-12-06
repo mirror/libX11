@@ -153,14 +153,14 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** Expose */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* Expose */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window window;
 	int x, y;
 	int width, height;
-	int count;	/\(** if nonzero, at least this many more */
+	int count;	/\&* if nonzero, at least this many more */
 } XExposeEvent;
 .De
 .LP

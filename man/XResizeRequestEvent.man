@@ -153,10 +153,10 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** ResizeRequest */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* ResizeRequest */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window window;
 	int width, height;
 } XResizeRequestEvent;

@@ -213,6 +213,8 @@ If the timeout value is nonzero,
 .ZN XSetScreenSaver
 enables the screen saver.
 An interval of 0 disables the random-pattern motion.
+Both values are limited to a 16-bit signed integer range by the wire protocol,
+despite the C prototype.
 If no input from devices (keyboard, mouse, and so on) is generated 
 for the specified number of timeout seconds once the screen saver is enabled,
 the screen saver is activated.

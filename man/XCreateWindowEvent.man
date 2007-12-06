@@ -153,16 +153,16 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** CreateNotify */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
-	Window parent;	/\(** parent of the window */
-	Window window;	/\(** window id of window created */
-	int x, y;	/\(** window location */
-	int width, height;	/\(** size of window */
-	int border_width;	/\(** border width */
-	Bool override_redirect;	/\(** creation should be overridden */
+	int type;	/\&* CreateNotify */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
+	Window parent;	/\&* parent of the window */
+	Window window;	/\&* window id of window created */
+	int x, y;	/\&* window location */
+	int width, height;	/\&* size of window */
+	int border_width;	/\&* border width */
+	Bool override_redirect;	/\&* creation should be overridden */
 } XCreateWindowEvent;
 .De
 .LP

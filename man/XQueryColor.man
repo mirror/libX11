@@ -1,3 +1,4 @@
+'\" t
 .\" Copyright \(co 1985, 1986, 1987, 1988, 1989, 1990, 1991, 1994, 1996 X Consortium
 .\"
 .\" Permission is hereby granted, free of charge, to any person obtaining
@@ -276,16 +277,13 @@ supported, but its continued use is not encouraged.
 The syntax is an initial sharp sign character followed by
 a numeric specification, in one of the following formats:
 .LP
-.\" Start marker code here
-.Ds 0
-.TA 2i
-.ta 2i
+.TS
+l l.
 \&#RGB	(4 bits each)
 \&#RRGGBB	(8 bits each)
 \&#RRRGGGBBB	(12 bits each)
 \&#RRRRGGGGBBBB	(16 bits each)
-.De
-.\" End marker code here
+.TE
 .LP
 The R, G, and B represent single hexadecimal digits.
 When fewer than 16 bits each are specified, 

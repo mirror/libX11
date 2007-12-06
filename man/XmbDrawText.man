@@ -228,10 +228,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	char *chars;	/\(** pointer to string */
-	int nchars;	/\(** number of bytes */
-	int delta;	/\(** pixel delta between strings */
-	XFontSet font_set; 	/\(** fonts, None means don't change */
+	char *chars;	/\&* pointer to string */
+	int nchars;	/\&* number of bytes */
+	int delta;	/\&* pixel delta between strings */
+	XFontSet font_set; 	/\&* fonts, None means don't change */
 } XmbTextItem;
 .De
 The
@@ -241,10 +241,10 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	wchar_t *chars;	/\(** pointer to wide char string */
-	int nchars;	/\(** number of wide characters */
-	int delta;	/\(** pixel delta between strings */
-	XFontSet font_set;	/\(** fonts, None means don't change */
+	wchar_t *chars;	/\&* pointer to wide char string */
+	int nchars;	/\&* number of wide characters */
+	int delta;	/\&* pixel delta between strings */
+	XFontSet font_set;	/\&* fonts, None means don't change */
 } XwcTextItem;
 .De
 .SH "SEE ALSO"

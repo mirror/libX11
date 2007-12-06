@@ -153,8 +153,8 @@ structure contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	XRectangle max_ink_extent;	/\(** over all drawable characters */
-	XRectangle max_logical_extent;	/\(** over all drawable characters */
+	XRectangle max_ink_extent;	/\&* over all drawable characters */
+	XRectangle max_logical_extent;	/\&* over all drawable characters */
 } XFontSetExtents;
 .De
 .LP

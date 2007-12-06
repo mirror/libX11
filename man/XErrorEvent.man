@@ -154,12 +154,12 @@ structure contains:
 .ta .5i 2.5i
 typedef struct {
 	int type;
-	Display *display;	/\(** Display the event was read from */
-	unsigned long serial;		/\(** serial number of failed request */
-	unsigned char error_code;	/\(** error code of failed request */
-	unsigned char request_code;	/\(** Major op-code of failed request */
-	unsigned char minor_code;	/\(** Minor op-code of failed request */
-	XID resourceid;		/\(** resource id */
+	Display *display;	/\&* Display the event was read from */
+	unsigned long serial;		/\&* serial number of failed request */
+	unsigned char error_code;	/\&* error code of failed request */
+	unsigned char request_code;	/\&* Major op-code of failed request */
+	unsigned char minor_code;	/\&* Minor op-code of failed request */
+	XID resourceid;		/\&* resource id */
 } XErrorEvent;
 .De
 .LP

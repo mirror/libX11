@@ -313,9 +313,9 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	unsigned long pixel;	/\(** pixel value */
-	unsigned short red, green, blue;	/\(** rgb values */
-	char flags;	/\(** DoRed, DoGreen, DoBlue */	
+	unsigned long pixel;	/\&* pixel value */
+	unsigned short red, green, blue;	/\&* rgb values */
+	char flags;	/\&* DoRed, DoGreen, DoBlue */	
 	char pad;
 } XColor;
 .De

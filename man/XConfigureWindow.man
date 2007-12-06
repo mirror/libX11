@@ -334,7 +334,7 @@ The
 structure contains:
 .LP
 .LP
-/\(** Configure window value mask bits */
+/\&* Configure window value mask bits */
 .TS
 lw(.5i) lw(2.5i) lw(.8i).
 T{
@@ -391,7 +391,7 @@ T}
 .Ds 0
 .TA .5i 3i
 .ta .5i 3i
-/\(** Values */
+/\&* Values */
 
 typedef struct {
 	int x, y;

@@ -142,6 +142,16 @@
 .el .sp 10p
 ..
 .ny0
+.de EX
+.sp
+.nf
+.ft CW
+..
+.de EE
+.ft R
+.fi
+.sp
+..
 '\" e
 .TH XDrawArc __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
@@ -240,13 +250,12 @@ than in degrees scaled by 64) in the range % [ 0 , ~2 pi  ]% and where atan
 returns a value in the range % [ - pi over 2 , ~pi over 2  ] %
 and adjust is:
 .LP
-.Ds
-.TA 1i 2i
-.ta 1i 2i
+.TS
+l l.
 %0%	for normal-angle in the range % [ 0 , ~pi over 2  ]%
 %pi%	for normal-angle in the range % [ pi over 2 , ~{3 pi} over 2  ]%
 %2 pi%	for normal-angle in the range % [ {3 pi} over 2 , ~2 pi  ]%
-.De
+.TE
 .LP
 For any given arc, 
 .ZN XDrawArc
@@ -295,15 +304,13 @@ The
 .ZN XArc
 structure contains:
 .LP
-.Ds 0
-.TA .5i 3i
-.ta .5i 3i
+.EX
 typedef struct {
 	short x, y;
 	unsigned short width, height;
-	short angle1, angle2;             /\(** Degrees * 64 */
+	short angle1, angle2;             /\&* Degrees * 64 */
 } XArc;
-.De
+.EE
 .LP
 All x and y members are signed integers.
 The width and height members are 16-bit unsigned integers.

@@ -153,14 +153,14 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** PropertyNotify */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* PropertyNotify */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window window;
 	Atom atom;
 	Time time;
-	int state;	/\(** PropertyNewValue or PropertyDelete */
+	int state;	/\&* PropertyNewValue or PropertyDelete */
 } XPropertyEvent;
 .De
 .LP

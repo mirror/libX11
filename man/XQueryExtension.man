@@ -14,7 +14,7 @@
 .\" of the information in this document.  It is provided \`\`as-is'' without
 .\" express or implied warranty.
 .\"
-.dS xL Programming with Xlib
+.ds xL Programming with Xlib
 .TH XQueryExtension __libmansuffix__ __xorgversion__ "X FUNCTIONS"
 .SH NAME
 XQueryExtension, XListExtensions, XFreeExtensionList \- list available extensions
@@ -25,7 +25,6 @@ Bool XQueryExtension(\^\fIdisplay, \fIname\fP, \fImajor_opcode_return\fP, \fIfir
 char **XListExtensions(\^\fIdisplay\fP, \fInextensions_return\fP\^)
 .HP
 XFreeExtensionList(\^\fIlist\fP\^)
-.FN
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

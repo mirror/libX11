@@ -199,6 +199,11 @@ XeroxPointerButton5	:10070005
 
 ! The definitions here should match <X11/XF86keysym.h>
 XF86ModeLock		:1008FF01
+XF86MonBrightnessUp	:1008FF02
+XF86MonBrightnessDown	:1008FF03
+XF86KbdLightOnOff	:1008FF04
+XF86KbdBrightnessUp	:1008FF05
+XF86KbdBrightnessDown	:1008FF06
 XF86Standby		:1008FF10
 XF86AudioLowerVolume	:1008FF11
 XF86AudioMute		:1008FF12

@@ -149,9 +149,9 @@ XChangeKeyboardControl, XGetKeyboardControl, XAutoRepeatOn, XAutoRepeatOff, XBel
 .SH SYNTAX
 .HP
 int XChangeKeyboardControl\^(\^Display *\fIdisplay\fP, unsigned long
-\fIvalue_mask\fP\^, XKeyBoardControl *\fIvalues\fP\^); 
+\fIvalue_mask\fP\^, XKeyboardControl *\fIvalues\fP\^); 
 .HP
-int XGetKeyboardControl\^(\^Display *\fIdisplay\fP, XKeyBoardState
+int XGetKeyboardControl\^(\^Display *\fIdisplay\fP, XKeyboardState
 *\fIvalues_return\fP\^); 
 .HP
 int XAutoRepeatOn\^(\^Display *\fIdisplay\fP\^); 
@@ -251,7 +251,7 @@ The
 structure contains:
 .LP
 .LP
-/\(** Mask bits for ChangeKeyboardControl */
+/\&* Mask bits for ChangeKeyboardControl */
 .TS
 lw(.5i) lw(2.5i) lw(.8i).
 T{
@@ -315,7 +315,7 @@ T}
 .Ds 0
 .TA .5i 2.5i
 .ta .5i 2.5i
-/\(** Values */
+/\&* Values */
 
 typedef struct {
 	int key_click_percent;
@@ -323,9 +323,9 @@ typedef struct {
 	int bell_pitch;
 	int bell_duration;
 	int led;
-	int led_mode;	/\(** LedModeOn, LedModeOff */
+	int led_mode;	/\&* LedModeOn, LedModeOff */
 	int key;
-	int auto_repeat_mode;	/\(** AutoRepeatModeOff, AutoRepeatModeOn, 
+	int auto_repeat_mode;	/\&* AutoRepeatModeOff, AutoRepeatModeOn, 
                             	AutoRepeatModeDefault */
 } XKeyboardControl;
 .De

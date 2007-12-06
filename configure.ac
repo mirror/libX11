@@ -346,6 +346,7 @@ AC_DEFINE_DIR(X11_LIBDIR, X11_LIBDIR, [Location of libX11 library data])
 AC_SUBST(X11_LIBDIR)
 
 X11_CFLAGS="$X11_CFLAGS $XPROTO_CFLAGS"
+
 AC_SUBST(X11_CFLAGS)
 AC_SUBST(X11_LIBS)
 
@@ -399,6 +400,7 @@ AC_OUTPUT([Makefile
 	   modules/om/generic/Makefile
 	   src/xkb/Makefile
 	   nls/Makefile
+	   nls/am_ET.UTF-8/Makefile
 	   nls/armscii-8/Makefile
 	   nls/C/Makefile
 	   nls/el_GR.UTF-8/Makefile

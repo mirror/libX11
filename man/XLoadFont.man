@@ -141,6 +141,16 @@
 .el .sp 10p
 ..
 .ny0
+.de EX
+.sp
+.nf
+.ft CW
+..
+.de EE
+.ft R
+.fi
+.sp
+..
 .TH XLoadFont __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
 XLoadFont, XQueryFont, XLoadQueryFont, XFreeFont, XGetFontProperty, XUnloadFont, XCharStruct, XFontProp, XChar2b, XFontStruct \- load or unload fonts and font metric structures
@@ -309,62 +319,54 @@ and
 structures contain:
 .LP
 .IN "XCharStruct" "" "@DEF@"
-.Ds 0
-.TA .5i 3i
-.ta .5i 3i
+.EX
 typedef struct {
-	short lbearing;	/\(** origin to left edge of raster */
-	short rbearing;	/\(** origin to right edge of raster */
-	short width;	/\(** advance to next char's origin */
-	short ascent;	/\(** baseline to top edge of raster */
-	short descent;	/\(** baseline to bottom edge of raster */
-	unsigned short attributes;	/\(** per char flags (not predefined) */
+	short lbearing;	/\&* origin to left edge of raster */
+	short rbearing;	/\&* origin to right edge of raster */
+	short width;	/\&* advance to next char's origin */
+	short ascent;	/\&* baseline to top edge of raster */
+	short descent;	/\&* baseline to bottom edge of raster */
+	unsigned short attributes;	/\&* per char flags (not predefined) */
 } XCharStruct;
-.De
+.EE
 .LP
 .IN "XFontProp" "" "@DEF@"
-.Ds 0
-.TA .5i 1i 3i
-.ta .5i 1i 3i
+.EX
 typedef struct {
 	Atom	name;
 	unsigned long card32;
 } XFontProp;
-.De
+.EE
 .LP
 .IN "XChar2b" "" "@DEF@"
-.Ds 0
-.TA .5i 3i
-.ta .5i 3i
-typedef struct {	/\(** normal 16 bit characters are two bytes */
+.EX
+typedef struct {	/\&* normal 16 bit characters are two bytes */
     unsigned char byte1;
     unsigned char byte2;
 } XChar2b;
-.De
+.EE
 .LP
 .IN "XFontStruct" "" "@DEF@"
-.Ds 0
-.TA .5i 3i
-.ta .5i 3i
+.EX
 typedef struct {
-	XExtData *ext_data;	/\(** hook for extension to hang data */
-	Font fid;	/\(** Font id for this font */
-	unsigned direction;	/\(** hint about the direction font is painted */
-	unsigned min_char_or_byte2;	/\(** first character */
-	unsigned max_char_or_byte2;	/\(** last character */
-	unsigned min_byte1;	/\(** first row that exists */
-	unsigned max_byte1;	/\(** last row that exists */
-	Bool all_chars_exist;	/\(** flag if all characters have nonzero size */
-	unsigned default_char;	/\(** char to print for undefined character */
-	int n_properties;	/\(** how many properties there are */
-	XFontProp *properties;	/\(** pointer to array of additional properties */
-	XCharStruct min_bounds;	/\(** minimum bounds over all existing char */
-	XCharStruct max_bounds;	/\(** maximum bounds over all existing char */
-	XCharStruct *per_char;	/\(** first_char to last_char information */
-	int ascent;	/\(** logical extent above baseline for spacing */
-	int descent;	/\(** logical decent below baseline for spacing */
+	XExtData *ext_data;	/\&* hook for extension to hang data */
+	Font fid;	/\&* Font id for this font */
+	unsigned direction;	/\&* hint about the direction font is painted */
+	unsigned min_char_or_byte2;	/\&* first character */
+	unsigned max_char_or_byte2;	/\&* last character */
+	unsigned min_byte1;	/\&* first row that exists */
+	unsigned max_byte1;	/\&* last row that exists */
+	Bool all_chars_exist;	/\&* flag if all characters have nonzero size */
+	unsigned default_char;	/\&* char to print for undefined character */
+	int n_properties;	/\&* how many properties there are */
+	XFontProp *properties;	/\&* pointer to array of additional properties */
+	XCharStruct min_bounds;	/\&* minimum bounds over all existing char */
+	XCharStruct max_bounds;	/\&* maximum bounds over all existing char */
+	XCharStruct *per_char;	/\&* first_char to last_char information */
+	int ascent;	/\&* logical extent above baseline for spacing */
+	int descent;	/\&* logical decent below baseline for spacing */
 } XFontStruct;
-.De
+.EE
 .LP
 X supports single byte/character, two bytes/character matrix,
 and 16-bit character text operations.
@@ -416,19 +418,16 @@ min_char_or_byte2 and max_char_or_byte2 are less than 256,
 and the 2-byte character index values corresponding to the
 per_char array element N (counting from 0) are:
 .IP
-.nf
+.EX
 	byte1 = N/D + min_byte1
-.br
 	byte2 = N\\D + min_char_or_byte2
-.IP
-.fi
+.EE
 where:
-.IP
-.nf
+.EX
         D = max_char_or_byte2 \- min_char_or_byte2 + 1
         / = integer division
-        \\ = integer modulus
-.fi
+        \e\e = integer modulus
+.EE
 .IP \(bu 5
 If the per_char pointer is NULL, 
 all glyphs between the first and last character indexes

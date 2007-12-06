@@ -428,8 +428,8 @@ structure contains:
 .TA .5i 2.5i
 .ta .5i 2.5i
 typedef struct {
-	int max_keypermod;	/\(** This server's max number of keys per modifier */
-	KeyCode *modifiermap;	/\(** An 8 by max_keypermod array of the modifiers */
+	int max_keypermod;	/\&* This server's max number of keys per modifier */
+	KeyCode *modifiermap;	/\&* An 8 by max_keypermod array of the modifiers */
 } XModifierKeymap;
 .De
 .SH DIAGNOSTICS

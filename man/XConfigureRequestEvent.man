@@ -153,17 +153,17 @@ events contains:
 .TA .5i 3i
 .ta .5i 3i
 typedef struct {
-	int type;	/\(** ConfigureRequest */
-	unsigned long serial;	/\(** # of last request processed by server */
-	Bool send_event;	/\(** true if this came from a SendEvent request */
-	Display *display;	/\(** Display the event was read from */
+	int type;	/\&* ConfigureRequest */
+	unsigned long serial;	/\&* # of last request processed by server */
+	Bool send_event;	/\&* true if this came from a SendEvent request */
+	Display *display;	/\&* Display the event was read from */
 	Window parent;
 	Window window;
 	int x, y;
 	int width, height;
 	int border_width;
 	Window above;
-	int detail;	/\(** Above, Below, TopIf, BottomIf, Opposite */
+	int detail;	/\&* Above, Below, TopIf, BottomIf, Opposite */
 	unsigned long value_mask;
 } XConfigureRequestEvent;
 .De

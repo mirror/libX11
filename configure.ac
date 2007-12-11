@@ -144,6 +144,17 @@ AC_SUBST(WCHAR32)
 
 AM_CONDITIONAL(OS2, test x$os2 = xtrue)
 
+AC_ARG_WITH(launchd, AS_HELP_STRING([--with-launchd], [Build with support for Apple's launchd (default: auto)]), [LAUNCHD=$withval], [LAUNCHD=auto])
+if test "x$LAUNCHD" = xauto; then
+	unset LAUNCHD
+	AC_CHECK_PROG(LAUNCHD, [launchd], [yes], [no])
+fi
+
+if test "x$LAUNCHD" = xyes ; then
+	AC_DEFINE(HAVE_LAUNCHD, 1, [launchd support available])
+	AC_DEFINE(TRANS_REOPEN, 1, [launchd support available])
+fi
+
 AC_ARG_ENABLE(xthreads,
               AC_HELP_STRING([--disable-xthreads],
                 [Disable Xlib support for Multithreading]),

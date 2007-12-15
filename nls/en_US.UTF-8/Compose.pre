@@ -540,6 +540,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <dead_diaeresis> <O>             	: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
 <Multi_key> <quotedbl> <O>       	: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
 <Multi_key> <x> <x>              	: "×"   multiply # MULTIPLICATION SIGN
+<dead_stroke> <O>               	: "Ø"   Oslash # LATIN CAPITAL LETTER O WITH STROKE
 <Multi_key> <slash> <O>          	: "Ø"   Oslash # LATIN CAPITAL LETTER O WITH STROKE
 <Multi_key> <KP_Divide> <O>      	: "Ø"   Oslash # LATIN CAPITAL LETTER O WITH STROKE
 <dead_grave> <U>                 	: "Ù"   Ugrave # LATIN CAPITAL LETTER U WITH GRAVE
@@ -618,6 +619,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <quotedbl> <o>       	: "ö"   odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
 <Multi_key> <colon> <minus>      	: "÷"   division # DIVISION SIGN
 <Multi_key> <minus> <colon>      	: "÷"   division # DIVISION SIGN
+<dead_stroke> <o>               	: "ø"   oslash # LATIN SMALL LETTER O WITH STROKE
 <Multi_key> <slash> <o>          	: "ø"   oslash # LATIN SMALL LETTER O WITH STROKE
 <Multi_key> <KP_Divide> <o>      	: "ø"   oslash # LATIN SMALL LETTER O WITH STROKE
 <dead_grave> <u>                 	: "ù"   ugrave # LATIN SMALL LETTER U WITH GRAVE
@@ -678,8 +680,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <c> <D>              	: "Ď"   U010E # LATIN CAPITAL LETTER D WITH CARON
 <dead_caron> <d>                 	: "ď"   U010F # LATIN SMALL LETTER D WITH CARON
 <Multi_key> <c> <d>              	: "ď"   U010F # LATIN SMALL LETTER D WITH CARON
+<dead_stroke> <D>               	: "Đ"   U0110 # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <slash> <D>          	: "Đ"   U0110 # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <KP_Divide> <D>      	: "Đ"   U0110 # LATIN CAPITAL LETTER D WITH STROKE
+<dead_stroke> <d>               	: "đ"   U0111 # LATIN SMALL LETTER D WITH STROKE
 <Multi_key> <slash> <d>          	: "đ"   U0111 # LATIN SMALL LETTER D WITH STROKE
 <Multi_key> <KP_Divide> <d>      	: "đ"   U0111 # LATIN SMALL LETTER D WITH STROKE
 <dead_macron> <E>                	: "Ē"   U0112 # LATIN CAPITAL LETTER E WITH MACRON
@@ -728,8 +732,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <H>    	: "Ĥ"   U0124 # LATIN CAPITAL LETTER H WITH CIRCUMFLEX
 <dead_circumflex> <h>            	: "ĥ"   U0125 # LATIN SMALL LETTER H WITH CIRCUMFLEX
 <Multi_key> <asciicircum> <h>    	: "ĥ"   U0125 # LATIN SMALL LETTER H WITH CIRCUMFLEX
+<dead_stroke> <H>               	: "Ħ"   U0126 # LATIN CAPITAL LETTER H WITH STROKE
 <Multi_key> <slash> <H>          	: "Ħ"   U0126 # LATIN CAPITAL LETTER H WITH STROKE
 <Multi_key> <KP_Divide> <H>      	: "Ħ"   U0126 # LATIN CAPITAL LETTER H WITH STROKE
+<dead_stroke> <h>               	: "ħ"   U0127 # LATIN SMALL LETTER H WITH STROKE
 <Multi_key> <slash> <h>          	: "ħ"   U0127 # LATIN SMALL LETTER H WITH STROKE
 <Multi_key> <KP_Divide> <h>      	: "ħ"   U0127 # LATIN SMALL LETTER H WITH STROKE
 <dead_tilde> <I>                 	: "Ĩ"   U0128 # LATIN CAPITAL LETTER I WITH TILDE
@@ -783,8 +789,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <c> <L>              	: "Ľ"   U013D # LATIN CAPITAL LETTER L WITH CARON
 <dead_caron> <l>                 	: "ľ"   U013E # LATIN SMALL LETTER L WITH CARON
 <Multi_key> <c> <l>              	: "ľ"   U013E # LATIN SMALL LETTER L WITH CARON
+<dead_stroke> <L>               	: "Ł"   U0141 # LATIN CAPITAL LETTER L WITH STROKE
 <Multi_key> <slash> <L>          	: "Ł"   U0141 # LATIN CAPITAL LETTER L WITH STROKE
 <Multi_key> <KP_Divide> <L>      	: "Ł"   U0141 # LATIN CAPITAL LETTER L WITH STROKE
+<dead_stroke> <l>               	: "ł"   U0142 # LATIN SMALL LETTER L WITH STROKE
 <Multi_key> <slash> <l>          	: "ł"   U0142 # LATIN SMALL LETTER L WITH STROKE
 <Multi_key> <KP_Divide> <l>      	: "ł"   U0142 # LATIN SMALL LETTER L WITH STROKE
 <dead_acute> <N>                 	: "Ń"   U0143 # LATIN CAPITAL LETTER N WITH ACUTE
@@ -865,8 +873,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <c> <T>              	: "Ť"   U0164 # LATIN CAPITAL LETTER T WITH CARON
 <dead_caron> <t>                 	: "ť"   U0165 # LATIN SMALL LETTER T WITH CARON
 <Multi_key> <c> <t>              	: "ť"   U0165 # LATIN SMALL LETTER T WITH CARON
+<dead_stroke> <T>               	: "Ŧ"   U0166 # LATIN CAPITAL LETTER T WITH STROKE
 <Multi_key> <slash> <T>          	: "Ŧ"   U0166 # LATIN CAPITAL LETTER T WITH STROKE
 <Multi_key> <KP_Divide> <T>      	: "Ŧ"   U0166 # LATIN CAPITAL LETTER T WITH STROKE
+<dead_stroke> <t>               	: "ŧ"   U0167 # LATIN SMALL LETTER T WITH STROKE
 <Multi_key> <slash> <t>          	: "ŧ"   U0167 # LATIN SMALL LETTER T WITH STROKE
 <Multi_key> <KP_Divide> <t>      	: "ŧ"   U0167 # LATIN SMALL LETTER T WITH STROKE
 <dead_tilde> <U>                 	: "Ũ"   U0168 # LATIN CAPITAL LETTER U WITH TILDE
@@ -926,8 +936,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <c> <Z>              	: "Ž"   U017D # LATIN CAPITAL LETTER Z WITH CARON
 <dead_caron> <z>                 	: "ž"   U017E # LATIN SMALL LETTER Z WITH CARON
 <Multi_key> <c> <z>              	: "ž"   U017E # LATIN SMALL LETTER Z WITH CARON
+<dead_stroke> <b>               	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
 <Multi_key> <slash> <b>          	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
 <Multi_key> <KP_Divide> <b>      	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
+<dead_stroke> <I>               	: "Ɨ"   U0197 # LATIN CAPITAL LETTER I WITH STROKE
 <Multi_key> <slash> <I>          	: "Ɨ"   U0197 # LATIN CAPITAL LETTER I WITH STROKE
 <Multi_key> <KP_Divide> <I>      	: "Ɨ"   U0197 # LATIN CAPITAL LETTER I WITH STROKE
 <dead_horn> <O>                  	: "Ơ"   U01A0 # LATIN CAPITAL LETTER O WITH HORN
@@ -938,8 +950,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <plus> <U>           	: "Ư"   U01AF # LATIN CAPITAL LETTER U WITH HORN
 <dead_horn> <u>                  	: "ư"   U01B0 # LATIN SMALL LETTER U WITH HORN
 <Multi_key> <plus> <u>           	: "ư"   U01B0 # LATIN SMALL LETTER U WITH HORN
+<dead_stroke> <Z>               	: "Ƶ"   U01B5 # LATIN CAPITAL LETTER Z WITH STROKE
 <Multi_key> <slash> <Z>          	: "Ƶ"   U01B5 # LATIN CAPITAL LETTER Z WITH STROKE
 <Multi_key> <KP_Divide> <Z>      	: "Ƶ"   U01B5 # LATIN CAPITAL LETTER Z WITH STROKE
+<dead_stroke> <z>               	: "ƶ"   U01B6 # LATIN SMALL LETTER Z WITH STROKE
 <Multi_key> <slash> <z>          	: "ƶ"   U01B6 # LATIN SMALL LETTER Z WITH STROKE
 <Multi_key> <KP_Divide> <z>      	: "ƶ"   U01B6 # LATIN SMALL LETTER Z WITH STROKE
 <dead_caron> <A>                 	: "Ǎ"   U01CD # LATIN CAPITAL LETTER A WITH CARON
@@ -1072,8 +1086,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <dead_macron> <ae>               	: "ǣ"   U01E3 # LATIN SMALL LETTER AE WITH MACRON
 <Multi_key> <macron> <ae>        	: "ǣ"   U01E3 # LATIN SMALL LETTER AE WITH MACRON
 <Multi_key> <underscore> <ae>    	: "ǣ"   U01E3 # LATIN SMALL LETTER AE WITH MACRON
+<dead_stroke> <G>               	: "Ǥ"   U01E4 # LATIN CAPITAL LETTER G WITH STROKE
 <Multi_key> <slash> <G>          	: "Ǥ"   U01E4 # LATIN CAPITAL LETTER G WITH STROKE
 <Multi_key> <KP_Divide> <G>      	: "Ǥ"   U01E4 # LATIN CAPITAL LETTER G WITH STROKE
+<dead_stroke> <g>               	: "ǥ"   U01E5 # LATIN SMALL LETTER G WITH STROKE
 <Multi_key> <slash> <g>          	: "ǥ"   U01E5 # LATIN SMALL LETTER G WITH STROKE
 <Multi_key> <KP_Divide> <g>      	: "ǥ"   U01E5 # LATIN SMALL LETTER G WITH STROKE
 <dead_caron> <G>                 	: "Ǧ"   U01E6 # LATIN CAPITAL LETTER G WITH CARON
@@ -1159,6 +1175,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <dead_acute> <Ooblique>          	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <acute> <Ooblique>   	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <apostrophe> <Ooblique> 	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
+<dead_acute> <dead_stroke> <O>  	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <dead_acute> <Multi_key> <slash> <O> 	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <acute> <slash> <O>  	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <apostrophe> <slash> <O> 	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
@@ -1168,9 +1185,11 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <Ooblique>     	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <combining_acute> <Multi_key> <slash> <O> 	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <combining_acute> <Multi_key> <KP_Divide> <O> 	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
+<dead_stroke> <dead_acute> <O>  	: "Ǿ"   U01FE # LATIN CAPITAL LETTER O WITH STROKE AND ACUTE
 <dead_acute> <oslash>            	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <acute> <oslash>     	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <apostrophe> <oslash> 	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
+<dead_acute> <dead_stroke> <o>  	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <dead_acute> <Multi_key> <slash> <o> 	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <acute> <slash> <o>  	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <Multi_key> <apostrophe> <slash> <o> 	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
@@ -1180,6 +1199,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <combining_acute> <oslash>       	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <combining_acute> <Multi_key> <slash> <o> 	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <combining_acute> <Multi_key> <KP_Divide> <o> 	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
+<dead_stroke> <dead_acute> <o>  	: "ǿ"   U01FF # LATIN SMALL LETTER O WITH STROKE AND ACUTE
 <U030F> <A>                  	: "Ȁ"   U0200 # LATIN CAPITAL LETTER A WITH DOUBLE GRAVE
 <U030F> <a>                  	: "ȁ"   U0201 # LATIN SMALL LETTER A WITH DOUBLE GRAVE
 <U0311> <A>                  	: "Ȃ"   U0202 # LATIN CAPITAL LETTER A WITH INVERTED BREVE
@@ -1291,6 +1311,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <macron> <y>         	: "ȳ"   U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <underscore> <y>     	: "ȳ"   U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <e> <e>              	: "ə"   U0259 # LATIN SMALL LETTER SCHWA
+<dead_stroke> <i>               	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <slash> <i>          	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <KP_Divide> <i>      	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <slash> <U0294>  	: "ʡ"   U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE

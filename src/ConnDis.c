@@ -303,7 +303,11 @@ _X11TransConnectDisplay (
 
 #if defined(TCPCONN) || defined(UNIXCONN) || defined(LOCALCONN) || defined(MNX_TCPCONN) || defined(OS2PIPECONN)
     if (!pprotocol) {
+#ifdef HAVE_LAUNCHD
+	if (!phostname || phostname[0]=='/') {
+#else
 	if (!phostname) {
+#endif
 #if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
 	    pprotocol = copystring ("local", 5);
 #if defined(TCPCONN)
@@ -449,6 +453,14 @@ _X11TransConnectDisplay (
     *fullnamep = (char *) Xmalloc (len);
     if (!*fullnamep) goto bad;
 
+#ifdef HAVE_LAUNCHD
+    if (phostname && strlen(phostname) > 11 && !strncmp(phostname, "/tmp/launch", 11)) 
+    	sprintf (*fullnamep, "%s%s%d",
+	     (phostname ? phostname : ""),
+	     (dnet ? "::" : ":"),
+	     idisplay);
+    else
+#endif
     sprintf (*fullnamep, "%s%s%d.%d",
 	     (phostname ? phostname : ""),
 	     (dnet ? "::" : ":"),

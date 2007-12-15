@@ -453,6 +453,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <U11B7> <U11BB> 	: "ᇞ"   U11de # HANGUL JONGSEONG MIEUM-SSANGSIOS
 <Multi_key> <U11BC> <U11A9> 	: "ᇭ"   U11ed # HANGUL JONGSEONG IEUNG-SSANGKIYEOK
 
+XCOMM Part 3
 <Multi_key> <comma> <minus>      	: "¬"   notsign # NOT SIGN
 <Multi_key> <minus> <comma>      	: "¬"   notsign # NOT SIGN
 <dead_circumflex> <Multi_key> <underscore> <a> 	: "ª"   ordfeminine # FEMININE ORDINAL INDICATOR

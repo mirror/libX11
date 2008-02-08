@@ -634,7 +634,7 @@ XProtoError.XFree86-Misc.5: XF86MiscModInDevDisabled
 XProtoError.XFree86-Misc.6: XF86MiscModInDevClientNotLocal
 XProtoError.XFree86-Misc.7: XF86MiscNoModule
 ! XFree86-DGA  -- not an X Consortium standard
-XRequest.XFree86-DGA.0: XDGAQueryVersion
+XRequest.XFree86-DGA.0: XF86DGAQueryVersion
 XRequest.XFree86-DGA.1: XF86DGAGetVideoLL
 XRequest.XFree86-DGA.2: XF86DGADirectVideo
 XRequest.XFree86-DGA.3: XF86DGAGetViewPortSize
@@ -891,6 +891,12 @@ XRequest.RENDER.27: RenderCreateCursor
 XRequest.RENDER.28: RenderSetPictureTransform
 XRequest.RENDER.29: RenderQueryFilters
 XRequest.RENDER.30: RenderSetPictureFilter
+XRequest.RENDER.31: RenderCreateAnimCursor
+XRequest.RENDER.32: RenderAddTraps
+XRequest.RENDER.33: RenderCreateSolidFill
+XRequest.RENDER.34: RenderCreateLinearGradient
+XRequest.RENDER.35: RenderCreateRadialGradient
+XRequest.RENDER.36: RenderCreateConicalGradient
 XProtoError.RENDER.0: RenderBadFormat (invalid PictFormat parameter)
 XlibMessage.RENDER.0: PictFormat id in failed request: 0x%lx
 XProtoError.RENDER.1: RenderBadPicture (invalid Picture parameter)
@@ -931,6 +937,8 @@ XRequest.XFIXES.25: XFixesGetCursorImageAndName
 XRequest.XFIXES.26: XFixesChangeCursor
 XRequest.XFIXES.27: XFixesChangeCursorByName
 XRequest.XFIXES.28: XFixesExpandRegion
+XRequest.XFIXES.29: XFixesHideCursor
+XRequest.XFIXES.30: XFixesShowCursor
 XProtoError.XFIXES.0: BadRegion (invalid Region parameter)
 XlibMessage.XFIXES.0: Region id in failed request:  0x%lx
 ! DAMAGE extension

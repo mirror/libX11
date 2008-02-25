@@ -216,8 +216,13 @@ _XimRespSyncReply(
     Xic		 ic,
     BITMASK16	 mode)
 {
-    if (mode & XimSYNCHRONUS) /* SYNC Request */
-	MARK_NEED_SYNC_REPLY(ic);
+    if (mode & XimSYNCHRONUS) /* SYNC Request */ {
+	if (IS_FOCUSED(ic))
+	    MARK_NEED_SYNC_REPLY(ic);
+	else
+	    _XimProcSyncReply(ic->core.im, ic);
+    }
+    
     return True;
 }
 

@@ -949,6 +949,8 @@ _XimProtoSetFocus(
     (void)_XimWrite(im, len, (XPointer)buf);
     _XimFlush(im);
 
+    MARK_FOCUSED(ic);
+
     _XimRegisterFilter(ic);
     return;
 }
@@ -994,6 +996,8 @@ _XimProtoUnsetFocus(
     (void)_XimWrite(im, len, (XPointer)buf);
     _XimFlush(im);
 
+    UNMARK_FOCUSED(ic);
+    
     _XimUnregisterFilter(ic);
     return;
 }

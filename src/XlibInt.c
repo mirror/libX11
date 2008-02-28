@@ -3213,7 +3213,7 @@ static doData32(
 void _XData32(
     Display *dpy,
     long *data,
-    unsigned len,
+    unsigned len)
 {
     char packbuffer[PACKBUFFERSIZE];
     unsigned nunits = PACKBUFFERSIZE >> 2;

@@ -841,14 +841,6 @@ extern Bool	_XimRead(
     XPointer	 arg
 );
 
-extern Bool	_XimIntrCallback(
-    Xim		 im,
-    Bool	 (*callback)(
-			     Xim, INT16, XPointer, XPointer
-			     ),
-    XPointer	 call_data
-);
-
 extern void	_XimFlush(
     Xim		 im
 );

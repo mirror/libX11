@@ -84,12 +84,6 @@ extern void _XimFreeTransIntrCallback(
     Xim		 im
 );
 
-extern Bool _XimTransIntrCallbackCheck(
-    Xim		 im,
-    INT16	 len,
-    XPointer	 data
-);
-
 extern Bool _XimTransFilterWaitEvent(
     Display	*d,
     Window	 w,

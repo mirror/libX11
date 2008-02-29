@@ -164,7 +164,7 @@ are ignored.
 .ds Ch maximum lightness (MaxL) or minimum lightness (MinL)
 .IP \fIchroma\fP 1i
 Specifies the chroma at which to find \*(Ch.
-.ds Lc maximum chroma (MaxC and MaxLC), maximum lightnes (MaxL), \
+.ds Lc maximum chroma (MaxC and MaxLC), maximum lightness (MaxL), \
 or minimum lightness (MinL)
 .ds lC hue angle and lightness (MaxC), hue angle and chroma (MaxL and MinL), \
 or hue angle (MaxLC)

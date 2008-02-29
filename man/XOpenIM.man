@@ -142,7 +142,7 @@
 .ny0
 .TH XOpenIM __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XOpenIM, XCloseIM, XSetIMValues, XGetIMValues, XDisplayOfIM, XLocaleOfIM, XRegisterIMInstantiateCallback, XUnregisterIMInstantiateCallback \- open, close, and otain input method information
+XOpenIM, XCloseIM, XSetIMValues, XGetIMValues, XDisplayOfIM, XLocaleOfIM, XRegisterIMInstantiateCallback, XUnregisterIMInstantiateCallback \- open, close, and obtain input method information
 .SH SYNTAX
 .HP
 XIM XOpenIM\^(\^Display *\fIdisplay\fP\^, XrmDatabase \fIdb\fP\^, char

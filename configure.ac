@@ -221,7 +221,7 @@ AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 # Find keysymdef.h
 #
 AC_MSG_CHECKING([keysymdef.h])
-_dir=`pkg-config --variable=includedir xproto`
+dir=`pkg-config --variable=includedir xproto`
 KEYSYMDEF="$dir/X11/keysymdef.h"
 if test -f "$KEYSYMDEF"; then
         AC_MSG_RESULT([$KEYSYMDEF])

@@ -220,31 +220,14 @@ AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 #
 # Find keysymdef.h
 #
-KEYSYMDEF=""
 AC_MSG_CHECKING([keysymdef.h])
-for flag in $XPROTO_CFLAGS -I/usr/include; do
-	case "$KEYSYMDEF" in
-	"")
-		case "$flag" in
-		*-I*)
-			dir=`echo "$flag" | sed 's/ *-I//'`
-			file="$dir/X11/keysymdef.h"
-			if test -f "$file"; then
-				KEYSYMDEF="$file"
-			fi
-			;;
-		esac
-		;;
-	esac
-done
-case "$KEYSYMDEF" in
-"")
+_dir=`pkg-config --variable=includedir xproto`
+KEYSYMDEF="$dir/X11/keysymdef.h"
+if test -f "$KEYSYMDEF"; then
+        AC_MSG_RESULT([$KEYSYMDEF])
+else
 	AC_MSG_ERROR([Cannot find keysymdef.h])
-	;;
-*)
-	AC_MSG_RESULT([$KEYSYMDEF])
-        ;;
-esac
+fi
 AC_SUBST(KEYSYMDEF)
 
 AM_CONDITIONAL(UDC, test xfalse = xtrue)

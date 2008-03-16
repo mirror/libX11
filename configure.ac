@@ -53,6 +53,8 @@ no)
 	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
 	;;
 *)
+	X11_REQUIRES="xcb >= 1.1.92"
+	X11_EXTRA_DEPS="xcb >= 1.1.92"
 	xdmauth="no" # XCB handles all auth
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
 	;;

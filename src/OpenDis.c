@@ -261,13 +261,6 @@ XOpenDisplay (
 		return(NULL);
 	}
 
-#if USE_XCB
-	if (!_XCBInitDisplayLock(dpy)) {
-	        OutOfMemory (dpy, setup);
-		return(NULL);
-	}
-#endif
-
 	if (!_XPollfdCacheInit(dpy)) {
 	        OutOfMemory (dpy, setup);
 		return(NULL);
@@ -292,6 +285,10 @@ XOpenDisplay (
          return(NULL);
     }
     dpy->bufmax = dpy->buffer + conn_buf_size;
+#if USE_XCB
+    dpy->xcb->real_bufmax = dpy->bufmax;
+    dpy->bufmax = dpy->buffer;
+#endif
 
 	/* Set up the input event queue and input event queue parameters. */
 	dpy->head = dpy->tail = NULL;
@@ -652,6 +649,12 @@ XOpenDisplay (
 	UnlockDisplay(dpy);
 #endif /* !USE_XCB */
 
+#if USE_XCB
+	dpy->bigreq_size = xcb_get_maximum_request_length(dpy->xcb->connection);
+	if(dpy->bigreq_size <= dpy->max_request_size)
+		dpy->bigreq_size = 0;
+#endif /* USE_XCB */
+
 /*
  * Set up other stuff clients are always going to use.
  */
@@ -672,12 +675,6 @@ XOpenDisplay (
  * forced synchronous
  */
 	(void) XSynchronize(dpy, _Xdebug);
-
-#if USE_XCB
-	dpy->bigreq_size = xcb_get_maximum_request_length(dpy->xcb->connection);
-	if(dpy->bigreq_size <= dpy->max_request_size)
-		dpy->bigreq_size = 0;
-#endif /* USE_XCB */
 
 /*
  * get availability of large requests, and
@@ -882,10 +879,6 @@ void _XFreeDisplayStructure(dpy)
  	if (dpy->scratch_buffer)
  	    Xfree (dpy->scratch_buffer);
 	FreeDisplayLock(dpy);
-
-#if USE_XCB
-	_XCBShutdownDisplayLock(dpy);
-#endif /* USE_XCB */
 
 	if (dpy->qfree) {
 	    register _XQEvent *qelt = dpy->qfree;

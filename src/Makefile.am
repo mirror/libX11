@@ -342,7 +342,6 @@ EXTRA_DIST = \
 
 if XCB
 libX11_la_SOURCES += \
-                  xcb_lock.c \
                   xcb_disp.c \
                   xcb_io.c \
                   Xxcbint.h

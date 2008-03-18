@@ -1143,7 +1143,7 @@ GetAuthorization(
 	    
 	    /* In the case of v4 mapped addresses send the v4 
 	       part of the address - addr is already in network byte order */
-	    if (memcmp(addr+8, ipv4mappedprefix, 12) == 0) {
+	    if (memcmp((char*)addr+8, ipv4mappedprefix, 12) == 0) {
 		for (i = 20 ; i < 24; i++)
 		    xdmcp_data[j++] = ((char *)addr)[i];
 	    

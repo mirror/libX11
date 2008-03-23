@@ -343,6 +343,10 @@ _XIDHandler(Display *dpy)
 {
 	XID next = xcb_generate_id(dpy->xcb->connection);
 	LockDisplay(dpy);
+#ifdef XTHREADS
+	if (dpy->lock)
+		(*dpy->lock->user_unlock_display)(dpy);
+#endif
 	dpy->xcb->next_xid = next;
 	if(dpy->flags & XlibDisplayPrivSync)
 	{
@@ -357,8 +361,13 @@ _XIDHandler(Display *dpy)
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
+	const XID inval = ~0UL;
 	XID ret = dpy->xcb->next_xid;
-	dpy->xcb->next_xid = 0;
+#ifdef XTHREADS
+	if (ret != inval && dpy->lock)
+		(*dpy->lock->user_lock_display)(dpy);
+#endif
+	dpy->xcb->next_xid = inval;
 
 	if(!(dpy->flags & XlibDisplayPrivSync))
 	{

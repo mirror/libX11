@@ -738,7 +738,12 @@ LoadColornameDB(void)
 	return(XcmsFailure);
     }
 
-    stringSectionSize(stream, &nEntries, &size);
+    if (stringSectionSize(stream, &nEntries, &size) != XcmsSuccess ||
+	nEntries == 0) {
+	(void) fclose(stream);
+	XcmsColorDbState = XcmsDbInitFailure;
+	return(XcmsFailure);
+    }
     rewind(stream);
 
     strings = (char *) Xmalloc(size);

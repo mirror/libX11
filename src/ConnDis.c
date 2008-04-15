@@ -378,13 +378,13 @@ _X11TransConnectDisplay (
      * too many times).
      */
     for(retry=X_CONNECTION_RETRIES; retry>=0; retry-- )
-	{
+    {
 	if ( (trans_conn = _X11TransOpenCOTSClient(address)) == NULL )
-	    {
+	{
 	    break;
-	    }
+	}
 	if ((connect_stat = _X11TransConnect(trans_conn,address)) < 0 )
-	    {
+	{
 	    _X11TransClose(trans_conn);
 	    trans_conn = NULL;
 
@@ -395,7 +395,7 @@ _X11TransConnectDisplay (
 	    }
 	    else
 		break;
-	    }
+	}
 
 	_X11TransGetPeerAddr(trans_conn, &family, &saddrlen, &saddr);
 
@@ -406,7 +406,7 @@ _X11TransConnectDisplay (
 	 */
 
 	if( _X11TransConvertAddress(&family, &saddrlen, &saddr) < 0 )
-	    {
+	{
 	    _X11TransClose(trans_conn);
 	    trans_conn = NULL;
 	    sleep(1);
@@ -416,10 +416,10 @@ _X11TransConnectDisplay (
 		saddr = NULL;
 	    }
 	    continue;
-	    }
+	}
 
 	break;
-	}
+    }
 
     if (address != addrbuf) Xfree (address);
     address = addrbuf;
@@ -1121,7 +1121,7 @@ GetAuthorization(
 	{
 #ifdef AF_INET
 	case AF_INET:
-	{
+	  {
 	    /*
 	     * addr will contain a sockaddr_in with all
 	     * of the members already in network byte order.
@@ -1132,12 +1132,12 @@ GetAuthorization(
 	    for(i=2; i<4; i++)	/* do sin_port */
 		xdmcp_data[j++] = ((char *)addr)[i];
 	    break;
-	}
+	  }
 #endif /* AF_INET */
 #if defined(IPv6) && defined(AF_INET6)
 	case AF_INET6:
 	  /* XXX This should probably never happen */
-	{
+	  {
 	    unsigned char ipv4mappedprefix[] = {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff };
 	    
@@ -1158,11 +1158,11 @@ GetAuthorization(
 		}
 	    }
 	    break;
-	}
+	  }
 #endif /* AF_INET6 */
 #ifdef AF_UNIX
 	case AF_UNIX:
-	{
+	  {
 	    /*
 	     * We don't use the sockaddr_un for this encoding.
 	     * Instead, we create a sockaddr_in filled with
@@ -1191,7 +1191,7 @@ GetAuthorization(
 	    xdmcp_data[j++] = (the_port >>  8) & 0xFF;
 	    xdmcp_data[j++] = (the_port >>  0) & 0xFF;
 	    break;
-	}
+	  }
 #endif /* AF_UNIX */
 #ifdef AF_DECnet
 	case AF_DECnet:

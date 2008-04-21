@@ -60,7 +60,7 @@ extern LockInfoPtr _Xi18n_lock;
 #ifdef WIN32
 static DWORD _X_TlsIndex = (DWORD)-1;
 
-_Xthread_init()
+void _Xthread_init()
 {
     if (_X_TlsIndex == (DWORD)-1)
 	_X_TlsIndex = TlsAlloc();

@@ -154,7 +154,7 @@ _XlcDefaultMapModifiers(
 #ifdef WIN32
 	{
 	    char *s;
-	    for (s = mods; s = strchr(s, '@'); s++) {
+	    for (s = mods; (s = strchr(s, '@')); s++) {
 		for (s++; *s && *s != '='; s++) {
 		    if (*s == '#') {
 			*s = '=';

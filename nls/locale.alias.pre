@@ -916,8 +916,9 @@ ro_RO:						ro_RO.ISO8859-2
 ro_RO.iso88592:					ro_RO.ISO8859-2
 ro_RO.ISO-8859-2:				ro_RO.ISO8859-2
 ro_RO.utf8:					ro_RO.UTF-8
-ru:						ru_RU.ISO8859-5
-ru_RU:						ru_RU.ISO8859-5
+ru:						ru_RU.UTF-8
+ru_RU:						ru_RU.UTF-8
+ru_RU.utf8:					ru_RU.UTF-8
 ru_RU.iso88595:					ru_RU.ISO8859-5
 ru_RU.ISO-8859-5:				ru_RU.ISO8859-5
 ru_RU.koi8r:					ru_RU.KOI8-R

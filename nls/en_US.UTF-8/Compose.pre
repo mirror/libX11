@@ -1689,9 +1689,9 @@ XCOMM Part 3
 <Multi_key> <U0F90> <U0FB5> 	: "ྐྵ"   U0FB9 # TIBETAN SUBJOINED LETTER KSSA
 <Multi_key> <U102E> <U1025> 	: "ဦ"   U1026 # MYANMAR LETTER UU
 <U0325> <A>                  	: "Ḁ"   U1E00 # LATIN CAPITAL LETTER A WITH RING BELOW
-<dead_belowdot> <A>                  	: "Ḁ"   U1E00 # LATIN CAPITAL LETTER A WITH RING BELOW
+<dead_belowring> <A>                  	: "Ḁ"   U1E00 # LATIN CAPITAL LETTER A WITH RING BELOW
 <U0325> <a>                  	: "ḁ"   U1E01 # LATIN SMALL LETTER A WITH RING BELOW
-<dead_belowdot> <a>                  	: "ḁ"   U1E01 # LATIN SMALL LETTER A WITH RING BELOW
+<dead_belowring> <a>                  	: "ḁ"   U1E01 # LATIN SMALL LETTER A WITH RING BELOW
 <dead_abovedot> <B>              	: "Ḃ"   U1E02 # LATIN CAPITAL LETTER B WITH DOT ABOVE
 <Multi_key> <period> <B>         	: "Ḃ"   U1E02 # LATIN CAPITAL LETTER B WITH DOT ABOVE
 <dead_abovedot> <b>              	: "ḃ"   U1E03 # LATIN SMALL LETTER B WITH DOT ABOVE

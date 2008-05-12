@@ -1066,7 +1066,17 @@ void _XReadEvents(
 		    if (rep->generic.type == X_Error)
 			_XError (dpy, (xError *) rep);
 		    else   /* must be an event packet */
-			_XEnq (dpy, (xEvent *)rep);
+                    {
+                        if (rep->generic.type == GenericEvent)
+                        {
+                            int evlen;
+                            evlen = (rep->generic.length << 2);
+                            if (_XRead(dpy, &read_buf[len], evlen) == -2)
+                                goto got_event; /* XXX: aargh! */
+                        }
+
+                        _XEnq (dpy, (xEvent *)rep);
+                    }
 		    INCITERPTR(rep,xReply);
 		    len -= SIZEOF(xReply);
 		}

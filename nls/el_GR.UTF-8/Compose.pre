@@ -2382,4 +2382,7 @@ XCOMM Miscellaneous extensions.
 <Multi_key> <Greek_delta> <Greek_RHO>	: "₯"	U20af
 <Multi_key> <Greek_delta> <Greek_rho>	: "₯"	U20af
 
+<Multi_key> <question> <exclam>         : "‽"   U203D # INTERROBANG
+<Multi_key> <exclam> <question>         : "‽"   U203D # INTERROBANG
+
 XCOMM End

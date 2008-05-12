@@ -402,6 +402,19 @@ lint:	$(BUILT_SOURCES)
 	done
 endif LINT
 
+if MAKE_LINT_LIB
+lintlibdir = $(libdir)
+
+lintlib_DATA = $(LINTLIB)
+
+lintlib_src = $(libX11_la_SOURCES) xcms/*.c xkb/*.c
+
+CLEANFILES += $(lintlib_DATA)
+
+$(LINTLIB): $(libX11_la_SOURCES)
+	$(LINT) -y -oX11 -x $(ALL_LINT_FLAGS) $(lintlib_src)
+endif MAKE_LINT_LIB
+
 #
 # Building ks_tables.h requires the makekeys utility
 #

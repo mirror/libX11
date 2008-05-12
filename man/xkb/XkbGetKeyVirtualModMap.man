@@ -57,7 +57,7 @@ connection to server
 keycode of first key to fetch
 .TP
 .I \- num
-# keys for which virtual mod maps are desired
+number of keys for which virtual mod maps are desired
 .TP
 .I \- xkb
 Xkb description where results will be placed

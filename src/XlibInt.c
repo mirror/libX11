@@ -201,8 +201,6 @@ static char *_XAsyncReply(
     Bool discard);
 #endif /* !USE_XCB */
 
-#define SEQLIMIT (65535 - (BUFSIZE / SIZEOF(xReq)) - 10)
-
 /*
  * The following routines are internal routines used by Xlib for protocol
  * packet transmission and reception.
@@ -565,33 +563,42 @@ _XWaitForReadable(
 }
 #endif /* !USE_XCB */
 
+static int sync_hazard(Display *dpy)
+{
+    unsigned long span = dpy->request - dpy->last_request_read;
+    unsigned long hazard = min((dpy->bufmax - dpy->buffer) / SIZEOF(xReq), 65535 - 10);
+    return span >= 65535 - hazard - 10;
+}
+
 static
 int _XSeqSyncFunction(
     register Display *dpy)
 {
     xGetInputFocusReply rep;
     register xReq *req;
+    int sent_sync = 0;
 
     LockDisplay(dpy);
-    if ((dpy->request - dpy->last_request_read) >= (BUFSIZE / SIZEOF(xReq))) {
+    if ((dpy->request - dpy->last_request_read) >= (65535 - BUFSIZE/SIZEOF(xReq))) {
 	GetEmptyReq(GetInputFocus, req);
 	(void) _XReply (dpy, (xReply *)&rep, 0, xTrue);
+	sent_sync = 1;
     }
     /* could get XID handler while waiting for reply in MT env */
-    if (dpy->synchandler == _XSeqSyncFunction) {
+    if (dpy->synchandler == _XSeqSyncFunction && !sync_hazard(dpy)) {
 	dpy->synchandler = dpy->savedsynchandler;
 	dpy->flags &= ~XlibDisplayPrivSync;
     }
     UnlockDisplay(dpy);
-    SyncHandle();
+    if (sent_sync)
+        SyncHandle();
     return 0;
 }
 
 void _XSetSeqSyncFunction(
     register Display *dpy)
 {
-    if ((dpy->request - dpy->last_request_read) >= SEQLIMIT &&
-	!(dpy->flags & XlibDisplayPrivSync)) {
+    if (!(dpy->flags & XlibDisplayPrivSync) && sync_hazard(dpy)) {
 	dpy->savedsynchandler = dpy->synchandler;
 	dpy->synchandler = _XSeqSyncFunction;
 	dpy->flags |= XlibDisplayPrivSync;

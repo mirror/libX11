@@ -98,16 +98,16 @@ GetHomeDir(
     int len)
 {
 #ifdef WIN32
-    register char *ptr1;
-    register char *ptr2;
+    register char *ptr1 = NULL;
+    register char *ptr2 = NULL;
     int len1 = 0, len2 = 0;
 
-    if (ptr1 = getenv("HOME")) {	/* old, deprecated */
+    if ((ptr1 = getenv("HOME"))) {	/* old, deprecated */
 	len1 = strlen (ptr1);
     } else if ((ptr1 = getenv("HOMEDRIVE")) && (ptr2 = getenv("HOMEDIR"))) {
 	len1 = strlen (ptr1);
 	len2 = strlen (ptr2);
-    } else if (ptr2 = getenv("USERNAME")) {
+    } else if ((ptr2 = getenv("USERNAME"))) {
 	len1 = strlen (ptr1 = "/users/");
 	len2 = strlen (ptr2);
     }

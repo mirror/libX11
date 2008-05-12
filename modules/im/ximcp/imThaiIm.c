@@ -67,7 +67,13 @@ _XimCheckIfThaiProcessing(im)
     char *language;
 
     _XGetLCValues(im->core.lcd, XlcNLanguage, &language, NULL);
-    if(strcmp(language, THAI_LANGUAGE_NAME) == 0) {
+    if(strcmp(language, THAI_LANGUAGE_NAME) == 0 &&
+       (strcmp(im->core.im_name, "") == 0 ||
+        strcmp(im->core.im_name, "BasicCheck") == 0 ||
+        strcmp(im->core.im_name, "Strict") == 0 ||
+        strcmp(im->core.im_name, "Thaicat") == 0 ||
+        strcmp(im->core.im_name, "Passthrough") == 0))
+    {
 	return(True);
     }
     return(False);

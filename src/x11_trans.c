@@ -1,6 +1,4 @@
 /*
- * $Id: x11_trans.c,v 1.2 2005/05/16 22:35:28 sandmann Exp $
- *
  * Copyright © 2003 Keith Packard
  *
  * Permission to use, copy, modify, distribute, and sell this software and its

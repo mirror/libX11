@@ -735,10 +735,17 @@ LoadColornameDB(void)
     }
 
     if ((stream = _XFopenFile (pathname, "r")) == NULL) {
+	/* can't open file */
+	XcmsColorDbState = XcmsDbInitFailure;
 	return(XcmsFailure);
     }
 
-    stringSectionSize(stream, &nEntries, &size);
+    if (stringSectionSize(stream, &nEntries, &size) != XcmsSuccess ||
+	nEntries == 0) {
+	(void) fclose(stream);
+	XcmsColorDbState = XcmsDbInitFailure;
+	return(XcmsFailure);
+    }
     rewind(stream);
 
     strings = (char *) Xmalloc(size);

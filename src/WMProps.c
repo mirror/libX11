@@ -71,6 +71,7 @@ SOFTWARE.
  *	WM_CLIENT_MACHINE type: TEXT		format: varies?
  *	WM_NORMAL_HINTS	  type: WM_SIZE_HINTS 	format: 32
  *	WM_CLASS	  type: STRING/STRING	format: 8
+  *	WM_LOCALE_NAME	  type: STRING		format: 8
  */
 	
 void XSetWMProperties (

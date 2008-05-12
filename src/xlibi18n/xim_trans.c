@@ -1,6 +1,4 @@
 /*
- * $Id: xim_trans.c,v 1.1 2005/07/11 08:29:25 keithp Exp $
- *
  * Copyright © 2003 Keith Packard
  *
  * Permission to use, copy, modify, distribute, and sell this software and its

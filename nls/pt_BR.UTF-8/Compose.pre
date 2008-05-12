@@ -185,6 +185,9 @@ XCOMM Other symbols
 
 <Multi_key> <P> <P>		: "¶" paragraph # PILCROW SIGN (PARAGRAPH SIGN)
 
+<Multi_key> <question> <exclam>         : "‽"   U203D # INTERROBANG
+<Multi_key> <exclam> <question>         : "‽"   U203D # INTERROBANG
+
 XCOMM Part 2
 
 XCOMM Compose map for Korean Hangul(Choseongul) Conjoining Jamos  automatically

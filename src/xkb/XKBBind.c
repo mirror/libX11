@@ -368,7 +368,6 @@ XkbRefreshKeyboardMapping(register XkbMapNotifyEvent *event)
 	     changes= xkbi->changes;
 	else bzero(&changes,sizeof(changes));
 	XkbNoteMapChanges(&changes,event,XKB_XLIB_MAP_MASK);
-	LockDisplay(dpy);
 	if ((rtrn=XkbGetMapChanges(dpy,xkbi->desc,&changes))!=Success) {
 #ifdef DEBUG
 	    fprintf(stderr,"Internal Error! XkbGetMapChanges failed:\n");
@@ -379,7 +378,6 @@ XkbRefreshKeyboardMapping(register XkbMapNotifyEvent *event)
 	    xkbi->flags&= ~XkbMapPending;
 	    bzero(&xkbi->changes,sizeof(XkbMapChangesRec));
 	}
-	UnlockDisplay(dpy);
 	return rtrn;
     }
     return BadMatch;

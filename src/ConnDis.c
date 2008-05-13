@@ -42,6 +42,7 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xdmcp.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <unistd.h>
 
 #if !defined(WIN32)
 #ifndef Lynx
@@ -389,10 +390,7 @@ _X11TransConnectDisplay (
 	    trans_conn = NULL;
 
 	    if (connect_stat == TRANS_TRY_CONNECT_AGAIN)
-	    {
-		sleep(1);
 		continue;
-	    }
 	    else
 		break;
 	}
@@ -409,7 +407,6 @@ _X11TransConnectDisplay (
 	{
 	    _X11TransClose(trans_conn);
 	    trans_conn = NULL;
-	    sleep(1);
 	    if (saddr)
 	    {
 		free ((char *) saddr);

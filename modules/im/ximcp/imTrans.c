@@ -77,10 +77,7 @@ _XimTransConnect(
 	    spec->trans_conn = NULL;
 
 	    if (connect_stat == TRANS_TRY_CONNECT_AGAIN)
-	    {
-		sleep(1);
 		continue;
-	    }
 	    else
 		break;
 	}

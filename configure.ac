@@ -11,6 +11,8 @@ AM_INIT_AUTOMAKE([dist-bzip2 foreign])
 
 AM_MAINTAINER_MODE
 
+AC_MSG_ERROR([This branch has been merged into master. Please continue with the master branch])
+
 AM_CONFIG_HEADER([src/config.h])
 AC_CONFIG_HEADER([include/X11/XlibConf.h])
 

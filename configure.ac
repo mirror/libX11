@@ -32,7 +32,7 @@ AC_CACHE_CHECK([whether to use XCB], [ac_cv_use_xcb], [ac_cv_use_xcb=yes])
 AM_CONDITIONAL(XCB, test x$ac_cv_use_xcb != xno)
 
 # Checks for pkg-config packages
-PKG_CHECK_MODULES(XPROTO, [xproto >= 7.0.6])
+PKG_CHECK_MODULES(XPROTO, [xproto >= 7.0.13])
 AC_SUBST(XPROTO_CFLAGS)
 
 case "$ac_cv_use_xcb" in
@@ -43,7 +43,7 @@ no)
 	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
 	;;
 *)
-	X11_REQUIRES="xcb-xlib >= 0.9.92"
+	X11_REQUIRES="xcb-xlib >= 1.1.90"
 	X11_EXTRA_DEPS="xcb-xlib"
 	xdmauth="no" # XCB handles all auth
 	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])

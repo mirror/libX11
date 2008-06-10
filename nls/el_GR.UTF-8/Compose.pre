@@ -2385,4 +2385,14 @@ XCOMM Miscellaneous extensions.
 <Multi_key> <question> <exclam>         : "‽"   U203D # INTERROBANG
 <Multi_key> <exclam> <question>         : "‽"   U203D # INTERROBANG
 
+XCOMM
+XCOMM Khmer digraphs
+XCOMM
+
+<U17ff> :   "ាំ"
+<U17fe> :   "ោះ"
+<U17fd> :   "េះ"
+<U17fc> :   "ុំ"
+<U17fb> :   "ុះ"
+
 XCOMM End

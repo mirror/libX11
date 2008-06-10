@@ -339,3 +339,13 @@ XCOMM
 <backslash> <minus> : "|" <U007C> # key -
 <backslash> <underscore> : "¥" <U00A5> # key _
 <backslash> <question> : "፧" <U1367> # key ?
+
+XCOMM 
+XCOMM Khmer digraphs
+XCOMM 
+
+<U17ff> :   "ាំ"
+<U17fe> :   "ោះ"
+<U17fd> :   "េះ"
+<U17fc> :   "ុំ"
+<U17fb> :   "ុះ"

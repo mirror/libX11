@@ -5548,3 +5548,13 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <U1d1b9> <U1d165> <U1d16f>	: "𝆹𝅥𝅯" U1D1BF # MUSICAL SYMBOL FUSA WHITE
 <Multi_key> <U1d1bc> <U1d16f>	: "𝆺𝅥𝅯" U1D1C0 # MUSICAL SYMBOL FUSA BLACK
 <Multi_key> <U1d1ba> <U1d165> <U1d16f>	: "𝆺𝅥𝅯" U1D1C0 # MUSICAL SYMBOL FUSA BLACK
+
+XCOMM
+XCOMM Khmer digraphs
+XCOMM
+
+<U17ff> :   "ាំ"
+<U17fe> :   "ោះ"
+<U17fd> :   "េះ"
+<U17fc> :   "ុំ"
+<U17fb> :   "ុះ"

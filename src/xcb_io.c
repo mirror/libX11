@@ -123,6 +123,19 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 			dpy->last_request_read = event->full_sequence;
 			if(event->response_type != X_Error)
 			{
+				/* GenericEvents may be > 32 bytes. In this
+				 * case, the event struct is trailed by the
+				 * additional bytes. the xcb_generic_event_t
+				 * struct uses 4 bytes for internal numbering,
+				 * so we need to shift the trailing data to be
+				 * after the first 32 bytes.  */
+                                if (event->response_type == GenericEvent &&
+                                        ((xcb_ge_event_t*)event)->length) 
+				{
+					memmove(&event->full_sequence, 
+                                                &event[1],
+						((xcb_ge_event_t*)event)->length * 4); 
+				}
 				_XEnq(dpy, (xEvent *) event);
 				wait_for_first_event = 0;
 			}

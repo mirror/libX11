@@ -166,6 +166,7 @@ XOpenDisplay (
 
 #if USE_XCB
 	if(!_XConnectXCB(dpy, display, &fullname, &iscreen)) {
+		dpy->display_name = fullname;
 		OutOfMemory(dpy, 0);
 		return 0;
 	}

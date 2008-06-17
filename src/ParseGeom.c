@@ -36,7 +36,7 @@ from The Open Group.
 #include "Xutil.h"
 
 #ifdef notdef
-/* 
+/*
  *Returns pointer to first char ins search which is also in what, else NULL.
  */
 static char *strscan (search, what)
@@ -62,7 +62,7 @@ char *search, *what;
  *   It returns a bitmask that indicates which of the four values
  *   were actually found in the string.  For each value found,
  *   the corresponding argument is updated;  for each value
- *   not found, the corresponding argument is left unchanged. 
+ *   not found, the corresponding argument is left unchanged.
  */
 
 static int
@@ -70,7 +70,7 @@ ReadInteger(char *string, char **NextString)
 {
     register int Result = 0;
     int Sign = 1;
-    
+
     if (*string == '+')
 	string++;
     else if (*string == '-')
@@ -110,13 +110,13 @@ unsigned int *height)    /* RETURN */
 	strind = (char *)string;
 	if (*strind != '+' && *strind != '-' && *strind != 'x') {
 		tempWidth = ReadInteger(strind, &nextCharacter);
-		if (strind == nextCharacter) 
+		if (strind == nextCharacter)
 		    return (0);
 		strind = nextCharacter;
 		mask |= WidthValue;
 	}
 
-	if (*strind == 'x' || *strind == 'X') {	
+	if (*strind == 'x' || *strind == 'X') {
 		strind++;
 		tempHeight = ReadInteger(strind, &nextCharacter);
 		if (strind == nextCharacter)
@@ -164,7 +164,7 @@ unsigned int *height)    /* RETURN */
 			mask |= YValue;
 		}
 	}
-	
+
 	/* If strind isn't at the end of the string the it's an invalid
 		geometry specification. */
 

@@ -319,7 +319,7 @@ _XlcParseCharSet(
     const char *ptr = charset->ct_sequence;
     int length;
     int char_size;
-    
+
     if (*ptr == '\0')
     	return False;
 
@@ -751,7 +751,7 @@ cttocs(
                or stop the current run. */
             if (charset) {
                 if (charset != ch_charset)
-                    break; 
+                    break;
             } else {
                 state->charset = charset = ch_charset;
             }
@@ -791,7 +791,7 @@ cttocs(
                or stop the current run. */
             if (charset) {
                 if (charset != state->charset)
-                    break; 
+                    break;
             } else {
                 charset = state->charset;
             }
@@ -1097,7 +1097,7 @@ strtocs(
 
     while (side == (*((unsigned char *) src) & 0x80) && length-- > 0)
 	*dst++ = *src++;
-    
+
     *from_left -= src - (const char *) *from;
     *from = (XPointer) src;
     *to_left -= dst - (char *) *to;
@@ -1133,7 +1133,7 @@ cstostr(
 	|| !((XlcCharSet) args[0] == state->GL_charset
 	     || (XlcCharSet) args[0] == state->GR_charset))
 	return -1;
-    
+
     csptr = *((const char **) from);
     string_ptr = *((char **) to);
     csstr_len = *from_left;

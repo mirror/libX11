@@ -84,7 +84,7 @@ static Bool _XBigReqHandler(Display *dpy, xReply *rep, char *buf, int len,
 				XPointer data);
 #endif /* !USE_XCB */
 
-/* 
+/*
  * Connects to a server, creates a Display object and returns a pointer to
  * the newly created Display back to the caller.
  */
@@ -129,7 +129,7 @@ XOpenDisplay (
 	bzero((char *) &prefix, sizeof(prefix));
 
 	/*
-	 * If the display specifier string supplied as an argument to this 
+	 * If the display specifier string supplied as an argument to this
 	 * routine is NULL or a pointer to NULL, read the DISPLAY variable.
 	 */
 	if (display == NULL || *display == '\0') {
@@ -271,7 +271,7 @@ XOpenDisplay (
 	if (!_XPollfdCacheInit(dpy)) {
 	        OutOfMemory (dpy, setup);
 		return(NULL);
-	}	
+	}
 
 	/* Set up the output buffers. */
 #ifndef XLIBDEFAULTBUFSIZE
@@ -292,7 +292,7 @@ XOpenDisplay (
          return(NULL);
     }
     dpy->bufmax = dpy->buffer + conn_buf_size;
- 
+
 	/* Set up the input event queue and input event queue parameters. */
 	dpy->head = dpy->tail = NULL;
 	dpy->qlen = 0;
@@ -309,7 +309,7 @@ XOpenDisplay (
 /*
  * The xConnClientPrefix describes the initial connection setup information
  * and is followed by the authorization information.  Sites that are interested
- * in security are strongly encouraged to use an authentication and 
+ * in security are strongly encouraged to use an authentication and
  * authorization system such as Kerberos.
  */
 	endian = 1;
@@ -387,7 +387,7 @@ XOpenDisplay (
  */
 	if (prefix.success != xTrue) {
 		/* XXX - printing messages marks a bad programming interface */
-		fprintf (stderr, 
+		fprintf (stderr,
 		      "Xlib: connection to \"%s\" refused by server\r\nXlib: ",
 			 fullname);
 
@@ -442,7 +442,7 @@ XOpenDisplay (
 	    OutOfMemory(dpy, setup);
 	    return (NULL);
 	}
-    
+
 	while (!(mask & 1)) {
 	    dpy->resource_shift++;
 	    mask = mask >> 1;
@@ -484,7 +484,7 @@ XOpenDisplay (
 /*
  * Now iterate down setup information.....
  */
-	dpy->pixmap_format = 
+	dpy->pixmap_format =
 	    (ScreenFormat *)Xmalloc(
 		(unsigned) (dpy->nformats *sizeof(ScreenFormat)));
 	if (dpy->pixmap_format == NULL) {
@@ -514,7 +514,7 @@ XOpenDisplay (
 /*
  * next the Screen structures.
  */
-	dpy->screens = 
+	dpy->screens =
 	    (Screen *)Xmalloc((unsigned) dpy->nscreens*sizeof(Screen));
 	if (dpy->screens == NULL) {
 	        OutOfMemory (dpy, setup);
@@ -535,7 +535,7 @@ XOpenDisplay (
 		return(NULL);
 	    }
 
-	    root_visualID = u.rp->rootVisualID;	    
+	    root_visualID = u.rp->rootVisualID;
 	    sp->display	    = dpy;
 	    sp->root 	    = u.rp->windowId;
 	    sp->cmap 	    = u.rp->defaultColormap;
@@ -575,12 +575,12 @@ XOpenDisplay (
 		    OutOfMemory (dpy, setup);
 		    return(NULL);
 		}
-		
+
 		dp->depth = u.dp->depth;
 		dp->nvisuals = u.dp->nVisuals;
 		u.dp = (xDepth *) (((char *) u.dp) + sz_xDepth);
 		if (dp->nvisuals > 0) {
-		    dp->visuals = 
+		    dp->visuals =
 		      (Visual *)Xmalloc((unsigned)dp->nvisuals*sizeof(Visual));
 		    if (dp->visuals == NULL) {
 			OutOfMemory (dpy, setup);
@@ -595,7 +595,7 @@ XOpenDisplay (
 			    OutOfMemory (dpy, setup);
 			    return(NULL);
 			}
-			
+
 			vp->visualid	= u.vp->visualID;
 			vp->class	= u.vp->class;
 			vp->bits_per_rgb= u.vp->bitsPerRGB;
@@ -782,7 +782,7 @@ _XBigReqHandler(
 #endif /* !USE_XCB */
 
 
-/* XFreeDisplayStructure frees all the storage associated with a 
+/* XFreeDisplayStructure frees all the storage associated with a
  * Display.  It is used by XOpenDisplay if it runs out of memory,
  * and also by XCloseDisplay.   It needs to check whether all pointers
  * are non-NULL before dereferencing them, since it may be called
@@ -853,7 +853,7 @@ void _XFreeDisplayStructure(dpy)
 
 	    Xfree ((char *)dpy->screens);
 	    }
-	
+
 	if (dpy->pixmap_format) {
 	    register int i;
 

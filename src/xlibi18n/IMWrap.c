@@ -11,10 +11,10 @@
  * the above copyright notice appear in all copies and that both that
  * copyright notice and this permission notice appear in supporting
  * documentation, and that the names of Open Software Foundation and
- * Sony Corporation not be used in advertising or publicity pertaining to 
- * distribution of the software without specific, written prior permission.  
- * Open Software Foundation and Sony Corporation make no 
- * representations about the suitability of this software for any purpose.  
+ * Sony Corporation not be used in advertising or publicity pertaining to
+ * distribution of the software without specific, written prior permission.
+ * Open Software Foundation and Sony Corporation make no
+ * representations about the suitability of this software for any purpose.
  * It is provided "as is" without express or implied warranty.
  *
  * OPEN SOFTWARE FOUNDATION AND SONY CORPORATION DISCLAIM ALL
@@ -24,11 +24,11 @@
  * INDIRECT OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
  * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
  * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
- * PERFORMANCE OF THIS SOFTWARE. 
- * 
- *		 M. Collins		OSF  
+ * PERFORMANCE OF THIS SOFTWARE.
+ *
+ *		 M. Collins		OSF
  *               Makoto Wakamatsu       Sony Corporation
- */				
+ */
 /*
 
 Copyright 1991, 1998  The Open Group
@@ -121,7 +121,7 @@ _XCopyToArg(src, dst, size)
  * a XIM object and return a pointer the newly created XIM back to the caller.
  */
 
-XIM 
+XIM
 XOpenIM( display, rdb, res_name, res_class )
     Display	*display;
     XrmDatabase	 rdb;
@@ -145,7 +145,7 @@ XCloseIM(im)
     Status s;
     XIC ic;
     XLCd lcd = im->core.lcd;
-  
+
     s = (im->methods->close) (im);
     for (ic = im->core.ic_chain; ic; ic = ic->core.next)
 	ic->core.im = (XIM)NULL;

@@ -71,7 +71,7 @@ Sun Microsystems, Inc. or its licensors is granted.
  *  This is source code modified by FUJITSU LIMITED under the Joint
  *  Development Agreement for the CDE/Motif PST.
  *
- *   Modifier: Masayoshi Shimamura      FUJITSU LIMITED 
+ *   Modifier: Masayoshi Shimamura      FUJITSU LIMITED
  *
  */
 /* $XFree86: xc/lib/X11/lcInit.c,v 3.9 2001/11/16 00:52:27 dawes Exp $ */

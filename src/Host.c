@@ -60,7 +60,7 @@ XAddHost (
     } else {
 	addrlen = host->length;
     }
-    
+
     length = (addrlen + 3) & ~0x3;	/* round up */
 
     LockDisplay(dpy);
@@ -97,7 +97,7 @@ XRemoveHost (
     } else {
 	addrlen = host->length;
     }
-    
+
     length = (addrlen + 3) & ~0x3;	/* round up */
 
     LockDisplay(dpy);

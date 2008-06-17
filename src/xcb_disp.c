@@ -65,7 +65,7 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 #ifdef HAVE_LAUNCHD
 	if(!display || !*display) display = getenv("DISPLAY");
-	
+
 	if(display && strlen(display)>11 && !strncmp(display, "/tmp/launch", 11)) {
 		/* do nothing -- the magic happens inside of xcb_connect */
 	} else

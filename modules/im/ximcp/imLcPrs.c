@@ -404,7 +404,7 @@ get_mb_string (Xim im, char *buf, KeySym ks)
     return len;
 }
 
-#define AllMask (ShiftMask | LockMask | ControlMask | Mod1Mask) 
+#define AllMask (ShiftMask | LockMask | ControlMask | Mod1Mask)
 #define LOCAL_WC_BUFSIZE 128
 #define LOCAL_UTF8_BUFSIZE 256
 #define SEQUENCE_MAX	10
@@ -445,7 +445,7 @@ parseline(
     do {
 	token = nexttoken(fp, tokenbuf, &lastch);
     } while (token == ENDOFLINE);
-    
+
     if (token == ENDOFFILE) {
 	return(-1);
     }

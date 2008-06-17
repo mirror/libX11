@@ -8,7 +8,7 @@ Permission to use, copy, modify, distribute, and sell this software
 and its documentation for any purpose is hereby granted without fee,
 provided that the above copyright notice appear in all copies and
 that both that copyright notice and this permission notice appear
-in supporting documentation, and that the name of Fuji Xerox, 
+in supporting documentation, and that the name of Fuji Xerox,
 FUJITSU LIMITED not be used in advertising or publicity pertaining
 to distribution of the software without specific, written prior
 permission. Fuji Xerox, FUJITSU LIMITED make no representations
@@ -25,7 +25,7 @@ TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 
   Author   : Kazunori Nishihara	Fuji Xerox
-  Modifier : Takashi Fujiwara   FUJITSU LIMITED 
+  Modifier : Takashi Fujiwara   FUJITSU LIMITED
                                 fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/

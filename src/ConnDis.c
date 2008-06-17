@@ -1,7 +1,7 @@
 /* $XdotOrg: lib/X11/src/ConnDis.c,v 1.10 2005-07-03 07:00:55 daniels Exp $ */
 /* $Xorg: ConnDis.c,v 1.8 2001/02/09 02:03:31 xorgcvs Exp $ */
 /*
- 
+
 Copyright 1989, 1998  The Open Group
 
 Permission to use, copy, modify, distribute, and sell this software and its
@@ -27,7 +27,7 @@ in this Software without prior written authorization from The Open Group.
 */
 /* $XFree86: xc/lib/X11/ConnDis.c,v 3.28 2003/12/02 23:33:17 herrb Exp $ */
 
-/* 
+/*
  * This file contains operating system dependencies.
  */
 
@@ -90,7 +90,7 @@ static char *copystring (char *src, int len)
 }
 
 
-/* 
+/*
  * Attempts to connect to server, given display name. Returns file descriptor
  * (network socket) or -1 if connection fails.  Display names may be of the
  * following format:
@@ -107,7 +107,7 @@ static char *copystring (char *src, int len)
  * by IETF RFC 2732.
  *
  * If no hostname and no protocol is specified, the string is interpreted
- * as the most efficient local connection to a server on the same machine.  
+ * as the most efficient local connection to a server on the same machine.
  * This is usually:
  *
  *     o  shared memory
@@ -156,9 +156,9 @@ _X11TransConnectDisplay (
 #endif
 #ifdef LOCALCONN
     struct utsname sys;
-# ifdef UNIXCONN    
+# ifdef UNIXCONN
     Bool try_unix_socket = False;	/* Try unix if local fails */
-# endif    
+# endif
 #endif
 #ifdef TCPCONN
     char *tcphostname = NULL;		/* A place to save hostname pointer */
@@ -170,7 +170,7 @@ _X11TransConnectDisplay (
     saddr = NULL;
 
     /*
-     * Step 0, find the protocol.  This is delimited by the optional 
+     * Step 0, find the protocol.  This is delimited by the optional
      * slash ('/').
      */
     for (lastp = p; *p && *p != ':' && *p != '/'; p++) ;
@@ -187,7 +187,7 @@ _X11TransConnectDisplay (
     /*
      * Step 1, find the hostname.  This is delimited by either one colon,
      * or two colons in the case of DECnet (DECnet Phase V allows a single
-     * colon in the hostname).  (See note above regarding IPv6 numeric 
+     * colon in the hostname).  (See note above regarding IPv6 numeric
      * addresses with triple colons or [] brackets.)
      */
 
@@ -199,7 +199,7 @@ _X11TransConnectDisplay (
 
     if (!lastc) return NULL;		/* must have a colon */
 
-    if ((lastp != lastc) && (*(lastc - 1) == ':') 
+    if ((lastp != lastc) && (*(lastc - 1) == ':')
 #if defined(IPv6) && defined(AF_INET6)
       && ( ((lastc - 1) == lastp) || (*(lastc - 2) != ':'))
 #endif
@@ -230,8 +230,8 @@ _X11TransConnectDisplay (
 #ifdef LOCALCONN
     /* check if phostname == localnodename AND protocol not specified */
     if (!pprotocol && (!phostname || (phostname && uname(&sys) >= 0 &&
-	!strncmp(phostname, sys.nodename, 
-	(strlen(sys.nodename) < strlen(phostname) ? 
+	!strncmp(phostname, sys.nodename,
+	(strlen(sys.nodename) < strlen(phostname) ?
 	 strlen(phostname) : strlen(sys.nodename))))))
     {
 	/*
@@ -258,7 +258,7 @@ _X11TransConnectDisplay (
 
 
     /*
-     * Step 2, find the display number.  This field is required and is 
+     * Step 2, find the display number.  This field is required and is
      * delimited either by a nul or a period, depending on whether or not
      * a screen number is present.
      */
@@ -272,7 +272,7 @@ _X11TransConnectDisplay (
 
 
     /*
-     * Step 3, find the screen number.  This field is optional.  It is 
+     * Step 3, find the screen number.  This field is optional.  It is
      * present only if the display number was followed by a period (which
      * we've already verified is the only non-nul character).
      */
@@ -295,7 +295,7 @@ _X11TransConnectDisplay (
      *     idisplay                 display number
      *     iscreen                  screen number
      *     dnet                     DECnet boolean
-     * 
+     *
      * We can now decide which transport to use based on the ConnectionFlags
      * build parameter the hostname string.  If phostname is NULL or equals
      * the string "local", then choose the best transport.  If phostname
@@ -325,7 +325,7 @@ _X11TransConnectDisplay (
 
 #if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
     /*
-     * Now that the defaults have been established, see if we have any 
+     * Now that the defaults have been established, see if we have any
      * special names that we have to override:
      *
      *     :N         =>     if UNIXCONN then unix-domain-socket
@@ -359,8 +359,8 @@ _X11TransConnectDisplay (
      */
 
     {
-	int olen = 3 + (pprotocol ? strlen(pprotocol) : 0) + 
-		       (phostname ? strlen(phostname) : 0) + 
+	int olen = 3 + (pprotocol ? strlen(pprotocol) : 0) +
+		       (phostname ? strlen(phostname) : 0) +
 		       (pdpynum   ? strlen(pdpynum)   : 0);
 	if (olen > sizeof addrbuf) address = Xmalloc (olen);
     }
@@ -439,7 +439,7 @@ _X11TransConnectDisplay (
     /*
      *  If we computed the host name, get rid of it so that
      *  XDisplayString() and XDisplayName() agree.
-     */ 
+     */
     if (reset_hostname) {
 	Xfree (phostname);
 	phostname = NULL;
@@ -451,7 +451,7 @@ _X11TransConnectDisplay (
     if (!*fullnamep) goto bad;
 
 #ifdef HAVE_LAUNCHD
-    if (phostname && strlen(phostname) > 11 && !strncmp(phostname, "/tmp/launch", 11)) 
+    if (phostname && strlen(phostname) > 11 && !strncmp(phostname, "/tmp/launch", 11))
     	sprintf (*fullnamep, "%s%s%d",
 	     (phostname ? phostname : ""),
 	     (dnet ? "::" : ":"),
@@ -496,7 +496,7 @@ _X11TransConnectDisplay (
 	goto connect;
     }
 #endif
-    
+
 #if defined(TCPCONN)
     if (tcphostname) {
 	pprotocol = copystring("tcp", 3);
@@ -552,7 +552,7 @@ int _XConnectDisplay (
  *                                                                           *
  *****************************************************************************/
 
-/* 
+/*
  * Disconnect from server.
  */
 
@@ -688,7 +688,7 @@ static _Xconst int default_xauth_lengths[] = {
 };
 
 #define NUM_DEFAULT_AUTH    (sizeof (default_xauth_names) / sizeof (default_xauth_names[0]))
-    
+
 static char **xauth_names = default_xauth_names;
 static _Xconst int  *xauth_lengths = default_xauth_lengths;
 
@@ -1137,18 +1137,18 @@ GetAuthorization(
 	  {
 	    unsigned char ipv4mappedprefix[] = {
 		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0xff, 0xff };
-	    
-	    /* In the case of v4 mapped addresses send the v4 
+
+	    /* In the case of v4 mapped addresses send the v4
 	       part of the address - addr is already in network byte order */
 	    if (memcmp((char*)addr+8, ipv4mappedprefix, 12) == 0) {
 		for (i = 20 ; i < 24; i++)
 		    xdmcp_data[j++] = ((char *)addr)[i];
-	    
+
 		/* Port number */
 		for (i=2; i<4; i++)
 		    xdmcp_data[j++] = ((char *)addr)[i];
 	    } else {
-		/* Fake data to keep the data aligned. Otherwise the 
+		/* Fake data to keep the data aligned. Otherwise the
 		   the server will bail about incorrect timing data */
 		for (i = 0; i < 6; i++) {
 		    xdmcp_data[j++] = 0;
@@ -1172,14 +1172,14 @@ GetAuthorization(
 	    unsigned short	the_port;
 	    unsigned long	the_utime;
 	    struct timeval      tp;
-	    
+
 	    X_GETTIMEOFDAY(&tp);
 	    _XLockMutex(_Xglobal_lock);
 	    the_addr = unix_addr--;
 	    _XUnlockMutex(_Xglobal_lock);
 	    the_utime = (unsigned long) tp.tv_usec;
 	    the_port = getpid ();
-	    
+
 	    xdmcp_data[j++] = (the_utime >> 24) & 0xFF;
 	    xdmcp_data[j++] = (the_utime >> 16) & 0xFF;
 	    xdmcp_data[j++] = ((the_utime >>  8) & 0xF0)

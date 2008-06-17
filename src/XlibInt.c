@@ -99,12 +99,12 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 #else /* XTHREADS else */
 
 #if !USE_XCB
-#define UnlockNextReplyReader(d)   
+#define UnlockNextReplyReader(d)
 #define UnlockNextEventReader(d)
 #define InternalLockDisplay(d,wskip)
 #endif /* !USE_XCB */
 
-#endif /* XTHREADS else */ 
+#endif /* XTHREADS else */
 
 /* check for both EAGAIN and EWOULDBLOCK, because some supposedly POSIX
  * systems are broken and return EWOULDBLOCK when they should return EAGAIN
@@ -214,7 +214,7 @@ static char *_XAsyncReply(
  * perform any operations (directly or indirectly) on the DISPLAY.
  *
  * Routines declared with a return type of 'Status' return 0 on failure,
- * and non 0 on success.  Routines with no declared return type don't 
+ * and non 0 on success.  Routines with no declared return type don't
  * return anything.  Whenever possible routines that create objects return
  * the object they have created.
  */
@@ -275,7 +275,7 @@ _XWaitForWritable(
 	   XXX - what if cv is NULL and someone else comes along after
 	   us while we are waiting?
 	   */
-	   
+
 	if (!dpy->lock ||
 	    (!dpy->lock->event_awaiters &&
 	     (!dpy->lock->reply_awaiters ||
@@ -327,7 +327,7 @@ _XWaitForWritable(
 #endif
 		)
 		len = SIZEOF(xReply);
-		
+
 	    /* but we won't read more than the max buffer size */
 	    if (len > BUFSIZE) len = BUFSIZE;
 
@@ -460,7 +460,7 @@ _XWaitForReadable(
 {
     int result;
     int fd = dpy->fd;
-    struct _XConnectionInfo *ilist;  
+    struct _XConnectionInfo *ilist;
     register int saved_event_serial = 0;
     int in_read_events = 0;
     register Bool did_proc_conni = False;
@@ -643,7 +643,7 @@ static void _XFlushInt(
 
 	/* This fix resets the bufptr to the front of the buffer so
 	 * additional appends to the bufptr will not corrupt memory. Since
-	 * the server is down, these appends are no-op's anyway but 
+	 * the server is down, these appends are no-op's anyway but
 	 * callers of _XFlush() are not verifying this before they call it.
 	 */
 	if (dpy->flags & XlibDisplayIOError)
@@ -701,7 +701,7 @@ static void _XFlushInt(
 #endif
 #ifdef ESZTEST
 	    } else if (ESZTEST()) {
-		if (todo > 1) 
+		if (todo > 1)
 		    todo >>= 1;
 		else {
 		    _XWaitForWritable(dpy
@@ -854,7 +854,7 @@ _XEventsQueued(
 #endif /* XTHREADS*/
 	{
 	    read_buf = buf.buf;
-	    
+
 	    if (len < SIZEOF(xReply)
 #ifdef XTHREADS
 		|| dpy->async_handlers
@@ -870,7 +870,7 @@ _XEventsQueued(
 #endif
 
 	(void) _XRead (dpy, read_buf, (long) len);
-	
+
 #ifdef XTHREADS
 	/* what did we actually read: reply or event? */
 	if (dpy->lock && dpy->lock->reply_awaiters) {
@@ -1061,7 +1061,7 @@ void _XReadEvents(
 		    RESETITERPTR(rep,xReply,
 				 _XAsyncReply (dpy, rep,
 					       ITERPTR(rep), &len, True));
-		    pend = len;                       
+		    pend = len;
 		} else {
 		    if (rep->generic.type == X_Error)
 			_XError (dpy, (xError *) rep);
@@ -1086,7 +1086,7 @@ void _XReadEvents(
 	UnlockNextEventReader(dpy);
 }
 
-/* 
+/*
  * _XRead - Read bytes from the socket taking into account incomplete
  * reads.  This routine may have to be reworked if int < long.
  */
@@ -1180,7 +1180,7 @@ void _XRead32(
 /*
  * _XRead32 - Read bytes from the socket unpacking each 32 bits
  *            into a long (64 bits on a CRAY computer).
- * 
+ *
  */
 static void _doXRead32(
         register Display *dpy,
@@ -1308,7 +1308,7 @@ void _XReadPad(
 	if ((dpy->flags & XlibDisplayIOError) || size == 0) return;
 	iov[0].iov_len = (int)size;
 	iov[0].iov_base = data;
-	/* 
+	/*
 	 * The following hack is used to provide 32 bit long-word
 	 * aligned padding.  The [1] vector is of length 0, 1, 2, or 3,
 	 * whatever is needed.
@@ -1351,7 +1351,7 @@ void _XReadPad(
 		ESET(EPIPE);
 		_XIOError(dpy);
 		}
-	    
+
 	    else  /* bytes_read is less than 0; presumably -1 */ {
 		/* If it's a system call interrupt, it's not an error. */
 		if (!ECHECK(EINTR))
@@ -1451,7 +1451,7 @@ _XSend (
 	    InsertIOV (dpy->buffer, dbufsize)
 	    InsertIOV ((char *)data, size)
 	    InsertIOV ((char *)pad, padsize)
-    
+
 	    ESET(0);
 	    if ((len = _X11TransWritev(dpy->trans_conn, iov, i)) >= 0) {
 		skip += len;
@@ -1473,7 +1473,7 @@ _XSend (
 #endif
 #ifdef ESZTEST
 	    } else if (ESZTEST()) {
-		if (todo > 1) 
+		if (todo > 1)
 		  todo >>= 1;
 		else {
 		    _XWaitForWritable(dpy
@@ -1672,9 +1672,9 @@ _XSetLastRequestRead(
     if (newseq < lastseq) {
 	newseq += 0x10000;
 	if (newseq > dpy->request) {
-	    (void) fprintf (stderr, 
+	    (void) fprintf (stderr,
 	    "Xlib: sequence lost (0x%lx > 0x%lx) in reply type 0x%x!\n",
-			    newseq, dpy->request, 
+			    newseq, dpy->request,
 			    (unsigned int) rep->type);
 	    newseq -= 0x10000;
 	}
@@ -1764,9 +1764,9 @@ _XReply (
 		}
 		if (extra <= rep->generic.length) {
 		    if (extra > 0)
-			/* 
+			/*
 			 * Read the extra data into storage immediately
-			 * following the GenericReply structure. 
+			 * following the GenericReply structure.
 			 */
 			(void) _XRead (dpy, (char *) (NEXTPTR(rep,xReply)),
 				((long)extra) << 2);
@@ -1791,9 +1791,9 @@ _XReply (
 #endif
 		    return 1;
 		}
-		/* 
+		/*
 		 *if we get here, then extra > rep->generic.length--meaning we
-		 * read a reply that's shorter than we expected.  This is an 
+		 * read a reply that's shorter than we expected.  This is an
 		 * error,  but we still need to figure out how to handle it...
 		 */
 		(void) _XRead (dpy, (char *) (NEXTPTR(rep,xReply)),
@@ -1836,12 +1836,12 @@ _XReply (
 			    UnlockNextReplyReader(dpy);
 			    return (0);
 			}
-		/* 
+		/*
 		 * we better see if there is an extension who may
 		 * want to suppress the error.
 		 */
 		for (ext = dpy->ext_procs; !ret && ext; ext = ext->next) {
-		    if (ext->error) 
+		    if (ext->error)
 		       ret = (*ext->error)(dpy, err, &ext->codes, &ret_code);
 		}
 		if (!ret) {
@@ -1864,7 +1864,7 @@ _XReply (
 		break;
 	    }
 	}
-}   
+}
 
 static char *
 _XAsyncReply(
@@ -1887,7 +1887,7 @@ _XAsyncReply(
 	*lenp = 0;
 	return buf;
     }
-    
+
     for (async = dpy->async_handlers; async; async = next) {
 	next = async->next;
 	if ((consumed = (*async->handler)(dpy, rep, buf, *lenp, async->data)))
@@ -1896,7 +1896,7 @@ _XAsyncReply(
     if (!consumed) {
 	if (!discard)
 	    return buf;
-	(void) fprintf(stderr, 
+	(void) fprintf(stderr,
 		       "Xlib: unexpected async reply (sequence 0x%lx)!\n",
 		       dpy->last_request_read);
 #ifdef XTHREADS
@@ -2193,7 +2193,7 @@ XAddConnectionWatch(
  * Unregister a callback registered by XAddConnectionWatch.
  * Both callback and client_data must match what was passed to
  * XAddConnectionWatch.
- */ 
+ */
 void
 XRemoveConnectionWatch(
     Display* dpy,
@@ -2269,7 +2269,7 @@ void _XEnq(
 		/* If dpy->qfree is non-NULL do this, else malloc a new one. */
 		dpy->qfree = qelt->next;
 	}
-	else if ((qelt = 
+	else if ((qelt =
 	    (_XQEvent *) Xmalloc((unsigned)sizeof(_XQEvent))) == NULL) {
 		/* Malloc call failed! */
 		ESET(ENOMEM);
@@ -2281,7 +2281,7 @@ void _XEnq(
 	    qelt->qserial_num = dpy->next_event_serial_num++;
 	    if (dpy->tail)	dpy->tail->next = qelt;
 	    else 		dpy->head = qelt;
-    
+
 	    dpy->tail = qelt;
 	    dpy->qlen++;
 	} else {
@@ -2325,7 +2325,7 @@ _XUnknownWireEvent(
     register xEvent *event)	/* wire protocol event */
 {
 #ifdef notdef
-	(void) fprintf(stderr, 
+	(void) fprintf(stderr,
 	    "Xlib: unhandled wire event! event number = %d, display = %x\n.",
 			event->u.u.type, dpy);
 #endif
@@ -2340,7 +2340,7 @@ _XUnknownNativeEvent(
     register xEvent *event)	/* wire protocol event */
 {
 #ifdef notdef
-	(void) fprintf(stderr, 
+	(void) fprintf(stderr,
  	   "Xlib: unhandled native event! event number = %d, display = %x\n.",
 			re->type, dpy);
 #endif
@@ -2361,7 +2361,7 @@ _XWireToEvent(
 					(xGenericReply *)event);
 	((XAnyEvent *)re)->send_event = ((event->u.u.type & 0x80) != 0);
 	((XAnyEvent *)re)->display = dpy;
-	
+
 	/* Ignore the leading bit of the event type since it is set when a
 		client sends an event rather than the server. */
 
@@ -2430,7 +2430,7 @@ _XWireToEvent(
 			ev->y_root	= cvtINT16toInt(event->u.enterLeave.rootY);
 			ev->state	= event->u.enterLeave.state;
 			ev->mode	= event->u.enterLeave.mode;
-			ev->same_screen = (event->u.enterLeave.flags & 
+			ev->same_screen = (event->u.enterLeave.flags &
 				ELFlagSameScreen) && True;
 			ev->focus	= (event->u.enterLeave.flags &
 			  	ELFlagFocus) && True;
@@ -2668,14 +2668,14 @@ _XWireToEvent(
 	      case ClientMessage:
 		{
 		   register int i;
-		   register XClientMessageEvent *ev 
+		   register XClientMessageEvent *ev
 		   			= (XClientMessageEvent *) re;
 		   ev->window		= event->u.clientMessage.window;
 		   ev->format		= event->u.u.detail;
 		   switch (ev->format) {
-			case 8:	
+			case 8:
 			   ev->message_type = event->u.clientMessage.u.b.type;
-			   for (i = 0; i < 20; i++) 	
+			   for (i = 0; i < 20; i++)
 			     ev->data.b[i] = event->u.clientMessage.u.b.bytes[i];
 			   break;
 			case 16:
@@ -2721,7 +2721,7 @@ _XWireToEvent(
 
 
 /*
- * _XDefaultIOError - Default fatal system error reporting routine.  Called 
+ * _XDefaultIOError - Default fatal system error reporting routine.  Called
  * when an X internal system error is encountered.
  */
 int _XDefaultIOError(
@@ -2732,7 +2732,7 @@ int _XDefaultIOError(
 	"X connection to %s broken (explicit kill or server shutdown).\r\n",
 			    DisplayString (dpy));
 	} else {
-	    (void) fprintf (stderr, 
+	    (void) fprintf (stderr,
 			"XIO:  fatal IO error %d (%s) on X server \"%s\"\r\n",
 #ifdef WIN32
 			WSAGetLastError(), strerror(WSAGetLastError()),
@@ -2740,7 +2740,7 @@ int _XDefaultIOError(
 			errno, strerror (errno),
 #endif
 			DisplayString (dpy));
-	    (void) fprintf (stderr, 
+	    (void) fprintf (stderr,
 	 "      after %lu requests (%lu known processed) with %d events remaining.\r\n",
 			NextRequest(dpy) - 1, LastKnownRequestProcessed(dpy),
 			QLength(dpy));
@@ -2765,7 +2765,7 @@ static int _XPrintDefaultError(
     XGetErrorText(dpy, event->error_code, buffer, BUFSIZ);
     XGetErrorDatabaseText(dpy, mtype, "XError", "X Error", mesg, BUFSIZ);
     (void) fprintf(fp, "%s:  %s\n  ", mesg, buffer);
-    XGetErrorDatabaseText(dpy, mtype, "MajorCode", "Request Major code %d", 
+    XGetErrorDatabaseText(dpy, mtype, "MajorCode", "Request Major code %d",
 	mesg, BUFSIZ);
     (void) fprintf(fp, mesg, event->request_code);
     if (event->request_code < 128) {
@@ -2798,7 +2798,7 @@ static int _XPrintDefaultError(
 	/* kludge, try to find the extension that caused it */
 	buffer[0] = '\0';
 	for (ext = dpy->ext_procs; ext; ext = ext->next) {
-	    if (ext->error_string) 
+	    if (ext->error_string)
 		(*ext->error_string)(dpy, event->error_code, &ext->codes,
 				     buffer, BUFSIZ);
 	    if (buffer[0]) {
@@ -2809,7 +2809,7 @@ static int _XPrintDefaultError(
 		ext->codes.first_error < (int)event->error_code &&
 		(!bext || ext->codes.first_error > bext->codes.first_error))
 		bext = ext;
-	}    
+	}
 	if (bext)
 	    sprintf(buffer, "%s.%d", bext->name,
 		    event->error_code - bext->codes.first_error);
@@ -2849,7 +2849,7 @@ static int _XPrintDefaultError(
 	(void) fprintf(fp, mesg, event->resourceid);
 	fputs("\n", fp);
     }
-    XGetErrorDatabaseText(dpy, mtype, "ErrorSerial", "Error Serial #%d", 
+    XGetErrorDatabaseText(dpy, mtype, "ErrorSerial", "Error Serial #%d",
 			  mesg, BUFSIZ);
     fputs("  ", fp);
     (void) fprintf(fp, mesg, event->serial);
@@ -2887,7 +2887,7 @@ int _XError (
     Display *dpy,
     register xError *rep)
 {
-    /* 
+    /*
      * X_Error packet encountered!  We need to unpack the error before
      * giving it to the user.
      */
@@ -2930,7 +2930,7 @@ int _XError (
 	return _XDefaultError(dpy, (XErrorEvent *)&event);
     }
 }
-    
+
 /*
  * _XIOError - call user connection error handler and exit
  */
@@ -3106,7 +3106,7 @@ _XData32(
 #ifdef WORD64
 
 /*
- * XXX This is a *really* stupid way of doing this.  It should just use 
+ * XXX This is a *really* stupid way of doing this.  It should just use
  * dpy->bufptr directly, taking into account where in the word it is.
  */
 
@@ -3357,7 +3357,7 @@ static int AccessFile (path, pathbuf, len_pathbuf, pathret)
 	return 1;
     }
 
-#ifndef __UNIXOS2__ 
+#ifndef __UNIXOS2__
     /* one last place to look */
     drive = getenv ("HOMEDRIVE");
     if (drive) {

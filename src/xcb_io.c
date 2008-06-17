@@ -30,7 +30,7 @@
  */
 static void check_internal_connections(Display *dpy)
 {
-	struct _XConnectionInfo *ilist;  
+	struct _XConnectionInfo *ilist;
 	fd_set r_mask;
 	struct timeval tv;
 	int result;
@@ -130,11 +130,11 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				 * so we need to shift the trailing data to be
 				 * after the first 32 bytes.  */
                                 if (event->response_type == GenericEvent &&
-                                        ((xcb_ge_event_t*)event)->length) 
+                                        ((xcb_ge_event_t*)event)->length)
 				{
-					memmove(&event->full_sequence, 
+					memmove(&event->full_sequence,
                                                 &event[1],
-						((xcb_ge_event_t*)event)->length * 4); 
+						((xcb_ge_event_t*)event)->length * 4);
 				}
 				_XEnq(dpy, (xEvent *) event);
 				wait_for_first_event = 0;
@@ -421,7 +421,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				return 0;
 		}
 
-		/* 
+		/*
 		 * we better see if there is an extension who may
 		 * want to suppress the error.
 		 */

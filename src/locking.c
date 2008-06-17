@@ -1,6 +1,6 @@
 /* $Xorg: locking.c,v 1.5 2001/02/09 02:03:40 xorgcvs Exp $ */
 /*
- 
+
 Copyright 1992, 1998  The Open Group
 
 Permission to use, copy, modify, distribute, and sell this software and its
@@ -346,7 +346,7 @@ static void _XConditionWait(
     xthread_t self = xthread_self();
     char *old_file = locking_file;
     int old_line = locking_line;
-    
+
 #ifdef XTHREADS_DEBUG
     printf("line %d thread %x in condition wait\n", line, self);
 #endif
@@ -398,7 +398,7 @@ static void _XConditionSignal(
 #endif
     xcondition_signal(cv);
 }
-    
+
 
 #if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
 static void _XConditionBroadcast(cv,file,line)
@@ -417,7 +417,7 @@ static void _XConditionBroadcast(
 #endif
     xcondition_broadcast(cv);
 }
-    
+
 
 static void _XFreeDisplayLock(
     Display *dpy)

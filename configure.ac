@@ -103,7 +103,7 @@ if test x$XLIB_LOADABLE_I18N = xyes; then
 	AC_SUBST(I18N_MODULE_LIBS,'${top_builddir}/src/libX11.la')
 fi
 AC_MSG_RESULT($XLIB_LOADABLE_I18N)
-	       
+
 AM_CONDITIONAL(XLIB_LOADABLE_I18N, test x$XLIB_LOADABLE_I18N = xyes)
 
 AC_MSG_CHECKING([if loadable Xcursor library support should be enabled])
@@ -117,7 +117,7 @@ if test x$XLIB_LOADABLE_XCURSOR = xyes; then
 		  [Use the X cursor library to load cursors])
 fi
 AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
-		  
+
 # Checks for header files.
 AC_HEADER_STDC
 dnl AC_CHECK_HEADERS([stdio.h stdlib.h math.h])
@@ -232,7 +232,7 @@ AC_SUBST(KEYSYMDEF)
 
 AM_CONDITIONAL(UDC, test xfalse = xtrue)
 
-AC_ARG_ENABLE(xcms, 
+AC_ARG_ENABLE(xcms,
               AC_HELP_STRING([--disable-xcms],
                 [Disable Xlib support for CMS *EXPERIMENTAL*]),
               [XCMS=$enableval],[XCMS=yes])
@@ -275,18 +275,18 @@ if test "x$XF86BIGFONT" = "xyes"; then
     AC_SUBST(BIGFONT_LIBS)
 fi
 
-AC_ARG_ENABLE(xkb, 
+AC_ARG_ENABLE(xkb,
               AC_HELP_STRING([--disable-xkb],
                 [Disable XKB support *EXPERIMENTAL*]),
               [XKB=$enableval],[XKB=yes])
 
 XORG_MANPAGE_SECTIONS
 
-AC_ARG_ENABLE(man-pages, 
-	      AC_HELP_STRING([--enable-man-pages=section], 
+AC_ARG_ENABLE(man-pages,
+	      AC_HELP_STRING([--enable-man-pages=section],
 			     [Choose manual section for installing man pages]),
 		[LIBMAN=$enableval],[LIBMAN=yes])
-		
+
 if test "x$LIBMAN" != "xyes"; then
 	LIB_MAN_SUFFIX=$LIBMAN
 fi
@@ -308,7 +308,7 @@ AC_SUBST(XKBPROTO_REQUIRES)
 AC_FUNC_MMAP()
 composecache_default=$ac_cv_func_mmap_fixed_mapped
 AC_CHECK_FUNC(nl_langinfo, , [composecache_default=no])
-AC_ARG_ENABLE(composecache, 
+AC_ARG_ENABLE(composecache,
               AC_HELP_STRING([--disable-composecache],
                 [Disable compose table cache support]),
               [COMPOSECACHE=$enableval],[COMPOSECACHE=$composecache_default])
@@ -382,7 +382,7 @@ XORG_RELEASE_VERSION
 AC_OUTPUT([Makefile
            include/Makefile
 	   man/Makefile
-           man/xkb/Makefile	   
+           man/xkb/Makefile
            src/Makefile
            src/util/Makefile
 	   src/xcms/Makefile

@@ -58,10 +58,6 @@ in this Software without prior written authorization from The Open Group.
 #define X_CONNECTION_RETRIES 5
 #endif
 
-#ifdef LOCALCONN
-#include <sys/utsname.h>
-#endif
-
 #include "Xintconn.h"
 
 /* prototypes */
@@ -77,7 +73,7 @@ static void GetAuthorization(
     int *auth_datalenp);
 
 /* functions */
-static char *copystring (char *src, int len)
+static char *copystring (const char *src, int len)
 {
     char *dst = Xmalloc (len + 1);
 
@@ -89,6 +85,17 @@ static char *copystring (char *src, int len)
     return dst;
 }
 
+#define Xstrdup(s)	copystring(s, strlen(s))
+
+#ifdef TCPCONN
+# define TCP_TRANS	"tcp"
+#endif
+#ifdef UNIXCONN
+# define UNIX_TRANS	"unix"
+#endif
+#if defined(LOCALCONN) || defined(OS2PIPECONN)
+# define LOCAL_TRANS	"local"
+#endif
 
 /*
  * Attempts to connect to server, given display name. Returns file descriptor
@@ -151,17 +158,11 @@ _X11TransConnectDisplay (
     char* address = addrbuf;
     XtransConnInfo trans_conn = NULL;	/* transport connection object */
     int connect_stat;
-#if defined(LOCALCONN) || defined(TCPCONN)
+#if defined(LOCALCONN) || defined(UNIXCONN) || defined(TCPCONN)
     Bool reset_hostname = False;	/* Reset hostname? */
-#endif
-#ifdef LOCALCONN
-    struct utsname sys;
-# ifdef UNIXCONN
-    Bool try_unix_socket = False;	/* Try unix if local fails */
-# endif
-#endif
-#ifdef TCPCONN
-    char *tcphostname = NULL;		/* A place to save hostname pointer */
+    char *original_hostname = NULL;
+    int local_transport_index = -1;
+    const char *local_transport[] = { LOCAL_TRANSPORT_LIST, NULL };
 #endif
 
     p = display_name;
@@ -227,32 +228,17 @@ _X11TransConnectDisplay (
 
     p = lastc;
 
-#ifdef LOCALCONN
+#if defined(LOCALCONN) || defined(UNIXCONN) || defined(TCPCONN)
     /* check if phostname == localnodename AND protocol not specified */
-    if (!pprotocol && (!phostname || (phostname && uname(&sys) >= 0 &&
-	!strncmp(phostname, sys.nodename,
-	(strlen(sys.nodename) < strlen(phostname) ?
-	 strlen(phostname) : strlen(sys.nodename))))))
-    {
-	/*
-	 * We'll first attempt to connect using the local transport.  If
-	 * that fails, we'll try again using the Unix socket transport.  If
-	 * this fails (which is the case if sshd X protocol forwarding is
-	 * being used), retry using tcp and this hostname.
-	 */
-#ifdef UNIXCONN
-	try_unix_socket = True;
-#endif
-#ifdef TCPCONN
-	if (phostname)
-	    tcphostname = copystring(phostname, strlen(phostname));
-	else
-	    tcphostname = copystring("localhost", 9);
-#endif
-	if (!phostname)
+    if (!pprotocol && phostname) {
+	char localhostname[256];
+
+	if ((_XGetHostname (localhostname, sizeof localhostname) > 0)
+	    && (strcmp(phostname, localhostname) == 0)) {
+	    original_hostname = phostname;
+	    phostname = NULL;
 	    reset_hostname = True;
-	Xfree (phostname);
-	phostname = copystring ("unix", 4);
+	}
     }
 #endif
 
@@ -296,63 +282,41 @@ _X11TransConnectDisplay (
      *     iscreen                  screen number
      *     dnet                     DECnet boolean
      *
-     * We can now decide which transport to use based on the ConnectionFlags
-     * build parameter the hostname string.  If phostname is NULL or equals
-     * the string "local", then choose the best transport.  If phostname
-     * is "unix", then choose BSD UNIX domain sockets (if configured).
+     * We can now decide which transport to use based on the defined
+     * connection types and the hostname string.
+     * If phostname & pprotocol are NULL, then choose the best transport.
+     * If phostname is "unix" & pprotocol is NULL, then choose UNIX domain
+     * sockets (if configured).
      */
 
 #if defined(TCPCONN) || defined(UNIXCONN) || defined(LOCALCONN) || defined(MNX_TCPCONN) || defined(OS2PIPECONN)
     if (!pprotocol) {
+#if defined(UNIXCONN)
+	if (phostname && (strcmp (phostname, "unix") == 0)) {
+	    Xfree(pprotocol);
+	    pprotocol = copystring ("unix", 4);
+	} else
+#endif
 #ifdef HAVE_LAUNCHD
-	if (!phostname || phostname[0]=='/') {
+	if (!phostname || phostname[0]=='/')
 #else
-	if (!phostname) {
+	if (!phostname)
 #endif
-#if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
-	    pprotocol = copystring ("local", 5);
-#if defined(TCPCONN)
-	    tcphostname = copystring("localhost", 9);
-#endif
-	}
-	else
 	{
-#endif
+	    if (local_transport[0] != NULL) {
+		pprotocol = Xstrdup(local_transport[0]);
+		local_transport_index = 0;
+	    }
+	}
+
+	if (!pprotocol) { /* if still not found one, tcp is our last resort */
 	    pprotocol = copystring ("tcp", 3);
 	}
     }
 #endif
 
-#if defined(UNIXCONN) || defined(LOCALCONN) || defined(OS2PIPECONN)
-    /*
-     * Now that the defaults have been established, see if we have any
-     * special names that we have to override:
-     *
-     *     :N         =>     if UNIXCONN then unix-domain-socket
-     *     ::N        =>     if UNIXCONN then unix-domain-socket
-     *     unix:N     =>     if UNIXCONN then unix-domain-socket
-     *
-     * Note that if UNIXCONN isn't defined, then we can use the default
-     * transport connection function set above.
-     */
 
-    if (!phostname) {
-#ifdef apollo
-	;   /* Unix domain sockets are *really* bad on apollos */
-#else
-	if( pprotocol ) Xfree(pprotocol);
-	pprotocol = copystring ("local", 5);
-#endif
-    }
-    else if (strcmp (phostname, "unix") == 0) {
-	if( pprotocol ) Xfree(pprotocol);
-	pprotocol = copystring ("local", 5);
-    }
-#endif
-
-#if defined(TCPCONN)
   connect:
-#endif
     /*
      * This seems kind of backwards, but we need to put the protocol,
      * host, and port back together to pass to _X11TransOpenCOTSClient().
@@ -435,14 +399,14 @@ _X11TransConnectDisplay (
      *
      *     [host] : [:] dpy . scr \0
      */
-#if defined(LOCALCONN) || defined(TCPCONN)
+#if defined(LOCALCONN) || defined(TCPCONN) || defined(UNIXCONN)
     /*
      *  If we computed the host name, get rid of it so that
      *  XDisplayString() and XDisplayName() agree.
      */
-    if (reset_hostname) {
+    if (reset_hostname && (phostname != original_hostname)) {
 	Xfree (phostname);
-	phostname = NULL;
+	phostname = original_hostname;
     }
 #endif
     len = ((phostname ? strlen(phostname) : 0) + 1 + (dnet ? 1 : 0) +
@@ -469,8 +433,8 @@ _X11TransConnectDisplay (
     if (phostname) Xfree (phostname);
     if (pdpynum) Xfree (pdpynum);
     if (pscrnum) Xfree (pscrnum);
-#ifdef TCPCONN
-    if (tcphostname) Xfree (tcphostname);
+#if defined(LOCALCONN) || defined(UNIXCONN) || defined(TCPCONN)
+    if (original_hostname) Xfree (original_hostname);
 #endif
 
     GetAuthorization(trans_conn, family, (char *) saddr, saddrlen, idisplay,
@@ -488,24 +452,36 @@ _X11TransConnectDisplay (
     if (phostname) Xfree (phostname);
     if (address && address != addrbuf) { Xfree(address); address = addrbuf; }
 
-#if defined(LOCALCONN) && defined(UNIXCONN)
-    if (try_unix_socket) {
-	pprotocol = copystring ("unix", 4);
-	phostname = NULL;
-	try_unix_socket = False; /* Do this only once */
-	goto connect;
+#if defined(LOCALCONN) || defined(UNIXCONN) || defined(TCPCONN)
+    /* If connecting to the local machine, and we failed, try again with
+     * the next transport type available, if there is one.
+     */
+    if (local_transport_index >= 0) {
+	if (local_transport[++local_transport_index] != NULL) {
+	    pprotocol = Xstrdup(local_transport[local_transport_index]);
+#ifdef TCPCONN
+	    if (strcmp(pprotocol, "tcp") == 0) {
+		if (original_hostname != NULL) {
+		    phostname = original_hostname;
+		    original_hostname = NULL;
+		} else {
+		    phostname = copystring("localhost", 9);
+		}
+	    } else
+#endif /* TCPCONN */
+	    {
+		if ((phostname != NULL) && (original_hostname == NULL)) {
+		    original_hostname = phostname;
+		}
+		phostname = NULL;
+	    }
+	    goto connect;
+	}
     }
-#endif
 
-#if defined(TCPCONN)
-    if (tcphostname) {
-	pprotocol = copystring("tcp", 3);
-	phostname = tcphostname;
-	tcphostname = NULL;
-	reset_hostname = True;
-	goto connect;
-    }
-#endif
+    /* No more to try, we've failed all available local transports */
+    if (original_hostname) Xfree(original_hostname);
+#endif /* LOCALCONN || UNIXCONN || TCPCONN */
 
     if (pdpynum) Xfree (pdpynum);
     if (pscrnum) Xfree (pscrnum);

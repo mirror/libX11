@@ -615,7 +615,8 @@ get_rotate_fontname(
 
     for(field_num = 0 ; field_num < CHARSET_ENCODING_FIELD &&
 			fields[field_num] ; field_num++) {
-	sprintf(rotate_font_ptr, "%s-%s", rotate_font_ptr, fields[field_num]);
+	strcat(rotate_font_ptr, "-");
+	strcat(rotate_font_ptr, fields[field_num]);
     }
 
     if(pattern)

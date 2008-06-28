@@ -531,7 +531,7 @@ extern	Bool	 XkbSetIndicatorMap(
 #define	XkbNoteIndicatorStateChanges(o,n,w)\
 				((o)->state_changes|=((n)->state_changes&(w)))
 #define	XkbGetIndicatorMapChanges(d,x,c) \
-				(XkbGetIndicatorMap((d),(c)->map_changes,x)
+				(XkbGetIndicatorMap((d),(c)->map_changes,x))
 #define	XkbChangeIndicatorMaps(d,x,c) \
 				(XkbSetIndicatorMap((d),(c)->map_changes,x))
 

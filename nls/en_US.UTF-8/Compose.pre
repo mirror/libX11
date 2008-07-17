@@ -504,6 +504,7 @@ XCOMM Part 3
 <Multi_key> <o> <A>              	: "Å"   Aring # LATIN CAPITAL LETTER A WITH RING ABOVE
 <dead_cedilla> <C>               	: "Ç"   Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
 <Multi_key> <comma> <C>          	: "Ç"   Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
+<Multi_key> <cedilla> <C>          	: "Ç"   Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
 <dead_grave> <E>                 	: "È"   Egrave # LATIN CAPITAL LETTER E WITH GRAVE
 <Multi_key> <grave> <E>          	: "È"   Egrave # LATIN CAPITAL LETTER E WITH GRAVE
 <combining_grave> <E>            	: "È"   Egrave # LATIN CAPITAL LETTER E WITH GRAVE
@@ -582,6 +583,7 @@ XCOMM Part 3
 <Multi_key> <o> <a>              	: "å"   aring # LATIN SMALL LETTER A WITH RING ABOVE
 <dead_cedilla> <c>               	: "ç"   ccedilla # LATIN SMALL LETTER C WITH CEDILLA
 <Multi_key> <comma> <c>          	: "ç"   ccedilla # LATIN SMALL LETTER C WITH CEDILLA
+<Multi_key> <cedilla> <c>          	: "ç"   ccedilla # LATIN SMALL LETTER C WITH CEDILLA
 <dead_grave> <e>                 	: "è"   egrave # LATIN SMALL LETTER E WITH GRAVE
 <Multi_key> <grave> <e>          	: "è"   egrave # LATIN SMALL LETTER E WITH GRAVE
 <combining_grave> <e>            	: "è"   egrave # LATIN SMALL LETTER E WITH GRAVE
@@ -731,8 +733,10 @@ XCOMM Part 3
 <Multi_key> <period> <g>         	: "ġ"   U0121 # LATIN SMALL LETTER G WITH DOT ABOVE
 <dead_cedilla> <G>               	: "Ģ"   U0122 # LATIN CAPITAL LETTER G WITH CEDILLA
 <Multi_key> <comma> <G>          	: "Ģ"   U0122 # LATIN CAPITAL LETTER G WITH CEDILLA
+<Multi_key> <cedilla> <G>          	: "Ģ"   U0122 # LATIN CAPITAL LETTER G WITH CEDILLA
 <dead_cedilla> <g>               	: "ģ"   U0123 # LATIN SMALL LETTER G WITH CEDILLA
 <Multi_key> <comma> <g>          	: "ģ"   U0123 # LATIN SMALL LETTER G WITH CEDILLA
+<Multi_key> <cedilla> <g>          	: "ģ"   U0123 # LATIN SMALL LETTER G WITH CEDILLA
 <dead_circumflex> <H>            	: "Ĥ"   U0124 # LATIN CAPITAL LETTER H WITH CIRCUMFLEX
 <Multi_key> <asciicircum> <H>    	: "Ĥ"   U0124 # LATIN CAPITAL LETTER H WITH CIRCUMFLEX
 <dead_circumflex> <h>            	: "ĥ"   U0125 # LATIN SMALL LETTER H WITH CIRCUMFLEX
@@ -775,8 +779,10 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <j>    	: "ĵ"   U0135 # LATIN SMALL LETTER J WITH CIRCUMFLEX
 <dead_cedilla> <K>               	: "Ķ"   U0136 # LATIN CAPITAL LETTER K WITH CEDILLA
 <Multi_key> <comma> <K>          	: "Ķ"   U0136 # LATIN CAPITAL LETTER K WITH CEDILLA
+<Multi_key> <cedilla> <K>          	: "Ķ"   U0136 # LATIN CAPITAL LETTER K WITH CEDILLA
 <dead_cedilla> <k>               	: "ķ"   U0137 # LATIN SMALL LETTER K WITH CEDILLA
 <Multi_key> <comma> <k>          	: "ķ"   U0137 # LATIN SMALL LETTER K WITH CEDILLA
+<Multi_key> <cedilla> <k>          	: "ķ"   U0137 # LATIN SMALL LETTER K WITH CEDILLA
 <Multi_key> <k> <k>              	: "ĸ"   U0138 # LATIN SMALL LETTER KRA
 <dead_acute> <L>                 	: "Ĺ"   U0139 # LATIN CAPITAL LETTER L WITH ACUTE
 <Multi_key> <acute> <L>          	: "Ĺ"   U0139 # LATIN CAPITAL LETTER L WITH ACUTE
@@ -788,8 +794,10 @@ XCOMM Part 3
 <combining_acute> <l>            	: "ĺ"   U013A # LATIN SMALL LETTER L WITH ACUTE
 <dead_cedilla> <L>               	: "Ļ"   U013B # LATIN CAPITAL LETTER L WITH CEDILLA
 <Multi_key> <comma> <L>          	: "Ļ"   U013B # LATIN CAPITAL LETTER L WITH CEDILLA
+<Multi_key> <cedilla> <L>          	: "Ļ"   U013B # LATIN CAPITAL LETTER L WITH CEDILLA
 <dead_cedilla> <l>               	: "ļ"   U013C # LATIN SMALL LETTER L WITH CEDILLA
 <Multi_key> <comma> <l>          	: "ļ"   U013C # LATIN SMALL LETTER L WITH CEDILLA
+<Multi_key> <cedilla> <l>          	: "ļ"   U013C # LATIN SMALL LETTER L WITH CEDILLA
 <dead_caron> <L>                 	: "Ľ"   U013D # LATIN CAPITAL LETTER L WITH CARON
 <Multi_key> <c> <L>              	: "Ľ"   U013D # LATIN CAPITAL LETTER L WITH CARON
 <dead_caron> <l>                 	: "ľ"   U013E # LATIN SMALL LETTER L WITH CARON
@@ -810,8 +818,10 @@ XCOMM Part 3
 <combining_acute> <n>            	: "ń"   U0144 # LATIN SMALL LETTER N WITH ACUTE
 <dead_cedilla> <N>               	: "Ņ"   U0145 # LATIN CAPITAL LETTER N WITH CEDILLA
 <Multi_key> <comma> <N>          	: "Ņ"   U0145 # LATIN CAPITAL LETTER N WITH CEDILLA
+<Multi_key> <cedilla> <N>          	: "Ņ"   U0145 # LATIN CAPITAL LETTER N WITH CEDILLA
 <dead_cedilla> <n>               	: "ņ"   U0146 # LATIN SMALL LETTER N WITH CEDILLA
 <Multi_key> <comma> <n>          	: "ņ"   U0146 # LATIN SMALL LETTER N WITH CEDILLA
+<Multi_key> <cedilla> <n>          	: "ņ"   U0146 # LATIN SMALL LETTER N WITH CEDILLA
 <dead_caron> <N>                 	: "Ň"   U0147 # LATIN CAPITAL LETTER N WITH CARON
 <Multi_key> <c> <N>              	: "Ň"   U0147 # LATIN CAPITAL LETTER N WITH CARON
 <dead_caron> <n>                 	: "ň"   U0148 # LATIN SMALL LETTER N WITH CARON
@@ -844,8 +854,10 @@ XCOMM Part 3
 <combining_acute> <r>            	: "ŕ"   U0155 # LATIN SMALL LETTER R WITH ACUTE
 <dead_cedilla> <R>               	: "Ŗ"   U0156 # LATIN CAPITAL LETTER R WITH CEDILLA
 <Multi_key> <comma> <R>          	: "Ŗ"   U0156 # LATIN CAPITAL LETTER R WITH CEDILLA
+<Multi_key> <cedilla> <R>          	: "Ŗ"   U0156 # LATIN CAPITAL LETTER R WITH CEDILLA
 <dead_cedilla> <r>               	: "ŗ"   U0157 # LATIN SMALL LETTER R WITH CEDILLA
 <Multi_key> <comma> <r>          	: "ŗ"   U0157 # LATIN SMALL LETTER R WITH CEDILLA
+<Multi_key> <cedilla> <r>          	: "ŗ"   U0157 # LATIN SMALL LETTER R WITH CEDILLA
 <dead_caron> <R>                 	: "Ř"   U0158 # LATIN CAPITAL LETTER R WITH CARON
 <Multi_key> <c> <R>              	: "Ř"   U0158 # LATIN CAPITAL LETTER R WITH CARON
 <dead_caron> <r>                 	: "ř"   U0159 # LATIN SMALL LETTER R WITH CARON
@@ -864,16 +876,20 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <s>    	: "ŝ"   U015D # LATIN SMALL LETTER S WITH CIRCUMFLEX
 <dead_cedilla> <S>               	: "Ş"   U015E # LATIN CAPITAL LETTER S WITH CEDILLA
 <Multi_key> <comma> <S>          	: "Ş"   U015E # LATIN CAPITAL LETTER S WITH CEDILLA
+<Multi_key> <cedilla> <S>          	: "Ş"   U015E # LATIN CAPITAL LETTER S WITH CEDILLA
 <dead_cedilla> <s>               	: "ş"   U015F # LATIN SMALL LETTER S WITH CEDILLA
 <Multi_key> <comma> <s>          	: "ş"   U015F # LATIN SMALL LETTER S WITH CEDILLA
+<Multi_key> <cedilla> <s>          	: "ş"   U015F # LATIN SMALL LETTER S WITH CEDILLA
 <dead_caron> <S>                 	: "Š"   U0160 # LATIN CAPITAL LETTER S WITH CARON
 <Multi_key> <c> <S>              	: "Š"   U0160 # LATIN CAPITAL LETTER S WITH CARON
 <dead_caron> <s>                 	: "š"   U0161 # LATIN SMALL LETTER S WITH CARON
 <Multi_key> <c> <s>              	: "š"   U0161 # LATIN SMALL LETTER S WITH CARON
 <dead_cedilla> <T>               	: "Ţ"   U0162 # LATIN CAPITAL LETTER T WITH CEDILLA
 <Multi_key> <comma> <T>          	: "Ţ"   U0162 # LATIN CAPITAL LETTER T WITH CEDILLA
+<Multi_key> <cedilla> <T>          	: "Ţ"   U0162 # LATIN CAPITAL LETTER T WITH CEDILLA
 <dead_cedilla> <t>               	: "ţ"   U0163 # LATIN SMALL LETTER T WITH CEDILLA
 <Multi_key> <comma> <t>          	: "ţ"   U0163 # LATIN SMALL LETTER T WITH CEDILLA
+<Multi_key> <cedilla> <t>          	: "ţ"   U0163 # LATIN SMALL LETTER T WITH CEDILLA
 <dead_caron> <T>                 	: "Ť"   U0164 # LATIN CAPITAL LETTER T WITH CARON
 <Multi_key> <c> <T>              	: "Ť"   U0164 # LATIN CAPITAL LETTER T WITH CARON
 <dead_caron> <t>                 	: "ť"   U0165 # LATIN SMALL LETTER T WITH CARON
@@ -1243,8 +1259,10 @@ XCOMM Part 3
 <Multi_key> <period> <a>         	: "ȧ"   U0227 # LATIN SMALL LETTER A WITH DOT ABOVE
 <dead_cedilla> <E>               	: "Ȩ"   U0228 # LATIN CAPITAL LETTER E WITH CEDILLA
 <Multi_key> <comma> <E>          	: "Ȩ"   U0228 # LATIN CAPITAL LETTER E WITH CEDILLA
+<Multi_key> <cedilla> <E>          	: "Ȩ"   U0228 # LATIN CAPITAL LETTER E WITH CEDILLA
 <dead_cedilla> <e>               	: "ȩ"   U0229 # LATIN SMALL LETTER E WITH CEDILLA
 <Multi_key> <comma> <e>          	: "ȩ"   U0229 # LATIN SMALL LETTER E WITH CEDILLA
+<Multi_key> <cedilla> <e>          	: "ȩ"   U0229 # LATIN SMALL LETTER E WITH CEDILLA
 <dead_macron> <Odiaeresis>       	: "Ȫ"   U022A # LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON
 <Multi_key> <macron> <Odiaeresis> 	: "Ȫ"   U022A # LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON
 <Multi_key> <underscore> <Odiaeresis> 	: "Ȫ"   U022A # LATIN CAPITAL LETTER O WITH DIAERESIS AND MACRON
@@ -1711,23 +1729,29 @@ XCOMM Part 3
 <Multi_key> <apostrophe> <Ccedilla> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <dead_acute> <dead_cedilla> <C>  	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <dead_acute> <Multi_key> <comma> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
+<dead_acute> <Multi_key> <cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <dead_cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <comma> <C>  	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
+<Multi_key> <acute> <cedilla> <C>  	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <dead_cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <Ccedilla>     	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <dead_cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <Multi_key> <comma> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
+<combining_acute> <Multi_key> <cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <dead_acute> <ccedilla>          	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <ccedilla>   	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <ccedilla> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <dead_acute> <dead_cedilla> <c>  	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <dead_acute> <Multi_key> <comma> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
+<dead_acute> <Multi_key> <cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <dead_cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <comma> <c>  	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
+<Multi_key> <acute> <cedilla> <c>  	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <dead_cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <ccedilla>     	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <dead_cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <Multi_key> <comma> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
+<combining_acute> <Multi_key> <cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <dead_abovedot> <D>              	: "Ḋ"   U1E0A # LATIN CAPITAL LETTER D WITH DOT ABOVE
 <Multi_key> <period> <D>         	: "Ḋ"   U1E0A # LATIN CAPITAL LETTER D WITH DOT ABOVE
 <dead_abovedot> <d>              	: "ḋ"   U1E0B # LATIN SMALL LETTER D WITH DOT ABOVE
@@ -1744,8 +1768,10 @@ XCOMM Part 3
 <dead_belowmacron> <d>                  	: "ḏ"   U1E0F # LATIN SMALL LETTER D WITH LINE BELOW
 <dead_cedilla> <D>               	: "Ḑ"   U1E10 # LATIN CAPITAL LETTER D WITH CEDILLA
 <Multi_key> <comma> <D>          	: "Ḑ"   U1E10 # LATIN CAPITAL LETTER D WITH CEDILLA
+<Multi_key> <cedilla> <D>          	: "Ḑ"   U1E10 # LATIN CAPITAL LETTER D WITH CEDILLA
 <dead_cedilla> <d>               	: "ḑ"   U1E11 # LATIN SMALL LETTER D WITH CEDILLA
 <Multi_key> <comma> <d>          	: "ḑ"   U1E11 # LATIN SMALL LETTER D WITH CEDILLA
+<Multi_key> <cedilla> <d>          	: "ḑ"   U1E11 # LATIN SMALL LETTER D WITH CEDILLA
 <U032D> <D>                  	: "Ḓ"   U1E12 # LATIN CAPITAL LETTER D WITH CIRCUMFLEX BELOW
 <dead_belowcircumflex> <D>                  	: "Ḓ"   U1E12 # LATIN CAPITAL LETTER D WITH CIRCUMFLEX BELOW
 <U032D> <d>                  	: "ḓ"   U1E13 # LATIN SMALL LETTER D WITH CIRCUMFLEX BELOW
@@ -1819,19 +1845,25 @@ XCOMM Part 3
 <Multi_key> <b> <U0228>      	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <dead_breve> <dead_cedilla> <E>  	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <dead_breve> <Multi_key> <comma> <E> 	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
+<dead_breve> <Multi_key> <cedilla> <E> 	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <U> <dead_cedilla> <E> 	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <U> <comma> <E>      	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
+<Multi_key> <U> <cedilla> <E>      	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <b> <dead_cedilla> <E> 	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <b> <comma> <E>      	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
+<Multi_key> <b> <cedilla> <E>      	: "Ḝ"   U1E1C # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <dead_breve> <U0229>         	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <U> <U0229>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <b> <U0229>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <dead_breve> <dead_cedilla> <e>  	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <dead_breve> <Multi_key> <comma> <e> 	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
+<dead_breve> <Multi_key> <cedilla> <e> 	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <U> <dead_cedilla> <e> 	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <U> <comma> <e>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
+<Multi_key> <U> <cedilla> <e>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <b> <dead_cedilla> <e> 	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <Multi_key> <b> <comma> <e>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
+<Multi_key> <b> <cedilla> <e>      	: "ḝ"   U1E1D # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <dead_abovedot> <F>              	: "Ḟ"   U1E1E # LATIN CAPITAL LETTER F WITH DOT ABOVE
 <Multi_key> <period> <F>         	: "Ḟ"   U1E1E # LATIN CAPITAL LETTER F WITH DOT ABOVE
 <dead_abovedot> <f>              	: "ḟ"   U1E1F # LATIN SMALL LETTER F WITH DOT ABOVE
@@ -1858,8 +1890,10 @@ XCOMM Part 3
 <Multi_key> <quotedbl> <h>       	: "ḧ"   U1E27 # LATIN SMALL LETTER H WITH DIAERESIS
 <dead_cedilla> <H>               	: "Ḩ"   U1E28 # LATIN CAPITAL LETTER H WITH CEDILLA
 <Multi_key> <comma> <H>          	: "Ḩ"   U1E28 # LATIN CAPITAL LETTER H WITH CEDILLA
+<Multi_key> <cedilla> <H>          	: "Ḩ"   U1E28 # LATIN CAPITAL LETTER H WITH CEDILLA
 <dead_cedilla> <h>               	: "ḩ"   U1E29 # LATIN SMALL LETTER H WITH CEDILLA
 <Multi_key> <comma> <h>          	: "ḩ"   U1E29 # LATIN SMALL LETTER H WITH CEDILLA
+<Multi_key> <cedilla> <h>          	: "ḩ"   U1E29 # LATIN SMALL LETTER H WITH CEDILLA
 <U032E> <H>                  	: "Ḫ"   U1E2A # LATIN CAPITAL LETTER H WITH BREVE BELOW
 <dead_belowbreve> <H>                  	: "Ḫ"   U1E2A # LATIN CAPITAL LETTER H WITH BREVE BELOW
 <U032E> <h>                  	: "ḫ"   U1E2B # LATIN SMALL LETTER H WITH BREVE BELOW

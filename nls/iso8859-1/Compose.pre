@@ -224,9 +224,13 @@ XCOMM Accented Alphabet
 <Multi_key> <acute> <C>			: "\307"	Ccedilla
 <Multi_key> <acute> <c>			: "\347"	ccedilla
 <Multi_key> <C> <comma>			: "\307"	Ccedilla
+<Multi_key> <C> <cedilla>		: "\307"	Ccedilla
 <Multi_key> <comma> <C>			: "\307"	Ccedilla
+<Multi_key> <cedilla> <C>		: "\307"	Ccedilla
 <Multi_key> <c> <comma>			: "\347"	ccedilla
+<Multi_key> <c> <cedilla>		: "\347"	ccedilla
 <Multi_key> <comma> <c>			: "\347"	ccedilla
+<Multi_key> <cedilla> <c>		: "\347"	ccedilla
 <Multi_key> <minus> <D>			: "\320"	ETH
 <Multi_key> <D> <minus>			: "\320"	ETH
 <Multi_key> <minus> <d>			: "\360"	eth

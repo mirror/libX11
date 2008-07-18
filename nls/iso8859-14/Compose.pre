@@ -130,9 +130,13 @@ XCOMM Accented Alphabet
 <Multi_key> <asterisk> <a>		: "\345"	aring
 <Multi_key> <a> <e>			: "\346"	ae
 <Multi_key> <C> <comma>			: "\307"	Ccedilla
+<Multi_key> <C> <cedilla>		: "\307"	Ccedilla
 <Multi_key> <comma> <C>			: "\307"	Ccedilla
+<Multi_key> <cedilla> <C>		: "\307"	Ccedilla
 <Multi_key> <c> <comma>			: "\347"	ccedilla
+<Multi_key> <c> <cedilla>		: "\347"	ccedilla
 <Multi_key> <comma> <c>			: "\347"	ccedilla
+<Multi_key> <cedilla> <c>		: "\347"	ccedilla
 <Multi_key> <E> <grave>			: "\310"	Egrave
 <Multi_key> <grave> <E>			: "\310"	Egrave
 <Multi_key> <E> <acute>			: "\311"	Eacute

@@ -324,7 +324,7 @@ CARD8 *		wire;
     if ((req->present&XkbExplicitComponentsMask)==0)
 	return;
     first= req->firstKeyExplicit;
-    last= first+req->nKeyExplicit;
+    last= first+req->nKeyExplicit - 1;
     i= XkbPaddedSize((req->totalKeyExplicit*2));
     BufAlloc(CARD8 *,wire,i);
     for (i=first;i<=last;i++) {

@@ -1734,7 +1734,6 @@ XCOMM Part 3
 <Multi_key> <acute> <comma> <C>  	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <cedilla> <C>  	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <dead_cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
-<Multi_key> <apostrophe> <comma> <C>	: "Ḉ" U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <cedilla> <C>	: "Ḉ" U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <Ccedilla>     	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <dead_cedilla> <C> 	: "Ḉ"   U1E08 # LATIN CAPITAL LETTER C WITH CEDILLA AND ACUTE
@@ -1750,7 +1749,6 @@ XCOMM Part 3
 <Multi_key> <acute> <comma> <c>  	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <acute> <cedilla> <c>  	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <dead_cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
-<Multi_key> <apostrophe> <comma> <c>	: "ḉ" U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <Multi_key> <apostrophe> <cedilla> <c>	: "ḉ" U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <ccedilla>     	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE
 <combining_acute> <dead_cedilla> <c> 	: "ḉ"   U1E09 # LATIN SMALL LETTER C WITH CEDILLA AND ACUTE

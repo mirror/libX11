@@ -5663,6 +5663,18 @@ XCOMM Part 3
 <Multi_key> <T> <m>		 	: "™"   U2122 # TRADE MARK SIGN
 <dead_circumflex> <Multi_key> <t> <m> 	: "™"   U2122 # TRADE MARK SIGN
 <Multi_key> <t> <m>		 	: "™"   U2122 # TRADE MARK SIGN
+<Multi_key> <1> <3>			: "⅓"	U2153 # VULGAR FRACTION ONE THIRD
+<Multi_key> <2> <3>			: "⅔"	U2154 # VULGAR FRACTION TWO THIRDS
+<Multi_key> <1> <5>			: "⅕"	U2155 # VULGAR FRACTION ONE FIFTH
+<Multi_key> <2> <5>			: "⅖"	U2156 # VULGAR FRACTION TWO FIFTHS
+<Multi_key> <3> <5>			: "⅗"	U2157 # VULGAR FRACTION THREE FIFTHS
+<Multi_key> <4> <5>			: "⅘"	U2158 # VULGAR FRACTION FOUR FIFTHS
+<Multi_key> <1> <6>			: "⅙"	U2159 # VULGAR FRACTION ONE SIXTH
+<Multi_key> <5> <6>			: "⅚"	U215A # VULGAR FRACTION FIVE SIXTHS
+<Multi_key> <1> <8>			: "⅛"	U215B # VULGAR FRACTION ONE EIGHTH
+<Multi_key> <3> <8>			: "⅜"	U215C # VULGAR FRACTION THREE EIGHTHS
+<Multi_key> <5> <8>			: "⅝"	U215D # VULGAR FRACTION FIVE EIGHTHS
+<Multi_key> <7> <8>			: "⅞"	U215E # VULGAR FRACTION SEVEN EIGHTHS
 <Multi_key> <slash> <leftarrow>  	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <KP_Divide> <leftarrow> 	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <slash> <rightarrow> 	: "↛"   U219B # RIGHTWARDS ARROW WITH STROKE

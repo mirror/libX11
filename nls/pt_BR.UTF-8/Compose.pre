@@ -622,11 +622,11 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <semicolon> <A>	: "Ą" U0104 # LATIN CAPITAL LETTER A WITH OGONEK
 <dead_ogonek> <a>	: "ą" U0105 # LATIN SMALL LETTER A WITH OGONEK
 <Multi_key> <semicolon> <a>	: "ą" U0105 # LATIN SMALL LETTER A WITH OGONEK
-<dead_acute> <C>	: "Ç" U0106 # LATIN CAPITAL LETTER C WITH ACUTE
+<dead_acute> <C>	: "Ç" Ccedilla # LATIN CAPITAL LETTER C WITH CEDILLA
 <Multi_key> <acute> <C>	: "Ć" U0106 # LATIN CAPITAL LETTER C WITH ACUTE
 <Multi_key> <apostrophe> <C>	: "Ć" U0106 # LATIN CAPITAL LETTER C WITH ACUTE
 <combining_acute> <C>	: "Ć" U0106 # LATIN CAPITAL LETTER C WITH ACUTE
-<dead_acute> <c>	: "ç" U0107 # LATIN SMALL LETTER C WITH ACUTE
+<dead_acute> <c>	: "ç" ccedilla # LATIN SMALL LETTER C WITH CEDILLA
 <Multi_key> <acute> <c>	: "ć" U0107 # LATIN SMALL LETTER C WITH ACUTE
 <Multi_key> <apostrophe> <c>	: "ć" U0107 # LATIN SMALL LETTER C WITH ACUTE
 <combining_acute> <c>	: "ć" U0107 # LATIN SMALL LETTER C WITH ACUTE

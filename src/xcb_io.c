@@ -414,9 +414,10 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				}
 				break;
 			case BadFont:
-				if(err->majorCode == X_QueryFont)
+				if(err->majorCode == X_QueryFont) {
 					free(error);
 					return 0;
+				}
 				break;
 			case BadAlloc:
 			case BadAccess:

@@ -409,15 +409,18 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				{
 					case X_LookupColor:
 					case X_AllocNamedColor:
+						free(error);
 						return 0;
 				}
 				break;
 			case BadFont:
 				if(err->majorCode == X_QueryFont)
+					free(error);
 					return 0;
 				break;
 			case BadAlloc:
 			case BadAccess:
+				free(error);
 				return 0;
 		}
 
@@ -426,10 +429,13 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		 * want to suppress the error.
 		 */
 		for(ext = dpy->ext_procs; ext; ext = ext->next)
-			if(ext->error && ext->error(dpy, err, &ext->codes, &ret_code))
+			if(ext->error && ext->error(dpy, err, &ext->codes, &ret_code)) {
+				free(error);
 				return ret_code;
+			}
 
-		_XError(dpy, (xError *) error);
+		_XError(dpy, err);
+		free(error);
 		return 0;
 	}
 

@@ -22,6 +22,12 @@ XORG_MACROS_VERSION(1.1)
 AC_PROG_LIBTOOL
 AC_PROG_CC
 
+if test x"$CC_FOR_BUILD" = x && test x"$cross_compiling" = xyes; then
+       AC_CHECK_PROGS(CC_FOR_BUILD, gcc cc)
+else
+       CC_FOR_BUILD="$CC"
+fi
+
 XORG_PROG_RAWCPP
 
 # Build with XCB support?

@@ -407,6 +407,7 @@ _X11TransConnectDisplay (
     if (reset_hostname && (phostname != original_hostname)) {
 	Xfree (phostname);
 	phostname = original_hostname;
+	original_hostname = NULL;
     }
 #endif
     len = ((phostname ? strlen(phostname) : 0) + 1 + (dnet ? 1 : 0) +

@@ -20,6 +20,7 @@ XORG_MACROS_VERSION(1.1)
 
 # Checks for programs.
 AC_PROG_LIBTOOL
+DOLT
 AC_PROG_CC
 
 if test x"$CC_FOR_BUILD" = x; then

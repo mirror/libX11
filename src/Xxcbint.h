@@ -8,6 +8,7 @@
 #include <stdint.h>
 #include <X11/Xlibint.h>
 #include <X11/Xlib-xcb.h>
+#include "locking.h"
 
 #define XLIB_SEQUENCE_COMPARE(a,op,b)	(((long) (a) - (long) (b)) op 0)
 
@@ -29,6 +30,12 @@ typedef struct _X11XCBPrivate {
 	uint64_t last_flushed;
 	enum XEventQueueOwner event_owner;
 	XID next_xid;
+
+	/* handle simultaneous threads waiting for events,
+	 * used in wait_or_poll_for_event
+	 */
+	xcondition_t event_notify;
+	int event_waiter;
 } _X11XCBPrivate;
 
 /* xcb_disp.c */

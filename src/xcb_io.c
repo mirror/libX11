@@ -125,9 +125,20 @@ static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
 	xcb_generic_event_t *event;
 	if(wait)
 	{
-		UnlockDisplay(dpy);
-		event = xcb_wait_for_event(c);
-		LockDisplay(dpy);
+		if(dpy->xcb->event_waiter)
+		{
+			ConditionWait(dpy, dpy->xcb->event_notify);
+			event = xcb_poll_for_event(c);
+		}
+		else
+		{
+			dpy->xcb->event_waiter = 1;
+			UnlockDisplay(dpy);
+			event = xcb_wait_for_event(c);
+			LockDisplay(dpy);
+			dpy->xcb->event_waiter = 0;
+			ConditionBroadcast(dpy, dpy->xcb->event_notify);
+		}
 	}
 	else
 		event = xcb_poll_for_event(c);
@@ -228,7 +239,6 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		_XIOError(dpy);
 
 	assert(XLIB_SEQUENCE_COMPARE(dpy->last_request_read, <=, dpy->request));
-	assert(!wait_for_first_event);
 }
 
 int _XEventsQueued(Display *dpy, int mode)

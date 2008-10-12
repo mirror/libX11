@@ -93,6 +93,7 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
 	dpy->xcb->next_xid = xcb_generate_id(dpy->xcb->connection);
 
+	dpy->xcb->event_notify = xcondition_malloc();
 	return !xcb_connection_has_error(c);
 }
 
@@ -106,5 +107,6 @@ void _XFreeX11XCBStructure(Display *dpy)
 		dpy->xcb->pending_requests = tmp->next;
 		free(tmp);
 	}
+	xcondition_free(dpy->xcb->event_notify);
 	Xfree(dpy->xcb);
 }

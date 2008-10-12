@@ -267,7 +267,9 @@ void _XReadEvents(Display *dpy)
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return;
 	check_internal_connections(dpy);
-	process_responses(dpy, 1, 0, 0);
+	do {
+		process_responses(dpy, 1, 0, 0);
+	} while (dpy->qlen == 0);
 }
 
 /*

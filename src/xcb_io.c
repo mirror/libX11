@@ -3,6 +3,7 @@
 
 #include "Xlibint.h"
 #include "locking.h"
+#include "Xprivate.h"
 #include "Xxcbint.h"
 #include <xcb/xcbext.h>
 
@@ -350,43 +351,37 @@ void _XFlush(Display *dpy)
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
 
-static int
-_XIDHandler(Display *dpy)
+static const XID inval_id = ~0UL;
+
+int _XIDHandler(Display *dpy)
 {
-	XID next = xcb_generate_id(dpy->xcb->connection);
+	XID next;
+
+	if (dpy->xcb->next_xid != inval_id)
+	    return 0;
+
+	next = xcb_generate_id(dpy->xcb->connection);
 	LockDisplay(dpy);
+	dpy->xcb->next_xid = next;
 #ifdef XTHREADS
 	if (dpy->lock)
 		(*dpy->lock->user_unlock_display)(dpy);
 #endif
-	dpy->xcb->next_xid = next;
-	if(dpy->flags & XlibDisplayPrivSync)
-	{
-		dpy->synchandler = dpy->savedsynchandler;
-		dpy->flags &= ~XlibDisplayPrivSync;
-	}
 	UnlockDisplay(dpy);
-	SyncHandle();
 	return 0;
 }
 
 /* _XAllocID - resource ID allocation routine. */
 XID _XAllocID(Display *dpy)
 {
-	const XID inval = ~0UL;
 	XID ret = dpy->xcb->next_xid;
+	assert (ret != inval_id);
 #ifdef XTHREADS
-	if (ret != inval && dpy->lock)
+	if (dpy->lock)
 		(*dpy->lock->user_lock_display)(dpy);
 #endif
-	dpy->xcb->next_xid = inval;
-
-	if(!(dpy->flags & XlibDisplayPrivSync))
-	{
-		dpy->savedsynchandler = dpy->synchandler;
-		dpy->flags |= XlibDisplayPrivSync;
-	}
-	dpy->synchandler = _XIDHandler;
+	dpy->xcb->next_xid = inval_id;
+	_XSetPrivSyncFunction(dpy);
 	return ret;
 }
 

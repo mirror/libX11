@@ -42,11 +42,13 @@ from The Open Group.
 #include <config.h>
 #endif
 #include "Xlibint.h"
+#include "Xprivate.h"
 #include <X11/Xpoll.h>
 #if !USE_XCB
 #include <X11/Xtrans/Xtrans.h>
 #include <X11/extensions/xcmiscstr.h>
 #endif /* !USE_XCB */
+#include <assert.h>
 #include <stdio.h>
 #ifdef WIN32
 #include <direct.h>
@@ -583,26 +585,40 @@ int _XSeqSyncFunction(
 	GetEmptyReq(GetInputFocus, req);
 	(void) _XReply (dpy, (xReply *)&rep, 0, xTrue);
 	sent_sync = 1;
-    }
-    /* could get XID handler while waiting for reply in MT env */
-    if (dpy->synchandler == _XSeqSyncFunction && !sync_hazard(dpy)) {
-	dpy->synchandler = dpy->savedsynchandler;
-	dpy->flags &= ~XlibDisplayPrivSync;
-    }
+    } else if (sync_hazard(dpy))
+	_XSetPrivSyncFunction(dpy);
     UnlockDisplay(dpy);
     if (sent_sync)
         SyncHandle();
     return 0;
 }
 
-void _XSetSeqSyncFunction(
-    register Display *dpy)
+static int
+_XPrivSyncFunction (Display *dpy)
 {
-    if (!(dpy->flags & XlibDisplayPrivSync) && sync_hazard(dpy)) {
+    assert(dpy->synchandler == _XPrivSyncFunction);
+    assert((dpy->flags & XlibDisplayPrivSync) != 0);
+    dpy->synchandler = dpy->savedsynchandler;
+    dpy->savedsynchandler = NULL;
+    dpy->flags &= ~XlibDisplayPrivSync;
+    _XIDHandler(dpy);
+    _XSeqSyncFunction(dpy);
+    return 0;
+}
+
+void _XSetPrivSyncFunction(Display *dpy)
+{
+    if (!(dpy->flags & XlibDisplayPrivSync)) {
 	dpy->savedsynchandler = dpy->synchandler;
-	dpy->synchandler = _XSeqSyncFunction;
+	dpy->synchandler = _XPrivSyncFunction;
 	dpy->flags |= XlibDisplayPrivSync;
     }
+}
+
+void _XSetSeqSyncFunction(Display *dpy)
+{
+    if (sync_hazard(dpy))
+	_XSetPrivSyncFunction (dpy);
 }
 
 #if !USE_XCB
@@ -1526,34 +1542,35 @@ _XGetMiscCode(
     }
 }
 
-static int
+int
 _XIDHandler(
     register Display *dpy)
 {
     xXCMiscGetXIDRangeReply grep;
     register xXCMiscGetXIDRangeReq *greq;
+    int sent_req = 0;
 
     LockDisplay(dpy);
-    _XGetMiscCode(dpy);
-    if (dpy->xcmisc_opcode > 0) {
-	GetReq(XCMiscGetXIDRange, greq);
-	greq->reqType = dpy->xcmisc_opcode;
-	greq->miscReqType = X_XCMiscGetXIDRange;
-	if (_XReply (dpy, (xReply *)&grep, 0, xTrue) && grep.count) {
-	    dpy->resource_id = ((grep.start_id - dpy->resource_base) >>
-				dpy->resource_shift);
-	    dpy->resource_max = dpy->resource_id;
-	    if (grep.count > 5)
-		dpy->resource_max += grep.count - 6;
-	    dpy->resource_max <<= dpy->resource_shift;
+    if (dpy->resource_max == dpy->resource_mask + 1) {
+	_XGetMiscCode(dpy);
+	if (dpy->xcmisc_opcode > 0) {
+	    GetReq(XCMiscGetXIDRange, greq);
+	    greq->reqType = dpy->xcmisc_opcode;
+	    greq->miscReqType = X_XCMiscGetXIDRange;
+	    if (_XReply (dpy, (xReply *)&grep, 0, xTrue) && grep.count) {
+		dpy->resource_id = ((grep.start_id - dpy->resource_base) >>
+				    dpy->resource_shift);
+		dpy->resource_max = dpy->resource_id;
+		if (grep.count > 5)
+		    dpy->resource_max += grep.count - 6;
+		dpy->resource_max <<= dpy->resource_shift;
+	    }
+	    sent_req = 1;
 	}
     }
-    if (dpy->flags & XlibDisplayPrivSync) {
-	dpy->synchandler = dpy->savedsynchandler;
-	dpy->flags &= ~XlibDisplayPrivSync;
-    }
     UnlockDisplay(dpy);
-    SyncHandle();
+    if (sent_req)
+	SyncHandle();
     return 0;
 }
 
@@ -1567,11 +1584,7 @@ XID _XAllocID(
 
    id = dpy->resource_id << dpy->resource_shift;
    if (id >= dpy->resource_max) {
-       if (!(dpy->flags & XlibDisplayPrivSync)) {
-	   dpy->savedsynchandler = dpy->synchandler;
-	   dpy->flags |= XlibDisplayPrivSync;
-       }
-       dpy->synchandler = _XIDHandler;
+	_XSetPrivSyncFunction(dpy);
        dpy->resource_max = dpy->resource_mask + 1;
    }
    if (id <= dpy->resource_mask) {
@@ -1627,11 +1640,7 @@ void _XAllocIDs(
 		    dpy->resource_id = id;
 	    }
 	    if (id >= dpy->resource_max) {
-		if (!(dpy->flags & XlibDisplayPrivSync)) {
-		    dpy->savedsynchandler = dpy->synchandler;
-		    dpy->flags |= XlibDisplayPrivSync;
-		}
-		dpy->synchandler = _XIDHandler;
+		_XSetPrivSyncFunction(dpy);
 		dpy->resource_max = dpy->resource_mask + 1;
 	    }
 	}

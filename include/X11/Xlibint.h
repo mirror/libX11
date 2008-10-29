@@ -959,9 +959,6 @@ extern void _XGetAsyncData(
     int		/* datalen */,
     int		/* discardtotal */
 );
-extern void _XSetSeqSyncFunction(
-    Display*	/* dpy */
-);
 extern void _XFlush(
     Display*	/* dpy */
 );

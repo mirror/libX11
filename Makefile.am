@@ -14,6 +14,7 @@ endif
 EXTRA_DIST=x11.pc.in x11-xcb.pc.in ChangeLog autogen.sh
 
 MAINTAINERCLEANFILES=ChangeLog
+DISTCLEANFILES = doltcompile doltlibtool
 
 .PHONY: ChangeLog
 

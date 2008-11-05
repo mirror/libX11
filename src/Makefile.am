@@ -310,6 +310,7 @@ libX11_la_SOURCES = \
                   Xintconn.h \
                   XlibAsync.c \
                   XlibInt.c \
+                  Xprivate.h \
                   XomGeneric.h \
                   Xresinternal.h \
                   Xrm.c \

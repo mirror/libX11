@@ -358,6 +358,7 @@ _XimXGetReadData(
 	    (void)memcpy(buf, prop_ret, (int)nitems);
 	    *ret_len  = (int)nitems;
 	    if (bytes_after_ret > 0) {
+		XFree(prop_ret);
 	        XGetWindowProperty(im->core.display,
 		    spec->lib_connect_wid, prop, 0L,
 		    ((length + bytes_after_ret + 3)/ 4), True, AnyPropertyType,

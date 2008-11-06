@@ -592,7 +592,7 @@ parseline(
 
     l = _Xmbstoutf8(local_utf8_buf, rhs_string_mb, LOCAL_UTF8_BUFSIZE - 1);
     if (l == LOCAL_UTF8_BUFSIZE - 1) {
-	local_wc_buf[l] = '\0';
+	local_utf8_buf[l] = '\0';
     }
     while (b->utf8used + l + 1 > b->utf8size) {
 	b->utf8size = b->utf8size ? b->utf8size * 1.5 : 1024;

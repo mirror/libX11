@@ -6296,3 +6296,395 @@ XCOMM
 <UFEF9>	:   "لإ" # ARABIC LIGATURE LAM WITH ALEF WITH HAMZA BELOW
 <UFEF5>	:   "لآ" # ARABIC LIGATURE LAM WITH ALEF WITH MADDA ABOVE
 
+XCOMM French-Dvorak Bépo compositions
+XCOMM
+
+<dead_abovedot> <Amacron> : U01E0
+<dead_abovedot> <amacron> : U01E1
+<dead_abovedot> <j> : U0237
+<dead_abovedot> <L> : U013F
+<dead_abovedot> <l> : U0140
+<dead_abovedot> <Omacron> : U0230
+<dead_abovedot> <omacron> : U0231
+<dead_abovedot> <nobreakspace> : U0307
+<dead_acute> <Sabovedot> : U1E64
+<dead_acute> <sabovedot> : U1E65
+<dead_acute> <V> : U01D7
+<dead_acute> <v> : U01D8
+<dead_acute> <nobreakspace> : combining_acute
+<dead_belowdot> <Sabovedot> : U1E68
+<dead_belowdot> <sabovedot> : U1E69
+<dead_belowdot> <dead_belowdot> : combining_belowdot
+<dead_belowdot> <nobreakspace> : combining_belowdot
+<dead_belowdot> <space> : combining_belowdot
+<dead_breve> <Aacute> : Abreveacute
+<dead_breve> <Agrave> : Abrevegrave
+<dead_breve> <Ahook> : Abrevehook
+<dead_breve> <Atilde> : Abrevetilde
+<dead_breve> <aacute> : abreveacute
+<dead_breve> <agrave> : abrevegrave
+<dead_breve> <ahook> : abrevehook
+<dead_breve> <atilde> : abrevetilde
+<dead_breve> <nobreakspace> : U0306
+<dead_caron> <parenleft> : U208D
+<dead_caron> <parenright> : U208E
+<dead_caron> <plus> : U208A
+<dead_caron> <minus> : U208B
+<dead_caron> <0> : zerosubscript
+<dead_caron> <1> : onesubscript
+<dead_caron> <2> : twosubscript
+<dead_caron> <3> : threesubscript
+<dead_caron> <4> : foursubscript
+<dead_caron> <5> : fivesubscript
+<dead_caron> <6> : sixsubscript
+<dead_caron> <7> : sevensubscript
+<dead_caron> <8> : eightsubscript
+<dead_caron> <9> : ninesubscript
+<dead_caron> <equal> : U208C
+<dead_caron> <U01F2> : U01C5
+<dead_caron> <Sabovedot> : U1E66
+<dead_caron> <sabovedot> : U1E67
+<dead_caron> <V> : U01D9
+<dead_caron> <v> : U01DA
+<dead_caron> <nobreakspace> : U030C
+<dead_cedilla> <Cacute> : U1E08
+<dead_cedilla> <ColonSign> : U20B5
+<dead_cedilla> <cacute> : U1E09
+<dead_cedilla> <cent> : U20B5
+<dead_cedilla> <U0114> : U1E1C
+<dead_cedilla> <U0115> : U1E1D
+<dead_cedilla> <nobreakspace> : U0327
+<dead_circumflex> <minus> : U207B
+<dead_circumflex> <Aacute> : Acircumflexacute
+<dead_circumflex> <Agrave> : Acircumflexgrave
+<dead_circumflex> <Ahook> : Acircumflexhook
+<dead_circumflex> <Atilde> : Acircumflextilde
+<dead_circumflex> <aacute> : acircumflexacute
+<dead_circumflex> <agrave> : acircumflexgrave
+<dead_circumflex> <ahook> : acircumflexhook
+<dead_circumflex> <atilde> : acircumflextilde
+<dead_circumflex> <Eacute> : Ecircumflexacute
+<dead_circumflex> <Egrave> : Ecircumflexgrave
+<dead_circumflex> <Ehook> : Ecircumflexhook
+<dead_circumflex> <Etilde> : Ecircumflextilde
+<dead_circumflex> <eacute> : ecircumflexacute
+<dead_circumflex> <egrave> : ecircumflexgrave
+<dead_circumflex> <ehook> : ecircumflexhook
+<dead_circumflex> <etilde> : ecircumflextilde
+<dead_circumflex> <Oacute> : Ocircumflexacute
+<dead_circumflex> <Ograve> : Ocircumflexgrave
+<dead_circumflex> <Ohook> : Ocircumflexhook
+<dead_circumflex> <Otilde> : Ocircumflextilde
+<dead_circumflex> <oacute> : ocircumflexacute
+<dead_circumflex> <ograve> : ocircumflexgrave
+<dead_circumflex> <ohook> : ocircumflexhook
+<dead_circumflex> <otilde> : ocircumflextilde
+<dead_circumflex> <nobreakspace> : U0302
+<dead_belowcomma> <S> : U0218
+<dead_belowcomma> <s> : U0219
+<dead_belowcomma> <T> : U021A
+<dead_belowcomma> <t> : U021B
+<dead_belowcomma> <dead_belowcomma> : comma
+<dead_belowcomma> <nobreakspace> : U0326
+<dead_belowcomma> <space> : comma
+<dead_currency> <A> : U20B3
+<dead_currency> <a> : U060B
+<dead_currency> <B> : U20B1
+<dead_currency> <b> : Thai_baht
+<dead_currency> <Ccedilla> : U20B5
+<dead_currency> <C> : ColonSign
+<dead_currency> <ccedilla> : U20B5
+<dead_currency> <c> : cent
+<dead_currency> <D> : U20AF
+<dead_currency> <d> : DongSign
+<dead_currency> <E> : EcuSign
+<dead_currency> <e> : EuroSign
+<dead_currency> <F> : FFrancSign
+<dead_currency> <f> : function
+<dead_currency> <G> : U20B2
+<dead_currency> <g> : U20B2
+<dead_currency> <H> : U20B4
+<dead_currency> <h> : U20B4
+<dead_currency> <I> : U17DB
+<dead_currency> <i> : UFDFC
+<dead_currency> <K> : U20AD
+<dead_currency> <k> : U20AD
+<dead_currency> <L> : LiraSign
+<dead_currency> <l> : sterling
+<dead_currency> <M> : U2133
+<dead_currency> <m> : MillSign
+<dead_currency> <N> : NairaSign
+<dead_currency> <n> : NairaSign
+<dead_currency> <O> : U0AF1
+<dead_currency> <o> : U0BF9
+<dead_currency> <P> : PesetaSign
+<dead_currency> <p> : U20B0
+<dead_currency> <r> : CruzeiroSign
+<dead_currency> <R> : RupeeSign
+<dead_currency> <S> : dollar
+<dead_currency> <s> : NewSheqelSign
+<dead_currency> <T> : U20AE
+<dead_currency> <t> : U09F3
+<dead_currency> <THORN> : U09F2
+<dead_currency> <thorn> : U09F2
+<dead_currency> <U> : U5713
+<dead_currency> <u> : U5143
+<dead_currency> <W> : WonSign
+<dead_currency> <w> : WonSign
+<dead_currency> <Y> : U5186
+<dead_currency> <y> : yen
+<dead_currency> <dead_currency> : currency
+<dead_currency> <nobreakspace> : currency
+<dead_currency> <space> : currency
+<dead_diaeresis> <Amacron> : U01DE
+<dead_diaeresis> <amacron> : U01DF
+<dead_diaeresis> <Iacute> : U1E2E
+<dead_diaeresis> <iacute> : U1E2F
+<dead_diaeresis> <Omacron> : U022A
+<dead_diaeresis> <omacron> : U022B
+<dead_diaeresis> <Uacute> : U01D7
+<dead_diaeresis> <U01D3> : U01D9
+<dead_diaeresis> <Ugrave> : U01DB
+<dead_diaeresis> <uacute> : U01D8
+<dead_diaeresis> <U01D4> : U01DA
+<dead_diaeresis> <ugrave> : U01DC
+<dead_diaeresis> <nobreakspace> : U0308
+<dead_doubleacute> <nobreakspace> : U030B
+<dead_grave> <V> : U01DB
+<dead_grave> <v> : U01DC
+<dead_grave> <nobreakspace> : combining_grave
+<dead_hook> <B> : U0181
+<dead_hook> <b> : U0253
+<dead_hook> <C> : U0187
+<dead_hook> <c> : U0188
+<dead_hook> <D> : U018A
+<dead_hook> <d> : U0257
+<dead_hook> <U0256> : U1D91
+<dead_hook> <F> : U0191
+<dead_hook> <f> : function
+<dead_hook> <G> : U0193
+<dead_hook> <g> : U0260
+<dead_hook> <h> : U0266
+<dead_hook> <U025F> : U0284
+<dead_hook> <K> : U0198
+<dead_hook> <k> : U0199
+<dead_hook> <M> : U2C6E
+<dead_hook> <m> : U0271
+<dead_hook> <N> : U019D
+<dead_hook> <n> : U0272
+<dead_hook> <P> : U01A4
+<dead_hook> <p> : U01A5
+<dead_hook> <q> : U02A0
+<dead_hook> <U025C> : U025D
+<dead_hook> <s> : U0282
+<dead_hook> <schwa> : U025A
+<dead_hook> <T> : U01AC
+<dead_hook> <t> : U01AD
+<dead_hook> <U0279> : U027B
+<dead_hook> <V> : U01B2
+<dead_hook> <v> : U028B
+<dead_hook> <W> : U2C72
+<dead_hook> <w> : U2C73
+<dead_hook> <Z> : U0224
+<dead_hook> <z> : U0225
+<dead_hook> <dead_hook> : U0309
+<dead_hook> <nobreakspace> : U0309
+<dead_hook> <space> : U0309
+<dead_horn> <Oacute> : Ohornacute
+<dead_horn> <Obelowdot> : Ohornbelowdot
+<dead_horn> <Ograve> : Ohorngrave
+<dead_horn> <Ohook> : Ohornhook
+<dead_horn> <Otilde> : Ohorntilde
+<dead_horn> <oacute> : ohornacute
+<dead_horn> <obelowdot> : ohornbelowdot
+<dead_horn> <ograve> : ohorngrave
+<dead_horn> <ohook> : ohornhook
+<dead_horn> <otilde> : ohorntilde
+<dead_horn> <Uacute> : Uhornacute
+<dead_horn> <Ubelowdot> : Uhornbelowdot
+<dead_horn> <Ugrave> : Uhorngrave
+<dead_horn> <Uhook> : Uhornhook
+<dead_horn> <Utilde> : Uhorntilde
+<dead_horn> <uacute> : uhornacute
+<dead_horn> <ubelowdot> : uhornbelowdot
+<dead_horn> <ugrave> : uhorngrave
+<dead_horn> <uhook> : uhornhook
+<dead_horn> <utilde> : uhorntilde
+<dead_horn> <dead_horn> : U031B
+<dead_horn> <nobreakspace> : U031B
+<dead_horn> <space> : U031B
+<dead_macron> <Eacute> : U1E16
+<dead_macron> <Egrave> : U1E14
+<dead_macron> <eacute> : U1E17
+<dead_macron> <egrave> : U1E15
+<dead_macron> <Oacute> : U1E52
+<dead_macron> <Ograve> : U1E50
+<dead_macron> <oacute> : U1E53
+<dead_macron> <ograve> : U1E51
+<dead_macron> <V> : U01D5
+<dead_macron> <v> : U01D6
+<dead_macron> <nobreakspace> : U0304
+<dead_ogonek> <Omacron> : U01EC
+<dead_ogonek> <omacron> : U01ED
+<dead_ogonek> <nobreakspace> : U0328
+<dead_abovering> <Aacute> : U01FA
+<dead_abovering> <aacute> : U01FB
+<dead_abovering> <nobreakspace> : U030A
+<dead_stroke> <2> : U01BB
+<dead_stroke> <equal> : notequal
+<dead_stroke> <A> : U023A
+<dead_stroke> <a> : U2C65
+<dead_stroke> <B> : U0243
+<dead_stroke> <C> : U023B
+<dead_stroke> <c> : U023C
+<dead_stroke> <E> : U0246
+<dead_stroke> <e> : U0247
+<dead_stroke> <greater> : U226F
+<dead_stroke> <greaterthanequal> : U2271
+<dead_stroke> <J> : U0248
+<dead_stroke> <j> : U0249
+<dead_stroke> <U0269> : U1D7C
+<dead_stroke> <U0237> : U025F
+<dead_stroke> <less> : U226E
+<dead_stroke> <lessthanequal> : U2270
+<dead_stroke> <Oacute> : U01FE
+<dead_stroke> <oacute> : U01FF
+<dead_stroke> <P> : U2C63
+<dead_stroke> <p> : U1D7D
+<dead_stroke> <R> : U024C
+<dead_stroke> <r> : U024D
+<dead_stroke> <U> : U0244
+<dead_stroke> <u> : U0289
+<dead_stroke> <Y> : U024E
+<dead_stroke> <y> : U024F
+<dead_stroke> <dead_stroke> : slash
+<dead_stroke> <nobreakspace> : U0338
+<dead_stroke> <space> : slash
+<dead_tilde> <Oacute> : U1E4C
+<dead_tilde> <Odiaeresis> : U1E4E
+<dead_tilde> <Omacron> : U022C
+<dead_tilde> <oacute> : U1E4D
+<dead_tilde> <odiaeresis> : U1E4F
+<dead_tilde> <omacron> : U022D
+<dead_tilde> <Uacute> : U1E78
+<dead_tilde> <uacute> : U1E79
+<dead_tilde> <equal> : similarequal
+<dead_tilde> <less> : U2272
+<dead_tilde> <greater> : U2273
+<dead_tilde> <nobreakspace> : combining_tilde
+<dead_acute> <dead_abovedot> <S> : U1E64
+<dead_acute> <dead_abovedot> <s> : U1E65
+<dead_belowdot> <dead_abovedot> <S> : U1E68
+<dead_belowdot> <dead_abovedot> <s> : U1E69
+<dead_caron> <dead_abovedot> <S> : U1E66
+<dead_caron> <dead_abovedot> <s> : U1E67
+<dead_abovedot> <dead_macron> <A> : U01E0
+<dead_abovedot> <dead_macron> <a> : U01E1
+<dead_abovedot> <dead_macron> <O> : U0230
+<dead_abovedot> <dead_macron> <o> : U0231
+<dead_abovedot> <dead_stroke> <j> : U025F
+<dead_stroke> <dead_abovedot> <j> : U025F
+<dead_breve> <dead_acute> <A> : Abreveacute
+<dead_breve> <dead_acute> <a> : abreveacute
+<dead_cedilla> <dead_acute> <C> : U1E08
+<dead_cedilla> <dead_acute> <c> : U1E09
+<dead_circumflex> <dead_acute> <A> : Acircumflexacute
+<dead_circumflex> <dead_acute> <a> : acircumflexacute
+<dead_circumflex> <dead_acute> <E> : Ecircumflexacute
+<dead_circumflex> <dead_acute> <e> : ecircumflexacute
+<dead_circumflex> <dead_acute> <O> : Ocircumflexacute
+<dead_circumflex> <dead_acute> <o> : ocircumflexacute
+<dead_diaeresis> <dead_acute> <I> : U1E2E
+<dead_diaeresis> <dead_acute> <i> : U1E2F
+<dead_diaeresis> <dead_acute> <U> : U01D7
+<dead_diaeresis> <dead_acute> <u> : U01D8
+<dead_horn> <dead_acute> <O> : Ohornacute
+<dead_horn> <dead_acute> <o> : ohornacute
+<dead_horn> <dead_acute> <U> : Uhornacute
+<dead_horn> <dead_acute> <u> : uhornacute
+<dead_macron> <dead_acute> <E> : U1E16
+<dead_macron> <dead_acute> <e> : U1E17
+<dead_macron> <dead_acute> <O> : U1E52
+<dead_macron> <dead_acute> <o> : U1E53
+<dead_abovering> <dead_acute> <A> : U01FA
+<dead_abovering> <dead_acute> <a> : U01FB
+<dead_tilde> <dead_acute> <O> : U1E4C
+<dead_tilde> <dead_acute> <o> : U1E4D
+<dead_tilde> <dead_acute> <U> : U1E78
+<dead_tilde> <dead_acute> <u> : U1E79
+<dead_belowdot> <dead_breve> <A> : Abrevebelowdot
+<dead_belowdot> <dead_breve> <a> : abrevebelowdot
+<dead_belowdot> <dead_circumflex> <A> : Acircumflexbelowdot
+<dead_belowdot> <dead_circumflex> <a> : acircumflexbelowdot
+<dead_belowdot> <dead_circumflex> <E> : Ecircumflexbelowdot
+<dead_belowdot> <dead_circumflex> <e> : ecircumflexbelowdot
+<dead_belowdot> <dead_circumflex> <O> : Ocircumflexbelowdot
+<dead_belowdot> <dead_circumflex> <o> : ocircumflexbelowdot
+<dead_horn> <dead_belowdot> <O> : Ohornbelowdot
+<dead_horn> <dead_belowdot> <o> : ohornbelowdot
+<dead_horn> <dead_belowdot> <U> : Uhornbelowdot
+<dead_horn> <dead_belowdot> <u> : uhornbelowdot
+<dead_belowdot> <dead_macron> <L> : U1E38
+<dead_belowdot> <dead_macron> <l> : U1E39
+<dead_belowdot> <dead_macron> <R> : U1E5C
+<dead_belowdot> <dead_macron> <r> : U1E5D
+<dead_cedilla> <dead_breve> <E> : U1E1C
+<dead_cedilla> <dead_breve> <e> : U1E1D
+<dead_breve> <dead_grave> <A> : Abrevegrave
+<dead_breve> <dead_grave> <a> : abrevegrave
+<dead_breve> <dead_hook> <A> : Abrevehook
+<dead_breve> <dead_hook> <a> : abrevehook
+<dead_breve> <dead_tilde> <A> : Abrevetilde
+<dead_breve> <dead_tilde> <a> : abrevetilde
+<dead_diaeresis> <dead_caron> <U> : U01D9
+<dead_diaeresis> <dead_caron> <u> : U01DA
+<dead_cedilla> <dead_currency> <C> : U20B5
+<dead_currency> <dead_cedilla> <C> : U20B5
+<dead_cedilla> <dead_currency> <c> : U20B5
+<dead_currency> <dead_cedilla> <c> : U20B5
+<dead_circumflex> <dead_grave> <A> : Acircumflexgrave
+<dead_circumflex> <dead_grave> <a> : acircumflexgrave
+<dead_circumflex> <dead_grave> <E> : Ecircumflexgrave
+<dead_circumflex> <dead_grave> <e> : ecircumflexgrave
+<dead_circumflex> <dead_grave> <O> : Ocircumflexgrave
+<dead_circumflex> <dead_grave> <o> : ocircumflexgrave
+<dead_circumflex> <dead_hook> <A> : Acircumflexhook
+<dead_circumflex> <dead_hook> <a> : acircumflexhook
+<dead_circumflex> <dead_hook> <E> : Ecircumflexhook
+<dead_circumflex> <dead_hook> <e> : ecircumflexhook
+<dead_circumflex> <dead_hook> <O> : Ocircumflexhook
+<dead_circumflex> <dead_hook> <o> : ocircumflexhook
+<dead_circumflex> <dead_tilde> <A> : Acircumflextilde
+<dead_circumflex> <dead_tilde> <a> : acircumflextilde
+<dead_circumflex> <dead_tilde> <E> : Ecircumflextilde
+<dead_circumflex> <dead_tilde> <e> : ecircumflextilde
+<dead_circumflex> <dead_tilde> <O> : Ocircumflextilde
+<dead_circumflex> <dead_tilde> <o> : ocircumflextilde
+<dead_diaeresis> <dead_grave> <U> : U01DB
+<dead_diaeresis> <dead_grave> <u> : U01DC
+<dead_diaeresis> <dead_macron> <A> : U01DE
+<dead_diaeresis> <dead_macron> <a> : U01DF
+<dead_diaeresis> <dead_macron> <O> : U022A
+<dead_diaeresis> <dead_macron> <o> : U022B
+<dead_tilde> <dead_diaeresis> <O> : U1E4E
+<dead_tilde> <dead_diaeresis> <o> : U1E4F
+<dead_horn> <dead_grave> <O> : Ohorngrave
+<dead_horn> <dead_grave> <o> : ohorngrave
+<dead_horn> <dead_grave> <U> : Uhorngrave
+<dead_horn> <dead_grave> <u> : uhorngrave
+<dead_macron> <dead_grave> <E> : U1E14
+<dead_macron> <dead_grave> <e> : U1E15
+<dead_macron> <dead_grave> <O> : U1E50
+<dead_macron> <dead_grave> <o> : U1E51
+<dead_horn> <dead_hook> <O> : Ohornhook
+<dead_horn> <dead_hook> <o> : ohornhook
+<dead_horn> <dead_hook> <U> : Uhornhook
+<dead_horn> <dead_hook> <u> : uhornhook
+<dead_horn> <dead_tilde> <O> : Ohorntilde
+<dead_horn> <dead_tilde> <o> : ohorntilde
+<dead_horn> <dead_tilde> <U> : Uhorntilde
+<dead_horn> <dead_tilde> <u> : uhorntilde
+<dead_ogonek> <dead_macron> <O> : U01EC
+<dead_ogonek> <dead_macron> <o> : U01ED
+<dead_tilde> <dead_macron> <O> : U022C
+<dead_tilde> <dead_macron> <o> : U022D

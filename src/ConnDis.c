@@ -298,10 +298,11 @@ _X11TransConnectDisplay (
 	} else
 #endif
 #ifdef HAVE_LAUNCHD
-	if (!phostname || phostname[0]=='/')
-#else
-	if (!phostname)
+	if (phostname && phostname[0]=='/') {
+		pprotocol = copystring ("local", 5);
+	}
 #endif
+	if (!phostname)
 	{
 	    if (local_transport[0] != NULL) {
 		pprotocol = Xstrdup(local_transport[0]);

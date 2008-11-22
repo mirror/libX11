@@ -125,6 +125,8 @@ static const CTDataRec default_ct_data[] =
 #endif
     /* For use by utf8 -> ctext */
     { "BIG5-0:GLGR", "\033%/2"},
+    { "BIG5HKSCS-0:GLGR", "\033%/2"},
+    { "GBK-0:GLGR", "\033%/2"},
     /* used by Emacs, but not backed by ISO-IR */
     { "BIG5-E0:GL", "\033$(0" },
     { "BIG5-E0:GR", "\033$)0" },

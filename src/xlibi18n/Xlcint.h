@@ -912,6 +912,11 @@ extern void _XlcAddUtf8LocaleConverters(
     XLCd		lcd
 );
 
+/* Registers GB18030 converters for a GB18030 locale. */
+extern void _XlcAddGB18030LocaleConverters(
+    XLCd		lcd
+);
+
 /* The default locale loader. Assumes an ASCII encoding. */
 extern XLCd _XlcDefaultLoader(
     const char*		name

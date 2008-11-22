@@ -104,7 +104,7 @@ _XimLocalFilter(d, w, ev, client_data)
 	    ic->private.local.brl_committed = 0;
 	    /* return back to client KeyPressEvent keycode == 0 */
 	    ev->xkey.keycode = 0;
-	    _XPutBackEvent(d, ev);
+	    XPutBackEvent(d, ev);
 	    /* initialize internal state for next key sequence */
 	    ic->private.local.context = ((Xim)ic->core.im)->private.local.top;
 	    return(True);

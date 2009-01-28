@@ -2573,12 +2573,8 @@ Bool XrmQGetResource(
 }
 
 Bool
-XrmGetResource(db, name_str, class_str, pType_str, pValue)
-    XrmDatabase         db;
-    _Xconst char	*name_str;
-    _Xconst char	*class_str;
-    XrmString		*pType_str;  /* RETURN */
-    XrmValuePtr		pValue;      /* RETURN */
+XrmGetResource(XrmDatabase db, _Xconst char *name_str, _Xconst char *class_str,
+	       XrmString *pType_str, XrmValuePtr pValue)
 {
     XrmName		names[MAXDBDEPTH+1];
     XrmClass		classes[MAXDBDEPTH+1];

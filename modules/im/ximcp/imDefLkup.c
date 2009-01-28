@@ -893,13 +893,8 @@ _Ximctsconvert(
 }
 
 Public int
-_Ximctstombs(xim, from, from_len, to, to_len, state)
-    XIM		 xim;
-    char	*from;
-    int		 from_len;
-    char	*to;
-    int		 to_len;
-    Status	*state;
+_Ximctstombs(XIM xim, char *from, int from_len,
+	     char *to, int to_len, Status *state)
 {
     return _Ximctsconvert(((Xim)xim)->private.proto.ctom_conv,
 			  from, from_len, to, to_len, state);

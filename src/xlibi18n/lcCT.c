@@ -1264,7 +1264,7 @@ open_cstostr(
 /* =========================== Initialization =========================== */
 
 Bool
-_XlcInitCTInfo()
+_XlcInitCTInfo(void)
 {
     if (ct_list == NULL) {
         const CTDataRec *ct_data;

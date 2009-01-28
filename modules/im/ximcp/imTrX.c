@@ -465,9 +465,7 @@ _XimXFlush(Xim im)
 }
 
 Public Bool
-_XimXConf(im, address)
-    Xim		 im;
-    char	*address;
+_XimXConf(Xim im, char *address)
 {
     XSpecRec	*spec;
 

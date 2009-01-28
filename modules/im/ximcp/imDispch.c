@@ -63,8 +63,7 @@ _XimRegProtoIntrCallback(
 }
 
 Public void
-_XimFreeProtoIntrCallback(im)
-    Xim		im;
+_XimFreeProtoIntrCallback(Xim im)
 {
     register XimProtoIntrRec *rec, *next;
 
@@ -99,8 +98,7 @@ _XimTransportIntr(
 }
 
 Public Bool
-_XimDispatchInit(im)
-    Xim		 im;
+_XimDispatchInit(Xim im)
 {
     if (_XimRegisterDispatcher(im, _XimTransportIntr, (XPointer)im))
 	return True;

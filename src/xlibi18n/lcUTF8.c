@@ -1820,14 +1820,8 @@ open_utf8tofcs(
 /* from XlcNCharSet to XlcNMultiByte */
 
 static int
-iconv_cstombs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_cstombs(XlcConv conv, XPointer *from, int *from_left,
+	      XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     XlcCharSet charset;
     char *name;
@@ -1903,25 +1897,15 @@ static XlcConvMethodsRec iconv_cstombs_methods = {
 };
 
 static XlcConv
-open_iconv_cstombs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_cstombs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     lazy_init_all_charsets();
     return create_conv(from_lcd, &iconv_cstombs_methods);
 }
 
 static int
-iconv_mbstocs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_mbstocs(XlcConv conv, XPointer *from, int *from_left,
+	      XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     Utf8Conv *preferred_charsets;
     XlcCharSet last_charset = NULL;
@@ -2008,11 +1992,7 @@ static XlcConvMethodsRec iconv_mbstocs_methods = {
 };
 
 static XlcConv
-open_iconv_mbstocs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_mbstocs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_tocs_conv(from_lcd, &iconv_mbstocs_methods);
 }
@@ -2020,14 +2000,8 @@ open_iconv_mbstocs(from_lcd, from_type, to_lcd, to_type)
 /* from XlcNMultiByte to XlcNChar */
 
 static int
-iconv_mbtocs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_mbtocs(XlcConv conv, XPointer *from, int *from_left,
+	     XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     Utf8Conv *preferred_charsets;
     XlcCharSet last_charset = NULL;
@@ -2113,11 +2087,7 @@ static XlcConvMethodsRec iconv_mbtocs_methods = {
 };
 
 static XlcConv
-open_iconv_mbtocs (from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_mbtocs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_tocs_conv(from_lcd, &iconv_mbtocs_methods );
 }
@@ -2125,14 +2095,8 @@ open_iconv_mbtocs (from_lcd, from_type, to_lcd, to_type)
 /* from XlcNMultiByte to XlcNString */
 
 static int
-iconv_mbstostr(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_mbstostr(XlcConv conv, XPointer *from, int *from_left,
+	       XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     unsigned char const *src;
     unsigned char const *srcend;
@@ -2191,25 +2155,15 @@ static XlcConvMethodsRec iconv_mbstostr_methods = {
 };
 
 static XlcConv
-open_iconv_mbstostr(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_mbstostr(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_conv(from_lcd, &iconv_mbstostr_methods);
 }
 
 /* from XlcNString to XlcNMultiByte */
 static int
-iconv_strtombs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_strtombs(XlcConv conv, XPointer *from, int *from_left,
+	       XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     unsigned char const *src;
     unsigned char const *srcend;
@@ -2247,11 +2201,7 @@ static XlcConvMethodsRec iconv_strtombs_methods= {
 };
 
 static XlcConv
-open_iconv_strtombs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_strtombs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_conv(from_lcd, &iconv_strtombs_methods);
 }
@@ -2264,14 +2214,8 @@ open_iconv_strtombs(from_lcd, from_type, to_lcd, to_type)
 
 /* from XlcNMultiByte to XlcNWideChar */
 static int
-iconv_mbstowcs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_mbstowcs(XlcConv conv, XPointer *from, int *from_left,
+	       XPointer *to, int *to_left, XPointer *args,  int num_args)
 {
     char *src = *((char **) from);
     wchar_t *dst = *((wchar_t **) to);
@@ -2318,24 +2262,14 @@ static XlcConvMethodsRec iconv_mbstowcs_methods = {
 } ;
 
 static XlcConv
-open_iconv_mbstowcs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_mbstowcs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_conv(from_lcd, &iconv_mbstowcs_methods);
 }
 
 static int
-iconv_wcstombs(conv, from, from_left, to, to_left, args, num_args)
-    XlcConv conv;
-    XPointer *from;
-    int *from_left;
-    XPointer *to;
-    int *to_left;
-    XPointer *args;
-    int num_args;
+iconv_wcstombs(XlcConv conv, XPointer *from, int *from_left,
+	       XPointer *to, int *to_left, XPointer *args, int num_args)
 {
     wchar_t *src = *((wchar_t **) from);
     char *dst = *((char **) to);
@@ -2375,11 +2309,7 @@ static XlcConvMethodsRec iconv_wcstombs_methods = {
 } ;
 
 static XlcConv
-open_iconv_wcstombs(from_lcd, from_type, to_lcd, to_type)
-    XLCd from_lcd;
-    char *from_type;
-    XLCd to_lcd;
-    char *to_type;
+open_iconv_wcstombs(XLCd from_lcd, char *from_type, XLCd to_lcd, char *to_type)
 {
     return create_conv(from_lcd, &iconv_wcstombs_methods);
 }

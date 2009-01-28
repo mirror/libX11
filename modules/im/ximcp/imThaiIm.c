@@ -61,8 +61,7 @@ Private XIMMethodsRec      Xim_im_thai_methods = {
 #define THAI_LANGUAGE_NAME 	"th"
 
 Bool
-_XimCheckIfThaiProcessing(im)
-    Xim          im;
+_XimCheckIfThaiProcessing(Xim im)
 {
     char *language;
 
@@ -80,8 +79,7 @@ _XimCheckIfThaiProcessing(im)
 }
 
 Public Bool
-_XimThaiOpenIM(im)
-    Xim		 im;
+_XimThaiOpenIM(Xim im)
 {
     XLCd		 lcd = im->core.lcd;
     XlcConv		 conv;
@@ -150,8 +148,7 @@ Open_Error :
 }
 
 Public void
-_XimThaiIMFree(im)
-    Xim		im;
+_XimThaiIMFree(Xim im)
 {
     if(im->core.im_resources) {
 	Xfree(im->core.im_resources);
@@ -221,8 +218,7 @@ _XimThaiIMFree(im)
 }
 
 Public Status
-_XimThaiCloseIM(xim)
-    XIM		xim;
+_XimThaiCloseIM(XIM xim)
 {
     Xim		im = (Xim)xim;
     XIC		ic;

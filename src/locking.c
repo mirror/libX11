@@ -597,7 +597,7 @@ xthread_t (*_x11_thr_self)() = __x11_thr_self;
 #endif
 
 
-Status XInitThreads()
+Status XInitThreads(void)
 {
     if (_Xglobal_lock)
 	return 1;

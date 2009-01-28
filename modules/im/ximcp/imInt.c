@@ -75,8 +75,7 @@ _XimSetIMStructureList(
 }
 
 Public void
-_XimDestroyIMStructureList(im)
-    Xim		  im;
+_XimDestroyIMStructureList(Xim im)
 {
     register int  i;
 
@@ -90,8 +89,7 @@ _XimDestroyIMStructureList(im)
 }
 
 Public void
-_XimServerDestroy(im_2_destroy)
-    Xim		  im_2_destroy;
+_XimServerDestroy(Xim im_2_destroy)
 {
     register int  i;
     Xim		  im;
@@ -125,7 +123,7 @@ _XimServerDestroy(im_2_destroy)
 
 #ifdef XIM_CONNECTABLE
 Public void
-_XimServerReconectableDestroy()
+_XimServerReconectableDestroy(void)
 {
     register int  i;
     Xim		  im;
@@ -259,8 +257,7 @@ Error1:
 }
 
 Public Bool
-_XInitIM(lcd)
-    XLCd	 lcd;
+_XInitIM(XLCd lcd)
 {
     if(lcd == (XLCd)NULL)
 	return False;

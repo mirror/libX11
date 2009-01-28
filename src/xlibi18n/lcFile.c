@@ -511,8 +511,7 @@ _XlcFileName(
 	char buf[PATH_MAX], *name;
 
 	name = NULL;
-	if ((5 + (args[i] ? strlen (args[i]) : 0) +
-	    (cat ? strlen (cat) : 0)) < PATH_MAX) {
+	if ((5 + (args[i] ? strlen (args[i]) : 0) + strlen(cat)) < PATH_MAX) {
 	    sprintf(buf, "%s/%s.dir", args[i], cat);
 	    name = resolve_name(siname, buf, RtoL);
 	}
@@ -628,9 +627,7 @@ _XlcResolveLocaleName(
 
 /************************************************************************/
 int
-_XlcResolveI18NPath(buf, buf_len)
-    char *buf;
-    int buf_len;
+_XlcResolveI18NPath(char *buf, int buf_len)
 {
     if (buf != NULL) {
 	xlocaledir(buf, buf_len);
@@ -639,10 +636,7 @@ _XlcResolveI18NPath(buf, buf_len)
 }
 
 char *
-_XlcLocaleDirName(dir_name, dir_len, lc_name)
-     char *dir_name;
-     size_t dir_len;
-     char *lc_name;
+_XlcLocaleDirName(char *dir_name, size_t dir_len, char *lc_name)
 {
     char dir[PATH_MAX], buf[PATH_MAX], *name = NULL;
     int i, n;
@@ -742,10 +736,7 @@ _XlcLocaleDirName(dir_name, dir_len, lc_name)
 }
 
 char *
-_XlcLocaleLibDirName(dir_name, dir_len, lc_name)
-     char *dir_name;
-     size_t dir_len;
-     char *lc_name;
+_XlcLocaleLibDirName(char *dir_name, size_t dir_len, char *lc_name)
 {
     char dir[PATH_MAX], buf[PATH_MAX], *name = NULL;
     int i, n;

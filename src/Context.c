@@ -235,11 +235,7 @@ int XSaveContext(
    if an error has occured, 0 otherwise.  Possible errors are Entry-not-found.
 */
 
-int XFindContext(display, rid, context, data)
-    Display *display;
-    register XID rid;
-    register XContext context;
-    XPointer *data;		/* RETURN */
+int XFindContext(Display *display, XID rid, XContext context, XPointer *data)
 {
     register DB db;
     register TableEntry entry;
@@ -274,10 +270,7 @@ int XFindContext(display, rid, context, data)
    with the same arguments.
 */
 
-int XDeleteContext(display, rid, context)
-    Display *display;
-    register XID rid;
-    register XContext context;
+int XDeleteContext(Display *display, XID rid, XContext context)
 {
     register DB db;
     register TableEntry entry, *prev;

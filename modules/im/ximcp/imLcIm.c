@@ -96,8 +96,7 @@ Private int     _XimCachedDefaultTreeRefcount = 0;
 
 
 Public Bool
-_XimCheckIfLocalProcessing(im)
-    Xim          im;
+_XimCheckIfLocalProcessing(Xim im)
 {
     FILE        *fp;
     char        *name;

@@ -788,8 +788,7 @@ _XBigReqHandler(
  * before the first possible call on this.
  */
 
-void _XFreeDisplayStructure(dpy)
-	register Display *dpy;
+void _XFreeDisplayStructure(Display *dpy)
 {
 	while (dpy->ext_procs) {
 	    _XExtension *ext = dpy->ext_procs;
@@ -914,9 +913,7 @@ void _XFreeDisplayStructure(dpy)
 /* OutOfMemory is called if malloc fails.  XOpenDisplay returns NULL
    after this returns. */
 
-static void OutOfMemory (dpy, setup)
-    Display *dpy;
-    char *setup;
+static void OutOfMemory(Display *dpy, char *setup)
 {
 #if USE_XCB
     if(dpy->xcb->connection)

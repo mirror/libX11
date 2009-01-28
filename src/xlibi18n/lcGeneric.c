@@ -1007,8 +1007,7 @@ initialize_core(
 #endif
 
 static Bool
-initialize(lcd)
-    XLCd lcd;
+initialize(XLCd lcd)
 {
     XLCdPublicMethods superclass = (XLCdPublicMethods) _XlcPublicMethods;
 

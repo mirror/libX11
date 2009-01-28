@@ -103,7 +103,7 @@ Sun Microsystems, Inc. or its licensors is granted.
  */
 
 void
-_XlcInitLoader()
+_XlcInitLoader(void)
 {
 
 #ifdef USE_DYNAMIC_LC
@@ -142,7 +142,7 @@ _XlcInitLoader()
 }
 
 void
-_XlcDeInitLoader()
+_XlcDeInitLoader(void)
 {
 
 #ifdef USE_DYNAMIC_LC

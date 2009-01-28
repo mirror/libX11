@@ -2380,10 +2380,7 @@ Public int
 }
 
 Public void
-_XimSetICMode(res_list, list_num, style)
-    XIMResourceList	res_list;
-    unsigned int	list_num;
-    XIMStyle		style;
+_XimSetICMode(XIMResourceList res_list, unsigned int list_num, XIMStyle style)
 {
     XIMResourceList	res;
     unsigned int	n = XIMNumber(ic_mode);
@@ -3018,13 +3015,8 @@ _XimDecodeLocalICAttr(
 }
 
 Public char *
-_XimGetICValueData(ic, top, res_list, list_num, values, mode)
-    Xic			 ic;
-    XPointer		 top;
-    XIMResourceList	 res_list;
-    unsigned int	 list_num;
-    XIMArg		*values;
-    unsigned long	 mode;
+_XimGetICValueData(Xic ic, XPointer top, XIMResourceList res_list,
+		   unsigned int	 list_num, XIMArg *values, unsigned long mode)
 {
     register  XIMArg	*p;
     XIMResourceList	 res;
@@ -3072,9 +3064,7 @@ _XimGetICValueData(ic, top, res_list, list_num, values, mode)
 }
 
 Public void
-_XimGetCurrentIMValues(im, im_values)
-    Xim			 im;
-    XimDefIMValues	*im_values;
+_XimGetCurrentIMValues(Xim im, XimDefIMValues *im_values)
 {
     bzero((char *)im_values, sizeof(XimDefIMValues));
 
@@ -3088,9 +3078,7 @@ _XimGetCurrentIMValues(im, im_values)
 }
 
 Public void
-_XimSetCurrentIMValues(im, im_values)
-    Xim			 im;
-    XimDefIMValues	*im_values;
+_XimSetCurrentIMValues(Xim im, XimDefIMValues *im_values)
 {
     im->core.styles		= im_values->styles;
     im->core.im_values_list	= im_values->im_values_list;
@@ -3102,9 +3090,7 @@ _XimSetCurrentIMValues(im, im_values)
 }
 
 Public void
-_XimGetCurrentICValues(ic, ic_values)
-    Xic			 ic;
-    XimDefICValues	*ic_values;
+_XimGetCurrentICValues(Xic ic, XimDefICValues *ic_values)
 {
     bzero((char *)ic_values, sizeof(XimDefICValues));
 

@@ -1240,11 +1240,7 @@ ThaiFltReplaceInput(Xic ic, unsigned char new_char, KeySym symbol)
  * Filter function for TACTIS
  */
 Bool
-_XimThaiFilter(d, w, ev, client_data)
-Display		*d;
-Window		w;
-XEvent		*ev;
-XPointer	client_data;
+_XimThaiFilter(Display *d, Window w, XEvent *ev, XPointer client_data)
 {
     Xic		    ic = (Xic)client_data;
     KeySym 	    symbol;

@@ -46,13 +46,8 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 
 Public int
-_XimLocalMbLookupString(xic, ev, buffer, bytes, keysym, status)
-    XIC		 xic;
-    XKeyEvent	*ev;
-    char	*buffer;
-    int		 bytes;
-    KeySym	 *keysym;
-    Status	 *status;
+_XimLocalMbLookupString(XIC xic, XKeyEvent *ev, char *buffer, int bytes,
+			KeySym *keysym, Status *status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
@@ -125,13 +120,8 @@ _XimLocalMbLookupString(xic, ev, buffer, bytes, keysym, status)
 }
 
 Public int
-_XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
-    XIC		  xic;
-    XKeyEvent	 *ev;
-    wchar_t	 *buffer;
-    int		  wlen;
-    KeySym	 *keysym;
-    Status	 *status;
+_XimLocalWcLookupString(XIC xic, XKeyEvent *ev, wchar_t *buffer, int wlen,
+			KeySym *keysym, Status *status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
@@ -202,13 +192,8 @@ _XimLocalWcLookupString(xic, ev, buffer, wlen, keysym, status)
 }
 
 Public int
-_XimLocalUtf8LookupString(xic, ev, buffer, bytes, keysym, status)
-    XIC		  xic;
-    XKeyEvent	 *ev;
-    char	 *buffer;
-    int		  bytes;
-    KeySym	 *keysym;
-    Status	 *status;
+_XimLocalUtf8LookupString(XIC xic, XKeyEvent *ev, char *buffer, int bytes,
+			  KeySym *keysym, Status *status)
 {
     Xic		 ic = (Xic)xic;
     int		 ret;
@@ -341,26 +326,16 @@ _XimLcctsconvert(
 }
 
 Public int
-_XimLcctstombs(xim, from, from_len, to, to_len, state)
-    XIM		 xim;
-    char	*from;
-    int		 from_len;
-    char	*to;
-    int		 to_len;
-    Status	*state;
+_XimLcctstombs(XIM xim, char *from, int from_len,
+	       char *to, int to_len, Status *state)
 {
     return _XimLcctsconvert(((Xim)xim)->private.local.ctom_conv,
 			    from, from_len, to, to_len, state);
 }
 
 Public int
-_XimLcctstowcs(xim, from, from_len, to, to_len, state)
-    XIM		 xim;
-    char	*from;
-    int		 from_len;
-    wchar_t	*to;
-    int		 to_len;
-    Status	*state;
+_XimLcctstowcs(XIM xim, char *from, int from_len,
+	       wchar_t *to, int to_len, Status *state)
 {
     Xim		 im = (Xim)xim;
     XlcConv	 conv = im->private.local.ctow_conv;
@@ -422,13 +397,8 @@ _XimLcctstowcs(xim, from, from_len, to, to_len, state)
 }
 
 Public int
-_XimLcctstoutf8(xim, from, from_len, to, to_len, state)
-    XIM		 xim;
-    char	*from;
-    int		 from_len;
-    char	*to;
-    int		 to_len;
-    Status	*state;
+_XimLcctstoutf8(XIM xim, char *from, int from_len,
+		char *to, int to_len, Status *state)
 {
     return _XimLcctsconvert(((Xim)xim)->private.local.ctoutf8_conv,
 			    from, from_len, to, to_len, state);

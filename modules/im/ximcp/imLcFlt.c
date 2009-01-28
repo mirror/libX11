@@ -40,11 +40,7 @@ PERFORMANCE OF THIS SOFTWARE.
 #include "Ximint.h"
 
 Bool
-_XimLocalFilter(d, w, ev, client_data)
-    Display	*d;
-    Window	 w;
-    XEvent	*ev;
-    XPointer	 client_data;
+_XimLocalFilter(Display *d, Window w, XEvent *ev, XPointer client_data)
 {
     Xic		 ic = (Xic)client_data;
     KeySym	 keysym;

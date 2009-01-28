@@ -263,8 +263,7 @@ XCreateIC(XIM im, ...)
  * Free the input context.
  */
 void
-XDestroyIC(ic)
-    XIC ic;
+XDestroyIC(XIC ic)
 {
     XIM im = ic->core.im;
     XIC *prev;
@@ -346,8 +345,7 @@ XSetICValues(XIC ic, ...)
  * argument.
  */
 void
-XSetICFocus(ic)
-    XIC ic;
+XSetICFocus(XIC ic)
 {
   if (ic && ic->core.im)
       (*ic->methods->set_focus) (ic);
@@ -358,8 +356,7 @@ XSetICFocus(ic)
  * argument.
  */
 void
-XUnsetICFocus(ic)
-    XIC ic;
+XUnsetICFocus(XIC ic)
 {
   if (ic->core.im)
       (*ic->methods->unset_focus) (ic);
@@ -369,15 +366,13 @@ XUnsetICFocus(ic)
  * Return the XIM associated with the input context.
  */
 XIM
-XIMOfIC(ic)
-    XIC ic;
+XIMOfIC(XIC ic)
 {
     return ic->core.im;
 }
 
 char *
-XmbResetIC(ic)
-    XIC ic;
+XmbResetIC(XIC ic)
 {
     if (ic->core.im)
 	return (*ic->methods->mb_reset)(ic);
@@ -385,8 +380,7 @@ XmbResetIC(ic)
 }
 
 wchar_t *
-XwcResetIC(ic)
-    XIC ic;
+XwcResetIC(XIC ic)
 {
     if (ic->core.im)
 	return (*ic->methods->wc_reset)(ic);
@@ -394,8 +388,7 @@ XwcResetIC(ic)
 }
 
 char *
-Xutf8ResetIC(ic)
-    XIC ic;
+Xutf8ResetIC(XIC ic)
 {
     if (ic->core.im) {
 	if (ic->methods->utf8_reset)
@@ -407,13 +400,8 @@ Xutf8ResetIC(ic)
 }
 
 int
-XmbLookupString(ic, ev, buffer, nbytes, keysym, status)
-    XIC ic;
-    register XKeyEvent *ev;
-    char *buffer;
-    int nbytes;
-    KeySym *keysym;
-    Status *status;
+XmbLookupString(XIC ic, XKeyEvent *ev, char *buffer, int nbytes,
+		KeySym *keysym, Status *status)
 {
     if (ic->core.im)
 	return (*ic->methods->mb_lookup_string) (ic, ev, buffer, nbytes,
@@ -422,13 +410,8 @@ XmbLookupString(ic, ev, buffer, nbytes, keysym, status)
 }
 
 int
-XwcLookupString(ic, ev, buffer, nchars, keysym, status)
-    XIC ic;
-    register XKeyEvent *ev;
-    wchar_t *buffer;
-    int nchars;
-    KeySym *keysym;
-    Status *status;
+XwcLookupString(XIC ic, XKeyEvent *ev, wchar_t *buffer, int nchars,
+		KeySym *keysym, Status *status)
 {
     if (ic->core.im)
 	return (*ic->methods->wc_lookup_string) (ic, ev, buffer, nchars,
@@ -437,13 +420,8 @@ XwcLookupString(ic, ev, buffer, nchars, keysym, status)
 }
 
 int
-Xutf8LookupString(ic, ev, buffer, nbytes, keysym, status)
-    XIC ic;
-    register XKeyEvent *ev;
-    char *buffer;
-    int nbytes;
-    KeySym *keysym;
-    Status *status;
+Xutf8LookupString(XIC ic, XKeyEvent *ev, char *buffer, int nbytes,
+		  KeySym *keysym, Status *status)
 {
     if (ic->core.im) {
 	if (ic->methods->utf8_lookup_string)

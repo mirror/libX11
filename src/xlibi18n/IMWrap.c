@@ -69,9 +69,7 @@ from The Open Group.
  * Compile the resource name. (resource_name ---> xrm_name)
  */
 void
-_XIMCompileResourceList(res, num_res)
-    register XIMResourceList res;
-    unsigned int num_res;
+_XIMCompileResourceList(XIMResourceList res, unsigned int num_res)
 {
     register unsigned int count;
 
@@ -81,10 +79,7 @@ _XIMCompileResourceList(res, num_res)
 }
 
 void
-_XCopyToArg(src, dst, size)
-    XPointer src;
-    XPointer *dst;
-    register unsigned int size;
+_XCopyToArg(XPointer src, XPointer *dst, unsigned int size)
 {
     if (!*dst) {
 	union {
@@ -122,11 +117,7 @@ _XCopyToArg(src, dst, size)
  */
 
 XIM
-XOpenIM( display, rdb, res_name, res_class )
-    Display	*display;
-    XrmDatabase	 rdb;
-    char	*res_name;
-    char	*res_class;
+XOpenIM(Display *display, XrmDatabase rdb, char *res_name, char *res_class)
 {
     XLCd	lcd = _XOpenLC( (char *)NULL );
 
@@ -139,8 +130,7 @@ XOpenIM( display, rdb, res_name, res_class )
  * Close the connection to the input manager, and free the XIM structure
  */
 Status
-XCloseIM(im)
-    XIM im;
+XCloseIM(XIM im)
 {
     Status s;
     XIC ic;
@@ -158,8 +148,7 @@ XCloseIM(im)
  * Return the Display associated with the input method.
  */
 Display *
-XDisplayOfIM(im)
-    XIM im;
+XDisplayOfIM(XIM im)
 {
     return im->core.display;
 }
@@ -168,8 +157,7 @@ XDisplayOfIM(im)
  * Return the Locale associated with the input method.
  */
 char *
-XLocaleOfIM(im)
-    XIM im;
+XLocaleOfIM(XIM im)
 {
     return im->core.lcd->core->name;
 }

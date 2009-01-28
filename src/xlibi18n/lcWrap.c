@@ -96,7 +96,7 @@ XSetLocaleModifiers(
 }
 
 Bool
-XSupportsLocale()
+XSupportsLocale(void)
 {
     return _XlcCurrentLC() != (XLCd)NULL;
 }
@@ -349,7 +349,7 @@ _XCloseLC(
  */
 
 XLCd
-_XlcCurrentLC()
+_XlcCurrentLC(void)
 {
     XLCd lcd;
     static XLCd last_lcd = NULL;
@@ -488,7 +488,7 @@ XwcFreeStringList(
 }
 
 const char *
-XDefaultString()
+XDefaultString(void)
 {
     XLCd lcd = _XlcCurrentLC();
 

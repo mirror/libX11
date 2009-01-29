@@ -220,7 +220,7 @@ _XimRespSyncReply(
 	if (IS_FOCUSED(ic))
 	    MARK_NEED_SYNC_REPLY(ic);
 	else
-	    _XimProcSyncReply(ic->core.im, ic);
+	    _XimProcSyncReply((Xim)ic->core.im, ic);
     }
 
     return True;

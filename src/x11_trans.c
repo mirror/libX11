@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#define X11_t
-#define TRANS_CLIENT
+#define X11_t 1
+#define TRANS_CLIENT 1
 #include <X11/Xtrans/transport.c>
 

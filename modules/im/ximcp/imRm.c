@@ -410,7 +410,7 @@ _XimDefaultIMValues(
 			 = (char **)((char *)tmp + sizeof(XIMValuesList));
 	for(i = 0; i < n; i++) {
 	    values_list->supported_values[i] =
-                name_table + supported_local_im_values_list[i];
+		(char *)name_table + supported_local_im_values_list[i];
 	}
     }
 
@@ -447,7 +447,7 @@ _XimDefaultICValues(
 			 = (char **)((char *)tmp + sizeof(XIMValuesList));
 	for(i = 0; i < n; i++) {
 	    values_list->supported_values[i] =
-                name_table + supported_local_ic_values_list[i];
+		(char *)name_table + supported_local_ic_values_list[i];
 	}
     }
 

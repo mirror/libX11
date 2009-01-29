@@ -17,7 +17,7 @@ static void return_socket(void *closure)
 {
 	Display *dpy = closure;
 	LockDisplay(dpy);
-	_XSend(dpy, 0, 0);
+	_XSend(dpy, NULL, 0);
 	dpy->bufmax = dpy->buffer;
 	UnlockDisplay(dpy);
 }
@@ -200,7 +200,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				/* This can only occur when called from
 				 * _XReply, which doesn't need a new event. */
 				*current_error = (xcb_generic_error_t *) event;
-				event = 0;
+				event = NULL;
 				break;
 			}
 			else
@@ -250,10 +250,10 @@ int _XEventsQueued(Display *dpy, int mode)
 		return 0;
 
 	if(mode == QueuedAfterFlush)
-		_XSend(dpy, 0, 0);
+		_XSend(dpy, NULL, 0);
 	else
 		check_internal_connections(dpy);
-	process_responses(dpy, 0, 0, 0);
+	process_responses(dpy, 0, NULL, 0);
 	return dpy->qlen;
 }
 
@@ -264,12 +264,12 @@ void _XReadEvents(Display *dpy)
 {
 	if(dpy->flags & XlibDisplayIOError)
 		return;
-	_XSend(dpy, 0, 0);
+	_XSend(dpy, NULL, 0);
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue)
 		return;
 	check_internal_connections(dpy);
 	do {
-		process_responses(dpy, 1, 0, 0);
+		process_responses(dpy, 1, NULL, 0);
 	} while (dpy->qlen == 0);
 }
 
@@ -305,7 +305,7 @@ void _XSend(Display *dpy, const char *data, long size)
 		{
 			PendingRequest *req = malloc(sizeof(PendingRequest));
 			assert(req);
-			req->next = 0;
+			req->next = NULL;
 			req->sequence = sequence;
 			*dpy->xcb->pending_requests_tail = req;
 			dpy->xcb->pending_requests_tail = &req->next;
@@ -346,7 +346,7 @@ void _XSend(Display *dpy, const char *data, long size)
 void _XFlush(Display *dpy)
 {
 	require_socket(dpy);
-	_XSend(dpy, 0, 0);
+	_XSend(dpy, NULL, 0);
 
 	_XEventsQueued(dpy, QueuedAfterReading);
 }
@@ -408,7 +408,7 @@ static void _XFreeReplyData(Display *dpy, Bool force)
 	if(!force && dpy->xcb->reply_consumed < dpy->xcb->reply_length)
 		return;
 	free(dpy->xcb->reply_data);
-	dpy->xcb->reply_data = 0;
+	dpy->xcb->reply_data = NULL;
 }
 
 static PendingRequest * insert_pending_request(Display *dpy)
@@ -447,7 +447,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	if(dpy->flags & XlibDisplayIOError)
 		return 0;
 
-	_XSend(dpy, 0, 0);
+	_XSend(dpy, NULL, 0);
 	current = insert_pending_request(dpy);
 	/* FIXME: drop the Display lock while waiting?
 	 * Complicates process_responses. */
@@ -539,7 +539,7 @@ int _XRead(Display *dpy, char *data, long size)
 	assert(size >= 0);
 	if(size == 0)
 		return 0;
-	assert(dpy->xcb->reply_data != 0);
+	assert(dpy->xcb->reply_data != NULL);
 	assert(dpy->xcb->reply_consumed + size <= dpy->xcb->reply_length);
 	memcpy(data, dpy->xcb->reply_data + dpy->xcb->reply_consumed, size);
 	dpy->xcb->reply_consumed += size;

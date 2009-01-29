@@ -51,7 +51,7 @@ XRotateBuffers (
     /* XRotateWindowProperties wants a non-const Atom*, but it doesn't
      * modify it, so this is safe.
      */
-    return XRotateWindowProperties(dpy, RootWindow(dpy, 0), n_to_atom, 8, rotate);
+    return XRotateWindowProperties(dpy, RootWindow(dpy, 0), (Atom *)n_to_atom, 8, rotate);
 }
 
 char *XFetchBuffer (

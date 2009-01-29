@@ -16,11 +16,11 @@ static void *alloc_copy(const void *src, int *dstn, size_t n)
 	if(n <= 0)
 	{
 		*dstn = 0;
-		return 0;
+		return NULL;
 	}
 	dst = Xmalloc(n);
 	if(!dst)
-		return 0;
+		return NULL;
 	memcpy(dst, src, n);
 	*dstn = n;
 	return dst;
@@ -82,9 +82,9 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 	_XLockMutex(_Xglobal_lock);
 	if(xauth.name && xauth.data)
-		c = xcb_connect_to_display_with_auth_info(display, &xauth, 0);
+		c = xcb_connect_to_display_with_auth_info(display, &xauth, NULL);
 	else
-		c = xcb_connect(display, 0);
+		c = xcb_connect(display, NULL);
 	_XUnlockMutex(_Xglobal_lock);
 
 	dpy->fd = xcb_get_file_descriptor(c);

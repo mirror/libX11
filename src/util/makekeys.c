@@ -52,11 +52,11 @@ static struct info {
 #define MIN_REHASH 15
 #define MATCHES 10
 
-char tab[KTNUM];
-unsigned short offsets[KTNUM];
-unsigned short indexes[KTNUM];
-KeySym values[KTNUM];
-char buf[1024];
+static char tab[KTNUM];
+static unsigned short offsets[KTNUM];
+static unsigned short indexes[KTNUM];
+static KeySym values[KTNUM];
+static char buf[1024];
 
 int
 main(int argc, char *argv[])

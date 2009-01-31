@@ -94,6 +94,9 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	dpy->xcb->next_xid = xcb_generate_id(dpy->xcb->connection);
 
 	dpy->xcb->event_notify = xcondition_malloc();
+	if (!dpy->xcb->event_notify)
+		return 0;
+	xcondition_init(dpy->xcb->event_notify);
 	return !xcb_connection_has_error(c);
 }
 

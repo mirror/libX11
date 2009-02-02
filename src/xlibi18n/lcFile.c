@@ -504,7 +504,10 @@ _XlcFileName(
 
     siname = XLC_PUBLIC(lcd, siname);
 
-    lowercase(cat, category);
+    if (category)
+	lowercase(cat, category);
+    else
+	cat[0] = '\0';
     xlocaledir(dir,XLC_BUFSIZE);
     n = _XlcParsePath(dir, args, NUM_LOCALEDIR);
     for (i = 0; i < n; ++i) {

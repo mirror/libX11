@@ -215,7 +215,7 @@ XCOMM Other symbols
 <Multi_key> <question> <exclam>         : "‽"   U203D # INTERROBANG
 <Multi_key> <exclam> <question>         : "‽"   U203D # INTERROBANG
 
-<Multi_key> <c> <c> <c> <p>             : "☭"   U262D # HAMMER AND SICKLE
+<Multi_key> <C> <C> <C> <P>             : "☭"   U262D # HAMMER AND SICKLE
 <Multi_key> <less> <3>                  : "♥"   U2665 # BLACK HEART SUIT
 
 XCOMM Part 2

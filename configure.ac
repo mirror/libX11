@@ -181,7 +181,7 @@ AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
 
 # Checks for header files.
 AC_HEADER_STDC
-dnl AC_CHECK_HEADERS([stdio.h stdlib.h math.h])
+AC_CHECK_HEADERS([sys/select.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
 

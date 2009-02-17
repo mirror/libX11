@@ -76,6 +76,11 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 
 		len = strlen(host) + (1 + 20 + 1 + 20 + 1);
 		*fullnamep = Xmalloc(len);
+		if (!*fullnamep) {
+			free(host);
+			return 0;
+		}
+
 		snprintf(*fullnamep, len, "%s:%d.%d", host, n, *screenp);
 		free(host);
 	}

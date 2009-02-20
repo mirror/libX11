@@ -108,7 +108,7 @@ struct _XDisplay
 	int nscreens;		/* number of screens on this server*/
 	Screen *screens;	/* pointer to list of screens */
 	unsigned long motion_buffer;	/* size of motion buffer */
-	unsigned long flags;	   /* internal connection flags */
+	volatile unsigned long flags;	   /* internal connection flags */
 	int min_keycode;	/* minimum defined keycode */
 	int max_keycode;	/* maximum defined keycode */
 	KeySym *keysyms;	/* This server's keysyms */

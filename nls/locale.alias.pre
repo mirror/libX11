@@ -842,6 +842,8 @@ no_NO.88591:					no_NO.ISO8859-1
 no_NO.88591.en:					no_NO.ISO8859-1
 no_NO.iso88591:					no_NO.ISO8859-1
 no_NO.ISO-8859-1:				no_NO.ISO8859-1
+no_NO.ISO8859-1@bokmal:				no_NO.ISO8859-1
+no_NO.ISO8859-1@nynorsk:			no_NO.ISO8859-1
 no_NO.iso885915:				no_NO.ISO8859-15
 no_NO.ISO-8859-15:				no_NO.ISO8859-15
 no_NO.utf8:					no_NO.UTF-8
@@ -949,6 +951,7 @@ XCOMM sh was the old ISO code for Serbo-Croatian (now individual sr and hr).
 XCOMM YU was the old ISO code for Yugoslavia (now CS for Serbia&Montenegro).
 XCOMM These lines should be deleted in the future.
 sh:						sr_CS.ISO8859-2
+sh_BA.ISO8859-2@bosnia:				nr.ISO8859-2
 sh_HR.iso88592:					hr_HR.ISO8859-2
 sh_SP:						sr_CS.ISO8859-2
 sh_YU:						sr_CS.ISO8859-2

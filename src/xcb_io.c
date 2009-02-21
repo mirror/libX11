@@ -214,7 +214,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		}
 		else if(req && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))
 		{
-			unsigned int sequence = req->sequence;
+			uint64_t sequence = req->sequence;
 			if(!reply)
 			{
 				dpy->xcb->pending_requests = req->next;
@@ -300,7 +300,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	 * we need to remember to check later. */
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue || dpy->async_handlers)
 	{
-		unsigned int sequence;
+		uint64_t sequence;
 		for(sequence = dpy->xcb->last_flushed; sequence < dpy->request; ++sequence)
 		{
 			PendingRequest *req = malloc(sizeof(PendingRequest));

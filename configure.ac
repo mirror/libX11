@@ -439,6 +439,7 @@ AC_OUTPUT([Makefile
 	   nls/C/Makefile
 	   nls/el_GR.UTF-8/Makefile
 	   nls/en_US.UTF-8/Makefile
+	   nls/fi_FI.UTF-8/Makefile
 	   nls/georgian-academy/Makefile
 	   nls/georgian-ps/Makefile
 	   nls/ibm-cp1133/Makefile

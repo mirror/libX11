@@ -16,6 +16,7 @@ SUBDIRS= \
 	C			\
 	el_GR.UTF-8		\
 	en_US.UTF-8		\
+	fi_FI.UTF-8		\
 	georgian-academy	\
 	georgian-ps		\
 	ibm-cp1133		\

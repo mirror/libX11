@@ -395,7 +395,10 @@ X11_LOCALEDATADIR="${X11_DATADIR}/locale"
 AC_DEFINE_DIR(XLOCALEDATADIR, X11_LOCALEDATADIR, [Location of libX11 locale data])
 AC_SUBST(X11_LOCALEDATADIR)
 
-X11_LOCALELIBDIR="${X11_LIBDIR}/locale"
+AC_ARG_WITH(locale-lib-dir,	AS_HELP_STRING([--with-locale-lib-dir=DIR],
+ [Directory where locale libraries files are installed (default: $libdir/X11/locale)]),
+				[ X11_LOCALELIBDIR="$withval" ],
+				[ X11_LOCALELIBDIR="${X11_LIBDIR}/locale" ])
 AC_DEFINE_DIR(XLOCALELIBDIR, X11_LOCALELIBDIR, [Location of libX11 locale libraries])
 AC_SUBST(X11_LOCALELIBDIR)
 

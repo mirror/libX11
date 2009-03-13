@@ -54,6 +54,7 @@ SUBDIRS= \
 	mulelao-1		\
 	nokhchi-1		\
 	pt_BR.UTF-8		\
+	ru_RU.UTF-8		\
 	tatar-cyr		\
 	th_TH			\
 	th_TH.UTF-8		\

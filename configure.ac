@@ -481,6 +481,7 @@ AC_OUTPUT([Makefile
 	   nls/mulelao-1/Makefile
 	   nls/nokhchi-1/Makefile
 	   nls/pt_BR.UTF-8/Makefile
+	   nls/ru_RU.UTF-8/Makefile
 	   nls/tatar-cyr/Makefile
 	   nls/th_TH/Makefile
 	   nls/th_TH.UTF-8/Makefile

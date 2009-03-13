@@ -137,11 +137,7 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 #define ECHECK(err) (errno == err)
 #define ESET(val)
 #else
-#ifdef ISC
-#define ECHECK(err) ((errno == err) || ETEST())
-#else
 #define ECHECK(err) (errno == err)
-#endif
 #define ESET(val) errno = val
 #endif
 #endif
@@ -299,7 +295,7 @@ _XWaitForWritable(
 	    nfound = Select (dpy->fd + 1, &r_mask, &w_mask, NULL, NULL);
 #endif
 	    InternalLockDisplay(dpy, cv != NULL);
-	    if (nfound < 0 && !ECHECK(EINTR))
+	    if (nfound < 0 && !(ECHECK(EINTR) || ETEST()))
 		_XIOError(dpy);
 	} while (nfound <= 0);
 
@@ -511,7 +507,7 @@ _XWaitForReadable(
 	result = Select(highest_fd + 1, &r_mask, NULL, NULL, NULL);
 #endif
 	InternalLockDisplay(dpy, dpy->flags & XlibDisplayReply);
-	if (result == -1 && !ECHECK(EINTR)) _XIOError(dpy);
+	if (result == -1 && !(ECHECK(EINTR) || ETEST())) _XIOError(dpy);
 	if (result <= 0)
 	    continue;
 #ifdef USE_POLL
@@ -842,7 +838,7 @@ _XEventsQueued(
 		    if (!pend)
 			pend = SIZEOF(xReply);
 		}
-		else if (result < 0 && !ECHECK(EINTR))
+		else if (result < 0 && !(ECHECK(EINTR) || ETEST()))
 		    _XIOError(dpy);
 	    }
 	}

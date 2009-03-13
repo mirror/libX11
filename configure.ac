@@ -49,6 +49,7 @@ AC_SUBST(XPROTO_CFLAGS)
 case "$ac_cv_use_xcb" in
 no)
 	X11_REQUIRES="xau xcmiscproto bigreqsproto"
+	X11_EXTRA_DEPS="xau xdmcp"
 	PKG_CHECK_MODULES(XDMCP, xdmcp)
 	AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
 	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])

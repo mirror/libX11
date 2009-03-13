@@ -647,6 +647,7 @@ hu:						hu_HU.ISO8859-2
 hu_HU:						hu_HU.ISO8859-2
 hu_HU.iso88592:					hu_HU.ISO8859-2
 hu_HU.ISO-8859-2:				hu_HU.ISO8859-2
+hu_HU.utf8:					hu_HU.UTF-8
 XCOMM in was the old ISO code for Indonesian (now id).  These lines should be
 XCOMM deleted in the future.
 in:						id_ID.ISO8859-1

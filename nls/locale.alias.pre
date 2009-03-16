@@ -111,12 +111,15 @@ az:						az_AZ.ISO8859-9E
 az_AZ:						az_AZ.ISO8859-9E
 az_AZ.iso88599e:				az_AZ.ISO8859-9E
 be:						be_BY.CP1251
+be@latin:					be_BY.UTF-8@latin
 be_BY:						be_BY.CP1251
+be_BY@latin:					be_BY.UTF-8@latin
 be_BY.cp1251:					be_BY.CP1251
 be_BY.microsoftcp1251:				be_BY.CP1251
 be_BY.microsoft-cp1251:				be_BY.CP1251
 be_BY.MICROSOFT-CP1251:				be_BY.CP1251
 be_BY.utf8:					be_BY.UTF-8
+be_BY.utf8@latin:				be_BY.UTF-8@latin
 bg:						bg_BG.CP1251
 bg_BG:						bg_BG.CP1251
 bg_BG.cp1251:					bg_BG.CP1251

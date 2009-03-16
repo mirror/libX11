@@ -5694,9 +5694,13 @@ XCOMM Part 3
 <Multi_key> <U2243> <U0338> 	: "≄"   U2244 # NOT ASYMPTOTICALLY EQUAL TO
 <Multi_key> <approximate> <U0338> 	: "≇"   U2247 # NEITHER APPROXIMATELY NOR ACTUALLY EQUAL TO
 <Multi_key> <U2248> <U0338> 	: "≉"   U2249 # NOT ALMOST EQUAL TO
+<Multi_key> <slash> <equal>  	: "≠"   U2260 # NOT EQUAL TO
+<Multi_key> <equal> <slash>  	: "≠"   U2260 # NOT EQUAL TO
 <Multi_key> <equal> <U0338>  	: "≠"   U2260 # NOT EQUAL TO
 <Multi_key> <KP_Equal> <U0338> 	: "≠"   U2260 # NOT EQUAL TO
 <Multi_key> <identical> <U0338> 	: "≢"   U2262 # NOT IDENTICAL TO
+<Multi_key> <less> <equal> 	: "≤" U2264 # LESS-THAN OR EQUAL TO
+<Multi_key> <greater> <equal> 	: "≥" U2265 # GREATER-THAN OR EQUAL TO
 <Multi_key> <U224D> <U0338> 	: "≭"   U226D # NOT EQUIVALENT TO
 <Multi_key> <less> <U0338>   	: "≮"   U226E # NOT LESS-THAN
 <Multi_key> <leftcaret> <U0338> 	: "≮"   U226E # NOT LESS-THAN

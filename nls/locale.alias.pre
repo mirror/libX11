@@ -967,7 +967,7 @@ XCOMM sh was the old ISO code for Serbo-Croatian (now individual sr and hr).
 XCOMM YU was the old ISO code for Yugoslavia (now CS for Serbia&Montenegro).
 XCOMM These lines should be deleted in the future.
 sh:						sr_CS.ISO8859-2
-sh_BA.ISO8859-2@bosnia:				nr.ISO8859-2
+sh_BA.ISO8859-2@bosnia:				sr_CS.ISO8859-2
 sh_HR.iso88592:					hr_HR.ISO8859-2
 sh_SP:						sr_CS.ISO8859-2
 sh_YU:						sr_CS.ISO8859-2

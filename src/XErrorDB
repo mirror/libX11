@@ -879,6 +879,19 @@ XRequest.RANDR.21: RRSetCrtcConfig
 XRequest.RANDR.22: RRGetCrtcGammaSize
 XRequest.RANDR.23: RRGetCrtcGamma
 XRequest.RANDR.24: RRSetCrtcGamma
+XRequest.RANDR.25: RRGetScreenResourcesCurrent
+XRequest.RANDR.26: RRSetCrtcTransform
+XRequest.RANDR.27: RRGetCrtcTransform
+XRequest.RANDR.28: RRGetPanning
+XRequest.RANDR.29: RRSetPanning
+XRequest.RANDR.30: RRSetOutputPrimary
+XRequest.RANDR.31: RRGetOutputPrimary
+XProtoError.RANDR.0: BadRROutput (invalid Output parameter)
+XlibMessage.RANDR.0: Output id in failed request: 0x%lx
+XProtoError.RANDR.1: BadRRCrtc (invalid Crtc parameter)
+XlibMessage.RANDR.1: Crtc id in failed request: 0x%lx
+XProtoError.RANDR.2: BadRRMode (invalid Mode parameter)
+XlibMessage.RANDR.2: Mode id in failed request: 0x%lx
 ! RENDER
 XRequest.RENDER.0: RenderQueryVersion
 XRequest.RENDER.1: RenderQueryPictFormats

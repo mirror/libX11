@@ -41,7 +41,7 @@
 #include "XlcGeneric.h"
 #include <stdio.h>
 
-#if !defined(macII) && !defined(X_LOCALE)
+#if !defined(X_LOCALE)
 #define STDCVT
 #endif
 

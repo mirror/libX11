@@ -154,6 +154,11 @@ next1:	;
     }
 
     z = best_z;
+    if (z == 0) {
+	fprintf(stderr, "makekeys: failed to find small enough hash!\n"
+		"Try increasing KTNUM in makekeys.c\n");
+	exit(1);
+    }
     printf("#ifdef NEEDKTABLE\n");
     printf("const unsigned char _XkeyTable[] = {\n");
     printf("0,\n");
@@ -234,6 +239,11 @@ next2:	;
     }
 
     z = best_z;
+    if (z == 0) {
+	fprintf(stderr, "makekeys: failed to find small enough hash!\n"
+		"Try increasing KTNUM in makekeys.c\n");
+	exit(1);
+    }
     for (i = z; --i >= 0;)
 	offsets[i] = 0;
     for (i = 0; i < ksnum; i++) {

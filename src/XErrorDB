@@ -386,6 +386,7 @@ XlibMessage.X3D-PEX.14: Resource id in failed request:  0x%lx
 XRequest.XTEST.0: X_XTestGetVersion
 XRequest.XTEST.1: X_XTestCompareCursor
 XRequest.XTEST.2: X_XTestFakeInput
+XRequest.XTEST.3: X_XTestGrabControl
 ! BIG-REQUESTS extension, an X Consortium standard
 XRequest.BIG-REQUESTS.0: X_BigReqEnable
 ! XIE extension, an X Consortium standard
@@ -859,6 +860,25 @@ XRequest.RANDR.2: RRSetScreenConfig
 XRequest.RANDR.3: RROldScreenChangeSelectInput
 XRequest.RANDR.4: RRSelectInput
 XRequest.RANDR.5: RRGetScreenInfo
+XRequest.RANDR.6: RRGetScreenSizeRange
+XRequest.RANDR.7: RRSetScreenSize
+XRequest.RANDR.8: RRGetScreenResources
+XRequest.RANDR.9: RRGetOutputInfo
+XRequest.RANDR.10: RRListOutputProperties
+XRequest.RANDR.11: RRQueryOutputProperty
+XRequest.RANDR.12: RRConfigureOutputProperty
+XRequest.RANDR.13: RRChangeOutputProperty
+XRequest.RANDR.14: RRDeleteOutputProperty
+XRequest.RANDR.15: RRGetOutputProperty
+XRequest.RANDR.16: RRCreateMode
+XRequest.RANDR.17: RRDestroyMode
+XRequest.RANDR.18: RRAddOutputMode
+XRequest.RANDR.19: RRDeleteOutputMode
+XRequest.RANDR.20: RRGetCrtcInfo
+XRequest.RANDR.21: RRSetCrtcConfig
+XRequest.RANDR.22: RRGetCrtcGammaSize
+XRequest.RANDR.23: RRGetCrtcGamma
+XRequest.RANDR.24: RRSetCrtcGamma
 ! RENDER
 XRequest.RENDER.0: RenderQueryVersion
 XRequest.RENDER.1: RenderQueryPictFormats
@@ -946,3 +966,6 @@ XRequest.DAMAGE.0: XDamageQueryVersion
 XRequest.DAMAGE.1: XDamageCreate
 XRequest.DAMAGE.2: XDamageDestroy
 XRequest.DAMAGE.3: XDamageSubtract
+XRequest.DAMAGE.4: XDamageAdd
+XProtoError.DAMAGE.0: BadDamage (invalid Damage parameter)
+XlibMessage.DAMAGE.0: Damage id in failed request: 0x%lx

@@ -996,3 +996,11 @@ XRequest.DAMAGE.3: XDamageSubtract
 XRequest.DAMAGE.4: XDamageAdd
 XProtoError.DAMAGE.0: BadDamage (invalid Damage parameter)
 XlibMessage.DAMAGE.0: Damage id in failed request: 0x%lx
+! DRI2 extension
+XRequest.DRI2.0: DRI2QueryVersion
+XRequest.DRI2.1: DRI2Connect
+XRequest.DRI2.2: DRI2Authenticate
+XRequest.DRI2.3: DRI2CreateDrawable
+XRequest.DRI2.4: DRI2DestroyDrawable
+XRequest.DRI2.5: DRI2GetBuffers
+XRequest.DRI2.6: DRI2CopyRegion

@@ -235,6 +235,20 @@ XRequest.XInputExtension.32:X_DeviceBell
 XRequest.XInputExtension.33:X_SetDeviceValuators
 XRequest.XInputExtension.34:X_GetDeviceControl
 XRequest.XInputExtension.35:X_ChangeDeviceControl
+XRequest.XInputExtension.36: X_ListDeviceProperties
+XRequest.XInputExtension.37: X_ChangeDeviceProperty
+XRequest.XInputExtension.38: X_DeleteDeviceProperty
+XRequest.XInputExtension.39: X_GetDeviceProperty
+XProtoError.XInputExtension.0: XI_BadDevice (invalid Device parameter)
+XlibMessage.XInputExtension.0: Device id in failed request: 0x%lx
+XProtoError.XInputExtension.1: XI_BadEvent (invalid Event parameter)
+XlibMessage.XInputExtension.1: Event id in failed request: 0x%lx
+XProtoError.XInputExtension.2: XI_BadMode (invalid Mode parameter)
+XlibMessage.XInputExtension.2: Mode id in failed request: 0x%lx
+XProtoError.XInputExtension.3: XI_DeviceBusy
+XlibMessage.XInputExtension.3: Device id in failed request: 0x%lx
+XProtoError.XInputExtension.4: XI_BadClass (invalid Class parameter)
+XlibMessage.XInputExtension.4: Class id in failed request: 0x%lx
 ! MIT-SHM extension, experimental, not an X Consortium standard
 XRequest.MIT-SHM.0: X_ShmQueryVersion
 XRequest.MIT-SHM.1: X_ShmAttach

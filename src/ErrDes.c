@@ -123,7 +123,7 @@ XGetErrorText(
  	if (ext->error_string)
  	    (*ext->error_string)(dpy, code, &ext->codes, buffer, nbytes);
 	if (ext->codes.first_error &&
-	    ext->codes.first_error < code &&
+	    ext->codes.first_error <= code &&
 	    (!bext || ext->codes.first_error > bext->codes.first_error))
 	    bext = ext;
     }

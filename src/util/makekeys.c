@@ -100,12 +100,11 @@ main(int argc, char *argv[])
 		    key);
 	    continue;
 	}
-	name = malloc((unsigned)strlen(key)+1);
+	name = strdup(key);
 	if (!name) {
 	    fprintf(stderr, "makekeys: out of memory!\n");
 	    exit(1);
 	}
-	(void)strcpy(name, key);
 	info[ksnum].name = name;
 	ksnum++;
 	if (ksnum == KTNUM) {

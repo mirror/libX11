@@ -35,24 +35,6 @@ from The Open Group.
 #include "Xlibint.h"
 #include "Xutil.h"
 
-#ifdef notdef
-/*
- *Returns pointer to first char ins search which is also in what, else NULL.
- */
-static char *strscan (search, what)
-char *search, *what;
-{
-	int i, len = strlen (what);
-	char c;
-
-	while ((c = *(search++)) != NULL)
-		for (i = 0; i < len; i++)
-			if (c == what [i])
-				return (--search);
-	return (NULL);
-}
-#endif
-
 /*
  *    XParseGeometry parses strings of the form
  *   "=<width>x<height>{+-}<xoffset>{+-}<yoffset>", where

@@ -335,7 +335,6 @@ void XrmInitialize(void)
     XrmQANY = XrmPermStringToQuark("?");
 }
 
-#ifndef _XP_PRINT_SERVER_
 XrmDatabase XrmGetDatabase(
     Display *display)
 {
@@ -359,7 +358,6 @@ void XrmSetDatabase(
     display->db = database;
     UnlockDisplay(display);
 }
-#endif /* !_XP_PRINT_SERVER_ */
 
 void
 XrmStringToQuarkList(
@@ -503,11 +501,7 @@ static XrmDatabase NewDatabase(void)
 	_XCreateMutex(&db->linfo);
 	db->table = (NTable)NULL;
 	db->mbstate = (XPointer)NULL;
-#ifdef _XP_PRINT_SERVER_
-	db->methods = NULL;
-#else
 	db->methods = _XrmInitParseInfo(&db->mbstate);
-#endif
 	if (!db->methods)
 	    db->methods = &mb_methods;
     }

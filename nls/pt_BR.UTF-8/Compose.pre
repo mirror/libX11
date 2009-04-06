@@ -447,10 +447,10 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <asciicircum> <1>	: "¹" onesuperior # SUPERSCRIPT ONE
 <dead_circumflex> <KP_1>	: "¹" onesuperior # SUPERSCRIPT ONE
 <Multi_key> <asciicircum> <KP_1>	: "¹" onesuperior # SUPERSCRIPT ONE
-<dead_circumflex> <Multi_key> <underscore> <o>	: "º" masculine # MASCULINE ORDINAL INDICATOR
-<Multi_key> <asciicircum> <underscore> <o>	: "º" masculine # MASCULINE ORDINAL INDICATOR
-<dead_circumflex> <Multi_key> <underbar> <o>	: "º" masculine # MASCULINE ORDINAL INDICATOR
-<Multi_key> <asciicircum> <underbar> <o>	: "º" masculine # MASCULINE ORDINAL INDICATOR
+<dead_circumflex> <Multi_key> <underscore> <o>	: "º" ordmasculine # MASCULINE ORDINAL INDICATOR
+<Multi_key> <asciicircum> <underscore> <o>	: "º" ordmasculine # MASCULINE ORDINAL INDICATOR
+<dead_circumflex> <Multi_key> <underbar> <o>	: "º" ordmasculine # MASCULINE ORDINAL INDICATOR
+<Multi_key> <asciicircum> <underbar> <o>	: "º" ordmasculine # MASCULINE ORDINAL INDICATOR
 <Multi_key> <1> <4>              	: "¼"   onequarter # VULGAR FRACTION ONE QUARTER
 <Multi_key> <1> <2>              	: "½"   onehalf # VULGAR FRACTION ONE HALF
 <Multi_key> <3> <4>              	: "¾"   threequarters # VULGAR FRACTION THREE QUARTERS

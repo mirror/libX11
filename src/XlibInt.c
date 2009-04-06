@@ -3282,7 +3282,7 @@ Screen *_XScreenOfWindow(Display *dpy, Window w)
 
     if (XGetGeometry (dpy, w, &root, &x, &y, &width, &height,
 		      &bw, &depth) == False) {
-	return None;
+	return NULL;
     }
     for (i = 0; i < ScreenCount (dpy); i++) {	/* find root from list */
 	if (root == RootWindow (dpy, i)) {

@@ -167,8 +167,8 @@ XOpenDisplay (
 #if USE_XCB
 	if(!_XConnectXCB(dpy, display, &fullname, &iscreen)) {
 		dpy->display_name = fullname;
-		OutOfMemory(dpy, 0);
-		return 0;
+		OutOfMemory(dpy, NULL);
+		return NULL;
 	}
 #else /* !USE_XCB */
 	if ((dpy->trans_conn = _X11TransConnectDisplay (

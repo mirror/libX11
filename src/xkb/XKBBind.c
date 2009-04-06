@@ -632,7 +632,7 @@ XkbTranslateKeySym(	register Display *	dpy,
 	}
 	if (change) {
 	    if (n==1)
-	        *sym_rtrn=(*xkb->cvt.MBToKS)(xkb->cvt.MBToKSPriv,buffer,n,0);
+	        *sym_rtrn=(*xkb->cvt.MBToKS)(xkb->cvt.MBToKSPriv,buffer,n,NULL);
 	    else *sym_rtrn= NoSymbol;
 	}
     }

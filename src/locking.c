@@ -52,6 +52,17 @@ in this Software without prior written authorization from The Open Group.
 #include <stdio.h>		/* for warn/debug stuff */
 #endif
 
+/* Additional arguments for source code location lock call was made from */
+#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
+# define XTHREADS_FILE_LINE_ARGS \
+    ,								\
+    char* file,			/* source file, from macro */	\
+    int line
+#else
+# define XTHREADS_FILE_LINE_ARGS /* None */
+#endif
+
+
 #define NUM_FREE_CVLS 4
 
 /* in lcWrap.c */
@@ -60,14 +71,14 @@ extern LockInfoPtr _Xi18n_lock;
 #ifdef WIN32
 static DWORD _X_TlsIndex = (DWORD)-1;
 
-void _Xthread_init()
+void _Xthread_init(void)
 {
     if (_X_TlsIndex == (DWORD)-1)
 	_X_TlsIndex = TlsAlloc();
 }
 
 struct _xthread_waiter *
-_Xthread_waiter()
+_Xthread_waiter(void)
 {
     struct _xthread_waiter *me;
 
@@ -89,28 +100,18 @@ static xthread_t _Xthread_self(void)
 static LockInfoRec global_lock;
 static LockInfoRec i18n_lock;
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XLockMutex(lip,file,line)
-    LockInfoPtr lip;
-    char* file;
-    int line;
-#else
 static void _XLockMutex(
-    LockInfoPtr lip)
-#endif
+    LockInfoPtr lip
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
     xmutex_lock(lip->lock);
 }
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
 static void _XUnlockMutex(
-    LockInfoPtr lip,
-    char* file,
-    int line)
-#else
-static void _XUnlockMutex(
-    LockInfoPtr lip)
-#endif
+    LockInfoPtr lip
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
     xmutex_unlock(lip->lock);
 }
@@ -202,15 +203,10 @@ static void _XLockDisplayWarn(
 }
 #endif /* XTHREADS_WARN */
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XUnlockDisplay(dpy,file,line)
-    Display *dpy;
-    char *file;
-    int line;
-#else
 static void _XUnlockDisplay(
-    Display *dpy)
-#endif
+    Display *dpy
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
     xthread_t self = xthread_self();
@@ -330,17 +326,11 @@ static void _XPopReader(
     }
 }
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XConditionWait(cv, mutex,file,line)
-    xcondition_t cv;
-    xmutex_t mutex;
-    char *file;
-    int line;
-#else
 static void _XConditionWait(
     xcondition_t cv,
-    xmutex_t mutex)
-#endif
+    xmutex_t mutex
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
     xthread_t self = xthread_self();
@@ -381,15 +371,10 @@ static void _XConditionWait(
 #endif /* XTHREADS_WARN */
 }
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XConditionSignal(cv,file,line)
-    xcondition_t cv;
-    char *file;
-    int line;
-#else
 static void _XConditionSignal(
-    xcondition_t cv)
-#endif
+    xcondition_t cv
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
 #ifdef XTHREADS_DEBUG
@@ -400,15 +385,10 @@ static void _XConditionSignal(
 }
 
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XConditionBroadcast(cv,file,line)
-    xcondition_t cv;
-    char *file;
-    int line;
-#else
 static void _XConditionBroadcast(
-    xcondition_t cv)
-#endif
+    xcondition_t cv
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
 #ifdef XTHREADS_DEBUG
@@ -469,15 +449,10 @@ static void _XDisplayLockWait(
     }
 }
 
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XLockDisplay(dpy, file, line)
-    Display *dpy;
-    char *file;			/* source file, from macro */
-    int line;
-#else
 static void _XLockDisplay(
-    Display *dpy)
-#endif
+    Display *dpy
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
     _XLockDisplayWarn(dpy, file, line);
@@ -492,17 +467,11 @@ static void _XLockDisplay(
  * _XReply is allowed to exit from select/poll and clean up even if a
  * user-level lock is in force, so it uses this instead of _XFancyLockDisplay.
  */
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-static void _XInternalLockDisplay(dpy, wskip, file, line)
-    Display *dpy;
-    Bool wskip;
-    char *file;			/* source file, from macro */
-    int line;
-#else
 static void _XInternalLockDisplay(
     Display *dpy,
-    Bool wskip)
-#endif
+    Bool wskip
+    XTHREADS_FILE_LINE_ARGS
+    )
 {
 #ifdef XTHREADS_WARN
     _XLockDisplayWarn(dpy, file, line);
@@ -646,7 +615,7 @@ Status XInitThreads(void)
 }
 
 #else /* XTHREADS */
-Status XInitThreads()
+Status XInitThreads(void)
 {
     return 0;
 }

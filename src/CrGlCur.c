@@ -46,6 +46,10 @@ in this Software without prior written authorization from The Open Group.
 #endif
 #include "Cr.h"
 
+#ifdef __CYGWIN__
+#define LIBXCURSOR "cygXcursor-1.dll"
+#endif
+
 #if defined(hpux)
 typedef shl_dt	XModuleType;
 #else

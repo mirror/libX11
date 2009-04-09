@@ -560,13 +560,37 @@ IC_RealGetPreviousChar(Xic ic, unsigned short pos)
         {
             c = 0;
         } else {
+            Xim     im;
+            XlcConv conv;
+            int     from_left;
+            int     to_left;
+            char   *from_buf;
+            char   *to_buf;
+
+            im = (Xim) XIMOfIC((XIC)ic);
             if (screc.text->encoding_is_wchar) {
-                c = ucs2tis(screc.text->string.wcs[0]);
-                XFree(screc.text->string.wcs);
+                conv = _XlcOpenConverter(im->core.lcd, XlcNWideChar,
+                                         im->core.lcd, XlcNCharSet);
+                from_buf = (char *) screc.text->string.wcs;
+                from_left = screc.text->length * sizeof(wchar_t);
             } else {
-                c = screc.text->string.mbs[0];
-                XFree(screc.text->string.mbs);
+                conv = _XlcOpenConverter(im->core.lcd, XlcNMultiByte,
+                                         im->core.lcd, XlcNCharSet);
+                from_buf = screc.text->string.mbs;
+                from_left = screc.text->length;
             }
+            to_buf = (char *)&c;
+            to_left = 1;
+
+            _XlcResetConverter(conv);
+            if (_XlcConvert(conv, (XPointer *)&from_buf, &from_left,
+                            (XPointer *)&to_buf, &to_left, NULL, 0) < 0)
+            {
+                c = (unsigned char) b->mb[b->tree[(ic)->private.local.context].mb];
+            }
+            _XlcCloseConverter(conv);
+
+            XFree(screc.text->string.mbs);
         }
         XFree(screc.text);
         return c;

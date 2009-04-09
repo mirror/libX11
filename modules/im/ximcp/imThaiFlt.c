@@ -1236,6 +1236,22 @@ ThaiFltReplaceInput(Xic ic, unsigned char new_char, KeySym symbol)
     return True;
 }
 
+Private unsigned
+NumLockMask(Display *d)
+{
+    int i;
+    XModifierKeymap *map = XGetModifierMapping (d);
+    KeyCode numlock_keycode = XKeysymToKeycode (d, XK_Num_Lock);
+    if (numlock_keycode == NoSymbol)
+        return 0;
+
+    for (i = 0; i < 8; i++) {
+        if (map->modifiermap[map->max_keypermod * i] == numlock_keycode)
+            return 1 << i;
+    }
+    return 0;
+}
+
 /*
  * Filter function for TACTIS
  */
@@ -1267,7 +1283,7 @@ _XimThaiFilter(Display *d, Window w, XEvent *ev, XPointer client_data)
     XwcLookupString((XIC)ic, &ev->xkey, wbuf, sizeof(wbuf) / sizeof(wbuf[0]),
 		    &symbol, NULL);
 
-    if ((ev->xkey.state & (AllMods & ~ShiftMask)) ||
+    if ((ev->xkey.state & (AllMods & ~(ShiftMask|LockMask|NumLockMask(d)))) ||
          ((symbol >> 8 == 0xFF) &&
          ((XK_BackSpace <= symbol && symbol <= XK_Clear) ||
            (symbol == XK_Return) ||

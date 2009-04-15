@@ -40,6 +40,15 @@ AC_SUBST([CC_FOR_BUILD])
 
 XORG_PROG_RAWCPP
 
+# Find perl for "make check" tests in nls/localerules.in
+AC_ARG_WITH(perl,
+	AC_HELP_STRING([--with-perl=<path>],
+			[path to perl interpreter for build-time tests]),
+	[PERL=$withval ; AC_MSG_CHECKING([perl]) ;
+	 AC_MSG_RESULT([(from --with-perl) $PERL])],
+	AC_CHECK_PROGS([PERL], [perl], [no]))
+AM_CONDITIONAL(HAVE_PERL, test x$PERL != xno)
+
 # Build with XCB support?
 AC_ARG_WITH(xcb,
 	AC_HELP_STRING([--with-xcb], [use XCB for low-level protocol implementation]),

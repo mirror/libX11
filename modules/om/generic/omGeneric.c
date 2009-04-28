@@ -571,6 +571,8 @@ get_rotate_fontname(
 
 	if((ptr = strchr(ptr, '-'))) {
 	    *ptr = '\0';
+	} else {
+	    break;
 	}
     }
 

@@ -898,8 +898,10 @@ oc_FR@euro:					oc_FR.ISO8859-15
 or:						or_IN.UTF-8
 or_IN.utf8:					or_IN.UTF-8
 or_IN.UTF-8:					or_IN.UTF-8
+pa:						pa_IN.UTF-8
 pa_IN.utf8:					pa_IN.UTF-8
 pa_IN.UTF-8:					pa_IN.UTF-8
+pa_PK.utf8:					pa_PK.UTF-8
 pd:						pd_US.ISO8859-1
 pd_DE:						pd_DE.ISO8859-1
 pd_US:						pd_US.ISO8859-1

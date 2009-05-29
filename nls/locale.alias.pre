@@ -358,15 +358,6 @@ en_US.8859-15:					en_US.ISO8859-15
 en_US.ISO8859-15@euro:				en_US.ISO8859-15
 en_US.utf8:					en_US.UTF-8
 EN_US.UTF-8:					en_US.UTF-8
-en_US.88591.en:					en_US.ISO8859-1
-en_US.iso88591:					en_US.ISO8859-1
-en_US.ISO-8859-1:				en_US.ISO8859-1
-en_US.ISO_8859-1:				en_US.ISO8859-1
-en_US.iso885915:				en_US.ISO8859-15
-en_US.8859-15:					en_US.ISO8859-15
-en_US.ISO8859-15@euro:				en_US.ISO8859-15
-en_US.utf8:					en_US.UTF-8
-EN_US.UTF-8:					en_US.UTF-8
 en_ZA:						en_ZA.ISO8859-1
 en_ZA.88591:					en_ZA.ISO8859-1
 en_ZA.88591.en:					en_ZA.ISO8859-1

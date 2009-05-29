@@ -63,7 +63,6 @@ ar_JO.ISO-8859-6:				ar_JO.ISO8859-6
 ar_JO.utf8:					ar_JO.UTF-8
 ar_KW:						ar_KW.ISO8859-6
 ar_KW.iso88596:					ar_KW.ISO8859-6
-ar_KW.iso88596:					ar_KW.ISO8859-6
 ar_KW.ISO-8859-6:				ar_KW.ISO8859-6
 ar_KW.utf8:					ar_KW.UTF-8
 ar_LB:						ar_LB.ISO8859-6
@@ -702,9 +701,7 @@ ja_JP.S90:					ja_JP.S90
 ja:						ja_JP.eucJP
 ja.JIS:						ja_JP.JIS7
 ja.SJIS:					ja_JP.SJIS
-ja_JP:						ja_JP.eucJP
 ja_JP.ujis:					ja_JP.eucJP
-ja_JP.eucjp:					ja_JP.eucJP
 Jp_JP:						ja_JP.eucJP
 ja_JP.AJEC:					ja_JP.eucJP
 ja_JP.EUC:					ja_JP.eucJP

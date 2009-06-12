@@ -64,14 +64,6 @@ in this Software without prior written authorization from The Open Group.
 #include <X11/Xosdefs.h>
 
 #ifndef X_WCHAR
-#ifdef X_NOT_STDC_ENV
-#ifndef ISC
-#define X_WCHAR
-#endif
-#endif
-#endif
-
-#ifndef X_WCHAR
 #include <stddef.h>
 #else
 #ifdef __UNIXOS2__

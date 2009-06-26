@@ -130,6 +130,7 @@ libX11_la_SOURCES = \
                   FreeCols.c \
                   FreeCurs.c \
                   FreeEData.c \
+                  FreeEventData.c \
                   FreeGC.c \
                   FreePix.c \
                   FSSaver.c \
@@ -139,6 +140,7 @@ libX11_la_SOURCES = \
                   GetAtomNm.c \
                   GetColor.c \
                   GetDflt.c \
+                  GetEventData.c \
                   GetFPath.c \
                   GetFProp.c \
                   GetGCVals.c \

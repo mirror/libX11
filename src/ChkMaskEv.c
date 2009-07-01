@@ -59,7 +59,7 @@ Bool XCheckMaskEvent (
 	    for (qelt = prev ? prev->next : dpy->head;
 		 qelt;
 		 prev = qelt, qelt = qelt->next) {
-		if ((qelt->event.type < LASTEvent) &&
+		if ((qelt->event.type < GenericEvent) &&
 		    (_Xevent_to_mask[qelt->event.type] & mask) &&
 		    ((qelt->event.type != MotionNotify) ||
 		     (mask & AllPointers) ||

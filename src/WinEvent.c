@@ -62,7 +62,7 @@ XWindowEvent (
 		 qelt;
 		 prev = qelt, qelt = qelt->next) {
 		if ((qelt->event.xany.window == w) &&
-		    (qelt->event.type < LASTEvent) &&
+		    (qelt->event.type < GenericEvent) &&
 		    (_Xevent_to_mask[qelt->event.type] & mask) &&
 		    ((qelt->event.type != MotionNotify) ||
 		     (mask & AllPointers) ||

@@ -2340,7 +2340,6 @@ Bool
 _XFetchEventCookie(Display *dpy, XGenericEventCookie* ev)
 {
     Bool ret = False;
-    _XQEvent *qelt;
     struct stored_event **head, *event;
     head = (struct stored_event**)&dpy->cookiejar;
 

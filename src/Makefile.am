@@ -299,6 +299,7 @@ libX11_la_SOURCES = \
                   UnldFont.c \
                   UnmapSubs.c \
                   UnmapWin.c \
+                  utlist.h \
                   VisUtil.c \
                   WarpPtr.c \
                   Window.c \

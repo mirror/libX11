@@ -376,7 +376,7 @@ if XKB
 USE_XKB_LIBS = $(XKB_LIBS)
 endif
 
-libX11_la_LDFLAGS = -version-number 6:2:0 -no-undefined
+libX11_la_LDFLAGS = -version-number 6:3:0 -no-undefined
 
 libX11_la_LIBADD = \
 	$(USE_I18N_LIBS) \

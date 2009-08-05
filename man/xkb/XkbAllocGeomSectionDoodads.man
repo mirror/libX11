@@ -27,7 +27,7 @@
 .\" or other dealings in this Software without prior written authorization
 .\" of the copyright holder.
 .\"
-.TH XkbAllocGeomSectionDoodads 3Xkb "Release 6.1" "X Version 11" "XKBLIB 
+.TH XkbAllocGeomSectionDoodads __libmansuffix__ "Release 6.1" "X Version 11" "XKBLIB 
 FUNCTION"
 .SH NAME
 XkbAllocGeomSectionDoodads \- Allocate doodads that are specific to a section

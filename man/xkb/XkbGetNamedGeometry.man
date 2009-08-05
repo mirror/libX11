@@ -27,7 +27,7 @@
 .\" or other dealings in this Software without prior written authorization
 .\" of the copyright holder.
 .\"
-.TH XkbGetNamedGeometry 3Xkb "Release 6.1" "X Version 11" "XKBLIB FUNCTION"
+.TH XkbGetNamedGeometry __libmansuffix__ "Release 6.1" "X Version 11" "XKBLIB FUNCTION"
 .SH NAME
 XkbGetNamedGeometry \- Loads a keyboard geometry description from this database 
 by name

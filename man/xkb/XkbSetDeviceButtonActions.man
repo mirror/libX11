@@ -27,7 +27,7 @@
 .\" or other dealings in this Software without prior written authorization
 .\" of the copyright holder.
 .\"
-.TH XkbSetDeviceButtonActions 3Xkb "Release 6.1" "X Version 11" "XKBLIB FUNCTION"
+.TH XkbSetDeviceButtonActions __libmansuffix__ "Release 6.1" "X Version 11" "XKBLIB FUNCTION"
 .SH NAME
 XkbSetDeviceButtonActions \- Change only the button actions for an input extension device
 .SH SYNTAX

@@ -100,5 +100,5 @@ returns the number of bytes that it placed into
 .I buf.
 .SH "SEE ALSO"
 .BR XkbTranslateKeySym (__libmansuffix__),
-.BR XLookupString (3X11),
-.BR XRebindKeysym (3X11)
+.BR XLookupString (__libmansuffix__),
+.BR XRebindKeysym (__libmansuffix__)

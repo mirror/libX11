@@ -75,4 +75,4 @@ type and range, but is otherwise invalid
 .BR XkbChangeMap (__libmansuffix__),
 .BR XkbGetKeyboardByName (__libmansuffix__),
 .BR XkbSetMap (__libmansuffix__),
-.BR XRefreshKeyboardMapping (3X11)
+.BR XRefreshKeyboardMapping (__libmansuffix__)

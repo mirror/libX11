@@ -86,4 +86,4 @@ The
 .I XkbIgnoreExtension 
 function returns False if it was unable to apply the ignore request.
 .SH "SEE ALSO"
-.BR XOpenDisplay (3X11)
+.BR XOpenDisplay (__libmansuffix__)

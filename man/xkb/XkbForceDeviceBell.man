@@ -304,7 +304,7 @@ If your application needs to generate visual bell feedback on the screen when it
 receives 
 a bell event, use the window ID in the XkbBellNotifyEvent, if present.
 .SH "SEE ALSO"
-.BR XBell (3X11),
+.BR XBell (__libmansuffix__),
 .BR XkbBell (__libmansuffix__),
 .BR XkbBellNotify (__libmansuffix__),
 .BR XkbChangeEnabledControls (__libmansuffix__),

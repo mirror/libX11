@@ -167,4 +167,4 @@ The Xkb extension has not been properly initialized
 .SH "SEE ALSO"
 .BR XkbLibraryVersion (__libmansuffix__),
 .BR XkbQueryExtension (__libmansuffix__),
-.BR XOpenDisplay (3X11)
+.BR XOpenDisplay (__libmansuffix__)

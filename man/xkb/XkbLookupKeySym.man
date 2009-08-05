@@ -85,5 +85,5 @@ parameter is the state from a KeyPress or KeyRelease event.
 .I XkbLookupKeySym 
 returns True if it succeeds.
 .SH "SEE ALSO"
-.BR XLookupKeySym (3X11)
+.BR XLookupKeySym (__libmansuffix__)
 

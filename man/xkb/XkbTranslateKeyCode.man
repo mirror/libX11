@@ -86,4 +86,4 @@ to consume the Shift and Lock modifiers when processing all keys, even if the
 definition for the key type does not specify these modifiers. The 
 AlwaysConsumeShiftAndLock control is unset by default. 
 .SH "SEE ALSO"
-.BR XLookupString (3X11)
+.BR XLookupString (__libmansuffix__)

@@ -318,7 +318,7 @@ receives
 a bell event, use the window ID in the XkbBellNotifyEvent, if present.
 
 .SH "SEE ALSO"
-.BR XBell (3X11),
+.BR XBell (__libmansuffix__),
 .BR XkbBell (__libmansuffix__),
 .BR XkbChangeEnabledControls (__libmansuffix__),
 .BR XkbForceDeviceBell (__libmansuffix__),

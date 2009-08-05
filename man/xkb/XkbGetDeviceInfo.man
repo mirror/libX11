@@ -262,4 +262,4 @@ typedef struct {
 .fi
 .SH "SEE ALSO"
 .BR XkbAllocDeviceInfo (__libmansuffix__),
-.BR XListInputDevices (3X11)
+.BR XListInputDevices (__libmansuffix__)

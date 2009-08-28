@@ -27,7 +27,7 @@
 .\" or other dealings in this Software without prior written authorization
 .\" of the copyright holder.
 .\"
-.TH XkbSASetGroup __libmansuffix__ "Release 6.1" "X Version 11" "XKBLIB FUNCTION"
+.TH XkbSASetGroup __libmansuffix__ __xorgversion__ "XKB FUNCTIONS"
 .SH NAME
 XkbSASetGroup \- Sets the group_XXX field of act from the group index grp
 .SH SYNTAX

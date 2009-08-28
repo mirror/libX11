@@ -33,11 +33,11 @@ XkbQueryExtension \-  Determines the compatibility of a library at runtime.
 .HP
 .B Bool XkbQueryExtension
 .BI "(\^Display *" "dpy" "\^,"
-.BI "int " "opcode_rtrn" "\^,"
-.BI "int " "event_rtrn" "\^,"
+.BI "int *" "opcode_rtrn" "\^,"
+.BI "int *" "event_rtrn" "\^,"
 .BI "int *" "error_rtrn" "\^,"
-.BI "int " "major_in_out" "\^,"
-.BI "int " "minor_in_out" "\^);"
+.BI "int *" "major_in_out" "\^,"
+.BI "int *" "minor_in_out" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

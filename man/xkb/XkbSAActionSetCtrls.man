@@ -32,7 +32,7 @@
 XkbSAActionSetCtrls \- Sets the 
 .I ctrls0 
 through 
-I. ctrls3
+.I ctrls3
 fields of 
 .I act
 from 

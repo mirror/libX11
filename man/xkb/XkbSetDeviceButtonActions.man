@@ -36,8 +36,7 @@ XkbSetDeviceButtonActions \- Change only the button actions for an input extensi
 .BI "(\^Display *" "dpy" "\^,"
 .BI "XkbDeviceInfoPtr " "device" "\^,"
 .BI "unsigned int " "first_button" "\^,"
-.BI "unsigned int " "num_buttons" "\^,"
-.BI "*** MISSING ***" "actions" "\^);"
+.BI "unsigned int " "num_buttons" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS
@@ -53,9 +52,6 @@ number of first button to update, 0 relative
 .TP
 .I \- num_buttons
 number of buttons to update
-.TP
-.I \- actions
-*** MISSING ***
 .SH DESCRIPTION
 .LP
 .I XkbSetDeviceButtonActions 

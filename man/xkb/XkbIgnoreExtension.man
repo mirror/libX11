@@ -31,12 +31,9 @@
 XkbIgnoreExtension \-  Prevents core X library keyboard functions from using the 
 X Keyboard Extension
 .SH SYNOPSIS
+.HP
 .B Bool XkbIgnoreExtension
-(
-.I ignore
-)
-.br
-      Bool *\fIignore\fP\^;
+.BI "(\^Bool *" "ignore" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

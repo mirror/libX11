@@ -32,18 +32,11 @@
 XkbGetNamedGeometry \- Loads a keyboard geometry description from this database 
 by name
 .SH SYNTAX
+.HP
 .B Status XkbGetNamedGeometry
-(
-.I dpy,
-.I xkb,
-.I name 
-)
-.br
-      Display * \fIdpy\fP\^;
-.br
-      XkbDescPtr \fIxkb\fP\^;
-.br
-      Atom \fIname\fP\^;
+.BI "(\^Display *" "dpy" "\^,"
+.BI "XkbDescPtr " "xkb" "\^,"
+.BI "Atom " "name" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

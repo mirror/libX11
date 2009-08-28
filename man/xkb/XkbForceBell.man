@@ -32,15 +32,10 @@
 XkbForceBell \- Overrides user preference settings for audible bells to ring the 
 bell on the default keyboard
 .SH SYNOPSIS
+.HP
 .B Bool XkbForceBell
-(
-.I display,
-.I percent
-)
-.br
-      Display *\fI display \fP\^;
-.br
-      int \fI percent \fP\^;                        
+.BI "(\^Display *" "display" "\^,"
+.BI "int " "percent" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

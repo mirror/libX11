@@ -38,15 +38,10 @@ fields of
 from 
 .I ctrls
 .SH SYNOPSIS
-.B void XkbSAActionSetCtrls macro
-(
-.I act,
-.I ctrls
-)
-.br
-      XkbCtrlsAction \fIact\fP\^;
-.br
-      unsigned int \fIctrls\fP\^;      
+.HP
+.B void XkbSAActionSetCtrls
+.BI "(\^XkbCtrlsAction " "act" "\^,"
+.BI "unsigned int " "ctrls" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

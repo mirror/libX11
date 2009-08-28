@@ -31,12 +31,9 @@
 XkbRefreshKeyboardMapping \- Update the keyboard description that is internal to the X 
 library
 .SH SYNOPSIS
+.HP
 .B Status XkbRefreshKeyboardMapping
-(
-.I event
-)
-.br
-      XkbMapNotifyEvent * \fIevent\fP\^;
+.BI "(\^XkbMapNotifyEvent *" "event" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

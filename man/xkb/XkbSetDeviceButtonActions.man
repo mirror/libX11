@@ -31,24 +31,13 @@
 .SH NAME
 XkbSetDeviceButtonActions \- Change only the button actions for an input extension device
 .SH SYNTAX
+.HP
 .B Bool XkbSetDeviceButtonActions
-(
-.I dpy,
-.I device,
-.I first_button,
-.I num_buttons,
-.I actions
-)
-.br
-      Display * \fIdpy\fP\^;
-.br
-      XkbDeviceInfoPtr \fIdevice\fP\^;
-.br
-      unsigned int \fIfirst_button\fP\^;
-.br
-      unsigned int \fInum_buttons\fP\^;
-.br
-      *** MISSING *** \fIactions\fP\^;
+.BI "(\^Display *" "dpy" "\^,"
+.BI "XkbDeviceInfoPtr " "device" "\^,"
+.BI "unsigned int " "first_button" "\^,"
+.BI "unsigned int " "num_buttons" "\^,"
+.BI "*** MISSING ***" "actions" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

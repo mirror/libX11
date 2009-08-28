@@ -30,15 +30,10 @@
 .SH NAME
 XkbAllocGeomOverlayRows \- Allocate rows in a overlay
 .SH SYNOPSIS
+.HP
 .B Status XkbAllocGeomOverlayRows
-(
-.I overlay,
-.I num_needed
-)
-.br
-      XkbSectionPtr \fIoverlay\fP\^;
-.br
-      int \fInum_needed\fP\^;
+.BI "(\^XkbSectionPtr " "overlay" "\^,"
+.BI "int " "num_needed" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

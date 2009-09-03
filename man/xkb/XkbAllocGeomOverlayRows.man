@@ -32,7 +32,7 @@ XkbAllocGeomOverlayRows \- Allocate rows in a overlay
 .SH SYNOPSIS
 .HP
 .B Status XkbAllocGeomOverlayRows
-.BI "(\^XkbSectionPtr " "overlay" "\^,"
+.BI "(\^XkbOverlayPtr " "overlay" "\^,"
 .BI "int " "num_needed" "\^);"
 .if n .ti +5n
 .if t .ti +.5i

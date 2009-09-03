@@ -33,7 +33,7 @@ XkbAllocGeomOverlayKeys \- Allocate keys in an overlay row
 .SH SYNOPSIS
 .HP
 .B Status XkbAllocGeomOverlayKeys
-.BI "(\^XkbRowPtr " "row" "\^,"
+.BI "(\^XkbOverlayRowPtr " "row" "\^,"
 .BI "int " "num_needed" "\^);"
 .if n .ti +5n
 .if t .ti +.5i

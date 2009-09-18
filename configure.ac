@@ -507,6 +507,10 @@ if test -z "$man_pages_suffix"; then
     man_pages_suffix=none
 fi
 
+# Support AM_SILENT_RULES if automake-1.11 or later is used
+m4_ifdef([AM_SILENT_RULES],[HAVE_AM_SILENT_RULES=yes])
+AM_CONDITIONAL(HAVE_AM_SILENT_RULES, test x$HAVE_AM_SILENT_RULES != x)
+
 echo ""
 echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N

@@ -428,6 +428,10 @@ AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 
 XORG_CHECK_MALLOC_ZERO
 
+# Support AM_SILENT_RULES if automake-1.11 or later is used
+m4_ifdef([AM_SILENT_RULES],[HAVE_AM_SILENT_RULES=yes])
+AM_CONDITIONAL(HAVE_AM_SILENT_RULES, test x$HAVE_AM_SILENT_RULES != x)
+
 AC_OUTPUT([Makefile
            include/Makefile
 	   man/Makefile
@@ -515,10 +519,6 @@ man_pages_suffix=$LIBMAN_SUFFIX
 if test -z "$man_pages_suffix"; then
     man_pages_suffix=none
 fi
-
-# Support AM_SILENT_RULES if automake-1.11 or later is used
-m4_ifdef([AM_SILENT_RULES],[HAVE_AM_SILENT_RULES=yes])
-AM_CONDITIONAL(HAVE_AM_SILENT_RULES, test x$HAVE_AM_SILENT_RULES != x)
 
 echo ""
 echo "X11 will be built with the following settings:"

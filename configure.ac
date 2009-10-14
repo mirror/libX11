@@ -428,6 +428,31 @@ AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 
 XORG_CHECK_MALLOC_ZERO
 
+# Specification documents are currently provided in troff format
+AC_PATH_PROGS([GROFF], [groff], [none], [$PATH:/usr/gnu/bin])
+AC_PATH_PROGS([PS2PDF], [ps2pdf], [none], [$PATH:/usr/gnu/bin])
+
+AC_MSG_CHECKING([whether to build specifications])
+AC_ARG_ENABLE(specs, AC_HELP_STRING([--enable-specs],
+                                   [Enable building of specification docs]),
+              [build_specs="${enableval}"], [build_specs="auto"])
+
+if test "x${build_specs}" = xauto; then
+    if test "x${GROFF}" = xnone ; then
+        build_specs=no
+    else
+        build_specs=yes
+    fi
+fi
+AC_MSG_RESULT([${build_specs}])
+if test "x${build_specs}" = xyes && test "x${GROFF}" = xnone ; then
+    AC_MSG_ERROR([can't build documentation without groff])
+fi
+
+AM_CONDITIONAL(BUILD_SPECS, [test x$build_specs = xyes])
+AM_CONDITIONAL(HAVE_PS2PDF, [test x$PS2PDF != xnone])
+
+
 AC_OUTPUT([Makefile
            include/Makefile
 	   man/Makefile
@@ -508,6 +533,10 @@ AC_OUTPUT([Makefile
 	   nls/zh_TW/Makefile
 	   nls/zh_TW.big5/Makefile
 	   nls/zh_TW.UTF-8/Makefile
+	   specs/Makefile
+	   specs/i18n/Makefile
+	   specs/libX11/Makefile
+	   specs/XIM/Makefile
 	   x11.pc
 	   x11-xcb.pc])
 

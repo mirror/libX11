@@ -30,11 +30,29 @@ doc_sources = libX11.ms
 
 doc_includes = \
 	abstract.t \
-        credits.t \
-        CH[01][0123456789] \
-        App[ABCD] \
-        glossary \
-        postproc
+	credits.t \
+	CH01 \
+	CH02 \
+	CH03 \
+	CH04 \
+	CH05 \
+	CH06 \
+	CH07 \
+	CH08 \
+	CH09 \
+	CH10 \
+	CH11 \
+	CH12 \
+	CH13 \
+	CH14 \
+	CH15 \
+	CH16 \
+	AppA \
+	AppB \
+	AppC \
+	AppD \
+	glossary \
+	postproc
 
 include $(top_srcdir)/specs/troffrules.in
 

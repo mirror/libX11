@@ -14,9 +14,11 @@ AM_MAINTAINER_MODE
 AM_CONFIG_HEADER([src/config.h])
 AC_CONFIG_HEADER([include/X11/XlibConf.h])
 
-# Require xorg-macros: XORG_DEFAULT_OPTIONS, XORG_CHANGELOG, XORG_WITH_LINT
-m4_ifndef([XORG_MACROS_VERSION], [AC_FATAL([must install xorg-macros 1.3 or later before running autoconf/autogen])])
+# Require xorg-macros: XORG_DEFAULT_OPTIONS
+m4_ifndef([XORG_MACROS_VERSION],
+          [m4_fatal([must install xorg-macros 1.3 or later before running autoconf/autogen])])
 XORG_MACROS_VERSION(1.3)
+XORG_DEFAULT_OPTIONS
 
 # Set common system defines for POSIX extensions, such as _GNU_SOURCE
 # Must be called before any macros that run the compiler (like AC_PROG_LIBTOOL)
@@ -27,7 +29,6 @@ AC_USE_SYSTEM_EXTENSIONS
 AC_PROG_LIBTOOL
 DOLT
 AC_PROG_CC
-XORG_DEFAULT_OPTIONS
 
 if test x"$CC_FOR_BUILD" = x; then
 	if test x"$cross_compiling" = xyes; then

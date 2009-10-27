@@ -11,9 +11,8 @@ if XCB
 pkgconfig_DATA += x11-xcb.pc
 endif
 
-EXTRA_DIST=x11.pc.in x11-xcb.pc.in ChangeLog
+EXTRA_DIST=x11.pc.in x11-xcb.pc.in 
 
-MAINTAINERCLEANFILES=ChangeLog
 DISTCLEANFILES = doltcompile doltlibtool
 
 .PHONY: ChangeLog

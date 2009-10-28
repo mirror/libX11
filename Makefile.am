@@ -15,12 +15,15 @@ EXTRA_DIST=x11.pc.in x11-xcb.pc.in
 
 DISTCLEANFILES = doltcompile doltlibtool
 
-.PHONY: ChangeLog
+.PHONY: ChangeLog INSTALL
+
+INSTALL:
+	$(INSTALL_CMD)
 
 ChangeLog:
 	$(CHANGELOG_CMD)
 
-dist-hook: ChangeLog
+dist-hook: ChangeLog INSTALL
 
 if LINT
 # Check source code with tools like lint & sparse

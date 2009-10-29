@@ -151,8 +151,8 @@ XCreateGC, XCopyGC, XChangeGC, XGetGCValues, XFreeGC, XGContextFromGC, XGCValues
 GC XCreateGC\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, unsigned long
 \fIvaluemask\fP\^, XGCValues *\^\fIvalues\fP\^); 
 .HP
-int XCopyGC\^(\^Display *\fIdisplay\fP\^, GC \fIsrc\fP\^, GC \fIdest\fP\^,
-unsigned long \fIvaluemask\fP\^); 
+int XCopyGC\^(\^Display *\fIdisplay\fP\^, GC \fIsrc\fP\^,
+unsigned long \fIvaluemask\fP\^, GC \fIdest\fP\^); 
 .HP
 int XChangeGC\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, unsigned long
 \fIvaluemask\fP\^, XGCValues *\^\fIvalues\fP\^); 

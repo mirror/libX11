@@ -1,0 +1,9 @@
+#               Add & Override for this directory and it's subdirectories
+*.html
+*.ps
+*.pdf
+*.txt
+*.html.raw
+*.ps.raw
+*.txt.raw
+grohtml-*.png

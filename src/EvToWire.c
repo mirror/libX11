@@ -42,13 +42,15 @@ from The Open Group.
 #include "Xlibint.h"
 
 /*
- * reformat a wire event into an XEvent structure of the right type.
+ * Reformat an XEvent structure to a wire event of the right type.
+ * Return True on success.  If the type is unrecognized, return what
+ * _XUnknownNativeEvent returns (i.e., False).
  */
 Status
 _XEventToWire(
-register Display *dpy,	/* pointer to display structure */
-register XEvent *re,	/* pointer to where event should be reformatted */
-register xEvent *event)	/* wire protocol event */
+    register Display *dpy,
+    register XEvent *re,        /* in: from */
+    register xEvent *event)     /* out: to */
 {
 	switch (event->u.u.type = re->type) {
 	      case KeyPress:

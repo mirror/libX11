@@ -412,11 +412,10 @@ set_fontset_extents(
 		}
 	    }
 
-	    if(font_set->vrotate_num > 0) {
+	    if(font_set->vrotate_num > 0 && font_set->vrotate != NULL) {
 		font_data = (FontData) font_set->vrotate;
 		font_data_count = font_set->vrotate_num;
 		for( ; font_data_count-- ; font_data++) {
-		    if(font_data != NULL)
 		    if(font_data->font != NULL) {
 			check_fontset_extents(&overall, &logical_ascent,
 					      &logical_descent,
@@ -572,6 +571,7 @@ get_rotate_fontname(
 	if((ptr = strchr(ptr, '-'))) {
 	    *ptr = '\0';
 	} else {
+	    field_num++;	/* Count last field */
 	    break;
 	}
     }

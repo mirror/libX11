@@ -379,13 +379,6 @@ XORG_WITH_LINT
 XORG_LINT_LIBRARY([X11])
 LINT_FLAGS="${LINT_FLAGS} ${X11_CFLAGS} ${XPROTO_CFLAGS}"
 
-if test "x$GCC" = "xyes"; then
-	GCC_WARNINGS="-Wall -Wpointer-arith -Wstrict-prototypes \
-	-Wmissing-prototypes -Wmissing-declarations \
-	-Wnested-externs -fno-strict-aliasing"
-	X11_CFLAGS="$GCC_WARNINGS $X11_CFLAGS"
-fi
-
 X11_DATADIR="${datadir}/X11"
 AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_SUBST(X11_DATADIR)

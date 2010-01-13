@@ -219,7 +219,7 @@ _XlcParsePath(
 #define XLOCALEDIR "/usr/lib/X11/locale"
 #endif
 
-static void
+void
 xlocaledir(
     char *buf,
     int buf_len)

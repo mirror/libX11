@@ -56,18 +56,24 @@ instruction.  This allows local modifications to be made to existing compose
 files without including all of the content directly.  For example, the
 system's iso8859-1 compose file can be included with a line like this:
 .RS 4
-.BI "include \*q" __xlocaledir__/iso8859-1/Compose \*q
+.BI "include \*q" %S/iso8859-1/Compose \*q
 .RE
 .PP
-There are two substitutions that can be made in the file name of the
-include instruction.
+There are several substitutions that can be made in the file name of the
+include instruction:
+.TP 4
 .I %H
 expands to the user's home directory (the
 .B $HOME
-environment variable), and
+environment variable)
+.TP 4
 .I %L
 expands to the name of the locale specific Compose file (i.e.,
-.RI \*q __xlocaledir__/<localename>/Compose \*q).
+.RI \*q __xlocaledir__/<localename>/Compose \*q)
+.TP 4
+.I %S
+expands to the name of the system directory for Compose files (i.e.,
+.RI \*q __xlocaledir__ \*q)
 .PP
 For example, you can include in your compose file the default Compose file
 by using:

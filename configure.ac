@@ -62,6 +62,8 @@ AM_CONDITIONAL(XCB, test x$ac_cv_use_xcb != xno)
 # Always required
 X11_REQUIRES='xproto >= 7.0.13 xextproto xtrans'
 
+PKG_PROG_PKG_CONFIG()
+
 case "$ac_cv_use_xcb" in
 no)
 	X11_REQUIRES="${X11_REQUIRES} xau xcmiscproto bigreqsproto"

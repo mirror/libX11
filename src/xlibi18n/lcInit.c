@@ -59,7 +59,6 @@ Sun Microsystems, Inc. or its licensors is granted.
  * DEALINGS IN THE SOFTWARE.
  */
 
-/* $Xorg: lcInit.c,v 1.4 2000/12/12 12:44:05 coskrey Exp $ */
 /*
  * Copyright 1992, 1993 by TOSHIBA Corp.
  *
@@ -92,7 +91,6 @@ Sun Microsystems, Inc. or its licensors is granted.
  *   Modifier: Masayoshi Shimamura      FUJITSU LIMITED
  *
  */
-/* $XFree86: xc/lib/X11/lcInit.c,v 3.9 2001/11/16 00:52:27 dawes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

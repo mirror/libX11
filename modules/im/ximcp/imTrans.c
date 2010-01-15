@@ -1,4 +1,3 @@
-/* $Xorg: imTrans.c,v 1.3 2000/08/17 19:45:16 cpqbld Exp $ */
 /*
  * Copyright 1992 Sun Microsystems, Inc.  All rights reserved.
  *
@@ -49,7 +48,6 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imTrans.c,v 1.3 2003/04/17 02:06:32 dawes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

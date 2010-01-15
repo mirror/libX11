@@ -59,7 +59,6 @@ Sun Microsystems, Inc. or its licensors is granted.
  * DEALINGS IN THE SOFTWARE.
  */
 
-/* $XFree86$ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

@@ -59,8 +59,6 @@ Sun Microsystems, Inc. or its licensors is granted.
  * DEALINGS IN THE SOFTWARE.
  */
 
-/* $XFree86: xc/lib/X11/XlcDL.c,v 1.12 2003/04/13 19:22:19 dawes Exp $ */
-/* $XdotOrg: lib/X11/src/xlibi18n/XlcDL.c,v 1.6 2005-07-11 15:24:32 lars Exp $ */
 
 #ifdef HAVE_CONFIG_H
 # include <config.h>

@@ -1,5 +1,3 @@
-/* $Xorg: Host.c,v 1.4 2001/02/09 02:03:33 xorgcvs Exp $ */
-/* $XdotOrg: lib/X11/src/Host.c,v 1.4 2005-07-03 07:00:55 daniels Exp $ */
 /*
 
 Copyright 1986, 1998  The Open Group
@@ -58,7 +56,6 @@ X Window System is a trademark of The Open Group.
  * DEALINGS IN THE SOFTWARE.
  */
 
-/* $XFree86: xc/lib/X11/Host.c,v 1.3 2001/01/17 19:41:37 dawes Exp $ */
 
 /* this might be rightly regarded an os dependent file */
 

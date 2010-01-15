@@ -59,7 +59,6 @@ Sun Microsystems, Inc. or its licensors is granted.
  * DEALINGS IN THE SOFTWARE.
  */
 
-/* $XFree86: xc/lib/X11/XDefaultOMIF.c,v 1.5 2003/04/17 02:39:56 dawes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

@@ -1,4 +1,3 @@
-/* $Xorg: imLcPrs.c,v 1.3 2000/08/17 19:45:14 cpqbld Exp $ */
 /******************************************************************
 
               Copyright 1992 by Oki Technosystems Laboratory, Inc.
@@ -30,7 +29,6 @@ OR PERFORMANCE OF THIS SOFTWARE.
 
 ******************************************************************/
 
-/* $XFree86: xc/lib/X11/imLcPrs.c,v 1.10 2003/09/06 14:06:32 pascal Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

@@ -1,4 +1,3 @@
-/* $Xorg: imDefIc.c,v 1.5 2000/08/17 19:45:11 cpqbld Exp $ */
 /*
  * Copyright 1991, 1992 Sun Microsystems, Inc.  All rights reserved.
  *
@@ -49,7 +48,6 @@ PERFORMANCE OF THIS SOFTWARE.
                                fujiwara@a80.tech.yk.fujitsu.co.jp
 
 ******************************************************************/
-/* $XFree86: xc/lib/X11/imDefIc.c,v 3.9 2003/04/13 19:22:20 dawes Exp $ */
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>

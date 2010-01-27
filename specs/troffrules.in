@@ -39,6 +39,9 @@ doc_DATA =	$(doc_sources:.ms=.txt) \
 CLEANFILES = $(doc_DATA)
 MOSTLYCLEANFILES = index.*
 
+mostlyclean-local:
+	@rm -fr images
+
 # Pass version string as a troff string for substitution
 GROFF_DEFS = -dxV="$(PACKAGE_STRING)"
 
@@ -57,7 +60,7 @@ SUFFIXES = .ms .ps .txt .html .pdf
 	 $< 2> index.$@.raw > $@
 
 .ms.html:
-	$(AM_V_GEN) $(GROFF) -Thtml $(GROFF_FLAGS) $< 2> index.$@.raw > $@
+	$(AM_V_GEN) $(GROFF) -Thtml -P-Dimages -P-I$*-image $(GROFF_FLAGS) $< 2> index.$@.raw > $@
 
 .ps.pdf:
 	$(AM_V_GEN) $(PS2PDF) $< $@

@@ -16,14 +16,17 @@ AC_CONFIG_HEADER([include/X11/XlibConf.h])
 
 # Require xorg-macros: XORG_DEFAULT_OPTIONS
 m4_ifndef([XORG_MACROS_VERSION],
-          [m4_fatal([must install xorg-macros 1.4 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.4)
+          [m4_fatal([must install xorg-macros 1.6 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.6)
 
 # Set common system defines for POSIX extensions, such as _GNU_SOURCE
 # Must be called before any macros that run the compiler (like AC_PROG_LIBTOOL)
 # to avoid autoconf errors.
 AC_USE_SYSTEM_EXTENSIONS
 XORG_DEFAULT_OPTIONS
+XORG_ENABLE_SPECS
+XORG_WITH_GROFF
+XORG_WITH_PS2PDF
 
 # Checks for programs.
 AC_PROG_LIBTOOL
@@ -421,45 +424,6 @@ AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 
 XORG_CHECK_MALLOC_ZERO
 
-# Specification documents are currently provided in troff format
-AC_ARG_VAR([GROFF], [Path to a groff executable that supports -ms])
-AC_PATH_PROGS([GROFF], [groff], [none], [$PATH:/usr/gnu/bin])
-
-AC_ARG_VAR([PS2PDF], [Path to a ps2pdf executable])
-AC_PATH_PROGS([PS2PDF], [ps2pdf], [none], [$PATH:/usr/gnu/bin])
-
-if test "x${GROFF}" != xnone ; then
-    AC_MSG_CHECKING([whether ${GROFF} -ms works])
-    if ${GROFF} -ms -I. /dev/null >/dev/null 2>&1 ; then
-        groff_ms_works=yes
-    else
-        groff_ms_works=no
-        GROFF=none
-    fi
-    AC_MSG_RESULT([${groff_ms_works}])
-fi
-
-AC_MSG_CHECKING([whether to build specifications])
-AC_ARG_ENABLE(specs, AC_HELP_STRING([--enable-specs],
-                                   [Enable building of specification docs]),
-              [build_specs="${enableval}"], [build_specs="auto"])
-
-if test "x${build_specs}" = xauto; then
-    if test "x${GROFF}" = xnone ; then
-        build_specs=no
-    else
-        build_specs=yes
-    fi
-fi
-AC_MSG_RESULT([${build_specs}])
-if test "x${build_specs}" = xyes && test "x${GROFF}" = xnone ; then
-    AC_MSG_ERROR([can't build documentation without groff])
-fi
-
-AM_CONDITIONAL(BUILD_SPECS, [test x$build_specs = xyes])
-AM_CONDITIONAL(HAVE_PS2PDF, [test x$PS2PDF != xnone])
-
-
 AC_OUTPUT([Makefile
            include/Makefile
 	   man/Makefile
@@ -567,4 +531,5 @@ echo " XKB support:                             "$XKB
 echo " XLOCALEDIR environment variable support: "$ENABLE_XLOCALEDIR
 echo " Manual pages suffix:                     "$man_pages_suffix
 echo " Compose table cache enabled:             "$COMPOSECACHE
+echo " Functional specs building enabled:       "$build_specs
 echo ""

@@ -31,7 +31,8 @@ else
 printable_format = .ps
 endif
 
-if BUILD_SPECS
+if ENABLE_SPECS
+if HAVE_GROFF_MS
 doc_DATA =	$(doc_sources:.ms=.txt) \
 		$(doc_sources:.ms=$(printable_format)) \
 		$(doc_sources:.ms=.html)
@@ -65,4 +66,5 @@ SUFFIXES = .ms .ps .txt .html .pdf
 .ps.pdf:
 	$(AM_V_GEN) $(PS2PDF) $< $@
 
-endif BUILD_SPECS
+endif HAVE_GROFF_MS
+endif ENABLE_SPECS

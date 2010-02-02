@@ -33,12 +33,35 @@ endif
 
 if ENABLE_SPECS
 if HAVE_GROFF_MS
-doc_DATA =	$(doc_sources:.ms=.txt) \
+spec_DATA =	$(doc_sources:.ms=.txt) \
 		$(doc_sources:.ms=$(printable_format)) \
 		$(doc_sources:.ms=.html)
+specdir = $(docdir)/$(subdir)
+imagesdir = $(specdir)/images
 
-CLEANFILES = $(doc_DATA)
+CLEANFILES = $(spec_DATA)
 MOSTLYCLEANFILES = index.*
+
+# Install html generated images for specs
+install-data-local:
+	test -z "$(imagesdir)" || $(MKDIR_P) "$(DESTDIR)$(imagesdir)"
+	@d="$(srcdir)/images/"; \
+	list=`ls $$d`; \
+	for p in $$list; do \
+	  echo " $(docDATA_INSTALL) '$$d$$p' '$(DESTDIR)$(imagesdir)/$$p'"; \
+	  $(specDATA_INSTALL) "$$d$$p" "$(DESTDIR)$(imagesdir)/$$p"; \
+	done;
+
+uninstall-local:
+	@if test -n $(DESTDIR)$(imagesdir); then \
+	  if test -d $(DESTDIR)$(imagesdir); then \
+	    list=`ls $(DESTDIR)$(imagesdir)`; \
+	    for p in $$list; do \
+	      echo " rm -f '$(DESTDIR)$(imagesdir)/$$p'"; \
+	      rm -f "$(DESTDIR)$(imagesdir)/$$p"; \
+	    done \
+	  fi; \
+	fi;
 
 mostlyclean-local:
 	@rm -fr images

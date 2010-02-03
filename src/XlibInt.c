@@ -3424,6 +3424,10 @@ void _XData32(
 #if (defined(_POSIX_SOURCE) && !defined(AIXV3) && !defined(__QNX__)) || defined(hpux) || defined(SVR4)
 #define NEED_UTSNAME
 #include <sys/utsname.h>
+#else
+#ifdef HAVE_UNISTD_H
+#include <unistd.h>
+#endif
 #endif
 
 /*

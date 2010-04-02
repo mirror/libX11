@@ -7,10 +7,10 @@ AC_INIT([libX11],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
+AC_CONFIG_MACRO_DIR([m4])
+
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
-
 AM_MAINTAINER_MODE
-
 AM_CONFIG_HEADER([src/config.h])
 AC_CONFIG_HEADER([include/X11/XlibConf.h])
 
@@ -385,7 +385,7 @@ AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_SUBST(X11_DATADIR)
 
 X11_LIBDIR="${libdir}/X11"
-AC_DEFINE_DIR(X11_LIBDIR, X11_LIBDIR, [Location of libX11 library data])
+AX_DEFINE_DIR(X11_LIBDIR, X11_LIBDIR, [Location of libX11 library data])
 AC_SUBST(X11_LIBDIR)
 
 PKG_CHECK_MODULES(X11, [$X11_REQUIRES])

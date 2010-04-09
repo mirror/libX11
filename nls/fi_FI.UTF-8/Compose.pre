@@ -151,7 +151,7 @@ XCOMM Sequences with COMBINING CIRCUMFLEX ACCENT / <dead_circumflex>
 <dead_circumflex> <Y>                   : "Ŷ"   # LATIN CAPITAL LETTER Y WITH CIRCUMFLEX
 
 XCOMM Sequences with COMBINING DIAERESIS / <dead_diaeresis>
-<dead_diaeresis> <space>                " "¨"   # DIAERESIS
+<dead_diaeresis> <space>                : "¨"   # DIAERESIS
 <dead_diaeresis> <a>                    : "ä"   # LATIN SMALL LETTER A WITH DIAERESIS
 <dead_diaeresis> <A>                    : "Ä"   # LATIN CAPITAL LETTER A WITH DIAERESIS
 <dead_diaeresis> <e>                    : "ë"   # LATIN SMALL LETTER E WITH DIAERESIS

@@ -595,6 +595,8 @@ _XPrivSyncFunction (Display *dpy)
     dpy->synchandler = dpy->savedsynchandler;
     dpy->savedsynchandler = NULL;
     dpy->flags &= ~XlibDisplayPrivSync;
+    if(dpy->synchandler)
+        dpy->synchandler(dpy);
     _XIDHandler(dpy);
     _XSeqSyncFunction(dpy);
     return 0;

@@ -477,10 +477,10 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 
 		/* do not die on "no such font", "can't allocate",
 		   "can't grab" failures */
-		switch(err->errorCode)
+		switch(error->error_code)
 		{
 			case BadName:
-				switch(err->majorCode)
+				switch(error->major_code)
 				{
 					case X_LookupColor:
 					case X_AllocNamedColor:
@@ -489,7 +489,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				}
 				break;
 			case BadFont:
-				if(err->majorCode == X_QueryFont) {
+				if(error->major_code == X_QueryFont) {
 					free(error);
 					return 0;
 				}

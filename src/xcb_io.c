@@ -114,6 +114,21 @@ static void check_internal_connections(Display *dpy)
 		}
 }
 
+static int handle_error(Display *dpy, xError *err)
+{
+	_XExtension *ext;
+	int ret_code;
+	/*
+	 * we better see if there is an extension who may
+	 * want to suppress the error.
+	 */
+	for(ext = dpy->ext_procs; ext; ext = ext->next)
+		if(ext->error && (*ext->error)(dpy, err, &ext->codes, &ret_code))
+			return ret_code;
+	_XError(dpy, err);
+	return 0;
+}
+
 static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 {
 	_XAsyncHandler *async, *next;
@@ -202,15 +217,25 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				_XEnq(dpy, (xEvent *) event);
 				wait_for_first_event = 0;
 			}
-			else if(current_error && event_sequence == current_request)
+			else if(current_error)
 			{
 				/* This can only occur when called from
 				 * _XReply, which doesn't need a new event. */
-				*current_error = (xcb_generic_error_t *) event;
-				event = NULL;
-				break;
+				if(event_sequence == current_request)
+				{
+					*current_error = (xcb_generic_error_t *) event;
+					event = NULL;
+					break;
+				}
+				/* Oddly, Xlib only allows extensions to
+				 * suppress errors when those errors
+				 * were seen by _XReply. */
+				handle_error(dpy, (xError *) event);
 			}
 			else
+				/* We're looking for events or flushing
+				 * the output queue. Never suppress
+				 * errors here. */
 				_XError(dpy, (xError *) event);
 			free(event);
 			event = wait_or_poll_for_event(dpy, wait_for_first_event);
@@ -465,8 +490,6 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 
 	if(error)
 	{
-		_XExtension *ext;
-		xError *err = (xError *) error;
 		int ret_code;
 
 		dpy->last_request_read = error->full_sequence;
@@ -500,19 +523,9 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				return 0;
 		}
 
-		/*
-		 * we better see if there is an extension who may
-		 * want to suppress the error.
-		 */
-		for(ext = dpy->ext_procs; ext; ext = ext->next)
-			if(ext->error && ext->error(dpy, err, &ext->codes, &ret_code)) {
-				free(error);
-				return ret_code;
-			}
-
-		_XError(dpy, err);
+		ret_code = handle_error(dpy, (xError *) error);
 		free(error);
-		return 0;
+		return ret_code;
 	}
 
 	/* it's not an error, but we don't have a reply, so it's an I/O

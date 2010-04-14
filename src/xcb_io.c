@@ -114,17 +114,20 @@ static void check_internal_connections(Display *dpy)
 		}
 }
 
-static int handle_error(Display *dpy, xError *err)
+static int handle_error(Display *dpy, xError *err, Bool in_XReply)
 {
 	_XExtension *ext;
 	int ret_code;
-	/*
-	 * we better see if there is an extension who may
-	 * want to suppress the error.
-	 */
-	for(ext = dpy->ext_procs; ext; ext = ext->next)
-		if(ext->error && (*ext->error)(dpy, err, &ext->codes, &ret_code))
-			return ret_code;
+	/* Oddly, Xlib only allows extensions to suppress errors when
+	 * those errors were seen by _XReply. */
+	if(in_XReply)
+		/*
+		 * we better see if there is an extension who may
+		 * want to suppress the error.
+		 */
+		for(ext = dpy->ext_procs; ext; ext = ext->next)
+			if(ext->error && (*ext->error)(dpy, err, &ext->codes, &ret_code))
+				return ret_code;
 	_XError(dpy, err);
 	return 0;
 }
@@ -215,26 +218,16 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				_XEnq(dpy, (xEvent *) event);
 				wait_for_first_event = 0;
 			}
-			else if(current_error)
+			else if(current_error && event_sequence == current_request)
 			{
 				/* This can only occur when called from
 				 * _XReply, which doesn't need a new event. */
-				if(event_sequence == current_request)
-				{
-					*current_error = (xcb_generic_error_t *) event;
-					event = NULL;
-					break;
-				}
-				/* Oddly, Xlib only allows extensions to
-				 * suppress errors when those errors
-				 * were seen by _XReply. */
-				handle_error(dpy, (xError *) event);
+				*current_error = (xcb_generic_error_t *) event;
+				event = NULL;
+				break;
 			}
 			else
-				/* We're looking for events or flushing
-				 * the output queue. Never suppress
-				 * errors here. */
-				_XError(dpy, (xError *) event);
+				handle_error(dpy, (xError *) event, current_error != NULL);
 			free(event);
 			event = wait_or_poll_for_event(dpy, wait_for_first_event);
 		}
@@ -253,7 +246,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 			}
 			if(error)
 			{
-				_XError(dpy, (xError *) error);
+				handle_error(dpy, (xError *) error, current_error != NULL);
 				free(error);
 			}
 			if(!reply)
@@ -525,7 +518,7 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 				return 0;
 		}
 
-		ret_code = handle_error(dpy, (xError *) error);
+		ret_code = handle_error(dpy, (xError *) error, True);
 		free(error);
 		return ret_code;
 	}

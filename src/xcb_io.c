@@ -138,8 +138,6 @@ static void call_handlers(Display *dpy, xcb_generic_reply_t *buf)
 		if(async->handler(dpy, (xReply *) buf, (char *) buf, sizeof(xReply) + (buf->length << 2), async->data))
 			return;
 	}
-	if(buf->response_type == 0) /* unhandled error */
-	    _XError(dpy, (xError *) buf);
 }
 
 static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
@@ -246,20 +244,24 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 		}
 		else if(req && xcb_poll_for_reply(dpy->xcb->connection, req->sequence, &reply, &error))
 		{
-			uint64_t sequence = req->sequence;
+			if(reply || error)
+				dpy->last_request_read = req->sequence;
+			if(reply)
+			{
+				call_handlers(dpy, reply);
+				free(reply);
+			}
+			if(error)
+			{
+				_XError(dpy, (xError *) error);
+				free(error);
+			}
 			if(!reply)
 			{
 				dpy->xcb->pending_requests = req->next;
 				if(!dpy->xcb->pending_requests)
 					dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
 				free(req);
-				reply = error;
-			}
-			if(reply)
-			{
-				dpy->last_request_read = sequence;
-				call_handlers(dpy, reply);
-				free(reply);
 			}
 		}
 		else

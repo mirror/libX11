@@ -567,29 +567,43 @@ static int sync_hazard(Display *dpy)
 }
 
 static
+void sync_while_locked(Display *dpy)
+{
+#ifdef XTHREADS
+    if (dpy->lock)
+        (*dpy->lock->user_lock_display)(dpy);
+#endif
+    UnlockDisplay(dpy);
+    SyncHandle();
+    LockDisplay(dpy);
+#ifdef XTHREADS
+    if (dpy->lock)
+        (*dpy->lock->user_unlock_display)(dpy);
+#endif
+}
+
 int _XSeqSyncFunction(
     register Display *dpy)
 {
     xGetInputFocusReply rep;
     register xReq *req;
-    int sent_sync = 0;
 
-    LockDisplay(dpy);
     if ((dpy->request - dpy->last_request_read) >= (65535 - BUFSIZE/SIZEOF(xReq))) {
 	GetEmptyReq(GetInputFocus, req);
 	(void) _XReply (dpy, (xReply *)&rep, 0, xTrue);
-	sent_sync = 1;
+	sync_while_locked(dpy);
     } else if (sync_hazard(dpy))
 	_XSetPrivSyncFunction(dpy);
-    UnlockDisplay(dpy);
-    if (sent_sync)
-        SyncHandle();
     return 0;
 }
 
+/* NOTE: only called if !XTHREADS, or when XInitThreads wasn't called. */
 static int
 _XPrivSyncFunction (Display *dpy)
 {
+#if XTHREADS
+    assert(!dpy->lock_fns);
+#endif
     assert(dpy->synchandler == _XPrivSyncFunction);
     assert((dpy->flags & XlibDisplayPrivSync) != 0);
     dpy->synchandler = dpy->savedsynchandler;
@@ -604,6 +618,10 @@ _XPrivSyncFunction (Display *dpy)
 
 void _XSetPrivSyncFunction(Display *dpy)
 {
+#ifdef XTHREADS
+    if (dpy->lock_fns)
+        return;
+#endif
     if (!(dpy->flags & XlibDisplayPrivSync)) {
 	dpy->savedsynchandler = dpy->synchandler;
 	dpy->synchandler = _XPrivSyncFunction;
@@ -1544,9 +1562,7 @@ _XIDHandler(
 {
     xXCMiscGetXIDRangeReply grep;
     register xXCMiscGetXIDRangeReq *greq;
-    int sent_req = 0;
 
-    LockDisplay(dpy);
     if (dpy->resource_max == dpy->resource_mask + 1) {
 	_XGetMiscCode(dpy);
 	if (dpy->xcmisc_opcode > 0) {
@@ -1561,12 +1577,9 @@ _XIDHandler(
 		    dpy->resource_max += grep.count - 6;
 		dpy->resource_max <<= dpy->resource_shift;
 	    }
-	    sent_req = 1;
+	    sync_while_locked(dpy);
 	}
     }
-    UnlockDisplay(dpy);
-    if (sent_req)
-	SyncHandle();
     return 0;
 }
 

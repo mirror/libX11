@@ -382,19 +382,14 @@ static const XID inval_id = ~0UL;
 
 int _XIDHandler(Display *dpy)
 {
-	XID next;
-
-	if (dpy->xcb->next_xid != inval_id)
-	    return 0;
-
-	next = xcb_generate_id(dpy->xcb->connection);
-	LockDisplay(dpy);
-	dpy->xcb->next_xid = next;
-#ifdef XTHREADS
-	if (dpy->lock)
-		(*dpy->lock->user_unlock_display)(dpy);
-#endif
-	UnlockDisplay(dpy);
+	if (dpy->xcb->next_xid == inval_id)
+	{
+		/* We drop the Display lock to call xcb_generate_id, and
+		 * xcb_generate_id might take the socket back, which will call
+		 * LockDisplay. Avoid recursing. */
+		dpy->xcb->next_xid = inval_id - 1;
+		_XAllocIDs(dpy, &dpy->xcb->next_xid, 1);
+	}
 	return 0;
 }
 
@@ -403,10 +398,6 @@ XID _XAllocID(Display *dpy)
 {
 	XID ret = dpy->xcb->next_xid;
 	assert (ret != inval_id);
-#ifdef XTHREADS
-	if (dpy->lock)
-		(*dpy->lock->user_lock_display)(dpy);
-#endif
 	dpy->xcb->next_xid = inval_id;
 	_XSetPrivSyncFunction(dpy);
 	return ret;

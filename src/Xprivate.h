@@ -8,8 +8,8 @@
 #ifndef XPRIVATE_H
 #define XPRIVATE_H
 
-extern int _XIDHandler(Display *dpy);
-extern int _XSeqSyncFunction(Display *dpy);
+extern void _XIDHandler(Display *dpy);
+extern void _XSeqSyncFunction(Display *dpy);
 extern void _XSetPrivSyncFunction(Display *dpy);
 extern void _XSetSeqSyncFunction(Display *dpy);
 

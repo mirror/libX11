@@ -380,7 +380,7 @@ void _XFlush(Display *dpy)
 
 static const XID inval_id = ~0UL;
 
-int _XIDHandler(Display *dpy)
+void _XIDHandler(Display *dpy)
 {
 	if (dpy->xcb->next_xid == inval_id)
 	{
@@ -390,7 +390,6 @@ int _XIDHandler(Display *dpy)
 		dpy->xcb->next_xid = inval_id - 1;
 		_XAllocIDs(dpy, &dpy->xcb->next_xid, 1);
 	}
-	return 0;
 }
 
 /* _XAllocID - resource ID allocation routine. */

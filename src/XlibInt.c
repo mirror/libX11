@@ -582,7 +582,7 @@ void sync_while_locked(Display *dpy)
 #endif
 }
 
-int _XSeqSyncFunction(
+void _XSeqSyncFunction(
     register Display *dpy)
 {
     xGetInputFocusReply rep;
@@ -594,7 +594,6 @@ int _XSeqSyncFunction(
 	sync_while_locked(dpy);
     } else if (sync_hazard(dpy))
 	_XSetPrivSyncFunction(dpy);
-    return 0;
 }
 
 /* NOTE: only called if !XTHREADS, or when XInitThreads wasn't called. */
@@ -1556,7 +1555,7 @@ _XGetMiscCode(
     }
 }
 
-int
+void
 _XIDHandler(
     register Display *dpy)
 {
@@ -1580,7 +1579,6 @@ _XIDHandler(
 	    sync_while_locked(dpy);
 	}
     }
-    return 0;
 }
 
 /*

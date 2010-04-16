@@ -12,7 +12,9 @@
 #include <xcb/xcbext.h>
 
 #include <assert.h>
+#ifdef HAVE_INTTYPES_H
 #include <inttypes.h>
+#endif
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>

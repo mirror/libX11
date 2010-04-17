@@ -357,7 +357,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	if(dpy->xcb->event_owner != XlibOwnsEventQueue || dpy->async_handlers)
 	{
 		uint64_t sequence;
-		for(sequence = dpy->xcb->last_flushed; sequence < dpy->request; ++sequence)
+		for(sequence = dpy->xcb->last_flushed + 1; sequence <= dpy->request; ++sequence)
 			append_pending_request(dpy, sequence);
 	}
 	requests = dpy->request - dpy->xcb->last_flushed;

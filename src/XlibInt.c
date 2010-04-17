@@ -86,14 +86,6 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
     (*(d)->lock->push_reader)(d,&(d)->lock->reply_awaiters_tail) : NULL)
 #define QueueEventReaderLock(d) ((d)->lock ? \
     (*(d)->lock->push_reader)(d,&(d)->lock->event_awaiters_tail) : NULL)
-
-#if defined(XTHREADS_WARN) || defined(XTHREADS_FILE_LINE)
-#define InternalLockDisplay(d,wskip) if ((d)->lock) \
-    (*(d)->lock->internal_lock_display)(d,wskip,__FILE__,__LINE__)
-#else
-#define InternalLockDisplay(d,wskip) if ((d)->lock) \
-    (*(d)->lock->internal_lock_display)(d,wskip)
-#endif
 #endif /* !USE_XCB */
 
 #else /* XTHREADS else */
@@ -101,7 +93,6 @@ xthread_t (*_Xthread_self_fn)(void) = NULL;
 #if !USE_XCB
 #define UnlockNextReplyReader(d)
 #define UnlockNextEventReader(d)
-#define InternalLockDisplay(d,wskip)
 #endif /* !USE_XCB */
 
 #endif /* XTHREADS else */
@@ -575,7 +566,7 @@ void sync_while_locked(Display *dpy)
 #endif
     UnlockDisplay(dpy);
     SyncHandle();
-    LockDisplay(dpy);
+    InternalLockDisplay(dpy, /* don't skip user locks */ 0);
 #ifdef XTHREADS
     if (dpy->lock)
         (*dpy->lock->user_unlock_display)(dpy);

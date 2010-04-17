@@ -25,7 +25,7 @@
 static void return_socket(void *closure)
 {
 	Display *dpy = closure;
-	LockDisplay(dpy);
+	InternalLockDisplay(dpy, /* don't skip user locks */ 0);
 	_XSend(dpy, NULL, 0);
 	dpy->bufmax = dpy->buffer;
 	UnlockDisplay(dpy);
@@ -193,7 +193,7 @@ static xcb_generic_event_t * wait_or_poll_for_event(Display *dpy, int wait)
 			dpy->xcb->event_waiter = 1;
 			UnlockDisplay(dpy);
 			event = xcb_wait_for_event(c);
-			LockDisplay(dpy);
+			InternalLockDisplay(dpy, /* don't skip user locks */ 0);
 			dpy->xcb->event_waiter = 0;
 			ConditionBroadcast(dpy, dpy->xcb->event_notify);
 		}
@@ -405,13 +405,7 @@ static const XID inval_id = ~0UL;
 void _XIDHandler(Display *dpy)
 {
 	if (dpy->xcb->next_xid == inval_id)
-	{
-		/* We drop the Display lock to call xcb_generate_id, and
-		 * xcb_generate_id might take the socket back, which will call
-		 * LockDisplay. Avoid recursing. */
-		dpy->xcb->next_xid = inval_id - 1;
 		_XAllocIDs(dpy, &dpy->xcb->next_xid, 1);
-	}
 }
 
 /* _XAllocID - resource ID allocation routine. */
@@ -436,7 +430,7 @@ void _XAllocIDs(Display *dpy, XID *ids, int count)
 	for (i = 0; i < count; i++)
 		ids[i] = xcb_generate_id(dpy->xcb->connection);
 #ifdef XTHREADS
-	LockDisplay(dpy);
+	InternalLockDisplay(dpy, /* don't skip user locks */ 0);
 	if (dpy->lock)
 		(*dpy->lock->user_unlock_display)(dpy);
 #endif

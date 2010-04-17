@@ -21,7 +21,7 @@ struct PendingRequest {
 typedef struct _X11XCBPrivate {
 	xcb_connection_t *connection;
 	PendingRequest *pending_requests;
-	PendingRequest **pending_requests_tail;
+	PendingRequest *pending_requests_tail;
 	xcb_generic_event_t *next_event;
 	char *real_bufmax;
 	char *reply_data;

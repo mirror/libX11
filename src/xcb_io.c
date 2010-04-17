@@ -116,6 +116,38 @@ static void check_internal_connections(Display *dpy)
 		}
 }
 
+static PendingRequest *append_pending_request(Display *dpy, unsigned long sequence)
+{
+	PendingRequest *node = malloc(sizeof(PendingRequest));
+	assert(node);
+	node->next = NULL;
+	node->sequence = sequence;
+	if(dpy->xcb->pending_requests_tail)
+	{
+		assert(XLIB_SEQUENCE_COMPARE(dpy->xcb->pending_requests_tail->sequence, <, node->sequence));
+		assert(dpy->xcb->pending_requests_tail->next == NULL);
+		dpy->xcb->pending_requests_tail->next = node;
+	}
+	else
+		dpy->xcb->pending_requests = node;
+	dpy->xcb->pending_requests_tail = node;
+	return node;
+}
+
+static void dequeue_pending_request(Display *dpy, PendingRequest *req)
+{
+	assert(req == dpy->xcb->pending_requests);
+	dpy->xcb->pending_requests = req->next;
+	if(!dpy->xcb->pending_requests)
+	{
+		assert(req == dpy->xcb->pending_requests_tail);
+		dpy->xcb->pending_requests_tail = NULL;
+	}
+	else
+		assert(XLIB_SEQUENCE_COMPARE(req->sequence, <, dpy->xcb->pending_requests->sequence));
+	free(req);
+}
+
 static int handle_error(Display *dpy, xError *err, Bool in_XReply)
 {
 	_XExtension *ext;
@@ -252,12 +284,7 @@ static void process_responses(Display *dpy, int wait_for_first_event, xcb_generi
 				free(error);
 			}
 			if(!reply)
-			{
-				dpy->xcb->pending_requests = req->next;
-				if(!dpy->xcb->pending_requests)
-					dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
-				free(req);
-			}
+				dequeue_pending_request(dpy, req);
 		}
 		else
 			break;
@@ -331,14 +358,7 @@ void _XSend(Display *dpy, const char *data, long size)
 	{
 		uint64_t sequence;
 		for(sequence = dpy->xcb->last_flushed; sequence < dpy->request; ++sequence)
-		{
-			PendingRequest *req = malloc(sizeof(PendingRequest));
-			assert(req);
-			req->next = NULL;
-			req->sequence = sequence;
-			*dpy->xcb->pending_requests_tail = req;
-			dpy->xcb->pending_requests_tail = &req->next;
-		}
+			append_pending_request(dpy, sequence);
 	}
 	requests = dpy->request - dpy->xcb->last_flushed;
 	dpy->xcb->last_flushed = dpy->request;
@@ -430,24 +450,6 @@ static void _XFreeReplyData(Display *dpy, Bool force)
 	dpy->xcb->reply_data = NULL;
 }
 
-static PendingRequest * insert_pending_request(Display *dpy)
-{
-	PendingRequest **cur = &dpy->xcb->pending_requests;
-	while(*cur && XLIB_SEQUENCE_COMPARE((*cur)->sequence, <, dpy->request))
-		cur = &((*cur)->next);
-	if(!*cur || (*cur)->sequence != dpy->request)
-	{
-		PendingRequest *node = malloc(sizeof(PendingRequest));
-		assert(node);
-		node->next = *cur;
-		node->sequence = dpy->request;
-		if(cur == dpy->xcb->pending_requests_tail)
-			dpy->xcb->pending_requests_tail = &(node->next);
-		*cur = node;
-	}
-	return *cur;
-}
-
 /*
  * _XReply - Wait for a reply packet and copy its contents into the
  * specified rep.
@@ -467,7 +469,10 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 		return 0;
 
 	_XSend(dpy, NULL, 0);
-	current = insert_pending_request(dpy);
+	if(dpy->xcb->pending_requests_tail && dpy->xcb->pending_requests_tail->sequence == dpy->request)
+		current = dpy->xcb->pending_requests_tail;
+	else
+		current = append_pending_request(dpy, dpy->request);
 	/* FIXME: drop the Display lock while waiting?
 	 * Complicates process_responses. */
 	reply = xcb_wait_for_reply(c, current->sequence, &error);

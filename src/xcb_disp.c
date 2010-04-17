@@ -95,7 +95,6 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	dpy->fd = xcb_get_file_descriptor(c);
 
 	dpy->xcb->connection = c;
-	dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
 	dpy->xcb->next_xid = xcb_generate_id(dpy->xcb->connection);
 
 	dpy->xcb->event_notify = xcondition_malloc();

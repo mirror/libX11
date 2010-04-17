@@ -16,6 +16,7 @@ typedef struct PendingRequest PendingRequest;
 struct PendingRequest {
 	PendingRequest *next;
 	unsigned long sequence;
+	unsigned reply_waiter;
 };
 
 typedef struct _X11XCBPrivate {
@@ -31,11 +32,10 @@ typedef struct _X11XCBPrivate {
 	enum XEventQueueOwner event_owner;
 	XID next_xid;
 
-	/* handle simultaneous threads waiting for events,
-	 * used in wait_or_poll_for_event
-	 */
+	/* handle simultaneous threads waiting for responses */
 	xcondition_t event_notify;
 	int event_waiter;
+	xcondition_t reply_notify;
 } _X11XCBPrivate;
 
 /* xcb_disp.c */

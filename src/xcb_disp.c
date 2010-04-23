@@ -63,27 +63,18 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	if(!dpy->xcb)
 		return 0;
 
-#ifdef HAVE_LAUNCHD
-	if(!display || !*display) display = getenv("DISPLAY");
+	if(!xcb_parse_display(display, &host, &n, screenp))
+		return 0;
 
-	if(display && strlen(display)>11 && !strncmp(display, "/tmp/launch", 11)) {
-		/* do nothing -- the magic happens inside of xcb_connect */
-	} else
-#endif
-	{
-		if(!xcb_parse_display(display, &host, &n, screenp))
-			return 0;
-
-		len = strlen(host) + (1 + 20 + 1 + 20 + 1);
-		*fullnamep = Xmalloc(len);
-		if (!*fullnamep) {
-			free(host);
-			return 0;
-		}
-
-		snprintf(*fullnamep, len, "%s:%d.%d", host, n, *screenp);
+	len = strlen(host) + (1 + 20 + 1 + 20 + 1);
+	*fullnamep = Xmalloc(len);
+	if (!*fullnamep) {
 		free(host);
+		return 0;
 	}
+
+	snprintf(*fullnamep, len, "%s:%d.%d", host, n, *screenp);
+	free(host);
 
 	_XLockMutex(_Xglobal_lock);
 	if(xauth.name && xauth.data)

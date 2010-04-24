@@ -1,6 +1,10 @@
 /* Copyright (C) 2003-2006 Jamey Sharp, Josh Triplett
  * This file is licensed under the MIT license. See the file COPYING. */
 
+#ifdef HAVE_CONFIG_H
+#include <config.h>
+#endif
+
 #include "Xlibint.h"
 #include "Xxcbint.h"
 #include <xcb/xcbext.h>
@@ -73,7 +77,12 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 		return 0;
 	}
 
-	snprintf(*fullnamep, len, "%s:%d.%d", host, n, *screenp);
+#ifdef HAVE_LAUNCHD
+	if(strncmp(host, "/tmp/launch", 11) == 0)
+		snprintf(*fullnamep, len, "%s:%d", host, n);
+	else
+#endif
+		snprintf(*fullnamep, len, "%s:%d.%d", host, n, *screenp);
 	free(host);
 
 	_XLockMutex(_Xglobal_lock);

@@ -95,13 +95,14 @@ int _XConnectXCB(Display *dpy, _Xconst char *display, char **fullnamep, int *scr
 	dpy->fd = xcb_get_file_descriptor(c);
 
 	dpy->xcb->connection = c;
-	dpy->xcb->pending_requests_tail = &dpy->xcb->pending_requests;
 	dpy->xcb->next_xid = xcb_generate_id(dpy->xcb->connection);
 
 	dpy->xcb->event_notify = xcondition_malloc();
-	if (!dpy->xcb->event_notify)
+	dpy->xcb->reply_notify = xcondition_malloc();
+	if (!dpy->xcb->event_notify || !dpy->xcb->reply_notify)
 		return 0;
 	xcondition_init(dpy->xcb->event_notify);
+	xcondition_init(dpy->xcb->reply_notify);
 	return !xcb_connection_has_error(c);
 }
 
@@ -116,5 +117,6 @@ void _XFreeX11XCBStructure(Display *dpy)
 		free(tmp);
 	}
 	xcondition_free(dpy->xcb->event_notify);
+	xcondition_free(dpy->xcb->reply_notify);
 	Xfree(dpy->xcb);
 }

@@ -579,7 +579,7 @@ AC_OUTPUT([Makefile
 	   x11.pc
 	   x11-xcb.pc])
 
-man_pages_suffix=$LIBMAN_SUFFIX
+man_pages_suffix=$LIB_MAN_SUFFIX
 if test -z "$man_pages_suffix"; then
     man_pages_suffix=none
 fi

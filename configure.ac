@@ -8,6 +8,8 @@ AC_INIT([libX11],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
 AC_CONFIG_MACRO_DIR([m4])
+AC_CANONICAL_BUILD
+AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
@@ -32,6 +34,7 @@ XORG_WITH_PS2PDF
 AC_PROG_LIBTOOL
 DOLT
 AC_PROG_CC
+PKG_PROG_PKG_CONFIG
 
 if test x"$CC_FOR_BUILD" = x; then
 	if test x"$cross_compiling" = xyes; then
@@ -41,6 +44,27 @@ if test x"$CC_FOR_BUILD" = x; then
 	fi
 fi
 AC_SUBST([CC_FOR_BUILD])
+
+if test x"$CPPFLAGS_FOR_BUILD" = x; then
+	if test ! x"$cross_compiling" = xyes; then
+		CPPFLAGS_FOR_BUILD=${CPPFLAGS}
+	fi
+fi
+AC_SUBST(CPPFLAGS_FOR_BUILD)
+
+if test x"$CFLAGS_FOR_BUILD" = x; then
+	if test ! x"$cross_compiling" = xyes; then
+		CFLAGS_FOR_BUILD=${CFLAGS}
+	fi
+fi
+AC_SUBST(CFLAGS_FOR_BUILD)
+
+if test x"$LDFLAGS_FOR_BUILD" = x; then
+	if test ! x"$cross_compiling" = xyes; then
+		LDFLAGS_FOR_BUILD=${LDFLAGS}
+	fi
+fi
+AC_SUBST(LDFLAGS_FOR_BUILD)
 
 XORG_PROG_RAWCPP
 
@@ -285,7 +309,7 @@ AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 # Find keysymdef.h
 #
 AC_MSG_CHECKING([keysymdef.h])
-dir=`pkg-config --variable=includedir xproto`
+dir=`$PKG_CONFIG --variable=includedir xproto`
 KEYSYMDEF="$dir/X11/keysymdef.h"
 if test -f "$KEYSYMDEF"; then
         AC_MSG_RESULT([$KEYSYMDEF])

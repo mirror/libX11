@@ -134,22 +134,64 @@ XTRANS_SECURE_RPC_FLAGS
 
 # Preferred order to try transports for local connections
 AC_MSG_CHECKING([what order to try transports in for local connections])
+DEFAULT_LOCAL_TRANS=""
 case $host_os in
 	solaris*)
 		# On Solaris 2.6 through 9, named pipes (LOCAL_TRANS) were
 		# faster than Unix domain sockets, but on Solaris 10 & later,
 		# Unix domain sockets are faster now.
-		DEFAULT_LOCAL_TRANS="UNIX_TRANS,LOCAL_TRANS,TCP_TRANS"
+		if test "$UNIXCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}UNIX_TRANS"
+		fi
+		if test "$LOCALCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}LOCAL_TRANS"
+		fi
+		if test "$TCPCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}TCP_TRANS"
+		fi
 		;;
 	linux*)
 		# LOCAL_TRANS is used for abstract sockets.
-		DEFAULT_LOCAL_TRANS="LOCAL_TRANS,UNIX_TRANS,TCP_TRANS"
+		if test "$UNIXCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}LOCAL_TRANS,UNIX_TRANS"
+		fi
+		if test "$TCPCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}TCP_TRANS"
+		fi
 		;;
 	*)
-		if test "$LOCALCONN" = "yes"; then
-			DEFAULT_LOCAL_TRANS="LOCAL_TRANS,UNIX_TRANS,TCP_TRANS"
-		else
-			DEFAULT_LOCAL_TRANS="UNIX_TRANS,TCP_TRANS"
+		if test "$LOCALCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}LOCAL_TRANS"
+		fi
+		if test "$UNIXCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}UNIX_TRANS"
+		fi
+		if test "$TCPCONN" = "yes" ; then
+			if test ! "x$DEFAULT_LOCAL_TRANS" = "x" ; then
+				DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS},"
+			fi
+			DEFAULT_LOCAL_TRANS="${DEFAULT_LOCAL_TRANS}TCP_TRANS"
 		fi
 		;;
 esac

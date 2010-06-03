@@ -141,6 +141,10 @@ case $host_os in
 		# Unix domain sockets are faster now.
 		DEFAULT_LOCAL_TRANS="UNIX_TRANS,LOCAL_TRANS,TCP_TRANS"
 		;;
+	linux*)
+		# LOCAL_TRANS is used for abstract sockets.
+		DEFAULT_LOCAL_TRANS="LOCAL_TRANS,UNIX_TRANS,TCP_TRANS"
+		;;
 	*)
 		if test "$LOCALCONN" = "yes"; then
 			DEFAULT_LOCAL_TRANS="LOCAL_TRANS,UNIX_TRANS,TCP_TRANS"

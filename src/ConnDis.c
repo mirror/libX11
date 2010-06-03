@@ -92,7 +92,7 @@ static char *copystring (const char *src, int len)
 #ifdef UNIXCONN
 # define UNIX_TRANS	"unix"
 #endif
-#if defined(LOCALCONN) || defined(OS2PIPECONN)
+#if defined(LOCALCONN) || defined(OS2PIPECONN) || defined(UNIXCONN)
 # define LOCAL_TRANS	"local"
 #endif
 

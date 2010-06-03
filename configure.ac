@@ -77,44 +77,14 @@ AC_ARG_WITH(perl,
 	AC_CHECK_PROGS([PERL], [perl], [no]))
 AM_CONDITIONAL(HAVE_PERL, test x$PERL != xno)
 
-# Build with XCB support?
-AC_ARG_WITH(xcb,
-	AC_HELP_STRING([--with-xcb], [use XCB for low-level protocol implementation]),
-	[ac_cv_use_xcb=$withval], [ac_cv_use_xcb=yes])
-AC_CACHE_CHECK([whether to use XCB], [ac_cv_use_xcb], [ac_cv_use_xcb=yes])
-AM_CONDITIONAL(XCB, test x$ac_cv_use_xcb != xno)
-
 # Checks for pkg-config packages
 
 # Always required
-X11_REQUIRES='xproto >= 7.0.13 xextproto xtrans'
+X11_REQUIRES='xproto >= 7.0.13 xextproto xtrans xcb >= 1.1.92'
+X11_EXTRA_DEPS="xcb >= 1.1.92"
 
 PKG_PROG_PKG_CONFIG()
 
-case "$ac_cv_use_xcb" in
-no)
-	X11_REQUIRES="${X11_REQUIRES} xau xcmiscproto bigreqsproto"
-	X11_EXTRA_DEPS="xau"
-	PKG_CHECK_MODULES(XDMCP, xdmcp,
-		AC_CHECK_LIB(Xdmcp, XdmcpWrap,
-			[
-			AC_CHECK_LIB(Xdmcp, XdmcpWrap, [xdmauth="yes"], [xdmauth="no"], [$XDMCP_LIBS])
-			X11_EXTRA_DEPS="$X11_EXTRA_DEPS xdmcp"
-			],
-			[
-			XDMCP_CFLAGS=
-			XDMCP_LIBS=
-			], [$XDMCP_LIBS]),
-		[AC_MSG_RESULT(no)])
-	AC_DEFINE(USE_XCB, 0, [Use XCB for low-level protocol implementation])
-	;;
-*)
-	X11_REQUIRES="${X11_REQUIRES} xcb >= 1.1.92"
-	X11_EXTRA_DEPS="xcb >= 1.1.92"
-	xdmauth="no" # XCB handles all auth
-	AC_DEFINE(USE_XCB, 1, [Use XCB for low-level protocol implementation])
-	;;
-esac
 AC_SUBST(X11_EXTRA_DEPS)
 
 dnl Issue an error if xtrans.m4 was not found and XTRANS_CONNECTION_FLAGS macro
@@ -337,17 +307,6 @@ if test x$xthreads = xyes ; then
 fi
 AC_SUBST(XTHREADLIB)
 AC_SUBST(XTHREAD_CFLAGS)
-
-case x$xdmauth in
-xyes)
-	XDMCP_CFLAGS="$XDMCP_CFLAGS -DHASXDMAUTH"
-	;;
-xno)
-	XDMCP_LIBS=""
-	;;
-esac
-AC_SUBST(XDMCP_CFLAGS)
-AC_SUBST(XDMCP_LIBS)
 
 AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 
@@ -588,7 +547,6 @@ echo ""
 echo "X11 will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
 echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
-echo " Use XCB:                                 "$ac_cv_use_xcb
 echo " Threading support:                       "$xthreads
 echo " Use Threads safe API:                    "$mtsafeapi
 echo " Threads stubs in libX11:                 "$thrstubs

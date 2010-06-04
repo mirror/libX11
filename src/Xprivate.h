@@ -9,7 +9,7 @@
 #define XPRIVATE_H
 
 extern void _XIDHandler(Display *dpy);
-extern void _XSeqSyncFunction(Display *dpy);
+extern _X_HIDDEN void _XSeqSyncFunction(Display *dpy);
 extern void _XSetPrivSyncFunction(Display *dpy);
 extern void _XSetSeqSyncFunction(Display *dpy);
 

@@ -354,15 +354,18 @@ AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 #
 # Find keysymdef.h
 #
-AC_MSG_CHECKING([keysymdef.h])
-dir=`$PKG_CONFIG --variable=includedir xproto`
-KEYSYMDEF="$dir/X11/keysymdef.h"
-if test -f "$KEYSYMDEF"; then
-        AC_MSG_RESULT([$KEYSYMDEF])
-else
-	AC_MSG_ERROR([Cannot find keysymdef.h])
-fi
-AC_SUBST(KEYSYMDEF)
+AC_MSG_CHECKING([keysym definitions])
+KEYSYMDEFDIR=`$PKG_CONFIG --variable=includedir xproto`/X11
+FILES="keysymdef.h XF86keysym.h Sunkeysym.h DECkeysym.h HPkeysym.h"
+for i in $FILES; do
+    if test -f "$KEYSYMDEFDIR/$i"; then
+            KEYSYMDEFS="$KEYSYMDEFS $KEYSYMDEFDIR/$i"
+    elif test "x$i" = "xkeysymdef.h"; then
+	    AC_MSG_ERROR([Cannot find keysymdef.h])
+    fi
+done
+AC_MSG_RESULT([$KEYSYMDEFS])
+AC_SUBST(KEYSYMDEFS)
 
 AM_CONDITIONAL(UDC, test xfalse = xtrue)
 

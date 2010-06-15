@@ -410,7 +410,7 @@ XORG_WITH_LINT
 XORG_LINT_LIBRARY([X11])
 
 X11_DATADIR="${datadir}/X11"
-AC_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
+AX_DEFINE_DIR(X11_DATADIR, X11_DATADIR, [Location of libX11 data])
 AC_SUBST(X11_DATADIR)
 
 X11_LIBDIR="${libdir}/X11"
@@ -429,25 +429,25 @@ X11_CFLAGS="$X11_CFLAGS $XTHREAD_CFLAGS"
 #
 
 X11_LOCALEDATADIR="${X11_DATADIR}/locale"
-AC_DEFINE_DIR(XLOCALEDATADIR, X11_LOCALEDATADIR, [Location of libX11 locale data])
+AX_DEFINE_DIR(XLOCALEDATADIR, X11_LOCALEDATADIR, [Location of libX11 locale data])
 AC_SUBST(X11_LOCALEDATADIR)
 
 AC_ARG_WITH(locale-lib-dir,	AS_HELP_STRING([--with-locale-lib-dir=DIR],
  [Directory where locale libraries files are installed (default: $libdir/X11/locale)]),
 				[ X11_LOCALELIBDIR="$withval" ],
 				[ X11_LOCALELIBDIR="${X11_LIBDIR}/locale" ])
-AC_DEFINE_DIR(XLOCALELIBDIR, X11_LOCALELIBDIR, [Location of libX11 locale libraries])
+AX_DEFINE_DIR(XLOCALELIBDIR, X11_LOCALELIBDIR, [Location of libX11 locale libraries])
 AC_SUBST(X11_LOCALELIBDIR)
 
 X11_LOCALEDIR="${X11_LOCALEDATADIR}"
-AC_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
+AX_DEFINE_DIR(XLOCALEDIR, X11_LOCALEDIR, [Location of libX11 locale data])
 AC_SUBST(X11_LOCALEDIR)
 
 XKEYSYMDB="${X11_DATADIR}/XKeysymDB"
-AC_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
+AX_DEFINE_DIR(XKEYSYMDB, XKEYSYMDB, [Location of keysym database])
 
 XERRORDB="${X11_DATADIR}/XErrorDB"
-AC_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
+AX_DEFINE_DIR(XERRORDB, XERRORDB, [Location of error message database])
 
 XORG_CHECK_MALLOC_ZERO
 

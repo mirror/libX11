@@ -339,7 +339,7 @@ libX11_la_SOURCES+=UIThrStubs.c
 endif
 
 x11datadir = @X11_DATADIR@
-x11data_DATA = XKeysymDB XErrorDB
+x11data_DATA = XErrorDB
 
 EXTRA_DIST = \
 	$(x11data_DATA) \

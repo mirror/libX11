@@ -239,8 +239,9 @@ static xcb_generic_reply_t *poll_for_response(Display *dpy)
 	{
 		assert(XLIB_SEQUENCE_COMPARE(req->sequence, <=, dpy->request));
 		dpy->last_request_read = req->sequence;
-		if(!response)
-			dequeue_pending_request(dpy, req);
+		if(response)
+			break;
+		dequeue_pending_request(dpy, req);
 		if(error)
 			return (xcb_generic_reply_t *) error;
 	}

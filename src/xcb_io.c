@@ -356,7 +356,7 @@ void _XReadEvents(Display *dpy)
 		response = poll_for_response(dpy);
 		if(response)
 			handle_response(dpy, response, False);
-		else if(dpy->xcb->pending_requests && dpy->xcb->pending_requests->reply_waiter)
+		else if(dpy->xcb->pending_requests->reply_waiter)
 		{ /* need braces around ConditionWait */
 			ConditionWait(dpy, dpy->xcb->reply_notify);
 		}

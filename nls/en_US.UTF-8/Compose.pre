@@ -746,8 +746,10 @@ XCOMM Part 3
 <Multi_key> <b> <i>              	: "ĭ"   U012D # LATIN SMALL LETTER I WITH BREVE
 <dead_ogonek> <I>                	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <Multi_key> <semicolon> <I>      	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
+<Multi_key> <comma> <I>         	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <dead_ogonek> <i>                	: "į"   U012F # LATIN SMALL LETTER I WITH OGONEK
 <Multi_key> <semicolon> <i>      	: "į"   U012F # LATIN SMALL LETTER I WITH OGONEK
+<Multi_key> <comma> <i>         	: "į"   U012F # LATIN SMALL LETTER I WITH OGONEK
 <dead_abovedot> <I>              	: "İ"   U0130 # LATIN CAPITAL LETTER I WITH DOT ABOVE
 <Multi_key> <period> <I>         	: "İ"   U0130 # LATIN CAPITAL LETTER I WITH DOT ABOVE
 <dead_abovedot> <i>              	: "ı"   U0131 # LATIN SMALL LETTER DOTLESS I
@@ -898,8 +900,10 @@ XCOMM Part 3
 <Multi_key> <equal> <u>          	: "ű"   U0171 # LATIN SMALL LETTER U WITH DOUBLE ACUTE
 <dead_ogonek> <U>                	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <Multi_key> <semicolon> <U>      	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
+<Multi_key> <comma> <U>         	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <dead_ogonek> <u>                	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <Multi_key> <semicolon> <u>      	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
+<Multi_key> <comma> <u>         	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <dead_circumflex> <W>            	: "Ŵ"   U0174 # LATIN CAPITAL LETTER W WITH CIRCUMFLEX
 <Multi_key> <asciicircum> <W>    	: "Ŵ"   U0174 # LATIN CAPITAL LETTER W WITH CIRCUMFLEX
 <dead_circumflex> <w>            	: "ŵ"   U0175 # LATIN SMALL LETTER W WITH CIRCUMFLEX

@@ -3,6 +3,8 @@
 *.ps
 *.pdf
 *.txt
+*.css
+# Delete the following 4 lines when groff is gone
 *.html.raw
 *.ps.raw
 *.txt.raw

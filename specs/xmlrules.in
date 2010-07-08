@@ -22,7 +22,6 @@
 #
 
 if HAVE_XMLTO
-specdir = $(docdir)/$(subdir)
 spec_DATA = $(doc_sources:.xml=.html)
 
 if HAVE_FOP

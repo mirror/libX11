@@ -23,6 +23,7 @@
 
 if ENABLE_SPECS
 
+specdir = $(docdir)/$(subdir)
 doc_sources = libX11.xml
 dist_spec_DATA = $(doc_sources)	\
 	AppA.xml		\

@@ -159,6 +159,8 @@ XStringToKeysym(_Xconst char *s)
     if (strncmp(s, "XF86_", 5) == 0) {
         KeySym ret;
         char *tmp = strdup(s);
+        if (!tmp)
+            return NoSymbol;
         memmove(&tmp[4], &tmp[5], strlen(s) - 5 + 1);
         ret = XStringToKeysym(tmp);
         free(tmp);

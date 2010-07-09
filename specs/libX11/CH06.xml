@@ -131,7 +131,7 @@ windows using other colormaps generally display with incorrect colors.
 You can control the set of installed colormaps by using
 <function>XInstallColormap</function>
 and
-<function>XUninstallColormap .</function>
+<function>XUninstallColormap</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -156,11 +156,11 @@ macro
 returns the default visual type for the specified screen.
 <indexterm><primary>Color map</primary></indexterm>
 Possible visual types are 
-<function>StaticGray , </function>
-<function>GrayScale , </function>
-<function>StaticColor ,</function>
-<function>PseudoColor , </function>
-<function>TrueColor , </function>
+<function>StaticGray</function>,
+<function>GrayScale</function>,
+<function>StaticColor</function>,
+<function>PseudoColor</function>,
+<function>TrueColor</function>,
 or 
 <function>DirectColor </function>
 (see section 3.1).
@@ -204,10 +204,10 @@ and white is represented by (65535,65535,65535).
 In some functions,
 the flags member controls which of the red, green, and blue members is used 
 and can be the inclusive OR of zero or more of
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and 
-<function>DoBlue .</function>
+<function>DoBlue</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -258,7 +258,7 @@ typedef struct {
 Because the color specification can be encoded for the various color spaces, 
 encoding for the spec member is identified by the format member,
 which is of type
-<function>XcmsColorFormat .</function>
+<function>XcmsColorFormat</function>.
 The following macros define standard formats.
 <!-- .sM -->
 </para>
@@ -294,7 +294,7 @@ then reference should be made by color space string prefix
 (see 
 <function>XcmsFormatOfPrefix</function>
 and
-<function>XcmsPrefixOfFormat ).</function>
+<function>XcmsPrefixOfFormat</function>).
 </para>
 <para>
 <!-- .LP -->
@@ -431,7 +431,7 @@ The device-dependent formats provided allow color specification in:
   <listitem>
     <para>
 <acronym>RGB</acronym> Intensity
-<function>( XcmsRGBi )</function>
+(<function>XcmsRGBi</function>)
     </para>
   </listitem>
   <listitem>
@@ -444,7 +444,7 @@ where 1.0 indicates full intensity, 0.5 half intensity, and so on.
   <listitem>
     <para>
 <acronym>RGB</acronym> Device
-<function>( XcmsRGB )</function>
+(<function>XcmsRGB</function>)
     </para>
   </listitem>
   <listitem>
@@ -802,7 +802,7 @@ or in the CCC indirectly specified by means of the colormap argument.
 <para>
 <!-- .LP -->
 To create a colormap for a screen, use
-<function>XCreateColormap .</function></para>
+<function>XCreateColormap</function>.</para>
 <indexterm significance="preferred"><primary>XCreateColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -861,7 +861,7 @@ Specifies the colormap entries to be allocated.
 You can pass 
 <function>AllocNone </function>
 or 
-<function>AllocAll .</function>
+<function>AllocAll</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -881,30 +881,30 @@ Note that the specified window is only used to determine the screen.
 <!-- .LP -->
 The initial values of the colormap entries are undefined for the 
 visual classes
-<function>GrayScale ,</function>
-<function>PseudoColor ,</function>
+<function>GrayScale</function>,
+<function>PseudoColor</function>,
 and
-<function>DirectColor .</function>
+<function>DirectColor</function>.
 For
-<function>StaticGray ,</function>
-<function>StaticColor ,</function>
+<function>StaticGray</function>,
+<function>StaticColor</function>,
 and
-<function>TrueColor ,</function>
+<function>TrueColor</function>,
 the entries have defined values,
 but those values are specific to the visual and are not defined by X.
 For
-<function>StaticGray ,</function>
-<function>StaticColor ,</function>
+<function>StaticGray</function>,
+<function>StaticColor</function>,
 and
-<function>TrueColor ,</function>
+<function>TrueColor</function>,
 alloc must be
-<function>AllocNone ,</function>
+<function>AllocNone</function>,
 or a
 <function>BadMatch</function>
 error results.
 For the other visual classes,
 if alloc is
-<function>AllocNone ,</function>
+<function>AllocNone</function>,
 the colormap initially has no allocated entries,
 and clients can allocate them.
 For information about the visual types,
@@ -913,19 +913,19 @@ see section 3.1.
 <para>
 <!-- .LP -->
 If alloc is
-<function>AllocAll ,</function>
+<function>AllocAll</function>,
 the entire colormap is allocated writable.
 The initial values of all allocated entries are undefined.
 For
 <function>GrayScale</function>
 and
-<function>PseudoColor ,</function>
+<function>PseudoColor</function>,
 the effect is as if an
 <function>XAllocColorCells</function>
 call returned all pixel values from zero to N - 1,
 where N is the colormap entries value in the specified visual.
 For
-<function>DirectColor ,</function>
+<function>DirectColor</function>,
 the effect is as if an
 <function>XAllocColorPlanes</function>
 call returned a pixel value of zero and red_mask, green_mask, 
@@ -933,15 +933,15 @@ and blue_mask values containing the same bits as the corresponding
 masks in the specified visual.
 However, in all cases,
 none of these entries can be freed by using
-<function>XFreeColors .</function>
+<function>XFreeColors</function>.
 </para>
 <para>
 <!-- .LP -->
 <function>XCreateColormap</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadAlloc</function>,
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -951,7 +951,7 @@ errors.
 <!-- .sp -->
 To create a new colormap when the allocation out of a previously
 shared colormap has failed because of resource exhaustion, use
-<function>XCopyColormapAndFree .</function>
+<function>XCopyColormapAndFree</function>.
 <indexterm significance="preferred"><primary>XCopyColormapAndFree</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -998,18 +998,18 @@ and their read-only or writable characteristics intact and frees those entries
 in the specified colormap.
 Color values in other entries in the new colormap are undefined.
 If the specified colormap was created by the client with alloc set to
-<function>AllocAll ,</function>
+<function>AllocAll</function>,
 the new colormap is also created with 
-<function>AllocAll ,</function>
+<function>AllocAll</function>,
 all color values for all entries are copied from the specified colormap,
 and then all entries in the specified colormap are freed.
 If the specified colormap was not created by the client with
-<function>AllocAll ,</function>
+<function>AllocAll</function>,
 the allocations to be moved are all those pixels and planes
 that have been allocated by the client using
-<function>XAllocColor ,</function>
-<function>XAllocNamedColor ,</function>
-<function>XAllocColorCells ,</function>
+<function>XAllocColor</function>,
+<function>XAllocNamedColor</function>,
+<function>XAllocColorCells</function>,
 or
 <function>XAllocColorPlanes</function>
 and that have not been freed since they were allocated.
@@ -1027,7 +1027,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To destroy a colormap, use 
-<function>XFreeColormap .</function>
+<function>XFreeColormap</function>.
 <indexterm significance="preferred"><primary>XFreeColormap</primary></indexterm>
 </para>
 <!-- .sM -->
@@ -1073,12 +1073,12 @@ and the colormap and frees the colormap storage.
 However, this function has no effect on the default colormap for a screen.
 If the specified colormap is an installed map for a screen,
 it is uninstalled (see
-<function>XUninstallColormap ).</function>
+<function>XUninstallColormap</function>).
 If the specified colormap is defined as the colormap for a window (by
-<function>XCreateWindow ,</function>
-<function>XSetWindowColormap ,</function>
+<function>XCreateWindow</function>,
+<function>XSetWindowColormap</function>,
 or
-<function>XChangeWindowAttributes ),</function>
+<function>XChangeWindowAttributes</function>),
 <function>XFreeColormap</function>
 changes the colormap associated with the window to
 <function>None </function>
@@ -1086,7 +1086,7 @@ and generates a
 <function>ColormapNotify</function>
 event.
 X does not define the colors displayed for a window with a colormap of
-<function>None .</function>
+<function>None</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1105,7 +1105,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To map a color name to an <acronym>RGB</acronym> value, use
-<function>XLookupColor .</function>
+<function>XLookupColor</function>.
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
 <indexterm significance="preferred"><primary>XLookupColor</primary></indexterm>
 <!-- .sM -->
@@ -1202,7 +1202,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To map a color name to the exact <acronym>RGB</acronym> value, use
-<function>XParseColor .</function>
+<function>XParseColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
 <indexterm significance="preferred"><primary>XParseColor</primary></indexterm>
@@ -1256,8 +1256,8 @@ case is ignored.
     <listitem>
       <para>
 Returns the exact color value for later use and sets the
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and
 <function>DoBlue</function>
 flags.
@@ -1292,7 +1292,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To map a color name to a value in an arbitrary color space, use
-<function>XcmsLookupColor .</function>
+<function>XcmsLookupColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsLookupColor</primary></indexterm>
@@ -1405,7 +1405,7 @@ returns
 or
 <function>XcmsSuccessWithCompression</function>
 if the name is resolved; otherwise, it returns
-<function>XcmsFailure .</function>
+<function>XcmsFailure</function>.
 If
 <function>XcmsSuccessWithCompression</function>
 is returned, the color specification returned in 
@@ -1446,7 +1446,7 @@ times, the server counts each such allocation, not just the first one.
 <!-- .LP -->
 <!-- .sp -->
 To allocate a read-only color cell with an <acronym>RGB</acronym> value, use
-<function>XAllocColor .</function>
+<function>XAllocColor</function>.
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
 <indexterm><primary>Read-only colormap cells</primary><secondary>allocating</secondary></indexterm>
@@ -1536,7 +1536,7 @@ delim %%
 <!-- .LP -->
 <!-- .sp -->
 To allocate a read-only color cell with a color in arbitrary format, use
-<function>XcmsAllocColor .</function>
+<function>XcmsAllocColor</function>.
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
 <indexterm><primary>Read-only colormap cells</primary><secondary>allocating</secondary></indexterm>
@@ -1612,7 +1612,7 @@ to allocate a read-only color cell (colormap entry) with the specified color.
 <function>XcmsAllocColor</function>
 first converts the color specified
 to an <acronym>RGB</acronym> value and then passes this to
-<function>XAllocColor .</function>
+<function>XAllocColor</function>.
 <function>XcmsAllocColor</function>
 returns the pixel value of the color cell and the color specification
 actually allocated.
@@ -1622,10 +1622,10 @@ returned by
 into the format specified with the result_format argument.
 If there is no interest in a returned color specification, 
 unnecessary computation can be bypassed if result_format is set to
-<function>XcmsRGBFormat .</function>
+<function>XcmsRGBFormat</function>.
 The corresponding colormap cell is read-only.
 If this routine returns 
-<function>XcmsFailure , </function>
+<function>XcmsFailure</function>,
 the color_in_out color specification is left unchanged.
 </para>
 <para>
@@ -1640,7 +1640,7 @@ error.
 <!-- .sp -->
 To allocate a read-only color cell using a color name and return the closest
 color supported by the hardware in <acronym>RGB</acronym> format, use
-<function>XAllocNamedColor .</function>
+<function>XAllocNamedColor</function>.
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
 <indexterm><primary>Read-only colormap cells</primary><secondary>allocating</secondary></indexterm>
@@ -1745,7 +1745,7 @@ error.
 <!-- .sp -->
 To allocate a read-only color cell using a color name and return the closest
 color supported by the hardware in an arbitrary format, use
-<function>XcmsAllocNamedColor .</function>
+<function>XcmsAllocNamedColor</function>.
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
 <indexterm><primary>Read-only colormap cells</primary><secondary>allocating</secondary></indexterm>
@@ -1858,10 +1858,10 @@ the color specified by a color string.
 The color string is parsed into an
 <function>XcmsColor</function>
 structure (see
-<function>XcmsLookupColor ),</function>
+<function>XcmsLookupColor</function>),
 converted
 to an <acronym>RGB</acronym> value, and finally passed to
-<function>XAllocColor .</function>
+<function>XAllocColor</function>.
 If the color name is not in the Host Portable Character Encoding, 
 the result is implementation-dependent.
 Use of uppercase or lowercase does not matter.
@@ -1877,7 +1877,7 @@ returned by
 into the format specified in result_format.
 If there is no interest in a returned color specification,
 unnecessary computation can be bypassed if result_format is set to
-<function>XcmsRGBFormat .</function>
+<function>XcmsRGBFormat</function>.
 If color_screen_return and color_exact_return
 point to the same structure, the pixel field will be set correctly,
 but the color values are undefined.
@@ -1895,7 +1895,7 @@ error.
 To allocate read/write color cell and color plane combinations for a
 <function>PseudoColor</function>
 model, use
-<function>XAllocColorCells .</function>
+<function>XAllocColorCells</function>.
 </para>
 <indexterm><primary>Read/write colormap cells</primary><secondary>allocating</secondary></indexterm>
 <indexterm><primary>Allocation</primary><secondary>read/write colormap cells</secondary></indexterm>
@@ -2016,10 +2016,10 @@ allocated writable by the request.
 For 
 <function>GrayScale </function>
 or 
-<function>PseudoColor , </function>
+<function>PseudoColor</function>,
 each mask has exactly one bit set to 1. 
 For 
-<function>DirectColor , </function>
+<function>DirectColor</function>,
 each has exactly three bits set to 1.
 If contig is 
 <function>True </function>
@@ -2030,7 +2030,7 @@ or
 <function>PseudoColor </function>
 and three contiguous sets of bits set to 1 (one within each
 pixel subfield) for 
-<function>DirectColor .</function>
+<function>DirectColor</function>.
 The <acronym>RGB</acronym> values of the allocated
 entries are undefined.
 <function>XAllocColorCells</function>
@@ -2051,7 +2051,7 @@ errors.
 To allocate read/write color resources for a
 <function>DirectColor</function>
 model, use
-<function>XAllocColorPlanes .</function>
+<function>XAllocColorPlanes</function>.
 </para>
 <indexterm><primary>Read/write colormap planes</primary><secondary>allocating</secondary></indexterm>
 <indexterm><primary>Allocation</primary><secondary>read/write colormap planes</secondary></indexterm>
@@ -2209,13 +2209,13 @@ If ncolors colors, nreds reds, ngreens greens, and nblues blues are requested,
 ncolors pixels are returned; and the masks have nreds, ngreens, and 
 nblues bits set to 1, respectively.
 If contig is 
-<function>True , </function>
+<function>True</function>,
 each mask will have
 a contiguous set of bits set to 1.
 No mask will have any bits set to 1 in common with
 any other mask or with any of the pixels.
 For 
-<function>DirectColor , </function>
+<function>DirectColor</function>,
 each mask
 will lie within the corresponding pixel subfield.
 By ORing together
@@ -2227,13 +2227,13 @@ colormap, there are only ncolors * %2 sup nreds% independent red entries,
 ncolors * %2 sup ngreens% independent green entries, 
 and ncolors * %2 sup nblues% independent blue entries. 
 This is true even for 
-<function>PseudoColor .</function>
+<function>PseudoColor</function>.
 When the colormap entry of a pixel
 value is changed (using 
-<function>XStoreColors ,</function>
-<function>XStoreColor ,</function>
+<function>XStoreColors</function>,
+<function>XStoreColor</function>,
 or 
-<function>XStoreNamedColor ),</function>
+<function>XStoreNamedColor</function>),
 the pixel is decomposed according to the masks, 
 and the corresponding independent entries are updated.
 <function>XAllocColorPlanes</function>
@@ -2253,7 +2253,7 @@ errors.
 <!-- .sp -->
 <indexterm><primary>Freeing</primary><secondary>colors</secondary></indexterm>
 To free colormap cells, use
-<function>XFreeColors .</function>
+<function>XFreeColors</function>.
 <indexterm significance="preferred"><primary>XFreeColors</primary></indexterm>
 <indexterm><primary>Color</primary><secondary>deallocation</secondary></indexterm>
 <!-- .sM -->
@@ -2340,11 +2340,11 @@ were allocated by the client (using
 <indexterm><primary>XAllocNamedColor</primary></indexterm>
 <indexterm><primary>XAllocColorCells</primary></indexterm>
 <indexterm><primary>XAllocColorPlanes</primary></indexterm>
-<function>XAllocColor , </function>
-<function>XAllocNamedColor ,</function>
-<function>XAllocColorCells ,</function>
+<function>XAllocColor</function>,
+<function>XAllocNamedColor</function>,
+<function>XAllocColorCells</function>,
 and 
-<function>XAllocColorPlanes ).</function>
+<function>XAllocColorPlanes</function>).
 Note that freeing an
 individual pixel obtained from 
 <function>XAllocColorPlanes </function>
@@ -2367,7 +2367,7 @@ client (that is, is unallocated or is only allocated by another client)
 or if the colormap was created with all entries writable (by passing
 <function>AllocAll</function>
 to
-<function>XCreateColormap ),</function>
+<function>XCreateColormap</function>),
 a
 <function>BadAccess</function>
 error results. 
@@ -2378,8 +2378,8 @@ the one that gets reported is arbitrary.
 <!-- .LP -->
 <function>XFreeColors</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
 and
 <function>BadValue </function>
 errors.
@@ -2394,7 +2394,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To store an <acronym>RGB</acronym> value in a single colormap cell, use
-<function>XStoreColor .</function>
+<function>XStoreColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
 <indexterm significance="preferred"><primary>XStoreColor</primary></indexterm>
@@ -2462,8 +2462,8 @@ error results.
 <function>XStoreColor</function>
 also changes the red, green, and/or blue color components.
 You specify which color components are to be changed by setting
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and/or
 <function>DoBlue</function>
 in the flags member of the
@@ -2476,8 +2476,8 @@ the changes are visible immediately.
 <!-- .LP -->
 <function>XStoreColor</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
 and
 <function>BadValue </function>
 errors.
@@ -2486,7 +2486,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To store multiple <acronym>RGB</acronym> values in multiple colormap cells, use
-<function>XStoreColors .</function>
+<function>XStoreColors</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
 <indexterm significance="preferred"><primary>XStoreColors</primary></indexterm>
@@ -2557,8 +2557,8 @@ specified in the pixel members of the
 <function>XColor</function>
 structures.
 You specify which color components are to be changed by setting 
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and/or
 <function>DoBlue</function>
 in the flags member of the
@@ -2582,8 +2582,8 @@ the one that gets reported is arbitrary.
 <!-- .LP -->
 <function>XStoreColors</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
 and
 <function>BadValue </function>
 errors.
@@ -2592,7 +2592,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To store a color of arbitrary format in a single colormap cell, use
-<function>XcmsStoreColor .</function>
+<function>XcmsStoreColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsStoreColor</primary></indexterm>
@@ -2653,10 +2653,10 @@ structure into <acronym>RGB</acronym> values.
 It then uses this <acronym>RGB</acronym> specification in an
 <function>XColor</function>
 structure, whose three flags 
-<function>( DoRed , </function>
-<function>DoGreen ,</function>
+(<function>DoRed</function>,
+<function>DoGreen</function>,
 and
-<function>DoBlue )</function>
+<function>DoBlue</function>)
 are set, in a call to
 <function>XStoreColor</function>
 to change the color cell specified by the pixel member of the
@@ -2684,7 +2684,7 @@ to <acronym>RGB</acronym> succeeded and the call to
 <function>XStoreColor</function>
 was made.
 To obtain the actual color stored, use
-<function>XcmsQueryColor .</function>
+<function>XcmsQueryColor</function>.
 Because of the screen's hardware limitations or gamut compression,
 the color stored in the colormap may not be identical
 to the color specified.
@@ -2693,8 +2693,8 @@ to the color specified.
 <!-- .LP -->
 <function>XcmsStoreColor</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
 and
 <function>BadValue</function>
 errors.
@@ -2703,7 +2703,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To store multiple colors of arbitrary format in multiple colormap cells, use
-<function>XcmsStoreColors .</function>
+<function>XcmsStoreColors</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsStoreColors</primary></indexterm>
@@ -2795,10 +2795,10 @@ function converts the colors specified in the array of
 structures into <acronym>RGB</acronym> values and then uses these <acronym>RGB</acronym> specifications in
 <function>XColor</function>
 structures, whose three flags 
-<function>( DoRed , </function>
-<function>DoGreen ,</function>
+(<function>DoRed</function>,
+<function>DoGreen</function>,
 and
-<function>DoBlue )</function>
+<function>DoBlue</function>)
 are set, in a call to
 <function>XStoreColors</function>
 to change the color cells specified by the pixel member of the corresponding
@@ -2828,7 +2828,7 @@ to <acronym>RGB</acronym> succeeded and the call to
 <function>XStoreColors</function>
 was made.
 To obtain the actual colors stored, use
-<function>XcmsQueryColors .</function>
+<function>XcmsQueryColors</function>.
 Because of the screen's hardware limitations or gamut compression,
 the colors stored in the colormap may not be identical
 to the colors specified.
@@ -2837,8 +2837,8 @@ to the colors specified.
 <!-- .LP -->
 <function>XcmsStoreColors</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
 and
 <function>BadValue</function>
 errors.
@@ -2847,7 +2847,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To store a color specified by name in a single colormap cell, use
-<function>XStoreNamedColor .</function>
+<function>XStoreNamedColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
@@ -2929,10 +2929,10 @@ The flags argument determines which of the red, green, and blue components
 are set. 
 You can set this member to the
 bitwise inclusive OR of the bits 
-<function>DoRed , </function>
-<function>DoGreen , </function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and 
-<function>DoBlue .</function>
+<function>DoBlue</function>.
 If the color name is not in the Host Portable Character Encoding, 
 the result is implementation-dependent.
 Use of uppercase or lowercase does not matter.
@@ -2947,9 +2947,9 @@ error results.
 <!-- .LP -->
 <function>XStoreNamedColor</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
-<function>BadName ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
+<function>BadName</function>,
 and 
 <function>BadValue </function>
 errors.
@@ -2978,7 +2978,7 @@ the one that gets reported is arbitrary.
 <!-- .LP -->
 <!-- .sp -->
 To query the <acronym>RGB</acronym> value of a single colormap cell, use
-<function>XQueryColor .</function>
+<function>XQueryColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
 <indexterm significance="preferred"><primary>XQueryColor</primary></indexterm>
@@ -3033,8 +3033,8 @@ The
 function returns the current <acronym>RGB</acronym> value for the pixel in the
 <function>XColor</function>
 structure and sets the
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and
 <function>DoBlue</function>
 flags.
@@ -3052,7 +3052,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To query the <acronym>RGB</acronym> values of multiple colormap cells, use
-<function>XQueryColors .</function>
+<function>XQueryColors</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
 <indexterm significance="preferred"><primary>XQueryColors</primary></indexterm>
@@ -3122,8 +3122,8 @@ The
 function returns the <acronym>RGB</acronym> value for each pixel in each
 <function>XColor</function>
 structure and sets the
-<function>DoRed ,</function>
-<function>DoGreen ,</function>
+<function>DoRed</function>,
+<function>DoGreen</function>,
 and
 <function>DoBlue</function>
 flags in each structure.
@@ -3142,7 +3142,7 @@ errors.
 <para>
 <!-- .LP -->
 To query the color of a single colormap cell in an arbitrary format, use
-<function>XcmsQueryColor .</function>
+<function>XcmsQueryColor</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsQueryColor</primary></indexterm>
@@ -3231,7 +3231,7 @@ errors.
 <para>
 <!-- .LP -->
 To query the color of multiple colormap cells in an arbitrary format, use
-<function>XcmsQueryColors .</function>
+<function>XcmsQueryColors</function>.
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsQueryColors</primary></indexterm>
@@ -3388,7 +3388,7 @@ There is a default CCC associated with each screen.
 <!-- .LP -->
 <!-- .sp -->
 To obtain the CCC associated with a colormap, use
-<function>XcmsCCCOfColormap .</function>
+<function>XcmsCCCOfColormap</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsCCCOfColormap</primary></indexterm>
 <indexterm><primary>Colormap</primary><secondary>CCC of</secondary></indexterm>
@@ -3435,7 +3435,7 @@ function returns the CCC associated with the specified colormap.
 Once obtained, 
 the CCC attributes can be queried or modified.
 Unless the CCC associated with the specified colormap is changed with
-<function>XcmsSetCCCOfColormap ,</function>
+<function>XcmsSetCCCOfColormap</function>,
 this CCC is used when the specified colormap is used as an argument 
 to color functions.
 <!-- .sp -->
@@ -3443,7 +3443,7 @@ to color functions.
 <para>
 <!-- .LP -->
 To change the CCC associated with a colormap, use
-<function>XcmsSetCCCOfColormap .</function>
+<function>XcmsSetCCCOfColormap</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsSetCCCOfColormap</primary></indexterm>
 <indexterm><primary>Colormap</primary><secondary>CCC of</secondary></indexterm>
@@ -3501,7 +3501,7 @@ function changes the CCC associated with the specified colormap.
 It returns the CCC previously associated with the colormap.
 If they are not used again in the application,
 CCCs should be freed by calling
-<function>XcmsFreeCCC .</function>
+<function>XcmsFreeCCC</function>.
 Several colormaps may share the same CCC without restriction; this
 includes the CCCs generated by Xlib with each colormap.  Xlib, however,
 creates a new CCC with each new colormap.
@@ -3524,7 +3524,7 @@ A default CCC is associated with each screen.
 <para>
 <!-- .LP -->
 To obtain the default CCC for a screen, use
-<function>XcmsDefaultCCC .</function>
+<function>XcmsDefaultCCC</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsDefaultCCC</primary></indexterm>
 <indexterm><primary>Color Conversion Context</primary><secondary>default</secondary></indexterm>
@@ -3581,7 +3581,7 @@ specific.
 <para>
 <!-- .LP -->
 Applications should not directly modify any part of the
-<function>XcmsCCC .</function>
+<function>XcmsCCC</function>.
 The following lists the C language macros, their corresponding function
 equivalents for other language bindings, and what data they both
 can return.
@@ -3781,7 +3781,7 @@ Both return the Client White Point of the specified CCC.
 <para>
 <!-- .LP -->
 To set the Client White Point in the CCC, use
-<function>XcmsSetWhitePoint .</function>
+<function>XcmsSetWhitePoint</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsSetWhitePoint</primary></indexterm>
 <indexterm><primary>Client White Point</primary><secondary>of Color Conversion Context</secondary></indexterm>
@@ -3827,14 +3827,14 @@ function changes the Client White Point in the specified CCC.
 Note that the pixel member is ignored 
 and that the color specification is left unchanged upon return.
 The format for the new white point must be
-<function>XcmsCIEXYZFormat ,</function>
-<function>XcmsCIEuvYFormat ,</function>
-<function>XcmsCIExyYFormat ,</function>
+<function>XcmsCIEXYZFormat</function>,
+<function>XcmsCIEuvYFormat</function>,
+<function>XcmsCIExyYFormat</function>,
 or
-<function>XcmsUndefinedFormat .</function>
+<function>XcmsUndefinedFormat</function>.
 If the color argument is NULL, this function sets the format component of the
 Client White Point specification to
-<function>XcmsUndefinedFormat ,</function>
+<function>XcmsUndefinedFormat</function>,
 indicating that the Client White Point is assumed to be the same as the
 Screen White Point.
 </para>
@@ -3850,7 +3850,7 @@ otherwise, it returns zero.
 <!-- .LP -->
 To set the gamut compression procedure and corresponding client data
 in a specified CCC, use
-<function>XcmsSetCompressionProc .</function>
+<function>XcmsSetCompressionProc</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsSetCompressionProc</primary></indexterm>
 <indexterm><primary>Gamut compression</primary><secondary>setting in Color Conversion Context</secondary></indexterm>
@@ -3889,7 +3889,7 @@ If NULL is specified and a function using this CCC must convert
 a color specification to a device-dependent format and encounters a color
 that lies outside the screen's color gamut, 
 that function will return
-<function>XcmsFailure .</function>
+<function>XcmsFailure</function>.
 <!-- .ds Cd the gamut compression procedure -->
       </para>
     </listitem>
@@ -3920,7 +3920,7 @@ and then returns the old procedure.
 <!-- .LP -->
 To set the white point adjustment procedure and corresponding client data
 in a specified CCC, use
-<function>XcmsSetWhiteAdjustProc .</function>
+<function>XcmsSetWhiteAdjustProc</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsSetWhiteAdjustProc</primary></indexterm>
 <indexterm><primary>White point adjustment</primary><secondary>setting in Color Conversion Context</secondary></indexterm>
@@ -3987,17 +3987,17 @@ and then returns the old procedure.
 <para>
 <!-- .LP -->
 You can explicitly create a CCC within your application by calling
-<function>XcmsCreateCCC .</function>
+<function>XcmsCreateCCC</function>.
 These created CCCs can then be used by those functions that explicitly
 call for a CCC argument.
 Old CCCs that will not be used by the application should be freed using
-<function>XcmsFreeCCC .</function>
+<function>XcmsFreeCCC</function>.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
 To create a CCC, use
-<function>XcmsCreateCCC .</function>
+<function>XcmsCreateCCC</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsCreateCCC</primary></indexterm>
 <indexterm><primary>Color Conversion Context</primary><secondary>creation</secondary></indexterm>
@@ -4074,7 +4074,7 @@ If NULL is specified and a function using this CCC must convert
 a color specification to a device-dependent format and encounters a color
 that lies outside the screen's color gamut, 
 that function will return
-<function>XcmsFailure .</function>
+<function>XcmsFailure</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -4124,7 +4124,7 @@ function creates a CCC for the specified display, screen, and visual.
 <!-- .LP -->
 <!-- .sp -->
 To free a CCC, use
-<function>XcmsFreeCCC .</function>
+<function>XcmsFreeCCC</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsFreeCCC</primary></indexterm>
 <indexterm><primary>Color Conversion Context</primary><secondary>freeing</secondary></indexterm>
@@ -4171,7 +4171,7 @@ are ignored.
 <!-- .sp -->
 To convert an array of color specifications in arbitrary color formats
 to a single destination format, use
-<function>XcmsConvertColors .</function>
+<function>XcmsConvertColors</function>.
 </para>
 <indexterm><primary>Color conversion</primary></indexterm>
 <indexterm><primary>Color</primary><secondary>conversion</secondary></indexterm>
@@ -4264,7 +4264,7 @@ function converts the color specifications in the specified array of
 structures from their current format to a single target format,
 using the specified CCC.
 When the return value is
-<function>XcmsFailure ,</function>
+<function>XcmsFailure</function>,
 the contents of the color specification array are left unchanged.
 </para>
 <para>
@@ -4274,8 +4274,8 @@ The array may contain a mixture of color specification formats
 When the array contains both device-independent and
 device-dependent color specifications and the target_format argument specifies
 a device-dependent format (for example,
-<function>XcmsRGBiFormat ,</function>
-<function>XcmsRGBFormat ),</function>
+<function>XcmsRGBiFormat</function>,
+<function>XcmsRGBFormat</function>),
 all specifications are converted to <acronym>CIE</acronym> XYZ format and then to the target
 device-dependent format.
 </para>
@@ -4296,7 +4296,7 @@ The gamut compression procedure specified in the CCC
 is called when an attempt to convert a color specification from
 <function>XcmsCIEXYZ</function>
 to a device-dependent format (typically
-<function>XcmsRGBi )</function>
+<function>XcmsRGBi</function>)
 results in a color that lies outside the screen's color gamut.
 If the gamut compression procedure requires client data, this data is passed
 via the gamut compression client data in the CCC.
@@ -4323,7 +4323,7 @@ following:
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>typedef Status<function>(*XcmsCompressionProc)</function></funcdef>
+  <funcdef>typedef Status<function>(*XcmsCompressionProc</function>)</funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
   <paramdef>XcmsColor<parameter> colors_in_out[]</parameter></paramdef>
   <paramdef>unsignedint<parameter> ncolors</parameter></paramdef>
@@ -4416,7 +4416,7 @@ When called, elements 0 to index - 1 in the color specification
 array can be assumed to fall within the screen's color gamut.
 In addition, these color specifications are already in some device-dependent
 format (typically
-<function>XcmsRGBi ).</function>
+<function>XcmsRGBi</function>).
 If any modifications are made to these color specifications,
 they must be in their initial device-dependent format upon return.
     </para>
@@ -4427,9 +4427,9 @@ When called, the element in the color specification array specified
 by the index argument contains the color specification outside the 
 screen's color gamut encountered by the calling routine.
 In addition, this color specification can be assumed to be in
-<function>XcmsCIEXYZ .</function>
+<function>XcmsCIEXYZ</function>.
 Upon return, this color specification must be in
-<function>XcmsCIEXYZ .</function>
+<function>XcmsCIEXYZ</function>.
     </para>
   </listitem>
   <listitem>
@@ -4438,7 +4438,7 @@ When called, elements from index to ncolors - 1
 in the color specification array may or may not fall within the
 screen's color gamut.
 In addition, these color specifications can be assumed to be in
-<function>XcmsCIEXYZ .</function>
+<function>XcmsCIEXYZ</function>.
 If any modifications are made to these color specifications, 
 they must be in
 <function>XcmsCIEXYZ</function>
@@ -4509,7 +4509,7 @@ then while maintaining the same Psychometric Hue Angle,
 the color will be clipped to the <acronym>CIE</acronym> L*a*b* coordinates of maximum
 Psychometric Chroma.
 See
-<function>XcmsCIELabQueryMaxC .</function>
+<function>XcmsCIELabQueryMaxC</function>.
 No client data is necessary.
     </para>
   </listitem>
@@ -4558,7 +4558,7 @@ then, while maintaining the same Psychometric Hue Angle,
 the color will be clipped to the <acronym>CIE</acronym> L*u*v* coordinates of maximum
 Psychometric Chroma.
 See
-<function>XcmsCIELuvQueryMaxC .</function>
+<function>XcmsCIELuvQueryMaxC</function>.
 No client data is necessary.
     </para>
   </listitem>
@@ -4650,7 +4650,7 @@ The white point adjustment procedure interface must adhere to the following:
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>typedef Status <function>(*XcmsWhiteAdjustProc)</function></funcdef>
+  <funcdef>typedef Status <function>(*XcmsWhiteAdjustProc</function>)</funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
   <paramdef>XcmsColor<parameter> *initial_white_point</parameter></paramdef>
   <paramdef>XcmsColor<parameter> *target_white_point</parameter></paramdef>
@@ -4860,9 +4860,9 @@ A second time to convert from
 For example, assume the specification is in
 <function>XcmsCIEuvY</function>
 and the adjustment procedure is
-<function>XcmsCIELuvWhiteShiftColors .</function>
+<function>XcmsCIELuvWhiteShiftColors</function>.
 During conversion to
-<function>XcmsRGB ,</function>
+<function>XcmsRGB</function>,
 the call to 
 <function>XcmsAllocColor </function>
 results in the following series of color specification conversions:
@@ -4916,7 +4916,7 @@ to
 <para>
 <!-- .LP -->
 The resulting <acronym>RGB</acronym> specification is passed to
-<function>XAllocColor ,</function>
+<function>XAllocColor</function>,
 and the <acronym>RGB</acronym>
 specification returned by
 <function>XAllocColor</function>
@@ -5007,7 +5007,7 @@ is given a fixed Hue and Value for which maximum Chroma is found.
 <!-- .LP -->
 To obtain the color specification for black 
 (zero-intensity red, green, and blue), use
-<function>XcmsQueryBlack .</function>
+<function>XcmsQueryBlack</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsQueryBlack</primary></indexterm>
 <!-- .sM -->
@@ -5073,7 +5073,7 @@ for zero-intensity red, green, and blue.
 <!-- .LP -->
 To obtain the color specification for blue 
 (full-intensity blue while red and green are zero), use
-<function>XcmsQueryBlue .</function>
+<function>XcmsQueryBlue</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsQueryBlue</primary></indexterm>
 <!-- .sM -->
@@ -5139,7 +5139,7 @@ for full-intensity blue while red and green are zero.
 <!-- .LP -->
 To obtain the color specification for green
 (full-intensity green while red and blue are zero), use
-<function>XcmsQueryGreen .</function>
+<function>XcmsQueryGreen</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsQueryGreen</primary></indexterm>
 <!-- .sM -->
@@ -5205,7 +5205,7 @@ for full-intensity green while red and blue are zero.
 <!-- .LP -->
 To obtain the color specification for red
 (full-intensity red while green and blue are zero), use
-<function>XcmsQueryRed .</function>
+<function>XcmsQueryRed</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsQueryRed</primary></indexterm>
 <!-- .sM -->
@@ -5271,7 +5271,7 @@ for full-intensity red while green and blue are zero.
 <!-- .sp -->
 To obtain the color specification for white
 (full-intensity red, green, and blue), use
-<function>XcmsQueryWhite .</function>
+<function>XcmsQueryWhite</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsQueryWhite</primary></indexterm>
 <!-- .sM -->
@@ -5359,7 +5359,7 @@ delim %%
 <!-- .sp -->
 To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle and <acronym>CIE</acronym> metric lightness (L*), use
-<function>XcmsCIELabQueryMaxC .</function>
+<function>XcmsCIELabQueryMaxC</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsCIELabQueryMaxC</primary></indexterm>
 <!-- .sM -->
@@ -5440,7 +5440,7 @@ It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 <!-- .sp -->
 To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
-<function>XcmsCIELabQueryMaxL .</function>
+<function>XcmsCIELabQueryMaxL</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
@@ -5529,7 +5529,7 @@ is beyond maximum for the given hue angle.
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle, use
-<function>XcmsCIELabQueryMaxLC .</function>
+<function>XcmsCIELabQueryMaxLC</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
@@ -5603,7 +5603,7 @@ It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*a*b* coordinates of minimum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
-<function>XcmsCIELabQueryMinL .</function>
+<function>XcmsCIELabQueryMinL</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
@@ -5716,7 +5716,7 @@ delim %%
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle and <acronym>CIE</acronym> metric lightness (L*), use
-<function>XcmsCIELuvQueryMaxC .</function>
+<function>XcmsCIELuvQueryMaxC</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsCIELuvQueryMaxC</primary></indexterm>
 <!-- .sM -->
@@ -5797,7 +5797,7 @@ It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
-<function>XcmsCIELuvQueryMaxL .</function>
+<function>XcmsCIELuvQueryMaxL</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
@@ -5886,7 +5886,7 @@ is beyond maximum for the given hue angle.
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle, use
-<function>XcmsCIELuvQueryMaxLC .</function>
+<function>XcmsCIELuvQueryMaxLC</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
@@ -5960,7 +5960,7 @@ It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 <!-- .LP -->
 To obtain the <acronym>CIE</acronym> L*u*v* coordinates of minimum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
-<function>XcmsCIELuvQueryMinL .</function>
+<function>XcmsCIELuvQueryMinL</function>.
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
@@ -6052,7 +6052,7 @@ is beyond maximum for the given hue angle.
 <para>
 <!-- .LP -->
 To obtain the maximum Chroma for a given Hue and Value, use
-<function>XcmsTekHVCQueryMaxC .</function>
+<function>XcmsTekHVCQueryMaxC</function>.
 </para>
 <indexterm><primary>Chroma</primary></indexterm>
 <indexterm><primary>Chroma</primary><secondary>maximum</secondary></indexterm>
@@ -6135,7 +6135,7 @@ and Value at which the maximum Chroma was found.
 <para>
 <!-- .LP -->
 To obtain the maximum Value for a given Hue and Chroma, use
-<function>XcmsTekHVCQueryMaxV .</function>
+<function>XcmsTekHVCQueryMaxV</function>.
 </para>
 <indexterm><primary>Value</primary></indexterm>
 <indexterm><primary>Value</primary><secondary>maximum</secondary></indexterm>
@@ -6220,7 +6220,7 @@ at which the maximum Value was found.
 <!-- .LP -->
 To obtain the maximum Chroma and Value at which it is reached
 for a specified Hue, use
-<function>XcmsTekHVCQueryMaxVC .</function>
+<function>XcmsTekHVCQueryMaxVC</function>.
 </para>
 <indexterm><primary>Chroma</primary></indexterm>
 <indexterm><primary>Value</primary></indexterm>
@@ -6298,7 +6298,7 @@ and the actual Hue for which the maximum Chroma was found.
 To obtain a specified number of TekHVC specifications such that they
 contain maximum Values for a specified Hue and the
 Chroma at which the maximum Values are reached, use
-<function>XcmsTekHVCQueryMaxVSamples .</function>
+<function>XcmsTekHVCQueryMaxVSamples</function>.
 </para>
 <indexterm><primary>Chroma</primary></indexterm>
 <indexterm><primary>Value</primary></indexterm>
@@ -6381,7 +6381,7 @@ space.
 <para>
 <!-- .LP -->
 To obtain the minimum Value for a given Hue and Chroma, use
-<function>XcmsTekHVCQueryMinV .</function>
+<function>XcmsTekHVCQueryMinV</function>.
 </para>
 <indexterm><primary>Value</primary></indexterm>
 <indexterm><primary>Value</primary><secondary>minimum</secondary></indexterm>
@@ -6541,7 +6541,7 @@ thus bypassing conversion between <acronym>CIE</acronym> u*v*Y and <acronym>CIE<
 <para>
 <!-- .LP -->
 To add a device-independent color space, use
-<function>XcmsAddColorSpace .</function>
+<function>XcmsAddColorSpace</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsAddColorSpace</primary></indexterm>
 <!-- .sM -->
@@ -6582,7 +6582,7 @@ then reference should be made by color space prefix
 (see
 <function>XcmsFormatOfPrefix</function>
 and
-<function>XcmsPrefixOfFormat ).</function>
+<function>XcmsPrefixOfFormat</function>).
 </para>
 <para>
 <!-- .LP -->
@@ -6591,7 +6591,7 @@ If the
 structure is already accessible in the color management system, 
 <function>XcmsAddColorSpace</function>
 returns 
-<function>XcmsSuccess .</function>
+<function>XcmsSuccess</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -6609,7 +6609,7 @@ must be retained for reference by Xlib.
 <!-- .LP -->
 To obtain the format associated with the color space
 associated with a specified color string prefix, use
-<function>XcmsFormatOfPrefix .</function>
+<function>XcmsFormatOfPrefix</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsFormatOfPrefix</primary></indexterm>
 <!-- .sM -->
@@ -6644,14 +6644,14 @@ The prefix is case-insensitive.
 If the color space is not accessible in the color management system,
 <function>XcmsFormatOfPrefix</function>
 returns 
-<function>XcmsUndefinedFormat .</function>
+<function>XcmsUndefinedFormat</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain the color string prefix associated with the color space
 specified by a color format, use
-<function>XcmsPrefixOfFormat .</function>
+<function>XcmsPrefixOfFormat</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsPrefixOfFormat</primary></indexterm>
 <!-- .sM -->
@@ -6718,7 +6718,7 @@ unregistered color space), then reference should be made by color space prefix
 (see
 <function>XcmsFormatOfPrefix</function>
 and
-<function>XcmsPrefixOfFormat ).</function>
+<function>XcmsPrefixOfFormat</function>).
 <!-- .sM -->
 </para>
 <para>
@@ -7117,7 +7117,7 @@ its corresponding data may be stored on different root window properties.
 <para>
 <!-- .LP -->
 To add a function set, use
-<function>XcmsAddFunctionSet .</function>
+<function>XcmsAddFunctionSet</function>.
 </para>
 <indexterm significance="preferred"><primary>XcmsAddFunctionSet</primary></indexterm>
 <!-- .sM -->
@@ -7165,7 +7165,7 @@ then reference should be made by color space prefix
 (see 
 <function>XcmsFormatOfPrefix</function>
 and
-<function>XcmsPrefixOfFormat ).</function>
+<function>XcmsPrefixOfFormat</function>).
 </para>
 <para>
 <!-- .LP -->
@@ -7198,7 +7198,7 @@ This data is stored in an
 structure.
 A handle to this structure (that is, by means of global variable)
 is usually made accessible to the client program for use with
-<function>XcmsAddFunctionSet .</function>
+<function>XcmsAddFunctionSet</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -7253,7 +7253,7 @@ interface specification:
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>typedef Status <function>(*XcmsScreenInitProc)</function></funcdef>
+  <funcdef>typedef Status <function>(*XcmsScreenInitProc</function>)</funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
   <paramdef>ScmsPerScrnInfo<parameter> *screen_info</parameter></paramdef>
@@ -7339,7 +7339,7 @@ structure.
 It then sets the state member to 
 <function>XcmsInitSuccess </function>
 and finally returns
-<function>XcmsSuccess .</function>
+<function>XcmsSuccess</function>.
     </para>
   </listitem>
 </itemizedlist>
@@ -7348,7 +7348,7 @@ and finally returns
 If unsuccessful, the procedure sets the state member to 
 <function>XcmsInitFailure</function>
 and returns
-<function>XcmsFailure .</function>
+<function>XcmsFailure</function>.
 </para>
 <para>
 <!-- .LP -->

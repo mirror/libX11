@@ -41,13 +41,13 @@ and can be
 <indexterm><primary>Visual Classes</primary><secondary>StaticColor</secondary></indexterm>
 <indexterm><primary>Visual Classes</primary><secondary>GrayScale</secondary></indexterm>
 <indexterm><primary>Visual Classes</primary><secondary>PseudoColor</secondary></indexterm>
-<function>StaticGray ,</function>
-<function>StaticColor ,</function>
-<function>TrueColor ,</function>
-<function>GrayScale ,</function>
-<function>PseudoColor ,</function>
+<function>StaticGray</function>,
+<function>StaticColor</function>,
+<function>TrueColor</function>,
+<function>GrayScale</function>,
+<function>PseudoColor</function>,
 or
-<function>DirectColor .</function>
+<function>DirectColor</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -89,7 +89,7 @@ the <acronym>RGB</acronym> values in the following ways:
   <listitem>
     <para>
 For 
-<function>PseudoColor , </function>
+<function>PseudoColor</function>,
 a pixel value indexes a colormap to produce
 independent <acronym>RGB</acronym> values, and the <acronym>RGB</acronym> values can be changed dynamically.
     </para>
@@ -107,7 +107,7 @@ same value for red, green, and blue in the colormaps.
   <listitem>
     <para>
 For 
-<function>DirectColor ,</function>
+<function>DirectColor</function>,
 a pixel value is decomposed into separate <acronym>RGB</acronym> subfields, and each
 subfield separately indexes the colormap for the corresponding value.
 The <acronym>RGB</acronym> values can be changed dynamically.
@@ -150,7 +150,7 @@ colormap can be thought of as monochrome.
 The red_mask, green_mask, and blue_mask members are only defined for
 <function>DirectColor</function>
 and 
-<function>TrueColor . </function>
+<function>TrueColor</function>.
 Each has one contiguous set of bits with no
 intersections.
 The bits_per_rgb member specifies the log base 2 of the
@@ -161,16 +161,16 @@ in a newly created colormap.
 For 
 <function>DirectColor </function>
 and 
-<function>TrueColor , </function>
+<function>TrueColor</function>,
 this is the size of an individual pixel subfield.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
 To obtain the visual ID from a 
-<function>Visual ,</function>
+<function>Visual</function>,
 use
-<function>XVisualIDFromVisual .</function>
+<function>XVisualIDFromVisual</function>.
 <indexterm significance="preferred"><primary>XVisualIDFromVisual</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -308,7 +308,7 @@ are to be made.
 The pattern can either be relative to the parent 
 or absolute.
 If
-<function>ParentRelative ,</function>
+<function>ParentRelative</function>,
 the parent's background is used.
 </para>
 <para>
@@ -322,7 +322,7 @@ An application may wish to create a window long before it is
 mapped to the screen.
 When a window is eventually mapped to the screen 
 (using
-<function>XMapWindow ),</function>
+<function>XMapWindow</function>),
 <indexterm><primary>XMapWindow</primary></indexterm>
 the X server generates an 
 <function>Expose </function>
@@ -350,7 +350,7 @@ set the appropriate member of the
 structure and OR in the corresponding value bitmask in your subsequent calls to
 <function>XCreateWindow</function>
 and
-<function>XChangeWindowAttributes ,</function>
+<function>XChangeWindowAttributes</function>,
 or use one of the other convenience functions that set the appropriate 
 attribute.
 The symbols for the value mask bits and the
@@ -553,7 +553,7 @@ a window's background in a single color.
 You can set the background-pixmap to a pixmap,  
 <function>None </function>
 (default), or 
-<function>ParentRelative .</function>
+<function>ParentRelative</function>.
 You can set the background-pixel of a window to any pixel value (no default).
 If you specify a background-pixel, 
 it overrides either the default background-pixmap
@@ -572,7 +572,7 @@ or a
 <function>BadMatch</function>
 error results.
 If you set background-pixmap to
-<function>None ,</function>
+<function>None</function>,
 the window has no defined background.  
 If you set the background-pixmap to
 <function>ParentRelative :</function>
@@ -591,9 +591,9 @@ error results.
   <listitem>
     <para>
 If the parent window has a background-pixmap of
-<function>None ,</function>
+<function>None</function>,
 the window also has a background-pixmap of
-<function>None . </function>
+<function>None</function>.
     </para>
   </listitem>
   <listitem>
@@ -608,7 +608,7 @@ background-pixmap is required.
 The background tile origin always aligns with the parent window's
 background tile origin. 
 If the background-pixmap is not
-<function>ParentRelative ,</function>
+<function>ParentRelative</function>,
 the background tile origin is the child window's origin.
     </para>
   </listitem>
@@ -630,9 +630,9 @@ When no valid contents are available for regions of a window
 and either the regions are visible or the server is maintaining backing store,
 the server automatically tiles the regions with the window's background
 unless the window has a background of
-<function>None .</function>
+<function>None</function>.
 If the background is
-<function>None ,</function>
+<function>None</function>,
 the previous screen contents from other windows of the same depth as the window
 are simply left in place as long as the contents come from the parent of the
 window or an inferior of the parent.
@@ -685,7 +685,7 @@ or a
 <function>BadMatch</function>
 error results.
 If you set the border-pixmap to 
-<function>CopyFromParent ,</function>
+<function>CopyFromParent</function>,
 the parent window's border-pixmap is copied.
 Subsequent changes to the parent window's border attribute do not affect 
 the child window.
@@ -727,14 +727,14 @@ retained when an
 <function>InputOutput</function>
 window is resized. 
 The default value for the bit-gravity attribute is 
-<function>ForgetGravity .</function>
+<function>ForgetGravity</function>.
 The window gravity of a window allows you to define how the 
 <function>InputOutput</function>
 or
 <function>InputOnly</function>
 window should be repositioned if its parent is resized.  
 The default value for the win-gravity attribute is 
-<function>NorthWestGravity .</function>
+<function>NorthWestGravity</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -885,9 +885,9 @@ with the contents of a window.
 The backing-store attribute can be set to
 <function>NotUseful </function>
 (default),
-<function>WhenMapped ,</function>
+<function>WhenMapped</function>,
 or
-<function>Always .</function>
+<function>Always</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -955,7 +955,7 @@ or
 <function>False </function>
 (default).
 If save-under is 
-<function>True , </function>
+<function>True</function>,
 the X server is advised that, when this window is mapped, 
 saving the contents of windows it obscures would be beneficial.
 </para>
@@ -1015,18 +1015,18 @@ or
 window.
 The do-not-propagate-mask is the bitwise inclusive OR of zero or more
 of the following masks:
-<function>KeyPress , </function>
-<function>KeyRelease ,</function>
-<function>ButtonPress , </function>
-<function>ButtonRelease ,</function>
-<function>PointerMotion ,</function>
-<function>Button1Motion , </function>
-<function>Button2Motion , </function>
-<function>Button3Motion ,</function>
-<function>Button4Motion , </function>
-<function>Button5Motion , </function>
+<function>KeyPress</function>,
+<function>KeyRelease</function>,
+<function>ButtonPress</function>,
+<function>ButtonRelease</function>,
+<function>PointerMotion</function>,
+<function>Button1Motion</function>,
+<function>Button2Motion</function>,
+<function>Button3Motion</function>,
+<function>Button4Motion</function>,
+<function>Button5Motion</function>,
 and
-<function>ButtonMotion .</function>
+<function>ButtonMotion</function>.
 You can specify that all events are propagated by setting 
 <function>NoEventMask </function>
 (default).
@@ -1084,7 +1084,7 @@ error results.
 X servers capable of supporting multiple 
 hardware colormaps can use this information, 
 and window managers can use it for calls to
-<function>XInstallColormap .</function>
+<function>XInstallColormap</function>.
 You can set the colormap attribute to a colormap or to
 <function>CopyFromParent</function>
 (default).
@@ -1092,14 +1092,14 @@ You can set the colormap attribute to a colormap or to
 <para>
 <!-- .LP -->
 If you set the colormap to
-<function>CopyFromParent ,</function>
+<function>CopyFromParent</function>,
 the parent window's colormap is copied and used by its child.
 However, the child window must have the same visual type as the parent, 
 or a 
 <function>BadMatch </function>
 error results. 
 The parent window must not have a colormap of 
-<function>None ,</function>
+<function>None</function>,
 or a 
 <function>BadMatch </function>
 error results.
@@ -1129,7 +1129,7 @@ You can set the cursor to a cursor or
 <para>
 <!-- .LP -->
 If you set the cursor to
-<function>None ,</function>
+<function>None</function>,
 the parent's cursor is used when the 
 pointer is in the 
 <function>InputOutput</function>
@@ -1138,7 +1138,7 @@ or
 window, and any change in the parent's cursor will cause an
 immediate change in the displayed cursor.
 By calling
-<function>XFreeCursor ,</function>
+<function>XFreeCursor</function>,
 the cursor can be freed immediately as long as no further explicit reference 
 to it is made.
 </para>
@@ -1235,7 +1235,7 @@ Extension packages can define other classes of windows.
 <para>
 <!-- .LP -->
 To create an unmapped window and set its window attributes, use
-<function>XCreateWindow .</function>
+<function>XCreateWindow</function>.
 <indexterm significance="preferred"><primary>XCreateWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1356,10 +1356,10 @@ means the depth is taken from the parent.
       <para>
 Specifies the created window's class.
 You can pass
-<function>InputOutput , </function>
-<function>InputOnly , </function>
+<function>InputOutput</function>,
+<function>InputOnly</function>,
 or 
-<function>CopyFromParent .</function>
+<function>CopyFromParent</function>.
 A class of 
 <function>CopyFromParent</function>
 means the class
@@ -1442,14 +1442,14 @@ window must be zero, or a
 <function>BadMatch</function>
 error results.
 For class
-<function>InputOutput ,</function>
+<function>InputOutput</function>,
 the visual type and depth must be a combination supported for the screen,
 or a
 <function>BadMatch</function>
 error results.
 The depth need not be the same as the parent,
 but the parent must not be a window of class 
-<function>InputOnly ,</function>
+<function>InputOnly</function>,
 or a
 <function>BadMatch</function>
 error results.
@@ -1470,11 +1470,11 @@ error results.
 <!-- .LP -->
 The created window is not yet displayed (mapped) on the user's display.
 To display the window, call
-<function>XMapWindow .</function>
+<function>XMapWindow</function>.
 The new window initially uses the same cursor as
 its parent. 
 A new cursor can be defined for the new window by calling
-<function>XDefineCursor .</function>
+<function>XDefineCursor</function>.
 <indexterm><primary>Cursor</primary><secondary>Initial State</secondary></indexterm>
 <indexterm><primary>XDefineCursor</primary></indexterm>
 The window will not be visible on the screen unless it and all of its
@@ -1484,12 +1484,12 @@ ancestors are mapped and it is not obscured by any of its ancestors.
 <!-- .LP -->
 <function>XCreateWindow</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadColor ,</function>
-<function>BadCursor ,</function>
-<function>BadMatch ,</function>
-<function>BadPixmap ,</function>
-<function>BadValue ,</function>
+<function>BadAlloc</function>,
+<function>BadColor</function>,
+<function>BadCursor</function>,
+<function>BadMatch</function>,
+<function>BadPixmap</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -1500,7 +1500,7 @@ errors.
 To create an unmapped 
 <function>InputOutput</function>
 subwindow of a given parent window, use
-<function>XCreateSimpleWindow .</function>
+<function>XCreateSimpleWindow</function>.
 <indexterm significance="preferred"><primary>XCreateSimpleWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1648,9 +1648,9 @@ have their default values.
 <!-- .LP -->
 <function>XCreateSimpleWindow</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadAlloc</function>,
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -1670,7 +1670,7 @@ subwindows of a window.
 <!-- .LP -->
 <!-- .sp -->
 To destroy a window and all of its subwindows, use
-<function>XDestroyWindow .</function>
+<function>XDestroyWindow</function>.
 <indexterm significance="preferred"><primary>XDestroyWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1740,7 +1740,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To destroy all subwindows of a specified window, use 
-<function>XDestroySubwindows .</function>
+<function>XDestroySubwindows</function>.
 <indexterm significance="preferred"><primary>XDestroySubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1867,7 +1867,7 @@ reparent the child into a frame first.
 For further information,
 see sections 3.2.8 and 10.10.
 Only a single client at a time can select for 
-<function>SubstructureRedirectMask .</function>
+<function>SubstructureRedirectMask</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1883,7 +1883,7 @@ event.
 <!-- .LP -->
 <!-- .sp -->
 To map a given window, use 
-<function>XMapWindow .</function>
+<function>XMapWindow</function>.
 <indexterm significance="preferred"><primary>XMapWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2009,7 +2009,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To map and raise a window, use
-<function>XMapRaised .</function>
+<function>XMapRaised</function>.
 <indexterm significance="preferred"><primary>XMapRaised</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2056,7 +2056,7 @@ subwindows that have had map requests.
 However, it also raises the specified window to the top of the stack.
 For additional information,
 see 
-<function>XMapWindow .</function>
+<function>XMapWindow</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2069,7 +2069,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To map all subwindows for a specified window, use 
-<function>XMapSubwindows .</function>
+<function>XMapSubwindows</function>.
 <indexterm significance="preferred"><primary>XMapSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2139,7 +2139,7 @@ Xlib provides functions that you can use to unmap a window or all subwindows.
 <!-- .LP -->
 <!-- .sp -->
 To unmap a window, use 
-<function>XUnmapWindow .</function>
+<function>XUnmapWindow</function>.
 <indexterm significance="preferred"><primary>XUnmapWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2206,7 +2206,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To unmap all subwindows for a specified window, use 
-<function>XUnmapSubwindows .</function>
+<function>XUnmapSubwindows</function>.
 <indexterm significance="preferred"><primary>XUnmapSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2282,7 +2282,7 @@ To change one of these parameters,
 set the appropriate member of the
 <function>XWindowChanges</function>
 structure and OR in the corresponding value mask in subsequent calls to
-<function>XConfigureWindow .</function>
+<function>XConfigureWindow</function>.
 The symbols for the value mask bits and the
 <function>XWindowChanges</function>
 structure are:
@@ -2343,12 +2343,12 @@ error results.
 The sibling member is used to set the sibling window for stacking operations.
 The stack_mode member is used to set how the window is to be restacked 
 and can be set to
-<function>Above , </function>
-<function>Below , </function>
-<function>TopIf , </function>
-<function>BottomIf ,</function>
+<function>Above</function>,
+<function>Below</function>,
+<function>TopIf</function>,
+<function>BottomIf</function>,
 or 
-<function>Opposite .</function>
+<function>Opposite</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2409,10 +2409,10 @@ and any regions where window contents are lost.
 <para>
 <!-- .LP -->
 The restack check (specifically, the computation for 
-<function>BottomIf ,</function>
-<function>TopIf ,</function>
+<function>BottomIf</function>,
+<function>TopIf</function>,
 and 
-<function>Opposite )</function>
+<function>Opposite</function>)
 is performed with respect to the window's final size and position (as
 controlled by the other arguments of the request), not its initial position.
 If a sibling is specified without a stack_mode,
@@ -2511,7 +2511,7 @@ Attempts to configure a root window have no effect.
 <!-- .LP -->
 <!-- .sp -->
 To configure a window's size, location, stacking, or border, use
-<function>XConfigureWindow .</function>
+<function>XConfigureWindow</function>.
 <indexterm significance="preferred"><primary>XConfigureWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2590,13 +2590,13 @@ a
 <function>BadMatch</function>
 error results. 
 Note that the computations for
-<function>BottomIf ,</function>
-<function>TopIf ,</function>
+<function>BottomIf</function>,
+<function>TopIf</function>,
 and
 <function>Opposite</function>
 are performed with respect to the window's final geometry (as controlled by the
 other arguments passed to
-<function>XConfigureWindow ),</function>
+<function>XConfigureWindow</function>),
 not its initial geometry.
 Any backing store contents of the window, its
 inferiors, and other newly visible windows are either discarded or
@@ -2607,8 +2607,8 @@ changed to reflect the current screen contents
 <!-- .LP -->
 <function>XConfigureWindow</function>
 can generate
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -2617,7 +2617,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To move a window without changing its size, use 
-<function>XMoveWindow .</function>
+<function>XMoveWindow</function>.
 <indexterm significance="preferred"><primary>XMoveWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2719,7 +2719,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To change a window's size without changing the upper-left coordinate, use 
-<function>XResizeWindow .</function>
+<function>XResizeWindow</function>.
 <indexterm significance="preferred"><primary>XResizeWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2822,7 +2822,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To change the size and location of a window, use 
-<function>XMoveResizeWindow .</function>
+<function>XMoveResizeWindow</function>.
 <indexterm significance="preferred"><primary>XMoveResizeWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2943,7 +2943,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To change the border width of a given window, use
-<function>XSetWindowBorderWidth .</function>
+<function>XSetWindowBorderWidth</function>.
 <indexterm significance="preferred"><primary>XSetWindowBorderWidth</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3020,7 +3020,7 @@ or restack windows.
 <!-- .LP -->
 <!-- .sp -->
 To raise a window so that no sibling window obscures it, use 
-<function>XRaiseWindow .</function>
+<function>XRaiseWindow</function>.
 <indexterm significance="preferred"><primary>XRaiseWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3093,7 +3093,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To lower a window so that it does not obscure any sibling windows, use 
-<function>XLowerWindow .</function>
+<function>XLowerWindow</function>.
 <indexterm significance="preferred"><primary>XLowerWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3167,7 +3167,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To circulate a subwindow up or down, use
-<function>XCirculateSubwindows .</function>
+<function>XCirculateSubwindows</function>.
 <indexterm significance="preferred"><primary>XCirculateSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3211,7 +3211,7 @@ the window.
 You can pass 
 <function>RaiseLowest</function>
 or
-<function>LowerHighest .</function>
+<function>LowerHighest</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -3225,12 +3225,12 @@ The
 function circulates children of the specified window in the specified 
 direction.
 If you specify
-<function>RaiseLowest ,</function>
+<function>RaiseLowest</function>,
 <function>XCirculateSubwindows</function>
 raises the lowest mapped child (if any) that is occluded 
 by another child to the top of the stack.
 If you specify
-<function>LowerHighest ,</function>
+<function>LowerHighest</function>,
 <function>XCirculateSubwindows</function>
 lowers the highest mapped child (if any) that occludes another child
 to the bottom of the stack.
@@ -3259,7 +3259,7 @@ errors.
 <!-- .sp -->
 To raise the lowest mapped child of a window that is partially or completely
 occluded by another child, use
-<function>XCirculateSubwindowsUp .</function>
+<function>XCirculateSubwindowsUp</function>.
 <indexterm significance="preferred"><primary>XCirculateSubwindowsUp</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3321,7 +3321,7 @@ error.
 <!-- .sp -->
 To lower the highest mapped child of a window that partially or 
 completely occludes another child, use 
-<function>XCirculateSubwindowsDown .</function>
+<function>XCirculateSubwindowsDown</function>.
 <indexterm significance="preferred"><primary>XCirculateSubwindowsDown</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3380,7 +3380,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To restack a set of windows from top to bottom, use 
-<function>XRestackWindows .</function>
+<function>XRestackWindows</function>.
 <indexterm significance="preferred"><primary>XRestackWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3486,7 +3486,7 @@ window attribute, such as a window's background.
 <!-- .LP -->
 <!-- .sp -->
 To change one or more attributes for a given window, use
-<function>XChangeWindowAttributes .</function>
+<function>XChangeWindowAttributes</function>.
 <indexterm significance="preferred"><primary>XChangeWindowAttributes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3533,7 +3533,7 @@ If valuemask is zero,
 the attributes are ignored and are not referenced.
 The values and restrictions are
 the same as for
-<function>XCreateWindow .</function>
+<function>XCreateWindow</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -3574,7 +3574,7 @@ structure to change the specified window attributes.
 Changing the background does not cause the window contents to be
 changed.
 To repaint the window and its background, use 
-<function>XClearWindow .</function>
+<function>XClearWindow</function>.
 Setting the border or changing the background such that the
 border tile origin changes causes the border to be repainted.
 Changing the background of a root window to 
@@ -3590,7 +3590,7 @@ window.
 Changing the backing-store of an obscured window to 
 <function>WhenMapped </function>
 or
-<function>Always , </function>
+<function>Always</function>,
 or changing the backing-planes, backing-pixel, or
 save-under of a mapped window may have no immediate effect.
 Changing the colormap of a window (that is, defining a new map, not
@@ -3600,7 +3600,7 @@ event.
 Changing the colormap of a visible window may have no
 immediate effect on the screen because the map may not be installed
 (see
-<function>XInstallColormap ).</function>
+<function>XInstallColormap</function>).
 Changing the cursor of a root window to 
 <function>None </function>
 restores the default
@@ -3614,10 +3614,10 @@ Their event masks are maintained separately.
 When an event is generated, 
 it is reported to all interested clients. 
 However, only one client at a time can select for 
-<function>SubstructureRedirectMask , </function>
-<function>ResizeRedirectMask , </function>
+<function>SubstructureRedirectMask</function>,
+<function>ResizeRedirectMask</function>,
 and
-<function>ButtonPressMask .</function>
+<function>ButtonPressMask</function>.
 If a client attempts to select any of these event masks 
 and some other client has already selected one, 
 a
@@ -3630,12 +3630,12 @@ not one per client.
 <!-- .LP -->
 <function>XChangeWindowAttributes</function>
 can generate
-<function>BadAccess ,</function>
-<function>BadColor ,</function>
-<function>BadCursor ,</function>
-<function>BadMatch ,</function>
-<function>BadPixmap ,</function>
-<function>BadValue ,</function>
+<function>BadAccess</function>,
+<function>BadColor</function>,
+<function>BadCursor</function>,
+<function>BadMatch</function>,
+<function>BadPixmap</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -3644,7 +3644,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To set the background of a window to a given pixel, use 
-<function>XSetWindowBackground .</function>
+<function>XSetWindowBackground</function>.
 <indexterm significance="preferred"><primary>XSetWindowBackground</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3720,7 +3720,7 @@ errors.
 <para>
 <!-- .LP -->
 To set the background of a window to a given pixmap, use 
-<function>XSetWindowBackgroundPixmap .</function>
+<function>XSetWindowBackgroundPixmap</function>.
 <indexterm><primary>Window</primary><secondary>background</secondary></indexterm>
 <indexterm significance="preferred"><primary>XSetWindowBackgroundPixmap</primary></indexterm>
 <!-- .sM -->
@@ -3761,9 +3761,9 @@ Specifies the window.
     <listitem>
       <para>
 Specifies the background pixmap,
-<function>ParentRelative ,</function>
+<function>ParentRelative</function>,
 or
-<function>None .</function>
+<function>None</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -3790,15 +3790,15 @@ window, a
 <function>BadMatch</function>
 error results.
 If the background is set to
-<function>None ,</function>
+<function>None</function>,
 the window has no defined background.
 </para>
 <para>
 <!-- .LP -->
 <function>XSetWindowBackgroundPixmap</function>
 can generate
-<function>BadMatch ,</function>
-<function>BadPixmap ,</function>
+<function>BadMatch</function>,
+<function>BadPixmap</function>,
 and 
 <function>BadWindow </function>
 errors.
@@ -3813,7 +3813,7 @@ do not change the current contents of the window.
 <!-- .LP -->
 <!-- .sp -->
 To change and repaint a window's border to a given pixel, use 
-<function>XSetWindowBorder .</function>
+<function>XSetWindowBorder</function>.
 <indexterm significance="preferred"><primary>XSetWindowBorder</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3883,7 +3883,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To change and repaint the border tile of a given window, use 
-<function>XSetWindowBorderPixmap .</function>
+<function>XSetWindowBorderPixmap</function>.
 <indexterm significance="preferred"><primary>XSetWindowBorderPixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3923,7 +3923,7 @@ Specifies the window.
     <listitem>
       <para>
 Specifies the border pixmap or
-<function>CopyFromParent .</function>
+<function>CopyFromParent</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -3938,7 +3938,7 @@ function sets the border pixmap of the window to the pixmap you specify.
 The border pixmap can be freed immediately if no further explicit
 references to it are to be made.
 If you specify
-<function>CopyFromParent ,</function>
+<function>CopyFromParent</function>,
 a copy of the parent window's border pixmap is used.
 If you attempt to perform this on an
 <function>InputOnly</function>
@@ -3952,8 +3952,8 @@ error results.
 <!-- .LP -->
 <function>XSetWindowBorderPixmap</function>
 can generate
-<function>BadMatch ,</function>
-<function>BadPixmap ,</function>
+<function>BadMatch</function>,
+<function>BadPixmap</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -3962,7 +3962,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To set the colormap of a given window, use
-<function>XSetWindowColormap .</function>
+<function>XSetWindowColormap</function>.
 <indexterm significance="preferred"><primary>XSetWindowColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4022,8 +4022,8 @@ error results.
 <!-- .LP -->
 <function>XSetWindowColormap</function>
 can generate
-<function>BadColor ,</function>
-<function>BadMatch ,</function>
+<function>BadColor</function>,
+<function>BadMatch</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -4032,7 +4032,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To define which cursor will be used in a window, use
-<function>XDefineCursor .</function>
+<function>XDefineCursor</function>.
 <indexterm><primary>Window</primary><secondary>defining the cursor</secondary></indexterm>
 <indexterm significance="preferred"><primary>XDefineCursor</primary></indexterm>
 <!-- .sM -->
@@ -4073,7 +4073,7 @@ Specifies the window.
     <listitem>
       <para>
 Specifies the cursor that is to be displayed or
-<function>None .</function>
+<function>None</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -4084,9 +4084,9 @@ Specifies the cursor that is to be displayed or
 <!-- .eM -->
 If a cursor is set, it will be used when the pointer is in the window.
 If the cursor is
-<function>None ,</function>
+<function>None</function>,
 it is equivalent to
-<function>XUndefineCursor .</function>
+<function>XUndefineCursor</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4101,7 +4101,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To undefine the cursor in a given window, use
-<function>XUndefineCursor .</function>
+<function>XUndefineCursor</function>.
 <indexterm><primary>Window</primary><secondary>undefining the cursor</secondary></indexterm>
 <indexterm significance="preferred"><primary>XUndefineCursor</primary></indexterm>
 <!-- .sM -->

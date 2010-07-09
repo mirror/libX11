@@ -47,7 +47,7 @@ Setting Standard Properties
 <!-- .LP -->
 To specify a minimum set of properties describing the simplest application,
 use
-<function>XSetStandardProperties .</function>
+<function>XSetStandardProperties</function>.
 This function has been superseded by
 <function>XSetWMProperties</function>
 and sets all or portions of the 
@@ -119,7 +119,7 @@ which should be a null-terminated string.
     <listitem>
       <para>
 Specifies the bitmap that is to be used for the icon or
-<function>None .</function>
+<function>None</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -167,7 +167,7 @@ should be used to give a window manager some information about
 your program's preferences. 
 It should not be used by applications that need
 to communicate more information than is possible with
-<function>XSetStandardProperties .</function>
+<function>XSetStandardProperties</function>.
 (Typically, argv is the argv array of your main program.)
 If the strings are not in the Host Portable Character Encoding,
 the result is implementation-dependent.
@@ -198,9 +198,9 @@ header file and use the WM_NORMAL_HINTS property.
 <!-- .LP -->
 <!-- .sp -->
 To set the size hints for a given window in its normal state, use
-<function>XSetNormalHints .</function>
+<function>XSetNormalHints</function>.
 This function has been superseded by
-<function>XSetWMNormalHints .</function>
+<function>XSetWMNormalHints</function>.
 <indexterm significance="preferred"><primary>XSetNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -287,9 +287,9 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To return the size hints for a window in its normal state, use
-<function>XGetNormalHints .</function>
+<function>XGetNormalHints</function>.
 This function has been superseded by
-<function>XGetWMNormalHints .</function>
+<function>XGetWMNormalHints</function>.
 <indexterm significance="preferred"><primary>XGetNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -358,7 +358,7 @@ The next two functions set and read the WM_ZOOM_HINTS property.
 <para>
 <!-- .LP -->
 To set the zoom hints for a window, use
-<function>XSetZoomHints .</function>
+<function>XSetZoomHints</function>.
 This function is no longer supported by the
 <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
 <indexterm significance="preferred"><primary>XSetZoomHints</primary></indexterm>
@@ -428,7 +428,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read the zoom hints for a window, use
-<function>XGetZoomHints .</function>
+<function>XGetZoomHints</function>.
 This function is no longer supported by the
 <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
 <indexterm significance="preferred"><primary>XGetZoomHints</primary></indexterm>
@@ -495,9 +495,9 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To set the value of any property of type WM_SIZE_HINTS, use
-<function>XSetSizeHints .</function>
+<function>XSetSizeHints</function>.
 This function has been superseded by
-<function>XSetWMSizeHints .</function>
+<function>XSetWMSizeHints</function>.
 <indexterm significance="preferred"><primary>XSetSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -572,8 +572,8 @@ Thus, it may be useful if other properties of that type get defined.
 <!-- .LP -->
 <function>XSetSizeHints</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom ,</function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -582,9 +582,9 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read the value of any property of type WM_SIZE_HINTS, use
-<function>XGetSizeHints .</function>
+<function>XGetSizeHints</function>.
 This function has been superseded by
-<function>XGetWMSizeHints .</function>
+<function>XGetWMSizeHints</function>.
 <indexterm significance="preferred"><primary>XGetSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -651,7 +651,7 @@ structure for the named property and the specified window.
 This is used by
 <function>XGetNormalHints</function>
 and
-<function>XGetZoomHints .</function>
+<function>XGetZoomHints</function>.
 It also can be used to retrieve the value of any property of type
 WM_SIZE_HINTS.
 Thus, it may be useful if other properties of that type get defined.
@@ -675,9 +675,9 @@ Getting and Setting an XStandardColormap Structure
 To get the 
 <function>XStandardColormap </function>
 structure associated with one of the described atoms, use
-<function>XGetStandardColormap .</function>
+<function>XGetStandardColormap</function>.
 This function has been superseded by
-<function>XGetRGBColormap .</function>
+<function>XGetRGBColormap</function>.
 <indexterm significance="preferred"><primary>XGetStandardColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -777,9 +777,9 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To set a standard colormap, use
-<function>XSetStandardColormap .</function>
+<function>XSetStandardColormap</function>.
 This function has been superseded by
-<function>XSetRGBColormap .</function>
+<function>XSetRGBColormap</function>.
 <indexterm significance="preferred"><primary>XSetStandardColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -846,9 +846,9 @@ function usually is only used by window or session managers.
 <!-- .LP -->
 <function>XSetStandardColormap</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom ,</function>
-<function>BadDrawable ,</function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
+<function>BadDrawable</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -859,9 +859,9 @@ Parsing Window Geometry
 <!-- .LP -->
 To parse window geometry given a user-specified position 
 and a default position, use
-<function>XGeometry .</function>
+<function>XGeometry</function>.
 This function has been superseded by
-<function>XWMGeometry .</function>
+<function>XWMGeometry</function>.
 <indexterm><primary>Window</primary><secondary>determining location</secondary></indexterm>
 <indexterm significance="preferred"><primary>XGeometry</primary></indexterm>
 <!-- .sM -->
@@ -1121,7 +1121,7 @@ function returns the value of the resource <emphasis remap='I'>prog</emphasis>.<
 where <emphasis remap='I'>prog</emphasis> is the program argument with the directory prefix removed
 and <emphasis remap='I'>option</emphasis> must be a single component.
 Note that multilevel resources cannot be used with
-<function>XGetDefault .</function>
+<function>XGetDefault</function>.
 The class "Program.Name" is always used for the resource lookup.
 If the specified option name does not exist for this program,
 <function>XGetDefault</function>
@@ -1133,11 +1133,11 @@ are owned by Xlib and should not be modified or freed by the client.
 <para>
 <!-- .LP -->
 If a database has been set with 
-<function>XrmSetDatabase , </function>
+<function>XrmSetDatabase</function>,
 that database is used for the lookup.
 Otherwise, a database is created
 and is set in the display (as if by calling 
-<function>XrmSetDatabase ).</function>
+<function>XrmSetDatabase</function>).
 The database is created in the current locale.
 To create a database,
 <function>XGetDefault</function>
@@ -1147,7 +1147,7 @@ If no such property exists,
 a resource file in the user's home directory is used.
 On a <acronym>POSIX</acronym>-conformant system,
 this file is
-<function>"$HOME/.Xdefaults" .</function>
+<function>"$HOME/.Xdefaults"</function>.
 <indexterm><primary>Files</primary><secondary>$HOME/.Xdefaults</secondary></indexterm>
 After loading these defaults,
 <function>XGetDefault</function>
@@ -1201,16 +1201,16 @@ is much faster.
 <!-- .LP -->
 The functions discussed here provide all the functionality of the 
 X Version 10 functions 
-<function>XDraw , </function>
+<function>XDraw</function>,
 <indexterm ><primary>X10 compatibility</primary><secondary>XDraw</secondary></indexterm>
-<function>XDrawFilled , </function>
+<function>XDrawFilled</function>,
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawFilled</secondary></indexterm>
-<function>XDrawPatterned , </function>
+<function>XDrawPatterned</function>,
 <indexterm ><primary>X10 compatibility</primary><secondary>XDrawPatterned</secondary></indexterm>
-<function>XDrawDashed , </function>
+<function>XDrawDashed</function>,
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawDashed</secondary></indexterm>
 and
-<function>XDrawTiled .  </function>
+<function>XDrawTiled</function>.
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawTiled</secondary></indexterm>
 They are as compatible as possible given X Version 11's new line-drawing 
 functions.  
@@ -1230,7 +1230,7 @@ Just how the graphics context you use is set up actually
 determines whether you get dashes or not, and so on.  
 Lines are properly joined if they connect and include
 the closing of a closed figure  (see 
-<function>XDrawLines ).</function>
+<function>XDrawLines</function>).
 The functions discussed here fail (return zero) only if they run out of memory
 or are passed a 
 <function>Vertex </function>
@@ -1248,15 +1248,15 @@ set.
 <!-- .LP -->
 <!-- .sp -->
 To achieve the effects of the X Version 10
-<function>XDraw , </function>
+<function>XDraw</function>,
 <indexterm ><primary>X10 compatibility</primary><secondary>XDraw</secondary></indexterm>
-<function>XDrawDashed , </function>
+<function>XDrawDashed</function>,
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawDashed</secondary></indexterm>
 and 
-<function>XDrawPatterned , </function>
+<function>XDrawPatterned</function>,
 <indexterm ><primary>X10 compatibility</primary><secondary>XDrawPatterned</secondary></indexterm>
 use
-<function>XDraw .  </function>
+<function>XDraw</function>.
 </para>
 
 <para>
@@ -1466,10 +1466,10 @@ To achieve the effects of the X Version 10
 <function>XDrawTiled </function>
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawTiled</secondary></indexterm>
 and 
-<function>XDrawFilled , </function>
+<function>XDrawFilled</function>,
 <indexterm><primary>X10 compatibility</primary><secondary>XDrawFilled</secondary></indexterm>
 use
-<function>XDrawFilled .</function>
+<function>XDrawFilled</function>.
 </para>
 
 <para>#include &lt;X11/X10.h&gt;</para>
@@ -1575,9 +1575,9 @@ The
 <function>XAssocTable</function>
 system provides users of the X library with a method
 for associating their own data structures with X resources
-<function>( Pixmaps , </function>
-<function>Fonts , </function>
-<function>Windows , </function>
+(<function>Pixmaps</function>,
+<function>Fonts</function>,
+<function>Windows</function>,
 and so on).
 </para>
 <para>
@@ -1623,9 +1623,9 @@ bucket.
 <!-- .LP -->
 <!-- .sp -->
 To return a pointer to a new
-<function>XAssocTable , </function>
+<function>XAssocTable</function>,
 use 
-<function>XCreateAssocTable .</function>
+<function>XCreateAssocTable</function>.
 <indexterm significance="preferred"><primary>XCreateAssocTable</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -1644,7 +1644,7 @@ use
     <listitem>
       <para>
 Specifies the number of buckets in the hash system of
-<function>XAssocTable .</function>
+<function>XAssocTable</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1655,7 +1655,7 @@ Specifies the number of buckets in the hash system of
 <!-- .eM -->
 The size argument specifies the number of buckets in the 
 hash system of
-<function>XAssocTable .</function>
+<function>XAssocTable</function>.
 For  reasons  of  efficiency  the number of buckets
 should be a power of two.
 Some size  suggestions  might  be:  use  32 buckets  per  100  objects,
@@ -1669,9 +1669,9 @@ a NULL pointer is returned.
 <!-- .LP -->
 <!-- .sp -->
 To create an entry in a given 
-<function>XAssocTable ,</function>
+<function>XAssocTable</function>,
 use 
-<function>XMakeAssoc .</function>
+<function>XMakeAssoc</function>.
 <indexterm significance="preferred"><primary>XMakeAssoc</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -1744,9 +1744,9 @@ the highest XID.
 <!-- .LP -->
 <!-- .sp -->
 To obtain data from a given 
-<function>XAssocTable ,</function>
+<function>XAssocTable</function>,
 use 
-<function>XLookUpAssoc .</function>
+<function>XLookUpAssoc</function>.
 <indexterm significance="preferred"><primary>XLookUpAssoc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1809,9 +1809,9 @@ it returns NULL.
 <!-- .LP -->
 <!-- .sp -->
 To delete an entry from a given 
-<function>XAssocTable ,</function>
+<function>XAssocTable</function>,
 use 
-<function>XDeleteAssoc .</function>
+<function>XDeleteAssoc</function>.
 <indexterm significance="preferred"><primary>XDeleteAssoc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1866,15 +1866,15 @@ function deletes an association in an
 keyed on its XID.
 Redundant deletes (and deletes of nonexistent XIDs) are ignored.
 Deleting associations in no way impairs the performance of an 
-<function>XAssocTable .</function>
+<function>XAssocTable</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To free the memory associated with a given 
-<function>XAssocTable ,</function>
+<function>XAssocTable</function>,
 use 
-<function>XDestroyAssocTable .</function>
+<function>XDestroyAssocTable</function>.
 </para>
 <indexterm significance="preferred"><primary>XDestroyAssocTable</primary></indexterm>
 <!-- .sM -->

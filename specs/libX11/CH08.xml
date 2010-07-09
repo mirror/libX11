@@ -28,14 +28,14 @@ Because pixmaps do not have defined backgrounds,
 they cannot be filled by using the functions described in this section.
 Instead, to accomplish an analogous operation on a pixmap,
 you should use 
-<function>XFillRectangle ,</function>
+<function>XFillRectangle</function>,
 which sets the pixmap to a known value.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To clear a rectangular area of a given window, use
-<function>XClearArea .</function>
+<function>XClearArea</function>.
 <indexterm><primary>Areas</primary><secondary>clearing</secondary></indexterm>
 <indexterm><primary>Clearing</primary><secondary>areas</secondary></indexterm>
 <indexterm significance="preferred"><primary>XClearArea</primary></indexterm>
@@ -139,7 +139,7 @@ The
 function paints a rectangular area in the specified window according to the
 specified dimensions with the window's background pixel or pixmap.
 The subwindow-mode effectively is
-<function>ClipByChildren . </function>
+<function>ClipByChildren</function>.
 If width is zero, it
 is replaced with the current width of the window minus x.
 If height is
@@ -148,17 +148,17 @@ If the window has a defined background tile,
 the rectangle clipped by any children is filled with this tile.
 If the window has
 background 
-<function>None , </function>
+<function>None</function>,
 the contents of the window are not changed.  
 In either
 case, if exposures is 
-<function>True , </function>
+<function>True</function>,
 one or more 
 <function>Expose </function>
 events are generated for regions of the rectangle that are either visible or are
 being retained in a backing store.
 If you specify a window whose class is
-<function>InputOnly ,</function>
+<function>InputOnly</function>,
 a
 <function>BadMatch</function>
 error results.
@@ -167,8 +167,8 @@ error results.
 <!-- .LP -->
 <function>XClearArea</function>
 can generate
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -177,7 +177,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To clear the entire area in a given window, use
-<function>XClearWindow .</function>
+<function>XClearWindow</function>.
 <indexterm><primary>Window</primary><secondary>clearing</secondary></indexterm>
 <indexterm><primary>Clearing</primary><secondary>windows</secondary></indexterm>
 <indexterm significance="preferred"><primary>XClearWindow</primary></indexterm>
@@ -222,17 +222,17 @@ function clears the entire area in the specified window and is
 equivalent to
 <function>XClearArea</function>
 (display, w, 0, 0, 0, 0, 
-<function>False ).</function>
+<function>False</function>).
 If the window has a defined background tile, the rectangle is tiled with a
 plane-mask of all ones and 
 <function>GXcopy</function>
 function.
 If the window has
 background 
-<function>None , </function>
+<function>None</function>,
 the contents of the window are not changed.  
 If you specify a window whose class is
-<function>InputOnly ,</function>
+<function>InputOnly</function>,
 a
 <function>BadMatch</function>
 error results. 
@@ -261,7 +261,7 @@ Xlib provides functions that you can use to copy an area or a bit plane.
 <!-- .sp -->
 To copy an area between drawables of the same
 root and depth, use
-<function>XCopyArea .</function>
+<function>XCopyArea</function>.
 <indexterm><primary>Areas</primary><secondary>copying</secondary></indexterm>
 <indexterm><primary>Copying</primary><secondary>areas</secondary></indexterm>
 <indexterm significance="preferred"><primary>XCopyArea</primary></indexterm>
@@ -413,7 +413,7 @@ Instead, the
 following occurs on all corresponding destination regions that are either
 visible or are retained in backing store.  
 If the destination is a window with a background other than 
-<function>None , </function>
+<function>None</function>,
 corresponding regions
 of the destination are tiled with that background
 (with plane-mask of all ones and
@@ -421,7 +421,7 @@ of the destination are tiled with that background
 function).
 Regardless of tiling or whether the destination is a window or a pixmap,
 if graphics-exposures is 
-<function>True ,</function>
+<function>True</function>,
 then
 <function>GraphicsExpose</function>
 events for all corresponding destination regions are generated.
@@ -446,8 +446,8 @@ clip-y-origin, and clip-mask.
 <!-- .LP -->
 <function>XCopyArea</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -456,7 +456,7 @@ errors.
 <para>
 <!-- .LP -->
 To copy a single bit plane of a given drawable, use
-<function>XCopyPlane .</function>
+<function>XCopyPlane</function>.
 <indexterm><primary>Plane</primary><secondary>copying</secondary></indexterm>
 <indexterm><primary>Copying</primary><secondary>planes</secondary></indexterm>
 <indexterm significance="preferred"><primary>XCopyPlane</primary></indexterm>
@@ -640,9 +640,9 @@ and clip-mask.
 <!-- .LP -->
 <function>XCopyPlane</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
+<function>BadMatch</function>,
 and 
 <function>BadValue </function>
 errors.
@@ -762,7 +762,7 @@ for these values.
 <para>
 <!-- .LP -->
 To draw a single point in a given drawable, use
-<function>XDrawPoint .</function>
+<function>XDrawPoint</function>.
 <indexterm significance="preferred"><primary>XDrawPoint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -834,7 +834,7 @@ Specify the x and y coordinates where you want the point drawn.
 <!-- .eM -->
 <!-- .sp -->
 To draw multiple points in a given drawable, use
-<function>XDrawPoints .</function>
+<function>XDrawPoints</function>.
 <indexterm significance="preferred"><primary>XDrawPoints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -910,7 +910,7 @@ Specifies the coordinate mode.
 You can pass
 <function>CoordModeOrigin</function>
 or
-<function>CoordModePrevious .</function>
+<function>CoordModePrevious</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -942,16 +942,16 @@ foreground, subwindow-mode, clip-x-origin, clip-y-origin, and clip-mask.
 <!-- .LP -->
 <function>XDrawPoint</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and 
 <function>BadMatch </function>
 errors.
 <function>XDrawPoints</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
+<function>BadMatch</function>,
 and
 <function>BadValue </function>
 errors.
@@ -975,7 +975,7 @@ errors.
 <para>
 <!-- .LP -->
 To draw a single line between two points in a given drawable, use
-<function>XDrawLine .</function>
+<function>XDrawLine</function>.
 <indexterm significance="preferred"><primary>XDrawLine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1069,7 +1069,7 @@ Specify the points (x1, y1) and (x2, y2) to be connected.
 <!-- .eM -->
 <!-- .sp -->
 To draw multiple lines in a given drawable, use
-<function>XDrawLines .</function>
+<function>XDrawLines</function>.
 <indexterm significance="preferred"><primary>XDrawLines</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1145,7 +1145,7 @@ Specifies the coordinate mode.
 You can pass
 <function>CoordModeOrigin</function>
 or
-<function>CoordModePrevious .</function>
+<function>CoordModePrevious</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1157,7 +1157,7 @@ or
 <!-- .sp -->
 To draw multiple, unconnected lines in a given drawable,
 use
-<function>XDrawSegments .</function>
+<function>XDrawSegments</function>.
 <indexterm significance="preferred"><primary>XDrawSegments</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1296,13 +1296,13 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 </para>
 <para>
 <!-- .LP -->
-<function>XDrawLine ,</function>
-<function>XDrawLines ,</function>
+<function>XDrawLine</function>,
+<function>XDrawLines</function>,
 and
 <function>XDrawSegments</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -1327,7 +1327,7 @@ errors.
 <para>
 <!-- .LP -->
 To draw the outline of a single rectangle in a given drawable, use
-<function>XDrawRectangle .</function>
+<function>XDrawRectangle</function>.
 <indexterm significance="preferred"><primary>XDrawRectangle</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1424,7 +1424,7 @@ Specify the width and height(Wh.
 <!-- .sp -->
 To draw the outline of multiple rectangles
 in a given drawable, use
-<function>XDrawRectangles .</function>
+<function>XDrawRectangles</function>.
 <indexterm significance="preferred"><primary>XDrawRectangles</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1535,8 +1535,8 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 and
 <function>XDrawRectangles</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -1558,7 +1558,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To draw a single arc in a given drawable, use
-<function>XDrawArc .</function>
+<function>XDrawArc</function>.
 <indexterm significance="preferred"><primary>XDrawArc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1678,7 +1678,7 @@ arc, in units of degrees * 64.
 <!-- .eM -->
 <!-- .sp -->
 To draw multiple arcs in a given drawable, use
-<function>XDrawArcs .</function>
+<function>XDrawArcs</function>.
 <indexterm significance="preferred"><primary>XDrawArcs</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1866,8 +1866,8 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 and
 <function>XDrawArcs</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -1916,7 +1916,7 @@ A single arc or multiple arcs
 <!-- .LP -->
 <!-- .sp -->
 To fill a single rectangular area in a given drawable, use
-<function>XFillRectangle .</function>
+<function>XFillRectangle</function>.
 <indexterm significance="preferred"><primary>XFillRectangle</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2013,7 +2013,7 @@ Specify the width and height(Wh.
 <!-- .eM -->
 <!-- .sp -->
 To fill multiple rectangular areas in a given drawable, use
-<function>XFillRectangles .</function>
+<function>XFillRectangles</function>.
 <indexterm significance="preferred"><primary>XFillRectangles</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2130,8 +2130,8 @@ and tile-stipple-y-origin.
 and
 <function>XFillRectangles</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -2146,7 +2146,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To fill a polygon area in a given drawable, use
-<function>XFillPolygon .</function>
+<function>XFillPolygon</function>.
 <indexterm><primary>Polygons</primary><secondary>filling</secondary></indexterm>
 <indexterm><primary>Filling</primary><secondary>polygon</secondary></indexterm>
 <indexterm significance="preferred"><primary>XFillPolygon</primary></indexterm>
@@ -2223,10 +2223,10 @@ Specifies the number of points in the array.
       <para>
 Specifies a shape that helps the server to improve performance.
 You can pass 
-<function>Complex , </function>
-<function>Convex , </function>
+<function>Complex</function>,
+<function>Convex</function>,
 or 
-<function>Nonconvex .</function>
+<function>Nonconvex</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -2240,7 +2240,7 @@ Specifies the coordinate mode.
 You can pass
 <function>CoordModeOrigin</function>
 or
-<function>CoordModePrevious .</function>
+<function>CoordModePrevious</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -2270,7 +2270,7 @@ Depending on the specified shape, the following occurs:
   <listitem>
     <para>
 If shape is
-<function>Complex , </function>
+<function>Complex</function>,
 the path may self-intersect. 
 Note that contiguous coincident points in the path are not treated 
 as self-intersection.
@@ -2279,7 +2279,7 @@ as self-intersection.
   <listitem>
     <para>
 If shape is
-<function>Convex , </function>
+<function>Convex</function>,
 for every pair of points inside the polygon,
 the line segment connecting them does not intersect the path.
 If known by the client,
@@ -2295,7 +2295,7 @@ the graphics results are undefined.
   <listitem>
     <para>
 If shape is
-<function>Nonconvex , </function>
+<function>Nonconvex</function>,
 the path does not self-intersect, but the shape is not
 wholly convex. 
 If known by the client, 
@@ -2328,9 +2328,9 @@ and tile-stipple-y-origin.
 <!-- .LP -->
 <function>XFillPolygon</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
+<function>BadMatch</function>,
 and
 <function>BadValue </function>
 errors.
@@ -2347,7 +2347,7 @@ errors.
 <indexterm><primary>Arcs</primary><secondary>filling</secondary></indexterm>
 <indexterm><primary>Filling</primary><secondary>arcs</secondary></indexterm>
 To fill a single arc in a given drawable, use
-<function>XFillArc .</function>
+<function>XFillArc</function>.
 <indexterm significance="preferred"><primary>XFillArc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2467,7 +2467,7 @@ arc, in units of degrees * 64.
 <!-- .eM -->
 <!-- .sp -->
 To fill multiple arcs in a given drawable, use
-<function>XFillArcs .</function>
+<function>XFillArcs</function>.
 <indexterm significance="preferred"><primary>XFillArcs</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2545,10 +2545,10 @@ fills the region closed by the infinitely thin path
 described by the specified arc and, depending on the 
 arc-mode specified in the GC, one or two line segments. 
 For 
-<function>ArcChord , </function>
+<function>ArcChord</function>,
 the single line segment joining the endpoints of the arc is used.  
 For 
-<function>ArcPieSlice ,</function>
+<function>ArcPieSlice</function>,
 the two line segments joining the endpoints of the arc with the center
 point are used.  
 <function>XFillArcs</function>
@@ -2576,8 +2576,8 @@ and tile-stipple-y-origin.
 and
 <function>XFillArcs</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -2657,8 +2657,8 @@ a pointer to an array of
 structures for the
 characters contained in the font.
 The
-<function>XFontStruct ,</function>
-<function>XFontProp ,</function>
+<function>XFontStruct</function>,
+<function>XFontProp</function>,
 and
 <function>XCharStruct</function>
 structures contain:
@@ -2767,14 +2767,14 @@ have the following semantics:
 The direction member can be either 
 <function>FontLeftToRight </function>
 or 
-<function>FontRightToLeft . </function>
+<function>FontRightToLeft</function>.
 It is just a hint as to whether most 
 <function>XCharStruct </function>
 elements 
 have a positive 
-<function>( FontLeftToRight ) </function>
+(<function>FontLeftToRight</function>)
 or a negative 
-<function>( FontRightToLeft )</function>
+(<function>FontRightToLeft</function>)
 character width 
 metric.
 The core protocol defines no support for vertical text.
@@ -2830,7 +2830,7 @@ as given by both min_bounds and max_bounds.
   <listitem>
     <para>
 If all_chars_exist is 
-<function>True ,</function>
+<function>True</function>,
 all characters in the per_char array have nonzero bounding boxes.
     </para>
   </listitem>
@@ -3014,7 +3014,7 @@ resource ID or a font ID interchangeably.
 <!-- .LP -->
 <!-- .sp -->
 To load a given font, use
-<function>XLoadFont .</function>
+<function>XLoadFont</function>.
 <indexterm significance="preferred"><primary>XLoadFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3075,7 +3075,7 @@ Fonts are not associated with a particular screen
 and can be stored as a component
 of any GC.
 When the font is no longer needed, call 
-<function>XUnloadFont .</function>
+<function>XUnloadFont</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3090,7 +3090,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To return information about an available font, use
-<function>XQueryFont .</function>
+<function>XQueryFont</function>.
 <indexterm significance="preferred"><primary>XQueryFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3141,12 +3141,12 @@ structure will be the
 <function>GContext </function>
 ID, and you need to be careful when using this ID in other functions
 (see
-<function>XGContextFromGC ).</function>
+<function>XGContextFromGC</function>).
 If the font does not exist,
 <function>XQueryFont</function>
 returns NULL.
 To free this data, use
-<function>XFreeFontInfo .</function>
+<function>XFreeFontInfo</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3156,7 +3156,7 @@ To perform a
 and
 <function>XQueryFont</function>
 in a single operation, use
-<function>XLoadQueryFont .</function>
+<function>XLoadQueryFont</function>.
 <indexterm significance="preferred"><primary>XLoadQueryFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3222,9 +3222,9 @@ To unload the font and free the storage used by the font structure
 that was allocated by
 <function>XQueryFont</function>
 or
-<function>XLoadQueryFont ,</function>
+<function>XLoadQueryFont</function>,
 use
-<function>XFreeFont .</function>
+<function>XFreeFont</function>.
 <indexterm significance="preferred"><primary>XFreeFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3281,7 +3281,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To return a given font property, use
-<function>XGetFontProperty .</function>
+<function>XGetFontProperty</function>.
 <indexterm significance="preferred"><primary>XGetFontProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3351,9 +3351,9 @@ it is likely that the predefined font properties will be present.
 <!-- .LP -->
 <!-- .sp -->
 To unload a font that was loaded by
-<function>XLoadFont , </function>
+<function>XLoadFont</function>,
 use
-<function>XUnloadFont .</function>
+<function>XUnloadFont</function>.
 <indexterm significance="preferred"><primary>XUnloadFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3418,7 +3418,7 @@ when querying a font type for a list of available sizes and so on.
 <!-- .LP -->
 <!-- .sp -->
 To return a list of the available font names, use
-<function>XListFonts .</function>
+<function>XListFonts</function>.
 <indexterm significance="preferred"><primary>XListFonts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3482,7 +3482,7 @@ The
 <function>XListFonts</function>
 function returns an array of available font names 
 (as controlled by the font search path; see
-<function>XSetFontPath )</function>
+<function>XSetFontPath</function>)
 that match the string you passed to the pattern argument.
 The pattern string can contain any characters,
 but each asterisk (*) is a wildcard for any number of characters,
@@ -3505,7 +3505,7 @@ when finished with the result to free the memory.
 <!-- .LP -->
 <!-- .sp -->
 To free a font name array, use
-<function>XFreeFontNames .</function>
+<function>XFreeFontNames</function>.
 <indexterm significance="preferred"><primary>XFreeFontNames</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3536,13 +3536,13 @@ The
 function frees the array and strings returned by
 <function>XListFonts </function>
 or
-<function>XListFontsWithInfo .</function>
+<function>XListFontsWithInfo</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain the names and information about available fonts, use
-<function>XListFontsWithInfo .</function>
+<function>XListFontsWithInfo</function>.
 <indexterm significance="preferred"><primary>XListFontsWithInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3639,17 +3639,17 @@ returns NULL.
 <!-- .LP -->
 To free only the allocated name array,
 the client should call
-<function>XFreeFontNames .</function>
+<function>XFreeFontNames</function>.
 To free both the name array and the font information array
 or to free just the font information array,
 the client should call
-<function>XFreeFontInfo .</function>
+<function>XFreeFontInfo</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To free font structures and font names, use
-<function>XFreeFontInfo .</function>
+<function>XFreeFontInfo</function>.
 <indexterm significance="preferred"><primary>XFreeFontInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3706,7 +3706,7 @@ function frees a font structure or an array of font structures
 and optionally an array of font names.
 If NULL is passed for names, no font names are freed.
 If a font structure for an open font (returned by
-<function>XLoadQueryFont )</function>
+<function>XLoadQueryFont</function>)
 is passed, the structure is freed,
 but the font is not closed; use
 <function>XUnloadFont</function>
@@ -3733,7 +3733,7 @@ These functions return the sum of the character metrics in pixels.
 <!-- .LP -->
 <!-- .sp -->
 To determine the width of an 8-bit character string, use
-<function>XTextWidth .</function>
+<function>XTextWidth</function>.
 <indexterm significance="preferred"><primary>XTextWidth</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3783,7 +3783,7 @@ Specifies the character count in the specified string.
 <!-- .eM -->
 <!-- .sp -->
 To determine the width of a 2-byte character string, use
-<function>XTextWidth16 .</function>
+<function>XTextWidth16</function>.
 <indexterm significance="preferred"><primary>XTextWidth16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3841,7 +3841,7 @@ Specifies the character count in the specified string.
 <para>
 <!-- .LP -->
 To compute the bounding box of an 8-bit character string in a given font, use
-<function>XTextExtents .</function>
+<function>XTextExtents</function>.
 <indexterm significance="preferred"><primary>XTextExtents</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3896,9 +3896,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-<function>( FontLeftToRight</function>
+(<function>FontLeftToRight</function>
 or
-<function>FontRightToLeft ).</function>
+<function>FontRightToLeft</function>).
       </para>
     </listitem>
   </varlistentry>
@@ -3941,7 +3941,7 @@ structure.
 <!-- .eM -->
 <!-- .sp -->
 To compute the bounding box of a 2-byte character string in a given font, use
-<function>XTextExtents16 .</function>
+<function>XTextExtents16</function>.
 <indexterm significance="preferred"><primary>XTextExtents16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3996,9 +3996,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-<function>( FontLeftToRight</function>
+(<function>FontLeftToRight</function>
 or
-<function>FontRightToLeft ).</function>
+<function>FontRightToLeft</function>).
       </para>
     </listitem>
   </varlistentry>
@@ -4048,7 +4048,7 @@ perform the size computation locally and, thereby,
 avoid the round-trip overhead of
 <function>XQueryTextExtents </function>
 and
-<function>XQueryTextExtents16 .</function>
+<function>XQueryTextExtents16</function>.
 Both functions return an
 <function>XCharStruct</function>
 structure, whose members are set to the values as follows.
@@ -4088,7 +4088,7 @@ undefined characters in the string are taken to have all zero metrics.
 <!-- .LP -->
 To query the server for the bounding box of an 8-bit character string in a 
 given font, use 
-<function>XQueryTextExtents .</function>
+<function>XQueryTextExtents</function>.
 <indexterm significance="preferred"><primary>XQueryTextExtents</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4154,9 +4154,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-<function>( FontLeftToRight</function>
+(<function>FontLeftToRight</function>
 or
-<function>FontRightToLeft ).</function>
+<function>FontRightToLeft</function>).
       </para>
     </listitem>
   </varlistentry>
@@ -4200,7 +4200,7 @@ structure.
 <!-- .sp -->
 To query the server for the bounding box of a 2-byte character string
 in a given font, use
-<function>XQueryTextExtents16 .</function>
+<function>XQueryTextExtents16</function>.
 <indexterm significance="preferred"><primary>XQueryTextExtents16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4266,9 +4266,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-<function>( FontLeftToRight</function>
+(<function>FontLeftToRight</function>
 or
-<function>FontRightToLeft ).</function>
+<function>FontRightToLeft</function>).
       </para>
     </listitem>
   </varlistentry>
@@ -4320,7 +4320,7 @@ These functions query the X server and, therefore, suffer the round-trip
 overhead that is avoided by
 <function>XTextExtents</function>
 and 
-<function>XTextExtents16 .</function>
+<function>XTextExtents16</function>.
 Both functions return a
 <function>XCharStruct </function>
 structure, whose members are set to the values as follows.
@@ -4436,7 +4436,7 @@ typedef struct {
 <!-- .LP -->
 <!-- .eM -->
 If the font member is not
-<function>None ,</function>
+<function>None</function>,
 the font is changed before printing and also is stored in the GC.
 If an error was generated during text drawing,
 the previous items may have been drawn.
@@ -4446,7 +4446,7 @@ coordinates that you pass in the text drawing functions.
 <para>
 <!-- .LP -->
 For example, consider the background rectangle drawn by
-<function>XDrawImageString .</function>
+<function>XDrawImageString</function>.
 If you want the upper-left corner of the background rectangle
 to be at pixel coordinate (x,y), pass the (x,y + ascent)
 as the baseline origin coordinates to the text functions.
@@ -4473,7 +4473,7 @@ structure.
 <para>
 <!-- .LP -->
 To draw 8-bit characters in a given drawable, use
-<function>XDrawText .</function>
+<function>XDrawText</function>.
 <indexterm significance="preferred"><primary>XDrawText</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4569,7 +4569,7 @@ Specifies the number of text items in the array.
 <!-- .eM -->
 <!-- .sp -->
 To draw 2-byte characters in a given drawable, use
-<function>XDrawText16 .</function>
+<function>XDrawText16</function>.
 <indexterm significance="preferred"><primary>XDrawText16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4711,9 +4711,9 @@ and tile-stipple-y-origin.
 and
 <function>XDrawText16</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadFont ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadFont</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -4729,7 +4729,7 @@ errors.
 <indexterm><primary>Strings</primary><secondary>drawing</secondary></indexterm>
 <indexterm><primary>Drawing</primary><secondary>strings</secondary></indexterm>
 To draw 8-bit characters in a given drawable, use
-<function>XDrawString .</function>
+<function>XDrawString</function>.
 <indexterm significance="preferred"><primary>XDrawString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4825,7 +4825,7 @@ Specifies the number of characters in the string argument.
 <!-- .eM -->
 <!-- .sp -->
 To draw 2-byte characters in a given drawable, use
-<function>XDrawString16 .</function>
+<function>XDrawString16</function>.
 <indexterm significance="preferred"><primary>XDrawString16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4924,7 +4924,7 @@ additional mask for a fill operation on the drawable.
 The drawable is modified only where the font character has a bit set to 1.
 For fonts defined with 2-byte matrix indexing
 and used with
-<function>XDrawString16 ,</function>
+<function>XDrawString16</function>,
 each byte is used as a byte2 with a byte1 of zero.
 </para>
 <para>
@@ -4942,8 +4942,8 @@ and tile-stipple-y-origin.
 and
 <function>XDrawString16</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -4969,7 +4969,7 @@ This prevents annoying flicker on many displays.
 <!-- .LP -->
 <!-- .sp -->
 To draw 8-bit image text characters in a given drawable, use
-<function>XDrawImageString .</function>
+<function>XDrawImageString</function>.
 <indexterm significance="preferred"><primary>XDrawImageString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5065,7 +5065,7 @@ Specifies the number of characters in the string argument.
 <!-- .eM -->
 <!-- .sp -->
 To draw 2-byte image text characters in a given drawable, use
-<function>XDrawImageString16 .</function>
+<function>XDrawImageString16</function>.
 <indexterm significance="preferred"><primary>XDrawImageString16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5208,15 +5208,15 @@ are as would be returned by
 using gc and string.
 The function and fill-style defined in the GC are ignored for these functions. 
 The effective function is 
-<function>GXcopy ,</function>
+<function>GXcopy</function>,
 and the effective fill-style is
-<function>FillSolid .</function>
+<function>FillSolid</function>.
 </para>
 <para>
 <!-- .LP -->
 For fonts defined with 2-byte matrix indexing
 and used with
-<function>XDrawImageString ,</function>
+<function>XDrawImageString</function>,
 each byte is used as a byte2 with a byte1 of zero.
 </para>
 <para>
@@ -5231,8 +5231,8 @@ clip-y-origin, and clip-mask.
 and
 <function>XDrawImageString16</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadMatch </function>
 errors.
@@ -5310,7 +5310,7 @@ typedef struct _XImage {
 <!-- .eM -->
 <!-- .sp -->
 To initialize the image manipulation routines of an image structure, use
-<function>XInitImage .</function>
+<function>XInitImage</function>.
 <indexterm significance="preferred"><primary>XInitImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5368,7 +5368,7 @@ or inconsistency in the structure, in which case the image is not changed.
 <!-- .sp -->
 To combine an image with a rectangle of a drawable on the display,
 use
-<function>XPutImage .</function>
+<function>XPutImage</function>.
 <indexterm significance="preferred"><primary>XPutImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5518,7 +5518,7 @@ and the background pixel defines the source for the zero bits.
 For 
 <function>XYPixmap </function>
 and 
-<function>ZPixmap , </function>
+<function>ZPixmap</function>,
 the depth of the image must match the depth of the drawable,
 or a
 <function>BadMatch</function>
@@ -5544,9 +5544,9 @@ foreground and background.
 <!-- .LP -->
 <function>XPutImage</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
+<function>BadMatch</function>,
 and
 <function>BadValue </function>
 errors.
@@ -5556,7 +5556,7 @@ errors.
 <!-- .sp -->
 To return the contents of a rectangle in a given drawable on the display,
 use
-<function>XGetImage .</function>
+<function>XGetImage</function>.
 This function specifically supports rudimentary screen dumps.
 <indexterm significance="preferred"><primary>XGetImage</primary></indexterm>
 <!-- .sM -->
@@ -5659,7 +5659,7 @@ Specifies the format for the image.
 You can pass
 <function>XYPixmap</function>
 or 
-<function>ZPixmap .</function>
+<function>ZPixmap</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -5676,13 +5676,13 @@ structure.
 This structure provides you with the contents of the specified rectangle of
 the drawable in the format you specify.
 If the format argument is 
-<function>XYPixmap ,</function>
+<function>XYPixmap</function>,
 the image contains only the bit planes you passed to the plane_mask argument.
 If the plane_mask argument only requests a subset of the planes of the
 display, the depth of the returned image will be the number of planes
 requested.
 If the format argument is 
-<function>ZPixmap ,</function>
+<function>ZPixmap</function>,
 <function>XGetImage</function>
 returns as zero the bits in all planes not 
 specified in the plane_mask argument.
@@ -5733,8 +5733,8 @@ returns NULL.
 <!-- .LP -->
 <function>XGetImage</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadMatch</function>,
 and
 <function>BadValue </function>
 errors.
@@ -5744,7 +5744,7 @@ errors.
 <!-- .LP -->
 To copy the contents of a rectangle on the display
 to a location within a preexisting image structure, use
-<function>XGetSubImage .</function>
+<function>XGetSubImage</function>.
 <indexterm significance="preferred"><primary>XGetSubImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5848,7 +5848,7 @@ Specifies the format for the image.
 You can pass
 <function>XYPixmap</function>
 or 
-<function>ZPixmap .</function>
+<function>ZPixmap</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -5894,12 +5894,12 @@ Specify the x and y coordinates(Dx.
 The 
 <function>XGetSubImage </function>
 function updates dest_image with the specified subimage in the same manner as 
-<function>XGetImage . </function>
+<function>XGetImage</function>.
 If the format argument is 
-<function>XYPixmap ,</function>
+<function>XYPixmap</function>,
 the image contains only the bit planes you passed to the plane_mask argument.
 If the format argument is 
-<function>ZPixmap ,</function>
+<function>ZPixmap</function>,
 <function>XGetSubImage</function>
 returns as zero the bits in all planes not 
 specified in the plane_mask argument.
@@ -5946,9 +5946,9 @@ returns NULL.
 <!-- .LP -->
 <function>XGetSubImage</function>
 can generate
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
-<function>BadMatch ,</function>
+<function>BadDrawable</function>,
+<function>BadGC</function>,
+<function>BadMatch</function>,
 and
 <function>BadValue </function>
 errors.

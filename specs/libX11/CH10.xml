@@ -85,23 +85,23 @@ The processing associated with these events is discussed in section 10.5.
   <tbody>
     <row>
       <entry>Keyboard events</entry>
-      <entry><function>KeyPress ,</function>
+      <entry><function>KeyPress</function>,
       <function>KeyRelease</function></entry>
     </row>
     <row>
       <entry>Pointer events</entry>
-      <entry><function>ButtonPress , </function>
-      <function>ButtonRelease  ,</function>
+      <entry><function>ButtonPress</function>,
+      <function>ButtonRelease</function>,
       <function>MotionNotify</function></entry>
     </row>
     <row>
       <entry>Window crossing events</entry>
-      <entry><function>EnterNotify , </function>
+      <entry><function>EnterNotify</function>,
       <function>LeaveNotify</function></entry>
     </row>
     <row>
       <entry>Input focus events</entry>
-      <entry><function>FocusIn , </function>
+      <entry><function>FocusIn</function>,
       <function>FocusOut</function></entry>
     </row>
     <row>
@@ -110,29 +110,29 @@ The processing associated with these events is discussed in section 10.5.
     </row>
     <row>
       <entry>Exposure events</entry>
-      <entry><function>Expose , </function>
-      <function>GraphicsExpose , </function>
+      <entry><function>Expose</function>,
+      <function>GraphicsExpose</function>,
       <function>NoExpose</function></entry>
     </row>
     <row>
       <entry>Structure control events</entry>
-      <entry><function>CirculateRequest , </function>
-      <function>ConfigureRequest , </function>
-      <function>MapRequest ,</function>
+      <entry><function>CirculateRequest</function>,
+      <function>ConfigureRequest</function>,
+      <function>MapRequest</function>,
       <function>ResizeRequest</function></entry>
     </row>
     <row>
       <entry>Window state notification events</entry>
       <entry>
-      <function>CirculateNotify , </function>
-      <function>ConfigureNotify , </function>
-      <function>CreateNotify , </function>
-      <function>DestroyNotify , </function>
-      <function>GravityNotify , </function>
-      <function>MapNotify ,</function>
-      <function>MappingNotify , </function>
-      <function>ReparentNotify , </function>
-      <function>UnmapNotify , </function>
+      <function>CirculateNotify</function>,
+      <function>ConfigureNotify</function>,
+      <function>CreateNotify</function>,
+      <function>DestroyNotify</function>,
+      <function>GravityNotify</function>,
+      <function>MapNotify</function>,
+      <function>MappingNotify</function>,
+      <function>ReparentNotify</function>,
+      <function>UnmapNotify</function>,
       <function>VisibilityNotify</function></entry>
     </row>
     <row>
@@ -141,10 +141,10 @@ The processing associated with these events is discussed in section 10.5.
     </row>
     <row>
       <entry>Client communication events</entry>
-      <entry><function>ClientMessage , </function>
-      <function>PropertyNotify , </function>
-      <function>SelectionClear , </function>
-      <function>SelectionNotify , </function>
+      <entry><function>ClientMessage</function>,
+      <function>PropertyNotify</function>,
+      <function>SelectionClear</function>,
+      <function>SelectionNotify</function>,
       <function>SelectionRequest</function></entry>
     </row>
   </tbody>
@@ -200,7 +200,7 @@ For example, when the X server reports a
 event to a client application, it sends an
 <function>XGraphicsExposeEvent</function>
 structure with the type member set to
-<function>GraphicsExpose .</function>
+<function>GraphicsExpose</function>.
 The display member is set to a pointer to the display the event was read on.
 The send_event member is set to
 <function>True</function>
@@ -323,17 +323,17 @@ return to a client application.
 Unless the client has specifically asked for them,
 most events are not reported to clients when they are generated. 
 Unless the client suppresses them by setting graphics-exposures in the GC to
-<function>False ,</function>
+<function>False</function>,
 <function>GraphicsExpose </function>
 and 
 <function>NoExpose </function>
 are reported by default as a result of
 <function>XCopyPlane</function>
 and
-<function>XCopyArea .</function>
-<function>SelectionClear ,</function>
-<function>SelectionRequest ,</function>
-<function>SelectionNotify ,</function>
+<function>XCopyArea</function>.
+<function>SelectionClear</function>,
+<function>SelectionRequest</function>,
+<function>SelectionNotify</function>,
 or
 <function>ClientMessage</function>
 cannot be masked.
@@ -491,7 +491,7 @@ for a window.
 For some event masks, there is a one-to-one correspondence between
 the event mask constant and the event type constant.
 For example, if you pass the event mask
-<function>ButtonPressMask ,</function>
+<function>ButtonPressMask</function>,
 the X server sends back only
 <function>ButtonPress</function>
 events.
@@ -503,15 +503,15 @@ which is the time at which an event occurred.
 <!-- .LP -->
 In other cases, one event mask constant can map to several event type constants.
 For example, if you pass the event mask
-<function>SubstructureNotifyMask ,</function>
+<function>SubstructureNotifyMask</function>,
 the X server can send back
-<function>CirculateNotify ,</function>
-<function>ConfigureNotify ,</function>
-<function>CreateNotify ,</function>
-<function>DestroyNotify ,</function>
-<function>GravityNotify ,</function>
-<function>MapNotify ,</function>
-<function>ReparentNotify ,</function>
+<function>CirculateNotify</function>,
+<function>ConfigureNotify</function>,
+<function>CreateNotify</function>,
+<function>DestroyNotify</function>,
+<function>GravityNotify</function>,
+<function>MapNotify</function>,
+<function>ReparentNotify</function>,
 or
 <function>UnmapNotify</function>
 events.
@@ -524,7 +524,7 @@ For example,
 if you pass either
 <function>PointerMotionMask </function>
 or
-<function>ButtonMotionMask ,</function>
+<function>ButtonMotionMask</function>,
 the X server sends back
 a
 <function>MotionNotify</function>
@@ -933,7 +933,7 @@ with these client passed arguments:
     </row>
     <row>
       <entry><emphasis remap='I'>owner_events</emphasis></entry>
-      <entry><function>True ,</function>
+      <entry><function>True</function>,
       if the client has selected
       <function>OwnerGrabButtonMask</function>
       on the event window,
@@ -959,7 +959,7 @@ the logical state of the pointer has all buttons released.
 Clients can modify the active grab by calling
 <function>XUngrabPointer</function>
 and
-<function>XChangeActivePointerGrab .</function>
+<function>XChangeActivePointerGrab</function>.
 </para>
 </sect2>
 
@@ -981,10 +981,10 @@ keyboard events
 and 
 <function>KeyRelease </function>
 and the pointer events
-<function>ButtonPress ,</function>
-<function>ButtonRelease ,</function>
+<function>ButtonPress</function>,
+<function>ButtonRelease</function>,
 and
-<function>MotionNotify .</function>
+<function>MotionNotify</function>.
 For information about the keyboard event-handling utilities,
 see chapter 11.
 </para>
@@ -1029,15 +1029,15 @@ if device event processing is frozen.
 <para>
 <!-- .LP -->
 To receive
-<function>KeyPress ,</function>
-<function>KeyRelease ,</function>
-<function>ButtonPress ,</function>
+<function>KeyPress</function>,
+<function>KeyRelease</function>,
+<function>ButtonPress</function>,
 and
 <function>ButtonRelease </function>
 events, set 
-<function>KeyPressMask ,</function>
-<function>KeyReleaseMask ,</function>
-<function>ButtonPressMask ,</function>
+<function>KeyPressMask</function>,
+<function>KeyReleaseMask</function>,
+<function>ButtonPressMask</function>,
 and
 <function>ButtonReleaseMask </function>
 bits in the event-mask attribute of the window.
@@ -1103,17 +1103,17 @@ the X server is free to send only one
 event (with the is_hint member  of the
 <function>XPointerMovedEvent</function>
 structure set to
-<function>NotifyHint )</function>
+<function>NotifyHint</function>)
 to the client for the event window, 
 until either the key or button state changes,
 the pointer leaves the event window, or the client calls
 <function>XQueryPointer</function>
 or
-<function>XGetMotionEvents .</function>
+<function>XGetMotionEvents</function>.
 The server still may send
 <function>MotionNotify</function>
 events without is_hint set to
-<function>NotifyHint .</function>
+<function>NotifyHint</function>.
     </para>
   </listitem>
 </itemizedlist>
@@ -1214,12 +1214,12 @@ window is on the same screen
 as the root window and can be either
 <function>True </function>
 or
-<function>False .</function>
+<function>False</function>.
 If
-<function>True ,</function>
+<function>True</function>,
 the event and root windows are on the same screen.
 If
-<function>False ,</function>
+<function>False</function>,
 the event and root windows are not on the same screen.
 </para>
 <para>
@@ -1229,7 +1229,7 @@ the subwindow member of the structure is set to the child of the event window
 that is the source window or the child of the event window that is
 an ancestor of the source window.
 Otherwise, the X server sets the subwindow member to
-<function>None .</function>
+<function>None</function>.
 The time member is set to the time when the event was generated 
 and is expressed in milliseconds.
 </para>
@@ -1246,20 +1246,20 @@ The state member is set to indicate the logical state of the pointer buttons
 and modifier keys just prior to the event,
 which is the bitwise inclusive OR of one or more of the
 button or modifier key masks:
-<function>Button1Mask ,</function>
-<function>Button2Mask ,</function>
-<function>Button3Mask ,</function>
-<function>Button4Mask ,</function>
-<function>Button5Mask ,</function>
-<function>ShiftMask ,</function>
-<function>LockMask ,</function>
-<function>ControlMask ,</function>
-<function>Mod1Mask ,</function>
-<function>Mod2Mask ,</function>
-<function>Mod3Mask ,</function>
-<function>Mod4Mask ,</function>
+<function>Button1Mask</function>,
+<function>Button2Mask</function>,
+<function>Button3Mask</function>,
+<function>Button4Mask</function>,
+<function>Button5Mask</function>,
+<function>ShiftMask</function>,
+<function>LockMask</function>,
+<function>ControlMask</function>,
+<function>Mod1Mask</function>,
+<function>Mod2Mask</function>,
+<function>Mod3Mask</function>,
+<function>Mod4Mask</function>,
 and
-<function>Mod5Mask .</function>
+<function>Mod5Mask</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1281,10 +1281,10 @@ and
 <function>XButtonReleasedEvent</function>
 structures, this member is called button.
 It represents the pointer button that changed state and can be the
-<function>Button1 ,</function>
-<function>Button2 ,</function>
-<function>Button3 ,</function>
-<function>Button4 ,</function>
+<function>Button1</function>,
+<function>Button2</function>,
+<function>Button3</function>,
+<function>Button4</function>,
 or
 <function>Button5 </function>
 value.
@@ -1294,7 +1294,7 @@ structure, this member is called is_hint.
 It can be set to 
 <function>NotifyNormal</function>
 or
-<function>NotifyHint .</function>
+<function>NotifyHint</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1423,7 +1423,7 @@ This section describes the processing that
 occurs for the window crossing events
 <function>EnterNotify</function>
 and
-<function>LeaveNotify .</function>
+<function>LeaveNotify</function>.
 <indexterm significance="preferred"><primary>EnterNotify</primary></indexterm>
 <indexterm significance="preferred"><primary>LeaveNotify</primary></indexterm>
 If a pointer motion or a window hierarchy change causes the
@@ -1438,19 +1438,19 @@ and
 <function>LeaveNotify</function>
 events caused by a hierarchy change are
 generated after any hierarchy event
-<function>( UnmapNotify ,</function>
-<function>MapNotify ,</function>
-<function>ConfigureNotify ,</function>
-<function>GravityNotify ,</function>
-<function>CirculateNotify )</function>
+(<function>UnmapNotify</function>,
+<function>MapNotify</function>,
+<function>ConfigureNotify</function>,
+<function>GravityNotify</function>,
+<function>CirculateNotify</function>)
 caused by that change;
 however, the X protocol does not constrain the ordering of 
 <function>EnterNotify </function>
 and 
 <function>LeaveNotify </function>
 events with respect to
-<function>FocusOut , </function>
-<function>VisibilityNotify ,</function>
+<function>FocusOut</function>,
+<function>VisibilityNotify</function>,
 and 
 <function>Expose </function>
 events.
@@ -1468,7 +1468,7 @@ or
 event also can be generated when some client application calls
 <function>XGrabPointer</function>
 and
-<function>XUngrabPointer .</function>
+<function>XUngrabPointer</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1541,12 +1541,12 @@ event,
 if a child of the event window contains the initial position of the pointer,
 the subwindow component is set to that child.
 Otherwise, the X server sets the subwindow member to
-<function>None .</function>
+<function>None</function>.
 For an
 <function>EnterNotify </function>
 event, if a child of the event window contains the final pointer position, 
 the subwindow component is set to that child or
-<function>None .</function>
+<function>None</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1569,12 +1569,12 @@ The same_screen member is set to indicate whether the event window is on the sam
 as the root window and can be either
 <function>True </function>
 or
-<function>False .</function>
+<function>False</function>.
 If
-<function>True ,</function>
+<function>True</function>,
 the event and root windows are on the same screen.
 If
-<function>False ,</function>
+<function>False</function>,
 the event and root windows are not on the same screen.
 </para>
 <para>
@@ -1584,12 +1584,12 @@ inferior of the focus window.
 The X server can set this member to either
 <function>True </function>
 or
-<function>False .</function>
+<function>False</function>.
 If
-<function>True ,</function>
+<function>True</function>,
 the event window is the focus window or an inferior of the focus window.
 If
-<function>False ,</function>
+<function>False</function>,
 the event window is not the focus window or an inferior of the focus window.
 </para>
 <para>
@@ -1599,19 +1599,19 @@ modifier keys just prior to the
 event.
 The X server can set this member to the bitwise inclusive OR of one 
 or more of the button or modifier key masks:
-<function>Button1Mask ,</function>
-<function>Button2Mask ,</function>
-<function>Button3Mask ,</function>
-<function>Button4Mask ,</function>
-<function>Button5Mask ,</function>
-<function>ShiftMask ,</function>
-<function>LockMask ,</function>
-<function>ControlMask ,</function>
-<function>Mod1Mask ,</function>
-<function>Mod2Mask ,</function>
-<function>Mod3Mask ,</function>
-<function>Mod4Mask ,</function>
-<function>Mod5Mask .</function>
+<function>Button1Mask</function>,
+<function>Button2Mask</function>,
+<function>Button3Mask</function>,
+<function>Button4Mask</function>,
+<function>Button5Mask</function>,
+<function>ShiftMask</function>,
+<function>LockMask</function>,
+<function>ControlMask</function>,
+<function>Mod1Mask</function>,
+<function>Mod2Mask</function>,
+<function>Mod3Mask</function>,
+<function>Mod4Mask</function>,
+<function>Mod5Mask</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1619,20 +1619,20 @@ The mode member is set to indicate whether the events are normal events,
 pseudo-motion events
 when a grab activates, or pseudo-motion events when a grab deactivates.
 The X server can set this member to 
-<function>NotifyNormal ,</function>
-<function>NotifyGrab ,</function>
+<function>NotifyNormal</function>,
+<function>NotifyGrab</function>,
 or
-<function>NotifyUngrab .</function>
+<function>NotifyUngrab</function>.
 </para>
 <para>
 <!-- .LP -->
 The detail member is set to indicate the notify detail and can be
-<function>NotifyAncestor ,</function>
-<function>NotifyVirtual ,</function>
-<function>NotifyInferior ,</function>
-<function>NotifyNonlinear ,</function>
+<function>NotifyAncestor</function>,
+<function>NotifyVirtual</function>,
+<function>NotifyInferior</function>,
+<function>NotifyNonlinear</function>,
 or
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
 </para>
 <sect2 id="Normal_Entry_Exit_Events">
 <title>Normal Entry/Exit Events</title>
@@ -1651,7 +1651,7 @@ Normal events are identified by
 or
 <function>XLeaveWindowEvent</function>
 structures whose mode member is set to
-<function>NotifyNormal .</function>
+<function>NotifyNormal</function>.
 </para>
 <itemizedlist>
   <listitem>
@@ -1668,7 +1668,7 @@ It generates a
 event on window A, with the detail member of the
 <function>XLeaveWindowEvent</function>
 structure set to
-<function>NotifyAncestor .</function>
+<function>NotifyAncestor</function>.
     </para>
   </listitem>
   <listitem>
@@ -1679,7 +1679,7 @@ event on each window between window A and window B, exclusive,
 with the detail member of each
 <function>XLeaveWindowEvent</function>
 structure set to
-<function>NotifyVirtual .</function>
+<function>NotifyVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1689,7 +1689,7 @@ It generates an
 event on window B, with the detail member of the 
 <function>XEnterWindowEvent</function>
 structure set to
-<function>NotifyInferior .</function>
+<function>NotifyInferior</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -1708,7 +1708,7 @@ event on window A,
 with the detail member of the
 <function>XLeaveWindowEvent</function>
 structure set to
-<function>NotifyInferior .</function>
+<function>NotifyInferior</function>.
     </para>
   </listitem>
   <listitem>
@@ -1719,7 +1719,7 @@ event on each window between window A and window B, exclusive, with the
 detail member of each 
 <function>XEnterWindowEvent</function>
 structure set to
-<function>NotifyVirtual . </function>
+<function>NotifyVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1729,7 +1729,7 @@ It generates an
 event on window B, with the detail member of the 
 <function>XEnterWindowEvent</function>
 structure set to
-<function>NotifyAncestor .</function>
+<function>NotifyAncestor</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -1749,7 +1749,7 @@ event on window A,
 with the detail member of the
 <function>XLeaveWindowEvent</function>
 structure set to 
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -1760,7 +1760,7 @@ event on each window between window A and window C, exclusive,
 with the detail member of each
 <function>XLeaveWindowEvent</function>
 structure set to
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1771,7 +1771,7 @@ event on each window between window C and window B, exclusive,
 with the detail member of each
 <function>XEnterWindowEvent</function>
 structure set to
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1781,7 +1781,7 @@ It generates an
 event on window B, with the detail member of the 
 <function>XEnterWindowEvent</function>
 structure set to 
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -1800,7 +1800,7 @@ event on window A,
 with the detail member of the
 <function>XLeaveWindowEvent</function>
 structure set to 
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -1812,7 +1812,7 @@ event on each window above window A up to and including its root,
 with the detail member of each
 <function>XLeaveWindowEvent</function>
 structure set to 
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1824,7 +1824,7 @@ event on each window from window B's root down to but not including
 window B, with the detail member of each
 <function>XEnterWindowEvent</function>
 structure set to 
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -1834,7 +1834,7 @@ It generates an
 event on window B, with the detail member of the
 <function>XEnterWindowEvent</function>
 structure set to 
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
 <!-- .RE -->
 <!-- .\".SH 3 -->
     </para>
@@ -1859,7 +1859,7 @@ are identified by
 or
 <function>XLeaveWindowEvent</function>
 structures whose mode member is set to 
-<function>NotifyGrab .</function>
+<function>NotifyGrab</function>.
 Events in which the pointer grab deactivates
 are identified by
 <function>XEnterWindowEvent</function>
@@ -1868,7 +1868,7 @@ or
 structures whose mode member is set to 
 <function>NotifyUngrab</function>
 (see
-<function>XGrabPointer ).</function>
+<function>XGrabPointer</function>).
 </para>
 <itemizedlist>
   <listitem>
@@ -1895,7 +1895,7 @@ with the mode members of the
 and
 <function>XLeaveWindowEvent</function>
 structures set to 
-<function>NotifyGrab .</function>
+<function>NotifyGrab</function>.
 These events are generated
 as if the pointer were to suddenly warp from
 its current position in P to some position in G.
@@ -1927,7 +1927,7 @@ with the mode members of the
 and
 <function>XLeaveWindowEvent</function>
 structures set to 
-<function>NotifyUngrab .</function>
+<function>NotifyUngrab</function>.
 These events are generated as if the pointer were to suddenly warp from
 some position in G to its current position in P.
 However, the pointer does not warp, and the X server uses the
@@ -1951,7 +1951,7 @@ initial and final positions for the events.
 This section describes the processing that occurs for the input focus events
 <function>FocusIn</function>
 and
-<function>FocusOut .</function>
+<function>FocusOut</function>.
 <indexterm significance="preferred"><primary>FocusIn</primary></indexterm>
 <indexterm significance="preferred"><primary>FocusOut</primary></indexterm>
 The X server can report
@@ -2021,11 +2021,11 @@ focus events while grabbed,
 focus events
 when a grab activates, or focus events when a grab deactivates.
 The X server can set the mode member to 
-<function>NotifyNormal ,</function>
-<function>NotifyWhileGrabbed ,</function>
-<function>NotifyGrab ,</function>
+<function>NotifyNormal</function>,
+<function>NotifyWhileGrabbed</function>,
+<function>NotifyGrab</function>,
 or
-<function>NotifyUngrab .</function>
+<function>NotifyUngrab</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2037,9 +2037,9 @@ event; however, the X protocol does not constrain the ordering of
 <function>FocusOut</function>
 events with respect to
 generated 
-<function>EnterNotify ,</function>
-<function>LeaveNotify ,</function>
-<function>VisibilityNotify ,</function>
+<function>EnterNotify</function>,
+<function>LeaveNotify</function>,
+<function>VisibilityNotify</function>,
 and
 <function>Expose</function>
 events.
@@ -2048,15 +2048,15 @@ events.
 <!-- .LP -->
 Depending on the event mode,
 the detail member is set to indicate the notify detail and can be
-<function>NotifyAncestor ,</function>
-<function>NotifyVirtual ,</function>
-<function>NotifyInferior ,</function>
-<function>NotifyNonlinear ,</function>
-<function>NotifyNonlinearVirtual ,</function>
-<function>NotifyPointer ,</function>
-<function>NotifyPointerRoot ,</function>
+<function>NotifyAncestor</function>,
+<function>NotifyVirtual</function>,
+<function>NotifyInferior</function>,
+<function>NotifyNonlinear</function>,
+<function>NotifyNonlinearVirtual</function>,
+<function>NotifyPointer</function>,
+<function>NotifyPointerRoot</function>,
 or
-<function>NotifyDetailNone .</function>
+<function>NotifyDetailNone</function>.
 </para>
 <sect2 id="Normal_Focus_Events_and_Focus_Events_While_Grabbed_">
 <title>Normal Focus Events and Focus Events While Grabbed </title>
@@ -2070,13 +2070,13 @@ Normal focus events are identified by
 or
 <function>XFocusOutEvent</function>
 structures whose mode member is set to 
-<function>NotifyNormal .</function>
+<function>NotifyNormal</function>.
 Focus events while grabbed are identified by
 <function>XFocusInEvent</function>
 or
 <function>XFocusOutEvent</function>
 structures whose mode member is set to 
-<function>NotifyWhileGrabbed .</function>
+<function>NotifyWhileGrabbed</function>.
 The X server processes normal focus and focus events while grabbed according to 
 the following:
 </para>
@@ -2096,7 +2096,7 @@ It generates a
 event on window A, with the detail member of the
 <function>XFocusOutEvent</function>
 structure set to 
-<function>NotifyAncestor . </function>
+<function>NotifyAncestor</function>.
     </para>
   </listitem>
   <listitem>
@@ -2107,7 +2107,7 @@ event on each window between window A and window B, exclusive,
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to 
-<function>NotifyVirtual .</function>
+<function>NotifyVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2117,7 +2117,7 @@ It generates a
 event on window B, with the detail member of the 
 <function>XFocusOutEvent</function>
 structure set to 
-<function>NotifyInferior .</function>
+<function>NotifyInferior</function>.
     </para>
   </listitem>
   <listitem>
@@ -2130,7 +2130,7 @@ event on each window below window B, down to and including window P,
 with the detail member of each 
 <function>XFocusInEvent</function>
 structure set to 
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2152,7 +2152,7 @@ event on each window from window P up to but not including window A,
 with the detail member of each 
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2163,7 +2163,7 @@ event on window A,
 with the detail member of the
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyInferior . </function>
+<function>NotifyInferior</function>.
     </para>
   </listitem>
   <listitem>
@@ -2174,7 +2174,7 @@ event on each window between window A and window B, exclusive, with the
 detail member of each 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyVirtual . </function>
+<function>NotifyVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2184,7 +2184,7 @@ It generates a
 event on window B, with the detail member of the 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyAncestor .</function>
+<function>NotifyAncestor</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2206,7 +2206,7 @@ event on each window from window P up to but not including window A,
 with the detail member of the 
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2217,7 +2217,7 @@ event on window A,
 with the detail member of the
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2228,7 +2228,7 @@ event on each window between window A and window C, exclusive,
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2239,7 +2239,7 @@ event on each window between C and B, exclusive,
 with the detail member of each
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2249,7 +2249,7 @@ It generates a
 event on window B, with the detail member of the 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2260,7 +2260,7 @@ event on each window below window B down to and including window P,
 with the detail member of the 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2280,7 +2280,7 @@ event on each window from window P up to but not including window A,
 with the detail member of each 
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2291,7 +2291,7 @@ event on window A,
 with the detail member of the
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2303,7 +2303,7 @@ event on each window above window A up to and including its root,
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2315,7 +2315,7 @@ event on each window from window B's root down to but not including
 window B, with the detail member of each
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2325,7 +2325,7 @@ It generates a
 event on window B, with the detail member of each 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2336,7 +2336,7 @@ event on each window below window B down to and including window P,
 with the detail member of each 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2360,7 +2360,7 @@ event on each window from window P up to but not including window A,
 with the detail member of each 
 <function>XFocusOutEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2370,7 +2370,7 @@ It generates a
 event on window A, with the detail member of the
 <function>XFocusOutEvent</function>
 structure set to
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2382,7 +2382,7 @@ event on each window above window A up to and including its root,
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2394,20 +2394,20 @@ event on the root window of all screens, with the detail member of each
 structure set to
 <function>NotifyPointerRoot</function>
 (or
-<function>NotifyDetailNone ).</function>
+<function>NotifyDetailNone</function>).
     </para>
   </listitem>
   <listitem>
     <para>
 If the new focus is
-<function>PointerRoot ,</function>
+<function>PointerRoot</function>,
 it generates a
 <function>FocusIn</function>
 event on each window from window P's root down to and including window P, 
 with the detail member of each
 <function>XFocusInEvent</function>
 structure set to
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2426,14 +2426,14 @@ the X server does the following:
   <listitem>
     <para>
 If the old focus is
-<function>PointerRoot ,</function>
+<function>PointerRoot</function>,
 it generates a
 <function>FocusOut</function>
 event on each window from window P up to and including window P's root, 
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2446,7 +2446,7 @@ with the detail member of each
 structure set to
 <function>NotifyPointerRoot</function>
 (or
-<function>NotifyDetailNone ).</function>
+<function>NotifyDetailNone</function>).
     </para>
   </listitem>
   <listitem>
@@ -2458,7 +2458,7 @@ event on each window from window A's root down to but not including window A,
 with the detail member of each
 <function>XFocusInEvent</function>
 structure set to
-<function>NotifyNonlinearVirtual .</function>
+<function>NotifyNonlinearVirtual</function>.
     </para>
   </listitem>
   <listitem>
@@ -2469,7 +2469,7 @@ event on window A,
 with the detail member of the 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyNonlinear .</function>
+<function>NotifyNonlinear</function>.
     </para>
   </listitem>
   <listitem>
@@ -2480,7 +2480,7 @@ event on each window below window A down to and including window P,
 with the detail member of each 
 <function>XFocusInEvent</function>
 structure set to  
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
     </para>
   </listitem>
@@ -2499,14 +2499,14 @@ the X server does the following:
   <listitem>
     <para>
 If the old focus is
-<function>PointerRoot ,</function>
+<function>PointerRoot</function>,
 it generates a
 <function>FocusOut</function>
 event on each window from window P up to and including window P's root, 
 with the detail member of each
 <function>XFocusOutEvent</function>
 structure set to
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
     </para>
   </listitem>
   <listitem>
@@ -2519,7 +2519,7 @@ with the detail member of each
 structure set to either
 <function>NotifyPointerRoot</function>
 or
-<function>NotifyDetailNone . </function>
+<function>NotifyDetailNone</function>.
     </para>
   </listitem>
   <listitem>
@@ -2532,20 +2532,20 @@ with the detail member of each
 structure set to
 <function>NotifyDetailNone </function>
 or
-<function>NotifyPointerRoot .</function>
+<function>NotifyPointerRoot</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 If the new focus is
-<function>PointerRoot ,</function>
+<function>PointerRoot</function>,
 it generates a
 <function>FocusIn</function>
 event on each window from window P's root down to and including window P, 
 with the detail member of each
 <function>XFocusInEvent</function>
 structure set to
-<function>NotifyPointer .</function>
+<function>NotifyPointer</function>.
 <!-- .RE -->
 <!-- .\".SH 3 -->
     </para>
@@ -2565,7 +2565,7 @@ are identified by
 or
 <function>XFocusOutEvent</function>
 structures whose mode member is set to 
-<function>NotifyGrab .</function>
+<function>NotifyGrab</function>.
 Focus events in which the keyboard grab deactivates
 are identified by
 <function>XFocusInEvent</function>
@@ -2574,7 +2574,7 @@ or
 structures whose mode member is set to 
 <function>NotifyUngrab </function>
 (see 
-<function>XGrabKeyboard ).</function>
+<function>XGrabKeyboard</function>).
 </para>
 <itemizedlist>
   <listitem>
@@ -2598,7 +2598,7 @@ events, with the mode members of the
 and
 <function>XFocusOutEvent</function>
 structures set to 
-<function>NotifyGrab .</function>
+<function>NotifyGrab</function>.
 These events are generated
 as if the focus were to change from
 F to G.
@@ -2626,7 +2626,7 @@ events, with the mode members of the
 and
 <function>XFocusOutEvent</function>
 structures set to
-<function>NotifyUngrab .</function>
+<function>NotifyUngrab</function>.
 These events are generated
 as if the focus were to change from
 G to F.
@@ -2738,7 +2738,7 @@ events are not as definite as those for other events.
 However, the X server never generates
 <function>Expose</function>
 events on windows whose class you specified as
-<function>InputOnly .</function>
+<function>InputOnly</function>.
 The X server can generate
 <function>Expose</function>
 events when no valid contents are available for regions of a window
@@ -2749,7 +2749,7 @@ or the window is not viewable but the server is (perhaps newly) honoring the
 window's backing-store attribute of
 <function>Always</function>
 or
-<function>WhenMapped .</function>
+<function>WhenMapped</function>.
 The regions decompose into an (arbitrary) set of rectangles,
 and an
 <function>Expose</function>
@@ -2830,7 +2830,7 @@ events to clients wanting information about when a destination region could not
 be computed during certain graphics requests:
 <function>XCopyArea</function>
 or
-<function>XCopyPlane .</function>
+<function>XCopyPlane</function>.
 The X server generates this event whenever a destination region could not be
 computed because of an obscured or out-of-bounds source region.
 In addition, the X server guarantees to report contiguously all of the regions exposed by
@@ -2861,12 +2861,12 @@ or
 <function>NoExpose</function>
 events, you must first set the graphics-exposure 
 attribute of the graphics context to
-<function>True .</function>
+<function>True</function>.
 You also can set the graphics-expose attribute when creating a graphics
 context using
 <function>XCreateGC </function>
 or by calling
-<function>XSetGraphicsExposures .</function>
+<function>XSetGraphicsExposures</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2920,14 +2920,14 @@ The major_code member is set to the graphics request initiated by the client
 and can be either
 <function>X_CopyArea</function>
 or
-<function>X_CopyPlane .</function>
+<function>X_CopyPlane</function>.
 If it is
-<function>X_CopyArea ,</function>
+<function>X_CopyArea</function>,
 a call to
 <function>XCopyArea</function>
 initiated the request.
 If it is
-<function>X_CopyPlane ,</function>
+<function>X_CopyPlane</function>,
 a call to
 <function>XCopyPlane</function>
 initiated the request.
@@ -3048,10 +3048,10 @@ events to clients wanting information about when a window changes
 its position in the stack.
 The X server generates this event type whenever a window is actually restacked 
 as a result of a client application calling
-<function>XCirculateSubwindows ,</function>
-<function>XCirculateSubwindowsUp ,</function>
+<function>XCirculateSubwindows</function>,
+<function>XCirculateSubwindowsUp</function>,
 or
-<function>XCirculateSubwindowsDown .</function>
+<function>XCirculateSubwindowsDown</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3101,12 +3101,12 @@ The place member is set to the window's position after the restack occurs and
 is either
 <function>PlaceOnTop</function>
 or
-<function>PlaceOnBottom .</function>
+<function>PlaceOnBottom</function>.
 If it is
-<function>PlaceOnTop ,</function>
+<function>PlaceOnTop</function>,
 the window is now on top of all siblings.
 If it is
-<function>PlaceOnBottom ,</function>
+<function>PlaceOnBottom</function>,
 the window is now below all siblings.
 </para>
 </sect2>
@@ -3131,47 +3131,47 @@ window requests made by a client application actually completes:
     <para>
 A window's size, position, border, and/or stacking order is reconfigured 
 by calling
-<function>XConfigureWindow .</function>
+<function>XConfigureWindow</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 The window's position in the stacking order is changed by calling
-<function>XLowerWindow ,</function>
-<function>XRaiseWindow ,</function>
+<function>XLowerWindow</function>,
+<function>XRaiseWindow</function>,
 or
-<function>XRestackWindows .</function>
+<function>XRestackWindows</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 A window is moved by calling
-<function>XMoveWindow .</function>
+<function>XMoveWindow</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 A window's size is changed by calling
-<function>XResizeWindow .</function>
+<function>XResizeWindow</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 A window's size and location is changed by calling
-<function>XMoveResizeWindow .</function>
+<function>XMoveResizeWindow</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 A window is mapped and its position in the stacking order is changed
 by calling
-<function>XMapRaised .</function>
+<function>XMapRaised</function>.
     </para>
   </listitem>
   <listitem>
     <para>
 A window's border width is changed by calling
-<function>XSetWindowBorderWidth .</function>
+<function>XSetWindowBorderWidth</function>.
     </para>
   </listitem>
 </itemizedlist>
@@ -3237,7 +3237,7 @@ The border_width member is set to the width of the window's border, in pixels.
 The above member is set to the sibling window and is used 
 for stacking operations.
 If the X server sets this member to
-<function>None ,</function>
+<function>None</function>,
 the window whose state was changed is on the bottom of the stack
 with respect to sibling windows.
 However, if this member is set to a sibling window, 
@@ -3250,7 +3250,7 @@ window.
 Window manager clients normally should ignore this window if the 
 override_redirect member
 is
-<function>True .</function>
+<function>True</function>.
 </para>
 </sect2>
 <sect2 id="CreateNotify_Events">
@@ -3269,7 +3269,7 @@ The X server generates this event whenever a client
 application creates a window by calling
 <function>XCreateWindow</function>
 or
-<function>XCreateSimpleWindow .</function>
+<function>XCreateSimpleWindow</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3320,7 +3320,7 @@ The override_redirect member is set to the override-redirect attribute of the
 window.
 Window manager clients normally should ignore this window 
 if the override_redirect member is
-<function>True .</function>
+<function>True</function>.
 </para>
 </sect2>
 <sect2 id="DestroyNotify_Events">
@@ -3339,7 +3339,7 @@ The X server generates this event whenever a client application destroys a
 window by calling
 <function>XDestroyWindow</function>
 or
-<function>XDestroySubwindows .</function>
+<function>XDestroySubwindows</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3411,10 +3411,10 @@ events to clients wanting information about when a window is moved because of a
 change in the size of its parent.
 The X server generates this event whenever a client
 application actually moves a child window as a result of resizing its parent by calling
-<function>XConfigureWindow ,</function>
-<function>XMoveResizeWindow ,</function>
+<function>XConfigureWindow</function>,
+<function>XMoveResizeWindow</function>,
 or
-<function>XResizeWindow . </function>
+<function>XResizeWindow</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3480,10 +3480,10 @@ The X server can report
 events to clients wanting information about which windows are mapped.
 The X server generates this event type whenever a client application changes the
 window's state from unmapped to mapped by calling
-<function>XMapWindow ,</function>
-<function>XMapRaised ,</function>
-<function>XMapSubwindows ,</function>
-<function>XReparentWindow ,</function>
+<function>XMapWindow</function>,
+<function>XMapRaised</function>,
+<function>XMapSubwindows</function>,
+<function>XReparentWindow</function>,
 or as a result of save-set processing.
 </para>
 <para>
@@ -3533,7 +3533,7 @@ The override_redirect member is set to the override-redirect attribute
 of the window.
 Window manager clients normally should ignore this window 
 if the override-redirect attribute is
-<function>True ,</function>
+<function>True</function>,
 because these events usually are generated from pop-ups,
 which override structure control.
 </para>
@@ -3603,22 +3603,22 @@ typedef struct {
 <!-- .eM -->
 The request member is set to indicate the kind of mapping change that occurred
 and can be
-<function>MappingModifier ,</function>
-<function>MappingKeyboard ,</function>
+<function>MappingModifier</function>,
+<function>MappingKeyboard</function>,
 or
-<function>MappingPointer .</function>
+<function>MappingPointer</function>.
 If it is
-<function>MappingModifier ,</function>
+<function>MappingModifier</function>,
 the modifier mapping was changed.
 If it is
-<function>MappingKeyboard ,</function>
+<function>MappingKeyboard</function>,
 the keyboard mapping was changed.
 If it is
-<function>MappingPointer ,</function>
+<function>MappingPointer</function>,
 the pointer button mapping was changed. 
 The first_keycode and count members are set only 
 if the request member was set to
-<function>MappingKeyboard .</function>
+<function>MappingKeyboard</function>.
 The number in first_keycode represents the first number in the range 
 of the altered mapping, 
 and count represents the number of keycodes altered.
@@ -3627,7 +3627,7 @@ and count represents the number of keycodes altered.
 <!-- .LP -->
 To update the client application's knowledge of the keyboard,
 you should call
-<function>XRefreshKeyboardMapping . </function>
+<function>XRefreshKeyboardMapping</function>.
 </para>
 </sect2>
 <sect2 id="ReparentNotify_Events">
@@ -3700,7 +3700,7 @@ The override_redirect member is set to the override-redirect attribute of the
 window specified by the window member.
 Window manager clients normally should ignore this window 
 if the override_redirect member is
-<function>True .</function>
+<function>True</function>.
 </para>
 </sect2>
 <sect2 id="UnmapNotify_Events">
@@ -3766,7 +3766,7 @@ The from_configure member is set to
 <function>True </function>
 if the event was generated as a result of a resizing of the window's parent when
 the window itself had a win_gravity of
-<function>UnmapGravity .</function>
+<function>UnmapGravity</function>.
 </para>
 </sect2>
 <sect2 id="VisibilityNotify_Events">
@@ -3785,7 +3785,7 @@ A region of a window is visible if someone looking at the screen can
 actually see it.
 The X server generates this event whenever the visibility changes state. 
 However, this event is never generated for windows whose class is
-<function>InputOnly .</function>
+<function>InputOnly</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3793,11 +3793,11 @@ All
 <function>VisibilityNotify</function>
 events caused by a hierarchy change are generated
 after any hierarchy event
-<function>( UnmapNotify , </function>
-<function>MapNotify , </function>
-<function>ConfigureNotify ,</function>
-<function>GravityNotify ,</function>
-<function>CirculateNotify )</function>
+(<function>UnmapNotify</function>,
+<function>MapNotify</function>,
+<function>ConfigureNotify</function>,
+<function>GravityNotify</function>,
+<function>CirculateNotify</function>)
 caused by that change.  Any
 <function>VisibilityNotify</function>
 event on a given window is generated before any
@@ -3811,8 +3811,8 @@ The X protocol does not constrain the ordering of
 <function>VisibilityNotify</function>
 events with
 respect to 
-<function>FocusOut , </function>
-<function>EnterNotify ,</function>
+<function>FocusOut</function>,
+<function>EnterNotify</function>,
 and 
 <function>LeaveNotify</function>
 events.
@@ -3851,10 +3851,10 @@ typedef struct {
 <!-- .eM -->
 The window member is set to the window whose visibility state changes.
 The state member is set to the state of the window's visibility and can be
-<function>VisibilityUnobscured ,</function>
-<function>VisibilityPartiallyObscured ,</function>
+<function>VisibilityUnobscured</function>,
+<function>VisibilityPartiallyObscured</function>,
 or
-<function>VisibilityFullyObscured .</function>
+<function>VisibilityFullyObscured</function>.
 The X server ignores all of a window's subwindows
 when determining the visibility state of the window and processes 
 <function>VisibilityNotify</function>
@@ -3868,7 +3868,7 @@ or not viewable to viewable and completely unobscured,
 the X server generates the event with the state member of the
 <function>XVisibilityEvent</function>
 structure set to
-<function>VisibilityUnobscured .</function>
+<function>VisibilityUnobscured</function>.
     </para>
   </listitem>
   <listitem>
@@ -3878,7 +3878,7 @@ not viewable to viewable and partially obscured,
 the X server generates the event with the state member of the
 <function>XVisibilityEvent</function>
 structure set to
-<function>VisibilityPartiallyObscured .</function>
+<function>VisibilityPartiallyObscured</function>.
     </para>
   </listitem>
   <listitem>
@@ -3889,7 +3889,7 @@ fully obscured,
 the X server generates the event with the state member of the
 <function>XVisibilityEvent</function>
 structure set to
-<function>VisibilityFullyObscured .</function>
+<function>VisibilityFullyObscured</function>.
     </para>
   </listitem>
 </itemizedlist>
@@ -3947,10 +3947,10 @@ on a specified window.
 The X server generates this event type whenever a client initiates a circulate
 window request on a window and a subwindow actually needs to be restacked. 
 The client initiates a circulate window request on the window by calling
-<function>XCirculateSubwindows ,</function>
-<function>XCirculateSubwindowsUp ,</function>
+<function>XCirculateSubwindows</function>,
+<function>XCirculateSubwindowsUp</function>,
 or
-<function>XCirculateSubwindowsDown .</function>
+<function>XCirculateSubwindowsDown</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4002,12 +4002,12 @@ The place member is set to what the new position in the stacking order should be
 and is either
 <function>PlaceOnTop</function>
 or
-<function>PlaceOnBottom .</function>
+<function>PlaceOnBottom</function>.
 If it is
-<function>PlaceOnTop ,</function>
+<function>PlaceOnTop</function>,
 the subwindow should be on top of all siblings.
 If it is
-<function>PlaceOnBottom ,</function>
+<function>PlaceOnBottom</function>,
 the subwindow should be below all siblings.
 </para>
 </sect2>
@@ -4028,16 +4028,16 @@ The configure window request attempts to
 reconfigure a window's size, position, border, and stacking order.
 The X server generates this event whenever a different client initiates
 a configure window request on a window by calling
-<function>XConfigureWindow ,</function>
-<function>XLowerWindow ,</function>
-<function>XRaiseWindow ,</function>
-<function>XMapRaised ,</function>
-<function>XMoveResizeWindow ,</function>
-<function>XMoveWindow ,</function>
-<function>XResizeWindow ,</function>
-<function>XRestackWindows ,</function>
+<function>XConfigureWindow</function>,
+<function>XLowerWindow</function>,
+<function>XRaiseWindow</function>,
+<function>XMapRaised</function>,
+<function>XMoveResizeWindow</function>,
+<function>XMoveWindow</function>,
+<function>XResizeWindow</function>,
+<function>XRestackWindows</function>,
 or
-<function>XSetWindowBorderWidth .</function>
+<function>XSetWindowBorderWidth</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4057,7 +4057,7 @@ If you had selected
 <function>SubstructureRedirectMask </function>
 on the parent window and if the override-redirect attribute 
 of the window is set to
-<function>False ,</function>
+<function>False</function>,
 the X server reports a
 <function>ConfigureRequest</function>
 event to you and does not lower the specified window.
@@ -4104,7 +4104,7 @@ except in the case of above (sibling) and detail (stack-mode),
 which are reported as
 <function>None</function>
 and
-<function>Above ,</function>
+<function>Above</function>,
 respectively, if they are not given in the request.
 </para>
 </sect2>
@@ -4125,12 +4125,12 @@ A window is considered mapped when a map window request completes.
 The X server generates this event whenever a different client initiates 
 a map window request on an unmapped window whose override_redirect member 
 is set to
-<function>False .</function>
+<function>False</function>.
 Clients initiate map window requests by calling
-<function>XMapWindow ,</function>
-<function>XMapRaised ,</function>
+<function>XMapWindow</function>,
+<function>XMapRaised</function>,
 or
-<function>XMapSubwindows .</function>
+<function>XMapSubwindows</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4150,7 +4150,7 @@ If you (usually a window manager) had selected
 <function>SubstructureRedirectMask </function>
 on the parent window and if the override-redirect attribute 
 of the window is set to
-<function>False ,</function>
+<function>False</function>,
 the X server reports a
 <function>MapRequest</function>
 event to you 
@@ -4201,10 +4201,10 @@ events to clients wanting information about another client's attempts to change 
 size of a window.
 The X server generates this event whenever some other client attempts to change
 the size of the specified window by calling
-<function>XConfigureWindow ,</function>
-<function>XResizeWindow ,</function>
+<function>XConfigureWindow</function>,
+<function>XResizeWindow</function>,
 or
-<function>XMoveResizeWindow .</function>
+<function>XMoveResizeWindow</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4268,8 +4268,8 @@ Changes the colormap member of the
 <function>XSetWindowAttributes</function>
 structure by 
 calling
-<function>XChangeWindowAttributes ,</function>
-<function>XFreeColormap ,</function>
+<function>XChangeWindowAttributes</function>,
+<function>XFreeColormap</function>,
 or
 <function>XSetWindowColormap </function>
     </para>
@@ -4322,26 +4322,26 @@ colormap is changed, installed, or uninstalled.
 For a colormap that is changed, installed, or uninstalled,
 the colormap member is set to the colormap associated with the window. 
 For a colormap that is changed by a call to
-<function>XFreeColormap ,</function>
+<function>XFreeColormap</function>,
 the colormap member is set to
-<function>None .</function>
+<function>None</function>.
 The new member is set to indicate whether the colormap 
 for the specified window was changed or installed or uninstalled
 and can be 
 <function>True</function>
 or
-<function>False .</function>
+<function>False</function>.
 If it is
-<function>True ,</function>
+<function>True</function>,
 the colormap was changed.
 If it is
-<function>False ,</function>
+<function>False</function>,
 the colormap was installed or uninstalled.
 The state member is always set to indicate whether the colormap is installed or
 uninstalled and can be 
 <function>ColormapInstalled</function>
 or
-<function>ColormapUninstalled .</function>
+<function>ColormapUninstalled</function>.
 </para>
 </sect1>
 <sect1 id="Client_Communication_Events">
@@ -4397,7 +4397,7 @@ events
 The X server generates
 <function>ClientMessage</function>
 events only when a client calls the function
-<function>XSendEvent .</function>
+<function>XSendEvent</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4498,7 +4498,7 @@ The state member is set to indicate whether the property was changed
 to a new value or deleted and can be
 <function>PropertyNewValue</function>
 or
-<function>PropertyDelete .</function>
+<function>PropertyDelete</function>.
 The state member is set to
 <function>PropertyNewValue</function>
 when a property of the window is changed using
@@ -4506,18 +4506,18 @@ when a property of the window is changed using
 or
 <function>XRotateWindowProperties</function>
 (even when adding zero-length data using
-<function>XChangeProperty )</function>
+<function>XChangeProperty</function>)
 and when replacing all or part of a property with identical data using
 <function>XChangeProperty</function>
 or 
-<function>XRotateWindowProperties .</function>
+<function>XRotateWindowProperties</function>.
 The state member is set to
 <function>PropertyDelete</function>
 when a property of the window is deleted using
 <function>XDeleteProperty</function>
 or, if the delete argument is 
-<function>True ,</function>
-<function>XGetWindowProperty .</function>
+<function>True</function>,
+<function>XGetWindowProperty</function>.
 </para>
 </sect2>
 <sect2 id="SelectionClear_Events">
@@ -4534,7 +4534,7 @@ The X server reports
 events to the client losing ownership of a selection.
 The X server generates this event type when another client
 asserts ownership of the selection by calling
-<function>XSetSelectionOwner .</function>
+<function>XSetSelectionOwner</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4625,7 +4625,7 @@ For example, PRIMARY is used to indicate the primary selection.
 The target member is set to the atom that indicates the type
 the selection is desired in.
 The property member can be a property name or 
-<function>None .</function>
+<function>None</function>.
 The time member is set to the timestamp or 
 <function>CurrentTime </function>
 value from the
@@ -4656,12 +4656,12 @@ This event is generated by the X server in response to a
 protocol request when there is no owner for the selection.
 When there is an owner, it should be generated by the owner
 of the selection by using
-<function>XSendEvent .</function>
+<function>XSendEvent</function>.
 The owner of a selection should send this event to a requestor when a selection
 has been converted and stored as a property
 or when a selection conversion could
 not be performed (which is indicated by setting the property member to
-<function>None ).</function>
+<function>None</function>).
 </para>
 <para>
 <!-- .LP -->
@@ -4712,10 +4712,10 @@ The property member is set to the atom that indicates which
 property the result was stored on.
 If the conversion failed, 
 the property member is set to
-<function>None .</function>
+<function>None</function>.
 The time member is set to the time the conversion took place and
 can be a timestamp or
-<function>CurrentTime .</function>
+<function>CurrentTime</function>.
 <!-- .bp -->
 
 

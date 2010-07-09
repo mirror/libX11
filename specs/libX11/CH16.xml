@@ -94,7 +94,7 @@ use the functions described in section 12.7.
 <!-- .LP -->
 <!-- .sp -->
 To obtain a KeySym for the KeyCode of an event, use
-<function>XLookupKeysym .</function>
+<function>XLookupKeysym</function>.
 <indexterm significance="preferred"><primary>XLookupKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -146,13 +146,13 @@ structure.
 If no KeySym is defined for the KeyCode of the event,
 <function>XLookupKeysym</function>
 returns
-<function>NoSymbol .</function>
+<function>NoSymbol</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain a KeySym for a specific KeyCode, use
-<function>XKeycodeToKeysym .</function>
+<function>XKeycodeToKeysym</function>.
 <indexterm significance="preferred"><primary>XKeycodeToKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -208,13 +208,13 @@ the element of the KeyCode vector.
 If no symbol is defined,
 <function>XKeycodeToKeysym</function>
 returns
-<function>NoSymbol .</function>
+<function>NoSymbol</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain a KeyCode for a key having a specific KeySym, use
-<function>XKeysymToKeycode .</function>
+<function>XKeysymToKeycode</function>.
 <indexterm significance="preferred"><primary>XKeysymToKeycode</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -262,7 +262,7 @@ The mapping between KeyCodes and KeySyms is cached internal to Xlib.
 When this information is changed at the server, an Xlib function must
 be called to refresh the cache.
 To refresh the stored modifier and keymap information, use
-<function>XRefreshKeyboardMapping .</function>
+<function>XRefreshKeyboardMapping</function>.
 <indexterm significance="preferred"><primary>XRefreshKeyboardMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -304,7 +304,7 @@ The result is to update Xlib's knowledge of the keyboard.
 <!-- .LP -->
 <!-- .sp -->
 To obtain the uppercase and lowercase forms of a KeySym, use
-<function>XConvertCase .</function>
+<function>XConvertCase</function>.
 <indexterm significance="preferred"><primary>XConvertCase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -367,7 +367,7 @@ implementation-dependent.
 <!-- .sp -->
 KeySyms have string names as well as numeric codes.
 To convert the name of the KeySym to the KeySym code, use
-<function>XStringToKeysym .</function>
+<function>XStringToKeysym</function>.
 <indexterm significance="preferred"><primary>XStringToKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -408,13 +408,13 @@ the result is implementation-dependent.
 If the specified string does not match a valid KeySym,
 <function>XStringToKeysym</function>
 returns
-<function>NoSymbol .</function>
+<function>NoSymbol</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To convert a KeySym code to the name of the KeySym, use
-<function>XKeysymToString .</function>
+<function>XKeysymToString</function>.
 <indexterm significance="preferred"><primary>XKeysymToString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -662,7 +662,7 @@ described in chapter 13 and does not depend on the current locale.
 <!-- .LP -->
 <!-- .sp -->
 To map a key event to an ISO Latin-1 string, use
-<function>XLookupString .</function>
+<function>XLookupString</function>.
 <indexterm significance="preferred"><primary>XLookupString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -687,7 +687,7 @@ Specifies the key event structure to be used.
 You can pass
 <function>XKeyPressedEvent</function>
 or
-<function>XKeyReleasedEvent .</function>
+<function>XKeyReleasedEvent</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -743,11 +743,11 @@ The
 <function>XLookupString</function>
 function translates a key event to a KeySym and a string.
 The KeySym is obtained by using the standard interpretation of the
-<function>Shift ,</function>
-<function>Lock ,</function>
+<function>Shift</function>,
+<function>Lock</function>,
 group, and numlock modifiers as defined in the X Protocol specification.
 If the KeySym has been rebound (see
-<function>XRebindKeysym ),</function>
+<function>XRebindKeysym</function>),
 the bound string will be stored in the buffer.
 Otherwise, the KeySym is mapped, if possible, to an ISO Latin-1 character
 or (if the Control modifier is on) to an ASCII control character,
@@ -782,9 +782,9 @@ to keep this information up-to-date.
 <!-- .LP -->
 <!-- .sp -->
 To rebind the meaning of a KeySym for
-<function>XLookupString ,</function>
+<function>XLookupString</function>,
 use
-<function>XRebindKeysym .</function>
+<function>XRebindKeysym</function>.
 <indexterm significance="preferred"><primary>XRebindKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -848,7 +848,7 @@ Specifies the number of modifiers in the modifier list.
     <listitem>
       <para>
 Specifies the string that is copied and will be returned by 
-<function>XLookupString .</function>
+<function>XLookupString</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -889,7 +889,7 @@ Note that you can rebind a KeySym that may not exist.
 <para>
 <!-- .LP -->
 To allocate some memory you will never give back, use
-<function>Xpermalloc .</function>
+<function>Xpermalloc</function>.
 <indexterm significance="preferred"><primary>Xpermalloc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -919,7 +919,7 @@ the standard operating system memory allocator.
 <para>
 <!-- .LP -->
 To parse standard window geometry strings, use
-<function>XParseGeometry .</function>
+<function>XParseGeometry</function>.
 <indexterm><primary>Window</primary><secondary>determining location</secondary></indexterm>
 <indexterm significance="preferred"><primary>XParseGeometry</primary></indexterm>
 </para>
@@ -1029,11 +1029,11 @@ be able to say ``position the window relative to the right or bottom edge.''
 For each value found, the corresponding argument is updated.
 For each value not found, the argument is left unchanged.
 The bits are represented by
-<function>XValue , </function>
-<function>YValue , </function>
-<function>WidthValue , </function>
-<function>HeightValue ,</function>
-<function>XNegative , </function>
+<function>XValue</function>,
+<function>YValue</function>,
+<function>WidthValue</function>,
+<function>HeightValue</function>,
+<function>XNegative</function>,
 or
 <function>YNegative</function>
 and are defined in 
@@ -1054,7 +1054,7 @@ you should place the window at the requested position.
 <para>
 <!-- .LP -->
 To construct a window's geometry information, use
-<function>XWMGeometry .</function>
+<function>XWMGeometry</function>.
 <indexterm significance="preferred"><primary>XWMGeometry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1194,15 +1194,15 @@ Returns the window gravity.
 The 
 <function>XWMGeometry </function>
 function combines any geometry information (given in the format used by 
-<function>XParseGeometry )</function>
+<function>XParseGeometry</function>)
 specified by the user and by the calling program with size hints 
 (usually the ones to be stored in WM_NORMAL_HINTS) and returns the position, 
 size, and gravity
-<function>( NorthWestGravity , </function>
-<function>NorthEastGravity , </function>
-<function>SouthEastGravity ,</function>
+(<function>NorthWestGravity</function>,
+<function>NorthEastGravity</function>,
+<function>SouthEastGravity</function>,
 or
-<function>SouthWestGravity ) </function>
+<function>SouthWestGravity</function>)
 that describe the window.
 If the base size is not set in the 
 <function>XSizeHints</function>
@@ -1212,7 +1212,7 @@ Otherwise, a base size of zero is assumed.
 If no minimum size is set in the hints structure, 
 the base size is used.
 A mask (in the form returned by 
-<function>XParseGeometry ) </function>
+<function>XParseGeometry</function>)
 that describes which values came from the user specification 
 and whether or not the position coordinates are relative
 to the right and bottom edges is returned.
@@ -1280,7 +1280,7 @@ Locate a point or rectangle in a region
 <para>
 <!-- .LP -->
 To create a new empty region, use
-<function>XCreateRegion .</function>
+<function>XCreateRegion</function>.
 </para>
 <para>Region XCreateRegion()</para>
 
@@ -1289,7 +1289,7 @@ To create a new empty region, use
 <!-- .eM -->
 <!-- .sp -->
 To generate a region from a polygon, use
-<function>XPolygonRegion .</function>
+<function>XPolygonRegion</function>.
 </para>
 <indexterm significance="preferred"><primary>XPolygonRegion</primary></indexterm>
 <!-- .sM -->
@@ -1333,7 +1333,7 @@ Specifies the fill-rule you want to set for the specified GC.
 You can pass 
 <function>EvenOddRule</function>
 or
-<function>WindingRule .</function>
+<function>WindingRule</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1347,13 +1347,13 @@ The
 function returns a region for the polygon defined by the points array.
 For an explanation of fill_rule,
 see
-<function>XCreateGC .</function>
+<function>XCreateGC</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To set the clip-mask of a GC to a region, use
-<function>XSetRegion .</function>
+<function>XSetRegion</function>.
 <indexterm significance="preferred"><primary>XSetRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1413,7 +1413,7 @@ the region can be destroyed.
 <!-- .LP  -->
 <!-- .sp -->
 To deallocate the storage associated with a specified region, use
-<function>XDestroyRegion .</function>
+<function>XDestroyRegion</function>.
 <indexterm significance="preferred"><primary>XDestroyRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1449,7 +1449,7 @@ Specifies the region.
 <para>
 <!-- .LP -->
 To move a region by a specified amount, use 
-<function>XOffsetRegion .</function>
+<function>XOffsetRegion</function>.
 <indexterm significance="preferred"><primary>XOffsetRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1501,7 +1501,7 @@ which define the amount you want to (Dy the specified region.
 <!-- .eM  -->
 <!-- .sp -->
 To reduce a region by a specified amount, use
-<function>XShrinkRegion .</function>
+<function>XShrinkRegion</function>.
 <indexterm significance="preferred"><primary>XShrinkRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1564,7 +1564,7 @@ and negative values expand the region.
 <!-- .LP -->
 <!-- .sp -->
 To generate the smallest rectangle enclosing a region, use
-<function>XClipBox .</function>
+<function>XClipBox</function>.
 <indexterm significance="preferred"><primary>XClipBox</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1609,7 +1609,7 @@ function returns the smallest rectangle enclosing the specified region.
 <para>
 <!-- .LP -->
 To compute the intersection of two regions, use
-<function>XIntersectRegion .</function>
+<function>XIntersectRegion</function>.
 <indexterm significance="preferred"><primary>XIntersectRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1658,7 +1658,7 @@ Returns the result of the computation.
 <!-- .eM -->
 <!-- .sp -->
 To compute the union of two regions, use
-<function>XUnionRegion .</function>
+<function>XUnionRegion</function>.
 <indexterm significance="preferred"><primary>XUnionRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1707,7 +1707,7 @@ Returns the result of the computation.
 <!-- .eM -->
 <!-- .sp -->
 To create a union of a source region and a rectangle, use
-<function>XUnionRectWithRegion .</function>
+<function>XUnionRectWithRegion</function>.
 <indexterm significance="preferred"><primary>XUnionRectWithRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1764,7 +1764,7 @@ and the specified source region.
 <!-- .LP -->
 <!-- .sp -->
 To subtract two regions, use
-<function>XSubtractRegion .</function>
+<function>XSubtractRegion</function>.
 <indexterm significance="preferred"><primary>XSubtractRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1820,7 +1820,7 @@ function subtracts srb from sra and stores the results in dr_return.
 <!-- .sp -->
 To calculate the difference between the union and intersection 
 of two regions, use
-<function>XXorRegion .</function>
+<function>XXorRegion</function>.
 <indexterm significance="preferred"><primary>XXorRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1877,7 +1877,7 @@ Returns the result of the computation.
 <para>
 <!-- .LP -->
 To determine if the specified region is empty, use
-<function>XEmptyRegion .</function>
+<function>XEmptyRegion</function>.
 <indexterm significance="preferred"><primary>XEmptyRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1913,7 +1913,7 @@ if the region is empty.
 <!-- .LP -->
 <!-- .sp -->
 To determine if two regions have the same offset, size, and shape, use
-<function>XEqualRegion .</function>
+<function>XEqualRegion</function>.
 <indexterm significance="preferred"><primary>XEqualRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1965,7 +1965,7 @@ if the two regions have the same offset, size, and shape.
 <para>
 <!-- .LP -->
 To determine if a specified point resides in a specified region, use
-<function>XPointInRegion .</function>
+<function>XPointInRegion</function>.
 <indexterm significance="preferred"><primary>XPointInRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2024,7 +2024,7 @@ if the point (x, y) is contained in the region r.
 <!-- .LP -->
 <!-- .sp -->
 To determine if a specified rectangle is inside a region, use
-<function>XRectInRegion .</function>
+<function>XRectInRegion</function>.
 <indexterm significance="preferred"><primary>XRectInRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2136,7 +2136,7 @@ and can be accessed as a ring or as explicit buffers (numbered 0 through 7).
 <!-- .LP -->
 <!-- .sp -->
 To store data in cut buffer 0, use 
-<function>XStoreBytes .</function>
+<function>XStoreBytes</function>.
 <indexterm significance="preferred"><primary>XStoreBytes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2188,7 +2188,7 @@ The data can have embedded null characters
 and need not be null-terminated.
 The cut buffer's contents can be retrieved later by
 any client calling
-<function>XFetchBytes .</function>
+<function>XFetchBytes</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2201,7 +2201,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To store data in a specified cut buffer, use
-<function>XStoreBuffer .</function>
+<function>XStoreBuffer</function>.
 <indexterm significance="preferred"><primary>XStoreBuffer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2276,7 +2276,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To return data from cut buffer 0, use 
-<function>XFetchBytes .</function>
+<function>XFetchBytes</function>.
 <indexterm significance="preferred"><primary>XFetchBytes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2322,13 +2322,13 @@ Otherwise, the function
 returns NULL and sets nbytes to 0.
 The appropriate amount of storage is allocated and the pointer returned.
 The client must free this storage when finished with it by calling
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To return data from a specified cut buffer, use 
-<function>XFetchBuffer .</function>
+<function>XFetchBuffer</function>.
 <indexterm significance="preferred"><primary>XFetchBuffer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2387,7 +2387,7 @@ buffer is specified.
 <!-- .LP -->
 <!-- .sp -->
 To rotate the cut buffers, use 
-<function>XRotateBuffers .</function>
+<function>XRotateBuffers</function>.
 <indexterm significance="preferred"><primary>XRotateBuffers</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2504,7 +2504,7 @@ typedef struct {
 <!-- .eM -->
 To obtain a list of visual information structures that match a specified
 template, use
-<function>XGetVisualInfo .</function>
+<function>XGetVisualInfo</function>.
 <indexterm significance="preferred"><primary>XGetVisualInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2572,14 +2572,14 @@ If no visual structures match the template using the specified vinfo_mask,
 <function>XGetVisualInfo</function>
 returns a NULL.
 To free the data returned by this function, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain the visual information that matches the specified depth and
 class of the screen, use
-<function>XMatchVisualInfo .</function>
+<function>XMatchVisualInfo</function>.
 <indexterm significance="preferred"><primary>XMatchVisualInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2691,7 +2691,7 @@ images.
 The basic operations for getting and putting images are
 <function>XGetImage</function>
 and 
-<function>XPutImage .</function>
+<function>XPutImage</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2726,7 +2726,7 @@ see section 8.7.
 To allocate an 
 <function>XImage </function>
 structure and initialize it with image format values from a display, use
-<function>XCreateImage .</function>
+<function>XCreateImage</function>.
 <indexterm significance="preferred"><primary>XCreateImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2786,10 +2786,10 @@ Specifies the depth of the image.
       <para>
 Specifies the format for the image.
 You can pass
-<function>XYBitmap ,</function>
-<function>XYPixmap ,</function>
+<function>XYBitmap</function>,
+<function>XYPixmap</function>,
 or 
-<function>ZPixmap .</function>
+<function>ZPixmap</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -2885,10 +2885,10 @@ in memory and calculates the value of bytes_per_line itself.
 <para>
 <!-- .LP -->
 Note that when the image is created using
-<function>XCreateImage ,</function>
-<function>XGetImage ,</function>
+<function>XCreateImage</function>,
+<function>XGetImage</function>,
 or
-<function>XSubImage ,</function>
+<function>XSubImage</function>,
 the destroy procedure that the 
 <function>XDestroyImage</function>
 function calls frees both the image structure 
@@ -2906,7 +2906,7 @@ in the image object and are defined in
 <!-- .LP -->
 <!-- .sp -->
 To obtain a pixel value in an image, use
-<function>XGetPixel .</function>
+<function>XGetPixel</function>.
 <indexterm significance="preferred"><primary>XGetPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2967,7 +2967,7 @@ The image must contain the x and y coordinates.
 <!-- .LP -->
 <!-- .sp -->
 To set a pixel value in an image, use
-<function>XPutPixel .</function>
+<function>XPutPixel</function>.
 <indexterm significance="preferred"><primary>XPutPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3039,7 +3039,7 @@ The image must contain the x and y coordinates.
 <!-- .LP -->
 <!-- .sp -->
 To create a subimage, use
-<function>XSubImage .</function>
+<function>XSubImage</function>.
 <indexterm significance="preferred"><primary>XSubImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3125,7 +3125,7 @@ and subimage_height.
 <!-- .LP -->
 <!-- .sp -->
 To increment each pixel in an image by a constant value, use
-<function>XAddPixel .</function>
+<function>XAddPixel</function>.
 <indexterm significance="preferred"><primary>XAddPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3172,9 +3172,9 @@ color resources and need to manipulate the image to that form.
 <!-- .LP -->
 <!-- .sp -->
 To deallocate the memory allocated in a previous call to
-<function>XCreateImage ,</function>
+<function>XCreateImage</function>,
 use
-<function>XDestroyImage .</function>
+<function>XDestroyImage</function>.
 <indexterm significance="preferred"><primary>XDestroyImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3209,10 +3209,10 @@ structure.
 <para>
 <!-- .LP -->
 Note that when the image is created using
-<function>XCreateImage ,</function>
-<function>XGetImage ,</function>
+<function>XCreateImage</function>,
+<function>XGetImage</function>,
 or 
-<function>XSubImage ,</function>
+<function>XSubImage</function>,
 the destroy procedure that this macro calls
 frees both the image structure and the data pointed to by the image structure. 
 </para>
@@ -3261,7 +3261,7 @@ The bitmap unit is 8.
 <!-- .LP -->
 <!-- .sp -->
 To read a bitmap from a file and store it in a pixmap, use
-<function>XReadBitmapFile .</function>
+<function>XReadBitmapFile</function>.
 <indexterm significance="preferred"><primary>XReadBitmapFile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3375,16 +3375,16 @@ is implementation-dependent.
 If the file cannot be opened, 
 <function>XReadBitmapFile </function>
 returns 
-<function>BitmapOpenFailed .  </function>
+<function>BitmapOpenFailed</function>.
 If the file can be opened but does not contain valid bitmap data, 
 it returns 
-<function>BitmapFileInvalid .  </function>
+<function>BitmapFileInvalid</function>.
 If insufficient working storage is allocated,
 it returns
-<function>BitmapNoMemory .  </function>
+<function>BitmapNoMemory</function>.
 If the file is readable and valid,
 it returns 
-<function>BitmapSuccess .</function>
+<function>BitmapSuccess</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3406,8 +3406,8 @@ otherwise, it returns \-1,\-1.
 <!-- .LP -->
 <function>XReadBitmapFile</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadDrawable ,</function>
+<function>BadAlloc</function>,
+<function>BadDrawable</function>,
 and
 <function>BadGC</function>
 errors.
@@ -3416,7 +3416,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read a bitmap from a file and return it as data, use
-<function>XReadBitmapFileData .</function>
+<function>XReadBitmapFileData</function>.
 <indexterm significance="preferred"><primary>XReadBitmapFileData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3501,19 +3501,19 @@ Return the hotspot coordinates.
 The
 <function>XReadBitmapFileData</function>
 function reads in a file containing a bitmap, in the same manner as
-<function>XReadBitmapFile ,</function>
+<function>XReadBitmapFile</function>,
 but returns the data directly rather than creating a pixmap in the server.
 The bitmap data is returned in data_return; the client must free this
 storage when finished with it by calling
-<function>XFree .</function>
+<function>XFree</function>.
 The status and other return values are the same as for
-<function>XReadBitmapFile .</function>
+<function>XReadBitmapFile</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To write out a bitmap from a pixmap to a file, use
-<function>XWriteBitmapFile .</function>
+<function>XWriteBitmapFile</function>.
 <indexterm significance="preferred"><primary>XWriteBitmapFile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3615,14 +3615,14 @@ by deleting the directory prefix.
 The file is written in the encoding of the current locale.
 If the file cannot be opened for writing, 
 it returns 
-<function>BitmapOpenFailed .  </function>
+<function>BitmapOpenFailed</function>.
 If insufficient memory is allocated,
 <function>XWriteBitmapFile</function>
 returns
-<function>BitmapNoMemory ;</function>
+<function>BitmapNoMemory</function>;
 otherwise, on no error,
 it returns
-<function>BitmapSuccess .</function>
+<function>BitmapSuccess</function>.
 If x_hot and y_hot are not \-1, \-1, 
 <function>XWriteBitmapFile</function>
 writes them out as the hotspot coordinates for the bitmap.
@@ -3640,7 +3640,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To create a pixmap and then store bitmap-format data into it, use
-<function>XCreatePixmapFromBitmapData .</function>
+<function>XCreatePixmapFromBitmapData</function>.
 <indexterm significance="preferred"><primary>XCreatePixmapFromBitmapData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3758,9 +3758,9 @@ error results.
 <!-- .LP -->
 <function>XCreatePixmapFromBitmapData</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadDrawable ,</function>
-<function>BadGC ,</function>
+<function>BadAlloc</function>,
+<function>BadDrawable</function>,
+<function>BadGC</function>,
 and
 <function>BadValue</function>
 errors.
@@ -3772,7 +3772,7 @@ To include a bitmap written out by
 <function>XWriteBitmapFile </function>
 <indexterm><primary>XWriteBitmapFile</primary></indexterm>
 in a program directly, as opposed to reading it in every time at run time, use
-<function>XCreateBitmapFromData .</function>
+<function>XCreateBitmapFromData</function>.
 <indexterm significance="preferred"><primary>XCreateBitmapFromData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3846,7 +3846,7 @@ Specify the width and height.
 The
 <function>XCreateBitmapFromData</function>
 function allows you to include in your C program (using
-<function>#include )</function>
+<function>#include</function>)
 a bitmap file that was written out by
 <function>XWriteBitmapFile</function>
 (X version 11 format only) without reading in the bitmap file.
@@ -3866,7 +3866,7 @@ bitmap = XCreateBitmapFromData(display, window, gray_bits, gray_width, gray_heig
 If insufficient working storage was allocated,
 <function>XCreateBitmapFromData</function>
 returns
-<function>None .</function>
+<function>None</function>.
 It is your responsibility to free the
 bitmap using
 <function>XFreePixmap</function>
@@ -3915,7 +3915,7 @@ The symbols used are in
 <!-- .LP -->
 <!-- .sp -->
 To save a data value that corresponds to a resource ID and context type, use
-<function>XSaveContext .</function>
+<function>XSaveContext</function>.
 <indexterm significance="preferred"><primary>XSaveContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3989,7 +3989,7 @@ Possible errors are
 <!-- .LP -->
 <!-- .sp -->
 To get the data associated with a resource ID and type, use
-<function>XFindContext .</function>
+<function>XFindContext</function>.
 <indexterm significance="preferred"><primary>XFindContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4062,7 +4062,7 @@ Possible errors are
 <!-- .LP -->
 <!-- .sp -->
 To delete an entry for a given resource ID and type, use
-<function>XDeleteContext .</function>
+<function>XDeleteContext</function>.
 <indexterm significance="preferred"><primary>XDeleteContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4126,9 +4126,9 @@ does not free the data whose address was saved.
 To create a unique context type that may be used in subsequent calls to
 <function>XSaveContext </function>
 and
-<function>XFindContext ,</function>
+<function>XFindContext</function>,
 use
-<function>XUniqueContext .</function>
+<function>XUniqueContext</function>.
 </para>
 <para>XContext XuniqueContext()</para>
 

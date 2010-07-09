@@ -41,7 +41,7 @@ Basic Protocol Support Routines
 The basic protocol requests for extensions are 
 <function>XQueryExtension</function>
 and
-<function>XListExtensions .</function>
+<function>XListExtensions</function>.
 </para>
 <indexterm significance="preferred"><primary>XQueryExtension</primary></indexterm>
 <!-- .sM -->
@@ -98,9 +98,9 @@ function determines if the named extension is present.
 If the extension is not present,
 <function>XQueryExtension</function>
 returns
-<function>False ;</function>
+<function>False</function>;
 otherwise, it returns
-<function>True .</function>
+<function>True</function>.
 If the extension is present,
 <function>XQueryExtension</function>
 returns the major opcode for the extension to major_opcode_return;
@@ -198,7 +198,7 @@ Specifies the list of extension names.
 The
 <function>XFreeExtensionList</function>
 function frees the memory allocated by 
-<function>XListExtensions .</function>
+<function>XListExtensions</function>.
 <!-- .SH -->
 Hooking into Xlib 
 </para>
@@ -801,15 +801,15 @@ functions allow you to define new events to the library.
 An 
 <function>XEvent</function>
 structure always has a type code (type
-<function>int )</function>
+<function>int</function>)
 as the first component.
 This uniquely identifies what kind of event it is.
 The second component is always the serial number (type
 <function>unsigned</function>
-<function>long )</function>
+<function>long</function>)
 of the last request processed by the server.
 The third component is always a Boolean (type
-<function>Bool )</function>
+<function>Bool</function>)
 indicating whether the event came from a
 <function>SendEvent</function>
 protocol request.
@@ -880,9 +880,9 @@ The
 <function>XESetWireToEvent</function>
 function defines a procedure to be called when an event
 needs to be converted from wire format 
-<function>( xEvent )</function>
+(<function>xEvent</function>)
 to host format 
-<function>( XEvent ).</function>
+(<function>XEvent</function>).
 The event number defines which protocol event number to install a
 conversion procedure for.
 <function>XESetWireToEvent</function>
@@ -1036,9 +1036,9 @@ The
 <function>XESetEventToWire</function>
 function defines a procedure to be called when an event
 needs to be converted from host format
-<function>( XEvent ) </function>
+(<function>XEvent</function>)
 to wire format
-<function>( xEvent )</function>
+(<function>xEvent</function>)
 form.  
 The event number defines which protocol event number to install a
 conversion procedure for.
@@ -1173,9 +1173,9 @@ If the error is to be completely ignored by Xlib
 (for example, several protocol error structures will be combined into
 one Xlib error),
 then the function should return
-<function>False ;</function>
+<function>False</function>;
 otherwise, it should return
-<function>True .</function>
+<function>True</function>.
 <indexterm significance="preferred"><primary>XESetError</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1232,7 +1232,7 @@ case, and are typically programmed to be synchronous).
 <para>
 <!-- .LP -->
 When Xlib detects a protocol error in 
-<function>_XReply , </function>
+<function>_XReply</function>,
 it calls your procedure with these arguments:
 </para>
 <para>
@@ -1425,7 +1425,7 @@ The structure pointed at by ev is guaranteed to be as large as an
 structure and so can be cast to a type larger than an
 <function>XErrorEvent</function>
 to obtain additional values set by using
-<function>XESetWireToError .</function>
+<function>XESetWireToError</function>.
 The underlying type of the fp argument is system dependent;
 on a <acronym>POSIX</acronym>-compliant system, fp should be cast to type FILE*.
 <indexterm significance="preferred"><primary>XESetFlushGC</primary></indexterm>
@@ -1562,13 +1562,13 @@ Hooks onto Xlib Data Structures
 Various Xlib data structures have provisions for extension procedures
 to chain extension supplied data onto a list.
 These structures are
-<function>GC , </function>
-<function>Visual , </function>
-<function>Screen , </function>
-<function>ScreenFormat , </function>
-<function>Display , </function>
+<function>GC</function>,
+<function>Visual</function>,
+<function>Screen</function>,
+<function>ScreenFormat</function>,
+<function>Display</function>,
 and 
-<function>XFontStruct .</function>
+<function>XFontStruct</function>.
 Because the list pointer is always the first member in the structure, 
 a single set of procedures can be used to manipulate the data
 on these lists.
@@ -1650,11 +1650,11 @@ The
 function returns a pointer to the list of extension structures attached
 to the specified object.
 In concert with 
-<function>XAddToExtensionList ,</function>
+<function>XAddToExtensionList</function>,
 <function>XEHeadOfExtensionList</function>
 allows an extension to attach arbitrary data to any of the structures
 of types contained in
-<function>XEDataObject .</function>
+<function>XEDataObject</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1726,7 +1726,7 @@ Specifies the extension list.
     <listitem>
       <para>
 Specifies the extension number from
-<function>XInitExtension .</function>
+<function>XInitExtension</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1958,7 +1958,7 @@ single calls to be transformed into poly requests.
 This may dramatically improve performance of programs that are not
 written using poly requests. 
 A pointer to an 
-<function>xReq ,</function>
+<function>xReq</function>,
 called last_req in the display structure, is the last request being processed.  
 By checking that the last request
 type, drawable, gc, and other options are the same as the new one
@@ -2174,16 +2174,16 @@ Instead, such requests use the
 structure in
 &lt;X11/Xproto.h&gt;.
 This structure is used for any request whose single argument is a 
-<function>Window , </function>
-<function>Pixmap ,</function>
-<function>Drawable , </function>
-<function>GContext , </function>
-<function>Font , </function>
-<function>Cursor , </function>
-<function>Colormap , </function>
-<function>Atom , </function>
+<function>Window</function>,
+<function>Pixmap</function>,
+<function>Drawable</function>,
+<function>GContext</function>,
+<function>Font</function>,
+<function>Cursor</function>,
+<function>Colormap</function>,
+<function>Atom</function>,
 or
-<function>VisualID .</function>
+<function>VisualID</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2280,9 +2280,9 @@ The reply structure is longer than 32 bytes.
 <para>
 <!-- .LP -->
 Only 
-<function>GetWindowAttributes , </function>
-<function>QueryFont , </function>
-<function>QueryKeymap , </function>
+<function>GetWindowAttributes</function>,
+<function>QueryFont</function>,
+<function>QueryKeymap</function>,
 and
 <function>GetKeyboardControl </function>
 have reply structures longer than 32 bytes in the core protocol.
@@ -2383,11 +2383,11 @@ Sending the Protocol Request and Arguments
 After the variable declarations, 
 a stub procedure should call one of four macros defined in 
 &lt;X11/Xlibint.h&gt;:
-<function>GetReq , </function>
-<function>GetReqExtra , </function>
-<function>GetResReq , </function>
+<function>GetReq</function>,
+<function>GetReqExtra</function>,
+<function>GetResReq</function>,
 or 
-<function>GetEmptyReq .  </function>
+<function>GetEmptyReq</function>.
 All of these macros take, as their first argument,
 the name of the protocol request as declared in 
 &lt;X11/Xproto.h&gt;
@@ -2404,7 +2404,7 @@ fills in its type and length field, and sets req to point to it.
 <!-- .LP -->
 If the protocol request has no arguments (for instance, X_GrabServer),
 then use 
-<function>GetEmptyReq .</function>
+<function>GetEmptyReq</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2413,13 +2413,13 @@ then use
 GetEmptyReq (DoSomething, req);
 </literallayout>
 If the protocol request has a single 32-bit argument (such as a
-<function>Pixmap , </function>
-<function>Window , </function>
-<function>Drawable , </function>
-<function>Atom , </function>
+<function>Pixmap</function>,
+<function>Window</function>,
+<function>Drawable</function>,
+<function>Atom</function>,
 and so on),
 then use 
-<function>GetResReq .  </function>
+<function>GetResReq</function>.
 The second argument to the macro is the 32-bit object.  
 <function>X_MapWindow </function>
 is a good example.
@@ -2431,17 +2431,17 @@ is a good example.
 GetResReq (DoSomething, rid, req);
 </literallayout>
 The rid argument is the 
-<function>Pixmap , </function>
-<function>Window , </function>
+<function>Pixmap</function>,
+<function>Window</function>,
 or other resource ID.
 </para>
 <para>
 <!-- .LP -->
 If the protocol request takes any other argument list, 
 then call 
-<function>GetReq .  </function>
+<function>GetReq</function>.
 After the 
-<function>GetReq , </function>
+<function>GetReq</function>,
 you need to set all the other fields in the request structure,
 usually from arguments to the stub procedure.
 </para>
@@ -2458,7 +2458,7 @@ req-&gt;arg2 = arg2;
 A few stub procedures (such as 
 <function>XCreateGC </function>
 and 
-<function>XCreatePixmap ) </function>
+<function>XCreatePixmap</function>)
 return a resource ID to the caller but pass a resource ID as an argument
 to the protocol request.   
 Such procedures use the macro 
@@ -2479,13 +2479,13 @@ data after the request.
 Typically, these procedures (such as
 <function>XMoveWindow </function>
 and 
-<function>XSetBackground ) </function>
+<function>XSetBackground</function>)
 are special cases of more general functions like 
 <function>XMoveResizeWindow </function>
 and 
-<function>XChangeGC .   </function>
+<function>XChangeGC</function>.
 These procedures use 
-<function>GetReqExtra , </function>
+<function>GetReqExtra</function>,
 which is the same as 
 <function>GetReq</function>
 except that it takes an additional argument (the number of
@@ -2528,7 +2528,7 @@ If it does not fit, however,
 the 
 <function>Data </function>
 macro calls 
-<function>_XSend , </function>
+<function>_XSend</function>,
 which transmits first the contents of the buffer and then your data.
 The 
 <function>Data </function>
@@ -2548,8 +2548,8 @@ and the number of bytes to be sent.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<function>Data ,</function>
-<function>Data16 ,</function>
+<function>Data</function>,
+<function>Data16</function>,
 and
 <function>Data32</function>
 are macros that may use their last argument
@@ -2571,7 +2571,7 @@ macro.
 takes the same arguments, but because it sends your data immediately instead of 
 copying it into the output buffer (which would later be flushed
 anyway by the following call on 
-<function>_XReply ), </function>
+<function>_XReply</function>),
 it is faster.
 <!-- .SH -->
 Replies
@@ -2676,7 +2676,7 @@ A pointer to a reply structure (which must be cast to an
   <listitem>
     <para>
 The number of additional 32-bit words (beyond 
-<function>sizeof( xReply ) </function>
+<function>sizeof( xReply</function>)
 = 32 bytes)
 in the reply structure
     </para>
@@ -2695,11 +2695,11 @@ beyond those it was told to read
 Because most reply structures are 32 bytes long, 
 the third argument is usually 0.  
 The only core protocol exceptions are the replies to 
-<function>GetWindowAttributes , </function>
-<function>QueryFont , </function>
-<function>QueryKeymap , </function>
+<function>GetWindowAttributes</function>,
+<function>QueryFont</function>,
+<function>QueryKeymap</function>,
 and 
-<function>GetKeyboardControl ,</function>
+<function>GetKeyboardControl</function>,
 which have longer replies.
 </para>
 <para>
@@ -2752,7 +2752,7 @@ If there is variable-length data after the reply,
 change the 
 <function>True </function>
 to 
-<function>False , </function>
+<function>False</function>,
 and use the appropriate
 <function>_XRead </function>
 function to read the variable-length data.
@@ -3041,9 +3041,9 @@ Synchronous Calling
 <!-- .LP -->
 Each procedure should have a call, just before returning to the user, 
 to a macro called
-<function>SyncHandle .</function>
+<function>SyncHandle</function>.
 If synchronous mode is enabled (see 
-<function>XSynchronize ), </function>
+<function>XSynchronize</function>),
 the request is sent immediately.
 The library, however, waits until any error the procedure could generate
 at the server has been handled.
@@ -3120,7 +3120,7 @@ or
 <function>Data</function>
 families of macros,
 after any use of
-<function>_XReply ,</function>
+<function>_XReply</function>,
 or after any use of the
 <function>_XSend</function>
 or
@@ -3219,7 +3219,7 @@ Specifies the size of the buffer.
 <!-- .LP -->
 <!-- .eM -->
 You must pass back the same pointer and size that were returned by
-<function>_XAllocTemp .</function>
+<function>_XAllocTemp</function>.
 <!-- .SH -->
 Portability Considerations
 </para>
@@ -3255,7 +3255,7 @@ in the protocol, be sure to declare it as
 <function>unsigned</function>
 <function>int</function>
 and not as
-<function>int .</function>
+<function>int</function>.
 (This, of course, does not apply to Booleans or enumerations.)
 </para>
 <para>
@@ -3270,11 +3270,11 @@ declare it as an
 and not as
 <function>int</function>
 or
-<function>long .</function>
+<function>long</function>.
 This also goes for any internal variables that may
 take on values larger than the maximum 16-bit
 <function>unsigned</function>
-<function>int .</function>
+<function>int</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3310,7 +3310,7 @@ in
 &lt;stdio.h&gt;
 and is the number of file descriptors supported on the system)
 of type 
-<function>XExtCodes .</function>
+<function>XExtCodes</function>.
 Make sure these are all initialized to NULL.
     </para>
   </listitem>
@@ -3327,7 +3327,7 @@ Call your initialization procedure and pass to it the display pointer.
   <listitem>
     <para>
 Once in your initialization procedure, call 
-<function>XInitExtension ;</function>
+<function>XInitExtension</function>;
 if it succeeds, store the pointer returned into this array.  
 Make sure to establish a close display handler to allow you to zero the entry.
 Do whatever other initialization your extension requires.

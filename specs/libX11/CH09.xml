@@ -27,7 +27,7 @@ programs. Xlib provides management functions to:
 <para>
 <!-- .LP -->
 To change a window's parent to another window on the same screen, use
-<function>XReparentWindow .</function>
+<function>XReparentWindow</function>.
 There is no way to move a window between screens.
 <indexterm significance="preferred"><primary>XReparentWindow</primary></indexterm>
 <!-- .sM -->
@@ -119,7 +119,7 @@ The override_redirect member returned in this event is
 set to the window's corresponding attribute.
 Window manager clients usually should ignore this window if this member
 is set to
-<function>True .</function>
+<function>True</function>.
 Finally, if the specified window was originally mapped,
 the X server automatically performs a
 <function>MapWindow</function>
@@ -156,7 +156,7 @@ specified window.
   <listitem>
     <para>
 The new parent is
-<function>InputOnly ,</function>
+<function>InputOnly</function>,
 and the window is not.
     </para>
   </listitem>
@@ -212,7 +212,7 @@ when they are destroyed.
 <!-- .LP -->
 <!-- .sp -->
 To add or remove a window from the client's save-set, use
-<function>XChangeSaveSet .</function>
+<function>XChangeSaveSet</function>.
 <indexterm significance="preferred"><primary>XChangeSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -256,7 +256,7 @@ Specifies the mode.
 You can pass
 <function>SetModeInsert </function>
 or
-<function>SetModeDelete .</function>
+<function>SetModeDelete</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -277,8 +277,8 @@ error results.
 <!-- .LP -->
 <function>XChangeSaveSet</function>
 can generate
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -287,7 +287,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To add a window to the client's save-set, use
-<function>XAddToSaveSet .</function>
+<function>XAddToSaveSet</function>.
 <indexterm significance="preferred"><primary>XAddToSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -346,7 +346,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To remove a window from the client's save-set, use
-<function>XRemoveFromSaveSet .</function>
+<function>XRemoveFromSaveSet</function>.
 <indexterm significance="preferred"><primary>XRemoveFromSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -426,7 +426,7 @@ where M is the minimum number of installed colormaps specified for the screen
 in the connection setup.
 The required list is maintained as follows.
 When a colormap is specified to
-<function>XInstallColormap ,</function>
+<function>XInstallColormap</function>,
 it is added to the head of the list;
 the list is truncated at the tail, if necessary, to keep its length to 
 at most M.
@@ -443,7 +443,7 @@ required list.
 <!-- .LP -->
 <!-- .sp -->
 To install a colormap, use
-<function>XInstallColormap .</function>
+<function>XInstallColormap</function>.
 <indexterm significance="preferred"><primary>XInstallColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -486,11 +486,11 @@ function installs the specified colormap for its associated screen.
 All windows associated with this colormap immediately display with
 true colors.
 You associated the windows with this colormap when you created them by calling
-<function>XCreateWindow ,</function>
-<function>XCreateSimpleWindow ,</function>
-<function>XChangeWindowAttributes ,</function>
+<function>XCreateWindow</function>,
+<function>XCreateSimpleWindow</function>,
+<function>XChangeWindowAttributes</function>,
 or
-<function>XSetWindowColormap .</function>
+<function>XSetWindowColormap</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -500,7 +500,7 @@ the X server generates a
 event on each window that has that colormap.
 In addition, for every other colormap that is installed as 
 a result of a call to
-<function>XInstallColormap ,</function>
+<function>XInstallColormap</function>,
 the X server generates a
 <function>ColormapNotify</function>
 event on each window that has that colormap.
@@ -516,7 +516,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To uninstall a colormap, use
-<function>XUninstallColormap .</function>
+<function>XUninstallColormap</function>.
 <indexterm significance="preferred"><primary>XUninstallColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -571,7 +571,7 @@ the X server generates a
 event on each window that has that colormap.
 In addition, for every other colormap that is installed or uninstalled as a 
 result of a call to 
-<function>XUninstallColormap ,</function>
+<function>XUninstallColormap</function>,
 the X server generates a
 <function>ColormapNotify</function>
 event on each window that has that colormap.
@@ -587,7 +587,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To obtain a list of the currently installed colormaps for a given screen, use
-<function>XListInstalledColormaps .</function>
+<function>XListInstalledColormaps</function>.
 <indexterm significance="preferred"><primary>XListInstalledColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -644,7 +644,7 @@ The order of the colormaps in the list is not significant
 and is no explicit indication of the required list.
 When the allocated list is no longer needed,
 free it by using
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -669,7 +669,7 @@ search path for a server.
 <!-- .LP -->
 <!-- .sp -->
 To set the font search path, use
-<function>XSetFontPath .</function>
+<function>XSetFontPath</function>.
 <indexterm significance="preferred"><primary>XSetFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -747,7 +747,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To get the current font search path, use
-<function>XGetFontPath .</function>
+<function>XGetFontPath</function>.
 <indexterm significance="preferred"><primary>XGetFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -791,15 +791,15 @@ The contents of these strings are implementation-dependent
 and are not intended to be interpreted by client applications.
 When it is no longer needed,
 the data in the font path should be freed by using
-<function>XFreeFontPath .</function>
+<function>XFreeFontPath</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To free data returned by
-<function>XGetFontPath ,</function>
+<function>XGetFontPath</function>,
 use
-<function>XFreeFontPath .</function>
+<function>XFreeFontPath</function>.
 <indexterm significance="preferred"><primary>XFreeFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -829,7 +829,7 @@ The
 <function>XFreeFontPath</function>
 function
 frees the data allocated by
-<function>XGetFontPath .</function>
+<function>XGetFontPath</function>.
 </para>
 </sect1>
 <sect1 id="Grabbing_the_Server_">
@@ -853,7 +853,7 @@ Although grabbing the server is highly discouraged, it is sometimes necessary.
 <!-- .LP -->
 <!-- .sp -->
 To grab the server, use
-<function>XGrabServer .</function>
+<function>XGrabServer</function>.
 <indexterm><primary>Server</primary><secondary>grabbing</secondary></indexterm>
 <indexterm><primary>Grabbing</primary><secondary>server</secondary></indexterm>
 <indexterm significance="preferred"><primary>XGrabServer</primary></indexterm>
@@ -891,7 +891,7 @@ You should not grab the X server any more than is absolutely necessary.
 <!-- .LP -->
 <!-- .sp -->
 To ungrab the server, use
-<function>XUngrabServer .</function>
+<function>XUngrabServer</function>.
 <indexterm significance="preferred"><primary>XUngrabServer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -933,7 +933,7 @@ You should avoid grabbing the X server as much as possible.
 Xlib provides a function to cause the connection to
 a client to be closed and its resources to be destroyed.
 To destroy a client, use
-<function>XKillClient .</function>
+<function>XKillClient</function>.
 <indexterm significance="preferred"><primary>XKillClient</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -962,7 +962,7 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Specifies any resource associated with the client that you want to destroy or
-<function>AllTemporary .</function>
+<function>AllTemporary</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -991,7 +991,7 @@ is specified, the resources of all clients that have terminated in
 are destroyed (see section 2.5).
 This permits implementation of window manager facilities that aid debugging.
 A client can set its close-down mode to
-<function>RetainTemporary .</function>
+<function>RetainTemporary</function>.
 If the client then crashes,
 its windows would not be destroyed. 
 The programmer can then inspect the application's window tree 
@@ -1020,7 +1020,7 @@ or to obtain the current screen saver values.
 <!-- .LP -->
 <!-- .sp -->
 To set the screen saver mode, use
-<function>XSetScreenSaver .</function>
+<function>XSetScreenSaver</function>.
 <indexterm significance="preferred"><primary>XSetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1072,10 +1072,10 @@ Specifies the interval, in seconds, between screen saver alterations.
       <para>
 Specifies how to enable screen blanking.
 You can pass
-<function>DontPreferBlanking ,</function>
-<function>PreferBlanking ,</function>
+<function>DontPreferBlanking</function>,
+<function>PreferBlanking</function>,
 or
-<function>DefaultBlanking .</function>
+<function>DefaultBlanking</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -1087,10 +1087,10 @@ or
       <para>
 Specifies the screen save control values.
 You can pass
-<function>DontAllowExposures ,</function>
-<function>AllowExposures ,</function>
+<function>DontAllowExposures</function>,
+<function>AllowExposures</function>,
 or
-<function>DefaultExposures .</function>
+<function>DefaultExposures</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1132,7 +1132,7 @@ and all screen states are restored at the next
 keyboard or pointer input or at the next call to
 <function>XForceScreenSaver</function>
 with mode
-<function>ScreenSaverReset .  </function>
+<function>ScreenSaverReset</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1155,7 +1155,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To force the screen saver on or off, use
-<function>XForceScreenSaver .</function>
+<function>XForceScreenSaver</function>.
 <indexterm significance="preferred"><primary>XForceScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1187,7 +1187,7 @@ Specifies the mode that is to be applied.
 You can pass
 <function>ScreenSaverActive</function>
 or
-<function>ScreenSaverReset .</function>
+<function>ScreenSaverReset</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1221,7 +1221,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To activate the screen saver, use
-<function>XActivateScreenSaver .</function>
+<function>XActivateScreenSaver</function>.
 <indexterm significance="preferred"><primary>XActivateScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1249,7 +1249,7 @@ Specifies the connection to the X server.
 <!-- .eM -->
 <!-- .sp -->
 To reset the screen saver, use
-<function>XResetScreenSaver .</function>
+<function>XResetScreenSaver</function>.
 <indexterm significance="preferred"><primary>XResetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1277,7 +1277,7 @@ Specifies the connection to the X server.
 <!-- .eM -->
 <!-- .sp -->
 To get the current screen saver values, use
-<function>XGetScreenSaver .</function>
+<function>XGetScreenSaver</function>.
 <indexterm significance="preferred"><primary>XGetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1328,10 +1328,10 @@ Returns the interval between screen saver invocations.
     <listitem>
       <para>
 Returns the current screen blanking preference
-<function>( DontPreferBlanking ,</function>
-<function>PreferBlanking ,</function>
+(<function>DontPreferBlanking</function>,
+<function>PreferBlanking</function>,
 or
-<function>DefaultBlanking ).</function>
+<function>DefaultBlanking</function>).
       </para>
     </listitem>
   </varlistentry>
@@ -1342,10 +1342,10 @@ or
     <listitem>
       <para>
 Returns the current screen save control value
-<function>( DontAllowExposures ,</function>
-<function>AllowExposures ,</function>
+(<function>DontAllowExposures</function>,
+<function>AllowExposures</function>,
 or
-<function>DefaultExposures ).</function>
+<function>DefaultExposures</function>).
     </para>
   </listitem>
   </varlistentry>
@@ -1464,12 +1464,12 @@ typedef struct {
 <!-- .eM -->
 The family member specifies which protocol address family to use 
 (for example, <acronym>TCP</acronym>/<acronym>IP</acronym> or DECnet) and can be
-<function>FamilyInternet ,</function>
-<function>FamilyInternet6 ,</function>
-<function>FamilyServerInterpreted ,</function>
-<function>FamilyDECnet ,</function>
+<function>FamilyInternet</function>,
+<function>FamilyInternet6</function>,
+<function>FamilyServerInterpreted</function>,
+<function>FamilyDECnet</function>,
 or
-<function>FamilyChaos .</function>
+<function>FamilyChaos</function>.
 The length member specifies the length of the address in bytes.
 The address member specifies a pointer to the address.
 </para>
@@ -1524,7 +1524,7 @@ specify the length in byte of the type and value strings.
 <!-- .LP -->
 <!-- .sp -->
 To add a single host, use
-<function>XAddHost .</function>
+<function>XAddHost</function>.
 <indexterm significance="preferred"><primary>XAddHost</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1582,7 +1582,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To add multiple hosts at one time, use
-<function>XAddHosts .</function>
+<function>XAddHosts</function>.
 <indexterm significance="preferred"><primary>XAddHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1651,7 +1651,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To obtain a host list, use
-<function>XListHosts .</function>
+<function>XListHosts</function>.
 <indexterm significance="preferred"><primary>XListHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1709,13 +1709,13 @@ It also returns a pointer to a list of host structures that
 were allocated by the function. 
 When no longer needed,
 this memory should be freed by calling
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To remove a single host, use
-<function>XRemoveHost .</function>
+<function>XRemoveHost</function>.
 <indexterm significance="preferred"><primary>XRemoveHost</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1777,7 +1777,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To remove multiple hosts at one time, use
-<function>XRemoveHosts .</function>
+<function>XRemoveHosts</function>.
 <indexterm significance="preferred"><primary>XRemoveHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1868,7 +1868,7 @@ at connection setup.
 <!-- .LP -->
 <!-- .sp -->
 To change access control, use
-<function>XSetAccessControl .</function>
+<function>XSetAccessControl</function>.
 <indexterm significance="preferred"><primary>XSetAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1900,7 +1900,7 @@ Specifies the mode.
 You can pass
 <function>EnableAccess</function>
 or
-<function>DisableAccess .</function>
+<function>DisableAccess</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -1927,7 +1927,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To enable access control, use
-<function>XEnableAccessControl .</function>
+<function>XEnableAccessControl</function>.
 <indexterm significance="preferred"><primary>XEnableAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1968,7 +1968,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To disable access control, use
-<function>XDisableAccessControl .</function>
+<function>XDisableAccessControl</function>.
 <indexterm significance="preferred"><primary>XDisableAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>

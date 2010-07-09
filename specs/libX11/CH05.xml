@@ -18,7 +18,7 @@ A bitmap is a single bit-plane pixmap.
 <!-- .LP -->
 <!-- .sp -->
 To create a pixmap of a given size, use
-<function>XCreatePixmap .</function>
+<function>XCreatePixmap</function>.
 <indexterm significance="preferred"><primary>XCreatePixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -120,8 +120,8 @@ The initial contents of the pixmap are undefined.
 <!-- .LP -->
 <function>XCreatePixmap</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadDrawable ,</function>
+<function>BadAlloc</function>,
+<function>BadDrawable</function>,
 and
 <function>BadValue </function>
 errors.
@@ -130,7 +130,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To free all storage associated with a specified pixmap, use
-<function>XFreePixmap .</function>
+<function>XFreePixmap</function>.
 <indexterm significance="preferred"><primary>XFreePixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -217,7 +217,7 @@ from an arbitrary font or from bitmaps.
 <!-- .LP -->
 <!-- .sp -->
 To create a cursor from the standard cursor font, use
-<function>XCreateFontCursor .</function>
+<function>XCreateFontCursor</function>.
 </para>
 <para>
 #include &lt;X11/cursorfont.h&gt;
@@ -272,7 +272,7 @@ to use.
 The hotspot comes from the information stored in the cursor font.
 The initial colors of a cursor are a black foreground and a white
 background (see
-<function>XRecolorCursor ).</function>
+<function>XRecolorCursor</function>).
 For further information about cursor shapes,
 see appendix B.
 </para>
@@ -289,7 +289,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To create a cursor from font glyphs, use
-<function>XCreateGlyphCursor .</function>
+<function>XCreateGlyphCursor</function>.
 <indexterm significance="preferred"><primary>XCreateGlyphCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -331,7 +331,7 @@ Specifies the font for the source glyph.
     <listitem>
       <para>
 Specifies the font for the mask glyph or
-<function>None .</function>
+<function>None</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -417,8 +417,8 @@ least significant byte.
 <!-- .LP -->
 <function>XCreateGlyphCursor</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadFont ,</function>
+<function>BadAlloc</function>,
+<function>BadFont</function>,
 and
 <function>BadValue </function>
 errors.
@@ -428,7 +428,7 @@ errors.
 <!-- .sp -->
 To create a cursor from two bitmaps,
 use
-<function>XCreatePixmapCursor .</function>
+<function>XCreatePixmapCursor</function>.
 <indexterm significance="preferred"><primary>XCreatePixmapCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -472,7 +472,7 @@ Specifies the shape of the source cursor.
     <listitem>
       <para>
 Specifies the cursor's source bits to be displayed or
-<function>None .</function>
+<function>None</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -575,7 +575,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To determine useful cursor sizes, use
-<function>XQueryBestCursor .</function>
+<function>XQueryBestCursor</function>.
 <indexterm significance="preferred"><primary>XQueryBestCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -680,7 +680,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To change the color of a given cursor, use
-<function>XRecolorCursor .</function>
+<function>XRecolorCursor</function>.
 <indexterm significance="preferred"><primary>XRecolorCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -758,7 +758,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To free (destroy) a given cursor, use
-<function>XFreeCursor .</function>
+<function>XFreeCursor</function>.
 <indexterm significance="preferred"><primary>XFreeCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>

@@ -60,7 +60,7 @@ Use internal connections
 <para>
 <!-- .LP -->
 To open a connection to the X server that controls a display, use
-<function>XOpenDisplay .</function>
+<function>XOpenDisplay</function>.
 <indexterm significance="preferred"><primary>XOpenDisplay</primary></indexterm>
 </para>
 <para>
@@ -224,7 +224,7 @@ If
 <function>XOpenDisplay </function>
 does not succeed, it returns NULL.
 After a successful call to
-<function>XOpenDisplay ,</function>
+<function>XOpenDisplay</function>,
 all of the screens in the display can be used by the client.
 The screen number specified in the display_name argument is returned 
 by the 
@@ -293,11 +293,11 @@ Applications must never directly modify or inspect these private members of the
 structure.
 <!-- .NT Note -->
 The
-<function>XDisplayWidth ,</function>
-<function>XDisplayHeight ,</function>
-<function>XDisplayCells ,</function>
-<function>XDisplayPlanes ,</function>
-<function>XDisplayWidthMM ,</function>
+<function>XDisplayWidth</function>,
+<function>XDisplayHeight</function>,
+<function>XDisplayCells</function>,
+<function>XDisplayPlanes</function>,
+<function>XDisplayWidthMM</function>,
 and
 <function>XDisplayHeightMM</function>
 functions in the next sections are misnamed.
@@ -566,14 +566,14 @@ Specifies the appropriate screen number on the host server.
 Both return the depth (number of planes) of the default root window for the
 specified screen.
 Other depths may also be supported on this screen (see
-<function>XMatchVisualInfo ).</function>
+<function>XMatchVisualInfo</function>).
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 <indexterm significance="preferred"><primary>XListDepths</primary></indexterm>
 To determine the number of depths that are available on a given screen, use
-<function>XListDepths .</function>
+<function>XListDepths</function>.
 <!-- .sM -->
 </para>
 <para>
@@ -634,7 +634,7 @@ can be allocated,
 sets count_return to the number of available depths.
 Otherwise, it does not set count_return and returns NULL.
 To release the memory allocated for the array of depths, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1061,22 +1061,22 @@ extended-length protocol encoding; otherwise,
 it returns the maximum request size (in 4-byte units) supported
 by the server using the extended-length encoding.
 The Xlib functions
-<function>XDrawLines ,</function>
-<function>XDrawArcs ,</function>
-<function>XFillPolygon ,</function>
-<function>XChangeProperty ,</function>
-<function>XSetClipRectangles ,</function>
+<function>XDrawLines</function>,
+<function>XDrawArcs</function>,
+<function>XFillPolygon</function>,
+<function>XChangeProperty</function>,
+<function>XSetClipRectangles</function>,
 and
 <function>XSetRegion</function>
 will use the extended-length encoding as necessary, if supported
 by the server.  Use of the extended-length encoding in other Xlib
 functions (for example,
-<function>XDrawPoints ,</function>
-<function>XDrawRectangles ,</function>
-<function>XDrawSegments ,</function>
-<function>XFillArcs ,</function>
-<function>XFillRectangles ,</function>
-<function>XPutImage )</function>
+<function>XDrawPoints</function>,
+<function>XDrawRectangles</function>,
+<function>XDrawSegments</function>,
+<function>XFillArcs</function>,
+<function>XFillRectangles</function>,
+<function>XPutImage</function>)
 is permitted but not required; an Xlib implementation may choose to
 split the data across multiple smaller requests instead.
 </para>
@@ -1121,13 +1121,13 @@ The protocol guarantees the size to be no smaller than 4096 units
 (16384 bytes).
 Xlib automatically breaks data up into multiple protocol requests
 as necessary for the following functions:
-<function>XDrawPoints ,</function>
-<function>XDrawRectangles ,</function>
-<function>XDrawSegments ,</function>
-<function>XFillArcs ,</function>
-<function>XFillRectangles ,</function>
+<function>XDrawPoints</function>,
+<function>XDrawRectangles</function>,
+<function>XDrawSegments</function>,
+<function>XFillArcs</function>,
+<function>XFillRectangles</function>,
 and 
-<function>XPutImage .</function>
+<function>XPutImage</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1306,7 +1306,7 @@ Specifies the connection to the X server.
 Both return the length of the event queue for the connected display.
 Note that there may be more events that have not been read into
 the queue yet (see
-<function>XEventsQueued ).</function>
+<function>XEventsQueued</function>).
 </para>
 <para>
 <!-- .LP -->
@@ -1503,7 +1503,7 @@ typedef struct {
 <!-- .eM -->
 <!-- .sp -->
 To obtain the pixmap format information for a given display, use
-<function>XListPixmapFormats .</function>
+<function>XListPixmapFormats</function>.
 <indexterm significance="preferred"><primary>XListPixmapFormats</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -1556,7 +1556,7 @@ returns NULL.
 To free the allocated storage for the
 <function>XPixmapFormatValues</function>
 structures, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP  -->
@@ -1603,7 +1603,7 @@ Z format.
 The macro or function can return either
 <function>LSBFirst </function>
 or 
-<function>MSBFirst .</function>
+<function>MSBFirst</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1678,7 +1678,7 @@ unit.
 This macro or function can return 
 <function>LSBFirst</function>
 or 
-<function>MSBFirst .</function>
+<function>MSBFirst</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2204,8 +2204,8 @@ structure.
 Both return a value indicating whether the screen supports backing
 stores.
 The value returned can be one of 
-<function>WhenMapped ,</function>
-<function>NotUseful ,</function>
+<function>WhenMapped</function>,
+<function>NotUseful</function>,
 or
 <function>Always </function>
 (see section 3.2.4).
@@ -2247,10 +2247,10 @@ structure.
 Both return a Boolean value indicating whether the
 screen supports save unders.
 If
-<function>True ,</function>
+<function>True</function>,
 the screen supports save unders.
 If
-<function>False ,</function>
+<function>False</function>,
 the screen does not support save unders (see section 3.2.5).
 </para>
 <para>
@@ -2665,7 +2665,7 @@ Both return the root window of the specified screen.
 To execute a 
 <function>NoOperation </function>
 protocol request, use
-<function>XNoOp .</function>
+<function>XNoOp</function>.
 <indexterm significance="preferred"><primary>XNoOp</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -2703,7 +2703,7 @@ thereby exercising the connection.
 <para>
 <!-- .LP -->
 To free in-memory data that was created by an Xlib function, use
-<function>XFree .</function>
+<function>XFree</function>.
 <indexterm significance="preferred"><primary>XFree</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -2746,7 +2746,7 @@ A NULL pointer cannot be passed to this function.
 <para>
 <!-- .LP -->
 To close a display or disconnect from the X server, use
-<function>XCloseDisplay .</function>
+<function>XCloseDisplay</function>.
 <indexterm significance="preferred"><primary>XCloseDisplay</primary></indexterm>
 </para>
 <para>
@@ -2781,17 +2781,17 @@ The
 function closes the connection to the X server for the display specified in the
 <function>Display</function>
 structure and destroys all windows, resource IDs
-<function>( Window ,</function>
-<function>Font ,</function>
-<function>Pixmap ,</function>
-<function>Colormap ,</function>
-<function>Cursor ,</function>
+(<function>Window</function>,
+<function>Font</function>,
+<function>Pixmap</function>,
+<function>Colormap</function>,
+<function>Cursor</function>,
 and
-<function>GContext ),</function>
+<function>GContext</function>),
 or other resources that the client has created
 on this display, unless the close-down mode of the resource has been changed
 (see
-<function>XSetCloseDownMode ).</function>
+<function>XSetCloseDownMode</function>).
 Therefore, these windows, resource IDs, and other resources should never be 
 referenced again or an error will be generated.
 Before exiting, you should call
@@ -2817,7 +2817,7 @@ error.
 Xlib provides a function to permit the resources owned by a client
 to survive after the client's connection is closed.
 To change a client's close-down mode, use
-<function>XSetCloseDownMode .</function>
+<function>XSetCloseDownMode</function>.
 <indexterm significance="preferred"><primary>XSetCloseDownMode</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -2848,10 +2848,10 @@ Specifies the connection to the X server.
       <para>
 Specifies the client close-down mode.
 You can pass 
-<function>DestroyAll , </function>
-<function>RetainPermanent , </function>
+<function>DestroyAll</function>,
+<function>RetainPermanent</function>,
 or
-<function>RetainTemporary . </function>
+<function>RetainTemporary</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -2869,7 +2869,7 @@ For information on what happens to the client's resources when the
 close_mode argument is
 <function>RetainPermanent</function>
 or
-<function>RetainTemporary ,</function>
+<function>RetainTemporary</function>,
 see section 2.6.
 </para>
 <para>
@@ -2898,7 +2898,7 @@ automatic operations:
     <para>
 It disowns all selections owned by the client
 (see 
-<function>XSetSelectionOwner ).</function>
+<function>XSetSelectionOwner</function>).
     </para>
   </listitem>
   <listitem>
@@ -2930,17 +2930,17 @@ by the client either as permanent or temporary,
 depending on whether the close-down mode is 
 <function>RetainPermanent</function>
 or
-<function>RetainTemporary .</function>
+<function>RetainTemporary</function>.
 However, this does not prevent other client applications from explicitly
 destroying the resources (see 
-<function>XSetCloseDownMode ).</function>
+<function>XSetCloseDownMode</function>).
     </para>
   </listitem>
 </itemizedlist>
 <para>
 <!-- .LP -->
 When the close-down mode is
-<function>DestroyAll ,</function>
+<function>DestroyAll</function>,
 the X server destroys all of a client's resources as follows:
 </para>
 <itemizedlist>
@@ -2975,12 +2975,12 @@ It destroys all windows created by the client.
     <para>
 It performs the appropriate free request on each nonwindow resource created by
 the client in the server (for example, 
-<function>Font , </function>
-<function>Pixmap , </function>
-<function>Cursor , </function>
-<function>Colormap , </function>
+<function>Font</function>,
+<function>Pixmap</function>,
+<function>Cursor</function>,
+<function>Colormap</function>,
 and 
-<function>GContext ).</function>
+<function>GContext</function>).
     </para>
   </listitem>
   <listitem>
@@ -2996,7 +2996,7 @@ An X server goes through a cycle of having no connections and having some
 connections.
 When the last connection to the X server closes as a result of a connection
 closing with the close_mode of
-<function>DestroyAll ,</function>
+<function>DestroyAll</function>,
 the X server does the following: 
 </para>
 <itemizedlist>
@@ -3042,7 +3042,7 @@ It restores the default font path.
   <listitem>
     <para>
 It restores the input focus to state
-<function>PointerRoot .</function>
+<function>PointerRoot</function>.
     </para>
   </listitem>
 </itemizedlist>
@@ -3052,7 +3052,7 @@ However, the X server does not reset if you close a connection with a close-down
 mode set to
 <function>RetainPermanent</function>
 or
-<function>RetainTemporary .</function>
+<function>RetainTemporary</function>.
 </para>
 </sect1>
 <sect1 id="Using_Xlib_with_Threads">
@@ -3069,7 +3069,7 @@ multiple threads to use Xlib concurrently.
 <!-- .LP -->
 <!-- .sp -->
 To initialize support for concurrent threads, use
-<function>XInitThreads .</function>
+<function>XInitThreads</function>.
 <indexterm significance="preferred"><primary>XInitThreads</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3102,7 +3102,7 @@ It is recommended that single-threaded programs not call this function.
 <!-- .LP -->
 <!-- .sp -->
 To lock a display across several Xlib calls, use
-<function>XLockDisplay .</function>
+<function>XLockDisplay</function>.
 <indexterm significance="preferred"><primary>XLockDisplay</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3138,16 +3138,16 @@ Nested calls to
 work correctly; the display will not actually be unlocked until
 <function>XUnlockDisplay</function>
 has been called the same number of times as
-<function>XLockDisplay .</function>
+<function>XLockDisplay</function>.
 This function has no effect unless Xlib was successfully initialized
 for threads using
-<function>XInitThreads .</function>
+<function>XInitThreads</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To unlock a display, use
-<function>XUnlockDisplay .</function>
+<function>XUnlockDisplay</function>.
 <indexterm significance="preferred"><primary>XUnlockDisplay</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3185,7 +3185,7 @@ must be called an equal number of times before the display is
 actually unlocked.
 This function has no effect unless Xlib was successfully initialized
 for threads using
-<function>XInitThreads .</function>
+<function>XInitThreads</function>.
 </para>
 </sect1>
 <sect1 id="Using_Internal_Connections">
@@ -3208,7 +3208,7 @@ facilities.
 <para>
 <!-- .LP -->
 To track internal connections for a display, use
-<function>XAddConnectionWatch .</function>
+<function>XAddConnectionWatch</function>.
 </para>
 <funcsynopsis>
 <funcprototype>
@@ -3272,11 +3272,11 @@ internal connection for the specified display.  The procedure is passed the
 display, the specified client_data, the file descriptor for the connection,
 a Boolean indicating whether the connection is being opened or closed, and a
 pointer to a location for private watch data.  If opening is
-<function>True ,</function>
+<function>True</function>,
 the procedure can store a pointer to private data in the location pointed
 to by watch_data;
 when the procedure is later called for this same connection and opening is
-<function>False ,</function>
+<function>False</function>,
 the location pointed to by watch_data will hold this same private data pointer.
 </para>
 <para>
@@ -3299,13 +3299,13 @@ If Xlib has been initialized for threads, the procedure is called with
 the display locked and the result of a call by the procedure to any
 Xlib function that locks the display is not defined unless the executing
 thread has externally locked the display using
-<function>XLockDisplay .</function>
+<function>XLockDisplay</function>.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To stop tracking internal connections for a display, use
-<function>XRemoveConnectionWatch .</function>
+<function>XRemoveConnectionWatch</function>.
 <indexterm significance="preferred"><primary>XRemoveConnectionWatch</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3367,7 +3367,7 @@ was initially registered.
 <!-- .LP -->
 <!-- .sp -->
 To process input on an internal connection, use
-<function>XProcessInternalConnection .</function>
+<function>XProcessInternalConnection</function>.
 <indexterm significance="preferred"><primary>XProcessInternalConnection</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3414,7 +3414,7 @@ This function should be called for an internal connection only
 after an operating system facility (for example,
 <function>select</function>
 or
-<function>poll )</function>
+<function>poll</function>)
 has indicated that input is available; otherwise,
 the effect is not defined.
 </para>
@@ -3422,7 +3422,7 @@ the effect is not defined.
 <!-- .LP -->
 <!-- .sp -->
 To obtain all of the current internal connections for a display, use
-<function>XInternalConnectionNumbers .</function>
+<function>XInternalConnectionNumbers</function>.
 <indexterm significance="preferred"><primary>XInternalConnectionNumbers</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -3480,7 +3480,7 @@ function returns a list of the file descriptors for all internal
 connections currently open for the specified display.
 When the allocated list is no longer needed,
 free it by using
-<function>XFree .</function>
+<function>XFree</function>.
 This functions returns a nonzero status if the list is successfully allocated;
 otherwise, it returns zero.
 </para>

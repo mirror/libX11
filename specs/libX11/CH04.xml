@@ -32,7 +32,7 @@ exists.
 <!-- .sp -->
 To obtain the parent, a list of children, and number of children for 
 a given window, use 
-<function>XQueryTree .</function>
+<function>XQueryTree</function>.
 <indexterm><primary>Child Window</primary></indexterm>
 <indexterm><primary>Parent Window</primary></indexterm>
 <indexterm significance="preferred"><primary>XQueryTree</primary></indexterm>
@@ -128,7 +128,7 @@ The children are listed in current stacking order, from bottom-most
 <function>XQueryTree</function>
 returns zero if it fails and nonzero if it succeeds.
 To free a non-NULL children list when it is no longer needed, use 
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -141,7 +141,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To obtain the current attributes of a given window, use 
-<function>XGetWindowAttributes .</function>
+<function>XGetWindowAttributes</function>.
 <indexterm significance="preferred"><primary>XGetWindowAttributes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -247,7 +247,7 @@ The root member is set to the root window of the screen containing the window.
 The class member is set to the window's class and can be either
 <function>InputOutput</function>
 or
-<function>InputOnly .</function>
+<function>InputOnly</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -330,10 +330,10 @@ see section 3.2.3. <!-- xref -->
 The backing_store member is set to indicate how the X server should maintain
 the contents of a window 
 and can be 
-<function>WhenMapped ,</function>
-<function>Always ,</function>
+<function>WhenMapped</function>,
+<function>Always</function>,
 or
-<function>NotUseful .</function>
+<function>NotUseful</function>.
 The backing_planes member is set to indicate (with bits set to 1) which bit 
 planes of the window hold dynamic data that must be preserved in backing_stores 
 and during save_unders.
@@ -345,20 +345,20 @@ for planes not set in backing_planes.
 The save_under member is set to 
 <function>True</function>
 or
-<function>False .</function>
+<function>False</function>.
 The colormap member is set to the colormap for the specified window and can be
 a colormap ID or 
-<function>None .</function>
+<function>None</function>.
 The map_installed member is set to indicate whether the colormap is 
 currently installed and can be 
 <function>True</function>
 or
-<function>False .</function>
+<function>False</function>.
 The map_state member is set to indicate the state of the window and can be
-<function>IsUnmapped ,</function>
-<function>IsUnviewable ,</function>
+<function>IsUnmapped</function>,
+<function>IsUnviewable</function>,
 or
-<function>IsViewable .</function>
+<function>IsViewable</function>.
 <function>IsUnviewable</function>
 is used if the window is mapped but some ancestor is unmapped.
 </para>
@@ -377,9 +377,9 @@ The override_redirect member is set to indicate whether this window overrides
 structure control facilities and can be 
 <function>True</function>
 or
-<function>False .</function>
+<function>False</function>.
 Window manager clients should ignore the window if this member is
-<function>True .</function>
+<function>True</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -401,7 +401,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To obtain the current geometry of a given drawable, use 
-<function>XGetGeometry .</function>
+<function>XGetGeometry</function>.
 <indexterm significance="preferred"><primary>XGetGeometry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -530,7 +530,7 @@ The geometry of the drawable includes the x and y coordinates, width and height,
 border width, and depth.
 These are described in the argument list.
 It is legal to pass to this function a window whose class is
-<function>InputOnly .</function>
+<function>InputOnly</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -562,7 +562,7 @@ asking the X server to perform these operations.
 <!-- .sp -->
 To translate a coordinate in one window to the coordinate
 space of another window, use
-<function>XTranslateCoordinates .</function>
+<function>XTranslateCoordinates</function>.
 <indexterm significance="preferred"><primary>XTranslateCoordinates</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -668,7 +668,7 @@ destination window.
 If
 <function>XTranslateCoordinates</function>
 returns
-<function>True ,</function>
+<function>True</function>,
 it takes the src_x and src_y coordinates relative
 to the source window's origin and returns these coordinates to 
 dest_x_return and dest_y_return
@@ -676,13 +676,13 @@ relative to the destination window's origin.
 If
 <function>XTranslateCoordinates</function>
 returns 
-<function>False , </function>
+<function>False</function>,
 src_w and dest_w are on different screens,
 and dest_x_return and dest_y_return are zero.
 If the coordinates are contained in a mapped child of dest_w,
 that child is returned to child_return.
 Otherwise, child_return is set to
-<function>None .</function>
+<function>None</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -696,7 +696,7 @@ error.
 <!-- .sp -->
 To obtain the screen coordinates of the pointer
 or to determine the pointer coordinates relative to a specified window, use 
-<function>XQueryPointer .</function>
+<function>XQueryPointer</function>.
 <indexterm significance="preferred"><primary>XQueryPointer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -817,7 +817,7 @@ coordinates relative to the root window's origin.
 If
 <function>XQueryPointer</function>
 returns 
-<function>False , </function>
+<function>False</function>,
 the pointer is not on the same screen as the specified window, and
 <function>XQueryPointer</function>
 returns 
@@ -826,7 +826,7 @@ to child_return and zero to win_x_return and win_y_return.
 If 
 <function>XQueryPointer</function>
 returns 
-<function>True , </function>
+<function>True</function>,
 the pointer coordinates returned to win_x_return and win_y_return
 are relative to the origin of the specified window.
 In this case, 
@@ -1183,7 +1183,7 @@ see section 8.5. <!-- xref -->
 <!-- .LP -->
 <!-- .sp -->
 To return an atom for a given name, use 
-<function>XInternAtom .</function>
+<function>XInternAtom</function>.
 <indexterm><primary>Atom</primary><secondary>interning</secondary></indexterm>
 <indexterm significance="preferred"><primary>XInternAtom</primary></indexterm>
 <!-- .sM -->
@@ -1237,12 +1237,12 @@ The
 function returns the atom identifier associated with the specified atom_name
 string.
 If only_if_exists is 
-<function>False ,</function>
+<function>False</function>,
 the atom is created if it does not exist.
 Therefore,
 <function>XInternAtom</function>
 can return
-<function>None .</function>
+<function>None</function>.
 If the atom name is not in the Host Portable Character Encoding, 
 the result is implementation-dependent.
 Uppercase and lowercase matter;
@@ -1265,7 +1265,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To return atoms for an array of names, use 
-<function>XInternAtoms .</function>
+<function>XInternAtoms</function>.
 <indexterm><primary>Atom</primary><secondary>interning</secondary></indexterm>
 <indexterm significance="preferred"><primary>XInternAtoms</primary></indexterm>
 <!-- .sM -->
@@ -1366,7 +1366,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To return a name for a given atom identifier, use 
-<function>XGetAtomName .</function>
+<function>XGetAtomName</function>.
 <indexterm><primary>Atom</primary><secondary>getting name</secondary></indexterm>
 <indexterm significance="preferred"><primary>XGetAtomName</primary></indexterm>
 <!-- .sM -->
@@ -1412,7 +1412,7 @@ then the returned string is in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.
 To free the resulting string,
 call
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1425,7 +1425,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To return the names for an array of atom identifiers, use 
-<function>XGetAtomNames .</function>
+<function>XGetAtomNames</function>.
 <indexterm><primary>Atom</primary><secondary>getting name</secondary></indexterm>
 <indexterm significance="preferred"><primary>XGetAtomNames</primary></indexterm>
 <!-- .sM -->
@@ -1539,7 +1539,7 @@ communication (see chapter 14). <!-- xref -->
 <!-- .LP -->
 <!-- .sp -->
 To obtain the type, format, and value of a property of a given window, use 
-<function>XGetWindowProperty .</function>
+<function>XGetWindowProperty</function>.
 <indexterm><primary>Property</primary><secondary>getting</secondary></indexterm>
 </para>
 <para>
@@ -1634,7 +1634,7 @@ Specifies a Boolean value that determines whether the property is deleted.
     <listitem>
       <para>
 Specifies the atom identifier associated with the property type or
-<function>AnyPropertyType .</function>
+<function>AnyPropertyType</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -1806,14 +1806,14 @@ The function returns
 if it executes successfully.
 To free the resulting data,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
 <function>XGetWindowProperty</function>
 can generate
-<function>BadAtom ,</function>
-<function>BadValue ,</function>
+<function>BadAtom</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -1822,7 +1822,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To obtain a given window's property list, use 
-<function>XListProperties .</function>
+<function>XListProperties</function>.
 <indexterm><primary>Property</primary><secondary>listing</secondary></indexterm>
 <indexterm significance="preferred"><primary>XListProperties</primary></indexterm>
 <!-- .sM -->
@@ -1877,7 +1877,7 @@ The
 function returns a pointer to an array of atom properties that are defined for 
 the specified window or returns NULL if no properties were found.
 To free the memory allocated by this function, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1890,7 +1890,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To change a property of a given window, use
-<function>XChangeProperty .</function>
+<function>XChangeProperty</function>.
 <indexterm><primary>Property</primary><secondary>changing</secondary></indexterm>
 <indexterm><primary>Property</primary><secondary>appending</secondary></indexterm>
 <indexterm><primary>Property</primary><secondary>prepending</secondary></indexterm>
@@ -1953,7 +1953,7 @@ Specifies the property name.
 Specifies the type of the property.
 The X server does not interpret the type but simply
 passes it back to an application that later calls 
-<function>XGetWindowProperty .</function>
+<function>XGetWindowProperty</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -1971,7 +1971,7 @@ byte-swap operations as necessary.
 If the format is 16-bit or 32-bit,
 you must explicitly cast your data pointer to an (unsigned char *) in the call
 to 
-<function>XChangeProperty .</function>
+<function>XChangeProperty</function>.
 <!-- .\" Changed name of this file to prop_mode.a on 1/13/87 -->
       </para>
     </listitem>
@@ -1984,10 +1984,10 @@ to
       <para>
 Specifies the mode of the operation.
 You can pass
-<function>PropModeReplace ,</function>
-<function>PropModePrepend ,</function>
+<function>PropModeReplace</function>,
+<function>PropModePrepend</function>,
 or
-<function>PropModeAppend .</function>
+<function>PropModeAppend</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -2029,7 +2029,7 @@ performs the following:
   <listitem>
     <para>
 If mode is
-<function>PropModeReplace ,</function>
+<function>PropModeReplace</function>,
 <function>XChangeProperty</function>
 discards the previous property value and stores the new data.
     </para>
@@ -2039,7 +2039,7 @@ discards the previous property value and stores the new data.
 If mode is
 <function>PropModePrepend</function>
 or
-<function>PropModeAppend ,</function>
+<function>PropModeAppend</function>,
 <function>XChangeProperty</function>
 inserts the specified data before the beginning of the existing data
 or onto the end of the existing data, respectively.
@@ -2082,10 +2082,10 @@ error results.)
 <!-- .LP -->
 <function>XChangeProperty</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom ,</function>
-<function>BadMatch ,</function>
-<function>BadValue ,</function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
+<function>BadMatch</function>,
+<function>BadValue</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -2094,7 +2094,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To rotate a window's property list, use
-<function>XRotateWindowProperties .</function>
+<function>XRotateWindowProperties</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2200,8 +2200,8 @@ no properties are changed.
 <!-- .LP -->
 <function>XRotateWindowProperties</function>
 can generate
-<function>BadAtom ,</function>
-<function>BadMatch ,</function>
+<function>BadAtom</function>,
+<function>BadMatch</function>,
 and
 <function>BadWindow </function>
 errors.
@@ -2210,7 +2210,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To delete a property on a given window, use 
-<function>XDeleteProperty .</function>
+<function>XDeleteProperty</function>.
 <indexterm><primary>Property</primary><secondary>deleting</secondary></indexterm>
 <indexterm significance="preferred"><primary>XDeleteProperty</primary></indexterm>
 <!-- .sM -->
@@ -2333,7 +2333,7 @@ The protocol does not constrain the semantics.
 <!-- .LP -->
 <!-- .sp -->
 To set the selection owner, use 
-<function>XSetSelectionOwner .</function>
+<function>XSetSelectionOwner</function>.
 <indexterm><primary>Selection</primary><secondary>setting the owner</secondary></indexterm>
 <indexterm significance="preferred"><primary>XSetSelectionOwner</primary></indexterm>
 <!-- .sM -->
@@ -2376,7 +2376,7 @@ Specifies the selection atom.
       <para>
 Specifies the owner of the specified selection atom.
 You can pass a window or
-<function>None .</function>
+<function>None</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -2388,7 +2388,7 @@ You can pass a window or
       <para>
 Specifies the time.
 You can pass either a timestamp or
-<function>CurrentTime .</function>
+<function>CurrentTime</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -2408,7 +2408,7 @@ with
 <function>CurrentTime</function>
 replaced by the current server time.
 If the owner window is specified as
-<function>None ,</function>
+<function>None</function>,
 then the owner of the selection becomes 
 <function>None</function>
 (that is, no owner).
@@ -2418,11 +2418,11 @@ the request.
 <para>
 <!-- .LP  -->
 If the new owner (whether a client or
-<function>None )</function>
+<function>None</function>)
 is not
 the same as the current owner of the selection and the current
 owner is not
-<function>None ,</function>
+<function>None</function>,
 the current owner is sent a 
 <function>SelectionClear </function>
 event.
@@ -2432,7 +2432,7 @@ or if the owner window it has specified in the request is later
 destroyed,
 the owner of the selection automatically
 reverts to
-<function>None ,</function>
+<function>None</function>,
 but the last-change time is not affected.
 The selection atom is uninterpreted by the X server.
 <function>XGetSelectionOwner</function>
@@ -2456,7 +2456,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To return the selection owner, use 
-<function>XGetSelectionOwner .</function>
+<function>XGetSelectionOwner</function>.
 <indexterm><primary>Selection</primary><secondary>getting the owner</secondary></indexterm>
 <indexterm significance="preferred"><primary>XGetSelectionOwner</primary></indexterm>
 <!-- .sM -->
@@ -2501,7 +2501,7 @@ function
 returns the window ID associated with the window that currently owns the
 specified selection.
 If no selection was specified, the function returns the constant
-<function>None .</function>
+<function>None</function>.
 If
 <function>None</function>
 is returned,
@@ -2518,7 +2518,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To request conversion of a selection, use 
-<function>XConvertSelection .</function>
+<function>XConvertSelection</function>.
 <indexterm><primary>Selection</primary><secondary>converting</secondary></indexterm>
 <indexterm significance="preferred"><primary>XConvertSelection</primary></indexterm>
 <!-- .sM -->
@@ -2572,7 +2572,7 @@ Specifies the target atom.
       <para>
 Specifies the property name.
 You also can pass 
-<function>None .</function>
+<function>None</function>.
       </para>
     </listitem>
   </varlistentry>
@@ -2594,7 +2594,7 @@ Specifies the requestor.
       <para>
 Specifies the time.
 You can pass either a timestamp or
-<function>CurrentTime .</function>
+<function>CurrentTime</function>.
     </para>
   </listitem>
   </varlistentry>
@@ -2622,7 +2622,7 @@ selection exists, the X server generates a
 <function>SelectionNotify</function>
 event to the
 requestor with property
-<function>None .</function>
+<function>None</function>.
     </para>
   </listitem>
 </itemizedlist>

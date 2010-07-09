@@ -253,7 +253,7 @@ to manipulate your application's subwindows.
 <para>
 <!-- .LP -->
 To request that a top-level window be iconified, use
-<function>XIconifyWindow .</function>
+<function>XIconifyWindow</function>.
 <indexterm significance="preferred"><primary>XIconifyWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -313,7 +313,7 @@ and a window of w
 to the root window of the specified screen
 with an event mask set to
 <function>SubstructureNotifyMask |</function>
-<function>SubstructureRedirectMask .</function>
+<function>SubstructureRedirectMask</function>.
 Window managers may elect to receive this message and
 if the window is in its normal state, 
 may treat it as a request to change the window's state from normal to iconic.
@@ -327,7 +327,7 @@ otherwise, it returns a zero status.
 <para>
 <!-- .LP -->
 To request that a top-level window be withdrawn, use
-<function>XWithdrawWindow .</function>
+<function>XWithdrawWindow</function>.
 <indexterm significance="preferred"><primary>XWithdrawWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -401,7 +401,7 @@ error.
 <para>
 <!-- .LP -->
 To request that a top-level window be reconfigured, use
-<function>XReconfigureWMWindow .</function>
+<function>XReconfigureWMWindow</function>.
 <indexterm significance="preferred"><primary>XReconfigureWMWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -574,7 +574,7 @@ To convert a list of text strings to an
 structure, use
 <function>XmbTextListToTextProperty</function>
 or
-<function>XwcTextListToTextProperty .</function>
+<function>XwcTextListToTextProperty</function>.
 <indexterm significance="preferred"><primary>XmbTextListToTextProperty</primary></indexterm>
 <indexterm significance="preferred"><primary>XwcTextListToTextProperty</primary></indexterm>
 <!-- .sM -->
@@ -697,19 +697,19 @@ else ``COMPOUND_TEXT''.
 <!-- .LP -->
 If insufficient memory is available for the new value string,
 the functions return 
-<function>XNoMemory .</function>
+<function>XNoMemory</function>.
 If the current locale is not supported,
 the functions return 
-<function>XLocaleNotSupported .</function>
+<function>XLocaleNotSupported</function>.
 In both of these error cases,
 the functions do not set text_prop_return.
 </para>
 <para>
 <!-- .LP -->
 To determine if the functions are guaranteed not to return
-<function>XLocaleNotSupported ,</function>
+<function>XLocaleNotSupported</function>,
 use
-<function>XSupportsLocale .</function>
+<function>XSupportsLocale</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -718,7 +718,7 @@ the functions return the number of unconvertible characters.
 Each unconvertible character is converted to an implementation-defined and
 encoding-specific default string.
 Otherwise, the functions return 
-<function>Success .</function>
+<function>Success</function>.
 Note that full convertibility to all styles except 
 <function>XStringStyle</function>
 is guaranteed.
@@ -726,7 +726,7 @@ is guaranteed.
 <para>
 <!-- .LP -->
 To free the storage for the value field, use
-<function>XFree .</function>
+<function>XFree</function>.
 <!-- .sp -->
 </para>
 <para>
@@ -736,7 +736,7 @@ To obtain a list of text strings from an
 structure, use
 <function>XmbTextPropertyToTextList</function>
 or
-<function>XwcTextPropertyToTextList .</function>
+<function>XwcTextPropertyToTextList</function>.
 <indexterm significance="preferred"><primary>XmbTextPropertyToTextList</primary></indexterm>
 <indexterm significance="preferred"><primary>XwcTextPropertyToTextList</primary></indexterm>
 <!-- .sM -->
@@ -833,14 +833,14 @@ If insufficient memory is available for the list and its elements,
 and
 <function>XwcTextPropertyToTextList</function>
 return 
-<function>XNoMemory .</function>
+<function>XNoMemory</function>.
 If the current locale is not supported,
 the functions return
-<function>XLocaleNotSupported .</function>
+<function>XLocaleNotSupported</function>.
 Otherwise, if the encoding field of text_prop is not convertible 
 to the encoding of the current locale,
 the functions return
-<function>XConverterNotFound .</function>
+<function>XConverterNotFound</function>.
 For supported locales,
 existence of a converter from COMPOUND_TEXT, STRING
 or the encoding of the current locale is guaranteed if
@@ -871,31 +871,31 @@ Each unconvertible character is converted to a string in the
 current locale that is specific to the current locale.
 To obtain the value of this string, 
 use
-<function>XDefaultString .</function>
+<function>XDefaultString</function>.
 Otherwise,
 <function>XmbTextPropertyToTextList</function>
 and
 <function>XwcTextPropertyToTextList</function>
 return 
-<function>Success .</function>
+<function>Success</function>.
 </para>
 <para>
 <!-- .LP -->
 To free the storage for the list and its contents returned by
-<function>XmbTextPropertyToTextList ,</function>
+<function>XmbTextPropertyToTextList</function>,
 use
-<function>XFreeStringList .</function>
+<function>XFreeStringList</function>.
 To free the storage for the list and its contents returned by
-<function>XwcTextPropertyToTextList ,</function>
+<function>XwcTextPropertyToTextList</function>,
 use
-<function>XwcFreeStringList .</function>
+<function>XwcFreeStringList</function>.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
 To free the in-memory data associated with the specified
 wide character string list, use
-<function>XwcFreeStringList .</function>
+<function>XwcFreeStringList</function>.
 <indexterm significance="preferred"><primary>XwcFreeStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -924,7 +924,7 @@ Specifies the list of strings to be freed.
 The
 <function>XwcFreeStringList</function>
 function frees memory allocated by
-<function>XwcTextPropertyToTextList .</function>
+<function>XwcTextPropertyToTextList</function>.
 <!-- .sp -->
 </para>
 <para>
@@ -941,7 +941,7 @@ The
 <function>XDefaultString</function>
 function returns the default string used by Xlib for text conversion
 (for example, in 
-<function>XmbTextPropertyToTextList ).</function>
+<function>XmbTextPropertyToTextList</function>).
 The default string is the string in the current locale that is output 
 when an unconvertible character is found during text conversion.
 If the string returned by
@@ -959,7 +959,7 @@ is independent of the default string for text drawing;
 see 
 <function>XCreateFontSet</function>
 to obtain the default string for an
-<function>XFontSet .</function>
+<function>XFontSet</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -979,7 +979,7 @@ Until freed, it will not be modified by Xlib.
 To set the specified list of strings in the STRING encoding to a 
 <function>XTextProperty</function>
 structure, use
-<function>XStringListToTextProperty .</function>
+<function>XStringListToTextProperty</function>.
 <indexterm significance="preferred"><primary>XStringListToTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1046,7 +1046,7 @@ does not set any fields in the
 structure and returns a zero status.
 Otherwise, it returns a nonzero status.
 To free the storage for the value field, use 
-<function>XFree .</function>
+<function>XFree</function>.
 <!-- .sp -->
 </para>
 <para>
@@ -1054,7 +1054,7 @@ To free the storage for the value field, use
 To obtain a list of strings from a specified
 <function>XTextProperty</function>
 structure in the STRING encoding, use
-<function>XTextPropertyToStringList .</function>
+<function>XTextPropertyToStringList</function>.
 <indexterm significance="preferred"><primary>XTextPropertyToStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1121,13 +1121,13 @@ If insufficient memory is available for the list and its elements,
 sets no return values and returns a zero status.
 Otherwise, it returns a nonzero status.
 To free the storage for the list and its contents, use 
-<function>XFreeStringList .</function>
+<function>XFreeStringList</function>.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
 To free the in-memory data associated with the specified string list, use
-<function>XFreeStringList .</function>
+<function>XFreeStringList</function>.
 <indexterm significance="preferred"><primary>XFreeStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1160,7 +1160,7 @@ function releases memory allocated by
 and
 <function>XTextPropertyToStringList</function>
 and the missing charset list allocated by 
-<function>XCreateFontSet .</function>
+<function>XCreateFontSet</function>.
 </para>
 </sect2>
 <sect2 id="Setting_and_Reading_Text_Properties">
@@ -1184,7 +1184,7 @@ see sections 14.1.4, 14.1.5, 14.2.1, and 14.2.2, respectively.
 <para>
 <!-- .LP -->
 To set one of a window's text properties, use
-<function>XSetTextProperty .</function>
+<function>XSetTextProperty</function>.
 <indexterm significance="preferred"><primary>XSetTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1261,9 +1261,9 @@ sets it for the specified window.
 <!-- .LP -->
 <function>XSetTextProperty</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom , </function>
-<function>BadValue , </function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
+<function>BadValue</function>,
 and 
 <function>BadWindow  </function>
 errors.
@@ -1272,7 +1272,7 @@ errors.
 <para>
 <!-- .LP -->
 To read one of a window's text properties, use
-<function>XGetTextProperty .</function>
+<function>XGetTextProperty</function>.
 <indexterm significance="preferred"><primary>XGetTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1351,7 +1351,7 @@ If the specified property does not exist on the window,
 <function>XGetTextProperty</function>
 sets the value field to NULL, 
 the encoding field to
-<function>None , </function>
+<function>None</function>,
 the format field to zero, 
 and the nitems field to zero.
 </para>
@@ -1388,7 +1388,7 @@ the WM_NAME property for a given window.
 <para>
 <!-- .LP -->
 To set a window's WM_NAME property with the supplied convenience function, use
-<function>XSetWMName .</function>
+<function>XSetWMName</function>.
 <indexterm significance="preferred"><primary>XSetWMName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1448,7 +1448,7 @@ to set the WM_NAME property.
 <para>
 <!-- .LP -->
 To read a window's WM_NAME property with the supplied convenience function, use
-<function>XGetWMName .</function>
+<function>XGetWMName</function>.
 <indexterm significance="preferred"><primary>XGetWMName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1511,7 +1511,7 @@ otherwise, it returns a zero status.
 The following two functions have been superseded by
 <function>XSetWMName</function>
 and
-<function>XGetWMName ,</function>
+<function>XGetWMName</function>,
 respectively. 
 You can use these additional convenience functions 
 for window names that are encoded as STRING properties.
@@ -1520,7 +1520,7 @@ for window names that are encoded as STRING properties.
 <para>
 <!-- .LP -->
 To assign a name to a window, use
-<function>XStoreName .</function>
+<function>XStoreName</function>.
 <indexterm><primary>Window</primary><secondary>name</secondary></indexterm>
 <indexterm significance="preferred"><primary>XStoreName</primary></indexterm>
 <!-- .sM -->
@@ -1594,7 +1594,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To get the name of a window, use
-<function>XFetchName .</function>
+<function>XFetchName</function>.
 <indexterm significance="preferred"><primary>XFetchName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1657,7 +1657,7 @@ then the returned string is in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.
 When finished with it, a client must free
 the window name string using
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1682,7 +1682,7 @@ the WM_ICON_NAME property for a given window.
 <!-- .sp -->
 To set a window's WM_ICON_NAME property,
 use
-<function>XSetWMIconName .</function>
+<function>XSetWMIconName</function>.
 <indexterm significance="preferred"><primary>XSetWMIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1743,7 +1743,7 @@ to set the WM_ICON_NAME property.
 <!-- .LP -->
 To read a window's WM_ICON_NAME property,
 use
-<function>XGetWMIconName .</function>
+<function>XGetWMIconName</function>.
 <indexterm significance="preferred"><primary>XGetWMIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1806,7 +1806,7 @@ otherwise, it returns a zero status.
 The next two functions have been superseded by
 <function>XSetWMIconName</function>
 and
-<function>XGetWMIconName ,</function>
+<function>XGetWMIconName</function>,
 respectively.
 You can use these additional convenience functions 
 for window names that are encoded as STRING properties.
@@ -1816,7 +1816,7 @@ for window names that are encoded as STRING properties.
 <!-- .LP -->
 <!-- .sp -->
 To set the name to be displayed in a window's icon, use
-<function>XSetIconName .</function>
+<function>XSetIconName</function>.
 <indexterm><primary>Window</primary><secondary>icon name</secondary></indexterm>
 <indexterm significance="preferred"><primary>XSetIconName</primary></indexterm>
 <!-- .sM -->
@@ -1879,7 +1879,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To get the name a window wants displayed in its icon, use
-<function>XGetIconName .</function>
+<function>XGetIconName</function>.
 <indexterm significance="preferred"><primary>XGetIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -1942,7 +1942,7 @@ then the returned string is in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.
 When finished with it, a client must free
 the icon name string using
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -1973,7 +1973,7 @@ header file.
 To allocate an
 <function>XWMHints</function>
 structure, use
-<function>XAllocWMHints .</function>
+<function>XAllocWMHints</function>.
 </para>
 
 <para>
@@ -1996,7 +1996,7 @@ If insufficient memory is available,
 returns NULL.
 To free the memory allocated to this structure,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2045,25 +2045,25 @@ Applications that expect input but never explicitly set focus to any
 of their subwindows (that is, use the push model of focus management), 
 such as X Version 10 style applications that use real-estate
 driven focus, should set this member to 
-<function>True .  </function>
+<function>True</function>.
 Similarly, applications
 that set input focus to their subwindows only when it is given to their
 top-level window by a window manager should also set this member to 
-<function>True .</function>
+<function>True</function>.
 Applications that manage their own input focus by explicitly setting
 focus to one of their subwindows whenever they want keyboard input 
 (that is, use the pull model of focus management) should set this member to 
-<function>False .</function>
+<function>False</function>.
 Applications that never expect any keyboard input also should set this member
 to 
-<function>False .</function>
+<function>False</function>.
 </para>
 <para>
 <!-- .LP -->
 Pull model window managers should make it possible for push model
 applications to get input by setting input focus to the top-level windows of
 applications whose input member is 
-<function>True .  </function>
+<function>True</function>.
 Push model window managers should
 make sure that pull model applications do not break them 
 by resetting input focus to 
@@ -2114,7 +2114,7 @@ or the window to be withdrawn.
 <!-- .LP -->
 <!-- .sp -->
 To set a window's WM_HINTS property, use
-<function>XSetWMHints .</function>
+<function>XSetWMHints</function>.
 <indexterm significance="preferred"><primary>XSetWMHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2183,7 +2183,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read a window's WM_HINTS property, use
-<function>XGetWMHints .</function>
+<function>XGetWMHints</function>.
 <indexterm significance="preferred"><primary>XGetWMHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2229,7 +2229,7 @@ or returns a pointer to an
 structure if it succeeds.
 When finished with the data,
 free the space used for it by calling
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2272,7 +2272,7 @@ instances of the structure be used.
 To allocate an
 <function>XSizeHints</function>
 structure, use
-<function>XAllocSizeHints .</function>
+<function>XAllocSizeHints</function>.
 </para>
 
 <para>
@@ -2294,7 +2294,7 @@ If insufficient memory is available,
 returns NULL.
 To free the memory allocated to this structure,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2377,7 +2377,7 @@ macro is highly discouraged.
 <para>
 <!-- .LP -->
 To set a window's WM_NORMAL_HINTS property, use
-<function>XSetWMNormalHints .</function>
+<function>XSetWMNormalHints</function>.
 <indexterm significance="preferred"><primary>XSetWMNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2447,7 +2447,7 @@ errors.
 <para>
 <!-- .LP -->
 To read a window's WM_NORMAL_HINTS property, use
-<function>XGetWMNormalHints .</function>
+<function>XGetWMNormalHints</function>.
 <indexterm significance="preferred"><primary>XGetWMNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2558,7 +2558,7 @@ error.
 <para>
 <!-- .LP -->
 To set a window's WM_SIZE_HINTS property, use
-<function>XSetWMSizeHints .</function>
+<function>XSetWMSizeHints</function>.
 <indexterm significance="preferred"><primary>XSetWMSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2637,8 +2637,8 @@ function.
 <!-- .LP -->
 <function>XSetWMSizeHints</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom , </function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
 and 
 <function>BadWindow</function>
 errors.
@@ -2647,7 +2647,7 @@ errors.
 <para>
 <!-- .LP -->
 To read a window's WM_SIZE_HINTS property, use
-<function>XGetWMSizeHints .</function>
+<function>XGetWMSizeHints</function>.
 <indexterm significance="preferred"><primary>XGetWMSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2796,7 +2796,7 @@ header file.
 To allocate an
 <function>XClassHint</function>
 structure, use
-<function>XAllocClassHint .</function>
+<function>XAllocClassHint</function>.
 <indexterm significance="preferred"><primary>XAllocClassHint</primary></indexterm>
 <!-- .sM -->
 </para>
@@ -2821,7 +2821,7 @@ If insufficient memory is available,
 returns NULL.
 To free the memory allocated to this structure,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -2860,7 +2860,7 @@ resource database.
 <!-- .LP -->
 <!-- .sp -->
 To set a window's WM_CLASS property, use
-<function>XSetClassHint .</function>
+<function>XSetClassHint</function>.
 <indexterm significance="preferred"><primary>XSetClassHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -2929,7 +2929,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read a window's WM_CLASS property, use
-<function>XGetClassHint .</function>
+<function>XGetClassHint</function>.
 <indexterm significance="preferred"><primary>XGetClassHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3015,7 +3015,7 @@ the WM_TRANSIENT_FOR property for a given window.
 <!-- .LP -->
 <!-- .sp -->
 To set a window's WM_TRANSIENT_FOR property, use
-<function>XSetTransientForHint .</function>
+<function>XSetTransientForHint</function>.
 <indexterm significance="preferred"><primary>XSetTransientForHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3081,7 +3081,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read a window's WM_TRANSIENT_FOR property, use
-<function>XGetTransientForHint .</function>
+<function>XGetTransientForHint</function>.
 <indexterm significance="preferred"><primary>XGetTransientForHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3157,7 +3157,7 @@ the WM_PROTOCOLS property for a given window.
 <!-- .LP -->
 <!-- .sp -->
 To set a window's WM_PROTOCOLS property, use
-<function>XSetWMProtocols .</function>
+<function>XSetWMProtocols</function>.
 <indexterm significance="preferred"><primary>XSetWMProtocols</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3244,7 +3244,7 @@ errors.
 <para>
 <!-- .LP -->
 To read a window's WM_PROTOCOLS property, use
-<function>XGetWMProtocols .</function>
+<function>XGetWMProtocols</function>.
 <indexterm significance="preferred"><primary>XGetWMProtocols</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3319,7 +3319,7 @@ and returns a nonzero status.
 Otherwise, it sets neither of the return arguments
 and returns a zero status.
 To release the list of atoms, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3343,7 +3343,7 @@ the WM_COLORMAP_WINDOWS property for a given window.
 <para>
 <!-- .LP -->
 To set a window's WM_COLORMAP_WINDOWS property, use
-<function>XSetWMColormapWindows .</function>
+<function>XSetWMColormapWindows</function>.
 <indexterm significance="preferred"><primary>XSetWMColormapWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3430,7 +3430,7 @@ errors.
 <para>
 <!-- .LP -->
 To read a window's WM_COLORMAP_WINDOWS property, use
-<function>XGetWMColormapWindows .</function>
+<function>XGetWMColormapWindows</function>.
 <indexterm significance="preferred"><primary>XGetWMColormapWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3505,7 +3505,7 @@ and returns a nonzero status.
 Otherwise, it sets neither of the return arguments
 and returns a zero status.
 To release the list of window identifiers, use
-<function>XFree . </function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3537,7 +3537,7 @@ header file.
 To allocate an
 <function>XIconSize</function>
 structure, use
-<function>XAllocIconSize .</function>
+<function>XAllocIconSize</function>.
 </para>
 
 <para>
@@ -3560,7 +3560,7 @@ If insufficient memory is available,
 returns NULL.
 To free the memory allocated to this structure,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3592,7 +3592,7 @@ sizes (minimum to maximum) that represent the supported icon sizes.
 <!-- .LP -->
 <!-- .sp -->
 To set a window's WM_ICON_SIZE property, use
-<function>XSetIconSizes .</function>
+<function>XSetIconSizes</function>.
 <indexterm significance="preferred"><primary>XSetIconSizes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3668,7 +3668,7 @@ errors.
 <!-- .LP -->
 <!-- .sp -->
 To read a window's WM_ICON_SIZE property, use
-<function>XGetIconSizes .</function>
+<function>XGetIconSizes</function>.
 <indexterm significance="preferred"><primary>XGetIconSizes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3741,7 +3741,7 @@ should then use
 to supply the window manager with an icon pixmap or window in one of the
 supported sizes.
 To free the data allocated in size_list_return, use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -3912,12 +3912,12 @@ and the properties are created with type ``COMPOUND_TEXT''.
 If the normal_hints argument is non-NULL,
 <function>XmbSetWMProperties</function>
 calls
-<function>XSetWMNormalHints ,</function>
+<function>XSetWMNormalHints</function>,
 which sets the WM_NORMAL_HINTS property (see section 14.1.7).
 If the wm_hints argument is non-NULL, 
 <function>XmbSetWMProperties</function>
 calls
-<function>XSetWMHints ,</function>
+<function>XSetWMHints</function>,
 which sets the WM_HINTS property (see section 14.1.6).
 </para>
 <para>
@@ -3980,7 +3980,7 @@ errors.
 <!-- .LP -->
 To set a window's standard window manager properties
 with strings in client-specified encodings, use
-<function>XSetWMProperties .</function>
+<function>XSetWMProperties</function>.
 The standard window manager properties for a given window are
 WM_NAME, WM_ICON_NAME, WM_HINTS, WM_NORMAL_HINTS, WM_CLASS,
 WM_COMMAND, and WM_CLIENT_MACHINE.
@@ -4115,17 +4115,17 @@ managers).
 If the window_name argument is non-NULL, 
 <function>XSetWMProperties</function>
 calls
-<function>XSetWMName ,</function>
+<function>XSetWMName</function>,
 which, in turn, sets the WM_NAME property (see section 14.1.4).
 If the icon_name argument is non-NULL,
 <function>XSetWMProperties</function>
 calls
-<function>XSetWMIconName ,</function>
+<function>XSetWMIconName</function>,
 which sets the WM_ICON_NAME property (see section 14.1.5).
 If the argv argument is non-NULL, 
 <function>XSetWMProperties</function>
 calls
-<function>XSetCommand ,</function>
+<function>XSetCommand</function>,
 which sets the WM_COMMAND property (see section 14.2.1).
 Note that an argc of zero is allowed to indicate a zero-length command.
 Note also that the hostname of this machine is stored using
@@ -4137,12 +4137,12 @@ Note also that the hostname of this machine is stored using
 If the normal_hints argument is non-NULL, 
 <function>XSetWMProperties</function>
 calls
-<function>XSetWMNormalHints ,</function>
+<function>XSetWMNormalHints</function>,
 which sets the WM_NORMAL_HINTS property (see section 14.1.7).
 If the wm_hints argument is non-NULL, 
 <function>XSetWMProperties</function>
 calls
-<function>XSetWMHints ,</function>
+<function>XSetWMHints</function>,
 which sets the WM_HINTS property (see section 14.1.6).
 </para>
 <para>
@@ -4150,7 +4150,7 @@ which sets the WM_HINTS property (see section 14.1.6).
 If the class_hints argument is non-NULL, 
 <function>XSetWMProperties</function>
 calls
-<function>XSetClassHint ,</function>
+<function>XSetClassHint</function>,
 which sets the WM_CLASS property (see section 14.1.8).
 If the res_name member in the
 <function>XClassHint</function>
@@ -4209,7 +4209,7 @@ the WM_COMMAND property for a given window.
 <para>
 <!-- .LP -->
 To set a window's WM_COMMAND property, use
-<function>XSetCommand .</function>
+<function>XSetCommand</function>.
 <indexterm significance="preferred"><primary>XSetCommand</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4289,7 +4289,7 @@ errors.
 <para>
 <!-- .LP -->
 To read a window's WM_COMMAND property, use
-<function>XGetCommand .</function>
+<function>XGetCommand</function>.
 <indexterm significance="preferred"><primary>XGetCommand</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4363,7 +4363,7 @@ If the data returned by the server is in the Latin Portable Character Encoding,
 then the returned strings are in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.
 To free the memory allocated to the string list, use
-<function>XFreeStringList .</function>
+<function>XFreeStringList</function>.
 </para>
 </sect2>
 <sect2 id="Setting_and_Reading_the_WM_CLIENT_MACHINE_Property">
@@ -4380,7 +4380,7 @@ the WM_CLIENT_MACHINE property for a given window.
 <para>
 <!-- .LP -->
 To set a window's WM_CLIENT_MACHINE property, use
-<function>XSetWMClientMachine .</function>
+<function>XSetWMClientMachine</function>.
 <indexterm significance="preferred"><primary>XSetWMClientMachine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4440,7 +4440,7 @@ to set the WM_CLIENT_MACHINE property.
 <para>
 <!-- .LP -->
 To read a window's WM_CLIENT_MACHINE property, use
-<function>XGetWMClientMachine .</function>
+<function>XGetWMClientMachine</function>.
 <indexterm significance="preferred"><primary>XGetWMClientMachine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -4607,7 +4607,7 @@ Applications should use the standard colormaps if they already exist.
 To allocate an
 <function>XStandardColormap</function>
 structure, use
-<function>XAllocStandardColormap .</function>
+<function>XAllocStandardColormap</function>.
 </para>
 
 <para>
@@ -4629,7 +4629,7 @@ If insufficient memory is available,
 returns NULL.
 To free the memory allocated to this structure,
 use
-<function>XFree .</function>
+<function>XFree</function>.
 </para>
 <para>
 <!-- .LP -->
@@ -4813,7 +4813,7 @@ for text, borders, and so on.
     <listitem>
       <para>
 This atom names a property.  The value of the property is an 
-<function>XStandardColormap .</function>
+<function>XStandardColormap</function>.
       </para>
       <para>
 The property defines the best <acronym>RGB</acronym> colormap available on
@@ -4843,7 +4843,7 @@ RGB_BEST_MAP is normally an 8/8/8 allocation.
       <para>
 These atoms name properties.
 The value of each property is an
-<function>XStandardColormap . </function>
+<function>XStandardColormap</function>.
       </para>
       <para>
 The properties define all-red, all-green, and all-blue
@@ -4863,7 +4863,7 @@ and once with blue) and by multiply exposing a single frame in a camera.
       <para>
 This atom names a property.
 The value of the property is an 
-<function>XStandardColormap .</function>
+<function>XStandardColormap</function>.
       </para>
       <para>
 The property describes the best 
@@ -4899,7 +4899,7 @@ structure.
 To set an
 <function>XStandardColormap</function>
 structure, use
-<function>XSetRGBColormaps .</function>
+<function>XSetRGBColormaps</function>.
 <indexterm significance="preferred"><primary>XSetRGBColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5027,7 +5027,7 @@ Determine the color characteristics of the visual.
   <listitem>
     <para>
 Allocate cells in the colormap (or create it with
-<function>AllocAll ).</function>
+<function>AllocAll</function>).
     </para>
   </listitem>
   <listitem>
@@ -5067,8 +5067,8 @@ Ungrab the server.
 <!-- .LP -->
 <function>XSetRGBColormaps</function>
 can generate
-<function>BadAlloc ,</function>
-<function>BadAtom ,</function>
+<function>BadAlloc</function>,
+<function>BadAtom</function>,
 and
 <function>BadWindow</function>
 errors.
@@ -5079,7 +5079,7 @@ errors.
 To obtain the 
 <function>XStandardColormap </function>
 structure associated with the specified property, use
-<function>XGetRGBColormaps .</function>
+<function>XGetRGBColormaps</function>.
 <indexterm significance="preferred"><primary>XGetRGBColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>

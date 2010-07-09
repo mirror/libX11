@@ -257,9 +257,9 @@ to be useful in a window.
 
 <para>
 <!-- .LP -->
-<!-- .IN "Display Functions" "" "@DEF@" -->
-<!-- .IN "Source" "" "@DEF@" -->
-<!-- .IN "Destination" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Display Functions</primary></indexterm>
+<indexterm significance="preferred"><primary>Source</primary></indexterm>
+<indexterm significance="preferred"><primary>Destination</primary></indexterm>
 The function attributes of a GC are used when you update a section of
 a drawable (the destination) with bits from somewhere else (the source).  
 The function in a GC defines how the new destination bits are to be
@@ -377,10 +377,10 @@ are:
 <para>
 <!-- .LP -->
 Many graphics operations depend on either pixel values or planes in a GC.
-<!-- .IN "Pixel value" -->
+<indexterm><primary>Pixel value</primary></indexterm>
 The planes attribute is of type long, and it specifies which planes of the
 destination are to be modified, one bit per plane.
-<!-- .IN "Plane" "mask" -->
+<indexterm><primary>Plane</primary><secondary>mask</secondary></indexterm>
 A monochrome display has only one plane and
 will be the least significant bit of the word.
 As planes are added to the display hardware, they will occupy more
@@ -956,8 +956,8 @@ requests (and any similar requests defined by extensions).
 To create a new GC that is usable on a given screen with a 
 depth of drawable, use
 <function>XCreateGC .</function>
-<!-- .IN "Graphics context" "initializing" -->
-<!-- .IN "XCreateGC" "" "@DEF@" -->
+<indexterm><primary>Graphics context</primary><secondary>initializing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XCreateGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1045,7 +1045,7 @@ errors.
 <!-- .sp -->
 To copy components from a source GC to a destination GC, use
 <function>XCopyGC .</function>
-<!-- .IN "XCopyGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCopyGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1131,7 +1131,7 @@ errors.
 <!-- .sp -->
 To change the components in a given GC, use
 <function>XChangeGC .</function>
-<!-- .IN "XChangeGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangeGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1227,7 +1227,7 @@ errors.
 <!-- .sp -->
 To obtain components of a given GC, use
 <function>XGetGCValues .</function>
-<!-- .IN "XGetGCValues" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetGCValues</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1339,7 +1339,7 @@ if the component has never been explicitly set by the client.
 <!-- .sp -->
 To free a given GC, use
 <function>XFreeGC .</function>
-<!-- .IN "XFreeGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1393,7 +1393,7 @@ To obtain the
 <function>GContext </function>
 resource ID for a given GC, use 
 <function>XGContextFromGC .</function>
-<!-- .IN "XGContextFromGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGContextFromGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1429,7 +1429,7 @@ An example might be when a protocol extension uses the GC indirectly,
 in such a way that the extension interface cannot know what GC will be used.
 To force sending GC component changes, use
 <function>XFlushGC .</function>
-<!-- .IN "XFlushGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFlushGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1523,7 +1523,7 @@ Arc mode, subwindow mode, and graphics exposure components
 To set the foreground, background, plane mask, and function components
 for a given GC, use
 <function>XSetState .</function>
-<!-- .IN "XSetState" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetState</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1616,7 +1616,7 @@ errors.
 <!-- .sp -->
 To set the foreground of a given GC, use
 <function>XSetForeground .</function>
-<!-- .IN "XSetForeground" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetForeground</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1675,7 +1675,7 @@ errors.
 <!-- .sp -->
 To set the background of a given GC, use
 <function>XSetBackground .</function>
-<!-- .IN "XSetBackground" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetBackground</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1734,7 +1734,7 @@ errors.
 <!-- .sp -->
 To set the display function in a given GC, use
 <function>XSetFunction .</function>
-<!-- .IN "XSetFunction" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetFunction</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1794,7 +1794,7 @@ errors.
 <!-- .sp -->
 To set the plane mask of a given GC, use
 <function>XSetPlaneMask .</function>
-<!-- .IN "XSetPlaneMask" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetPlaneMask</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1859,7 +1859,7 @@ errors.
 <!-- .LP -->
 To set the line drawing components of a given GC, use
 <function>XSetLineAttributes .</function>
-<!-- .IN "XSetLineAttributes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetLineAttributes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1968,7 +1968,7 @@ errors.
 <!-- .sp -->
 To set the dash-offset and dash-list for dashed line styles of a given GC, use
 <function>XSetDashes .</function>
-<!-- .IN "XSetDashes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetDashes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2097,7 +2097,7 @@ errors.
 <!-- .LP -->
 To set the fill-style of a given GC, use
 <function>XSetFillStyle .</function>
-<!-- .IN "XSetFillStyle" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetFillStyle</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2163,7 +2163,7 @@ errors.
 <!-- .sp -->
 To set the fill-rule of a given GC, use
 <function>XSetFillRule .</function>
-<!-- .IN "XSetFillRule" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetFillRule</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2243,7 +2243,7 @@ as well as to set the tile or stipple shape and the tile or stipple origin.
 <!-- .sp -->
 To obtain the best size of a tile, stipple, or cursor, use
 <function>XQueryBestSize .</function>
-<!-- .IN "XQueryBestSize" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryBestSize</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2386,7 +2386,7 @@ errors.
 <!-- .sp -->
 To obtain the best fill tile shape, use
 <function>XQueryBestTile .</function>
-<!-- .IN "XQueryBestTile" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryBestTile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2492,7 +2492,7 @@ errors.
 <!-- .sp -->
 To obtain the best stipple shape, use
 <function>XQueryBestStipple .</function>
-<!-- .IN "XQueryBestStipple" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryBestStipple</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2598,7 +2598,7 @@ errors.
 <!-- .sp -->
 To set the fill tile of a given GC, use
 <function>XSetTile .</function>
-<!-- .IN "XSetTile" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetTile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2666,7 +2666,7 @@ errors.
 <!-- .sp -->
 To set the stipple of a given GC, use
 <function>XSetStipple .</function>
-<!-- .IN "XSetStipple" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetStipple</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2734,7 +2734,7 @@ errors.
 <!-- .sp -->
 To set the tile or stipple origin of a given GC, use
 <function>XSetTSOrigin .</function>
-<!-- .IN "XSetTSOrigin" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetTSOrigin</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2815,7 +2815,7 @@ errors.
 <!-- .LP -->
 To set the current font of a given GC, use
 <function>XSetFont .</function>
-<!-- .IN "XSetFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2886,7 +2886,7 @@ and the clip-mask or set the clip-mask to a list of rectangles.
 <!-- .sp -->
 To set the clip-origin of a given GC, use
 <function>XSetClipOrigin .</function>
-<!-- .IN "XSetClipOrigin" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetClipOrigin</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2961,7 +2961,7 @@ errors.
 <!-- .sp -->
 To set the clip-mask of a given GC to the specified pixmap, use
 <function>XSetClipMask .</function>
-<!-- .IN "XSetClipMask" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetClipMask</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3029,7 +3029,7 @@ errors.
 <!-- .sp -->
 To set the clip-mask of a given GC to the specified list of rectangles, use
 <function>XSetClipRectangles .</function>
-<!-- .IN "XSetClipRectangles" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetClipRectangles</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3203,7 +3203,7 @@ see section 16.5.
 <!-- .LP -->
 To set the arc mode of a given GC, use
 <function>XSetArcMode .</function>
-<!-- .IN "XSetArcMode" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetArcMode</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3267,7 +3267,7 @@ errors.
 <!-- .sp -->
 To set the subwindow mode of a given GC, use
 <function>XSetSubwindowMode .</function>
-<!-- .IN "XSetSubwindowMode" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetSubwindowMode</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3331,7 +3331,7 @@ errors.
 <!-- .sp -->
 To set the graphics-exposures flag of a given GC, use
 <function>XSetGraphicsExposures .</function>
-<!-- .IN "XSetGraphicsExposures" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetGraphicsExposures</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

@@ -6,7 +6,7 @@
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Visual Type" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Visual Type</primary></indexterm>
 On some display hardware, 
 it may be possible to deal with color resources in more than one way.
 For example, you may be able to deal with a screen of either 12-bit depth
@@ -26,7 +26,7 @@ the default depth of the default root window, and the default visual type
 <!-- .LP -->
 Xlib uses an opaque 
 <function>Visual </function>
-<!-- .IN "Visual" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Visual</primary></indexterm>
 structure that contains information about the possible color mapping.
 The visual utility functions (see section 16.7) use an
 <function>XVisualInfo</function>
@@ -35,12 +35,12 @@ The members of this structure pertinent to this discussion are class, red_mask,
 green_mask, blue_mask, bits_per_rgb, and colormap_size.
 The class member specifies one of the possible visual classes of the screen
 and can be 
-<!-- .IN "Visual Classes" "StaticGray" -->
-<!-- .IN "Visual Classes" "StaticColor" -->
-<!-- .IN "Visual Classes" "TrueColor" -->
-<!-- .IN "Visual Classes" "StaticColor" -->
-<!-- .IN "Visual Classes" "GrayScale" -->
-<!-- .IN "Visual Classes" "PseudoColor" -->
+<indexterm><primary>Visual Classes</primary><secondary>StaticGray</secondary></indexterm>
+<indexterm><primary>Visual Classes</primary><secondary>StaticColor</secondary></indexterm>
+<indexterm><primary>Visual Classes</primary><secondary>TrueColor</secondary></indexterm>
+<indexterm><primary>Visual Classes</primary><secondary>StaticColor</secondary></indexterm>
+<indexterm><primary>Visual Classes</primary><secondary>GrayScale</secondary></indexterm>
+<indexterm><primary>Visual Classes</primary><secondary>PseudoColor</secondary></indexterm>
 <function>StaticGray ,</function>
 <function>StaticColor ,</function>
 <function>TrueColor ,</function>
@@ -171,7 +171,7 @@ To obtain the visual ID from a
 <function>Visual ,</function>
 use
 <function>XVisualIDFromVisual .</function>
-<!-- .IN "XVisualIDFromVisual" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XVisualIDFromVisual</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -208,8 +208,8 @@ function returns the visual ID for the specified visual type.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Window" -->
-<!-- .IN "Window" "attributes" -->
+<indexterm><primary>Window</primary></indexterm>
+<indexterm><primary>Window</primary><secondary>attributes</secondary></indexterm>
 All 
 <function>InputOutput</function>
 windows have a border width of zero or more pixels, an optional background, 
@@ -297,14 +297,14 @@ windows as inferiors.
 <!-- .LP -->
 Windows have borders of a programmable width and pattern
 as well as a background pattern or tile.
-<!-- .IN "Tile" "pixmaps" -->
+<indexterm><primary>Tile</primary><secondary>pixmaps</secondary></indexterm>
 Pixel values can be used for solid colors.
-<!-- .IN "Resource IDs" "freeing" -->
-<!-- .IN "Freeing" "resources" -->
+<indexterm><primary>Resource IDs</primary><secondary>freeing</secondary></indexterm>
+<indexterm><primary>Freeing</primary><secondary>resources</secondary></indexterm>
 The background and border pixmaps can be destroyed immediately after
 creating the window if no further explicit references to them
 are to be made.
-<!-- .IN "Tile" "mode"  -->
+<indexterm ><primary>Tile</primary><secondary>mode</secondary></indexterm>
 The pattern can either be relative to the parent 
 or absolute.
 If
@@ -317,13 +317,13 @@ When windows are first created,
 they are not visible (not mapped) on the screen.
 Any output to a window that is not visible on the screen 
 and that does not have backing store will be discarded.
-<!-- .IN "Window" "mapping" -->
+<indexterm><primary>Window</primary><secondary>mapping</secondary></indexterm>
 An application may wish to create a window long before it is
 mapped to the screen.
 When a window is eventually mapped to the screen 
 (using
 <function>XMapWindow ),</function>
-<!-- .IN "XMapWindow" -->
+<indexterm><primary>XMapWindow</primary></indexterm>
 the X server generates an 
 <function>Expose </function>
 event for the window if backing store has not been maintained.
@@ -382,7 +382,7 @@ structure are:
 #define    CWCursor                        (1L&lt;&lt;14)
 </literallayout>
 
-<!-- .IN "XSetWindowAttributes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowAttributes</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -933,7 +933,7 @@ However, regions obscured by inferior windows are not included.
 <!-- .XS -->
 <!-- (SN Save Under Flag -->
 <!-- .XE -->
-<!-- .IN "Save Unders" -->
+<indexterm><primary>Save Unders</primary></indexterm>
 <para>
 <!-- .LP -->
 Some server implementations may preserve contents of 
@@ -1214,7 +1214,7 @@ creates a window that inherits its attributes from its parent window.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Window" "InputOnly" -->
+<indexterm><primary>Window</primary><secondary>InputOnly</secondary></indexterm>
 The X server acts as if 
 <function>InputOnly </function>
 windows do not exist for
@@ -1236,7 +1236,7 @@ Extension packages can define other classes of windows.
 <!-- .LP -->
 To create an unmapped window and set its window attributes, use
 <function>XCreateWindow .</function>
-<!-- .IN "XCreateWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1475,8 +1475,8 @@ The new window initially uses the same cursor as
 its parent. 
 A new cursor can be defined for the new window by calling
 <function>XDefineCursor .</function>
-<!-- .IN "Cursor" "Initial State" -->
-<!-- .IN "XDefineCursor"  -->
+<indexterm><primary>Cursor</primary><secondary>Initial State</secondary></indexterm>
+<indexterm><primary>XDefineCursor</primary></indexterm>
 The window will not be visible on the screen unless it and all of its
 ancestors are mapped and it is not obscured by any of its ancestors.
 </para>
@@ -1501,7 +1501,7 @@ To create an unmapped
 <function>InputOutput</function>
 subwindow of a given parent window, use
 <function>XCreateSimpleWindow .</function>
-<!-- .IN "XCreateSimpleWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateSimpleWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1671,7 +1671,7 @@ subwindows of a window.
 <!-- .sp -->
 To destroy a window and all of its subwindows, use
 <function>XDestroyWindow .</function>
-<!-- .IN "XDestroyWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroyWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1741,7 +1741,7 @@ error.
 <!-- .sp -->
 To destroy all subwindows of a specified window, use 
 <function>XDestroySubwindows .</function>
-<!-- .IN "XDestroySubwindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroySubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1884,7 +1884,7 @@ event.
 <!-- .sp -->
 To map a given window, use 
 <function>XMapWindow .</function>
-<!-- .IN "XMapWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMapWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1969,7 +1969,7 @@ Similar tiling and exposure take place for any newly viewable inferiors.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XMapWindow" -->
+<indexterm><primary>XMapWindow</primary></indexterm>
 If the window is an
 <function>InputOutput </function>
 window,
@@ -2010,7 +2010,7 @@ error.
 <!-- .sp -->
 To map and raise a window, use
 <function>XMapRaised .</function>
-<!-- .IN "XMapRaised" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMapRaised</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2070,7 +2070,7 @@ errors.
 <!-- .sp -->
 To map all subwindows for a specified window, use 
 <function>XMapSubwindows .</function>
-<!-- .IN "XMapSubwindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMapSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2108,7 +2108,7 @@ Specifies the window.
 <!-- .eM -->
 The
 <function>XMapSubwindows</function>
-<!-- .IN "XMapSubwindows" -->
+<indexterm><primary>XMapSubwindows</primary></indexterm>
 function maps all subwindows for a specified window in top-to-bottom stacking 
 order.
 The X server generates
@@ -2140,7 +2140,7 @@ Xlib provides functions that you can use to unmap a window or all subwindows.
 <!-- .sp -->
 To unmap a window, use 
 <function>XUnmapWindow .</function>
-<!-- .IN "XUnmapWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnmapWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2180,8 +2180,8 @@ The
 <function>XUnmapWindow</function>
 function unmaps the specified window and causes the X server to generate an
 <function>UnmapNotify</function>
-<!-- .IN "UnmapNotify Event" -->
-<!-- .IN "XUnmapWindow" -->
+<indexterm><primary>UnmapNotify Event</primary></indexterm>
+<indexterm><primary>XUnmapWindow</primary></indexterm>
 event.
 If the specified window is already unmapped, 
 <function>XUnmapWindow </function>
@@ -2207,7 +2207,7 @@ error.
 <!-- .sp -->
 To unmap all subwindows for a specified window, use 
 <function>XUnmapSubwindows .</function>
-<!-- .IN "XUnmapSubwindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnmapSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2252,7 +2252,7 @@ It causes the X server to generate an
 event on each subwindow and 
 <function>Expose </function>
 events on formerly obscured windows.
-<!-- .IN "UnmapNotify Event" -->
+<indexterm><primary>UnmapNotify Event</primary></indexterm>
 Using this function is much more efficient than unmapping multiple windows
 one at a time because the server needs to perform much of the work
 only once, for all of the windows, rather than for each window.
@@ -2302,7 +2302,7 @@ structure are:
 #define      CWStackMode      (1&lt;&lt;6)
 </literallayout>
 
-<!-- .IN "XWindowChanges" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWindowChanges</primary></indexterm>
 <literallayout class="monospaced">
 /* Values */
 
@@ -2512,7 +2512,7 @@ Attempts to configure a root window have no effect.
 <!-- .sp -->
 To configure a window's size, location, stacking, or border, use
 <function>XConfigureWindow .</function>
-<!-- .IN "XConfigureWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XConfigureWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2618,7 +2618,7 @@ errors.
 <!-- .sp -->
 To move a window without changing its size, use 
 <function>XMoveWindow .</function>
-<!-- .IN "XMoveWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMoveWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2720,7 +2720,7 @@ error.
 <!-- .sp -->
 To change a window's size without changing the upper-left coordinate, use 
 <function>XResizeWindow .</function>
-<!-- .IN "XResizeWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XResizeWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2823,7 +2823,7 @@ errors.
 <!-- .sp -->
 To change the size and location of a window, use 
 <function>XMoveResizeWindow .</function>
-<!-- .IN "XMoveResizeWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMoveResizeWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2944,7 +2944,7 @@ errors.
 <!-- .sp -->
 To change the border width of a given window, use
 <function>XSetWindowBorderWidth .</function>
-<!-- .IN "XSetWindowBorderWidth" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowBorderWidth</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3021,7 +3021,7 @@ or restack windows.
 <!-- .sp -->
 To raise a window so that no sibling window obscures it, use 
 <function>XRaiseWindow .</function>
-<!-- .IN "XRaiseWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRaiseWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3094,7 +3094,7 @@ error.
 <!-- .sp -->
 To lower a window so that it does not obscure any sibling windows, use 
 <function>XLowerWindow .</function>
-<!-- .IN "XLowerWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLowerWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3168,7 +3168,7 @@ error.
 <!-- .sp -->
 To circulate a subwindow up or down, use
 <function>XCirculateSubwindows .</function>
-<!-- .IN "XCirculateSubwindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCirculateSubwindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3260,7 +3260,7 @@ errors.
 To raise the lowest mapped child of a window that is partially or completely
 occluded by another child, use
 <function>XCirculateSubwindowsUp .</function>
-<!-- .IN "XCirculateSubwindowsUp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCirculateSubwindowsUp</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3322,7 +3322,7 @@ error.
 To lower the highest mapped child of a window that partially or 
 completely occludes another child, use 
 <function>XCirculateSubwindowsDown .</function>
-<!-- .IN "XCirculateSubwindowsDown" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCirculateSubwindowsDown</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3381,7 +3381,7 @@ error.
 <!-- .sp -->
 To restack a set of windows from top to bottom, use 
 <function>XRestackWindows .</function>
-<!-- .IN "XRestackWindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRestackWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3487,7 +3487,7 @@ window attribute, such as a window's background.
 <!-- .sp -->
 To change one or more attributes for a given window, use
 <function>XChangeWindowAttributes .</function>
-<!-- .IN "XChangeWindowAttributes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangeWindowAttributes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3645,7 +3645,7 @@ errors.
 <!-- .sp -->
 To set the background of a window to a given pixel, use 
 <function>XSetWindowBackground .</function>
-<!-- .IN "XSetWindowBackground" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowBackground</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3721,8 +3721,8 @@ errors.
 <!-- .LP -->
 To set the background of a window to a given pixmap, use 
 <function>XSetWindowBackgroundPixmap .</function>
-<!-- .IN "Window" "background" -->
-<!-- .IN "XSetWindowBackgroundPixmap" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>background</secondary></indexterm>
+<indexterm significance="preferred"><primary>XSetWindowBackgroundPixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3772,8 +3772,8 @@ or
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "Resource IDs" "freeing" -->
-<!-- .IN "Freeing" "resources" -->
+<indexterm><primary>Resource IDs</primary><secondary>freeing</secondary></indexterm>
+<indexterm><primary>Freeing</primary><secondary>resources</secondary></indexterm>
 The
 <function>XSetWindowBackgroundPixmap</function>
 function sets the background pixmap of the window to the specified pixmap.
@@ -3814,7 +3814,7 @@ do not change the current contents of the window.
 <!-- .sp -->
 To change and repaint a window's border to a given pixel, use 
 <function>XSetWindowBorder .</function>
-<!-- .IN "XSetWindowBorder" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowBorder</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3884,7 +3884,7 @@ errors.
 <!-- .sp -->
 To change and repaint the border tile of a given window, use 
 <function>XSetWindowBorderPixmap .</function>
-<!-- .IN "XSetWindowBorderPixmap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowBorderPixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3945,8 +3945,8 @@ If you attempt to perform this on an
 window, a
 <function>BadMatch</function>
 error results.
-<!-- .IN "Resource IDs" "freeing" -->
-<!-- .IN "Freeing" "resources" -->
+<indexterm><primary>Resource IDs</primary><secondary>freeing</secondary></indexterm>
+<indexterm><primary>Freeing</primary><secondary>resources</secondary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -3963,7 +3963,7 @@ errors.
 <!-- .sp -->
 To set the colormap of a given window, use
 <function>XSetWindowColormap .</function>
-<!-- .IN "XSetWindowColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWindowColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4033,8 +4033,8 @@ errors.
 <!-- .sp -->
 To define which cursor will be used in a window, use
 <function>XDefineCursor .</function>
-<!-- .IN "Window" "defining the cursor" -->
-<!-- .IN "XDefineCursor" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>defining the cursor</secondary></indexterm>
+<indexterm significance="preferred"><primary>XDefineCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4102,8 +4102,8 @@ errors.
 <!-- .sp -->
 To undefine the cursor in a given window, use
 <function>XUndefineCursor .</function>
-<!-- .IN "Window" "undefining the cursor" -->
-<!-- .IN "XUndefineCursor" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>undefining the cursor</secondary></indexterm>
+<indexterm significance="preferred"><primary>XUndefineCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

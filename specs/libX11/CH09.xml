@@ -29,7 +29,7 @@ programs. Xlib provides management functions to:
 To change a window's parent to another window on the same screen, use
 <function>XReparentWindow .</function>
 There is no way to move a window between screens.
-<!-- .IN "XReparentWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XReparentWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -213,7 +213,7 @@ when they are destroyed.
 <!-- .sp -->
 To add or remove a window from the client's save-set, use
 <function>XChangeSaveSet .</function>
-<!-- .IN "XChangeSaveSet" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangeSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -288,7 +288,7 @@ errors.
 <!-- .sp -->
 To add a window to the client's save-set, use
 <function>XAddToSaveSet .</function>
-<!-- .IN "XAddToSaveSet" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddToSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -347,7 +347,7 @@ errors.
 <!-- .sp -->
 To remove a window from the client's save-set, use
 <function>XRemoveFromSaveSet .</function>
-<!-- .IN "XRemoveFromSaveSet" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRemoveFromSaveSet</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -444,7 +444,7 @@ required list.
 <!-- .sp -->
 To install a colormap, use
 <function>XInstallColormap .</function>
-<!-- .IN "XInstallColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInstallColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -517,7 +517,7 @@ error.
 <!-- .sp -->
 To uninstall a colormap, use
 <function>XUninstallColormap .</function>
-<!-- .IN "XUninstallColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUninstallColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -588,7 +588,7 @@ error.
 <!-- .sp -->
 To obtain a list of the currently installed colormaps for a given screen, use
 <function>XListInstalledColormaps .</function>
-<!-- .IN "XListInstalledColormaps" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListInstalledColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -670,7 +670,7 @@ search path for a server.
 <!-- .sp -->
 To set the font search path, use
 <function>XSetFontPath .</function>
-<!-- .IN "XSetFontPath" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -748,7 +748,7 @@ error.
 <!-- .sp -->
 To get the current font search path, use
 <function>XGetFontPath .</function>
-<!-- .IN "XGetFontPath" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -800,7 +800,7 @@ To free data returned by
 <function>XGetFontPath ,</function>
 use
 <function>XFreeFontPath .</function>
-<!-- .IN "XFreeFontPath" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeFontPath</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -845,8 +845,8 @@ connections by the window system server.
 While the server is grabbed,
 no processing of requests or close downs on any other connection will occur.
 A client closing its connection automatically ungrabs the server.
-<!-- .IN "Menus" -->
-<!-- .IN "Window" "managers" -->
+<indexterm><primary>Menus</primary></indexterm>
+<indexterm><primary>Window</primary><secondary>managers</secondary></indexterm>
 Although grabbing the server is highly discouraged, it is sometimes necessary.
 </para>
 <para>
@@ -854,9 +854,9 @@ Although grabbing the server is highly discouraged, it is sometimes necessary.
 <!-- .sp -->
 To grab the server, use
 <function>XGrabServer .</function>
-<!-- .IN "Server" "grabbing" -->
-<!-- .IN "Grabbing" "server" -->
-<!-- .IN "XGrabServer" "" "@DEF@" -->
+<indexterm><primary>Server</primary><secondary>grabbing</secondary></indexterm>
+<indexterm><primary>Grabbing</primary><secondary>server</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGrabServer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -892,7 +892,7 @@ You should not grab the X server any more than is absolutely necessary.
 <!-- .sp -->
 To ungrab the server, use
 <function>XUngrabServer .</function>
-<!-- .IN "XUngrabServer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUngrabServer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -934,7 +934,7 @@ Xlib provides a function to cause the connection to
 a client to be closed and its resources to be destroyed.
 To destroy a client, use
 <function>XKillClient .</function>
-<!-- .IN "XKillClient" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XKillClient</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1021,7 +1021,7 @@ or to obtain the current screen saver values.
 <!-- .sp -->
 To set the screen saver mode, use
 <function>XSetScreenSaver .</function>
-<!-- .IN "XSetScreenSaver" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1156,7 +1156,7 @@ error.
 <!-- .sp -->
 To force the screen saver on or off, use
 <function>XForceScreenSaver .</function>
-<!-- .IN "XForceScreenSaver" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XForceScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1222,7 +1222,7 @@ error.
 <!-- .sp -->
 To activate the screen saver, use
 <function>XActivateScreenSaver .</function>
-<!-- .IN "XActivateScreenSaver" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XActivateScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1250,7 +1250,7 @@ Specifies the connection to the X server.
 <!-- .sp -->
 To reset the screen saver, use
 <function>XResetScreenSaver .</function>
-<!-- .IN "XResetScreenSaver" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XResetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1278,7 +1278,7 @@ Specifies the connection to the X server.
 <!-- .sp -->
 To get the current screen saver values, use
 <function>XGetScreenSaver .</function>
-<!-- .IN "XGetScreenSaver" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetScreenSaver</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1379,8 +1379,8 @@ Change, enable, or disable access
 </itemizedlist>
 <para>
 <!-- .LP -->
-<!-- .IN "Access control list" -->
-<!-- .IN "Authentication" -->
+<indexterm><primary>Access control list</primary></indexterm>
+<indexterm><primary>Authentication</primary></indexterm>
 X does not provide any protection on a per-window basis.
 If you find out the resource ID of a resource, you can manipulate it.
 To provide some minimal level of protection, however,
@@ -1393,7 +1393,7 @@ leaves host-level access control as the only common mechanism.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Default Protection" -->
+<indexterm><primary>Default Protection</primary></indexterm>
 The initial set of hosts allowed to open connections typically consists of:
 </para>
 <itemizedlist>
@@ -1409,7 +1409,7 @@ On POSIX-conformant systems, each host listed in the
 file.
 The ? indicates the number of the
 display.
-<!-- .IN "Files" "/etc/X?.hosts" -->
+<indexterm><primary>Files</primary><secondary>/etc/X?.hosts</secondary></indexterm>
 This file should consist of host names separated by newlines.
 DECnet nodes must terminate in :: to distinguish them from Internet hosts.
     </para>
@@ -1447,7 +1447,7 @@ structure, which contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XHostAddress" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XHostAddress</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -1499,7 +1499,7 @@ structure, which contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XServerInterpretedAddress" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XServerInterpretedAddress</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -1525,7 +1525,7 @@ specify the length in byte of the type and value strings.
 <!-- .sp -->
 To add a single host, use
 <function>XAddHost .</function>
-<!-- .IN "XAddHost" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddHost</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1583,7 +1583,7 @@ errors.
 <!-- .sp -->
 To add multiple hosts at one time, use
 <function>XAddHosts .</function>
-<!-- .IN "XAddHosts" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1652,7 +1652,7 @@ errors.
 <!-- .sp -->
 To obtain a host list, use
 <function>XListHosts .</function>
-<!-- .IN "XListHosts" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1716,7 +1716,7 @@ this memory should be freed by calling
 <!-- .sp -->
 To remove a single host, use
 <function>XRemoveHost .</function>
-<!-- .IN "XRemoveHost" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRemoveHost</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1778,7 +1778,7 @@ errors.
 <!-- .sp -->
 To remove multiple hosts at one time, use
 <function>XRemoveHosts .</function>
-<!-- .IN "XRemoveHosts" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRemoveHosts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1869,7 +1869,7 @@ at connection setup.
 <!-- .sp -->
 To change access control, use
 <function>XSetAccessControl .</function>
-<!-- .IN "XSetAccessControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1928,7 +1928,7 @@ errors.
 <!-- .sp -->
 To enable access control, use
 <function>XEnableAccessControl .</function>
-<!-- .IN "XEnableAccessControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XEnableAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1969,7 +1969,7 @@ error.
 <!-- .sp -->
 To disable access control, use
 <function>XDisableAccessControl .</function>
-<!-- .IN "XDisableAccessControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDisableAccessControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

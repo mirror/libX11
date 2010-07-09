@@ -254,7 +254,7 @@ to manipulate your application's subwindows.
 <!-- .LP -->
 To request that a top-level window be iconified, use
 <function>XIconifyWindow .</function>
-<!-- .IN "XIconifyWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XIconifyWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -328,7 +328,7 @@ otherwise, it returns a zero status.
 <!-- .LP -->
 To request that a top-level window be withdrawn, use
 <function>XWithdrawWindow .</function>
-<!-- .IN "XWithdrawWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWithdrawWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -402,7 +402,7 @@ error.
 <!-- .LP -->
 To request that a top-level window be reconfigured, use
 <function>XReconfigureWMWindow .</function>
-<!-- .IN "XReconfigureWMWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XReconfigureWMWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -518,7 +518,7 @@ as well as its value.
 The
 <function>XTextProperty</function>
 structure contains:
-<!-- .IN "XTextProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextProperty</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 2.5i -->
@@ -575,8 +575,8 @@ structure, use
 <function>XmbTextListToTextProperty</function>
 or
 <function>XwcTextListToTextProperty .</function>
-<!-- .IN "XmbTextListToTextProperty" "" "@DEF@" -->
-<!-- .IN "XwcTextListToTextProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XmbTextListToTextProperty</primary></indexterm>
+<indexterm significance="preferred"><primary>XwcTextListToTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -737,8 +737,8 @@ structure, use
 <function>XmbTextPropertyToTextList</function>
 or
 <function>XwcTextPropertyToTextList .</function>
-<!-- .IN "XmbTextPropertyToTextList" "" "@DEF@" -->
-<!-- .IN "XwcTextPropertyToTextList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XmbTextPropertyToTextList</primary></indexterm>
+<indexterm significance="preferred"><primary>XwcTextPropertyToTextList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -896,7 +896,7 @@ use
 To free the in-memory data associated with the specified
 wide character string list, use
 <function>XwcFreeStringList .</function>
-<!-- .IN "XwcFreeStringList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XwcFreeStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -980,7 +980,7 @@ To set the specified list of strings in the STRING encoding to a
 <function>XTextProperty</function>
 structure, use
 <function>XStringListToTextProperty .</function>
-<!-- .IN "XStringListToTextProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XStringListToTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1055,7 +1055,7 @@ To obtain a list of strings from a specified
 <function>XTextProperty</function>
 structure in the STRING encoding, use
 <function>XTextPropertyToStringList .</function>
-<!-- .IN "XTextPropertyToStringList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextPropertyToStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1128,7 +1128,7 @@ To free the storage for the list and its contents, use
 <!-- .LP -->
 To free the in-memory data associated with the specified string list, use
 <function>XFreeStringList .</function>
-<!-- .IN "XFreeStringList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeStringList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1185,7 +1185,7 @@ see sections 14.1.4, 14.1.5, 14.2.1, and 14.2.2, respectively.
 <!-- .LP -->
 To set one of a window's text properties, use
 <function>XSetTextProperty .</function>
-<!-- .IN "XSetTextProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1273,7 +1273,7 @@ errors.
 <!-- .LP -->
 To read one of a window's text properties, use
 <function>XGetTextProperty .</function>
-<!-- .IN "XGetTextProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetTextProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1389,7 +1389,7 @@ the WM_NAME property for a given window.
 <!-- .LP -->
 To set a window's WM_NAME property with the supplied convenience function, use
 <function>XSetWMName .</function>
-<!-- .IN "XSetWMName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1449,7 +1449,7 @@ to set the WM_NAME property.
 <!-- .LP -->
 To read a window's WM_NAME property with the supplied convenience function, use
 <function>XGetWMName .</function>
-<!-- .IN "XGetWMName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1521,8 +1521,8 @@ for window names that are encoded as STRING properties.
 <!-- .LP -->
 To assign a name to a window, use
 <function>XStoreName .</function>
-<!-- .IN "Window" "name" -->
-<!-- .IN "XStoreName" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>name</secondary></indexterm>
+<indexterm significance="preferred"><primary>XStoreName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1595,7 +1595,7 @@ errors.
 <!-- .sp -->
 To get the name of a window, use
 <function>XFetchName .</function>
-<!-- .IN "XFetchName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFetchName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1683,7 +1683,7 @@ the WM_ICON_NAME property for a given window.
 To set a window's WM_ICON_NAME property,
 use
 <function>XSetWMIconName .</function>
-<!-- .IN "XSetWMIconName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1744,7 +1744,7 @@ to set the WM_ICON_NAME property.
 To read a window's WM_ICON_NAME property,
 use
 <function>XGetWMIconName .</function>
-<!-- .IN "XGetWMIconName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1817,8 +1817,8 @@ for window names that are encoded as STRING properties.
 <!-- .sp -->
 To set the name to be displayed in a window's icon, use
 <function>XSetIconName .</function>
-<!-- .IN "Window" "icon name" -->
-<!-- .IN "XSetIconName" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>icon name</secondary></indexterm>
+<indexterm significance="preferred"><primary>XSetIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1880,7 +1880,7 @@ errors.
 <!-- .sp -->
 To get the name a window wants displayed in its icon, use
 <function>XGetIconName .</function>
-<!-- .IN "XGetIconName" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetIconName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2115,7 +2115,7 @@ or the window to be withdrawn.
 <!-- .sp -->
 To set a window's WM_HINTS property, use
 <function>XSetWMHints .</function>
-<!-- .IN "XSetWMHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2184,7 +2184,7 @@ errors.
 <!-- .sp -->
 To read a window's WM_HINTS property, use
 <function>XGetWMHints .</function>
-<!-- .IN "XGetWMHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2378,7 +2378,7 @@ macro is highly discouraged.
 <!-- .LP -->
 To set a window's WM_NORMAL_HINTS property, use
 <function>XSetWMNormalHints .</function>
-<!-- .IN "XSetWMNormalHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2448,7 +2448,7 @@ errors.
 <!-- .LP -->
 To read a window's WM_NORMAL_HINTS property, use
 <function>XGetWMNormalHints .</function>
-<!-- .IN "XGetWMNormalHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2559,7 +2559,7 @@ error.
 <!-- .LP -->
 To set a window's WM_SIZE_HINTS property, use
 <function>XSetWMSizeHints .</function>
-<!-- .IN "XSetWMSizeHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2648,7 +2648,7 @@ errors.
 <!-- .LP -->
 To read a window's WM_SIZE_HINTS property, use
 <function>XGetWMSizeHints .</function>
-<!-- .IN "XGetWMSizeHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2797,7 +2797,7 @@ To allocate an
 <function>XClassHint</function>
 structure, use
 <function>XAllocClassHint .</function>
-<!-- .IN "XAllocClassHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAllocClassHint</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>
@@ -2832,7 +2832,7 @@ contains:
 <para>
 <!-- .LP -->
 <!-- .sM -->
-<!-- .IN "XClassHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XClassHint</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i -->
 <!-- .ta .5i -->
@@ -2861,7 +2861,7 @@ resource database.
 <!-- .sp -->
 To set a window's WM_CLASS property, use
 <function>XSetClassHint .</function>
-<!-- .IN "XSetClassHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetClassHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2930,7 +2930,7 @@ errors.
 <!-- .sp -->
 To read a window's WM_CLASS property, use
 <function>XGetClassHint .</function>
-<!-- .IN "XGetClassHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetClassHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3016,7 +3016,7 @@ the WM_TRANSIENT_FOR property for a given window.
 <!-- .sp -->
 To set a window's WM_TRANSIENT_FOR property, use
 <function>XSetTransientForHint .</function>
-<!-- .IN "XSetTransientForHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetTransientForHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3082,7 +3082,7 @@ errors.
 <!-- .sp -->
 To read a window's WM_TRANSIENT_FOR property, use
 <function>XGetTransientForHint .</function>
-<!-- .IN "XGetTransientForHint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetTransientForHint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3158,7 +3158,7 @@ the WM_PROTOCOLS property for a given window.
 <!-- .sp -->
 To set a window's WM_PROTOCOLS property, use
 <function>XSetWMProtocols .</function>
-<!-- .IN "XSetWMProtocols" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMProtocols</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3245,7 +3245,7 @@ errors.
 <!-- .LP -->
 To read a window's WM_PROTOCOLS property, use
 <function>XGetWMProtocols .</function>
-<!-- .IN "XGetWMProtocols" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMProtocols</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3344,7 +3344,7 @@ the WM_COLORMAP_WINDOWS property for a given window.
 <!-- .LP -->
 To set a window's WM_COLORMAP_WINDOWS property, use
 <function>XSetWMColormapWindows .</function>
-<!-- .IN "XSetWMColormapWindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMColormapWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3431,7 +3431,7 @@ errors.
 <!-- .LP -->
 To read a window's WM_COLORMAP_WINDOWS property, use
 <function>XGetWMColormapWindows .</function>
-<!-- .IN "XGetWMColormapWindows" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMColormapWindows</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3526,7 +3526,7 @@ Xlib provides functions that you can use to set and read
 the WM_ICON_SIZE property for a given window.
 These functions use the 
 <function>XIconSize </function>
-<!-- .IN "XIconSize" -->
+<indexterm><primary>XIconSize</primary></indexterm>
 structure, which is defined in the
 <!-- .hN X11/Xutil.h -->
 header file.
@@ -3571,7 +3571,7 @@ structure contains:
 <para>
 <!-- .LP -->
 <!-- .sM -->
-<!-- .IN "XIconSize" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XIconSize</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 2.5i -->
 <!-- .ta .5i 2.5i -->
@@ -3593,7 +3593,7 @@ sizes (minimum to maximum) that represent the supported icon sizes.
 <!-- .sp -->
 To set a window's WM_ICON_SIZE property, use
 <function>XSetIconSizes .</function>
-<!-- .IN "XSetIconSizes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetIconSizes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3669,7 +3669,7 @@ errors.
 <!-- .sp -->
 To read a window's WM_ICON_SIZE property, use
 <function>XGetIconSizes .</function>
-<!-- .IN "XGetIconSizes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetIconSizes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3766,7 +3766,7 @@ for internationalized text communication.
 The standard window manager properties for a given window are
 WM_NAME, WM_ICON_NAME, WM_HINTS, WM_NORMAL_HINTS, WM_CLASS,
 WM_COMMAND, WM_CLIENT_MACHINE, and WM_LOCALE_NAME.
-<!-- .IN "XmbSetWMProperties" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XmbSetWMProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3984,7 +3984,7 @@ with strings in client-specified encodings, use
 The standard window manager properties for a given window are
 WM_NAME, WM_ICON_NAME, WM_HINTS, WM_NORMAL_HINTS, WM_CLASS,
 WM_COMMAND, and WM_CLIENT_MACHINE.
-<!-- .IN "XSetWMProperties" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4210,7 +4210,7 @@ the WM_COMMAND property for a given window.
 <!-- .LP -->
 To set a window's WM_COMMAND property, use
 <function>XSetCommand .</function>
-<!-- .IN "XSetCommand" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetCommand</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4290,7 +4290,7 @@ errors.
 <!-- .LP -->
 To read a window's WM_COMMAND property, use
 <function>XGetCommand .</function>
-<!-- .IN "XGetCommand" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetCommand</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4381,7 +4381,7 @@ the WM_CLIENT_MACHINE property for a given window.
 <!-- .LP -->
 To set a window's WM_CLIENT_MACHINE property, use
 <function>XSetWMClientMachine .</function>
-<!-- .IN "XSetWMClientMachine" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetWMClientMachine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4441,7 +4441,7 @@ to set the WM_CLIENT_MACHINE property.
 <!-- .LP -->
 To read a window's WM_CLIENT_MACHINE property, use
 <function>XGetWMClientMachine .</function>
-<!-- .IN "XGetWMClientMachine" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWMClientMachine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4764,8 +4764,8 @@ as well as how to manipulate standard colormaps.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Standard Colormaps" -->
-<!-- .IN "Colormaps" "standard" -->
+<indexterm><primary>Standard Colormaps</primary></indexterm>
+<indexterm><primary>Colormaps</primary><secondary>standard</secondary></indexterm>
 Several standard colormaps are available.  
 Each standard colormap is defined by a property, 
 and each such property is identified by an atom.  
@@ -4900,7 +4900,7 @@ To set an
 <function>XStandardColormap</function>
 structure, use
 <function>XSetRGBColormaps .</function>
-<!-- .IN "XSetRGBColormaps" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetRGBColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5080,7 +5080,7 @@ To obtain the
 <function>XStandardColormap </function>
 structure associated with the specified property, use
 <function>XGetRGBColormaps .</function>
-<!-- .IN "XGetRGBColormaps" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetRGBColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

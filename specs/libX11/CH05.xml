@@ -19,7 +19,7 @@ A bitmap is a single bit-plane pixmap.
 <!-- .sp -->
 To create a pixmap of a given size, use
 <function>XCreatePixmap .</function>
-<!-- .IN "XCreatePixmap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreatePixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -131,7 +131,7 @@ errors.
 <!-- .sp -->
 To free all storage associated with a specified pixmap, use
 <function>XFreePixmap .</function>
-<!-- .IN "XFreePixmap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreePixmap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -206,7 +206,7 @@ The hotspot defines the point on the cursor that is reported
 when a pointer event occurs.
 There may be limitations imposed by the hardware on
 cursors as to size and whether a mask is implemented. 
-<!-- .IN "XQueryBestCursor" -->
+<indexterm><primary>XQueryBestCursor</primary></indexterm>
 <function>XQueryBestCursor</function>
 can be used to find out what sizes are possible.
 There is a standard font for creating cursors, but
@@ -223,7 +223,7 @@ To create a cursor from the standard cursor font, use
 #include &lt;X11/cursorfont.h&gt;
 </para>
 
-<!-- .IN "XCreateFontCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateFontCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -290,7 +290,7 @@ errors.
 <!-- .sp -->
 To create a cursor from font glyphs, use
 <function>XCreateGlyphCursor .</function>
-<!-- .IN "XCreateGlyphCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateGlyphCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -429,7 +429,7 @@ errors.
 To create a cursor from two bitmaps,
 use
 <function>XCreatePixmapCursor .</function>
-<!-- .IN "XCreatePixmapCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreatePixmapCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -576,7 +576,7 @@ errors.
 <!-- .sp -->
 To determine useful cursor sizes, use
 <function>XQueryBestCursor .</function>
-<!-- .IN "XQueryBestCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryBestCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -664,7 +664,7 @@ The
 <function>XQueryBestCursor</function>
 function provides a way to find out what size cursors are actually
 possible on the display.
-<!-- .IN "Cursor" "limitations"  -->
+<indexterm ><primary>Cursor</primary><secondary>limitations</secondary></indexterm>
 It returns the largest size that can be displayed.
 Applications should be prepared to use smaller cursors on displays that
 cannot support large ones.
@@ -681,7 +681,7 @@ error.
 <!-- .sp -->
 To change the color of a given cursor, use
 <function>XRecolorCursor .</function>
-<!-- .IN "XRecolorCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRecolorCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -759,7 +759,7 @@ error.
 <!-- .sp -->
 To free (destroy) a given cursor, use
 <function>XFreeCursor .</function>
-<!-- .IN "XFreeCursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeCursor</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

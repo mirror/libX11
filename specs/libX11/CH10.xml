@@ -31,10 +31,10 @@ Functions for handling events are dealt with in the next chapter.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Event" "types" -->
+<indexterm><primary>Event</primary><secondary>types</secondary></indexterm>
 An event is data generated asynchronously by the X server as a result of some 
 device activity or as side effects of a request sent by an Xlib function.
-<!-- .IN "Event"  -->
+<indexterm><primary>Event</primary></indexterm>
 Device-related events propagate from the source window to ancestor windows
 until some client application has selected that event type 
 or until the event is explicitly discarded.
@@ -50,8 +50,8 @@ do-not-propagate mask of the window's attributes.
 However,
 <function>MappingNotify</function>
 events are always sent to all clients.
-<!-- .IN "Input Control" -->
-<!-- .IN "Output Control" -->
+<indexterm><primary>Input Control</primary></indexterm>
+<indexterm><primary>Output Control</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -60,7 +60,7 @@ For each event type,
 a corresponding constant name is defined in
 <!-- .hN X11/X.h , -->
 which is used when referring to an event type.
-<!-- .IN "Event" "categories" -->
+<indexterm><primary>Event</primary><secondary>categories</secondary></indexterm>
 The following table lists the event category 
 and its associated event type or types. 
 The processing associated with these events is discussed in section 10.5.
@@ -176,7 +176,7 @@ All the event structures have the following common members:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XAnyEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAnyEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -232,7 +232,7 @@ union.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XEvent</primary></indexterm>
 <!-- .sM -->
 </para>
 <literallayout class="monospaced">
@@ -308,7 +308,7 @@ is used to access any other information in the structure.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Event mask" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event mask</primary></indexterm>
 Clients select event reporting of most events relative to a window.
 To do this, pass an event mask to an Xlib event-handling
 function that takes an event_mask argument.
@@ -495,7 +495,7 @@ For example, if you pass the event mask
 the X server sends back only
 <function>ButtonPress</function>
 events.
-<!-- .IN "CurrentTime" -->
+<indexterm><primary>CurrentTime</primary></indexterm>
 Most events contain a time member,
 which is the time at which an event occurred.
 </para>
@@ -970,11 +970,11 @@ and
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ButtonPress" -->
-<!-- .IN "Events" "ButtonRelease" -->
-<!-- .IN "Events" "KeyPress" -->
-<!-- .IN "Events" "KeyRelease" -->
-<!-- .IN "Events" "MotionNotify" -->
+<indexterm><primary>Events</primary><secondary>ButtonPress</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>ButtonRelease</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>KeyPress</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>KeyRelease</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>MotionNotify</secondary></indexterm>
 This section discusses the processing that occurs for the
 keyboard events
 <function>KeyPress</function>
@@ -990,8 +990,8 @@ see chapter 11.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "KeyPress" "" "@DEF@" -->
-<!-- .IN "KeyRelease" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>KeyPress</primary></indexterm>
+<indexterm significance="preferred"><primary>KeyRelease</primary></indexterm>
 The X server reports
 <function>KeyPress</function>
 or
@@ -999,8 +999,8 @@ or
 events to clients wanting information about keys that logically change state.
 Note that these events are generated for all keys, 
 even those mapped to modifier bits.
-<!-- .IN "ButtonPress" "" "@DEF@" -->
-<!-- .IN "ButtonRelease" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ButtonPress</primary></indexterm>
+<indexterm significance="preferred"><primary>ButtonRelease</primary></indexterm>
 The X server reports
 <function>ButtonPress</function>
 or
@@ -1009,7 +1009,7 @@ events to clients wanting information about buttons that logically change state.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "MotionNotify" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>MotionNotify</primary></indexterm>
 The X server reports
 <function>MotionNotify</function>
 events to clients wanting information about when the pointer logically moves.
@@ -1417,15 +1417,15 @@ follows:
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "EnterNotify" -->
-<!-- .IN "Events" "LeaveNotify" -->
+<indexterm><primary>Events</primary><secondary>EnterNotify</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>LeaveNotify</secondary></indexterm>
 This section describes the processing that 
 occurs for the window crossing events
 <function>EnterNotify</function>
 and
 <function>LeaveNotify .</function>
-<!-- .IN "EnterNotify" "" "@DEF@" -->
-<!-- .IN "LeaveNotify" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>EnterNotify</primary></indexterm>
+<indexterm significance="preferred"><primary>LeaveNotify</primary></indexterm>
 If a pointer motion or a window hierarchy change causes the
 pointer to be in a different window than before, the X server reports
 <function>EnterNotify</function>
@@ -1487,9 +1487,9 @@ bits of the event-mask attribute of the window.
 The structure for these event types contains:
 </para>
 <!-- .LP -->
-<!-- .IN "XCrossingEvent" "" "@DEF@" -->
-<!-- .IN "XEnterWindowEvent" "" "@DEF@" -->
-<!-- .IN "XLeaveWindowEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCrossingEvent</primary></indexterm>
+<indexterm significance="preferred"><primary>XEnterWindowEvent</primary></indexterm>
+<indexterm significance="preferred"><primary>XLeaveWindowEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -1946,14 +1946,14 @@ initial and final positions for the events.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "FocusIn" -->
-<!-- .IN "Events" "FocusOut" -->
+<indexterm><primary>Events</primary><secondary>FocusIn</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>FocusOut</secondary></indexterm>
 This section describes the processing that occurs for the input focus events
 <function>FocusIn</function>
 and
 <function>FocusOut .</function>
-<!-- .IN "FocusIn" "" "@DEF@" -->
-<!-- .IN "FocusOut" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>FocusIn</primary></indexterm>
+<indexterm significance="preferred"><primary>FocusOut</primary></indexterm>
 The X server can report
 <function>FocusIn</function>
 or
@@ -1982,9 +1982,9 @@ bit in the event-mask attribute of the window.
 The structure for these event types contains:
 </para>
 <!-- .LP -->
-<!-- .IN "XFocusChangeEvent" "" "@DEF@" -->
-<!-- .IN "XFocusInEvent" "" "@DEF@" -->
-<!-- .IN "XFocusOutEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFocusChangeEvent</primary></indexterm>
+<indexterm significance="preferred"><primary>XFocusInEvent</primary></indexterm>
+<indexterm significance="preferred"><primary>XFocusOutEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2643,8 +2643,8 @@ G to F.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "KeymapNotify" -->
-<!-- .IN "KeymapNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>KeymapNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>KeymapNotify</primary></indexterm>
 The X server can report
 <function>KeymapNotify</function>
 events to clients that want information about changes in their keyboard state.
@@ -2668,7 +2668,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XKeymapEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XKeymapEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2726,8 +2726,8 @@ A more sophisticated client application redraws only the exposed region.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "Expose" -->
-<!-- .IN "Expose" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>Expose</secondary></indexterm>
+<indexterm significance="preferred"><primary>Expose</primary></indexterm>
 The X server can report
 <function>Expose</function>
 events to clients wanting information about when the contents of window regions
@@ -2774,7 +2774,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XExposeEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XExposeEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2821,9 +2821,9 @@ on events with zero counts.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "GraphicsExpose" -->
-<!-- .IN "Events" "NoExpose" -->
-<!-- .IN "GraphicsExpose" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>GraphicsExpose</secondary></indexterm>
+<indexterm><primary>Events</primary><secondary>NoExpose</secondary></indexterm>
+<indexterm significance="preferred"><primary>GraphicsExpose</primary></indexterm>
 The X server can report
 <function>GraphicsExpose</function>
 events to clients wanting information about when a destination region could not
@@ -2840,7 +2840,7 @@ drawable).
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "NoExpose" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>NoExpose</primary></indexterm>
 The X server generates a
 <function>NoExpose</function>
 event whenever a graphics request that might
@@ -2874,7 +2874,7 @@ The structures for these event types contain:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XGraphicsExposeEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGraphicsExposeEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2895,7 +2895,7 @@ typedef struct {
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XNoExposeEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XNoExposeEvent</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -3040,8 +3040,8 @@ events
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "CirculateNotify" -->
-<!-- .IN "CirculateNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>CirculateNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>CirculateNotify</primary></indexterm>
 The X server can report
 <function>CirculateNotify</function>
 events to clients wanting information about when a window changes 
@@ -3071,7 +3071,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XCirculateEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCirculateEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3117,8 +3117,8 @@ the window is now below all siblings.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ConfigureNotify" -->
-<!-- .IN "ConfigureNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ConfigureNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>ConfigureNotify</primary></indexterm>
 The X server can report
 <function>ConfigureNotify</function>
 events to clients wanting information about actual changes to a window's
@@ -3191,7 +3191,7 @@ bit in the event-mask attribute of the parent window
 The structure for this event type contains:
 </para>
 <!-- .LP -->
-<!-- .IN "XConfigureEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XConfigureEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3260,8 +3260,8 @@ is
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "CreateNotify" -->
-<!-- .IN "CreateNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>CreateNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>CreateNotify</primary></indexterm>
 The X server can report
 <function>CreateNotify</function>
 events to clients wanting information about creation of windows.
@@ -3286,7 +3286,7 @@ The structure for the event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XCreateWindowEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateWindowEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3330,8 +3330,8 @@ if the override_redirect member is
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "DestroyNotify" -->
-<!-- .IN "DestroyNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>DestroyNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>DestroyNotify</primary></indexterm>
 The X server can report
 <function>DestroyNotify</function>
 events to clients wanting information about which windows are destroyed.
@@ -3369,7 +3369,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XDestroyWindowEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroyWindowEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3403,8 +3403,8 @@ The window member is set to the window that is destroyed.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "GravityNotify" -->
-<!-- .IN "GravityNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>GravityNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>GravityNotify</primary></indexterm>
 The X server can report
 <function>GravityNotify</function>
 events to clients wanting information about when a window is moved because of a
@@ -3434,7 +3434,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XGravityEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGravityEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3473,8 +3473,8 @@ window.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "MapNotify" -->
-<!-- .IN "MapNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>MapNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>MapNotify</primary></indexterm>
 The X server can report
 <function>MapNotify</function>
 events to clients wanting information about which windows are mapped.
@@ -3503,7 +3503,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XMapEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMapEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3545,8 +3545,8 @@ which override structure control.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "MappingNotify" -->
-<!-- .IN "MappingNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>MappingNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>MappingNotify</primary></indexterm>
 The X server reports
 <function>MappingNotify</function>
 events to all clients.
@@ -3580,7 +3580,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XMappingEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMappingEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3637,8 +3637,8 @@ you should call
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ReparentNotify" -->
-<!-- .IN "ReparentNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ReparentNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>ReparentNotify</primary></indexterm>
 The X server can report
 <function>ReparentNotify</function>
 events to clients wanting information about changing a window's parent.
@@ -3664,7 +3664,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XReparentEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XReparentEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3710,8 +3710,8 @@ if the override_redirect member is
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "UnmapNotify" -->
-<!-- .IN "UnmapNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>UnmapNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>UnmapNotify</primary></indexterm>
 The X server can report
 <function>UnmapNotify</function>
 events to clients wanting information about which windows are unmapped.
@@ -3735,7 +3735,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XUnmapEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnmapEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3776,8 +3776,8 @@ the window itself had a win_gravity of
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "VisibilityNotify" -->
-<!-- .IN "VisibilityNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>VisibilityNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>VisibilityNotify</primary></indexterm>
 The X server can report
 <function>VisibilityNotify</function>
 events to clients wanting any change in the visibility of the specified window.
@@ -3831,7 +3831,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XVisibilityEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XVisibilityEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -3937,8 +3937,8 @@ events
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "CirculateRequest" -->
-<!-- .IN "CirculateRequest" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>CirculateRequest</secondary></indexterm>
+<indexterm significance="preferred"><primary>CirculateRequest</primary></indexterm>
 The X server can report
 <function>CirculateRequest</function>
 events to clients wanting information about 
@@ -3977,7 +3977,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XCirculateRequestEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCirculateRequestEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4018,8 +4018,8 @@ the subwindow should be below all siblings.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ConfigureRequest" -->
-<!-- .IN "ConfigureRequest" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ConfigureRequest</secondary></indexterm>
+<indexterm significance="preferred"><primary>ConfigureRequest</primary></indexterm>
 The X server can report
 <function>ConfigureRequest</function>
 events to clients wanting information about when a different client initiates 
@@ -4068,7 +4068,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XConfigureRequestEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XConfigureRequestEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4115,8 +4115,8 @@ respectively, if they are not given in the request.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "MapRequest" -->
-<!-- .IN "MapRequest" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>MapRequest</secondary></indexterm>
+<indexterm significance="preferred"><primary>MapRequest</primary></indexterm>
 The X server can report
 <function>MapRequest</function>
 events to clients wanting information about a different client's desire 
@@ -4164,7 +4164,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XMapRequestEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMapRequestEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4193,8 +4193,8 @@ The window member is set to the window to be mapped.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ResizeRequest" -->
-<!-- .IN "ResizeRequest" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ResizeRequest</secondary></indexterm>
+<indexterm significance="preferred"><primary>ResizeRequest</primary></indexterm>
 The X server can report
 <function>ResizeRequest</function>
 events to clients wanting information about another client's attempts to change the
@@ -4221,7 +4221,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XResizeRequestEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XResizeRequestEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4253,8 +4253,8 @@ excluding the border.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ColormapNotify" -->
-<!-- .IN "ColormapNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ColormapNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>ColormapNotify</primary></indexterm>
 The X server can report
 <function>ColormapNotify</function>
 events to clients wanting information about when the colormap changes 
@@ -4297,7 +4297,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XColormapEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XColormapEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4392,8 +4392,8 @@ events
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "ClientMessage" -->
-<!-- .IN "ClientMessage" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>ClientMessage</secondary></indexterm>
+<indexterm significance="preferred"><primary>ClientMessage</primary></indexterm>
 The X server generates
 <function>ClientMessage</function>
 events only when a client calls the function
@@ -4405,7 +4405,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XClientMessageEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XClientMessageEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 1i 3i -->
@@ -4448,8 +4448,8 @@ message_type, or data members.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "PropertyNotify" -->
-<!-- .IN "PropertyNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>PropertyNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>PropertyNotify</primary></indexterm>
 The X server can report
 <function>PropertyNotify</function>
 events to clients wanting information about property changes 
@@ -4469,7 +4469,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XPropertyEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPropertyEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4527,8 +4527,8 @@ or, if the delete argument is
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "SelectionClear"  -->
-<!-- .IN "SelectionClear" "" "@DEF@" -->
+<indexterm ><primary>Events</primary><secondary>SelectionClear</secondary></indexterm>
+<indexterm significance="preferred"><primary>SelectionClear</primary></indexterm>
 The X server reports
 <function>SelectionClear</function>
 events to the client losing ownership of a selection.
@@ -4542,7 +4542,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XSelectionClearEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSelectionClearEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4577,8 +4577,8 @@ call.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "SelectionRequest" -->
-<!-- .IN "SelectionRequest" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>SelectionRequest</secondary></indexterm>
+<indexterm significance="preferred"><primary>SelectionRequest</primary></indexterm>
 The X server reports
 <function>SelectionRequest</function>
 events to the owner of a selection.
@@ -4593,7 +4593,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XSelectionRequestEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSelectionRequestEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4649,8 +4649,8 @@ standard <emphasis remap='I'>Inter-Client Communication Conventions Manual</emph
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Events" "SelectionNotify" -->
-<!-- .IN "SelectionNotify" "" "@DEF@" -->
+<indexterm><primary>Events</primary><secondary>SelectionNotify</secondary></indexterm>
+<indexterm significance="preferred"><primary>SelectionNotify</primary></indexterm>
 This event is generated by the X server in response to a
 <function>ConvertSelection </function>
 protocol request when there is no owner for the selection.
@@ -4681,7 +4681,7 @@ The structure for this event type contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XSelectionEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSelectionEvent</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->

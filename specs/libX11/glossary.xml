@@ -3,7 +3,7 @@
 <glossentry>
   <glossterm><function>Access control list</function></glossterm>
   <glossdef>
-<!-- .IN "Access control list" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Access control list</primary></indexterm>
     <para>
 X maintains a list of hosts from which client programs can be run.  
 By default, 
@@ -21,7 +21,7 @@ protocol name and data received by the server at connection setup.
 <glossentry>
   <glossterm><function>Active grab</function></glossterm>
   <glossdef>
-<!-- .IN "Active grab" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Active grab</primary></indexterm>
     <para>
 A grab is active when the pointer or keyboard is actually owned by the 
 single grabbing client.
@@ -32,7 +32,7 @@ single grabbing client.
 <glossentry>
   <glossterm><function>Ancestors</function></glossterm>
   <glossdef>
-<!-- .IN "Ancestors" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Ancestors</primary></indexterm>
     <para>
 If W is an inferior of A, then A is an ancestor of W.
 <!-- .KE -->
@@ -42,7 +42,7 @@ If W is an inferior of A, then A is an ancestor of W.
 <glossentry>
   <glossterm><function>Atom</function></glossterm>
   <glossdef>
-<!-- .IN "Atom" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Atom</primary></indexterm>
     <para>
 An atom is a unique ID corresponding to a string name.
 Atoms are used to identify properties, types, and selections.
@@ -53,7 +53,7 @@ Atoms are used to identify properties, types, and selections.
 <glossentry>
   <glossterm><function>Background</function></glossterm>
   <glossdef>
-<!-- .IN "Background" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Background</primary></indexterm>
     <para>
 An
 <function>InputOutput</function>
@@ -68,7 +68,7 @@ the server automatically tiles those regions with the background.
 <glossentry>
   <glossterm><function>Backing store</function></glossterm>
   <glossdef>
-<!-- .IN "Backing store" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Backing store</primary></indexterm>
     <para>
 When a server maintains the contents of a window, 
 the pixels saved off-screen are known as a backing store.
@@ -79,7 +79,7 @@ the pixels saved off-screen are known as a backing store.
 <glossentry>
   <glossterm><function>Base font name</function></glossterm>
   <glossdef>
-<!-- .IN "Base font name" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Base font name</primary></indexterm>
     <para>
 A font name used to select a family of fonts whose members may be encoded 
 in various charsets.
@@ -109,7 +109,7 @@ to load the fonts required to render text.
 <glossentry>
   <glossterm><function>Bit gravity</function></glossterm>
   <glossdef>
-<!-- .IN "Bit" "gravity" "@DEF@" -->
+<indexterm significance="preferred"><primary>Bit</primary><secondary>gravity</secondary></indexterm>
     <para>
 When a window is resized, 
 the contents of the window are not necessarily discarded.  
@@ -124,7 +124,7 @@ a window is known as bit gravity.
 <glossentry>
   <glossterm><function>Bit plane</function></glossterm>
   <glossdef>
-<!-- .IN "Bit" "plane" "@DEF@" -->
+<indexterm significance="preferred"><primary>Bit</primary><secondary>plane</secondary></indexterm>
     <para>
 When a pixmap or window is thought of as a stack of bitmaps,
 each bitmap is called a bit plane or plane.
@@ -135,7 +135,7 @@ each bitmap is called a bit plane or plane.
 <glossentry>
   <glossterm><function>Bitmap</function></glossterm>
   <glossdef>
-<!-- .IN "Bitmap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Bitmap</primary></indexterm>
     <para>
 A bitmap is a pixmap of depth one.
 <!-- .KE -->
@@ -145,7 +145,7 @@ A bitmap is a pixmap of depth one.
 <glossentry>
   <glossterm><function>Border</function></glossterm>
   <glossdef>
-<!-- .IN "Border" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Border</primary></indexterm>
     <para>
 An
 <function>InputOutput</function>
@@ -160,7 +160,7 @@ Exposure events are never generated for border regions.
 <glossentry>
   <glossterm><function>Button grabbing</function></glossterm>
   <glossdef>
-<!-- .IN "Button" "grabbing" "@DEF@" -->
+<indexterm significance="preferred"><primary>Button</primary><secondary>grabbing</secondary></indexterm>
     <para>
 Buttons on the pointer can be passively grabbed by a client.
 When the button is pressed, 
@@ -172,7 +172,7 @@ the pointer is then actively grabbed by the client.
 <glossentry>
   <glossterm><function>Byte order</function></glossterm>
   <glossdef>
-<!-- .IN "Byte" "order" "@DEF@" -->
+<indexterm significance="preferred"><primary>Byte</primary><secondary>order</secondary></indexterm>
     <para>
 For image (pixmap/bitmap) data, 
 the server defines the byte order,
@@ -188,7 +188,7 @@ and the server swaps bytes as necessary.
 <glossentry>
   <glossterm><function>Character</function></glossterm>
   <glossdef>
-<!-- .IN "Character" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Character</primary></indexterm>
     <para>
 A member of a set of elements used for the organization,
 control, or representation of text (ISO2022, as adapted by XPG3).
@@ -201,7 +201,7 @@ until it is identified as part of a coded character set.
 <glossentry>
   <glossterm><function>Character glyph</function></glossterm>
   <glossdef>
-<!-- .IN "Character glyph" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Character glyph</primary></indexterm>
     <para>
 The abstract graphical symbol for a character.
 Character glyphs may or may not map one-to-one to font glyphs,
@@ -214,7 +214,7 @@ Multiple characters may map to a single character glyph.
 <glossentry>
   <glossterm><function>Character set</function></glossterm>
   <glossdef>
-<!-- .IN "Character set" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Character set</primary></indexterm>
     <para>
 A collection of characters.
 <!-- .KE -->
@@ -224,7 +224,7 @@ A collection of characters.
 <glossentry>
   <glossterm><function>Charset</function></glossterm>
   <glossdef>
-<!-- .IN "Charset" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Charset</primary></indexterm>
     <para>
 An encoding with a uniform, state-independent mapping from characters 
 to codepoints.
@@ -251,7 +251,7 @@ for example, ISO8859-1.
 <glossentry>
   <glossterm><function>Children</function></glossterm>
   <glossdef>
-<!-- .IN "Children" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Children</primary></indexterm>
     <para>
 The children of a window are its first-level subwindows.
 <!-- .KE -->
@@ -261,7 +261,7 @@ The children of a window are its first-level subwindows.
 <glossentry>
   <glossterm><function>Class</function></glossterm>
   <glossdef>
-<!-- .IN "Class" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Class</primary></indexterm>
     <para>
 Windows can be of different classes or types.
 See the entries for
@@ -276,7 +276,7 @@ windows for further information about valid window types.
 <glossentry>
   <glossterm><function>Client</function></glossterm>
   <glossdef>
-<!-- .IN "Client" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Client</primary></indexterm>
     <para>
 An application program connects to the window system server by some
 interprocess communication (IPC) path, such as a TCP connection or a
@@ -295,7 +295,7 @@ connection lifetimes, not by program lifetimes.
 <glossentry>
   <glossterm><function>Clipping region</function></glossterm>
   <glossdef>
-<!-- .IN "Clipping region" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Clipping region</primary></indexterm>
     <para>
 In a graphics context, 
 a bitmap or list of rectangles can be specified
@@ -308,7 +308,7 @@ The image defined by the bitmap or rectangles is called a clipping region.
 <glossentry>
   <glossterm><function>Coded character</function></glossterm>
   <glossdef>
-<!-- .IN "Coded character" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Coded character</primary></indexterm>
     <para>
 A character bound to a codepoint.
 <!-- .KE -->
@@ -318,7 +318,7 @@ A character bound to a codepoint.
 <glossentry>
   <glossterm><function>Coded character set</function></glossterm>
   <glossdef>
-<!-- .IN "Coded character set" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Coded character set</primary></indexterm>
     <para>
 A set of unambiguous rules that establishes a character set 
 and the one-to-one relationship between each character of the set 
@@ -333,7 +333,7 @@ codepoints.
 <glossentry>
   <glossterm><function>Codepoint</function></glossterm>
   <glossdef>
-<!-- .IN "Codepoint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Codepoint</primary></indexterm>
     <para>
 The coded representation of a single character in a coded character set.
 <!-- .KE -->
@@ -343,7 +343,7 @@ The coded representation of a single character in a coded character set.
 <glossentry>
   <glossterm><function>Colormap</function></glossterm>
   <glossdef>
-<!-- .IN "Colormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Colormap</primary></indexterm>
     <para>
 A colormap consists of a set of entries defining color values.
 The colormap associated with a window is used to display the contents of
@@ -359,7 +359,7 @@ that windows associated with those maps display with true colors.
 <glossentry>
   <glossterm><function>Connection</function></glossterm>
   <glossdef>
-<!-- .IN "Connection" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Connection</primary></indexterm>
     <para>
 The IPC path between the server and client program is known as a connection.
 A client program typically (but not necessarily) has one
@@ -371,7 +371,7 @@ connection to the server over which requests and events are sent.
 <glossentry>
   <glossterm><function>Containment</function></glossterm>
   <glossdef>
-<!-- .IN "Containment" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Containment</primary></indexterm>
     <para>
 A window contains the pointer if the window is viewable and the
 hotspot of the cursor is within a visible region of the window or a
@@ -386,7 +386,7 @@ but no inferior contains the pointer.
 <glossentry>
   <glossterm><function>Coordinate system</function></glossterm>
   <glossdef>
-<!-- .IN "Coordinate system" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Coordinate system</primary></indexterm>
     <para>
 The coordinate system has X horizontal and Y vertical, 
 with the origin [0, 0] at the upper left.  
@@ -401,7 +401,7 @@ the origin is inside the border at the inside upper-left corner.
 <glossentry>
   <glossterm><function>Cursor</function></glossterm>
   <glossdef>
-<!-- .IN "Cursor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Cursor</primary></indexterm>
     <para>
 A cursor is the visible shape of the pointer on a screen.  
 It consists of a hotspot, a source bitmap, a shape bitmap, 
@@ -415,7 +415,7 @@ appearance when the pointer is in that window.
 <glossentry>
   <glossterm><function>Depth</function></glossterm>
   <glossdef>
-<!-- .IN "Depth" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Depth</primary></indexterm>
     <para>
 The depth of a window or pixmap is the number of bits per pixel it has.
 The depth of a graphics context is the depth of the drawables it can be
@@ -427,7 +427,7 @@ used in conjunction with graphics output.
 <glossentry>
   <glossterm><function>Device</function></glossterm>
   <glossdef>
-<!-- .IN "Device" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Device</primary></indexterm>
     <para>
 Keyboards, mice, tablets, track-balls, button boxes, and so on are all
 collectively known as input devices.
@@ -442,7 +442,7 @@ and the pointer.
 <glossentry>
   <glossterm><function>DirectColor</function></glossterm>
   <glossdef>
-<!-- .IN "DirectColor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DirectColor</primary></indexterm>
     <para>
 <function>DirectColor</function>
 is a class of colormap in which a pixel value is decomposed into three
@@ -459,12 +459,12 @@ changed dynamically.
 <glossentry>
   <glossterm><function>Display</function></glossterm>
   <glossdef>
-<!-- .IN "Display" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Display</primary></indexterm>
     <para>
 A server, together with its screens and input devices, is called a display.
 The Xlib
 <function>Display</function>
-<!-- .IN "Display" "structure" -->
+<indexterm><primary>Display</primary><secondary>structure</secondary></indexterm>
 structure contains all information about the particular display and its screens
 as well as the state that Xlib needs to communicate with the display over a
 particular connection.
@@ -475,7 +475,7 @@ particular connection.
 <glossentry>
   <glossterm><function>Drawable</function></glossterm>
   <glossdef>
-<!-- .IN "Drawable" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Drawable</primary></indexterm>
     <para>
 Both windows and pixmaps can be used as sources and destinations 
 in graphics operations.  
@@ -491,7 +491,7 @@ graphics operation.
 <glossentry>
   <glossterm><function>Encoding</function></glossterm>
   <glossdef>
-<!-- .IN "Encoding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Encoding</primary></indexterm>
     <para>
 A set of unambiguous rules that establishes a character set 
 and a relationship between the characters and their representations.
@@ -521,7 +521,7 @@ Character Set.
 <glossentry>
   <glossterm><function>Escapement</function></glossterm>
   <glossdef>
-<!-- .IN "Escapement" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Escapement</primary></indexterm>
     <para>
 The escapement of a string is the distance in pixels in the
 primary draw direction from the drawing origin to the origin of the next
@@ -533,7 +533,7 @@ character (that is, the one following the given string) to be drawn.
 <glossentry>
   <glossterm><function>Event</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary></indexterm>
     <para>
 Clients are informed of information asynchronously by means of events.
 These events can be either asynchronously generated from devices or
@@ -550,7 +550,7 @@ Events are typically reported relative to a window.
 <glossentry>
   <glossterm><function>Event mask</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "mask" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary><secondary>mask</secondary></indexterm>
     <para>
 Events are requested relative to a window.  
 The set of event types a client requests relative to a window is described 
@@ -562,7 +562,7 @@ by using an event mask.
 <glossentry>
   <glossterm><function>Event propagation</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "propagation" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary><secondary>propagation</secondary></indexterm>
     <para>
 Device-related events propagate from the source window to ancestor
 windows until some client has expressed interest in handling that type
@@ -574,7 +574,7 @@ of event or until the event is discarded explicitly.
 <glossentry>
   <glossterm><function>Event source</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "source" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary><secondary>source</secondary></indexterm>
     <para>
 The deepest viewable window that the pointer is in is called
 the source of a device-related event.
@@ -585,7 +585,7 @@ the source of a device-related event.
 <glossentry>
   <glossterm><function>Event synchronization</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "synchronization" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary><secondary>synchronization</secondary></indexterm>
     <para>
 There are certain race conditions possible when demultiplexing device
 events to clients (in particular, deciding where pointer and keyboard
@@ -600,7 +600,7 @@ device events.
 <glossentry>
   <glossterm><function>Exposure event</function></glossterm>
   <glossdef>
-<!-- .IN "Event" "Exposure" "@DEF@" -->
+<indexterm significance="preferred"><primary>Event</primary><secondary>Exposure</secondary></indexterm>
     <para>
 Servers do not guarantee to preserve the contents of windows when
 windows are obscured or reconfigured.  
@@ -613,7 +613,7 @@ of windows have been lost.
 <glossentry>
   <glossterm><function>Extension</function></glossterm>
   <glossdef>
-<!-- .IN "Extension" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Extension</primary></indexterm>
     <para>
 Named extensions to the core protocol can be defined to extend the system.  
 Extensions to output requests, resources, and event types are all possible
@@ -625,7 +625,7 @@ and expected.
 <glossentry>
   <glossterm><function>Font</function></glossterm>
   <glossdef>
-<!-- .IN "Font" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Font</primary></indexterm>
     <para>
 A font is an array of glyphs (typically characters).  
 The protocol does no translation or interpretation of character sets.  
@@ -639,7 +639,7 @@ and interline spacing.
 <glossentry>
   <glossterm><function>Font glyph</function></glossterm>
   <glossdef>
-<!-- .IN "Font glyph" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Font glyph</primary></indexterm>
     <para>
 The abstract graphical symbol for an index into a font.
 <!-- .KE -->
@@ -649,7 +649,7 @@ The abstract graphical symbol for an index into a font.
 <glossentry>
   <glossterm><function>Frozen events</function></glossterm>
   <glossdef>
-<!-- .IN "Frozen events" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Frozen events</primary></indexterm>
     <para>
 Clients can freeze event processing during keyboard and pointer grabs.
 <!-- .KE -->
@@ -659,7 +659,7 @@ Clients can freeze event processing during keyboard and pointer grabs.
 <glossentry>
   <glossterm><function>GC</function></glossterm>
   <glossdef>
-<!-- .IN "GC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>GC</primary></indexterm>
     <para>
 GC is an abbreviation for graphics context.
 See <function>Graphics context</function>.
@@ -670,7 +670,7 @@ See <function>Graphics context</function>.
 <glossentry>
   <glossterm><function>Glyph</function></glossterm>
   <glossdef>
-<!-- .IN "Glyph" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Glyph</primary></indexterm>
     <para>
 An identified abstract graphical symbol independent of any actual image.
 (ISO/IEC/DIS 9541-1)
@@ -683,7 +683,7 @@ not bound to a codepoint.
 <glossentry>
   <glossterm><function>Glyph image</function></glossterm>
   <glossdef>
-<!-- .IN "Glyph image" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Glyph image</primary></indexterm>
     <para>
 An image of a glyph, as obtained from a glyph representation displayed 
 on a presentation surface.
@@ -695,7 +695,7 @@ on a presentation surface.
 <glossentry>
   <glossterm><function>Grab</function></glossterm>
   <glossdef>
-<!-- .IN "Grab" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Grab</primary></indexterm>
     <para>
 Keyboard keys, the keyboard, pointer buttons, the pointer, 
 and the server can be grabbed for exclusive use by a client.  
@@ -710,7 +710,7 @@ styles of user interfaces.
 <glossentry>
   <glossterm><function>Graphics context</function></glossterm>
   <glossdef>
-<!-- .IN "Graphics context" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Graphics context</primary></indexterm>
     <para>
 Various information for graphics output is stored in a graphics
 context (GC), such as foreground pixel, background
@@ -725,7 +725,7 @@ the graphics context.
 <glossentry>
   <glossterm><function>Gravity</function></glossterm>
   <glossdef>
-<!-- .IN "Gravity" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Gravity</primary></indexterm>
     <para>
 The contents of windows and windows themselves have a gravity,
 which determines how the contents move when a window is resized.
@@ -737,7 +737,7 @@ See <function>Bit gravity</function> and <function>Window gravity</function>.
 <glossentry>
   <glossterm><function>GrayScale</function></glossterm>
   <glossdef>
-<!-- .IN "GrayScale" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>GrayScale</primary></indexterm>
     <para>
 <function>GrayScale </function>
 can be viewed as a degenerate case of 
@@ -752,7 +752,7 @@ The gray values can be changed dynamically.
 <glossentry>
   <glossterm><function>Host Portable Character Encoding</function></glossterm>
   <glossdef>
-<!-- .IN "Host Portable Character Encoding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Host Portable Character Encoding</primary></indexterm>
     <para>
 The encoding of the X Portable Character Set on the host.
 The encoding itself is not defined by this standard,
@@ -767,7 +767,7 @@ in the host encoding.
 <glossentry>
   <glossterm><function>Hotspot</function></glossterm>
   <glossdef>
-<!-- .IN "Hotspot" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Hotspot</primary></indexterm>
     <para>
 A cursor has an associated hotspot, which defines the point in the
 cursor corresponding to the coordinates reported for the pointer.
@@ -778,7 +778,7 @@ cursor corresponding to the coordinates reported for the pointer.
 <glossentry>
   <glossterm><function>Identifier</function></glossterm>
   <glossdef>
-<!-- .IN "Identifier" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Identifier</primary></indexterm>
     <para>
 An identifier is a unique value associated with a resource
 that clients use to name that resource.  
@@ -790,7 +790,7 @@ The identifier can be used over any connection to name the resource.
 <glossentry>
   <glossterm><function>Inferiors</function></glossterm>
   <glossdef>
-<!-- .IN "Inferiors" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Inferiors</primary></indexterm>
     <para>
 The inferiors of a window are all of the subwindows nested below it:
 the children, the children's children, and so on.
@@ -801,7 +801,7 @@ the children, the children's children, and so on.
 <glossentry>
   <glossterm><function>Input focus</function></glossterm>
   <glossdef>
-<!-- .IN "Input" "focus" "@DEF@" -->
+<indexterm significance="preferred"><primary>Input</primary><secondary>focus</secondary></indexterm>
     <para>
 The input focus is usually a window defining the scope for processing
 of keyboard input.
@@ -819,7 +819,7 @@ of whatever screen the pointer is on at each keyboard event.
 <glossentry>
   <glossterm><function>Input manager</function></glossterm>
   <glossdef>
-<!-- .IN "Input" "manager" "@DEF@" -->
+<indexterm significance="preferred"><primary>Input</primary><secondary>manager</secondary></indexterm>
     <para>
 Control over keyboard input is typically provided by an input manager 
 client, which usually is part of a window manager.
@@ -830,7 +830,7 @@ client, which usually is part of a window manager.
 <glossentry>
   <glossterm><function>InputOnly window</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "InputOnly" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>InputOnly</secondary></indexterm>
     <para>
 An
 <function>InputOnly</function>
@@ -849,7 +849,7 @@ windows as inferiors.
 <glossentry>
   <glossterm><function>InputOutput window</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "InputOutput" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>InputOutput</secondary></indexterm>
     <para>
 An
 <function>InputOutput</function>
@@ -867,7 +867,7 @@ windows as inferiors.
 <glossentry>
   <glossterm><function>Internationalization</function></glossterm>
   <glossdef>
-<!-- .IN "Internationalization" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Internationalization</primary></indexterm>
     <para>
 The process of making software adaptable to the requirements
 of different native languages, local customs, and character string encodings.
@@ -880,7 +880,7 @@ without program source modifications or recompilation.
 <glossentry>
   <glossterm><function>ISO2022</function></glossterm>
   <glossdef>
-<!-- .IN "ISO2022" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ISO2022</primary></indexterm>
     <para>
 ISO standard for code extension techniques for 7-bit and 8-bit coded 
 character sets.
@@ -891,7 +891,7 @@ character sets.
 <glossentry>
   <glossterm><function>Key grabbing</function></glossterm>
   <glossdef>
-<!-- .IN "Key" "grabbing" "@DEF@" -->
+<indexterm significance="preferred"><primary>Key</primary><secondary>grabbing</secondary></indexterm>
     <para>
 Keys on the keyboard can be passively grabbed by a client.  
 When the key is pressed, 
@@ -903,7 +903,7 @@ the keyboard is then actively grabbed by the client.
 <glossentry>
   <glossterm><function>Keyboard grabbing</function></glossterm>
   <glossdef>
-<!-- .IN "Keyboard" "grabbing" "@DEF@" -->
+<indexterm significance="preferred"><primary>Keyboard</primary><secondary>grabbing</secondary></indexterm>
     <para>
 A client can actively grab control of the keyboard, and key events
 will be sent to that client rather than the client the events would
@@ -915,7 +915,7 @@ normally have been sent to.
 <glossentry>
   <glossterm><function>Keysym</function></glossterm>
   <glossdef>
-<!-- .IN "Keysym" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Keysym</primary></indexterm>
     <para>
 An encoding of a symbol on a keycap on a keyboard.
 <!-- .KE -->
@@ -925,7 +925,7 @@ An encoding of a symbol on a keycap on a keyboard.
 <glossentry>
   <glossterm><function>Latin-1</function></glossterm>
   <glossdef>
-<!-- .IN "Latin-1" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Latin-1</primary></indexterm>
     <para>
 The coded character set defined by the ISO8859-1 standard.
 <!-- .KE -->
@@ -935,7 +935,7 @@ The coded character set defined by the ISO8859-1 standard.
 <glossentry>
   <glossterm><function>Latin Portable Character Encoding</function></glossterm>
   <glossdef>
-<!-- .IN "Latin Portable Character Encoding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Latin Portable Character Encoding</primary></indexterm>
     <para>
 The encoding of the X Portable Character Set using the Latin-1 codepoints
 plus ASCII control characters.
@@ -949,7 +949,7 @@ not all of Latin-1.
 <glossentry>
   <glossterm><function>Locale</function></glossterm>
   <glossdef>
-<!-- .IN "Locale" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Locale</primary></indexterm>
     <para>
 The international environment of a computer program defining the ``localized''
 behavior of that program at run-time.
@@ -984,7 +984,7 @@ Encoding and decoding for inter-client text communication
 <glossentry>
   <glossterm><function>Locale name</function></glossterm>
   <glossdef>
-<!-- .IN "Locale name" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Locale name</primary></indexterm>
     <para>
 The identifier used to select the desired locale for the host C library 
 and X library functions.
@@ -999,7 +999,7 @@ function.
 <glossentry>
   <glossterm><function>Localization</function></glossterm>
   <glossdef>
-<!-- .IN "Localization" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Localization</primary></indexterm>
     <para>
 The process of establishing information within a computer system specific 
 to the operation of particular native languages, local customs 
@@ -1012,7 +1012,7 @@ and coded character sets.
 <glossentry>
   <glossterm><function>Mapped</function></glossterm>
   <glossdef>
-<!-- .IN "Mapped window" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Mapped window</primary></indexterm>
     <para>
 A window is said to be mapped if a map call has been performed on it.
 Unmapped windows and their inferiors are never viewable or visible.
@@ -1023,7 +1023,7 @@ Unmapped windows and their inferiors are never viewable or visible.
 <glossentry>
   <glossterm><function>Modifier keys</function></glossterm>
   <glossdef>
-<!-- .IN "Modifier keys" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Modifier keys</primary></indexterm>
     <para>
 Shift, Control, Meta, Super, Hyper, Alt, Compose, Apple, CapsLock,
 ShiftLock, and similar keys are called modifier keys.
@@ -1034,7 +1034,7 @@ ShiftLock, and similar keys are called modifier keys.
 <glossentry>
   <glossterm><function>Monochrome</function></glossterm>
   <glossdef>
-<!-- .IN "Monochrome" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Monochrome</primary></indexterm>
     <para>
 Monochrome is a special case of 
 <function>StaticGray</function>
@@ -1046,7 +1046,7 @@ in which there are only two colormap entries.
 <glossentry>
   <glossterm><function>Multibyte</function></glossterm>
   <glossdef>
-<!-- .IN "Multibyte" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Multibyte</primary></indexterm>
     <para>
 A character whose codepoint is stored in more than one byte;
 any encoding which can contain multibyte characters;
@@ -1061,7 +1061,7 @@ imply only that the strings <emphasis remap='I'>may</emphasis> contain multibyte
 <glossentry>
   <glossterm><function>Obscure</function></glossterm>
   <glossdef>
-<!-- .IN "Obscure" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Obscure</primary></indexterm>
     <para>
 A window is obscured if some other window obscures it.
 A window can be partially obscured and so still have visible regions.
@@ -1079,7 +1079,7 @@ Also note that window borders are included in the calculation.
 <glossentry>
   <glossterm><function>Occlude</function></glossterm>
   <glossdef>
-<!-- .IN "Occlude" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Occlude</primary></indexterm>
     <para>
 A window is occluded if some other window occludes it.
 Window A occludes window B if both are mapped, 
@@ -1098,7 +1098,7 @@ windows never obscure other windows but can occlude other windows.
 <glossentry>
   <glossterm><function>Padding</function></glossterm>
   <glossdef>
-<!-- .IN "Padding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Padding</primary></indexterm>
     <para>
 Some padding bytes are inserted in the data stream to maintain
 alignment of the protocol requests on natural boundaries.  
@@ -1110,7 +1110,7 @@ This increases ease of portability to some machine architectures.
 <glossentry>
   <glossterm><function>Parent window</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "parent" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>parent</secondary></indexterm>
     <para>
 If C is a child of P, then P is the parent of C.
 <!-- .KE -->
@@ -1120,7 +1120,7 @@ If C is a child of P, then P is the parent of C.
 <glossentry>
   <glossterm><function>Passive grab</function></glossterm>
   <glossdef>
-<!-- .IN "Passive grab" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Passive grab</primary></indexterm>
     <para>
 Grabbing a key or button is a passive grab.  
 The grab activates when the key or button is actually pressed.
@@ -1131,7 +1131,7 @@ The grab activates when the key or button is actually pressed.
 <glossentry>
   <glossterm><function>Pixel value</function></glossterm>
   <glossdef>
-<!-- .IN "Pixel value" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Pixel value</primary></indexterm>
     <para>
 A pixel is an N-bit value,
 where N is the number of bit planes used in a particular window or pixmap
@@ -1145,7 +1145,7 @@ displayed.
 <glossentry>
   <glossterm><function>Pixmap</function></glossterm>
   <glossdef>
-<!-- .IN "Pixmap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Pixmap</primary></indexterm>
 <!-- .EQ -->
 <!-- .EN -->
     <para>
@@ -1162,7 +1162,7 @@ A pixmap can only be used on the screen that it was created in.
 <glossentry>
   <glossterm><function>Plane</function></glossterm>
   <glossdef>
-<!-- .IN "Plane" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Plane</primary></indexterm>
     <para>
 When a pixmap or window is thought of as a stack of bitmaps, each
 bitmap is called a plane or bit plane.
@@ -1173,7 +1173,7 @@ bitmap is called a plane or bit plane.
 <glossentry>
   <glossterm><function>Plane mask</function></glossterm>
   <glossdef>
-<!-- .IN "Plane" "mask" "@DEF@" -->
+<indexterm significance="preferred"><primary>Plane</primary><secondary>mask</secondary></indexterm>
     <para>
 Graphics operations can be restricted to only affect a subset of bit
 planes of a destination.  
@@ -1186,7 +1186,7 @@ The plane mask is stored in a graphics context.
 <glossentry>
   <glossterm><function>Pointer</function></glossterm>
   <glossdef>
-<!-- .IN "Pointer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Pointer</primary></indexterm>
     <para>
 The pointer is the pointing device currently attached to the cursor
 and tracked on the screens.
@@ -1197,7 +1197,7 @@ and tracked on the screens.
 <glossentry>
   <glossterm><function>Pointer grabbing</function></glossterm>
   <glossdef>
-<!-- .IN "Pointer" "grabbing" "@DEF@" -->
+<indexterm significance="preferred"><primary>Pointer</primary><secondary>grabbing</secondary></indexterm>
     <para>
 A client can actively grab control of the pointer. 
 Then button and motion events will be sent to that client 
@@ -1209,7 +1209,7 @@ rather than the client the events would normally have been sent to.
 <glossentry>
   <glossterm><function>Pointing device</function></glossterm>
   <glossdef>
-<!-- .IN "Pointing device"  "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Pointing device</primary></indexterm>
     <para>
 A pointing device is typically a mouse, tablet, or some other
 device with effective dimensional motion.  
@@ -1222,7 +1222,7 @@ which tracks whatever pointing device is attached as the pointer.
 <glossentry>
   <glossterm><function>POSIX</function></glossterm>
   <glossdef>
-<!-- .IN "POSIX" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>POSIX</primary></indexterm>
     <para>
 Portable Operating System Interface, ISO/IEC 9945-1 (IEEE Std 1003.1).
 <!-- .KE -->
@@ -1232,7 +1232,7 @@ Portable Operating System Interface, ISO/IEC 9945-1 (IEEE Std 1003.1).
 <glossentry>
   <glossterm><function>POSIX Portable Filename Character Set</function></glossterm>
   <glossdef>
-<!-- .IN "POSIX Portable Filename Character Set" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>POSIX Portable Filename Character Set</primary></indexterm>
     <para>
 The set of 65 characters which can be used in naming files on a POSIX-compliant
 host that are correctly processed in all locales.
@@ -1249,7 +1249,7 @@ a..z A..Z 0..9 ._-
 <glossentry>
   <glossterm><function>Property</function></glossterm>
   <glossdef>
-<!-- .IN "Property" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Property</primary></indexterm>
     <para>
 Windows can have associated properties that consist of a name, a type,
 a data format, and some data. 
@@ -1264,7 +1264,7 @@ hints, program names, and icon formats with a window manager.
 <glossentry>
   <glossterm><function>Property list</function></glossterm>
   <glossdef>
-<!-- .IN "Property list" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Property list</primary></indexterm>
     <para>
 The property list of a window is the list of properties that have
 been defined for the window.
@@ -1275,7 +1275,7 @@ been defined for the window.
 <glossentry>
   <glossterm><function>PseudoColor</function></glossterm>
   <glossdef>
-<!-- .IN "PseudoColor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>PseudoColor</primary></indexterm>
     <para>
 <function>PseudoColor</function>
 is a class of colormap in which a pixel value indexes the colormap entry to
@@ -1289,7 +1289,7 @@ The RGB values can be changed dynamically.
 <glossentry>
   <glossterm><function>Rectangle</function></glossterm>
   <glossdef>
-<!-- .IN "Rectangle" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Rectangle</primary></indexterm>
     <para>
 A rectangle specified by [x,y,w,h] has an infinitely thin
 outline path with corners at [x,y], [x+w,y], [x+w,y+h], and [x, y+h].
@@ -1307,7 +1307,7 @@ a single pixel would be drawn.
 <glossentry>
   <glossterm><function>Redirecting control</function></glossterm>
   <glossdef>
-<!-- .IN "Redirecting control" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Redirecting control</primary></indexterm>
     <para>
 Window managers (or client programs) may enforce window layout
 policy in various ways.  
@@ -1321,7 +1321,7 @@ rather than the operation actually being performed.
 <glossentry>
   <glossterm><function>Reply</function></glossterm>
   <glossdef>
-<!-- .IN "Reply" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Reply</primary></indexterm>
     <para>
 Information requested by a client program using the X protocol 
 is sent back to the client with a reply.
@@ -1335,7 +1335,7 @@ but some requests generate multiple replies.
 <glossentry>
   <glossterm><function>Request</function></glossterm>
   <glossdef>
-<!-- .IN "Request" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Request</primary></indexterm>
     <para>
 A command to the server is called a request.
 It is a single block of data sent over a connection.
@@ -1346,7 +1346,7 @@ It is a single block of data sent over a connection.
 <glossentry>
   <glossterm><function>Resource</function></glossterm>
   <glossdef>
-<!-- .IN "Resource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Resource</primary></indexterm>
     <para>
 Windows, pixmaps, cursors, fonts, graphics contexts, and colormaps are
 known as resources.  
@@ -1360,7 +1360,7 @@ connection over which the resource was created.
 <glossentry>
   <glossterm><function>RGB values</function></glossterm>
   <glossdef>
-<!-- .IN "RGB values" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>RGB values</primary></indexterm>
     <para>
 RGB values are the red, green, and blue intensity values that are used
 to define a color.
@@ -1374,7 +1374,7 @@ The X server scales these values to match the display hardware.
 <glossentry>
   <glossterm><function>Root</function></glossterm>
   <glossdef>
-<!-- .IN "Root" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Root</primary></indexterm>
     <para>
 The root of a pixmap or graphics context is the same as the root 
 of whatever drawable was used when the pixmap or GC was created.  
@@ -1386,7 +1386,7 @@ The root of a window is the root window under which the window was created.
 <glossentry>
   <glossterm><function>Root window</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "root" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>root</secondary></indexterm>
     <para>
 Each screen has a root window covering it.
 The root window cannot be reconfigured or unmapped, 
@@ -1399,7 +1399,7 @@ A root window has no parent.
 <glossentry>
   <glossterm><function>Save set</function></glossterm>
   <glossdef>
-<!-- .IN "Save set" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Save set</primary></indexterm>
     <para>
 The save set of a client is a list of other clients' windows that,
 if they are inferiors of one of the client's windows at connection
@@ -1414,7 +1414,7 @@ lost windows if the manager should terminate abnormally.
 <glossentry>
   <glossterm><function>Scanline</function></glossterm>
   <glossdef>
-<!-- .IN "Scanline" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Scanline</primary></indexterm>
     <para>
 A scanline is a list of pixel or bit values viewed as a horizontal
 row (all values having the same y coordinate) of an image, with the
@@ -1426,7 +1426,7 @@ values ordered by increasing the x coordinate.
 <glossentry>
   <glossterm><function>Scanline order</function></glossterm>
   <glossdef>
-<!-- .IN "Scanline" "order" "@DEF@" -->
+<indexterm significance="preferred"><primary>Scanline</primary><secondary>order</secondary></indexterm>
     <para>
 An image represented in scanline order contains scanlines ordered by
 increasing the y coordinate.
@@ -1437,7 +1437,7 @@ increasing the y coordinate.
 <glossentry>
   <glossterm><function>Screen</function></glossterm>
   <glossdef>
-<!-- .IN "Screen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Screen</primary></indexterm>
     <para>
 A server can provide several independent screens, 
 which typically have physically independent monitors.  
@@ -1445,11 +1445,11 @@ This would be the expected configuration when there is only a single keyboard
 and pointer shared among the screens.
 A 
 <function>Screen </function>
-<!-- .IN "Screen" "structure" -->
+<indexterm><primary>Screen</primary><secondary>structure</secondary></indexterm>
 structure contains the information about that screen
 and is linked to the 
 <function>Display</function>
-<!-- .IN "Display" "structure" -->
+<indexterm><primary>Display</primary><secondary>structure</secondary></indexterm>
 structure.
 <!-- .KE -->
     </para>
@@ -1458,7 +1458,7 @@ structure.
 <glossentry>
   <glossterm><function>Selection</function></glossterm>
   <glossdef>
-<!-- .IN "Selection" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Selection</primary></indexterm>
     <para>
 A selection can be thought of as an indirect property with dynamic
 type.
@@ -1492,7 +1492,7 @@ The protocol does not constrain the semantics.
 <glossentry>
   <glossterm><function>Server</function></glossterm>
   <glossdef>
-<!-- .IN "Server" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Server</primary></indexterm>
     <para>
 The server, which is also referred to as the X server, 
 provides the basic windowing mechanism.  
@@ -1506,7 +1506,7 @@ and demultiplexes input back to the appropriate clients.
 <glossentry>
   <glossterm><function>Server grabbing</function></glossterm>
   <glossdef>
-<!-- .IN "Server" "grabbing" "@DEF@" -->
+<indexterm significance="preferred"><primary>Server</primary><secondary>grabbing</secondary></indexterm>
     <para>
 The server can be grabbed by a single client for exclusive use.  
 This prevents processing of any requests from other client connections until
@@ -1520,7 +1520,7 @@ pop-up menus, or executing requests indivisibly.
 <glossentry>
   <glossterm><function>Shift sequence</function></glossterm>
   <glossdef>
-<!-- .IN "Shift sequence" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Shift sequence</primary></indexterm>
     <para>
 ISO2022 defines control characters and escape sequences 
 which temporarily (single shift) or permanently (locking shift) cause a
@@ -1532,7 +1532,7 @@ different character set to be in effect (``invoking'' a character set).
 <glossentry>
   <glossterm><function>Sibling</function></glossterm>
   <glossdef>
-<!-- .IN "Sibling" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Sibling</primary></indexterm>
     <para>
 Children of the same parent window are known as sibling windows.
 <!-- .KE -->
@@ -1542,7 +1542,7 @@ Children of the same parent window are known as sibling windows.
 <glossentry>
   <glossterm><function>Stacking order</function></glossterm>
   <glossdef>
-<!-- .IN "Stacking order" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Stacking order</primary></indexterm>
     <para>
 Sibling windows, similar to sheets of paper on a desk,
 can stack on top of each other.  
@@ -1555,7 +1555,7 @@ The relationship between sibling windows is known as the stacking order.
 <glossentry>
   <glossterm><function>State-dependent encoding</function></glossterm>
   <glossdef>
-<!-- .IN "State-dependent encoding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>State-dependent encoding</primary></indexterm>
     <para>
 An encoding in which an invocation of a charset can apply to multiple
 characters in sequence.
@@ -1571,7 +1571,7 @@ this means use of locking shifts, not single shifts.
 <glossentry>
   <glossterm><function>State-independent encoding</function></glossterm>
   <glossdef>
-<!-- .IN "State-independent encoding" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>State-independent encoding</primary></indexterm>
     <para>
 Any encoding in which the invocations of the charsets are fixed,
 or span only a single character.
@@ -1584,7 +1584,7 @@ this means use of at most single shifts, not locking shifts.
 <glossentry>
   <glossterm><function>StaticColor</function></glossterm>
   <glossdef>
-<!-- .IN "StaticColor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>StaticColor</primary></indexterm>
     <para>
 <function>StaticColor </function>
 can be viewed as a degenerate case of 
@@ -1597,7 +1597,7 @@ in which the RGB values are predefined and read-only.
 <glossentry>
   <glossterm><function>StaticGray</function></glossterm>
   <glossdef>
-<!-- .IN "StaticGray" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>StaticGray</primary></indexterm>
     <para>
 <function>StaticGray </function>
 can be viewed as a degenerate case of 
@@ -1611,7 +1611,7 @@ The values are typically linear or near-linear increasing ramps.
 <glossentry>
   <glossterm><function>Status</function></glossterm>
   <glossdef>
-<!-- .IN "Status" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Status</primary></indexterm>
     <para>
 Many Xlib functions return a success status.
 If the function does not succeed,
@@ -1623,7 +1623,7 @@ however, its arguments are not disturbed.
 <glossentry>
   <glossterm><function>Stipple</function></glossterm>
   <glossdef>
-<!-- .IN "Stipple" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Stipple</primary></indexterm>
     <para>
 A stipple pattern is a bitmap that is used to tile a region to serve
 as an additional clip mask for a fill operation with the foreground
@@ -1644,7 +1644,7 @@ Latin-1, plus tab and newline.
   <glossterm><function>String Equivalence</function></glossterm>
   <glossdef>
     <para>
-<!-- .IN "String Equivalence" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>String Equivalence</primary></indexterm>
 Two ISO Latin-1 STRING8 values are considered equal if they are the same
 length and if corresponding bytes are either equal or are equivalent as
 follows:  decimal values 65 to 90 inclusive (characters ``A'' to ``Z'') are
@@ -1662,7 +1662,7 @@ are pairwise equivalent to decimal values 246 to 254 inclusive
 <glossentry>
   <glossterm><function>Tile</function></glossterm>
   <glossdef>
-<!-- .IN "Tile" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Tile</primary></indexterm>
     <para>
 A pixmap can be replicated in two dimensions to tile a region.  
 The pixmap itself is also known as a tile.
@@ -1673,7 +1673,7 @@ The pixmap itself is also known as a tile.
 <glossentry>
   <glossterm><function>Timestamp</function></glossterm>
   <glossdef>
-<!-- .IN "Timestamp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Timestamp</primary></indexterm>
     <para>
 A timestamp is a time value expressed in milliseconds. 
 It is typically the time since the last server reset.
@@ -1693,7 +1693,7 @@ This value is reserved for use in requests to represent the current server time.
 <glossentry>
   <glossterm><function>TrueColor</function></glossterm>
   <glossdef>
-<!-- .IN "TrueColor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>TrueColor</primary></indexterm>
     <para>
 <function>TrueColor</function>
 can be viewed as a degenerate case of 
@@ -1709,7 +1709,7 @@ The values are typically linear or near-linear increasing ramps.
 <glossentry>
   <glossterm><function>Type</function></glossterm>
   <glossdef>
-<!-- .IN "Type" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Type</primary></indexterm>
     <para>
 A type is an arbitrary atom used to identify the interpretation of property 
 data.  
@@ -1724,7 +1724,7 @@ and clients also can define new types.
 <glossentry>
   <glossterm><function>Viewable</function></glossterm>
   <glossdef>
-<!-- .IN "Viewable" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Viewable</primary></indexterm>
     <para>
 A window is viewable if it and all of its ancestors are mapped.  
 This does not imply that any portion of the window is actually visible.
@@ -1738,7 +1738,7 @@ backing store.
 <glossentry>
   <glossterm><function>Visible</function></glossterm>
   <glossdef>
-<!-- .IN "Visible" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Visible</primary></indexterm>
     <para>
 A region of a window is visible if someone looking at the screen can
 actually see it; that is, the window is viewable and the region is not occluded
@@ -1750,7 +1750,7 @@ by any other window.
 <glossentry>
   <glossterm><function>Whitespace</function></glossterm>
   <glossdef>
-<!-- .IN "Whitespace" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Whitespace</primary></indexterm>
     <para>
 Any spacing character.
 On implementations that conform to the ANSI C library,
@@ -1764,7 +1764,7 @@ returns true.
 <glossentry>
   <glossterm><function>Window gravity</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "gravity" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>gravity</secondary></indexterm>
     <para>
 When windows are resized, 
 subwindows may be repositioned automatically relative to some position in the 
@@ -1778,7 +1778,7 @@ as window gravity.
 <glossentry>
   <glossterm><function>Window manager</function></glossterm>
   <glossdef>
-<!-- .IN "Window" "manager" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary><secondary>manager</secondary></indexterm>
     <para>
 Manipulation of windows on the screen and much of the user interface
 (policy) is typically provided by a window manager client.
@@ -1789,7 +1789,7 @@ Manipulation of windows on the screen and much of the user interface
 <glossentry>
   <glossterm><function>X Portable Character Set</function></glossterm>
   <glossdef>
-<!-- .IN "X Portable Character Set" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>X Portable Character Set</primary></indexterm>
     <para>
 A basic set of 97 characters which are assumed to exist in all
 locales supported by Xlib.  This set contains the following characters:
@@ -1821,7 +1821,7 @@ see the Host Portable Character Encoding.
 <glossentry>
   <glossterm><function>XLFD</function></glossterm>
   <glossdef>
-<!-- .IN "XLFD" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLFD</primary></indexterm>
     <para>
 The X Logical Font Description Conventions that define a standard syntax 
 for structured font names.
@@ -1832,7 +1832,7 @@ for structured font names.
 <glossentry>
   <glossterm><function>XY format</function></glossterm>
   <glossdef>
-<!-- .IN "XY format" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XY format</primary></indexterm>
     <para>
 The data for a pixmap is said to be in XY format if it is organized as
 a set of bitmaps representing individual bit planes with the planes
@@ -1844,7 +1844,7 @@ appearing from most-significant to least-significant bit order.
 <glossentry>
   <glossterm><function>Z format</function></glossterm>
   <glossdef>
-<!-- .IN "Z format" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Z format</primary></indexterm>
     <para>
 The data for a pixmap is said to be in Z format if it is organized as
 a set of pixel values in scanline order.

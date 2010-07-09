@@ -61,7 +61,7 @@ Use internal connections
 <!-- .LP -->
 To open a connection to the X server that controls a display, use
 <function>XOpenDisplay .</function>
-<!-- .IN "XOpenDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XOpenDisplay</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -85,7 +85,7 @@ Specifies the hardware display name, which determines the display
 and communications domain to be used.
 On a POSIX-conformant system, if the display_name is NULL, 
 it defaults to the value of the DISPLAY environment variable. 
-<!-- .IN "Environment" "DISPLAY" -->
+<indexterm><primary>Environment</primary><secondary>DISPLAY</secondary></indexterm>
     </para>
   </listitem>
   </varlistentry>
@@ -143,7 +143,7 @@ Specifies the number of the display server on that host machine.
 You may optionally follow this display number with a period (.).
 A single CPU can have more than one display.
 Multiple displays are usually numbered starting with zero.
-<!-- .IN "Screen" -->
+<indexterm><primary>Screen</primary></indexterm>
       </para>
     </listitem>
   </varlistentry>
@@ -190,8 +190,8 @@ about that X server.
 connects your application to the X server through TCP 
 or DECnet communications protocols,
 or through some local inter-process communication protocol.
-<!-- .IN "Protocol" "TCP" -->
-<!-- .IN "Protocol" "DECnet" -->
+<indexterm><primary>Protocol</primary><secondary>TCP</secondary></indexterm>
+<indexterm><primary>Protocol</primary><secondary>DECnet</secondary></indexterm>
 If the protocol is specified as "tcp", "inet", or "inet6", or
 if no protocol is specified and the hostname is a host machine name and a single colon (:)
 separates the hostname and display number,
@@ -212,7 +212,7 @@ mechanisms.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Display" -->
+<indexterm><primary>Display</primary></indexterm>
 If successful, 
 <function>XOpenDisplay </function>
 returns a pointer to a 
@@ -283,7 +283,7 @@ Screen information macros
 </itemizedlist>
 <para>
 <!-- .LP -->
-<!-- .IN "Display" "data structure"  -->
+<indexterm ><primary>Display</primary><secondary>data structure</secondary></indexterm>
 All other members of the 
 <function>Display </function>
 structure (that is, those for which no macros are defined) are private to Xlib 
@@ -332,8 +332,8 @@ and what data both can return.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "AllPlanes" "" "@DEF@" -->
-<!-- .IN "XAllPlanes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>AllPlanes</primary></indexterm>
+<indexterm significance="preferred"><primary>XAllPlanes</primary></indexterm>
 Both return a value with all bits set to 1 suitable for use in a plane argument to
 a procedure.
 </para>
@@ -388,8 +388,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "BlackPixel" "" "@DEF@" -->
-<!-- .IN "XBlackPixel" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>BlackPixel</primary></indexterm>
+<indexterm significance="preferred"><primary>XBlackPixel</primary></indexterm>
 Both return the black pixel value for the specified screen.
 </para>
 <para>
@@ -433,8 +433,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "WhitePixel" "" "@DEF@" -->
-<!-- .IN "XWhitePixel" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>WhitePixel</primary></indexterm>
+<indexterm significance="preferred"><primary>XWhitePixel</primary></indexterm>
 Both return the white pixel value for the specified screen. 
 </para>
 <para>
@@ -468,8 +468,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ConnectionNumber" "" "@DEF@" -->
-<!-- .IN "XConnectionNumber" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ConnectionNumber</primary></indexterm>
+<indexterm significance="preferred"><primary>XConnectionNumber</primary></indexterm>
 Both return a connection number for the specified display.
 On a POSIX-conformant system,
 this is the file descriptor of the connection.
@@ -515,8 +515,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultColormap" "" "@DEF@" -->
-<!-- .IN "XDefaultColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultColormap</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultColormap</primary></indexterm>
 Both return the default colormap ID for allocation on the specified screen.
 Most routine allocations of color should be made out of this colormap.
 </para>
@@ -561,8 +561,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultDepth" "" "@DEF@" -->
-<!-- .IN "XDefaultDepth" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultDepth</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultDepth</primary></indexterm>
 Both return the depth (number of planes) of the default root window for the
 specified screen.
 Other depths may also be supported on this screen (see
@@ -571,7 +571,7 @@ Other depths may also be supported on this screen (see
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XListDepths" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListDepths</primary></indexterm>
 To determine the number of depths that are available on a given screen, use
 <function>XListDepths .</function>
 <!-- .sM -->
@@ -677,8 +677,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultGC" "" "@DEF@" -->
-<!-- .IN "XDefaultGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultGC</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultGC</primary></indexterm>
 Both return the default graphics context for the root window of the 
 specified screen.
 This GC is created for the convenience of simple applications
@@ -719,8 +719,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultRootWindow" "" "@DEF@" -->
-<!-- .IN "XDefaultRootWindow" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultRootWindow</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultRootWindow</primary></indexterm>
 Both return the root window for the default screen.
 </para>
 <para>
@@ -753,8 +753,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultScreenOfDisplay" "" "@DEF@" -->
-<!-- .IN "XDefaultScreenOfDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultScreenOfDisplay</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultScreenOfDisplay</primary></indexterm>
 Both return a pointer to the default screen.
 </para>
 <para>
@@ -798,8 +798,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ScreenOfDisplay" "" "@DEF@" -->
-<!-- .IN "XScreenOfDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ScreenOfDisplay</primary></indexterm>
+<indexterm significance="preferred"><primary>XScreenOfDisplay</primary></indexterm>
 Both return a pointer to the indicated screen.
 </para>
 <para>
@@ -832,8 +832,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultScreen" "" "@DEF@" -->
-<!-- .IN "XDefaultScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultScreen</primary></indexterm>
 Both return the default screen number referenced by the 
 <function>XOpenDisplay</function>
 function. 
@@ -881,8 +881,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultVisual" "" "@DEF@" -->
-<!-- .IN "XDefaultVisual" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultVisual</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultVisual</primary></indexterm>
 Both return the default visual type for the specified screen.
 For further information about visual types,
 see section 3.1.
@@ -928,8 +928,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayCells" "" "@DEF@" -->
-<!-- .IN "XDisplayCells" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayCells</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayCells</primary></indexterm>
 Both return the number of entries in the default colormap.
 </para>
 <para>
@@ -973,8 +973,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayPlanes" "" "@DEF@" -->
-<!-- .IN "XDisplayPlanes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayPlanes</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayPlanes</primary></indexterm>
 Both return the depth of the root window of the specified screen.
 For an explanation of depth,
 see the glossary.
@@ -1009,15 +1009,15 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayString" "" "@DEF@" -->
-<!-- .IN "XDisplayString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayString</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayString</primary></indexterm>
 Both return the string that was passed to 
 <function>XOpenDisplay</function>
 when the current display was opened. 
 On POSIX-conformant systems, 
 if the passed string was NULL, these return the value of
 the DISPLAY environment variable when the current display was opened.
-<!-- .IN "POSIX System Call" "fork" -->
+<indexterm><primary>POSIX System Call</primary><secondary>fork</secondary></indexterm>
 These are useful to applications that invoke the 
 <function>fork</function>
 system call and want to open a new connection to the same display from the 
@@ -1053,7 +1053,7 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XExtendedMaxRequestSize" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XExtendedMaxRequestSize</primary></indexterm>
 The
 <function>XExtendedMaxRequestSize</function>
 function returns zero if the specified display does not support an
@@ -1110,7 +1110,7 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XMaxRequestSize" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMaxRequestSize</primary></indexterm>
 The
 <function>XMaxRequestSize</function>
 function returns the maximum request size (in 4-byte units) supported
@@ -1159,8 +1159,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "LastKnownRequestProcessed" "" "@DEF@" -->
-<!-- .IN "XLastKnownRequestProcessed" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>LastKnownRequestProcessed</primary></indexterm>
+<indexterm significance="preferred"><primary>XLastKnownRequestProcessed</primary></indexterm>
 Both extract the full serial number of the last request known by Xlib
 to have been processed by the X server.
 Xlib automatically sets this number when replies, events, and errors
@@ -1196,8 +1196,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "NextRequest" "" "@DEF@" -->
-<!-- .IN "XNextRequest" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>NextRequest</primary></indexterm>
+<indexterm significance="preferred"><primary>XNextRequest</primary></indexterm>
 Both extract the full serial number that is to be used for the next
 request.
 Serial numbers are maintained separately for each display connection.
@@ -1232,8 +1232,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ProtocolVersion" "" "@DEF@" -->
-<!-- .IN "XProtocolVersion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ProtocolVersion</primary></indexterm>
+<indexterm significance="preferred"><primary>XProtocolVersion</primary></indexterm>
 Both return the major version number (11) of the X protocol associated with 
 the connected display.
 </para>
@@ -1267,8 +1267,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ProtocolRevision" "" "@DEF@" -->
-<!-- .IN "XProtocolRevision" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ProtocolRevision</primary></indexterm>
+<indexterm significance="preferred"><primary>XProtocolRevision</primary></indexterm>
 Both return the minor protocol revision number of the X server.
 </para>
 <para>
@@ -1301,8 +1301,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "QLength" "" "@DEF@" -->
-<!-- .IN "XQLength" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>QLength</primary></indexterm>
+<indexterm significance="preferred"><primary>XQLength</primary></indexterm>
 Both return the length of the event queue for the connected display.
 Note that there may be more events that have not been read into
 the queue yet (see
@@ -1349,10 +1349,10 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "Window" "RootWindow" -->
-<!-- .IN "RootWindow" "" "@DEF@" -->
-<!-- .IN "Window" "XRootWindow" -->
-<!-- .IN "XRootWindow" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>RootWindow</secondary></indexterm>
+<indexterm significance="preferred"><primary>RootWindow</primary></indexterm>
+<indexterm><primary>Window</primary><secondary>XRootWindow</secondary></indexterm>
+<indexterm significance="preferred"><primary>XRootWindow</primary></indexterm>
 Both return the root window.
 These are useful with functions that need a drawable of a particular screen
 and for creating top-level windows.
@@ -1387,8 +1387,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ScreenCount" "" "@DEF@" -->
-<!-- .IN "XScreenCount" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ScreenCount</primary></indexterm>
+<indexterm significance="preferred"><primary>XScreenCount</primary></indexterm>
 Both return the number of available screens.
 </para>
 <para>
@@ -1421,8 +1421,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ServerVendor" "" "@DEF@" -->
-<!-- .IN "XServerVendor" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ServerVendor</primary></indexterm>
+<indexterm significance="preferred"><primary>XServerVendor</primary></indexterm>
 Both return a pointer to a null-terminated string that provides
 some identification of the owner of the X server implementation.
 If the data returned by the server is in the Latin Portable Character Encoding,
@@ -1459,8 +1459,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "VendorRelease" "" "@DEF@" -->
-<!-- .IN "XVendorRelease" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>VendorRelease</primary></indexterm>
+<indexterm significance="preferred"><primary>XVendorRelease</primary></indexterm>
 Both return a number related to a vendor's release of the X server.
 </para>
 </sect2>
@@ -1504,7 +1504,7 @@ typedef struct {
 <!-- .sp -->
 To obtain the pixmap format information for a given display, use
 <function>XListPixmapFormats .</function>
-<!-- .IN "XListPixmapFormats" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListPixmapFormats</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>
@@ -1595,8 +1595,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "ImageByteOrder" "" "@DEF@" -->
-<!-- .IN "XImageByteOrder" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>ImageByteOrder</primary></indexterm>
+<indexterm significance="preferred"><primary>XImageByteOrder</primary></indexterm>
 Both specify the required byte order for images for each scanline unit in 
 XY format (bitmap) or for each pixel value in 
 Z format.
@@ -1635,8 +1635,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "BitmapUnit" "" "@DEF@" -->
-<!-- .IN "XBitmapUnit" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>BitmapUnit</primary></indexterm>
+<indexterm significance="preferred"><primary>XBitmapUnit</primary></indexterm>
 Both return the size of a bitmap's scanline unit in bits.
 The scanline is calculated in multiples of this value.
 </para>
@@ -1670,8 +1670,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "BitmapBitOrder" "" "@DEF@" -->
-<!-- .IN "XBitmapBitOrder" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>BitmapBitOrder</primary></indexterm>
+<indexterm significance="preferred"><primary>XBitmapBitOrder</primary></indexterm>
 Within each bitmap unit, the left-most bit in the bitmap as displayed
 on the screen is either the least significant or most significant bit in the
 unit.
@@ -1710,8 +1710,8 @@ Specifies the connection to the X server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "BitmapPad" "" "@DEF@" -->
-<!-- .IN "XBitmapPad" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>BitmapPad</primary></indexterm>
+<indexterm significance="preferred"><primary>XBitmapPad</primary></indexterm>
 Each scanline must be padded to a multiple of bits returned
 by this macro or function.
 </para>
@@ -1756,8 +1756,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayHeight" "" "@DEF@" -->
-<!-- .IN "XDisplayHeight" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayHeight</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayHeight</primary></indexterm>
 Both return an integer that describes the height of the screen
 in pixels.
 </para>
@@ -1802,8 +1802,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayHeightMM" "" "@DEF@" -->
-<!-- .IN "XDisplayHeightMM" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayHeightMM</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayHeightMM</primary></indexterm>
 Both return the height of the specified screen in millimeters.
 </para>
 <para>
@@ -1847,8 +1847,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayWidth" "" "@DEF@" -->
-<!-- .IN "XDisplayWidth" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayWidth</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayWidth</primary></indexterm>
 Both return the width of the screen in pixels.
 </para>
 <para>
@@ -1892,8 +1892,8 @@ Specifies the appropriate screen number on the host server.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayWidthMM" "" "@DEF@" -->
-<!-- .IN "XDisplayWidthMM" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayWidthMM</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayWidthMM</primary></indexterm>
 Both return the width of the specified screen in millimeters.
 </para>
 </sect2>
@@ -1942,8 +1942,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "BlackPixelOfScreen" "" "@DEF@" -->
-<!-- .IN "XBlackPixelOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>BlackPixelOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XBlackPixelOfScreen</primary></indexterm>
 Both return the black pixel value of the specified screen.
 </para>
 <para>
@@ -1978,8 +1978,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "WhitePixelOfScreen" "" "@DEF@" -->
-<!-- .IN "XWhitePixelOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>WhitePixelOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XWhitePixelOfScreen</primary></indexterm>
 Both return the white pixel value of the specified screen.
 </para>
 <para>
@@ -2014,8 +2014,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "CellsOfScreen" "" "@DEF@" -->
-<!-- .IN "XCellsOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>CellsOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XCellsOfScreen</primary></indexterm>
 Both return the number of colormap cells in the default colormap 
 of the specified screen.
 </para>
@@ -2051,8 +2051,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultColormapOfScreen" "" "@DEF@" -->
-<!-- .IN "XDefaultColormapOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultColormapOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultColormapOfScreen</primary></indexterm>
 Both return the default colormap of the specified screen.
 </para>
 <para>
@@ -2087,8 +2087,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultDepthOfScreen" "" "@DEF@" -->
-<!-- .IN "XDefaultDepthOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultDepthOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultDepthOfScreen</primary></indexterm>
 Both return the depth of the root window.
 </para>
 <para>
@@ -2123,8 +2123,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultGCOfScreen" "" "@DEF@" -->
-<!-- .IN "XDefaultGCOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultGCOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultGCOfScreen</primary></indexterm>
 Both return a default graphics context (GC) of the specified screen,
 which has the same depth as the root window of the screen.
 The GC must never be freed.
@@ -2161,8 +2161,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DefaultVisualOfScreen" "" "@DEF@" -->
-<!-- .IN "XDefaultVisualOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DefaultVisualOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDefaultVisualOfScreen</primary></indexterm>
 Both return the default visual of the specified screen.
 For information on visual types,
 see section 3.1.
@@ -2199,8 +2199,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DoesBackingStore" "" "@DEF@" -->
-<!-- .IN "XDoesBackingStore" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DoesBackingStore</primary></indexterm>
+<indexterm significance="preferred"><primary>XDoesBackingStore</primary></indexterm>
 Both return a value indicating whether the screen supports backing
 stores.
 The value returned can be one of 
@@ -2242,8 +2242,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DoesSaveUnders" "" "@DEF@" -->
-<!-- .IN "XDoesSaveUnders" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DoesSaveUnders</primary></indexterm>
+<indexterm significance="preferred"><primary>XDoesSaveUnders</primary></indexterm>
 Both return a Boolean value indicating whether the
 screen supports save unders.
 If
@@ -2285,15 +2285,15 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "DisplayOfScreen" "" "@DEF@" -->
-<!-- .IN "XDisplayOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>DisplayOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XDisplayOfScreen</primary></indexterm>
 Both return the display of the specified screen.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 <!-- .sM -->
-<!-- .IN "XScreenNumberOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XScreenNumberOfScreen</primary></indexterm>
 </para>
 <para>
 EventMaskOfScreen(<emphasis remap='I'>screen</emphasis>)
@@ -2358,8 +2358,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "EventMaskOfScreen" "" "@DEF@" -->
-<!-- .IN "XEventMaskOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>EventMaskOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XEventMaskOfScreen</primary></indexterm>
 Both return the event mask of the root window for the specified screen
 at connection setup time.
 </para>
@@ -2395,8 +2395,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "WidthOfScreen" "" "@DEF@" -->
-<!-- .IN "XWidthOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>WidthOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XWidthOfScreen</primary></indexterm>
 Both return the width of the specified screen in pixels.
 </para>
 <para>
@@ -2431,8 +2431,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "HeightOfScreen" "" "@DEF@" -->
-<!-- .IN "XHeightOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>HeightOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XHeightOfScreen</primary></indexterm>
 Both return the height of the specified screen in pixels.
 </para>
 <para>
@@ -2467,8 +2467,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "WidthMMOfScreen" "" "@DEF@" -->
-<!-- .IN "XWidthMMOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>WidthMMOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XWidthMMOfScreen</primary></indexterm>
 Both return the width of the specified screen in millimeters.
 </para>
 <para>
@@ -2503,8 +2503,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "HeightMMOfScreen" "" "@DEF@" -->
-<!-- .IN "XHeightMMOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>HeightMMOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XHeightMMOfScreen</primary></indexterm>
 Both return the height of the specified screen in millimeters.
 </para>
 <para>
@@ -2539,8 +2539,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "MaxCmapsOfScreen" "" "@DEF@" -->
-<!-- .IN "XMaxCmapsOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>MaxCmapsOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XMaxCmapsOfScreen</primary></indexterm>
 Both return the maximum number of installed colormaps supported 
 by the specified screen (see section 9.3).
 </para>
@@ -2576,8 +2576,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "MinCmapsOfScreen" "" "@DEF@" -->
-<!-- .IN "XMinCmapsOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>MinCmapsOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XMinCmapsOfScreen</primary></indexterm>
 Both return the minimum number of installed colormaps supported 
 by the specified screen (see section 9.3).
 </para>
@@ -2613,8 +2613,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "PlanesOfScreen" "" "@DEF@" -->
-<!-- .IN "XPlanesOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>PlanesOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XPlanesOfScreen</primary></indexterm>
 Both return the depth of the root window.
 </para>
 <para>
@@ -2649,8 +2649,8 @@ structure.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "RootWindowOfScreen" "" "@DEF@" -->
-<!-- .IN "XRootWindowOfScreen" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>RootWindowOfScreen</primary></indexterm>
+<indexterm significance="preferred"><primary>XRootWindowOfScreen</primary></indexterm>
 Both return the root window of the specified screen.
 </para>
 </sect2>
@@ -2666,7 +2666,7 @@ To execute a
 <function>NoOperation </function>
 protocol request, use
 <function>XNoOp .</function>
-<!-- .IN "XNoOp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XNoOp</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -2704,7 +2704,7 @@ thereby exercising the connection.
 <!-- .LP -->
 To free in-memory data that was created by an Xlib function, use
 <function>XFree .</function>
-<!-- .IN "XFree" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFree</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -2747,7 +2747,7 @@ A NULL pointer cannot be passed to this function.
 <!-- .LP -->
 To close a display or disconnect from the X server, use
 <function>XCloseDisplay .</function>
-<!-- .IN "XCloseDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCloseDisplay</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -2801,8 +2801,8 @@ explicitly so that any pending errors are reported as
 performs a final
 <function>XSync</function>
 operation.
-<!-- .IN "Resource IDs" -->
-<!-- .IN "XCloseDisplay" -->
+<indexterm><primary>Resource IDs</primary></indexterm>
+<indexterm><primary>XCloseDisplay</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -2818,7 +2818,7 @@ Xlib provides a function to permit the resources owned by a client
 to survive after the client's connection is closed.
 To change a client's close-down mode, use
 <function>XSetCloseDownMode .</function>
-<!-- .IN "XSetCloseDownMode" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetCloseDownMode</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -3070,7 +3070,7 @@ multiple threads to use Xlib concurrently.
 <!-- .sp -->
 To initialize support for concurrent threads, use
 <function>XInitThreads .</function>
-<!-- .IN "XInitThreads" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInitThreads</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>Status XInitThreads();</para>
@@ -3103,7 +3103,7 @@ It is recommended that single-threaded programs not call this function.
 <!-- .sp -->
 To lock a display across several Xlib calls, use
 <function>XLockDisplay .</function>
-<!-- .IN "XLockDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLockDisplay</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -3148,7 +3148,7 @@ for threads using
 <!-- .sp -->
 To unlock a display, use
 <function>XUnlockDisplay .</function>
-<!-- .IN "XUnlockDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnlockDisplay</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -3306,7 +3306,7 @@ thread has externally locked the display using
 <!-- .sp -->
 To stop tracking internal connections for a display, use
 <function>XRemoveConnectionWatch .</function>
-<!-- .IN "XRemoveConnectionWatch" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRemoveConnectionWatch</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>
@@ -3368,7 +3368,7 @@ was initially registered.
 <!-- .sp -->
 To process input on an internal connection, use
 <function>XProcessInternalConnection .</function>
-<!-- .IN "XProcessInternalConnection" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XProcessInternalConnection</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>
@@ -3423,7 +3423,7 @@ the effect is not defined.
 <!-- .sp -->
 To obtain all of the current internal connections for a display, use
 <function>XInternalConnectionNumbers .</function>
-<!-- .IN "XInternalConnectionNumbers" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInternalConnectionNumbers</primary></indexterm>
 <!-- .sM -->
 </para>
 <para>

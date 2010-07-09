@@ -95,7 +95,7 @@ use the functions described in section 12.7.
 <!-- .sp -->
 To obtain a KeySym for the KeyCode of an event, use
 <function>XLookupKeysym .</function>
-<!-- .IN "XLookupKeysym" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLookupKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -153,7 +153,7 @@ returns
 <!-- .sp -->
 To obtain a KeySym for a specific KeyCode, use
 <function>XKeycodeToKeysym .</function>
-<!-- .IN "XKeycodeToKeysym" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XKeycodeToKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -215,7 +215,7 @@ returns
 <!-- .sp -->
 To obtain a KeyCode for a key having a specific KeySym, use
 <function>XKeysymToKeycode .</function>
-<!-- .IN "XKeysymToKeycode" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XKeysymToKeycode</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -263,7 +263,7 @@ When this information is changed at the server, an Xlib function must
 be called to refresh the cache.
 To refresh the stored modifier and keymap information, use
 <function>XRefreshKeyboardMapping .</function>
-<!-- .IN "XRefreshKeyboardMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRefreshKeyboardMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -305,7 +305,7 @@ The result is to update Xlib's knowledge of the keyboard.
 <!-- .sp -->
 To obtain the uppercase and lowercase forms of a KeySym, use
 <function>XConvertCase .</function>
-<!-- .IN "XConvertCase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XConvertCase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -368,7 +368,7 @@ implementation-dependent.
 KeySyms have string names as well as numeric codes.
 To convert the name of the KeySym to the KeySym code, use
 <function>XStringToKeysym .</function>
-<!-- .IN "XStringToKeysym" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XStringToKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -415,7 +415,7 @@ returns
 <!-- .sp -->
 To convert a KeySym code to the name of the KeySym, use
 <function>XKeysymToString .</function>
-<!-- .IN "XKeysymToString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XKeysymToString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -477,7 +477,7 @@ Specifies the KeySym that is to be tested.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsCursorKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsCursorKey</primary></indexterm>
 Returns
 <function>True</function>
 if the specified KeySym is a cursor key.
@@ -504,7 +504,7 @@ Specifies the KeySym that is to be tested.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsFunctionKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsFunctionKey</primary></indexterm>
 Returns 
 <function>True</function>
 if the specified KeySym is a function key.
@@ -531,7 +531,7 @@ Specifies the KeySym that is to be (Fn.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsKeypadKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsKeypadKey</primary></indexterm>
 Returns
 <function>True</function>
 if the specified KeySym is a standard keypad key.
@@ -557,7 +557,7 @@ Specifies the KeySym that is to be (Fn.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsPrivateKeypadKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsPrivateKeypadKey</primary></indexterm>
 Returns
 <function>True</function>
 if the specified KeySym is a vendor-private keypad key.
@@ -585,7 +585,7 @@ Specifies the KeySym that is to be (Fn.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsMiscFunctionKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsMiscFunctionKey</primary></indexterm>
 Returns 
 <function>True</function>
 if the specified KeySym is a miscellaneous function key.
@@ -611,7 +611,7 @@ Specifies the KeySym that is to be tested.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsModifierKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsModifierKey</primary></indexterm>
 Returns 
 <function>True</function>
 if the specified KeySym is a modifier key.
@@ -635,7 +635,7 @@ Specifies the KeySym that is to be tested.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "IsPFKey" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>IsPFKey</primary></indexterm>
 Returns 
 <function>True</function>
 if the specified KeySym is a PF key.
@@ -663,7 +663,7 @@ described in chapter 13 and does not depend on the current locale.
 <!-- .sp -->
 To map a key event to an ISO Latin-1 string, use
 <function>XLookupString .</function>
-<!-- .IN "XLookupString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLookupString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -785,7 +785,7 @@ To rebind the meaning of a KeySym for
 <function>XLookupString ,</function>
 use
 <function>XRebindKeysym .</function>
-<!-- .IN "XRebindKeysym" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRebindKeysym</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -890,7 +890,7 @@ Note that you can rebind a KeySym that may not exist.
 <!-- .LP -->
 To allocate some memory you will never give back, use
 <function>Xpermalloc .</function>
-<!-- .IN "Xpermalloc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Xpermalloc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -920,8 +920,8 @@ the standard operating system memory allocator.
 <!-- .LP -->
 To parse standard window geometry strings, use
 <function>XParseGeometry .</function>
-<!-- .IN "Window" "determining location" -->
-<!-- .IN "XParseGeometry" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>determining location</secondary></indexterm>
+<indexterm significance="preferred"><primary>XParseGeometry</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -1055,7 +1055,7 @@ you should place the window at the requested position.
 <!-- .LP -->
 To construct a window's geometry information, use
 <function>XWMGeometry .</function>
-<!-- .IN "XWMGeometry" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWMGeometry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1291,7 +1291,7 @@ To create a new empty region, use
 To generate a region from a polygon, use
 <function>XPolygonRegion .</function>
 </para>
-<!-- .IN "XPolygonRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPolygonRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1354,7 +1354,7 @@ see
 <!-- .sp -->
 To set the clip-mask of a GC to a region, use
 <function>XSetRegion .</function>
-<!-- .IN "XSetRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1414,7 +1414,7 @@ the region can be destroyed.
 <!-- .sp -->
 To deallocate the storage associated with a specified region, use
 <function>XDestroyRegion .</function>
-<!-- .IN "XDestroyRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroyRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1450,7 +1450,7 @@ Specifies the region.
 <!-- .LP -->
 To move a region by a specified amount, use 
 <function>XOffsetRegion .</function>
-<!-- .IN "XOffsetRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XOffsetRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1502,7 +1502,7 @@ which define the amount you want to (Dy the specified region.
 <!-- .sp -->
 To reduce a region by a specified amount, use
 <function>XShrinkRegion .</function>
-<!-- .IN "XShrinkRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XShrinkRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1565,7 +1565,7 @@ and negative values expand the region.
 <!-- .sp -->
 To generate the smallest rectangle enclosing a region, use
 <function>XClipBox .</function>
-<!-- .IN "XClipBox" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XClipBox</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1610,7 +1610,7 @@ function returns the smallest rectangle enclosing the specified region.
 <!-- .LP -->
 To compute the intersection of two regions, use
 <function>XIntersectRegion .</function>
-<!-- .IN "XIntersectRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XIntersectRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1659,7 +1659,7 @@ Returns the result of the computation.
 <!-- .sp -->
 To compute the union of two regions, use
 <function>XUnionRegion .</function>
-<!-- .IN "XUnionRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnionRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1708,7 +1708,7 @@ Returns the result of the computation.
 <!-- .sp -->
 To create a union of a source region and a rectangle, use
 <function>XUnionRectWithRegion .</function>
-<!-- .IN "XUnionRectWithRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnionRectWithRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1765,7 +1765,7 @@ and the specified source region.
 <!-- .sp -->
 To subtract two regions, use
 <function>XSubtractRegion .</function>
-<!-- .IN "XSubtractRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSubtractRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1821,7 +1821,7 @@ function subtracts srb from sra and stores the results in dr_return.
 To calculate the difference between the union and intersection 
 of two regions, use
 <function>XXorRegion .</function>
-<!-- .IN "XXorRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XXorRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1878,7 +1878,7 @@ Returns the result of the computation.
 <!-- .LP -->
 To determine if the specified region is empty, use
 <function>XEmptyRegion .</function>
-<!-- .IN "XEmptyRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XEmptyRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1914,7 +1914,7 @@ if the region is empty.
 <!-- .sp -->
 To determine if two regions have the same offset, size, and shape, use
 <function>XEqualRegion .</function>
-<!-- .IN "XEqualRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XEqualRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1966,7 +1966,7 @@ if the two regions have the same offset, size, and shape.
 <!-- .LP -->
 To determine if a specified point resides in a specified region, use
 <function>XPointInRegion .</function>
-<!-- .IN "XPointInRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPointInRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2025,7 +2025,7 @@ if the point (x, y) is contained in the region r.
 <!-- .sp -->
 To determine if a specified rectangle is inside a region, use
 <function>XRectInRegion .</function>
-<!-- .IN "XRectInRegion" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRectInRegion</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2116,7 +2116,7 @@ if the rectangle is partially in the specified region.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Cut Buffers" -->
+<indexterm><primary>Cut Buffers</primary></indexterm>
 Xlib provides functions to manipulate cut buffers,
 a very simple form of cut-and-paste inter-client communication.
 Selections are a much more powerful and useful mechanism for
@@ -2137,7 +2137,7 @@ and can be accessed as a ring or as explicit buffers (numbered 0 through 7).
 <!-- .sp -->
 To store data in cut buffer 0, use 
 <function>XStoreBytes .</function>
-<!-- .IN "XStoreBytes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XStoreBytes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2202,7 +2202,7 @@ error.
 <!-- .sp -->
 To store data in a specified cut buffer, use
 <function>XStoreBuffer .</function>
-<!-- .IN "XStoreBuffer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XStoreBuffer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2277,7 +2277,7 @@ error.
 <!-- .sp -->
 To return data from cut buffer 0, use 
 <function>XFetchBytes .</function>
-<!-- .IN "XFetchBytes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFetchBytes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2329,7 +2329,7 @@ The client must free this storage when finished with it by calling
 <!-- .sp -->
 To return data from a specified cut buffer, use 
 <function>XFetchBuffer .</function>
-<!-- .IN "XFetchBuffer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFetchBuffer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2388,7 +2388,7 @@ buffer is specified.
 <!-- .sp -->
 To rotate the cut buffers, use 
 <function>XRotateBuffers .</function>
-<!-- .IN "XRotateBuffers" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRotateBuffers</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2505,7 +2505,7 @@ typedef struct {
 To obtain a list of visual information structures that match a specified
 template, use
 <function>XGetVisualInfo .</function>
-<!-- .IN "XGetVisualInfo" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetVisualInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2580,7 +2580,7 @@ To free the data returned by this function, use
 To obtain the visual information that matches the specified depth and
 class of the screen, use
 <function>XMatchVisualInfo .</function>
-<!-- .IN "XMatchVisualInfo" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMatchVisualInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2727,7 +2727,7 @@ To allocate an
 <function>XImage </function>
 structure and initialize it with image format values from a display, use
 <function>XCreateImage .</function>
-<!-- .IN "XCreateImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2907,7 +2907,7 @@ in the image object and are defined in
 <!-- .sp -->
 To obtain a pixel value in an image, use
 <function>XGetPixel .</function>
-<!-- .IN "XGetPixel" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2968,7 +2968,7 @@ The image must contain the x and y coordinates.
 <!-- .sp -->
 To set a pixel value in an image, use
 <function>XPutPixel .</function>
-<!-- .IN "XPutPixel" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPutPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3040,7 +3040,7 @@ The image must contain the x and y coordinates.
 <!-- .sp -->
 To create a subimage, use
 <function>XSubImage .</function>
-<!-- .IN "XSubImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSubImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3126,7 +3126,7 @@ and subimage_height.
 <!-- .sp -->
 To increment each pixel in an image by a constant value, use
 <function>XAddPixel .</function>
-<!-- .IN "XAddPixel" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddPixel</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3175,7 +3175,7 @@ To deallocate the memory allocated in a previous call to
 <function>XCreateImage ,</function>
 use
 <function>XDestroyImage .</function>
-<!-- .IN "XDestroyImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroyImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3262,7 +3262,7 @@ The bitmap unit is 8.
 <!-- .sp -->
 To read a bitmap from a file and store it in a pixmap, use
 <function>XReadBitmapFile .</function>
-<!-- .IN "XReadBitmapFile" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XReadBitmapFile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3417,7 +3417,7 @@ errors.
 <!-- .sp -->
 To read a bitmap from a file and return it as data, use
 <function>XReadBitmapFileData .</function>
-<!-- .IN "XReadBitmapFileData" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XReadBitmapFileData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3514,7 +3514,7 @@ The status and other return values are the same as for
 <!-- .sp -->
 To write out a bitmap from a pixmap to a file, use
 <function>XWriteBitmapFile .</function>
-<!-- .IN "XWriteBitmapFile" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWriteBitmapFile</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3641,7 +3641,7 @@ errors.
 <!-- .sp -->
 To create a pixmap and then store bitmap-format data into it, use
 <function>XCreatePixmapFromBitmapData .</function>
-<!-- .IN "XCreatePixmapFromBitmapData" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreatePixmapFromBitmapData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3770,10 +3770,10 @@ errors.
 <!-- .sp -->
 To include a bitmap written out by 
 <function>XWriteBitmapFile </function>
-<!-- .IN "XWriteBitmapFile" -->
+<indexterm><primary>XWriteBitmapFile</primary></indexterm>
 in a program directly, as opposed to reading it in every time at run time, use
 <function>XCreateBitmapFromData .</function>
-<!-- .IN "XCreateBitmapFromData" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateBitmapFromData</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3916,7 +3916,7 @@ The symbols used are in
 <!-- .sp -->
 To save a data value that corresponds to a resource ID and context type, use
 <function>XSaveContext .</function>
-<!-- .IN "XSaveContext" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSaveContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3990,7 +3990,7 @@ Possible errors are
 <!-- .sp -->
 To get the data associated with a resource ID and type, use
 <function>XFindContext .</function>
-<!-- .IN "XFindContext" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFindContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4063,7 +4063,7 @@ Possible errors are
 <!-- .sp -->
 To delete an entry for a given resource ID and type, use
 <function>XDeleteContext .</function>
-<!-- .IN "XDeleteContext" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDeleteContext</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

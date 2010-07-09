@@ -36,9 +36,9 @@ which sets the pixmap to a known value.
 <!-- .sp -->
 To clear a rectangular area of a given window, use
 <function>XClearArea .</function>
-<!-- .IN "Areas" "clearing" -->
-<!-- .IN "Clearing" "areas" -->
-<!-- .IN "XClearArea" "" "@DEF@" -->
+<indexterm><primary>Areas</primary><secondary>clearing</secondary></indexterm>
+<indexterm><primary>Clearing</primary><secondary>areas</secondary></indexterm>
+<indexterm significance="preferred"><primary>XClearArea</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -178,9 +178,9 @@ errors.
 <!-- .sp -->
 To clear the entire area in a given window, use
 <function>XClearWindow .</function>
-<!-- .IN "Window" "clearing" -->
-<!-- .IN "Clearing" "windows" -->
-<!-- .IN "XClearWindow" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>clearing</secondary></indexterm>
+<indexterm><primary>Clearing</primary><secondary>windows</secondary></indexterm>
+<indexterm significance="preferred"><primary>XClearWindow</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -262,9 +262,9 @@ Xlib provides functions that you can use to copy an area or a bit plane.
 To copy an area between drawables of the same
 root and depth, use
 <function>XCopyArea .</function>
-<!-- .IN "Areas" "copying" -->
-<!-- .IN "Copying" "areas" -->
-<!-- .IN "XCopyArea" "" "@DEF@" -->
+<indexterm><primary>Areas</primary><secondary>copying</secondary></indexterm>
+<indexterm><primary>Copying</primary><secondary>areas</secondary></indexterm>
+<indexterm significance="preferred"><primary>XCopyArea</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -457,9 +457,9 @@ errors.
 <!-- .LP -->
 To copy a single bit plane of a given drawable, use
 <function>XCopyPlane .</function>
-<!-- .IN "Plane" "copying" -->
-<!-- .IN "Copying" "planes" -->
-<!-- .IN "XCopyPlane" "" "@DEF@" -->
+<indexterm><primary>Plane</primary><secondary>copying</secondary></indexterm>
+<indexterm><primary>Copying</primary><secondary>planes</secondary></indexterm>
+<indexterm significance="preferred"><primary>XCopyPlane</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -686,7 +686,7 @@ use these structures:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XSegment" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSegment</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i -->
@@ -699,7 +699,7 @@ typedef struct {
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XPoint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPoint</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i -->
@@ -712,7 +712,7 @@ typedef struct {
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XRectangle" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRectangle</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i -->
@@ -726,7 +726,7 @@ typedef struct {
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XArc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XArc</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -754,16 +754,16 @@ for these values.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Points" "drawing" -->
-<!-- .IN "Drawing" "points" -->
-<!-- .IN "XDrawPoints" -->
-<!-- .IN "XDrawPoint" -->
+<indexterm><primary>Points</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>points</secondary></indexterm>
+<indexterm><primary>XDrawPoints</primary></indexterm>
+<indexterm><primary>XDrawPoint</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 To draw a single point in a given drawable, use
 <function>XDrawPoint .</function>
-<!-- .IN "XDrawPoint" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawPoint</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -835,7 +835,7 @@ Specify the x and y coordinates where you want the point drawn.
 <!-- .sp -->
 To draw multiple points in a given drawable, use
 <function>XDrawPoints .</function>
-<!-- .IN "XDrawPoints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawPoints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -964,19 +964,19 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Lines" "drawing" -->
-<!-- .IN "Drawing" "lines" -->
-<!-- .IN "XDrawLine" -->
-<!-- .IN "XDrawLines" -->
-<!-- .IN "Polygons" "drawing" -->
-<!-- .IN "Drawing" "polygons" -->
-<!-- .IN "XDrawSegments" -->
+<indexterm><primary>Lines</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>lines</secondary></indexterm>
+<indexterm><primary>XDrawLine</primary></indexterm>
+<indexterm><primary>XDrawLines</primary></indexterm>
+<indexterm><primary>Polygons</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>polygons</secondary></indexterm>
+<indexterm><primary>XDrawSegments</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 To draw a single line between two points in a given drawable, use
 <function>XDrawLine .</function>
-<!-- .IN "XDrawLine" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawLine</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1070,7 +1070,7 @@ Specify the points (x1, y1) and (x2, y2) to be connected.
 <!-- .sp -->
 To draw multiple lines in a given drawable, use
 <function>XDrawLines .</function>
-<!-- .IN "XDrawLines" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawLines</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1158,7 +1158,7 @@ or
 To draw multiple, unconnected lines in a given drawable,
 use
 <function>XDrawSegments .</function>
-<!-- .IN "XDrawSegments" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawSegments</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1319,16 +1319,16 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Rectangles" "drawing" -->
-<!-- .IN "Drawing" "rectangles" -->
-<!-- .IN "XDrawRectangle" -->
-<!-- .IN "XDrawRectangles" -->
+<indexterm><primary>Rectangles</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>rectangles</secondary></indexterm>
+<indexterm><primary>XDrawRectangle</primary></indexterm>
+<indexterm><primary>XDrawRectangles</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 To draw the outline of a single rectangle in a given drawable, use
 <function>XDrawRectangle .</function>
-<!-- .IN "XDrawRectangle" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawRectangle</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1425,7 +1425,7 @@ Specify the width and height(Wh.
 To draw the outline of multiple rectangles
 in a given drawable, use
 <function>XDrawRectangles .</function>
-<!-- .IN "XDrawRectangles" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawRectangles</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1549,17 +1549,17 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Drawing" "arcs" -->
-<!-- .IN "XDrawArc" -->
-<!-- .IN "Arcs" "drawing" -->
-<!-- .IN "XDrawArcs" -->
+<indexterm><primary>Drawing</primary><secondary>arcs</secondary></indexterm>
+<indexterm><primary>XDrawArc</primary></indexterm>
+<indexterm><primary>Arcs</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>XDrawArcs</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To draw a single arc in a given drawable, use
 <function>XDrawArc .</function>
-<!-- .IN "XDrawArc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawArc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1679,7 +1679,7 @@ arc, in units of degrees * 64.
 <!-- .sp -->
 To draw multiple arcs in a given drawable, use
 <function>XDrawArcs .</function>
-<!-- .IN "XDrawArcs" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawArcs</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1907,17 +1907,17 @@ A single arc or multiple arcs
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Filling" "rectangles" -->
-<!-- .IN "XFillRectangle" -->
-<!-- .IN "Rectangle" "filling" -->
-<!-- .IN "XFillRectangles" -->
+<indexterm><primary>Filling</primary><secondary>rectangles</secondary></indexterm>
+<indexterm><primary>XFillRectangle</primary></indexterm>
+<indexterm><primary>Rectangle</primary><secondary>filling</secondary></indexterm>
+<indexterm><primary>XFillRectangles</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To fill a single rectangular area in a given drawable, use
 <function>XFillRectangle .</function>
-<!-- .IN "XFillRectangle" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFillRectangle</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2014,7 +2014,7 @@ Specify the width and height(Wh.
 <!-- .sp -->
 To fill multiple rectangular areas in a given drawable, use
 <function>XFillRectangles .</function>
-<!-- .IN "XFillRectangles" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFillRectangles</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2147,9 +2147,9 @@ errors.
 <!-- .sp -->
 To fill a polygon area in a given drawable, use
 <function>XFillPolygon .</function>
-<!-- .IN "Polygons" "filling" -->
-<!-- .IN "Filling" "polygon" -->
-<!-- .IN "XFillPolygon" "" "@DEF@" -->
+<indexterm><primary>Polygons</primary><secondary>filling</secondary></indexterm>
+<indexterm><primary>Filling</primary><secondary>polygon</secondary></indexterm>
+<indexterm significance="preferred"><primary>XFillPolygon</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2343,12 +2343,12 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "XFillArc" -->
-<!-- .IN "Arcs" "filling" -->
-<!-- .IN "Filling" "arcs" -->
+<indexterm><primary>XFillArc</primary></indexterm>
+<indexterm><primary>Arcs</primary><secondary>filling</secondary></indexterm>
+<indexterm><primary>Filling</primary><secondary>arcs</secondary></indexterm>
 To fill a single arc in a given drawable, use
 <function>XFillArc .</function>
-<!-- .IN "XFillArc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFillArc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2468,7 +2468,7 @@ arc, in units of degrees * 64.
 <!-- .sp -->
 To fill multiple arcs in a given drawable, use
 <function>XFillArcs .</function>
-<!-- .IN "XFillArcs" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFillArcs</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2591,7 +2591,7 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Font" -->
+<indexterm><primary>Font</primary></indexterm>
 A font is a graphical description of a set of characters that are used to 
 increase efficiency whenever a set of small, similar sized patterns are 
 repeatedly used.
@@ -2665,7 +2665,7 @@ structures contain:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XCharStruct" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCharStruct</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -2681,7 +2681,7 @@ typedef struct {
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XFontProp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFontProp</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 1i 3i -->
 <!-- .ta .5i 1i 3i -->
@@ -2693,7 +2693,7 @@ typedef struct {
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XChar2b" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChar2b</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -2705,7 +2705,7 @@ typedef struct {     /* normal 16 bit characters are two bytes */
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XFontStruct" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFontStruct</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -3003,9 +3003,9 @@ A basic set of font properties is specified in the X Consortium standard
 <!-- .LP -->
 Xlib provides functions that you can use to load fonts, get font information,
 unload fonts, and free font information.
-<!-- .IN "Fonts" "getting information" -->
-<!-- .IN "Fonts" "unloading" -->
-<!-- .IN "Fonts" "freeing font information" -->
+<indexterm><primary>Fonts</primary><secondary>getting information</secondary></indexterm>
+<indexterm><primary>Fonts</primary><secondary>unloading</secondary></indexterm>
+<indexterm><primary>Fonts</primary><secondary>freeing font information</secondary></indexterm>
 A few font functions use a 
 <function>GContext </function>
 resource ID or a font ID interchangeably.
@@ -3015,7 +3015,7 @@ resource ID or a font ID interchangeably.
 <!-- .sp -->
 To load a given font, use
 <function>XLoadFont .</function>
-<!-- .IN "XLoadFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLoadFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3091,7 +3091,7 @@ errors.
 <!-- .sp -->
 To return information about an available font, use
 <function>XQueryFont .</function>
-<!-- .IN "XQueryFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3157,7 +3157,7 @@ and
 <function>XQueryFont</function>
 in a single operation, use
 <function>XLoadQueryFont .</function>
-<!-- .IN "XLoadQueryFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLoadQueryFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3225,7 +3225,7 @@ or
 <function>XLoadQueryFont ,</function>
 use
 <function>XFreeFont .</function>
-<!-- .IN "XFreeFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3282,7 +3282,7 @@ error.
 <!-- .sp -->
 To return a given font property, use
 <function>XGetFontProperty .</function>
-<!-- .IN "XGetFontProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetFontProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3354,7 +3354,7 @@ To unload a font that was loaded by
 <function>XLoadFont , </function>
 use
 <function>XUnloadFont .</function>
-<!-- .IN "XUnloadFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XUnloadFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3419,7 +3419,7 @@ when querying a font type for a list of available sizes and so on.
 <!-- .sp -->
 To return a list of the available font names, use
 <function>XListFonts .</function>
-<!-- .IN "XListFonts" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListFonts</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3506,7 +3506,7 @@ when finished with the result to free the memory.
 <!-- .sp -->
 To free a font name array, use
 <function>XFreeFontNames .</function>
-<!-- .IN "XFreeFontNames" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeFontNames</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3543,7 +3543,7 @@ or
 <!-- .sp -->
 To obtain the names and information about available fonts, use
 <function>XListFontsWithInfo .</function>
-<!-- .IN "XListFontsWithInfo" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListFontsWithInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3650,7 +3650,7 @@ the client should call
 <!-- .sp -->
 To free font structures and font names, use
 <function>XFreeFontInfo .</function>
-<!-- .IN "XFreeFontInfo" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeFontInfo</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3723,8 +3723,8 @@ to close the font.
 Xlib provides functions that you can use to compute the width,
 the logical extents, 
 and the server information about 8-bit and 2-byte text strings.
-<!-- .IN "XTextWidth" -->
-<!-- .IN "XTextWidth16" -->
+<indexterm><primary>XTextWidth</primary></indexterm>
+<indexterm><primary>XTextWidth16</primary></indexterm>
 The width is computed by adding the character widths of all the characters.
 It does not matter if the font is an 8-bit or 2-byte font.
 These functions return the sum of the character metrics in pixels.
@@ -3734,7 +3734,7 @@ These functions return the sum of the character metrics in pixels.
 <!-- .sp -->
 To determine the width of an 8-bit character string, use
 <function>XTextWidth .</function>
-<!-- .IN "XTextWidth" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextWidth</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3784,7 +3784,7 @@ Specifies the character count in the specified string.
 <!-- .sp -->
 To determine the width of a 2-byte character string, use
 <function>XTextWidth16 .</function>
-<!-- .IN "XTextWidth16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextWidth16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3842,7 +3842,7 @@ Specifies the character count in the specified string.
 <!-- .LP -->
 To compute the bounding box of an 8-bit character string in a given font, use
 <function>XTextExtents .</function>
-<!-- .IN "XTextExtents" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextExtents</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3942,7 +3942,7 @@ structure.
 <!-- .sp -->
 To compute the bounding box of a 2-byte character string in a given font, use
 <function>XTextExtents16 .</function>
-<!-- .IN "XTextExtents16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextExtents16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4089,7 +4089,7 @@ undefined characters in the string are taken to have all zero metrics.
 To query the server for the bounding box of an 8-bit character string in a 
 given font, use 
 <function>XQueryTextExtents .</function>
-<!-- .IN "XQueryTextExtents" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryTextExtents</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4201,7 +4201,7 @@ structure.
 To query the server for the bounding box of a 2-byte character string
 in a given font, use
 <function>XQueryTextExtents16 .</function>
-<!-- .IN "XQueryTextExtents16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryTextExtents16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4405,7 +4405,7 @@ use the following structures:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XTextItem" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextItem</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -4420,7 +4420,7 @@ typedef struct {
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XTextItem16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTextItem16</primary></indexterm>
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
 <!-- .ta .5i 3i -->
@@ -4467,14 +4467,14 @@ structure.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Text" "drawing" -->
-<!-- .IN "Drawing" "text items" -->
+<indexterm><primary>Text</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>text items</secondary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 To draw 8-bit characters in a given drawable, use
 <function>XDrawText .</function>
-<!-- .IN "XDrawText" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawText</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4570,7 +4570,7 @@ Specifies the number of text items in the array.
 <!-- .sp -->
 To draw 2-byte characters in a given drawable, use
 <function>XDrawText16 .</function>
-<!-- .IN "XDrawText16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawText16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4726,11 +4726,11 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Strings" "drawing" -->
-<!-- .IN "Drawing" "strings" -->
+<indexterm><primary>Strings</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>strings</secondary></indexterm>
 To draw 8-bit characters in a given drawable, use
 <function>XDrawString .</function>
-<!-- .IN "XDrawString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4826,7 +4826,7 @@ Specifies the number of characters in the string argument.
 <!-- .sp -->
 To draw 2-byte characters in a given drawable, use
 <function>XDrawString16 .</function>
-<!-- .IN "XDrawString16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawString16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -4956,21 +4956,21 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Image text" "drawing" -->
-<!-- .IN "Drawing" "image text" -->
+<indexterm><primary>Image text</primary><secondary>drawing</secondary></indexterm>
+<indexterm><primary>Drawing</primary><secondary>image text</secondary></indexterm>
 Some applications, in particular terminal emulators, need to
 print image text in which both the foreground and background bits of
 each character are painted.
 This prevents annoying flicker on many displays.
-<!-- .IN "XDrawImageString" -->
-<!-- .IN "XDrawImageString16" -->
+<indexterm><primary>XDrawImageString</primary></indexterm>
+<indexterm><primary>XDrawImageString16</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To draw 8-bit image text characters in a given drawable, use
 <function>XDrawImageString .</function>
-<!-- .IN "XDrawImageString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawImageString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5066,7 +5066,7 @@ Specifies the number of characters in the string argument.
 <!-- .sp -->
 To draw 2-byte image text characters in a given drawable, use
 <function>XDrawImageString16 .</function>
-<!-- .IN "XDrawImageString16" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDrawImageString16</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5273,7 +5273,7 @@ which describes an image as it exists in the client's memory.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XImage</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 1i 3i -->
@@ -5311,7 +5311,7 @@ typedef struct _XImage {
 <!-- .sp -->
 To initialize the image manipulation routines of an image structure, use
 <function>XInitImage .</function>
-<!-- .IN "XInitImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInitImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5369,7 +5369,7 @@ or inconsistency in the structure, in which case the image is not changed.
 To combine an image with a rectangle of a drawable on the display,
 use
 <function>XPutImage .</function>
-<!-- .IN "XPutImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPutImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5558,7 +5558,7 @@ To return the contents of a rectangle in a given drawable on the display,
 use
 <function>XGetImage .</function>
 This function specifically supports rudimentary screen dumps.
-<!-- .IN "XGetImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -5745,7 +5745,7 @@ errors.
 To copy the contents of a rectangle on the display
 to a location within a preexisting image structure, use
 <function>XGetSubImage .</function>
-<!-- .IN "XGetSubImage" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetSubImage</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

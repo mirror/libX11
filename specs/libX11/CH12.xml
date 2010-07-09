@@ -56,7 +56,7 @@ may lag the physical state if device event processing is frozen.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Active grab" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Active grab</primary></indexterm>
 There are two kinds of grabs:
 active and passive.
 An active grab occurs when a single client grabs the keyboard and/or pointer
@@ -64,7 +64,7 @@ explicitly (see
 <function>XGrabPointer</function>
 and
 <function>XGrabKeyboard ).</function>
-<!-- .IN "Passive grab" -->
+<indexterm><primary>Passive grab</primary></indexterm>
 A passive grab occurs when clients grab a particular keyboard key 
 or pointer button in a window,
 and the grab will activate when the key or button is actually pressed.
@@ -85,8 +85,8 @@ For many operations,
 there are functions that take a time argument.
 The X server includes a timestamp in various events.
 One special time, called
-<!-- .IN "CurrentTime" "" "@DEF@" -->
-<!-- .IN "Time" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>CurrentTime</primary></indexterm>
+<indexterm significance="preferred"><primary>Time</primary></indexterm>
 <function>CurrentTime ,</function>
 represents the current server time.
 The X server maintains the time when the input focus was last changed,
@@ -152,9 +152,9 @@ and
 <!-- .sp -->
 To grab the pointer, use
 <function>XGrabPointer .</function>
-<!-- .IN "Grabbing" "pointer" -->
-<!-- .IN "Pointer" "grabbing" -->
-<!-- .IN "XGrabPointer" "" "@DEF@" -->
+<indexterm><primary>Grabbing</primary><secondary>pointer</secondary></indexterm>
+<indexterm><primary>Pointer</primary><secondary>grabbing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGrabPointer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -418,9 +418,9 @@ errors.
 <!-- .sp -->
 To ungrab the pointer, use
 <function>XUngrabPointer .</function>
-<!-- .IN "Ungrabbing" "pointer" -->
-<!-- .IN "Pointer" "ungrabbing" -->
-<!-- .IN "XUngrabPointer" "" "@DEF@" -->
+<indexterm><primary>Ungrabbing</primary><secondary>pointer</secondary></indexterm>
+<indexterm><primary>Pointer</primary><secondary>ungrabbing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XUngrabPointer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -486,9 +486,9 @@ outside the boundaries of the root window.
 <!-- .sp -->
 To change an active pointer grab, use
 <function>XChangeActivePointerGrab .</function>
-<!-- .IN "Pointer" "grabbing" -->
-<!-- .IN "Changing" "pointer grab"  -->
-<!-- .IN "XChangeActivePointerGrab" "" "@DEF@" -->
+<indexterm><primary>Pointer</primary><secondary>grabbing</secondary></indexterm>
+<indexterm ><primary>Changing</primary><secondary>pointer grab</secondary></indexterm>
+<indexterm significance="preferred"><primary>XChangeActivePointerGrab</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -574,9 +574,9 @@ errors.
 <!-- .sp -->
 To grab a pointer button, use
 <function>XGrabButton .</function>
-<!-- .IN "Grabbing" "buttons" -->
-<!-- .IN "Button" "grabbing" -->
-<!-- .IN "XGrabButton" "" "@DEF@" -->
+<indexterm><primary>Grabbing</primary><secondary>buttons</secondary></indexterm>
+<indexterm><primary>Button</primary><secondary>grabbing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGrabButton</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -818,9 +818,9 @@ errors.
 <!-- .sp -->
 To ungrab a pointer button, use
 <function>XUngrabButton .</function>
-<!-- .IN "Ungrabbing" "buttons" -->
-<!-- .IN "Button" "ungrabbing" -->
-<!-- .IN "XUngrabButton" "" "@DEF@" -->
+<indexterm><primary>Ungrabbing</primary><secondary>buttons</secondary></indexterm>
+<indexterm><primary>Button</primary><secondary>ungrabbing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XUngrabButton</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -939,9 +939,9 @@ and
 <!-- .sp -->
 To grab the keyboard, use
 <function>XGrabKeyboard .</function>
-<!-- .IN "Keyboard" "grabbing" -->
-<!-- .IN "Grabbing" "keyboard" -->
-<!-- .IN "XGrabKeyboard" "" "@DEF@" -->
+<indexterm><primary>Keyboard</primary><secondary>grabbing</secondary></indexterm>
+<indexterm><primary>Grabbing</primary><secondary>keyboard</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGrabKeyboard</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1127,9 +1127,9 @@ errors.
 <!-- .sp -->
 To ungrab the keyboard, use
 <function>XUngrabKeyboard .</function>
-<!-- .IN "Keyboard" "ungrabbing" -->
-<!-- .IN "Ungrabbing" "keyboard" -->
-<!-- .IN "XUngrabKeyboard" "" "@DEF@" -->
+<indexterm><primary>Keyboard</primary><secondary>ungrabbing</secondary></indexterm>
+<indexterm><primary>Ungrabbing</primary><secondary>keyboard</secondary></indexterm>
+<indexterm significance="preferred"><primary>XUngrabKeyboard</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1194,9 +1194,9 @@ active keyboard grab becomes not viewable.
 <!-- .sp -->
 To passively grab a single key of the keyboard, use
 <function>XGrabKey .</function>
-<!-- .IN "Key" "grabbing" -->
-<!-- .IN "Grabbing" "keys" -->
-<!-- .IN "XGrabKey" "" "@DEF@" -->
+<indexterm><primary>Key</primary><secondary>grabbing</secondary></indexterm>
+<indexterm><primary>Grabbing</primary><secondary>keys</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGrabKey</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1398,9 +1398,9 @@ errors.
 <!-- .sp -->
 To ungrab a key, use
 <function>XUngrabKey .</function>
-<!-- .IN "Key" "ungrabbing" -->
-<!-- .IN "Ungrabbing" "keys" -->
-<!-- .IN "XUngrabKey" "" "@DEF@" -->
+<indexterm><primary>Key</primary><secondary>ungrabbing</secondary></indexterm>
+<indexterm><primary>Ungrabbing</primary><secondary>keys</secondary></indexterm>
+<indexterm significance="preferred"><primary>XUngrabKey</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1501,7 +1501,7 @@ describes the mechanism for resuming event processing.
 <!-- .sp -->
 To allow further events to be processed when the device has been frozen, use
 <function>XAllowEvents .</function>
-<!-- .IN "XAllowEvents" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAllowEvents</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1756,7 +1756,7 @@ pointer to a new position under program control.
 <!-- .sp -->
 To move the pointer to an arbitrary point in a window, use
 <function>XWarpPointer .</function>
-<!-- .IN "XWarpPointer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWarpPointer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1930,7 +1930,7 @@ for input focus policy.
 <!-- .sp -->
 To set the input focus, use
 <function>XSetInputFocus .</function>
-<!-- .IN "XSetInputFocus" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetInputFocus</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2104,7 +2104,7 @@ errors.
 <!-- .sp -->
 To obtain the current input focus, use
 <function>XGetInputFocus .</function>
-<!-- .IN "XGetInputFocus" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetInputFocus</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2178,10 +2178,10 @@ and obtain a bit vector for the keyboard.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Keyboard" "bell volume" -->
-<!-- .IN "Keyboard" "keyclick volume" -->
-<!-- .IN "Keyboard" "bit vector" -->
-<!-- .IN "Mouse" "programming" -->
+<indexterm><primary>Keyboard</primary><secondary>bell volume</secondary></indexterm>
+<indexterm><primary>Keyboard</primary><secondary>keyclick volume</secondary></indexterm>
+<indexterm><primary>Keyboard</primary><secondary>bit vector</secondary></indexterm>
+<indexterm><primary>Mouse</primary><secondary>programming</secondary></indexterm>
 This section discusses 
 the user-preference options of bell, key click,
 pointer behavior, and so on.
@@ -2319,7 +2319,7 @@ If an error is generated, a subset of the controls may have been altered.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XChangeKeyboardControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangeKeyboardControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2388,7 +2388,7 @@ errors.
 <!-- .sp -->
 To obtain the current control values for the keyboard, use
 <function>XGetKeyboardControl .</function>
-<!-- .IN "XGetKeyboardControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetKeyboardControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2434,8 +2434,8 @@ structure.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XGetKeyboardControl" -->
-<!-- .IN "XKeyboardState" "" "@DEF@" -->
+<indexterm><primary>XGetKeyboardControl</primary></indexterm>
+<indexterm significance="preferred"><primary>XKeyboardState</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i  -->
@@ -2472,7 +2472,7 @@ with the least significant bit in the byte representing key 8N.
 <!-- .sp -->
 To turn on keyboard auto-repeat, use
 <function>XAutoRepeatOn .</function>
-<!-- .IN "XAutoRepeatOn" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAutoRepeatOn</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2506,7 +2506,7 @@ function turns on auto-repeat for the keyboard on the specified display.
 <!-- .sp -->
 To turn off keyboard auto-repeat, use
 <function>XAutoRepeatOff .</function>
-<!-- .IN "XAutoRepeatOff" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAutoRepeatOff</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2540,7 +2540,7 @@ function turns off auto-repeat for the keyboard on the specified display.
 <!-- .sp -->
 To ring the bell, use
 <function>XBell .</function>
-<!-- .IN "XBell" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XBell</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2624,7 +2624,7 @@ error.
 <!-- .sp -->
 To obtain a bit vector that describes the state of the keyboard, use
 <function>XQueryKeymap .</function>
-<!-- .IN "XQueryKeymap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryKeymap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2680,7 +2680,7 @@ may lag the physical state if device event processing is frozen.
 <!-- .sp -->
 To set the mapping of the pointer buttons, use
 <function>XSetPointerMapping .</function>
-<!-- .IN "XSetPointerMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetPointerMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2768,7 +2768,7 @@ error.
 <!-- .sp -->
 To get the pointer mapping, use
 <function>XGetPointerMapping .</function>
-<!-- .IN "XGetPointerMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetPointerMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2831,7 +2831,7 @@ in map_return.
 <!-- .sp -->
 To control the pointer's interactive feel, use
 <function>XChangePointerControl .</function>
-<!-- .IN "XChangePointerControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangePointerControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2944,7 +2944,7 @@ error.
 <!-- .sp -->
 To get the current pointer parameters, use
 <function>XGetPointerControl .</function>
-<!-- .IN "XGetPointerControl" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetPointerControl</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3213,7 +3213,7 @@ Rather, it merely stores it for reading and writing by clients.
 <!-- .LP -->
 To obtain the legal KeyCodes for a display, use
 <function>XDisplayKeycodes .</function>
-<!-- .IN "XDisplayKeycodes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDisplayKeycodes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3272,7 +3272,7 @@ Not all KeyCodes in this range are required to have corresponding keys.
 <!-- .LP -->
 To obtain the symbols for the specified KeyCodes, use
 <function>XGetKeyboardMapping .</function>
-<!-- .IN "XGetKeyboardMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetKeyboardMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3397,7 +3397,7 @@ error.
 <!-- .sp -->
 To change the keyboard mapping, use
 <function>XChangeKeyboardMapping .</function>
-<!-- .IN "XChangeKeyboardMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XChangeKeyboardMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3551,7 +3551,7 @@ data structure, which contains:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XModifierKeymap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XModifierKeymap</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 2.5i -->
@@ -3569,7 +3569,7 @@ To create an
 <function>XModifierKeymap</function>
 structure, use
 <function>XNewModifiermap .</function>
-<!-- .IN "XNewModifiermap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XNewModifiermap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3608,7 +3608,7 @@ To add a new entry to an
 <function>XModifierKeymap</function>
 structure, use
 <function>XInsertModifiermapEntry .</function>
-<!-- .IN "XInsertModifiermapEntry" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInsertModifiermapEntry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3671,7 +3671,7 @@ To delete an entry from an
 <function>XModifierKeymap</function>
 structure, use
 <function>XDeleteModifiermapEntry .</function>
-<!-- .IN "XDeleteModifiermapEntry" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDeleteModifiermapEntry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3734,7 +3734,7 @@ To destroy an
 <function>XModifierKeymap</function>
 structure, use
 <function>XFreeModifiermap .</function>
-<!-- .IN "XFreeModifiermap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeModifiermap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3772,7 +3772,7 @@ structure.
 <!-- .sp -->
 To set the KeyCodes to be used as modifiers, use
 <function>XSetModifierMapping .</function>
-<!-- .IN "XSetModifierMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetModifierMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3886,7 +3886,7 @@ errors.
 <!-- .sp -->
 To obtain the KeyCodes used as modifiers, use
 <function>XGetModifierMapping .</function>
-<!-- .IN "XGetModifierMapping" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetModifierMapping</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

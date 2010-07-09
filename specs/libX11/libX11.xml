@@ -144,5 +144,6 @@ It is provided "as is" without express or implied warranty.
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"  href="AppC.xml"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"  href="AppD.xml"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"  href="glossary.xml"/>
+<index />
 </book>
 

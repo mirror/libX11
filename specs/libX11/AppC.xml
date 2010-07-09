@@ -43,7 +43,7 @@ The basic protocol requests for extensions are
 and
 <function>XListExtensions .</function>
 </para>
-<!-- .IN "XQueryExtension" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryExtension</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -128,7 +128,7 @@ the result is implementation-dependent.
 Uppercase and lowercase matter;
 the strings ``thing'', ``Thing'', and ``thinG'' 
 are all considered different names.
-<!-- .IN "XListExtensions" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XListExtensions</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -170,7 +170,7 @@ function returns a list of all extensions supported by the server.
 If the data returned by the server is in the Latin Portable Character Encoding,
 then the returned strings are in the Host Portable Character Encoding.
 Otherwise, the result is implementation-dependent.
-<!-- .IN "XFreeExtensionList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFreeExtensionList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -237,7 +237,7 @@ and is defined in
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XExtCodes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XExtCodes</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -253,7 +253,7 @@ typedef struct _XExtCodes {	/* public to extension, cannot be changed */
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XInitExtension" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XInitExtension</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -319,7 +319,7 @@ This extension number is unique only to a single connection.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XAddExtension" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddExtension</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -367,7 +367,7 @@ format, and the handling of errors.
 <!-- .LP -->
 All of these functions return the previous procedure defined for this
 extension.
-<!-- .IN "XESetCloseDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetCloseDisplay</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -435,7 +435,7 @@ with these arguments:
 	XExtCodes *<emphasis remap='I'>codes</emphasis>;
 </literallayout>
 <para>
-<!-- .IN "XESetCreateGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetCreateGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -503,7 +503,7 @@ your procedure is called with these arguments:
 	XExtCodes *<emphasis remap='I'>codes</emphasis>;
 </literallayout>
 </para>
-<!-- .IN "XESetCopyGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetCopyGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -636,7 +636,7 @@ your procedure is called with these arguments:
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XESetCreateFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetCreateFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -717,7 +717,7 @@ your procedure is called with these arguments:
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XESetFreeFont" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetFreeFont</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -829,7 +829,7 @@ union of structures.
 There also is no way to guarantee that more than 24 elements or 96 characters
 in the structure will be fully portable between machines.
 <!-- .NE -->
-<!-- .IN "XESetWireToEvent" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetWireToEvent</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -941,7 +941,7 @@ with the event and use the return value.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "_XSetLastRequestRead" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XSetLastRequestRead</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -985,7 +985,7 @@ serial number in the event.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XESetEventToWire" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetEventToWire</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1079,7 +1079,7 @@ structure.
 All other members then should be copied from the host format to the 
 <function>xEvent </function>
 structure.
-<!-- .IN "XESetWireToError" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetWireToError</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1176,7 +1176,7 @@ then the function should return
 <function>False ;</function>
 otherwise, it should return
 <function>True .</function>
-<!-- .IN "XESetError" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetError</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1268,7 +1268,7 @@ If your procedure returns nonzero,
 the error is suppressed, and 
 <function>_XReply </function>
 returns the value of ret_code.
-<!-- .IN "XESetErrorString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetErrorString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1344,7 +1344,7 @@ The following is an example.
 Your procedure is called with the error code for every error detected.
 You should copy nbytes of a null-terminated string containing the
 error message into buffer.
-<!-- .IN "XESetPrintErrorValues" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetPrintErrorValues</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1428,7 +1428,7 @@ to obtain additional values set by using
 <function>XESetWireToError .</function>
 The underlying type of the fp argument is system dependent;
 on a POSIX-compliant system, fp should be cast to type FILE*.
-<!-- .IN "XESetFlushGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetFlushGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1480,7 +1480,7 @@ The procedure set by the
 function has the same interface as the procedure set by the
 <function>XESetCopyGC</function>
 function, but is called when a GC cache needs to be updated in the server.
-<!-- .IN "XESetBeforeFlush" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XESetBeforeFlush</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1581,7 +1581,7 @@ and is defined in
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XExtData" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XExtData</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -1620,7 +1620,7 @@ union {	Display *display;
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<!-- .IN "XEHeadOfExtensionList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XEHeadOfExtensionList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1658,7 +1658,7 @@ of types contained in
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XAddToExtensionList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAddToExtensionList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1698,7 +1698,7 @@ The structure argument is a pointer to one of the data structures
 enumerated above.
 You must initialize ext_data-&gt;number with the extension number
 before calling this function.
-<!-- .IN "XFindOnExtensionList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XFindOnExtensionList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1749,7 +1749,7 @@ The
 <function>XAllocID </function>
 macro, which allocates and returns a resource ID, is defined in 
 &lt;X11/Xlib.h&gt;.
-<!-- .IN "XAllocID" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAllocID</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1784,7 +1784,7 @@ It returns a resource ID that you can use when creating new resources.
 The 
 <function>XAllocIDs</function>
 macro allocates and returns an array of resource ID.
-<!-- .IN "XAllocIDs" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XAllocIDs</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1861,7 +1861,7 @@ if any elements have changed.
 The
 <function>FlushGC</function>
 macro is defined as follows:
-<!-- .IN "FlushGC" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>FlushGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1911,7 +1911,7 @@ The
 <function>_XFlushGCCache </function>
 procedure
 is defined as follows:
-<!-- .IN "_XFlushGCCache" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XFlushGCCache</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2149,7 +2149,7 @@ which looks like:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "xDoSomethingReq" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>xDoSomethingReq</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2187,7 +2187,7 @@ or
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "xResourceReq" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>xResourceReq</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2237,7 +2237,7 @@ also contains a reply structure typedef:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "xDoSomethingReply" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>xDoSomethingReply</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -2339,7 +2339,7 @@ call until all arguments to the call have been stored into the buffer.
 The precise instructions needed for this locking depend upon the machine
 architecture. 
 Two calls, which are generally implemented as macros, have been provided.
-<!-- .IN "LockDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>LockDisplay</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2351,7 +2351,7 @@ Two calls, which are generally implemented as macros, have been provided.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "UnlockDisplay" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>UnlockDisplay</primary></indexterm>
 <funcsynopsis>
 <funcprototype>
   <funcdef><function> UnlockDisplay</function></funcdef>
@@ -2590,7 +2590,7 @@ packet to arrive.
 If any events arrive in the meantime,
 <function>_XReply </function>
 places them in the queue for later use.
-<!-- .IN "_XReply" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XReply</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3075,7 +3075,7 @@ the general memory allocators may be too expensive to use
 (particularly in output functions, which are performance critical).  
 The following function returns a scratch buffer for use within a
 critical section:
-<!-- .IN "_XAllocScratch" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XAllocScratch</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3132,7 +3132,7 @@ families of functions.
 <!-- .sp -->
 The following function returns a scratch buffer for use across
 critical sections:
-<!-- .IN "_XAllocTemp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XAllocTemp</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -3171,7 +3171,7 @@ Specifies the number of bytes required.
 This storage can be used across calls that might permit another thread to
 execute inside Xlib.  The storage must be explicitly returned to Xlib.
 The following function returns the storage:
-<!-- .IN "_XFreeTemp" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>_XFreeTemp</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

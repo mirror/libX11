@@ -62,15 +62,15 @@ A set of screens for a single user with one keyboard and one pointer
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Screen" -->
+<indexterm><primary>Screen</primary></indexterm>
 All the windows in an X server are arranged in strict hierarchies.
 At the top of each hierarchy is a root window,
 which covers each of the display screens.
 Each root window is partially or completely covered by child windows.
 All windows, except for root windows, have parents.
 There is usually at least one window for each application program.
-<!-- .IN "Child window" -->
-<!-- .IN "Parent Window" -->
+<indexterm><primary>Child window</primary></indexterm>
+<indexterm><primary>Parent Window</primary></indexterm>
 Child windows may in turn have their own children.
 In this way, 
 an application program can create an arbitrarily deep tree 
@@ -83,7 +83,7 @@ A child window can be larger than its parent.
 That is, part or all of
 the child window can extend beyond the boundaries of the parent,
 but all output to a window is clipped by its parent.
-<!-- .IN "Stacking order" -->
+<indexterm><primary>Stacking order</primary></indexterm>
 If several children of a window have overlapping locations, 
 one of the children is considered to be on top of or raised over the
 others, thus obscuring them.
@@ -95,7 +95,7 @@ that are also ancestors of the first window.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Window" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Window</primary></indexterm>
 A window has a border zero or more pixels in width, which can
 be any pattern (pixmap) or solid color you like.
 A window usually but not always has a background pattern,
@@ -127,10 +127,10 @@ Programs must be prepared to regenerate the contents of windows on demand.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Pixmap" -->
-<!-- .IN "Drawable" -->
-<!-- .IN "Tile" -->
-<!-- .IN "Bitmap" -->
+<indexterm><primary>Pixmap</primary></indexterm>
+<indexterm><primary>Drawable</primary></indexterm>
+<indexterm><primary>Tile</primary></indexterm>
+<indexterm><primary>Bitmap</primary></indexterm>
 X also provides off-screen storage of graphics objects,
 called pixmaps.
 Single plane (depth 1) pixmaps are sometimes referred to as bitmaps.
@@ -150,7 +150,7 @@ which will be called when the error is reported.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XSync" -->
+<indexterm><primary>XSync</primary></indexterm>
 If a client does not want a request to execute asynchronously, 
 it can follow the request with a call to 
 <function>XSync , </function>
@@ -162,12 +162,12 @@ that returns a value from the server or waits for input.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Resource IDs" -->
-<!-- .IN "Resource IDs" "Window" -->
-<!-- .IN "Resource IDs" "Font" -->
-<!-- .IN "Resource IDs" "Pixmap" -->
-<!-- .IN "Resource IDs" "Cursor" -->
-<!-- .IN "Resource IDs" "GContext" -->
+<indexterm><primary>Resource IDs</primary></indexterm>
+<indexterm><primary>Resource IDs</primary><secondary>Window</secondary></indexterm>
+<indexterm><primary>Resource IDs</primary><secondary>Font</secondary></indexterm>
+<indexterm><primary>Resource IDs</primary><secondary>Pixmap</secondary></indexterm>
+<indexterm><primary>Resource IDs</primary><secondary>Cursor</secondary></indexterm>
+<indexterm><primary>Resource IDs</primary><secondary>GContext</secondary></indexterm>
 Many Xlib functions will return an integer resource ID,
 which allows you to refer to objects stored on the X server.
 These can be of type 
@@ -192,7 +192,7 @@ Xlib provides no support for sharing graphics contexts between applications.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Event" -->
+<indexterm><primary>Event</primary></indexterm>
 Client programs are informed of events.
 Events may either be side effects of a request (for example, restacking windows
 generates 
@@ -219,7 +219,7 @@ and
 <function>ConfigureRequest</function>
 events.
 These events also arrive asynchronously, but the client may
-<!-- .IN "XSync" -->
+<indexterm><primary>XSync</primary></indexterm>
 wish to explicitly wait for them by calling
 <function>XSync</function>
 after calling a function that can cause the server to generate events.
@@ -238,10 +238,10 @@ an integer error indication.
 If the function fails, it returns a zero.
 If the function returns a status of zero,
 it has not updated the return arguments.
-<!-- .IN "Status" -->
+<indexterm><primary>Status</primary></indexterm>
 Because C does not provide multiple return values, 
 many functions must return their results by writing into client-passed storage. 
-<!-- .IN "Error" "handling" -->
+<indexterm><primary>Error</primary><secondary>handling</secondary></indexterm>
 By default, errors are handled either by a standard library function
 or by one that you provide.
 Functions that return pointers to strings return NULL pointers if
@@ -295,7 +295,7 @@ This is the main header file for Xlib.
 The majority of all Xlib symbols are declared by including this file.
 This file also contains the preprocessor symbol
 <function>XlibSpecificationRelease .</function>
-<!-- .IN "XlibSpecificationRelease" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XlibSpecificationRelease</primary></indexterm>
 This symbol is defined to have the 6 in this release of the standard.
 (Release 5 of Xlib was the first release to have this symbol.)
       </para>
@@ -451,9 +451,9 @@ X10 compatibility functions, which are described in appendix D.
 <para>
 <!-- .LP -->
 The following symbols are defined by Xlib and used throughout the manual:
-<!-- .IN "Bool" "" "@DEF@" -->
-<!-- .IN "True" "" "@DEF@" -->
-<!-- .IN "False" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Bool</primary></indexterm>
+<indexterm significance="preferred"><primary>True</primary></indexterm>
+<indexterm significance="preferred"><primary>False</primary></indexterm>
 </para>
 <itemizedlist>
   <listitem>
@@ -464,14 +464,14 @@ and the Boolean values
 <function>True</function>
 and
 <function>False .</function>
-<!-- .IN "None" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>None</primary></indexterm>
     </para>
   </listitem>
   <listitem>
     <para>
 <function>None</function>
 is the universal null resource ID or atom.
-<!-- .IN "XID" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XID</primary></indexterm>
     </para>
   </listitem>
   <listitem>
@@ -479,7 +479,7 @@ is the universal null resource ID or atom.
 The type
 <function>XID</function>
 is used for generic resource IDs.
-<!-- .IN "XPointer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XPointer</primary></indexterm>
     </para>
   </listitem>
   <listitem>

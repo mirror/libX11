@@ -33,9 +33,9 @@ exists.
 To obtain the parent, a list of children, and number of children for 
 a given window, use 
 <function>XQueryTree .</function>
-<!-- .IN "Child Window" -->
-<!-- .IN "Parent Window" -->
-<!-- .IN "XQueryTree" "" "@DEF@" -->
+<indexterm><primary>Child Window</primary></indexterm>
+<indexterm><primary>Parent Window</primary></indexterm>
+<indexterm significance="preferred"><primary>XQueryTree</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -142,7 +142,7 @@ error.
 <!-- .sp -->
 To obtain the current attributes of a given window, use 
 <function>XGetWindowAttributes .</function>
-<!-- .IN "XGetWindowAttributes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWindowAttributes</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -200,7 +200,7 @@ structure.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XWindowAttributes" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XWindowAttributes</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -402,7 +402,7 @@ errors.
 <!-- .sp -->
 To obtain the current geometry of a given drawable, use 
 <function>XGetGeometry .</function>
-<!-- .IN "XGetGeometry" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetGeometry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -563,7 +563,7 @@ asking the X server to perform these operations.
 To translate a coordinate in one window to the coordinate
 space of another window, use
 <function>XTranslateCoordinates .</function>
-<!-- .IN "XTranslateCoordinates" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XTranslateCoordinates</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -697,7 +697,7 @@ error.
 To obtain the screen coordinates of the pointer
 or to determine the pointer coordinates relative to a specified window, use 
 <function>XQueryPointer .</function>
-<!-- .IN "XQueryPointer" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XQueryPointer</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -868,7 +868,7 @@ error.
 <!-- .LP -->
 A property is a collection of named, typed data.
 The window system has a set of predefined properties
-<!-- .IN "Atom" "predefined" -->
+<indexterm><primary>Atom</primary><secondary>predefined</secondary></indexterm>
 (for example, the name of a window, size hints, and so on), and users can
 define any other arbitrary information and associate it with windows.
 Each property has a name,
@@ -885,7 +885,7 @@ For efficiency reasons,
 an atom is used rather than a character string.
 <function>XInternAtom</function>
 can be used to obtain the atom for property names.
-<!-- .IN "Atom"  -->
+<indexterm><primary>Atom</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -903,7 +903,7 @@ see appendix C. <!-- xref -->
 <!-- .NE -->
 The type of a property is defined by an atom, which allows for
 arbitrary extension in this type scheme.
-<!-- .IN "Atom"  -->
+<indexterm><primary>Atom</primary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -1184,8 +1184,8 @@ see section 8.5. <!-- xref -->
 <!-- .sp -->
 To return an atom for a given name, use 
 <function>XInternAtom .</function>
-<!-- .IN "Atom" "interning" -->
-<!-- .IN "XInternAtom" "" "@DEF@" -->
+<indexterm><primary>Atom</primary><secondary>interning</secondary></indexterm>
+<indexterm significance="preferred"><primary>XInternAtom</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1266,8 +1266,8 @@ errors.
 <!-- .sp -->
 To return atoms for an array of names, use 
 <function>XInternAtoms .</function>
-<!-- .IN "Atom" "interning" -->
-<!-- .IN "XInternAtoms" "" "@DEF@" -->
+<indexterm><primary>Atom</primary><secondary>interning</secondary></indexterm>
+<indexterm significance="preferred"><primary>XInternAtoms</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1367,8 +1367,8 @@ errors.
 <!-- .sp -->
 To return a name for a given atom identifier, use 
 <function>XGetAtomName .</function>
-<!-- .IN "Atom" "getting name" -->
-<!-- .IN "XGetAtomName" "" "@DEF@" -->
+<indexterm><primary>Atom</primary><secondary>getting name</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGetAtomName</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1426,8 +1426,8 @@ error.
 <!-- .sp -->
 To return the names for an array of atom identifiers, use 
 <function>XGetAtomNames .</function>
-<!-- .IN "Atom" "getting name" -->
-<!-- .IN "XGetAtomNames" "" "@DEF@" -->
+<indexterm><primary>Atom</primary><secondary>getting name</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGetAtomNames</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1540,11 +1540,11 @@ communication (see chapter 14). <!-- xref -->
 <!-- .sp -->
 To obtain the type, format, and value of a property of a given window, use 
 <function>XGetWindowProperty .</function>
-<!-- .IN "Property" "getting" -->
+<indexterm><primary>Property</primary><secondary>getting</secondary></indexterm>
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XGetWindowProperty" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetWindowProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1823,8 +1823,8 @@ errors.
 <!-- .sp -->
 To obtain a given window's property list, use 
 <function>XListProperties .</function>
-<!-- .IN "Property" "listing" -->
-<!-- .IN "XListProperties" "" "@DEF@" -->
+<indexterm><primary>Property</primary><secondary>listing</secondary></indexterm>
+<indexterm significance="preferred"><primary>XListProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1891,13 +1891,13 @@ error.
 <!-- .sp -->
 To change a property of a given window, use
 <function>XChangeProperty .</function>
-<!-- .IN "Property" "changing" -->
-<!-- .IN "Property" "appending" -->
-<!-- .IN "Property" "prepending" -->
-<!-- .IN "Property" "replacing" -->
-<!-- .IN "Property" "format" -->
-<!-- .IN "Property" "type" -->
-<!-- .IN "XChangeProperty" "" "@DEF@" -->
+<indexterm><primary>Property</primary><secondary>changing</secondary></indexterm>
+<indexterm><primary>Property</primary><secondary>appending</secondary></indexterm>
+<indexterm><primary>Property</primary><secondary>prepending</secondary></indexterm>
+<indexterm><primary>Property</primary><secondary>replacing</secondary></indexterm>
+<indexterm><primary>Property</primary><secondary>format</secondary></indexterm>
+<indexterm><primary>Property</primary><secondary>type</secondary></indexterm>
+<indexterm significance="preferred"><primary>XChangeProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2098,7 +2098,7 @@ To rotate a window's property list, use
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XRotateWindowProperties" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XRotateWindowProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2211,8 +2211,8 @@ errors.
 <!-- .sp -->
 To delete a property on a given window, use 
 <function>XDeleteProperty .</function>
-<!-- .IN "Property" "deleting" -->
-<!-- .IN "XDeleteProperty" "" "@DEF@" -->
+<indexterm><primary>Property</primary><secondary>deleting</secondary></indexterm>
+<indexterm significance="preferred"><primary>XDeleteProperty</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2285,7 +2285,7 @@ errors.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "Selection" -->
+<indexterm><primary>Selection</primary></indexterm>
 Selections are one method used by applications to exchange data.
 By using the property mechanism,
 applications can exchange data of arbitrary types and can negotiate
@@ -2334,8 +2334,8 @@ The protocol does not constrain the semantics.
 <!-- .sp -->
 To set the selection owner, use 
 <function>XSetSelectionOwner .</function>
-<!-- .IN "Selection" "setting the owner" -->
-<!-- .IN "XSetSelectionOwner" "" "@DEF@" -->
+<indexterm><primary>Selection</primary><secondary>setting the owner</secondary></indexterm>
+<indexterm significance="preferred"><primary>XSetSelectionOwner</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2457,8 +2457,8 @@ errors.
 <!-- .sp -->
 To return the selection owner, use 
 <function>XGetSelectionOwner .</function>
-<!-- .IN "Selection" "getting the owner" -->
-<!-- .IN "XGetSelectionOwner" "" "@DEF@" -->
+<indexterm><primary>Selection</primary><secondary>getting the owner</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGetSelectionOwner</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2519,8 +2519,8 @@ error.
 <!-- .sp -->
 To request conversion of a selection, use 
 <function>XConvertSelection .</function>
-<!-- .IN "Selection" "converting" -->
-<!-- .IN "XConvertSelection" "" "@DEF@" -->
+<indexterm><primary>Selection</primary><secondary>converting</secondary></indexterm>
+<indexterm significance="preferred"><primary>XConvertSelection</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

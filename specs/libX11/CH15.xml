@@ -352,7 +352,7 @@ but its use is entirely local to your application.
 To allocate a new quark, use
 <function>XrmUniqueQuark .</function>
 </para>
-<!-- .IN "XrmUniqueQuark" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmUniqueQuark</primary></indexterm>
 <!-- .sM -->
 <para>XrmQuark XrmUniqueQuark()</para>
 <!-- .FN -->
@@ -410,8 +410,8 @@ or
 #define XrmStringToRepresentation(string) XrmStringToQuark(string)
 </literallayout>
 
-<!-- .IN "XrmStringToQuark" "" "@DEF@" -->
-<!-- .IN "XrmPermStringToQuark" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmStringToQuark</primary></indexterm>
+<indexterm significance="preferred"><primary>XrmPermStringToQuark</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -469,7 +469,7 @@ To convert a quark to a string, use
 #define XrmClassToString(class)  XrmQuarkToString(name)
 #define XrmRepresentationToString(type)  XrmQuarkToString(type)
 </literallayout>
-<!-- .IN "XrmQuarkToString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQuarkToString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -516,7 +516,7 @@ To convert a string with one or more components to a quark list, use
 #define XrmStringToClassList(str,class)  XrmStringToQuarkList((str), (class))
 </literallayout>
 
-<!-- .IN "XrmStringToQuarkList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmStringToQuarkList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -590,7 +590,7 @@ indicates that an asterisk separates the components.
 To convert a string with one or more components to a binding list
 and a quark list, use
 <function>XrmStringToBindingQuarkList .</function>
-<!-- .IN "XrmStringToBindingQuarkList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmStringToBindingQuarkList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -666,7 +666,7 @@ bindings:     loose     tight     loose
 <!-- .XE -->
 <para>
 <!-- .LP -->
-<!-- .IN "XrmDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmDatabase</primary></indexterm>
 A resource database is an opaque type,
 <function>XrmDatabase .</function>
 Each database value is stored in an
@@ -683,7 +683,7 @@ structure is defined as:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XrmValue" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmValue</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 3i -->
@@ -700,7 +700,7 @@ typedef struct {
 <!-- .sp -->
 To initialize the resource manager, use
 <function>XrmInitialize .</function>
-<!-- .IN "XrmInitialize" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmInitialize</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -715,7 +715,7 @@ To initialize the resource manager, use
 <!-- .eM -->
 To retrieve a database from disk, use
 <function>XrmGetFileDatabase .</function>
-<!-- .IN "XrmGetFileDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmGetFileDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -759,7 +759,7 @@ returns NULL.
 <!-- .sp -->
 To store a copy of a database to disk, use
 <function>XrmPutFileDatabase .</function>
-<!-- .IN "XrmPutFileDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmPutFileDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -812,7 +812,7 @@ Entries with representation types other than ``String'' are ignored.
 <!-- .sp -->
 To obtain a pointer to the screen-independent resources of a display, use
 <function>XResourceManagerString .</function>
-<!-- .IN "XResourceManagerString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XResourceManagerString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -856,7 +856,7 @@ If no property exists, NULL is returned.
 <!-- .sp -->
 To obtain a pointer to the screen-specific resources of a screen, use
 <function>XScreenResourceString .</function>
-<!-- .IN "XScreenResourceString" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XScreenResourceString</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -900,7 +900,7 @@ The caller is responsible for freeing the returned string by using
 <!-- .sp -->
 To create a database from a string, use
 <function>XrmGetStringDatabase .</function>
-<!-- .IN "XrmGetStringDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmGetStringDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -945,7 +945,7 @@ and the database is created in the current locale.
 <!-- .sp -->
 To obtain the locale name of a database, use
 <function>XrmLocaleOfDatabase .</function>
-<!-- .IN "XrmLocaleOfDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmLocaleOfDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -985,7 +985,7 @@ it will not be modified by Xlib.
 <!-- .sp -->
 To destroy a resource database and free its allocated memory, use
 <function>XrmDestroyDatabase .</function>
-<!-- .IN "XrmDestroyDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmDestroyDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1019,7 +1019,7 @@ returns immediately.
 <!-- .sp -->
 To associate a resource database with a display, use
 <function>XrmSetDatabase .</function>
-<!-- .IN "XrmSetDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmSetDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1068,7 +1068,7 @@ once it is constructed.
 <!-- .sp -->
 To get the resource database associated with a display, use
 <function>XrmGetDatabase .</function>
-<!-- .IN "XrmGetDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmGetDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1108,7 +1108,7 @@ It returns NULL if a database has not yet been set.
 <!-- .LP -->
 To merge the contents of a resource file into a database, use
 <function>XrmCombineFileDatabase .</function>
-<!-- .IN "XrmCombineFileDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmCombineFileDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1182,7 +1182,7 @@ The locale of the target database is not modified.
 <!-- .sp -->
 To merge the contents of one database into another database, use
 <function>XrmCombineDatabase .</function>
-<!-- .IN "XrmCombineDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmCombineDatabase</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1252,7 +1252,7 @@ The locale of the target database is not modified.
 To merge the contents of one database into another database with override
 semantics, use
 <function>XrmMergeDatabases .</function>
-<!-- .IN "XrmMergeDatabases" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmMergeDatabases</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1312,7 +1312,7 @@ or
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XrmGetResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmGetResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1382,7 +1382,7 @@ Returns the value in the database.
 <!-- .LP -->
 <!-- .eM -->
 <!-- .sp -->
-<!-- .IN "XrmQGetResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQGetResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1504,7 +1504,7 @@ of database levels that might match the first part of a name/class list.
 <!-- .sp -->
 To obtain a list of database levels, use
 <function>XrmQGetSearchList .</function>
-<!-- .IN "XrmQGetSearchList" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQGetSearchList</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1611,7 +1611,7 @@ only the common prefix should be specified in the name and class list to
 <!-- .sp -->
 To search resource database levels for a given resource, use
 <function>XrmQGetSearchResource .</function>
-<!-- .IN "XrmQGetSearchResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQGetSearchResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1725,7 +1725,7 @@ This value is copied into the specified database.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XrmPutResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmPutResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1803,7 +1803,7 @@ The value is stored in the database without modification.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XrmQPutResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQPutResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1885,7 +1885,7 @@ The value is stored in the database without modification.
 <!-- .sp -->
 To add a resource that is specified as a string, use
 <function>XrmPutStringResource .</function>
-<!-- .IN "XrmPutStringResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmPutStringResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1952,7 +1952,7 @@ The value is stored in the database without modification.
 <!-- .sp -->
 To add a string resource using quarks as a specification, use
 <function>XrmQPutStringResource .</function>
-<!-- .IN "XrmQPutStringResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmQPutStringResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2030,7 +2030,7 @@ The value is stored in the database without modification.
 To add a single resource entry that is specified as a string that contains
 both a name and a value, use
 <function>XrmPutLineResource .</function>
-<!-- .IN "XrmPutLineResource" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmPutLineResource</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -2092,7 +2092,7 @@ Note that comment lines are not stored.
 <!-- .LP -->
 To enumerate the entries of a database, use
 <function>XrmEnumerateDatabase .</function>
-<!-- .IN "XrmEnumerateDatabase" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmEnumerateDatabase</primary></indexterm>
 <!-- .sM -->
 </para>
 
@@ -2249,7 +2249,7 @@ and modify a resource database with selected entries from the command line.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XrmOptionKind" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmOptionKind</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 2.5i -->
@@ -2283,7 +2283,7 @@ indicates that only the option itself is to be skipped.
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "XrmOptionDescRec" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmOptionDescRec</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 2.5i -->
@@ -2303,7 +2303,7 @@ typedef struct {
 <!-- .sp -->
 To load a resource database from a C command line, use
 <function>XrmParseCommand .</function>
-<!-- .IN "XrmParseCommand" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XrmParseCommand</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

@@ -53,7 +53,7 @@ This function has been superseded by
 and sets all or portions of the 
 WM_NAME, WM_ICON_NAME, WM_HINTS, WM_COMMAND, 
 and WM_NORMAL_HINTS properties.
-<!-- .IN "XSetStandardProperties" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetStandardProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -201,7 +201,7 @@ To set the size hints for a given window in its normal state, use
 <function>XSetNormalHints .</function>
 This function has been superseded by
 <function>XSetWMNormalHints .</function>
-<!-- .IN "XSetNormalHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -290,7 +290,7 @@ To return the size hints for a window in its normal state, use
 <function>XGetNormalHints .</function>
 This function has been superseded by
 <function>XGetWMNormalHints .</function>
-<!-- .IN "XGetNormalHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetNormalHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -361,7 +361,7 @@ To set the zoom hints for a window, use
 <function>XSetZoomHints .</function>
 This function is no longer supported by the
 <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
-<!-- .IN "XSetZoomHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetZoomHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -431,7 +431,7 @@ To read the zoom hints for a window, use
 <function>XGetZoomHints .</function>
 This function is no longer supported by the
 <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
-<!-- .IN "XGetZoomHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetZoomHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -498,7 +498,7 @@ To set the value of any property of type WM_SIZE_HINTS, use
 <function>XSetSizeHints .</function>
 This function has been superseded by
 <function>XSetWMSizeHints .</function>
-<!-- .IN "XSetSizeHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -585,7 +585,7 @@ To read the value of any property of type WM_SIZE_HINTS, use
 <function>XGetSizeHints .</function>
 This function has been superseded by
 <function>XGetWMSizeHints .</function>
-<!-- .IN "XGetSizeHints" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetSizeHints</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -678,7 +678,7 @@ structure associated with one of the described atoms, use
 <function>XGetStandardColormap .</function>
 This function has been superseded by
 <function>XGetRGBColormap .</function>
-<!-- .IN "XGetStandardColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetStandardColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -780,7 +780,7 @@ To set a standard colormap, use
 <function>XSetStandardColormap .</function>
 This function has been superseded by
 <function>XSetRGBColormap .</function>
-<!-- .IN "XSetStandardColormap" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XSetStandardColormap</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -862,8 +862,8 @@ and a default position, use
 <function>XGeometry .</function>
 This function has been superseded by
 <function>XWMGeometry .</function>
-<!-- .IN "Window" "determining location" -->
-<!-- .IN "XGeometry" "" "@DEF@" -->
+<indexterm><primary>Window</primary><secondary>determining location</secondary></indexterm>
+<indexterm significance="preferred"><primary>XGeometry</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1067,7 +1067,7 @@ It is only useful in very simple applications.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-<!-- .IN "XGetDefault" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XGetDefault</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1148,7 +1148,7 @@ a resource file in the user's home directory is used.
 On a POSIX-conformant system, 
 this file is
 <function>"$HOME/.Xdefaults" .</function>
-<!-- .IN "Files" "$HOME/.Xdefaults" -->
+<indexterm><primary>Files</primary><secondary>$HOME/.Xdefaults</secondary></indexterm>
 After loading these defaults,
 <function>XGetDefault</function>
 merges additional defaults specified by the XENVIRONMENT
@@ -1191,10 +1191,10 @@ and have no server support.
 That is, they call other Xlib functions, not the server directly.  
 Thus, if you just have straight lines to draw, using 
 <function>XDrawLines </function>
-<!-- .IN "XDrawLines" -->
+<indexterm><primary>XDrawLines</primary></indexterm>
 or
 <function>XDrawSegments </function>
-<!-- .IN "XDrawSegments"  -->
+<indexterm><primary>XDrawSegments</primary></indexterm>
 is much faster.
 </para>
 <para>
@@ -1202,16 +1202,16 @@ is much faster.
 The functions discussed here provide all the functionality of the 
 X Version 10 functions 
 <function>XDraw , </function>
-<!-- .IN "X10 compatibility" "XDraw"  -->
+<indexterm ><primary>X10 compatibility</primary><secondary>XDraw</secondary></indexterm>
 <function>XDrawFilled , </function>
-<!-- .IN "X10 compatibility" "XDrawFilled" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawFilled</secondary></indexterm>
 <function>XDrawPatterned , </function>
-<!-- .IN "X10 compatibility" "XDrawPatterned"  -->
+<indexterm ><primary>X10 compatibility</primary><secondary>XDrawPatterned</secondary></indexterm>
 <function>XDrawDashed , </function>
-<!-- .IN "X10 compatibility" "XDrawDashed" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawDashed</secondary></indexterm>
 and
 <function>XDrawTiled .  </function>
-<!-- .IN "X10 compatibility" "XDrawTiled" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawTiled</secondary></indexterm>
 They are as compatible as possible given X Version 11's new line-drawing 
 functions.  
 One thing to note, however, is that
@@ -1249,12 +1249,12 @@ set.
 <!-- .sp -->
 To achieve the effects of the X Version 10
 <function>XDraw , </function>
-<!-- .IN "X10 compatibility" "XDraw"  -->
+<indexterm ><primary>X10 compatibility</primary><secondary>XDraw</secondary></indexterm>
 <function>XDrawDashed , </function>
-<!-- .IN "X10 compatibility" "XDrawDashed" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawDashed</secondary></indexterm>
 and 
 <function>XDrawPatterned , </function>
-<!-- .IN "X10 compatibility" "XDrawPatterned"  -->
+<indexterm ><primary>X10 compatibility</primary><secondary>XDrawPatterned</secondary></indexterm>
 use
 <function>XDraw .  </function>
 </para>
@@ -1344,7 +1344,7 @@ is a structure with the following members:
 </para>
 <para>
 <!-- .LP -->
-<!-- .IN "Vertex" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>Vertex</primary></indexterm>
 <!-- .sM -->
 <literallayout class="monospaced">
 <!-- .TA .5i 1.5i -->
@@ -1371,11 +1371,11 @@ is one).
 The flags, as defined in 
 <!-- .hN X11/X10.h ,  -->
 are as follows:
-<!-- .IN "VertexRelative" "" "@DEF@" -->
-<!-- .IN "VertexDontDraw" "" "@DEF@" -->
-<!-- .IN "VertexCurved" "" "@DEF@" -->
-<!-- .IN "VertexStartClosed" "" "@DEF@" -->
-<!-- .IN "VertexEndClosed" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>VertexRelative</primary></indexterm>
+<indexterm significance="preferred"><primary>VertexDontDraw</primary></indexterm>
+<indexterm significance="preferred"><primary>VertexCurved</primary></indexterm>
+<indexterm significance="preferred"><primary>VertexStartClosed</primary></indexterm>
+<indexterm significance="preferred"><primary>VertexEndClosed</primary></indexterm>
 <!-- .sM -->
 </para>
 
@@ -1464,10 +1464,10 @@ tile-stipple-x-origin, tile-stipple-y-origin, dash-offset, and dash-list.
 <!-- .sp -->
 To achieve the effects of the X Version 10
 <function>XDrawTiled </function>
-<!-- .IN "X10 compatibility" "XDrawTiled" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawTiled</secondary></indexterm>
 and 
 <function>XDrawFilled , </function>
-<!-- .IN "X10 compatibility" "XDrawFilled" -->
+<indexterm><primary>X10 compatibility</primary><secondary>XDrawFilled</secondary></indexterm>
 use
 <function>XDrawFilled .</function>
 </para>
@@ -1566,9 +1566,9 @@ It is often necessary to associate arbitrary information with resource IDs.
 Xlib provides the 
 <function>XAssocTable </function>
 functions that you can use to make such an association.
-<!-- .IN "Hash Lookup" -->
-<!-- .IN "Window" "IDs" -->
-<!-- .IN "Resource IDs" -->
+<indexterm><primary>Hash Lookup</primary></indexterm>
+<indexterm><primary>Window</primary><secondary>IDs</secondary></indexterm>
+<indexterm><primary>Resource IDs</primary></indexterm>
 Application programs often need to be able to easily refer to
 their own data structures when an event arrives.
 The 
@@ -1626,7 +1626,7 @@ To return a pointer to a new
 <function>XAssocTable , </function>
 use 
 <function>XCreateAssocTable .</function>
-<!-- .IN "XCreateAssocTable" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XCreateAssocTable</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -1672,7 +1672,7 @@ To create an entry in a given
 <function>XAssocTable ,</function>
 use 
 <function>XMakeAssoc .</function>
-<!-- .IN "XMakeAssoc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XMakeAssoc</primary></indexterm>
 <!-- .sM -->
 </para>
 <funcsynopsis>
@@ -1747,7 +1747,7 @@ To obtain data from a given
 <function>XAssocTable ,</function>
 use 
 <function>XLookUpAssoc .</function>
-<!-- .IN "XLookUpAssoc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XLookUpAssoc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1812,7 +1812,7 @@ To delete an entry from a given
 <function>XAssocTable ,</function>
 use 
 <function>XDeleteAssoc .</function>
-<!-- .IN "XDeleteAssoc" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDeleteAssoc</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
@@ -1876,7 +1876,7 @@ To free the memory associated with a given
 use 
 <function>XDestroyAssocTable .</function>
 </para>
-<!-- .IN "XDestroyAssocTable" "" "@DEF@" -->
+<indexterm significance="preferred"><primary>XDestroyAssocTable</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>

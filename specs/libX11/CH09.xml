@@ -1404,7 +1404,7 @@ The host the window system is running on.
   </listitem>
   <listitem>
     <para>
-On POSIX-conformant systems, each host listed in the
+On <acronym>POSIX</acronym>-conformant systems, each host listed in the
 <function>/etc/X?.hosts </function>
 file.
 The ? indicates the number of the
@@ -1463,7 +1463,7 @@ typedef struct {
 <!-- .LP -->
 <!-- .eM -->
 The family member specifies which protocol address family to use 
-(for example, TCP/IP or DECnet) and can be
+(for example, <acronym>TCP</acronym>/<acronym>IP</acronym> or DECnet) and can be
 <function>FamilyInternet ,</function>
 <function>FamilyInternet6 ,</function>
 <function>FamilyServerInterpreted ,</function>
@@ -1475,9 +1475,9 @@ The address member specifies a pointer to the address.
 </para>
 <para>
 <!-- .LP -->
-For TCP/IP, the address should be in network byte order.
-For IP version 4 addresses, the family should be FamilyInternet
-and the length should be 4 bytes.  For IP version 6 addresses, the
+For <acronym>TCP</acronym>/<acronym>IP</acronym>, the address should be in network byte order.
+For <acronym>IP</acronym> version 4 addresses, the family should be FamilyInternet
+and the length should be 4 bytes.  For <acronym>IP</acronym> version 6 addresses, the
 family should be FamilyInternet6 and the length should be 16 bytes.
 </para>
 <para>

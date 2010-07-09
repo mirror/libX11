@@ -1809,7 +1809,7 @@ The following function lets you disable or enable synchronous behavior.
 Note that graphics may occur 30 or more times more slowly when 
 synchronization is enabled.
 <indexterm><primary>_Xdebug</primary></indexterm>
-On POSIX-conformant systems,
+On <acronym>POSIX</acronym>-conformant systems,
 there is also a global variable 
 <function>_Xdebug </function>
 that, if set to nonzero before starting a program under a debugger, will force

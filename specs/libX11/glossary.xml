@@ -87,13 +87,13 @@ The
 <function>CharSetRegistry</function>
 and 
 <function>CharSetEncoding</function>
-fields of an XLFD name identify the charset of the font.
-A base font name may be a full XLFD name, with all fourteen '-' delimiters, 
-or an abbreviated XLFD name containing only the first 12 fields of an XLFD name,
+fields of an <acronym>XLFD</acronym> name identify the charset of the font.
+A base font name may be a full <acronym>XLFD</acronym> name, with all fourteen '-' delimiters, 
+or an abbreviated <acronym>XLFD</acronym> name containing only the first 12 fields of an <acronym>XLFD</acronym> name,
 up to but not including 
 <function>CharSetRegistry ,</function>
-with or without the thirteenth '-', or a non-XLFD name.
-Any XLFD fields may contain wild cards.
+with or without the thirteenth '-', or a non-<acronym>XLFD</acronym> name.
+Any <acronym>XLFD</acronym> fields may contain wild cards.
 </para>
     <para>
 When creating an 
@@ -279,11 +279,11 @@ windows for further information about valid window types.
 <indexterm significance="preferred"><primary>Client</primary></indexterm>
     <para>
 An application program connects to the window system server by some
-interprocess communication (IPC) path, such as a TCP connection or a
+interprocess communication (<acronym>IPC</acronym>) path, such as a <acronym>TCP</acronym> connection or a
 shared memory buffer.  
 This program is referred to as a client of the window system server.  
 More precisely, 
-the client is the IPC path itself. 
+the client is the <acronym>IPC</acronym> path itself. 
 A program with multiple paths open to the server is viewed as
 multiple clients by the protocol.  
 Resource lifetimes are controlled by
@@ -347,7 +347,7 @@ The coded representation of a single character in a coded character set.
     <para>
 A colormap consists of a set of entries defining color values.
 The colormap associated with a window is used to display the contents of
-the window; each pixel value indexes the colormap to produce an RGB value
+the window; each pixel value indexes the colormap to produce an <acronym>RGB</acronym> value
 that drives the guns of a monitor.
 Depending on hardware limitations, 
 one or more colormaps can be installed at one time so
@@ -361,7 +361,7 @@ that windows associated with those maps display with true colors.
   <glossdef>
 <indexterm significance="preferred"><primary>Connection</primary></indexterm>
     <para>
-The IPC path between the server and client program is known as a connection.
+The <acronym>IPC</acronym> path between the server and client program is known as a connection.
 A client program typically (but not necessarily) has one
 connection to the server over which requests and events are sent.
 <!-- .KE -->
@@ -450,7 +450,7 @@ separate subfields for indexing.
 The first subfield indexes an array to produce red intensity values. 
 The second subfield indexes a second array to produce blue intensity values.
 The third subfield indexes a third array to produce green intensity values.
-The RGB (red, green, and blue) values in the colormap entry can be 
+The <acronym>RGB</acronym> (red, green, and blue) values in the colormap entry can be 
 changed dynamically.
 <!-- .KE -->
     </para>
@@ -508,7 +508,7 @@ which appears as: the
 <function>CharSetRegistry</function>
 and
 <function>CharSetEncoding</function>
-components of an XLFD
+components of an <acronym>XLFD</acronym>
 name; the name of a charset of the locale for which a font could not be
 found; or an atom which identifies the encoding of a text property or
 which names an encoding for a text selection target type.
@@ -1220,9 +1220,9 @@ which tracks whatever pointing device is attached as the pointer.
   </glossdef>
 </glossentry>
 <glossentry>
-  <glossterm>POSIX</glossterm>
+  <glossterm><acronym>POSIX</acronym></glossterm>
   <glossdef>
-<indexterm significance="preferred"><primary>POSIX</primary></indexterm>
+<indexterm significance="preferred"><primary><acronym>POSIX</acronym></primary></indexterm>
     <para>
 Portable Operating System Interface, ISO/IEC 9945-1 (IEEE Std 1003.1).
 <!-- .KE -->
@@ -1230,11 +1230,11 @@ Portable Operating System Interface, ISO/IEC 9945-1 (IEEE Std 1003.1).
   </glossdef>
 </glossentry>
 <glossentry>
-  <glossterm>POSIX Portable Filename Character Set</glossterm>
+  <glossterm><acronym>POSIX</acronym> Portable Filename Character Set</glossterm>
   <glossdef>
-<indexterm significance="preferred"><primary>POSIX Portable Filename Character Set</primary></indexterm>
+<indexterm significance="preferred"><primary><acronym>POSIX</acronym> Portable Filename Character Set</primary></indexterm>
     <para>
-The set of 65 characters which can be used in naming files on a POSIX-compliant
+The set of 65 characters which can be used in naming files on a <acronym>POSIX</acronym>-compliant
 host that are correctly processed in all locales.
 The set is:
 </para>
@@ -1279,9 +1279,9 @@ been defined for the window.
     <para>
 <function>PseudoColor</function>
 is a class of colormap in which a pixel value indexes the colormap entry to
-produce an independent RGB value;
-that is, the colormap is viewed as an array of triples (RGB values).
-The RGB values can be changed dynamically.
+produce an independent <acronym>RGB</acronym> value;
+that is, the colormap is viewed as an array of triples (<acronym>RGB</acronym> values).
+The <acronym>RGB</acronym> values can be changed dynamically.
 <!-- .KE -->
     </para>
   </glossdef>
@@ -1358,11 +1358,11 @@ connection over which the resource was created.
   </glossdef>
 </glossentry>
 <glossentry>
-  <glossterm>RGB values</glossterm>
+  <glossterm><acronym>RGB</acronym> values</glossterm>
   <glossdef>
-<indexterm significance="preferred"><primary>RGB values</primary></indexterm>
+<indexterm significance="preferred"><primary><acronym>RGB</acronym> values</primary></indexterm>
     <para>
-RGB values are the red, green, and blue intensity values that are used
+<acronym>RGB</acronym> values are the red, green, and blue intensity values that are used
 to define a color.
 These values are always represented as 16-bit, unsigned numbers, with 0
 the minimum intensity and 65535 the maximum intensity.
@@ -1496,7 +1496,7 @@ The protocol does not constrain the semantics.
     <para>
 The server, which is also referred to as the X server, 
 provides the basic windowing mechanism.  
-It handles IPC connections from clients, 
+It handles <acronym>IPC</acronym> connections from clients, 
 multiplexes graphics requests onto the screens, 
 and demultiplexes input back to the appropriate clients.
 <!-- .KE -->
@@ -1589,7 +1589,7 @@ this means use of at most single shifts, not locking shifts.
 <function>StaticColor </function>
 can be viewed as a degenerate case of 
 <function>PseudoColor</function>
-in which the RGB values are predefined and read-only.
+in which the <acronym>RGB</acronym> values are predefined and read-only.
 <!-- .KE -->
     </para>
   </glossdef>
@@ -1698,9 +1698,9 @@ This value is reserved for use in requests to represent the current server time.
 <function>TrueColor</function>
 can be viewed as a degenerate case of 
 <function>DirectColor</function>
-in which the subfields in the pixel value directly encode the corresponding RGB
+in which the subfields in the pixel value directly encode the corresponding <acronym>RGB</acronym>
 values.
-That is, the colormap has predefined read-only RGB values.
+That is, the colormap has predefined read-only <acronym>RGB</acronym> values.
 The values are typically linear or near-linear increasing ramps.
 <!-- .KE -->
     </para>
@@ -1819,9 +1819,9 @@ see the Host Portable Character Encoding.
   </glossdef>
 </glossentry>
 <glossentry>
-  <glossterm>XLFD</glossterm>
+  <glossterm><acronym>XLFD</acronym></glossterm>
   <glossdef>
-<indexterm significance="preferred"><primary>XLFD</primary></indexterm>
+<indexterm significance="preferred"><primary><acronym>XLFD</acronym></primary></indexterm>
     <para>
 The X Logical Font Description Conventions that define a standard syntax 
 for structured font names.
@@ -1876,7 +1876,7 @@ character sets - Part 1: Latin alphabet No. 1.
 
 <biblioentry>
 <title>
-POSIX: Information Technology - Portable Operating System Interface (POSIX) -
+<acronym>POSIX</acronym>: Information Technology - Portable Operating System Interface (<acronym>POSIX</acronym>) -
 Part 1: System Application Program Interface (API) [C Language],
 ISO/IEC 9945-1.
 </title>

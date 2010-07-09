@@ -83,7 +83,7 @@ XAllPlanes
       <para>
 Specifies the hardware display name, which determines the display
 and communications domain to be used.
-On a POSIX-conformant system, if the display_name is NULL, 
+On a <acronym>POSIX</acronym>-conformant system, if the display_name is NULL, 
 it defaults to the value of the DISPLAY environment variable. 
 <indexterm><primary>Environment</primary><secondary>DISPLAY</secondary></indexterm>
     </para>
@@ -97,7 +97,7 @@ The encoding and interpretation of the display name are
 implementation-dependent.
 Strings in the Host Portable Character Encoding are supported;
 support for other characters is implementation-dependent.
-On POSIX-conformant systems,
+On <acronym>POSIX</acronym>-conformant systems,
 the display name or DISPLAY environment variable can be a string in the format:
 </para>
 <!-- .LP -->
@@ -141,7 +141,7 @@ You follow the hostname with either a single colon (:) or a double colon (::).
       <para>
 Specifies the number of the display server on that host machine.
 You may optionally follow this display number with a period (.).
-A single CPU can have more than one display.
+A single <acronym>CPU</acronym> can have more than one display.
 Multiple displays are usually numbered starting with zero.
 <indexterm><primary>Screen</primary></indexterm>
       </para>
@@ -187,18 +187,18 @@ structure that serves as the
 connection to the X server and that contains all the information
 about that X server.
 <function>XOpenDisplay</function>
-connects your application to the X server through TCP 
+connects your application to the X server through <acronym>TCP</acronym>
 or DECnet communications protocols,
 or through some local inter-process communication protocol.
-<indexterm><primary>Protocol</primary><secondary>TCP</secondary></indexterm>
+<indexterm><primary>Protocol</primary><secondary><acronym>TCP</acronym></secondary></indexterm>
 <indexterm><primary>Protocol</primary><secondary>DECnet</secondary></indexterm>
 If the protocol is specified as "tcp", "inet", or "inet6", or
 if no protocol is specified and the hostname is a host machine name and a single colon (:)
 separates the hostname and display number,
 <function>XOpenDisplay</function>
-connects using TCP streams.  (If the protocol is specified as "inet", TCP over
-IPv4 is used.  If the protocol is specified as "inet6", TCP over IPv6 is used.
-Otherwise, the implementation determines which IP version is used.)
+connects using <acronym>TCP</acronym> streams.  (If the protocol is specified as "inet", <acronym>TCP</acronym> over
+IPv4 is used.  If the protocol is specified as "inet6", <acronym>TCP</acronym> over IPv6 is used.
+Otherwise, the implementation determines which <acronym>IP</acronym> version is used.)
 If the hostname and protocol are both not specified,
 Xlib uses whatever it believes is the fastest transport.
 If the hostname is a host machine name and a double colon (::)
@@ -347,7 +347,7 @@ and
 can be used in implementing a monochrome application.
 These pixel values are for permanently allocated entries in the default
 colormap.
-The actual RGB (red, green, and blue) values are settable on some screens 
+The actual <acronym>RGB</acronym> (red, green, and blue) values are settable on some screens 
 and, in any case, may not actually be black or white.
 The names are intended to convey the expected relative intensity of the colors.
 <!-- .sM -->
@@ -471,7 +471,7 @@ Specifies the connection to the X server.
 <indexterm significance="preferred"><primary>ConnectionNumber</primary></indexterm>
 <indexterm significance="preferred"><primary>XConnectionNumber</primary></indexterm>
 Both return a connection number for the specified display.
-On a POSIX-conformant system,
+On a <acronym>POSIX</acronym>-conformant system,
 this is the file descriptor of the connection.
 </para>
 <para>
@@ -1014,10 +1014,10 @@ Specifies the connection to the X server.
 Both return the string that was passed to 
 <function>XOpenDisplay</function>
 when the current display was opened. 
-On POSIX-conformant systems, 
+On <acronym>POSIX</acronym>-conformant systems,
 if the passed string was NULL, these return the value of
 the DISPLAY environment variable when the current display was opened.
-<indexterm><primary>POSIX System Call</primary><secondary>fork</secondary></indexterm>
+<indexterm><primary><acronym>POSIX</acronym> System Call</primary><secondary>fork</secondary></indexterm>
 These are useful to applications that invoke the 
 <function>fork</function>
 system call and want to open a new connection to the same display from the 

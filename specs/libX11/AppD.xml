@@ -1145,7 +1145,7 @@ uses resources from the RESOURCE_MANAGER property on the root
 window of screen zero.
 If no such property exists,
 a resource file in the user's home directory is used.
-On a POSIX-conformant system, 
+On a <acronym>POSIX</acronym>-conformant system,
 this file is
 <function>"$HOME/.Xdefaults" .</function>
 <indexterm><primary>Files</primary><secondary>$HOME/.Xdefaults</secondary></indexterm>

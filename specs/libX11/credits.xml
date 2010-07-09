@@ -99,7 +99,7 @@ Release 4
 <para>
 Our thanks go to Jim Fulton (MIT X Consortium) for designing and
 specifying the new Xlib functions for Inter-Client Communication
-Conventions (ICCCM) support.
+Conventions (<acronym>ICCCM</acronym>) support.
 </para>
 <para>
 We also thank Al Mento of Digital for his continued effort in

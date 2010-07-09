@@ -16,15 +16,15 @@ Each X window always has an associated colormap that
 provides a level of indirection between pixel values and colors displayed
 on the screen.
 Xlib provides functions that you can use to manipulate a colormap.
-The X protocol defines colors using values in the RGB color space.
-The RGB color space is device dependent;
-rendering an RGB value on differing output devices typically results
+The X protocol defines colors using values in the <acronym>RGB</acronym> color space.
+The <acronym>RGB</acronym> color space is device dependent;
+rendering an <acronym>RGB</acronym> value on differing output devices typically results
 in different colors.
 Xlib also provides a means for clients to specify color using
 device-independent color spaces for consistent results across devices.
-Xlib supports device-independent color spaces derivable from the CIE XYZ
+Xlib supports device-independent color spaces derivable from the <acronym>CIE</acronym> XYZ
 color space.
-This includes the CIE XYZ, xyY, L*u*v*, and L*a*b* color spaces as well as
+This includes the <acronym>CIE</acronym> XYZ, xyY, L*u*v*, and L*a*b* color spaces as well as
 the TekHVC color space.
 </para>
 <para>
@@ -90,12 +90,12 @@ there is a color cell in the colormap.
 For example, 
 if a window is 4 bits deep, pixel values 0 through 15 are defined. 
 A colormap is a collection of color cells.
-A color cell consists of a triple of red, green, and blue (RGB) values.
+A color cell consists of a triple of red, green, and blue (<acronym>RGB</acronym>) values.
 The hardware imposes limits on the number of significant
 bits in these values.
 As each pixel is read out of display memory, the pixel
 is looked up in a colormap.
-The RGB value of the cell determines what color is displayed on the screen.
+The <acronym>RGB</acronym> value of the cell determines what color is displayed on the screen.
 On a grayscale display with a black-and-white monitor, 
 the values are combined to determine the brightness on the screen.
 </para>
@@ -106,11 +106,11 @@ to obtain the desired colors.
 The client can allocate read-only cells.
 In which case, 
 the pixel values for these colors can be shared among multiple applications, 
-and the RGB value of the cell cannot be changed.
+and the <acronym>RGB</acronym> value of the cell cannot be changed.
 If the client allocates read/write cells,
 they are exclusively owned by the client,
 and the color associated with the pixel value can be changed at will.
-Cells must be allocated (and, if read/write, initialized with an RGB value)
+Cells must be allocated (and, if read/write, initialized with an <acronym>RGB</acronym> value)
 by a client to obtain desired colors.
 The use of pixel value for an
 unallocated cell results in an undefined color.
@@ -172,7 +172,7 @@ or
 <!-- .XE -->
 <para>
 <!-- .LP -->
-Functions that operate only on RGB color space values use an
+Functions that operate only on <acronym>RGB</acronym> color space values use an
 <function>XColor</function>
 structure, which contains:
 </para>
@@ -430,7 +430,7 @@ The device-dependent formats provided allow color specification in:
 <itemizedlist>
   <listitem>
     <para>
-RGB Intensity
+<acronym>RGB</acronym> Intensity
 <function>( XcmsRGBi )</function>
     </para>
   </listitem>
@@ -443,7 +443,7 @@ where 1.0 indicates full intensity, 0.5 half intensity, and so on.
   </listitem>
   <listitem>
     <para>
-RGB Device
+<acronym>RGB</acronym> Device
 <function>( XcmsRGB )</function>
     </para>
   </listitem>
@@ -461,14 +461,14 @@ structure.
 </itemizedlist>
 <para>
 <!-- .LP -->
-It is important to note that RGB Intensity values are not gamma corrected
+It is important to note that <acronym>RGB</acronym> Intensity values are not gamma corrected
 values.
 In contrast,
-RGB Device values generated as a result of converting color specifications 
+<acronym>RGB</acronym> Device values generated as a result of converting color specifications 
 are always gamma corrected, and
-RGB Device values acquired as a result of querying a colormap
+<acronym>RGB</acronym> Device values acquired as a result of querying a colormap
 or passed in by the client are assumed by Xlib to be gamma corrected.
-The term <emphasis remap='I'>RGB value</emphasis> in this manual always refers to an RGB Device value.
+The term <emphasis remap='I'><acronym>RGB</acronym> value</emphasis> in this manual always refers to an <acronym>RGB</acronym> Device value.
 </para>
 </sect1>
 <sect1 id="Color_Strings">
@@ -561,13 +561,13 @@ The syntax and semantics of numerical specifications are given
 for each standard color space in the following sections.
 </para>
 <sect2 id="RGB_Device_String_Specification">
-<title>RGB Device String Specification</title>
+<title><acronym>RGB</acronym> Device String Specification</title>
 <!-- .XS -->
-<!-- (SN RGB Device String Specification -->
+<!-- (SN <acronym>RGB</acronym> Device String Specification -->
 <!-- .XE -->
 <para>
 <!-- .LP -->
-An RGB Device specification is identified by
+An <acronym>RGB</acronym> Device specification is identified by
 the prefix ``rgb:'' and conforms to the following syntax:
 </para>
 <para>
@@ -597,7 +597,7 @@ are also allowed.
 </para>
 <para>
 <!-- .LP -->
-For backward compatibility, an older syntax for RGB Device is
+For backward compatibility, an older syntax for <acronym>RGB</acronym> Device is
 supported, but its continued use is not encouraged.
 The syntax is an initial sharp sign character followed by
 a numeric specification, in one of the following formats:
@@ -625,13 +625,13 @@ For example, the string ``#3a7'' is the same as ``#3000a0007000''.
 </para>
 </sect2>
 <sect2 id="RGB_Intensity_String_Specification">
-<title>RGB Intensity String Specification</title>
+<title><acronym>RGB</acronym> Intensity String Specification</title>
 <!-- .XS -->
 <!-- (SN RGB Intensity String Specification -->
 <!-- .XE -->
 <para>
 <!-- .LP -->
-An RGB intensity specification is identified
+An <acronym>RGB</acronym> intensity specification is identified
 by the prefix ``rgbi:'' and conforms to the following syntax:
 </para>
 <para>
@@ -1104,7 +1104,7 @@ error.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To map a color name to an RGB value, use
+To map a color name to an <acronym>RGB</acronym> value, use
 <function>XLookupColor .</function>
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
 <indexterm significance="preferred"><primary>XLookupColor</primary></indexterm>
@@ -1158,7 +1158,7 @@ definition structure you want returned.
     </term>
     <listitem>
       <para>
-Returns the exact RGB values.
+Returns the exact <acronym>RGB</acronym> values.
       </para>
     </listitem>
   </varlistentry>
@@ -1168,7 +1168,7 @@ Returns the exact RGB values.
     </term>
     <listitem>
       <para>
-Returns the closest RGB values provided by the hardware.
+Returns the closest <acronym>RGB</acronym> values provided by the hardware.
     </para>
   </listitem>
   </varlistentry>
@@ -1201,7 +1201,7 @@ error.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To map a color name to the exact RGB value, use
+To map a color name to the exact <acronym>RGB</acronym> value, use
 <function>XParseColor .</function>
 </para>
 <indexterm><primary>Color</primary><secondary>naming</secondary></indexterm>
@@ -1425,7 +1425,7 @@ explicitly as read-only entries, one pixel value at a time,
 or read/write,
 where you can allocate a number of color cells and planes simultaneously.
 <indexterm><primary>Read-only colormap cells</primary></indexterm>
-A read-only cell has its RGB value set by the server.
+A read-only cell has its <acronym>RGB</acronym> value set by the server.
 <indexterm><primary>Read/write colormap cells</primary></indexterm>
 Read/write cells do not have defined colors initially;
 functions described in the next section must be used to store values into them.
@@ -1445,7 +1445,7 @@ times, the server counts each such allocation, not just the first one.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To allocate a read-only color cell with an RGB value, use
+To allocate a read-only color cell with an <acronym>RGB</acronym> value, use
 <function>XAllocColor .</function>
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
@@ -1501,11 +1501,11 @@ Specifies and returns the values actually used in the colormap.
 The
 <function>XAllocColor</function>
 function allocates a read-only colormap entry corresponding to the closest
-RGB value supported by the hardware.
+<acronym>RGB</acronym> value supported by the hardware.
 <function>XAllocColor</function>
 returns the pixel value of the color closest to the specified
-RGB elements supported by the hardware
-and returns the RGB value actually used.
+<acronym>RGB</acronym> elements supported by the hardware
+and returns the <acronym>RGB</acronym> value actually used.
 The corresponding colormap cell is read-only.
 In addition,
 <function>XAllocColor</function>
@@ -1514,7 +1514,7 @@ returns nonzero if it succeeded or zero if it failed.
 <indexterm><primary>Color</primary><secondary>allocation</secondary></indexterm>
 <indexterm><primary>Allocation</primary><secondary>colormap</secondary></indexterm>
 <indexterm><primary>read-only colormap cells</primary></indexterm>
-Multiple clients that request the same effective RGB value can be assigned
+Multiple clients that request the same effective <acronym>RGB</acronym> value can be assigned
 the same read-only entry, thus allowing entries to be shared.
 When the last client deallocates a shared cell, it is deallocated.
 <function>XAllocColor</function>
@@ -1611,12 +1611,12 @@ function ultimately calls
 to allocate a read-only color cell (colormap entry) with the specified color.
 <function>XcmsAllocColor</function>
 first converts the color specified
-to an RGB value and then passes this to
+to an <acronym>RGB</acronym> value and then passes this to
 <function>XAllocColor .</function>
 <function>XcmsAllocColor</function>
 returns the pixel value of the color cell and the color specification
 actually allocated.
-This returned color specification is the result of converting the RGB value
+This returned color specification is the result of converting the <acronym>RGB</acronym> value
 returned by 
 <function>XAllocColor </function>
 into the format specified with the result_format argument.
@@ -1639,7 +1639,7 @@ error.
 <!-- .LP -->
 <!-- .sp -->
 To allocate a read-only color cell using a color name and return the closest
-color supported by the hardware in RGB format, use
+color supported by the hardware in <acronym>RGB</acronym> format, use
 <function>XAllocNamedColor .</function>
 </para>
 <indexterm><primary>Allocation</primary><secondary>read-only colormap cells</secondary></indexterm>
@@ -1696,7 +1696,7 @@ definition structure you want returned.
     </term>
     <listitem>
       <para>
-Returns the closest RGB values provided by the hardware.
+Returns the closest <acronym>RGB</acronym> values provided by the hardware.
       </para>
     </listitem>
   </varlistentry>
@@ -1706,7 +1706,7 @@ Returns the closest RGB values provided by the hardware.
     </term>
     <listitem>
       <para>
-Returns the exact RGB values.
+Returns the exact <acronym>RGB</acronym> values.
     </para>
   </listitem>
   </varlistentry>
@@ -1860,7 +1860,7 @@ The color string is parsed into an
 structure (see
 <function>XcmsLookupColor ),</function>
 converted
-to an RGB value, and finally passed to
+to an <acronym>RGB</acronym> value, and finally passed to
 <function>XAllocColor .</function>
 If the color name is not in the Host Portable Character Encoding, 
 the result is implementation-dependent.
@@ -1871,7 +1871,7 @@ Use of uppercase or lowercase does not matter.
 This function returns both the color specification as a result
 of parsing (exact specification) and the actual color specification
 stored (screen specification).
-This screen specification is the result of converting the RGB value
+This screen specification is the result of converting the <acronym>RGB</acronym> value
 returned by
 <function>XAllocColor</function>
 into the format specified in result_format.
@@ -2031,7 +2031,7 @@ or
 and three contiguous sets of bits set to 1 (one within each
 pixel subfield) for 
 <function>DirectColor .</function>
-The RGB values of the allocated
+The <acronym>RGB</acronym> values of the allocated
 entries are undefined.
 <function>XAllocColorCells</function>
 returns nonzero if it succeeded or zero if it failed.
@@ -2393,7 +2393,7 @@ errors.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To store an RGB value in a single colormap cell, use
+To store an <acronym>RGB</acronym> value in a single colormap cell, use
 <function>XStoreColor .</function>
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
@@ -2435,7 +2435,7 @@ Specifies the colormap.
     </term>
     <listitem>
       <para>
-Specifies the pixel and RGB values.
+Specifies the pixel and <acronym>RGB</acronym> values.
     </para>
   </listitem>
   </varlistentry>
@@ -2485,7 +2485,7 @@ errors.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To store multiple RGB values in multiple colormap cells, use
+To store multiple <acronym>RGB</acronym> values in multiple colormap cells, use
 <function>XStoreColors .</function>
 </para>
 <indexterm><primary>Color</primary><secondary>storing</secondary></indexterm>
@@ -2649,8 +2649,8 @@ The
 <function>XcmsStoreColor</function>
 function converts the color specified in the
 <function>XcmsColor</function>
-structure into RGB values.
-It then uses this RGB specification in an
+structure into <acronym>RGB</acronym> values.
+It then uses this <acronym>RGB</acronym> specification in an
 <function>XColor</function>
 structure, whose three flags 
 <function>( DoRed , </function>
@@ -2680,7 +2680,7 @@ Note that
 has no return value; therefore, an
 <function>XcmsSuccess</function>
 return value from this function indicates that the conversion 
-to RGB succeeded and the call to
+to <acronym>RGB</acronym> succeeded and the call to
 <function>XStoreColor</function>
 was made.
 To obtain the actual color stored, use
@@ -2792,7 +2792,7 @@ The
 <function>XcmsStoreColors</function>
 function converts the colors specified in the array of
 <function>XcmsColor</function>
-structures into RGB values and then uses these RGB specifications in
+structures into <acronym>RGB</acronym> values and then uses these <acronym>RGB</acronym> specifications in
 <function>XColor</function>
 structures, whose three flags 
 <function>( DoRed , </function>
@@ -2824,7 +2824,7 @@ Note that
 has no return value; therefore, an
 <function>XcmsSuccess</function>
 return value from this function indicates that conversions 
-to RGB succeeded and the call to
+to <acronym>RGB</acronym> succeeded and the call to
 <function>XStoreColors</function>
 was made.
 To obtain the actual colors stored, use
@@ -2962,7 +2962,7 @@ and
 <function>XQueryColors</function>
 functions take pixel values in the pixel member of
 <function>XColor</function>
-structures and store in the structures the RGB values for those
+structures and store in the structures the <acronym>RGB</acronym> values for those
 pixels from the specified colormap.
 The values returned for an unallocated entry are undefined.
 These functions also set the flags member in the
@@ -2977,7 +2977,7 @@ the one that gets reported is arbitrary.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To query the RGB value of a single colormap cell, use
+To query the <acronym>RGB</acronym> value of a single colormap cell, use
 <function>XQueryColor .</function>
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
@@ -3019,7 +3019,7 @@ Specifies the colormap.
     </term>
     <listitem>
       <para>
-Specifies and returns the RGB values for the pixel specified in the structure.
+Specifies and returns the <acronym>RGB</acronym> values for the pixel specified in the structure.
     </para>
   </listitem>
   </varlistentry>
@@ -3030,7 +3030,7 @@ Specifies and returns the RGB values for the pixel specified in the structure.
 <!-- .eM -->
 The
 <function>XQueryColor</function>
-function returns the current RGB value for the pixel in the
+function returns the current <acronym>RGB</acronym> value for the pixel in the
 <function>XColor</function>
 structure and sets the
 <function>DoRed ,</function>
@@ -3051,7 +3051,7 @@ errors.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To query the RGB values of multiple colormap cells, use
+To query the <acronym>RGB</acronym> values of multiple colormap cells, use
 <function>XQueryColors .</function>
 </para>
 <indexterm><primary>Color</primary><secondary>querying</secondary></indexterm>
@@ -3119,7 +3119,7 @@ structures in the color definition array.
 <!-- .eM -->
 The
 <function>XQueryColors</function>
-function returns the RGB value for each pixel in each
+function returns the <acronym>RGB</acronym> value for each pixel in each
 <function>XColor</function>
 structure and sets the
 <function>DoRed ,</function>
@@ -3208,7 +3208,7 @@ Specifies the color format for the returned color specification.
 <!-- .eM -->
 The
 <function>XcmsQueryColor</function>
-function obtains the RGB value
+function obtains the <acronym>RGB</acronym> value
 for the pixel value in the pixel member of the specified
 <function>XcmsColor</function>
 structure and then
@@ -3310,7 +3310,7 @@ Specifies the color format for the returned color specification.
 <!-- .eM -->
 The
 <function>XcmsQueryColors</function>
-function obtains the RGB values
+function obtains the <acronym>RGB</acronym> values
 for pixel values in the pixel members of
 <function>XcmsColor</function>
 structures and then
@@ -4270,13 +4270,13 @@ the contents of the color specification array are left unchanged.
 <para>
 <!-- .LP -->
 The array may contain a mixture of color specification formats
-(for example, 3 CIE XYZ, 2 CIE Luv, and so on).
+(for example, 3 <acronym>CIE</acronym> XYZ, 2 <acronym>CIE</acronym> Luv, and so on).
 When the array contains both device-independent and
 device-dependent color specifications and the target_format argument specifies
 a device-dependent format (for example,
 <function>XcmsRGBiFormat ,</function>
 <function>XcmsRGBFormat ),</function>
-all specifications are converted to CIE XYZ format and then to the target
+all specifications are converted to <acronym>CIE</acronym> XYZ format and then to the target
 device-dependent format.
 </para>
 </sect1>
@@ -4501,12 +4501,12 @@ The gamut compression callback procedures provided by Xlib are as follows:
   <listitem>
     <para>
 This brings the encountered out-of-gamut color specification into the 
-screen's color gamut by reducing or increasing CIE metric lightness (L*) 
-in the CIE L*a*b* color space until the color is within the gamut.
+screen's color gamut by reducing or increasing <acronym>CIE</acronym> metric lightness (L*) 
+in the <acronym>CIE</acronym> L*a*b* color space until the color is within the gamut.
 If the Psychometric Chroma of the color specification 
 is beyond maximum for the Psychometric Hue Angle,
 then while maintaining the same Psychometric Hue Angle,
-the color will be clipped to the CIE L*a*b* coordinates of maximum
+the color will be clipped to the <acronym>CIE</acronym> L*a*b* coordinates of maximum
 Psychometric Chroma.
 See
 <function>XcmsCIELabQueryMaxC .</function>
@@ -4535,7 +4535,7 @@ No client data is necessary.
   <listitem>
     <para>
 This brings the encountered out-of-gamut color specification into the
-screen's color gamut by replacing it with CIE L*a*b* coordinates
+screen's color gamut by replacing it with <acronym>CIE</acronym> L*a*b* coordinates
 that fall within the color gamut while maintaining the original
 Psychometric Hue
 Angle and whose vector to the original coordinates is the shortest attainable.
@@ -4550,12 +4550,12 @@ No client data is necessary.
   <listitem>
     <para>
 This brings the encountered out-of-gamut color specification into the 
-screen's color gamut by reducing or increasing CIE metric lightness (L*)
-in the CIE L*u*v* color space until the color is within the gamut.
+screen's color gamut by reducing or increasing <acronym>CIE</acronym> metric lightness (L*)
+in the <acronym>CIE</acronym> L*u*v* color space until the color is within the gamut.
 If the Psychometric Chroma of the color specification
 is beyond maximum for the Psychometric Hue Angle,
 then, while maintaining the same Psychometric Hue Angle,
-the color will be clipped to the CIE L*u*v* coordinates of maximum
+the color will be clipped to the <acronym>CIE</acronym> L*u*v* coordinates of maximum
 Psychometric Chroma.
 See
 <function>XcmsCIELuvQueryMaxC .</function>
@@ -4584,7 +4584,7 @@ No client data is necessary.
   <listitem>
     <para>
 This brings the encountered out-of-gamut color specification into the
-screen's color gamut by replacing it with CIE L*u*v* coordinates
+screen's color gamut by replacing it with <acronym>CIE</acronym> L*u*v* coordinates
 that fall within the color gamut while maintaining the original
 Psychometric Hue
 Angle and whose vector to the original coordinates is the shortest attainable.
@@ -4764,7 +4764,7 @@ White point adjustment procedures provided by Xlib are as follows:
   </listitem>
   <listitem>
     <para>
-This uses the CIE L*a*b* color space for adjusting the chromatic character
+This uses the <acronym>CIE</acronym> L*a*b* color space for adjusting the chromatic character
 of colors to compensate for the chromatic differences between the source
 and destination white points.
 This procedure simply converts the color specifications to 
@@ -4781,7 +4781,7 @@ No client data is necessary.
   </listitem>
   <listitem>
     <para>
-This uses the CIE L*u*v* color space for adjusting the chromatic character
+This uses the <acronym>CIE</acronym> L*u*v* color space for adjusting the chromatic character
 of colors to compensate for the chromatic differences between the source
 and destination white points.
 This procedure simply converts the color specifications to 
@@ -4816,7 +4816,7 @@ No client data is necessary.
 From an implementation point of view,
 these white point adjustment procedures convert the color specifications
 to a device-independent but white-point-dependent color space 
-(for example, CIE L*u*v*, CIE L*a*b*, TekHVC) using one white point
+(for example, <acronym>CIE</acronym> L*u*v*, <acronym>CIE</acronym> L*a*b*, TekHVC) using one white point
 and then converting those specifications to the target color space 
 using another white point.
 In other words,
@@ -4824,8 +4824,8 @@ the specification goes in the color space with one white point
 but comes out with another white point, 
 resulting in a chromatic shift based on the chromatic displacement
 between the initial white point and target white point.
-The CIE color spaces that are assumed to be white-point-independent
-are CIE u'v'Y, CIE XYZ, and CIE xyY.
+The <acronym>CIE</acronym> color spaces that are assumed to be white-point-independent
+are <acronym>CIE</acronym> u'v'Y, <acronym>CIE</acronym> XYZ, and <acronym>CIE</acronym> xyY.
 When developing a custom white point adjustment procedure that uses a
 device-independent color space not initially accessible for use in the
 color management system, use
@@ -4893,7 +4893,7 @@ From
 <function>XcmsCIEuvY</function>
 to
 <function>XcmsCIEXYZ</function>
-(CIE u'v'Y and XYZ are white-point-independent color spaces)
+(<acronym>CIE</acronym> u'v'Y and XYZ are white-point-independent color spaces)
     </para>
   </listitem>
   <listitem>
@@ -4915,9 +4915,9 @@ to
 </itemizedlist>
 <para>
 <!-- .LP -->
-The resulting RGB specification is passed to
+The resulting <acronym>RGB</acronym> specification is passed to
 <function>XAllocColor ,</function>
-and the RGB
+and the <acronym>RGB</acronym>
 specification returned by
 <function>XAllocColor</function>
 is converted back to 
@@ -4935,7 +4935,7 @@ by reversing the color conversion sequence.
 <!-- .LP -->
 This section describes the gamut querying functions that Xlib provides.
 These functions allow the client to query the boundary 
-of the screen's color gamut in terms of the CIE L*a*b*, CIE L*u*v*, 
+of the screen's color gamut in terms of the <acronym>CIE</acronym> L*a*b*, <acronym>CIE</acronym> L*u*v*, 
 and TekHVC color spaces.
 <indexterm><primary>Gamut querying</primary></indexterm>
 Functions are also provided that allow you to query 
@@ -5348,7 +5348,7 @@ delim %%
 <para>
 <!-- .LP -->
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary><secondary>maximum</secondary></indexterm>
 <literallayout class="monospaced">
@@ -5357,8 +5357,8 @@ delim %%
 %CIELab~Psychometric~Hue ~=~ tan sup -1 left [ b_star over a_star right ]%
 </literallayout>
 <!-- .sp -->
-To obtain the CIE L*a*b* coordinates of maximum Psychometric Chroma
-for a given Psychometric Hue Angle and CIE metric lightness (L*), use
+To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum Psychometric Chroma
+for a given Psychometric Hue Angle and <acronym>CIE</acronym> metric lightness (L*), use
 <function>XcmsCIELabQueryMaxC .</function>
 </para>
 <indexterm significance="preferred"><primary>XcmsCIELabQueryMaxC</primary></indexterm>
@@ -5416,7 +5416,7 @@ Specifies the lightness (L*) at which to find (Ls.
     </term>
     <listitem>
       <para>
-Returns the CIE L*a*b* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*a*b* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5433,18 +5433,18 @@ The
 <function>XcmsCIELabQueryMaxC</function>
 function, given a hue angle and lightness,
 finds the point of maximum chroma displayable by the screen.
-It returns this point in CIE L*a*b* coordinates.
+It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To obtain the CIE L*a*b* coordinates of maximum CIE metric lightness (L*)
+To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
 <function>XcmsCIELabQueryMaxL .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>maximum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>maximum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELabQueryMaxL</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5500,7 +5500,7 @@ Specifies the chroma at which to find (Ch.
     </term>
     <listitem>
       <para>
-Returns the CIE L*a*b* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*a*b* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5516,9 +5516,9 @@ The value returned in the pixel member is undefined.
 The
 <function>XcmsCIELabQueryMaxL</function>
 function, given a hue angle and chroma,
-finds the point in CIE L*a*b* color space of maximum 
+finds the point in <acronym>CIE</acronym> L*a*b* color space of maximum 
 lightness (L*) displayable by the screen.
-It returns this point in CIE L*a*b* coordinates.
+It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 An 
 <function>XcmsFailure</function>
 return value usually indicates that the given chroma
@@ -5527,15 +5527,15 @@ is beyond maximum for the given hue angle.
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*a*b* coordinates of maximum Psychometric Chroma
+To obtain the <acronym>CIE</acronym> L*a*b* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle, use
 <function>XcmsCIELabQueryMaxLC .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary><secondary>maximum</secondary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>maximum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>maximum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELabQueryMaxLC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5579,7 +5579,7 @@ Specifies the hue angle (in degrees) at which to find (Ha.
     </term>
     <listitem>
       <para>
-Returns the CIE L*a*b* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*a*b* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5596,18 +5596,18 @@ The
 <function>XcmsCIELabQueryMaxLC</function>
 function, given a hue angle,
 finds the point of maximum chroma displayable by the screen.
-It returns this point in CIE L*a*b* coordinates.
+It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*a*b* coordinates of minimum CIE metric lightness (L*)
+To obtain the <acronym>CIE</acronym> L*a*b* coordinates of minimum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
 <function>XcmsCIELabQueryMinL .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>minimum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>minimum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELabQueryMinL</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5663,7 +5663,7 @@ Specifies the chroma at which to find (Ch.
     </term>
     <listitem>
       <para>
-Returns the CIE L*a*b* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*a*b* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5680,7 +5680,7 @@ The
 <function>XcmsCIELabQueryMinL</function>
 function, given a hue angle and chroma,
 finds the point of minimum lightness (L*) displayable by the screen.
-It returns this point in CIE L*a*b* coordinates.
+It returns this point in <acronym>CIE</acronym> L*a*b* coordinates.
 An 
 <function>XcmsFailure</function>
 return value usually indicates that the given chroma
@@ -5702,7 +5702,7 @@ delim %%
 <para>
 <!-- .LP -->
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary><secondary>maximum</secondary></indexterm>
 <literallayout class="monospaced">
@@ -5714,8 +5714,8 @@ delim %%
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*u*v* coordinates of maximum Psychometric Chroma
-for a given Psychometric Hue Angle and CIE metric lightness (L*), use
+To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum Psychometric Chroma
+for a given Psychometric Hue Angle and <acronym>CIE</acronym> metric lightness (L*), use
 <function>XcmsCIELuvQueryMaxC .</function>
 </para>
 <indexterm significance="preferred"><primary>XcmsCIELuvQueryMaxC</primary></indexterm>
@@ -5773,7 +5773,7 @@ Specifies the lightness (L*) at which to find (Ls.
     </term>
     <listitem>
       <para>
-Returns the CIE L*u*v* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*u*v* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5790,18 +5790,18 @@ The
 <function>XcmsCIELuvQueryMaxC</function>
 function, given a hue angle and lightness,
 finds the point of maximum chroma displayable by the screen.
-It returns this point in CIE L*u*v* coordinates.
+It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*u*v* coordinates of maximum CIE metric lightness (L*)
+To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
 <function>XcmsCIELuvQueryMaxL .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>maximum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>maximum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELuvQueryMaxL</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5857,7 +5857,7 @@ Specifies the lightness (L*) at which to find (Ls.
     </term>
     <listitem>
       <para>
-Returns the CIE L*u*v* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*u*v* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5873,9 +5873,9 @@ The value returned in the pixel member is undefined.
 The
 <function>XcmsCIELuvQueryMaxL</function>
 function, given a hue angle and chroma,
-finds the point in CIE L*u*v* color space of maximum 
+finds the point in <acronym>CIE</acronym> L*u*v* color space of maximum 
 lightness (L*) displayable by the screen.
-It returns this point in CIE L*u*v* coordinates.
+It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 An 
 <function>XcmsFailure</function>
 return value usually indicates that the given chroma
@@ -5884,15 +5884,15 @@ is beyond maximum for the given hue angle.
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*u*v* coordinates of maximum Psychometric Chroma
+To obtain the <acronym>CIE</acronym> L*u*v* coordinates of maximum Psychometric Chroma
 for a given Psychometric Hue Angle, use
 <function>XcmsCIELuvQueryMaxLC .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
 <indexterm><primary>Psychometric Chroma</primary><secondary>maximum</secondary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>maximum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>maximum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELuvQueryMaxLC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -5936,7 +5936,7 @@ Specifies the hue angle (in degrees) at which to find (Ha.
     </term>
     <listitem>
       <para>
-Returns the CIE L*u*v* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*u*v* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -5953,18 +5953,18 @@ The
 <function>XcmsCIELuvQueryMaxLC</function>
 function, given a hue angle,
 finds the point of maximum chroma displayable by the screen.
-It returns this point in CIE L*u*v* coordinates.
+It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 <!-- .sp -->
 </para>
 <para>
 <!-- .LP -->
-To obtain the CIE L*u*v* coordinates of minimum CIE metric lightness (L*)
+To obtain the <acronym>CIE</acronym> L*u*v* coordinates of minimum <acronym>CIE</acronym> metric lightness (L*)
 for a given Psychometric Hue Angle and Psychometric Chroma, use
 <function>XcmsCIELuvQueryMinL .</function>
 </para>
 <indexterm><primary>Psychometric Hue Angle</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary></indexterm>
-<indexterm><primary>CIE metric lightness</primary><secondary>minimum</secondary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary></indexterm>
+<indexterm><primary><acronym>CIE</acronym> metric lightness</primary><secondary>minimum</secondary></indexterm>
 <indexterm significance="preferred"><primary>XcmsCIELuvQueryMinL</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -6020,7 +6020,7 @@ Specifies the chroma at which to find (Ch.
     </term>
     <listitem>
       <para>
-Returns the CIE L*u*v* coordinates of (Lc
+Returns the <acronym>CIE</acronym> L*u*v* coordinates of (Lc
 displayable by the screen for the given (lC.
 The white point associated with the returned
 color specification is the Screen White Point.
@@ -6037,7 +6037,7 @@ The
 <function>XcmsCIELuvQueryMinL</function>
 function, given a hue angle and chroma,
 finds the point of minimum lightness (L*) displayable by the screen.
-It returns this point in CIE L*u*v* coordinates.
+It returns this point in <acronym>CIE</acronym> L*u*v* coordinates.
 An 
 <function>XcmsFailure</function>
 return value usually indicates that the given chroma
@@ -6479,7 +6479,7 @@ Device-Independent Color Spaces
   </listitem>
   <listitem>
     <para>
-Device-independent color spaces that are derivable to CIE XYZ
+Device-independent color spaces that are derivable to <acronym>CIE</acronym> XYZ
 space can be added using the
 <function>XcmsAddColorSpace</function>
 function.
@@ -6494,7 +6494,7 @@ Color Characterization Function Set
     <para>
 A Color Characterization Function Set consists of
 device-dependent color spaces and their functions that
-convert between these color spaces and the CIE XYZ
+convert between these color spaces and the <acronym>CIE</acronym> XYZ
 color space, bundled together for a specific class of output devices.
 A function set can be added using the
 <function>XcmsAddFunctionSet</function>
@@ -6509,17 +6509,17 @@ function.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-The CIE XYZ color space serves as the hub for all
+The <acronym>CIE</acronym> XYZ color space serves as the hub for all
 conversions between device-independent and device-dependent color spaces.
 Therefore, the knowledge to convert an 
 <function>XcmsColor</function>
-structure to and from CIE XYZ format is associated with each color space.
-For example, conversion from CIE L*u*v* to RGB requires the knowledge
-to convert from CIE L*u*v* to CIE XYZ and from CIE XYZ to RGB.
+structure to and from <acronym>CIE</acronym> XYZ format is associated with each color space.
+For example, conversion from <acronym>CIE</acronym> L*u*v* to <acronym>RGB</acronym> requires the knowledge
+to convert from <acronym>CIE</acronym> L*u*v* to <acronym>CIE</acronym> XYZ and from <acronym>CIE</acronym> XYZ to <acronym>RGB</acronym>.
 This knowledge is stored as an array of functions that,
 when applied in series, will convert the 
 <function>XcmsColor</function>
-structure to or from CIE XYZ format.
+structure to or from <acronym>CIE</acronym> XYZ format.
 This color specification conversion mechanism facilitates
 the addition of color spaces.
 </para>
@@ -6528,9 +6528,9 @@ the addition of color spaces.
 Of course, when converting between only device-independent color spaces
 or only device-dependent color spaces,
 shortcuts are taken whenever possible.
-For example, conversion from TekHVC to CIE L*u*v* is performed 
-by intermediate conversion to CIE u*v*Y and then to CIE L*u*v*, 
-thus bypassing conversion between CIE u*v*Y and CIE XYZ.
+For example, conversion from TekHVC to <acronym>CIE</acronym> L*u*v* is performed 
+by intermediate conversion to <acronym>CIE</acronym> u*v*Y and then to <acronym>CIE</acronym> L*u*v*, 
+thus bypassing conversion between <acronym>CIE</acronym> u*v*Y and <acronym>CIE</acronym> XYZ.
 </para>
 </sect2>
 <sect2 id="Adding_Device_Independent_Color_Spaces">
@@ -6745,8 +6745,8 @@ typedef struct _XcmsColorSpace {
 <!-- .eM -->
 The prefix member specifies the prefix that indicates a color string 
 is in this color space's string format.
-For example, the strings ``ciexyz'' or ``CIEXYZ'' for CIE XYZ,
-and ``rgb'' or ``RGB'' for RGB.
+For example, the strings ``ciexyz'' or ``CIEXYZ'' for <acronym>CIE</acronym> XYZ,
+and ``rgb'' or ``<acronym>RGB</acronym>'' for <acronym>RGB</acronym>.
 The prefix is case insensitive.
 The format member specifies the color specification format.
 Formats for unregistered color spaces are assigned at run time.
@@ -6761,7 +6761,7 @@ each to a NULL terminated list of function pointers.
 When the list of functions is executed in series,
 it will convert the color specified in an 
 <function>XcmsColor</function>
-structure from/to the current color space format to/from the CIE XYZ format.
+structure from/to the current color space format to/from the <acronym>CIE</acronym> XYZ format.
 Each function returns an integer (int): nonzero if it succeeded
 and zero otherwise.
 The white point to be associated with the colors is specified
@@ -6782,7 +6782,7 @@ for each i, such that 0 &lt;= i &lt; n
 <para>
 <!-- .LP -->
 This allows Xlib to use the shortest conversion path,
-thus bypassing CIE XYZ if possible (for example, TekHVC to CIE L*u*v*).
+thus bypassing <acronym>CIE</acronym> XYZ if possible (for example, TekHVC to <acronym>CIE</acronym> L*u*v*).
 </para>
 </sect2>
 <sect2 id="Parse_String_Callback">
@@ -7084,13 +7084,13 @@ The conversion functions provided by Xlib are:
 <para>
 <!-- .LP -->
 Functions to convert between device-dependent color spaces
-and CIE XYZ may differ for different classes of output devices
+and <acronym>CIE</acronym> XYZ may differ for different classes of output devices
 (for example, color versus gray monitors).
 Therefore, the notion of a Color Characterization Function Set
 has been developed.
 A function set consists of device-dependent color spaces
 and the functions that convert color specifications 
-between these device-dependent color spaces and the CIE XYZ color space
+between these device-dependent color spaces and the <acronym>CIE</acronym> XYZ color space
 appropriate for a particular class of output devices.
 The function set also contains a function that reads
 color characterization data off root window properties.
@@ -7215,7 +7215,7 @@ structures are allowed for a device-dependent color space;
 however, a function set can reference only one of them.
 These 
 <function>XcmsColorSpace</function>
-structures will differ in the functions to convert to and from CIE XYZ,
+structures will differ in the functions to convert to and from <acronym>CIE</acronym> XYZ,
 thus tailored for the specific function set.
 <!-- .sM -->
 </para>

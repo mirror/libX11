@@ -2261,7 +2261,7 @@ error.
 <para>
 <!-- .LP -->
 If both the led_mode and led members are specified,
-the state of that LED is changed, if possible.  
+the state of that <acronym>LED</acronym> is changed, if possible.  
 The led_mode member can be set to
 <function>LedModeOn</function>
 or
@@ -2454,8 +2454,8 @@ typedef struct {
 <!-- .LP -->
 <!-- .eM -->
 For the LEDs, 
-the least significant bit of led_mask corresponds to LED one,
-and each bit set to 1 in led_mask indicates an LED that is lit.
+the least significant bit of led_mask corresponds to <acronym>LED</acronym> one,
+and each bit set to 1 in led_mask indicates an <acronym>LED</acronym> that is lit.
 The global_auto_repeat member can be set to
 <function>AutoRepeatModeOn</function>
 or

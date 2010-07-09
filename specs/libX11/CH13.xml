@@ -9,8 +9,8 @@ internationalization is to permit localization without program source modiﬁcat
 tion.
 </para>
 <para>
-As one of the localization mechanisms, Xlib provides an X Input Method (XIM) functional inter-
-face for internationalized text input and an X Output Method (XOM) functional interface for
+As one of the localization mechanisms, Xlib provides an X Input Method (<acronym>XIM</acronym>) functional inter-
+face for internationalized text input and an X Output Method (<acronym>XOM</acronym>) functional interface for
 internationalized text output.
 </para>
 <para>
@@ -175,11 +175,11 @@ having zero or more concatenated ``@<emphasis remap='I'>category</emphasis>=<emp
 entries, where <emphasis remap='I'>category</emphasis> is a category name 
 and <emphasis remap='I'>value</emphasis> is the (possibly empty) setting for that category.
 The values are encoded in the current locale.
-Category names are restricted to the POSIX Portable Filename Character Set.
+Category names are restricted to the <acronym>POSIX</acronym> Portable Filename Character Set.
 </para>
 <para>
 <!-- .LP -->
-The local host X locale modifiers announcer (on POSIX-compliant systems,
+The local host X locale modifiers announcer (on <acronym>POSIX</acronym>-compliant systems,
 the XMODIFIERS environment variable) is appended to the modifier_list to
 provide default values on the local host.
 If a given category appears more than once in the list,
@@ -377,22 +377,22 @@ the following table describes the locale (and modifiers) dependency:
     <row>
       <entry><function>setlocale</function></entry>
       <entry><function>XOpenIM</function></entry>
-      <entry>XIM input method selection</entry>
+      <entry><acronym>XIM</acronym> input method selection</entry>
     </row>
     <row>
       <entry></entry>
       <entry><function>XRegisterIMInstantiateCallback</function></entry>
-      <entry>XIM selection</entry>
+      <entry><acronym>XIM</acronym> selection</entry>
     </row>
     <row>
       <entry></entry>
       <entry><function>XUnregisterIMInstantiateCallback</function></entry>
-      <entry>XIM selection</entry>
+      <entry><acronym>XIM</acronym> selection</entry>
     </row>
     <row>
       <entry><function>XIM</function></entry>
       <entry><function>XCreateIC</function></entry>
-      <entry>XIC input method configuration</entry>
+      <entry><acronym>XIC</acronym> input method configuration</entry>
     </row>
     <row>
       <entry></entry>
@@ -419,7 +419,7 @@ the following table describes the locale (and modifiers) dependency:
     <row>
       <entry><function>setlocale</function></entry>
       <entry><function>XOpenOM</function></entry>
-      <entry>XOM output method selection</entry>
+      <entry><acronym>XOM</acronym> output method selection</entry>
     </row>
     <row>
       <entry></entry>
@@ -429,7 +429,7 @@ the following table describes the locale (and modifiers) dependency:
     <row>
       <entry><function>XOM</function></entry>
       <entry><function>XCreateOC</function></entry>
-      <entry>XOC output method configuration</entry>
+      <entry><acronym>XOC</acronym> output method configuration</entry>
     </row>
     <row>
       <entry></entry>
@@ -598,7 +598,7 @@ when it is no longer needed.
 <para>
 <!-- .LP -->
 This section provides discussions of the following X Output Method
-(XOM) topics:
+(<acronym>XOM</acronym>) topics:
 </para>
 <itemizedlist>
   <listitem>
@@ -896,7 +896,7 @@ To set output method attributes, use
     <listitem>
       <para>
 Specifies the output method.
-<!-- .ds Al \ to set XOM values -->
+<!-- .ds Al \ to set <acronym>XOM</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -1051,10 +1051,10 @@ returns the locale associated with the specified output method.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-The following table describes how XOM values are interpreted by an
+The following table describes how <acronym>XOM</acronym> values are interpreted by an
 output method.
-The first column lists the XOM values.  The second column indicates
-how each of the XOM values are treated by a particular output style.
+The first column lists the <acronym>XOM</acronym> values.  The second column indicates
+how each of the <acronym>XOM</acronym> values are treated by a particular output style.
 </para>
 <para>
 <!-- .LP -->
@@ -1089,7 +1089,7 @@ The following key applies to this table.
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>XOM Value</entry>
+      <entry><acronym>XOM</acronym> Value</entry>
       <entry>Key</entry>
     </row>
   </thead>
@@ -1323,9 +1323,9 @@ to display that data.
 There can be multiple output contexts for one output method.
 The programming interfaces for creating, reading, or modifying
 an output context use a variable argument list.
-The name elements of the argument lists are referred to as XOC values.
-It is intended that output methods be controlled by these XOC values.
-As new XOC values are created,
+The name elements of the argument lists are referred to as <acronym>XOC</acronym> values.
+It is intended that output methods be controlled by these <acronym>XOC</acronym> values.
+As new <acronym>XOC</acronym> values are created,
 they should be registered with the X Consortium.
 An
 <function>XOC</function>
@@ -1367,7 +1367,7 @@ To create an output context, use
     <listitem>
       <para>
 Specifies the output method.
-<!-- .ds Al \ to set XOC values -->
+<!-- .ds Al \ to set <acronym>XOC</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -1509,13 +1509,13 @@ respectively,
 and
 <function>XGetOCValues .</function>
 Both functions have a variable-length argument list.
-In that argument list, any XOC value's name must be denoted
+In that argument list, any <acronym>XOC</acronym> value's name must be denoted
 with a character string using the X Portable Character Set.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To set XOC values, use
+To set <acronym>XOC</acronym> values, use
 <function>XSetOCValues .</function>
 <indexterm significance="preferred"><primary>XSetOCValues</primary></indexterm>
 <!-- .sM -->
@@ -1534,7 +1534,7 @@ To set XOC values, use
     <listitem>
       <para>
 Specifies the output context.
-<!-- .ds Al \ to set XOC values -->
+<!-- .ds Al \ to set <acronym>XOC</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -1592,7 +1592,7 @@ error.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To obtain XOC values, use
+To obtain <acronym>XOC</acronym> values, use
 <function>XGetOCValues .</function>
 <indexterm significance="preferred"><primary>XGetOCValues</primary></indexterm>
 <!-- .sM -->
@@ -1662,12 +1662,12 @@ following a name must point to a location where the value is to be stored.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-The following table describes how XOC values are interpreted
+The following table describes how <acronym>XOC</acronym> values are interpreted
 by an output method.
-The first column lists the XOC values.
+The first column lists the <acronym>XOC</acronym> values.
 The second column indicates the alternative interfaces that function
 identically and are provided for compatibility with previous releases.
-The third column indicates how each of the XOC values is treated.
+The third column indicates how each of the <acronym>XOC</acronym> values is treated.
 </para>
 <!-- .LP -->
 <para>
@@ -1713,7 +1713,7 @@ The following keys apply to this table.
   <colspec colname='c3'/>
   <thead>
     <row>
-      <entry>XOC Value</entry>
+      <entry><acronym>XOC</acronym> Value</entry>
       <entry>Alternative Interface</entry>
       <entry>Key</entry>
     </row>
@@ -1784,25 +1784,25 @@ White space immediately on either side of a separating comma is ignored.
 </para>
 <para>
 <!-- .LP -->
-Use of XLFD font names permits Xlib to obtain the fonts needed for a
+Use of <acronym>XLFD</acronym> font names permits Xlib to obtain the fonts needed for a
 variety of locales from a single locale-independent base font name.
 The single base font name should name a family of fonts whose members
 are encoded in the various charsets needed by the locales of interest.
 </para>
 <para>
 <!-- .LP -->
-An XLFD base font name can explicitly name a charset needed for the locale.
+An <acronym>XLFD</acronym> base font name can explicitly name a charset needed for the locale.
 This allows the user to specify an exact font for use with a charset required
 by a locale, fully controlling the font selection.
 </para>
 <para>
 <!-- .LP -->
-If a base font name is not an XLFD name,
-Xlib will attempt to obtain an XLFD name from the font properties
+If a base font name is not an <acronym>XLFD</acronym> name,
+Xlib will attempt to obtain an <acronym>XLFD</acronym> name from the font properties
 for the font.
 If Xlib is successful, the
 <function>XGetOCValues</function>
-function will return this XLFD name instead of the client-supplied name.
+function will return this <acronym>XLFD</acronym> name instead of the client-supplied name.
 </para>
 <para>
 <!-- .LP -->
@@ -1818,7 +1818,7 @@ returns NULL.
 <!-- .LP -->
 When querying for the
 <function>XNBaseFontName</function>
-XOC value,
+<acronym>XOC</acronym> value,
 <function>XGetOCValues</function>
 returns a null-terminated string identifying the base font names that
 Xlib used to load the fonts needed for the locale.
@@ -1973,7 +1973,7 @@ the resources will not be fully specified.
 </para>
 <para>
 <!-- .LP -->
-It is not intended that values that can be set as XOM values be
+It is not intended that values that can be set as <acronym>XOM</acronym> values be
 set as resources.
 </para>
 <para>
@@ -1982,7 +1982,7 @@ When querying for the
 <function>XNResourceName</function>
 or
 <function>XNResourceClass</function>
-XOC value,
+<acronym>XOC</acronym> value,
 <function>XGetOCValues</function>
 returns a null-terminated string.
 This string is owned by Xlib and should not be modified or freed by
@@ -2232,25 +2232,25 @@ White space immediately on either side of a separating comma is ignored.
 </para>
 <para>
 <!-- .LP -->
-Use of XLFD font names permits Xlib to obtain the fonts needed for a
+Use of <acronym>XLFD</acronym> font names permits Xlib to obtain the fonts needed for a
 variety of locales from a single locale-independent base font name.
 The single base font name should name a family of fonts whose members
 are encoded in the various charsets needed by the locales of interest.
 </para>
 <para>
 <!-- .LP -->
-An XLFD base font name can explicitly name a charset needed for the locale.
+An <acronym>XLFD</acronym> base font name can explicitly name a charset needed for the locale.
 This allows the user to specify an exact font for use with a charset required
 by a locale, fully controlling the font selection.
 </para>
 <para>
 <!-- .LP -->
-If a base font name is not an XLFD name,
-Xlib will attempt to obtain an XLFD name from the font properties
+If a base font name is not an <acronym>XLFD</acronym> name,
+Xlib will attempt to obtain an <acronym>XLFD</acronym> name from the font properties
 for the font.
-If this action is successful in obtaining an XLFD name, the
+If this action is successful in obtaining an <acronym>XLFD</acronym> name, the
 <function>XBaseFontNameListOfFontSet</function>
-function will return this XLFD name instead of the client-supplied name.
+function will return this <acronym>XLFD</acronym> name instead of the client-supplied name.
 </para>
 <para>
 <!-- .LP -->
@@ -2267,7 +2267,7 @@ of the following cases that names a set of fonts that exist at the server:
 <itemizedlist>
   <listitem>
     <para>
-The first XLFD-conforming base font name that specifies the required
+The first <acronym>XLFD</acronym>-conforming base font name that specifies the required
 charset or a superset of the required charset in its 
 <function>CharSetRegistry</function>
 and 
@@ -2280,7 +2280,7 @@ an ISO8859-1 font for an ASCII charset.
   </listitem>
   <listitem>
     <para>
-The first set of one or more XLFD-conforming base font names
+The first set of one or more <acronym>XLFD</acronym>-conforming base font names
 that specify one or more charsets that can be remapped to support the
 required charset.
 The Xlib implementation may recognize various mappings 
@@ -2294,13 +2294,13 @@ if a JIS Roman font is not available.
   </listitem>
   <listitem>
     <para>
-The first XLFD-conforming font name or the first non-XLFD font name
-for which an XLFD font name can be obtained, combined with the
+The first <acronym>XLFD</acronym>-conforming font name or the first non-<acronym>XLFD</acronym> font name
+for which an <acronym>XLFD</acronym> font name can be obtained, combined with the
 required charset (replacing the 
 <function>CharSetRegistry</function>
 and
 <function>CharSetEncoding</function>
-fields in the XLFD font name).
+fields in the <acronym>XLFD</acronym> font name).
 As in case 1,
 the implementation may use a charset that is a superset
 of the required charset.
@@ -2361,7 +2361,7 @@ For example:
 <!-- .LP -->
 Alternatively, the user could simply supply a single base font name
 that allows Xlib to select from all available fonts
-that meet certain minimum XLFD property requirements.
+that meet certain minimum <acronym>XLFD</acronym> property requirements.
 For example:
 </para>
 <para>
@@ -2621,10 +2621,10 @@ White space may appear immediately on either side of separating commas.
 <!-- .LP -->
 If 
 <function>XCreateFontSet</function>
-obtained an XLFD name from the font properties for the font specified
-by a non-XLFD base name, the
+obtained an <acronym>XLFD</acronym> name from the font properties for the font specified
+by a non-<acronym>XLFD</acronym> base name, the
 <function>XBaseFontNameListOfFontSet</function>
-function will return the XLFD name instead of the non-XLFD base name.
+function will return the <acronym>XLFD</acronym> name instead of the non-<acronym>XLFD</acronym> base name.
 </para>
 <para>
 <!-- .LP -->
@@ -4032,7 +4032,7 @@ The behavior for an invalid codepoint is undefined.
 <para>
 <!-- .LP -->
 This section provides discussions of the following X Input Method
-(XIM) topics:
+(<acronym>XIM</acronym>) topics:
 </para>
 <itemizedlist>
   <listitem>
@@ -4640,7 +4640,7 @@ Otherwise, it will set one of the values.
   </listitem>
   <listitem>
     <para>
-The client will get the XIC value 
+The client will get the <acronym>XIC</acronym> value 
 <function>XNAreaNeeded .</function>
 The input method will return its suggested size in this value.
 The input method should pay attention to any constraints suggested
@@ -4649,7 +4649,7 @@ by the client.
   </listitem>
   <listitem>
     <para>
-The client sets the XIC value
+The client sets the <acronym>XIC</acronym> value
 <function>XNArea</function>
 to inform the input method of the geometry of its window.  
 The client should try to honor the geometry requested by the input method.
@@ -4660,7 +4660,7 @@ The input method must accept this geometry.
 <para>
 <!-- .LP -->
 Clients doing geometry management must be aware that setting other
-XIC values may affect the geometry desired by an input method.
+<acronym>XIC</acronym> values may affect the geometry desired by an input method.
 For example, 
 <function>XNFontSet</function>
 and
@@ -4669,7 +4669,7 @@ may change the geometry desired by the input method.
 </para>
 <para>
 <!-- .LP -->
-The table of XIC values (see section 13.5.6)
+The table of <acronym>XIC</acronym> values (see section 13.5.6)
 indicates the values that can cause the desired geometry to change
 when they are set.
 It is the responsibility of the client to renegotiate the geometry
@@ -4728,7 +4728,7 @@ to translations such as those the X Toolkit Intrinsics library provides.
 </itemizedlist>
 <para>
 <!-- .LP -->
-Clients are expected to get the XIC value 
+Clients are expected to get the <acronym>XIC</acronym> value 
 <function>XNFilterEvents</function>
 and augment the event mask for the client window with that event mask.
 This mask may be zero.
@@ -4821,7 +4821,7 @@ This provides the basics for input methods.
 In addition to preediting based on key events, a general framework
 is provided to give a client that desires it more advanced preediting based
 on the text within the client.  This framework is called 
-<emphasis remap='I'>string conversion</emphasis> and is provided using XIC values. 
+<emphasis remap='I'>string conversion</emphasis> and is provided using <acronym>XIC</acronym> values. 
 The fundamental concept of string conversion
 is to allow the input method to manipulate the client's
 text independent of any user preediting operation.
@@ -4922,10 +4922,10 @@ String conversion support is dependent on the availability of the
 <function>XNStringConversion</function>
 or 
 <function>XNStringConversionCallback </function>
-XIC values.
+<acronym>XIC</acronym> values.
 Because the input method may not support string conversions,
 clients have to query the availability of string conversion
-operations by checking the supported XIC values list by calling
+operations by checking the supported <acronym>XIC</acronym> values list by calling
 <function>XGetIMValues</function>
 with the
 <function>XNQueryICValuesList</function>
@@ -4937,7 +4937,7 @@ The difference between these two values is whether the
 conversion is invoked by the client or the input method.  
 The 
 <function>XNStringConversion</function>
-XIC value is used by clients to request 
+<acronym>XIC</acronym> value is used by clients to request 
 a string conversion from the input method.  The client
 is responsible for determining which events are used 
 to trigger the string conversion and whether the string to be
@@ -4953,7 +4953,7 @@ only set one of these values.
 <!-- .LP -->
 The
 <function>XNStringConversionCallback</function>
-XIC value is used by the client to notify the input method that
+<acronym>XIC</acronym> value is used by the client to notify the input method that
 it will accept requests from the input method for string conversion.
 If this value is set,
 it is the input method's responsibility to determine which
@@ -5049,7 +5049,7 @@ functions are provided:
     </row>
     <row>
       <entry><function>XSetIMValue</function>, <function>XSetICValue</function></entry>
-      <entry>These functions use the XIM and XIC values,
+      <entry>These functions use the <acronym>XIM</acronym> and <acronym>XIC</acronym> values,
       <function>XNDestroyCallback ,</function>
       to allow a client 
       to register a callback procedure to be called when Xlib detects that
@@ -5112,7 +5112,7 @@ The HotKey mechanism allows clients
 to specify a set of keys for this purpose.  However, the input 
 method might not allow clients to specify hot keys.
 Therefore, clients have to query support of hot keys by checking the
-supported XIC values list by calling
+supported <acronym>XIC</acronym> values list by calling
 <function>XGetIMValues</function>
 with the
 <function>XNQueryICValuesList</function>
@@ -5143,14 +5143,14 @@ One method is to query the state by calling
 <function>XGetICValues</function>
 with the
 <function>XNPreeditState</function>
-XIC value.
+<acronym>XIC</acronym> value.
 Another method is to receive notification whenever
 the preedit state is changed.  To receive such notification,
 an application needs to register a callback by calling
 <function>XSetICValues</function>
 with the
 <function>XNPreeditStateNotifyCallback</function>
-XIC value. 
+<acronym>XIC</acronym> value. 
 In order to change the preedit state programmatically, an application 
 needs to call 
 <function>XSetICValues</function>
@@ -5163,7 +5163,7 @@ Availability of the preedit state is input method dependent.  The input
 method may not provide the ability to set the state or to
 retrieve the state programmatically.  Therefore, clients have to 
 query availability of preedit state operations by checking the 
-supported XIC values list by calling
+supported <acronym>XIC</acronym> values list by calling
 <function>XGetIMValues</function>
 with the
 <function>XNQueryICValuesList</function>
@@ -5352,7 +5352,7 @@ To set input method attributes, use
     <listitem>
       <para>
 Specifies the input method.
-<!-- .ds Al \ to set XIM values -->
+<!-- .ds Al \ to set <acronym>XIM</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -5434,9 +5434,9 @@ it returns the name of the first argument that could not be obtained.
 </para>
 <para>
 <!-- .LP -->
-Each XIM value argument (following a name) must point to
-a location where the XIM value is to be stored.
-That is, if the XIM value is of type T,
+Each <acronym>XIM</acronym> value argument (following a name) must point to
+a location where the <acronym>XIM</acronym> value is to be stored.
+That is, if the <acronym>XIM</acronym> value is of type T,
 the argument must be of type T*.
 If T itself is a pointer type,
 then
@@ -5761,10 +5761,10 @@ if it succeeds; otherwise, it returns
 <!-- .XE -->
 <para>
 <!-- .LP -->
-The following table describes how XIM values are interpreted
+The following table describes how <acronym>XIM</acronym> values are interpreted
 by an input method.
-The first column lists the XIM values.
-The second column indicates how each of the XIM values 
+The first column lists the <acronym>XIM</acronym> values.
+The second column indicates how each of the <acronym>XIM</acronym> values 
 are treated by that input style.
 </para>
 <para>
@@ -5811,7 +5811,7 @@ The following keys apply to this table.
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>XIM Value</entry>
+      <entry><acronym>XIM</acronym> Value</entry>
       <entry>Key</entry>
     </row>
   </thead>
@@ -5969,7 +5969,7 @@ by the input method for preedit information.
       <entry>If chosen,
       the input method would require the client to provide some area values
       for it to do its preediting.
-      Refer to XIC values 
+      Refer to <acronym>XIC</acronym> values 
       <function>XNArea</function>
       and
       <function>XNAreaNeeded .</function></entry>
@@ -5978,7 +5978,7 @@ by the input method for preedit information.
       <entry><function>XIMPreeditPosition</function></entry>
       <entry>If chosen,
       the input method would require the client to provide positional values. 
-      Refer to XIC values 
+      Refer to <acronym>XIC</acronym> values 
       <function>XNSpotLocation</function>
       and
       <function>XNFocusWindow .</function></entry>
@@ -5987,7 +5987,7 @@ by the input method for preedit information.
       <entry><function>XIMPreeditCallbacks</function></entry>
       <entry>If chosen,
       the input method would require the client to define the set of preedit callbacks.
-      Refer to XIC values 
+      Refer to <acronym>XIC</acronym> values 
       <function>XNPreeditStartCallback ,</function>
       <function>XNPreeditDoneCallback , </function>
       <function>XNPreeditDrawCallback ,</function>
@@ -6074,7 +6074,7 @@ the resources will not be fully specified.
 </para>
 <para>
 <!-- .LP -->
-It is not intended that values that can be set as XIM values be
+It is not intended that values that can be set as <acronym>XIM</acronym> values be
 set as resources.
 </para>
 <para>
@@ -6167,7 +6167,7 @@ A DestroyCallback is always called with a NULL call_data argument.
 <function>XNQueryIMValuesList</function>
 and
 <function>XNQueryICValuesList</function>
-are used to query about XIM and XIC values supported by the input method.
+are used to query about <acronym>XIM</acronym> and <acronym>XIC</acronym> values supported by the input method.
 </para>
 <para>
 <!-- .LP -->
@@ -6231,7 +6231,7 @@ otherwise, the input method does not use the masks.
 </para>
 <para>
 <!-- .LP -->
-Because this XIM value is optional, a client should call
+Because this <acronym>XIM</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryIMValues</function>
@@ -6301,7 +6301,7 @@ must be set to
 </para>
 <para>
 <!-- .LP -->
-Because this XIM value is optional, a client should call
+Because this <acronym>XIM</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryIMValues</function>
@@ -6330,9 +6330,9 @@ to display that data.
 There may be multiple input contexts for one input method.
 The programming interfaces for creating, reading, or modifying
 an input context use a variable argument list.
-The name elements of the argument lists are referred to as XIC values.
-It is intended that input methods be controlled by these XIC values.
-As new XIC values are created,
+The name elements of the argument lists are referred to as <acronym>XIC</acronym> values.
+It is intended that input methods be controlled by these <acronym>XIC</acronym> values.
+As new <acronym>XIC</acronym> values are created,
 they should be registered with the X Consortium.
 </para>
 <para>
@@ -6357,7 +6357,7 @@ To create an input context, use
     <listitem>
       <para>
 Specifies the input method.
-<!-- .ds Al \ to set XIC values -->
+<!-- .ds Al \ to set <acronym>XIC</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -6667,18 +6667,18 @@ function returns the input method associated with the specified input context.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-Xlib provides two functions for setting and reading XIC values, respectively,
+Xlib provides two functions for setting and reading <acronym>XIC</acronym> values, respectively,
 <function>XSetICValues</function>
 and
 <function>XGetICValues .</function>
 Both functions have a variable-length argument list.
-In that argument list, any XIC value's name must be denoted
+In that argument list, any <acronym>XIC</acronym> value's name must be denoted
 with a character string using the X Portable Character Set.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To set XIC values, use
+To set <acronym>XIC</acronym> values, use
 <function>XSetICValues .</function>
 <indexterm significance="preferred"><primary>XSetICValues</primary></indexterm>
 <!-- .sM -->
@@ -6697,7 +6697,7 @@ To set XIC values, use
     <listitem>
       <para>
 Specifies the input context.
-<!-- .ds Al \ to set XIC values -->
+<!-- .ds Al \ to set <acronym>XIC</acronym> values -->
       </para>
     </listitem>
   </varlistentry>
@@ -6761,7 +6761,7 @@ errors.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To obtain XIC values, use
+To obtain <acronym>XIC</acronym> values, use
 <function>XGetICValues .</function>
 <indexterm significance="preferred"><primary>XGetICValues</primary></indexterm>
 <!-- .sM -->
@@ -6846,18 +6846,18 @@ applies to each element of the nested list.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-The following tables describe how XIC values are interpreted
+The following tables describe how <acronym>XIC</acronym> values are interpreted
 by an input method depending on the input style chosen by the 
 user.
 </para>
 <para>
 <!-- .LP -->
-The first column lists the XIC values.
+The first column lists the <acronym>XIC</acronym> values.
 The second column indicates which values are involved in affecting,
 negotiating, and setting the geometry of the input method windows.
 The subentries under the third column indicate the different
 input styles that are supported.
-Each of these columns indicates how each of the XIC values 
+Each of these columns indicates how each of the <acronym>XIC</acronym> values 
 are treated by that input style.
 </para>
 <para>
@@ -6937,7 +6937,7 @@ The following keys apply to these tables.
   <colspec colname='c7'/>
   <tbody>
     <row>
-      <entry>XIC Value</entry>
+      <entry><acronym>XIC</acronym> Value</entry>
       <entry>Geometry Mangement</entry>
       <entry>Preedit Callback</entry>
       <entry>Preedit Position</entry>
@@ -7197,7 +7197,7 @@ The following keys apply to these tables.
   <colspec colname='c6'/>
   <thead>
     <row>
-      <entry>XIC Value</entry>
+      <entry><acronym>XIC</acronym> Value</entry>
       <entry>Geomentry Management</entry>
       <entry>Status Callback</entry>
       <entry>Status Area</entry>
@@ -7462,7 +7462,7 @@ error can be generated when this value is used by the input method.
 </para>
 <para>
 <!-- .LP -->
-When this XIC value is left unspecified,
+When this <acronym>XIC</acronym> value is left unspecified,
 the input method will use the client window as the default focus window.
 </para>
 </sect3>
@@ -7488,7 +7488,7 @@ the resources will not be fully specified.
 </para>
 <para>
 <!-- .LP -->
-It is not intended that values that can be set as XIC values be
+It is not intended that values that can be set as <acronym>XIC</acronym> values be
 set as resources.
 </para>
 </sect3>
@@ -7598,7 +7598,7 @@ will filter any events that it uses to initiate the conversion.
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -7638,7 +7638,7 @@ reconversion, or transliteration conversion on it.
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -7697,7 +7697,7 @@ or
 </para>
 <para>
 <!-- .LP -->
-The XIC state may be set to its initial state, as specified by the
+The <acronym>XIC</acronym> state may be set to its initial state, as specified by the
 <function>XNPreeditState</function>
 value when
 <function>XCreateIC</function>
@@ -7734,7 +7734,7 @@ and
 <function>XwcResetIC</function>
 will return to the initial
 <function>XNPreeditState</function>
-state of the XIC.
+state of the <acronym>XIC</acronym>.
 </para>
 <para>
 <!-- .LP -->
@@ -7744,7 +7744,7 @@ is set, then
 <function>XmbResetIC</function>
 and
 <function>XwcResetIC</function>
-will preserve the current state of the XIC.
+will preserve the current state of the <acronym>XIC</acronym>.
 </para>
 <para>
 <!-- .LP -->
@@ -7761,7 +7761,7 @@ values other than those specified above will default to
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -7780,7 +7780,7 @@ before using this argument.
 <!-- .LP -->
 The
 <function>XNHotKey</function>
-argument specifies the hot key list to the XIC.
+argument specifies the hot key list to the <acronym>XIC</acronym>.
 The hot key list is a pointer to the structure of type
 <function>XIMHotKeyTriggers ,</function>
 which specifies the key events that must be received
@@ -7793,7 +7793,7 @@ to
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -8052,7 +8052,7 @@ set to
 <function>XIMPreeditPosition .</function>
 When specified to any input method other than 
 <function>XIMPreeditPosition ,</function>
-this XIC value is ignored.
+this <acronym>XIC</acronym> value is ignored.
 </para>
 <para>
 <!-- .LP -->
@@ -8295,7 +8295,7 @@ and
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -8385,7 +8385,7 @@ typedef struct _XIMPreeditStateNotifyCallbackStruct {
 </para>
 <para>
 <!-- .LP -->
-Because this XIC value is optional, a client should call
+Because this <acronym>XIC</acronym> value is optional, a client should call
 <function>XGetIMValues</function>
 with argument
 <function>XNQueryICValuesList</function>
@@ -8510,7 +8510,7 @@ may cause unexpected results.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-XIM callbacks are procedures defined by clients or text drawing packages
+<acronym>XIM</acronym> callbacks are procedures defined by clients or text drawing packages
 that are to be called from the input method when selected events occur.
 Most clients will use a text editing package or a toolkit
 and, hence, will not need to define such callbacks.
@@ -9173,7 +9173,7 @@ says to replace 3 characters beginning at character position 1 with the
 string in the
 <function>XIMText</function>
 structure.
-Hence, BCD would be replaced by the value in the structure.
+Hence, <acronym>BCD</acronym> would be replaced by the value in the structure.
     </para>
   </listitem>
   <listitem>
@@ -9503,8 +9503,8 @@ structure is defined as follows:
 <!-- .ta .5i 2.5i -->
 typedef enum {
      XIMIsInvisible,     /* Disable caret feedback */ 
-     XIMIsPrimary,     /* UI defined caret feedback */
-     XIMIsSecondary,     /* UI defined caret feedback */
+     XIMIsPrimary,     /* <acronym>UI</acronym> defined caret feedback */
+     XIMIsSecondary,     /* <acronym>UI</acronym> defined caret feedback */
 } XIMCaretStyle;
 </literallayout>
 </para>

@@ -1427,7 +1427,7 @@ structure and so can be cast to a type larger than an
 to obtain additional values set by using
 <function>XESetWireToError .</function>
 The underlying type of the fp argument is system dependent;
-on a POSIX-compliant system, fp should be cast to type FILE*.
+on a <acronym>POSIX</acronym>-compliant system, fp should be cast to type FILE*.
 <indexterm significance="preferred"><primary>XESetFlushGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -3226,7 +3226,7 @@ Portability Considerations
 <para>
 <!-- .LP -->
 Many machine architectures, 
-including many of the more recent RISC architectures, 
+including many of the more recent <acronym>RISC</acronym> architectures,
 do not correctly access data at unaligned locations; 
 their compilers pad out structures to preserve this characteristic.
 Many other machines capable of unaligned references pad inside of structures

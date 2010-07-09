@@ -735,13 +735,13 @@ Latin-1, plus tab and newline.
   </listitem>
   <listitem>
     <para>
-POSIX Portable Filename Character Set
+<acronym>POSIX</acronym> Portable Filename Character Set
     </para>
   </listitem>
   <listitem>
     <para>
 The set of 65 characters, 
-which can be used in naming files on a POSIX-compliant host,
+which can be used in naming files on a <acronym>POSIX</acronym>-compliant host,
 that are correctly processed in all locales.
 The set is:
     </para>

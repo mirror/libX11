@@ -361,7 +361,7 @@ Specifies the glyph character for the mask.
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the foreground of the source. 
+Specifies the <acronym>RGB</acronym> values for the foreground of the source. 
       </para>
     </listitem>
   </varlistentry>
@@ -371,7 +371,7 @@ Specifies the RGB values for the foreground of the source.
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the background of the source.
+Specifies the <acronym>RGB</acronym> values for the background of the source.
     </para>
   </listitem>
   </varlistentry>
@@ -482,7 +482,7 @@ Specifies the cursor's source bits to be displayed or
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the foreground of the source. 
+Specifies the <acronym>RGB</acronym> values for the foreground of the source. 
       </para>
     </listitem>
   </varlistentry>
@@ -492,7 +492,7 @@ Specifies the RGB values for the foreground of the source.
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the background of the source.
+Specifies the <acronym>RGB</acronym> values for the background of the source.
 <!-- .ds Xy , which indicate the hotspot relative to the source's origin -->
       </para>
     </listitem>
@@ -526,7 +526,7 @@ Specify the x and y coordinates(Xy.
 The
 <function>XCreatePixmapCursor</function>
 function creates a cursor and returns the cursor ID associated with it.
-The foreground and background RGB values must be specified using
+The foreground and background <acronym>RGB</acronym> values must be specified using
 foreground_color and background_color,
 even if the X server only has a
 <function>StaticGray</function>
@@ -719,7 +719,7 @@ Specifies the cursor.
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the foreground of the source. 
+Specifies the <acronym>RGB</acronym> values for the foreground of the source. 
       </para>
     </listitem>
   </varlistentry>
@@ -729,7 +729,7 @@ Specifies the RGB values for the foreground of the source.
     </term>
     <listitem>
       <para>
-Specifies the RGB values for the background of the source.
+Specifies the <acronym>RGB</acronym> values for the background of the source.
     </para>
   </listitem>
   </varlistentry>
@@ -745,7 +745,7 @@ if the cursor is being displayed on a screen,
 the change is visible immediately.
 The pixel members of the
 <function>XColor</function>
-structures are ignored; only the RGB values are used.
+structures are ignored; only the <acronym>RGB</acronym> values are used.
 </para>
 <para>
 <!-- .LP -->

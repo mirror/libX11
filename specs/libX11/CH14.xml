@@ -1,14 +1,14 @@
 <chapter id="inter_client_communication_functions">
 <title>Inter-Client Communication Functions</title>
 <para>
-The Inter-Client Communication Conventions Manual, hereafter referred to as the ICCCM,
+The Inter-Client Communication Conventions Manual, hereafter referred to as the <acronym>ICCCM</acronym>,
 details the X Consortium approved conventions that govern inter-client communications. These
 conventions ensure peer-to-peer client cooperation in the use of selections, cut buffers, and shared
 resources as well as client cooperation with window and session managers. For further informa-
 tion, see the Inter-Client Communication Conventions Manual.
 </para>
 <para>
-Xlib provides a number of standard properties and programming interfaces that are ICCCM com-
+Xlib provides a number of standard properties and programming interfaces that are <acronym>ICCCM</acronym> com-
 pliant. The predeﬁned atoms for some of these properties are deﬁned in the &lt;X11/Xatom.h&gt;
 header ﬁle, where to avoid name conﬂicts with user symbols their #deﬁne name has an XA_ pre-
 ﬁx. For further information about atoms and properties, see section 4.3.
@@ -2259,7 +2259,7 @@ header file.
 The size of the
 <function>XSizeHints</function>
 structure may grow in future releases, as new components are
-added to support new ICCCM features.
+added to support new <acronym>ICCCM</acronym> features.
 Passing statically allocated instances of this structure into
 Xlib may result in memory corruption when running against a
 future release of the library.
@@ -2511,7 +2511,7 @@ The
 function returns the size hints stored in the WM_NORMAL_HINTS property 
 on the specified window.
 If the property is of type WM_SIZE_HINTS, is of format 32,
-and is long enough to contain either an old (pre-ICCCM) 
+and is long enough to contain either an old (pre-<acronym>ICCCM</acronym>) 
 or new size hints structure, 
 <function>XGetWMNormalHints</function>
 sets the various fields of the 
@@ -2525,7 +2525,7 @@ Otherwise, it returns a zero status.
 <!-- .LP -->
 If 
 <function>XGetWMNormalHints</function>
-returns successfully and a pre-ICCCM size hints property is read, 
+returns successfully and a pre-<acronym>ICCCM</acronym> size hints property is read, 
 the supplied_return argument will contain the following bits:
 </para>
 <para>
@@ -2724,7 +2724,7 @@ The
 function returns the size hints stored in the specified property 
 on the named window.
 If the property is of type WM_SIZE_HINTS, is of format 32, 
-and is long enough to contain either an old (pre-ICCCM) 
+and is long enough to contain either an old (pre-<acronym>ICCCM</acronym>) 
 or new size hints structure, 
 <function>XGetWMSizeHints</function>
 sets the various fields of the 
@@ -2743,7 +2743,7 @@ function.
 <!-- .LP -->
 If 
 <function>XGetWMSizeHints</function>
-returns successfully and a pre-ICCCM size hints property is read, 
+returns successfully and a pre-<acronym>ICCCM</acronym> size hints property is read, 
 the supplied_return argument will contain the following bits:
 </para>
 <para>
@@ -3953,7 +3953,7 @@ is substituted for res_name.
 It is assumed that the supplied class_hints.res_name and argv,
 the RESOURCE_NAME environment variable, and the hostname of the machine
 are in the encoding of the locale announced for the LC_CTYPE category
-(on POSIX-compliant systems, the LC_CTYPE, else LANG environment variable).
+(on <acronym>POSIX</acronym>-compliant systems, the LC_CTYPE, else LANG environment variable).
 The corresponding WM_CLASS, WM_COMMAND, and WM_CLIENT_MACHINE properties
 are typed according to the local host locale announcer.
 No encoding conversion is performed prior to storage in the properties.
@@ -4519,12 +4519,12 @@ to draw a smoothly shaded sphere.
 At each pixel in the image of the sphere, 
 the program computes the intensity and color of light
 reflected back to the viewer.  
-The result of each computation is a triple of red, green, and blue (RGB)
+The result of each computation is a triple of red, green, and blue (<acronym>RGB</acronym>)
 coefficients in the range 0.0 to 1.0.  
 To draw the sphere, the program needs a colormap that provides a
 large range of uniformly distributed colors.  
 The colormap should be arranged so that the program can
-convert its RGB triples into pixel values very quickly,
+convert its <acronym>RGB</acronym> triples into pixel values very quickly,
 because drawing the entire sphere requires many such
 conversions.
 </para>
@@ -4788,11 +4788,11 @@ This atom names a property.
 The value of the property is an array of
 <function>XStandardColormap</function>
 structures.
-Each entry in the array describes an RGB subset of the default color
+Each entry in the array describes an <acronym>RGB</acronym> subset of the default color
 map for the Visual specified by visual_id.
       </para>
       <para>
-Some applications only need a few RGB colors and
+Some applications only need a few <acronym>RGB</acronym> colors and
 may be able to allocate them from the system default colormap.
 This is the ideal situation because the fewer colormaps that are
 active in the system the more applications are displayed
@@ -4816,7 +4816,7 @@ This atom names a property.  The value of the property is an
 <function>XStandardColormap .</function>
       </para>
       <para>
-The property defines the best RGB colormap available on
+The property defines the best <acronym>RGB</acronym> colormap available on
 the screen.
 (Of course, this is a subjective evaluation.)
 Many image processing and three-dimensional applications need to
@@ -4974,14 +4974,14 @@ Specifies the property name.
 <!-- .eM -->
 The 
 <function>XSetRGBColormaps </function>
-function replaces the RGB colormap definition in the specified property 
+function replaces the <acronym>RGB</acronym> colormap definition in the specified property 
 on the named window.
 If the property does not already exist,
 <function>XSetRGBColormaps</function>
-sets the RGB colormap definition in the specified property
+sets the <acronym>RGB</acronym> colormap definition in the specified property
 on the named window.
 The property is stored with a type of RGB_COLOR_MAP and a format of 32.
-Note that it is the caller's responsibility to honor the ICCCM
+Note that it is the caller's responsibility to honor the <acronym>ICCCM</acronym>
 restriction that only RGB_DEFAULT_MAP contain more than one definition.
 </para>
 <para>
@@ -5154,7 +5154,7 @@ Specifies the property name.
 <!-- .eM -->
 The 
 <function>XGetRGBColormaps</function>
-function returns the RGB colormap definitions stored 
+function returns the <acronym>RGB</acronym> colormap definitions stored 
 in the specified property on the named window.
 If the property exists, is of type RGB_COLOR_MAP, is of format 32, 
 and is long enough to contain a colormap definition,
@@ -5171,7 +5171,7 @@ Otherwise,
 none of the fields are set, and 
 <function>XGetRGBColormaps</function>
 returns a zero status.
-Note that it is the caller's responsibility to honor the ICCCM
+Note that it is the caller's responsibility to honor the <acronym>ICCCM</acronym>
 restriction that only RGB_DEFAULT_MAP contain more than one definition.
 </para>
 <para>

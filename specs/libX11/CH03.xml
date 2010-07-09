@@ -56,7 +56,7 @@ visual types clearer.
 The screen can be color or grayscale,
 can have a colormap that is writable or read-only,
 and can also have a colormap whose indices are decomposed into separate 
-RGB pieces, provided one is not on a grayscale screen.
+<acronym>RGB</acronym> pieces, provided one is not on a grayscale screen.
 This leads to the following diagram:
 </para>
 
@@ -80,7 +80,7 @@ it goes through a look-up stage by indexing into a colormap.
 Colormaps can be manipulated arbitrarily on some hardware, 
 in limited ways on other hardware, and not at all on other hardware.  
 The visual types affect the colormap and 
-the RGB values in the following ways:
+the <acronym>RGB</acronym> values in the following ways:
 </para>
 <para>
 <!-- .LP -->
@@ -91,7 +91,7 @@ the RGB values in the following ways:
 For 
 <function>PseudoColor , </function>
 a pixel value indexes a colormap to produce
-independent RGB values, and the RGB values can be changed dynamically.
+independent <acronym>RGB</acronym> values, and the <acronym>RGB</acronym> values can be changed dynamically.
     </para>
   </listitem>
   <listitem>
@@ -108,9 +108,9 @@ same value for red, green, and blue in the colormaps.
     <para>
 For 
 <function>DirectColor ,</function>
-a pixel value is decomposed into separate RGB subfields, and each
+a pixel value is decomposed into separate <acronym>RGB</acronym> subfields, and each
 subfield separately indexes the colormap for the corresponding value.
-The RGB values can be changed dynamically.  
+The <acronym>RGB</acronym> values can be changed dynamically.
     </para>
   </listitem>
   <listitem>
@@ -118,8 +118,8 @@ The RGB values can be changed dynamically.
 <function>TrueColor</function>
 is treated the same way as 
 <function>DirectColor </function>
-except that the colormap has predefined, read-only RGB values.
-These RGB values are server dependent but provide linear or near-linear
+except that the colormap has predefined, read-only <acronym>RGB</acronym> values.
+These <acronym>RGB</acronym> values are server dependent but provide linear or near-linear
 ramps in each primary.  
     </para>
   </listitem>
@@ -129,7 +129,7 @@ ramps in each primary.
 is treated the same way as 
 <function>PseudoColor </function>
 except that the colormap has predefined, 
-read-only, server-dependent RGB values.
+read-only, server-dependent <acronym>RGB</acronym> values.
     </para>
   </listitem>
   <listitem>
@@ -137,7 +137,7 @@ read-only, server-dependent RGB values.
 <function>StaticGray </function>
 is treated the same way as 
 <function>StaticColor </function>
-except that the RGB values are equal for any single pixel
+except that the <acronym>RGB</acronym> values are equal for any single pixel
 value, thus resulting in shades of gray.  
 <function>StaticGray </function>
 with a two-entry
@@ -155,7 +155,7 @@ Each has one contiguous set of bits with no
 intersections.
 The bits_per_rgb member specifies the log base 2 of the
 number of distinct color values (individually) of red, green, and blue.
-Actual RGB values are unsigned 16-bit numbers.
+Actual <acronym>RGB</acronym> values are unsigned 16-bit numbers.
 The colormap_size member defines the number of available colormap entries
 in a newly created colormap.  
 For 

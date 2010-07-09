@@ -5,18 +5,24 @@
 <book id="libX11">
 
 <bookinfo>
-   <title>Xlib Widget Set - C Language Interface</title>
+   <title>Xlib - C Language X Interface</title>
    <subtitle>X Window System Standard</subtitle>
    <releaseinfo>X Version 11, Release 7</releaseinfo>
    <authorgroup>
       <author>
          <firstname>James</firstname><surname>Gettys</surname>
-         <affiliation><orgname>Cambridge Research Laboratory</orgname></affiliation>
+         <affiliation>
+	   <orgname>Digital Equipment Corporation</orgname>
+	   <orgdiv>Cambridge Research Laboratory</orgdiv>
+	 </affiliation>
       </author>
-      <othercredit>
-         <firstname>Robert</firstname><surname>W. Scheifler</surname>
-         <affiliation><orgname>Laboratory for Computer Science Massachusetts Institute of Technology</orgname></affiliation>
-      </othercredit>
+      <author>
+         <firstname>Robert</firstname><othername role='mi'>W.</othername> <surname>Scheifler</surname>
+         <affiliation>
+	   <orgname>Massachusetts Institute of Technology</orgname>
+	   <orgdiv>Laboratory for Computer Science</orgdiv>
+	 </affiliation>
+      </author>
       <othercredit>
          <firstname>Chuck</firstname><surname>Adams</surname>
          <affiliation><orgname>Tektronix, Inc.</orgname></affiliation>
@@ -26,7 +32,7 @@
          <affiliation><orgname>Open Software Foundation</orgname></affiliation>
       </othercredit>
       <othercredit>
-         <firstname>Hideki</firstname><surname>Joloboff</surname>
+         <firstname>Hideki</firstname><surname>Hiura</surname>
          <affiliation><orgname>Sun Microsystems, Inc.</orgname></affiliation>
       </othercredit>
       <othercredit>
@@ -50,22 +56,14 @@
          <affiliation><orgname>Fujitsu OSSI</orgname></affiliation>
       </othercredit>
    </authorgroup>
-   <copyright><year>1985</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1986</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1987</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1988</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1989</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1991</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1994</year><holder>The Open Group</holder></copyright>
-   <copyright><year>1996</year><holder>The Open Group</holder></copyright>
-   <copyright><year>2002</year><holder>The Open Group</holder></copyright>
-
-   <copyright><year>1985</year><holder>Digital Equipment Corporation</holder></copyright>
-   <copyright><year>1986</year><holder>Digital Equipment Corporation</holder></copyright>
-   <copyright><year>1987</year><holder>Digital Equipment Corporation</holder></copyright>
-   <copyright><year>1988</year><holder>Digital Equipment Corporation</holder></copyright>
-   <copyright><year>1989</year><holder>Digital Equipment Corporation</holder></copyright>
-   <copyright><year>1991</year><holder>Digital Equipment Corporation</holder></copyright>
+   <copyright><year>1985</year><year>1986</year><year>1987</year>
+     <year>1988</year><year>1989</year><year>1991</year><year>1994</year>
+     <year>1996</year><year>2002</year><holder>The Open Group</holder>
+   </copyright>
+   <copyright><year>1985</year><year>1986</year><year>1987</year>
+     <year>1988</year><year>1989</year><year>1991</year>
+     <holder>Digital Equipment Corporation</holder>
+   </copyright>
 
    <affiliation><orgname>formerly MIT X Consortium</orgname></affiliation>
    <productnumber>X Version 11, Release 7</productnumber>

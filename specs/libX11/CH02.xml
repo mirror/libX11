@@ -157,7 +157,7 @@ Specifies the screen to be used on that server.
 Multiple screens can be controlled by a single X server.
 The screen_number sets an internal variable that can be accessed by
 using the 
-<function>DefaultScreen </function>
+<function>DefaultScreen</function>
 macro or the 
 <function>XDefaultScreen</function>
 function if you are using languages other than C (see section 2.2.1).
@@ -182,7 +182,7 @@ dual-headed:0.1
 The
 <function>XOpenDisplay</function>
 function returns a 
-<function>Display </function>
+<function>Display</function>
 structure that serves as the
 connection to the X server and that contains all the information
 about that X server.
@@ -214,14 +214,14 @@ mechanisms.
 <!-- .LP -->
 <indexterm><primary>Display</primary></indexterm>
 If successful, 
-<function>XOpenDisplay </function>
+<function>XOpenDisplay</function>
 returns a pointer to a 
-<function>Display </function>
+<function>Display</function>
 structure,
 which is defined in 
 <!-- .hN X11/Xlib.h . -->
 If 
-<function>XOpenDisplay </function>
+<function>XOpenDisplay</function>
 does not succeed, it returns NULL.
 After a successful call to
 <function>XOpenDisplay</function>,
@@ -239,7 +239,7 @@ and
 structures only by using the information macros or functions.
 For information about using macros and functions to obtain information from 
 the
-<function>Display </function>
+<function>Display</function>
 structure,
 see section 2.2.1.
 </para>
@@ -258,7 +258,7 @@ X servers may implement various types of access control mechanisms
 <!-- .LP -->
 The Xlib library provides a number of useful macros 
 and corresponding functions that return data from the 
-<function>Display </function>
+<function>Display</function>
 structure.
 The macros are used for C programming, 
 and their corresponding function equivalents are for other language bindings.
@@ -285,11 +285,11 @@ Screen information macros
 <!-- .LP -->
 <indexterm ><primary>Display</primary><secondary>data structure</secondary></indexterm>
 All other members of the 
-<function>Display </function>
+<function>Display</function>
 structure (that is, those for which no macros are defined) are private to Xlib 
 and must not be used.
 Applications must never directly modify or inspect these private members of the 
-<function>Display </function>
+<function>Display</function>
 structure.
 <!-- .NT Note -->
 The
@@ -341,9 +341,9 @@ a procedure.
 <!-- .LP -->
 <!-- .sp -->
 Both 
-<function>BlackPixel </function>
+<function>BlackPixel</function>
 and 
-<function>WhitePixel </function>
+<function>WhitePixel</function>
 can be used in implementing a monochrome application.
 These pixel values are for permanently allocated entries in the default
 colormap.
@@ -357,7 +357,7 @@ BlackPixel(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_nu
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XBlackPixel</function></funcdef>
+  <funcdef>unsigned long <function>XBlackPixel</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -402,7 +402,7 @@ WhitePixel(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_nu
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XWhitePixel</function></funcdef>
+  <funcdef>unsigned long <function>XWhitePixel</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -447,7 +447,7 @@ ConnectionNumber(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XConnectionNumber</function></funcdef>
+  <funcdef>int <function>XConnectionNumber</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -484,7 +484,7 @@ DefaultColormap(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>scre
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Colormap <function> XDefaultColormap</function></funcdef>
+  <funcdef>Colormap <function>XDefaultColormap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -530,7 +530,7 @@ DefaultDepth(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDefaultDepth</function></funcdef>
+  <funcdef>int <function>XDefaultDepth</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -581,7 +581,7 @@ DefaultGC(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_num
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>GC <function> XDefaultGC</function></funcdef>
+  <funcdef>GC <function>XDefaultGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
   <paramdef>int<parameter> *count_return</parameter></paramdef>
@@ -646,7 +646,7 @@ DefaultGC(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_num
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>GC <function> XDefaultGC</function></funcdef>
+  <funcdef>GC <function>XDefaultGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -699,7 +699,7 @@ DefaultRootWindow(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Window <function> XDefaultRootWindow</function></funcdef>
+  <funcdef>Window <function>XDefaultRootWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -733,7 +733,7 @@ DefaultScreenOfDisplay(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Screen *<function> XDefaultScreenOfDisplay</function></funcdef>
+  <funcdef>Screen *<function>XDefaultScreenOfDisplay</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -767,7 +767,7 @@ ScreenOfDisplay(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>scre
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Screen *<function> XScreenOfDisplay</function></funcdef>
+  <funcdef>Screen *<function>XScreenOfDisplay</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -812,7 +812,7 @@ DefaultScreen(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDefaultScreen</function></funcdef>
+  <funcdef>int <function>XDefaultScreen</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -850,7 +850,7 @@ DefaultVisual(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Visual *<function> XDefaultVisual</function></funcdef>
+  <funcdef>Visual *<function>XDefaultVisual</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -897,7 +897,7 @@ DisplayCells(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayCells</function></funcdef>
+  <funcdef>int <function>XDisplayCells</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -942,7 +942,7 @@ DisplayPlanes(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayPlanes</function></funcdef>
+  <funcdef>int <function>XDisplayPlanes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -989,7 +989,7 @@ DisplayString(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char *<function> XDisplayString</function></funcdef>
+  <funcdef>char *<function>XDisplayString</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1033,7 +1033,7 @@ LastKnownRequestProcessed(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XLastKnownRequestProcessed</function></funcdef>
+  <funcdef>unsigned long <function>XLastKnownRequestProcessed</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1090,7 +1090,7 @@ LastKnownRequestProcessed(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XLastKnownRequestProcessed</function></funcdef>
+  <funcdef>unsigned long <function>XLastKnownRequestProcessed</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1139,7 +1139,7 @@ LastKnownRequestProcessed(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XLastKnownRequestProcessed</function></funcdef>
+  <funcdef>unsigned long <function>XLastKnownRequestProcessed</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1176,7 +1176,7 @@ NextRequest(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XNextRequest</function></funcdef>
+  <funcdef>unsigned long <function>XNextRequest</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1212,7 +1212,7 @@ ProtocolVersion(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XProtocolVersion</function></funcdef>
+  <funcdef>int <function>XProtocolVersion</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1247,7 +1247,7 @@ ProtocolRevision(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XProtocolRevision</function></funcdef>
+  <funcdef>int <function>XProtocolRevision</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1281,7 +1281,7 @@ QLength(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XQLength</function></funcdef>
+  <funcdef>int <function>XQLength</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1318,7 +1318,7 @@ RootWindow(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_nu
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Window <function> XRootWindow</function></funcdef>
+  <funcdef>Window <function>XRootWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -1367,7 +1367,7 @@ ScreenCount(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XScreenCount</function></funcdef>
+  <funcdef>int <function>XScreenCount</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1401,7 +1401,7 @@ ServerVendor(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char *<function> XServerVendor</function></funcdef>
+  <funcdef>char *<function>XServerVendor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1439,7 +1439,7 @@ VendorRelease(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XVendorRelease</function></funcdef>
+  <funcdef>int <function>XVendorRelease</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1512,7 +1512,7 @@ ImageByteOrder(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XImageByteOrder</function></funcdef>
+  <funcdef>int <function>XImageByteOrder</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> *count_return</parameter></paramdef>
 </funcprototype>
@@ -1575,7 +1575,7 @@ ImageByteOrder(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XImageByteOrder</function></funcdef>
+  <funcdef>int <function>XImageByteOrder</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1601,7 +1601,7 @@ Both specify the required byte order for images for each scanline unit in
 XY format (bitmap) or for each pixel value in 
 Z format.
 The macro or function can return either
-<function>LSBFirst </function>
+<function>LSBFirst</function>
 or 
 <function>MSBFirst</function>.
 </para>
@@ -1615,7 +1615,7 @@ BitmapUnit(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XBitmapUnit</function></funcdef>
+  <funcdef>int <function>XBitmapUnit</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1650,7 +1650,7 @@ BitmapBitOrder(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XBitmapBitOrder</function></funcdef>
+  <funcdef>int <function>XBitmapBitOrder</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1690,7 +1690,7 @@ BitmapPad(<emphasis remap='I'>display</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XBitmapPad</function></funcdef>
+  <funcdef>int <function>XBitmapPad</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1725,7 +1725,7 @@ DisplayHeight(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayHeight</function></funcdef>
+  <funcdef>int <function>XDisplayHeight</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -1771,7 +1771,7 @@ DisplayHeightMM(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>scre
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayHeightMM</function></funcdef>
+  <funcdef>int <function>XDisplayHeightMM</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -1816,7 +1816,7 @@ DisplayWidth(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>screen_
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayWidth</function></funcdef>
+  <funcdef>int <function>XDisplayWidth</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -1861,7 +1861,7 @@ DisplayWidthMM(<emphasis remap='I'>display</emphasis>, <emphasis remap='I'>scree
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDisplayWidthMM</function></funcdef>
+  <funcdef>int <function>XDisplayWidthMM</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
 </funcprototype>
@@ -1920,7 +1920,7 @@ BlackPixelOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XBlackPixelOfScreen</function></funcdef>
+  <funcdef>unsigned long <function>XBlackPixelOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1956,7 +1956,7 @@ WhitePixelOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function> XWhitePixelOfScreen</function></funcdef>
+  <funcdef>unsigned long <function>XWhitePixelOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1992,7 +1992,7 @@ CellsOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XCellsOfScreen</function></funcdef>
+  <funcdef>int <function>XCellsOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2029,7 +2029,7 @@ DefaultColormapOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Colormap <function> XDefaultColormapOfScreen</function></funcdef>
+  <funcdef>Colormap <function>XDefaultColormapOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2065,7 +2065,7 @@ DefaultDepthOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDefaultDepthOfScreen</function></funcdef>
+  <funcdef>int <function>XDefaultDepthOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2101,7 +2101,7 @@ DefaultGCOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>GC <function> XDefaultGCOfScreen</function></funcdef>
+  <funcdef>GC <function>XDefaultGCOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2139,7 +2139,7 @@ DefaultVisualOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Visual *<function> XDefaultVisualOfScreen</function></funcdef>
+  <funcdef>Visual *<function>XDefaultVisualOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2177,7 +2177,7 @@ DoesBackingStore(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XDoesBackingStore</function></funcdef>
+  <funcdef>int <function>XDoesBackingStore</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2207,7 +2207,7 @@ The value returned can be one of
 <function>WhenMapped</function>,
 <function>NotUseful</function>,
 or
-<function>Always </function>
+<function>Always</function>
 (see section 3.2.4).
 </para>
 <para>
@@ -2220,7 +2220,7 @@ DoesSaveUnders(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool <function> XDoesSaveUnders</function></funcdef>
+  <funcdef>Bool <function>XDoesSaveUnders</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2263,7 +2263,7 @@ DisplayOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Display *<function> XDisplayOfScreen</function></funcdef>
+  <funcdef>Display *<function>XDisplayOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2300,7 +2300,7 @@ EventMaskOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>long <function> XEventMaskOfScreen</function></funcdef>
+  <funcdef>long <function>XEventMaskOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2336,7 +2336,7 @@ EventMaskOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>long <function> XEventMaskOfScreen</function></funcdef>
+  <funcdef>long <function>XEventMaskOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2373,7 +2373,7 @@ WidthOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XWidthOfScreen</function></funcdef>
+  <funcdef>int <function>XWidthOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2409,7 +2409,7 @@ HeightOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XHeightOfScreen</function></funcdef>
+  <funcdef>int <function>XHeightOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2445,7 +2445,7 @@ WidthMMOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XWidthMMOfScreen</function></funcdef>
+  <funcdef>int <function>XWidthMMOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2481,7 +2481,7 @@ HeightMMOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XHeightMMOfScreen</function></funcdef>
+  <funcdef>int <function>XHeightMMOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2517,7 +2517,7 @@ MaxCmapsOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XMaxCmapsOfScreen</function></funcdef>
+  <funcdef>int <function>XMaxCmapsOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2554,7 +2554,7 @@ MinCmapsOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XMinCmapsOfScreen</function></funcdef>
+  <funcdef>int <function>XMinCmapsOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2591,7 +2591,7 @@ PlanesOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int <function> XPlanesOfScreen</function></funcdef>
+  <funcdef>int <function>XPlanesOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2627,7 +2627,7 @@ RootWindowOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Window <function> XRootWindowOfScreen</function></funcdef>
+  <funcdef>Window <function>XRootWindowOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2663,7 +2663,7 @@ Both return the root window of the specified screen.
 <para>
 <!-- .LP -->
 To execute a 
-<function>NoOperation </function>
+<function>NoOperation</function>
 protocol request, use
 <function>XNoOp</function>.
 <indexterm significance="preferred"><primary>XNoOp</primary></indexterm>
@@ -2690,7 +2690,7 @@ protocol request, use
 The
 <function>XNoOp</function>
 function sends a 
-<function>NoOperation </function>
+<function>NoOperation</function>
 protocol request to the X server,
 thereby exercising the connection.
 </para>
@@ -2876,7 +2876,7 @@ see section 2.6.
 <!-- .LP -->
 <function>XSetCloseDownMode</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 </sect1>
@@ -2906,7 +2906,7 @@ It disowns all selections owned by the client
 It performs an
 <function>XUngrabPointer</function>
 and
-<function>XUngrabKeyboard </function>
+<function>XUngrabKeyboard</function>
 if the client has actively grabbed the pointer 
 or the keyboard.
     </para>
@@ -2914,7 +2914,7 @@ or the keyboard.
   <listitem>
     <para>
 It performs an
-<function>XUngrabServer </function>
+<function>XUngrabServer</function>
 if the client has grabbed the server.
     </para>
   </listitem>
@@ -3314,7 +3314,7 @@ To stop tracking internal connections for a display, use
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status <function>XRemoveConnectionWatch </function></funcdef>
+  <funcdef>Status <function>XRemoveConnectionWatch</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XWatchProc<parameter> procedure</parameter></paramdef>
   <paramdef>XPointer<parameter> client_data</parameter></paramdef>
@@ -3431,7 +3431,7 @@ To obtain all of the current internal connections for a display, use
 </para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XInternalConnectionNumbers </function></funcdef>
+  <funcdef>Status <function>XInternalConnectionNumbers</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int **<parameter> fd</parameter></paramdef>
   <paramdef>int *<parameter> count_return</parameter></paramdef>

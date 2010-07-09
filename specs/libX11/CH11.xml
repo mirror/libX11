@@ -44,7 +44,7 @@ Another way is to use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSelectInput</function></funcdef>
+  <funcdef><function>XSelectInput</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>long<parameter> event_mask</parameter></paramdef>
@@ -140,7 +140,7 @@ the event mask
   <listitem>
     <para>
 Only one client at a time can select a 
-<function>ButtonPress </function>
+<function>ButtonPress</function>
 event, which is associated with
 the event mask
 <function>ButtonPressMask</function>.
@@ -155,7 +155,7 @@ The server reports the event to all interested clients.
 <!-- .LP -->
 <function>XSelectInput</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect1>
@@ -182,7 +182,7 @@ To flush the output buffer, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFlush</function></funcdef>
+  <funcdef><function>XFlush</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -228,7 +228,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSync</function></funcdef>
+  <funcdef><function>XSync</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Bool<parameter> discard</parameter></paramdef>
 </funcprototype>
@@ -282,7 +282,7 @@ Finally, if you passed
 does not discard the events in the queue.
 If you passed 
 <function>True</function>,
-<function>XSync </function>
+<function>XSync</function>
 discards all events in the queue,
 including those events that were on the queue before
 <function>XSync</function>
@@ -311,7 +311,7 @@ To check the number of events in the event queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XEventsQueued</function></funcdef>
+  <funcdef>int <function>XEventsQueued</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> mode</parameter></paramdef>
 </funcprototype>
@@ -350,7 +350,7 @@ or
 <!-- .eM -->
 If mode is 
 <function>QueuedAlready</function>,
-<function>XEventsQueued </function>
+<function>XEventsQueued</function>
 returns the number of events
 already in the event queue (and never performs a system call).
 If mode is 
@@ -397,7 +397,7 @@ To return the number of events that are pending, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XPending</function></funcdef>
+  <funcdef>int <function>XPending</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -471,7 +471,7 @@ To get the next event and remove it from the queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XNextEvent</function></funcdef>
+  <funcdef><function>XNextEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
 </funcprototype>
@@ -521,7 +521,7 @@ To peek at the event queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XPeekEvent</function></funcdef>
+  <funcdef><function>XPeekEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
 </funcprototype>
@@ -591,7 +591,7 @@ The predicate procedure and its associated arguments are:
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> Bool</function></funcdef>
+  <funcdef><function>Bool</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event</parameter></paramdef>
   <paramdef>XPointer<parameter> arg</parameter></paramdef>
@@ -631,7 +631,7 @@ Specifies the argument passed in from the
 <function>XIfEvent</function>,
 <function>XCheckIfEvent</function>,
 or
-<function>XPeekIfEvent </function>
+<function>XPeekIfEvent</function>
 function.
     </para>
   </listitem>
@@ -658,7 +658,7 @@ and, if found, remove the event from the queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XIfEvent</function></funcdef>
+  <funcdef><function>XIfEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
   <paramdef>Bool<parameter> (*predicate)()</parameter></paramdef>
@@ -717,7 +717,7 @@ The
 <function>XIfEvent</function>
 function completes only when the specified predicate
 procedure returns 
-<function>True </function>
+<function>True</function>
 for an event, 
 which indicates an event in the queue matches.
 <function>XIfEvent</function>
@@ -737,7 +737,7 @@ To check the event queue for a matching event without blocking, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XCheckIfEvent</function></funcdef>
+  <funcdef>Bool <function>XCheckIfEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
   <paramdef>Bool<parameter> (*predicate)()</parameter></paramdef>
@@ -816,7 +816,7 @@ without removing the event from the queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XPeekIfEvent</function></funcdef>
+  <funcdef><function>XPeekIfEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
   <paramdef>Bool<parameter> (*predicate)()</parameter></paramdef>
@@ -905,7 +905,7 @@ To remove the next event that matches both a window and an event mask, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XWindowEvent</function></funcdef>
+  <funcdef><function>XWindowEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>long<parameter> event_mask</parameter></paramdef>
@@ -982,15 +982,15 @@ use
 <function>XCheckWindowEvent</function>.
 <indexterm><primary>XCheckWindowEvent</primary></indexterm>
 This function is similar to
-<function>XWindowEvent </function>
+<function>XWindowEvent</function>
 except that it never blocks and it returns a 
-<function>Bool </function>
+<function>Bool</function>
 indicating if the event was returned.
 <indexterm significance="preferred"><primary>XCheckWindowEvent</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XCheckWindowEvent</function></funcdef>
+  <funcdef>Bool <function>XCheckWindowEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>long<parameter> event_mask</parameter></paramdef>
@@ -1072,7 +1072,7 @@ To remove the next event that matches an event mask, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XMaskEvent</function></funcdef>
+  <funcdef><function>XMaskEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>long<parameter> event_mask</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
@@ -1135,15 +1135,15 @@ flushes the output buffer and blocks until one is received.
 To return and remove the next event that matches an event mask (if any), use
 <function>XCheckMaskEvent</function>.
 This function is similar to 
-<function>XMaskEvent </function>
+<function>XMaskEvent</function>
 except that it never blocks and it returns a 
-<function>Bool </function>
+<function>Bool</function>
 indicating if the event was returned.
 <indexterm significance="preferred"><primary>XCheckMaskEvent</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XCheckMaskEvent</function></funcdef>
+  <funcdef>Bool <function>XCheckMaskEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>long<parameter> event_mask</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
@@ -1212,7 +1212,7 @@ To return and remove the next event in the queue that matches an event type, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XCheckTypedEvent</function></funcdef>
+  <funcdef>Bool <function>XCheckTypedEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> event_type</parameter></paramdef>
   <paramdef>XEvent<parameter> *event_return</parameter></paramdef>
@@ -1283,7 +1283,7 @@ and a window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XCheckTypedWindowEvent</function></funcdef>
+  <funcdef>Bool <function>XCheckTypedWindowEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> event_type</parameter></paramdef>
@@ -1371,7 +1371,7 @@ To push an event back into the event queue, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XPutBackEvent</function></funcdef>
+  <funcdef><function>XPutBackEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XEvent<parameter> *event</parameter></paramdef>
 </funcprototype>
@@ -1434,7 +1434,7 @@ and stored as a property.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XSendEvent</function></funcdef>
+  <funcdef>Status <function>XSendEvent</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Bool<parameter> propagate</parameter></paramdef>
@@ -1523,7 +1523,7 @@ the destination window is the window that contains the pointer.
   <listitem>
     <para>
 If w is
-<function>InputFocus </function>
+<function>InputFocus</function>
 and if the focus window contains the pointer, 
 the destination window is the window that contains the pointer; 
 otherwise, the destination window is the focus window.
@@ -1556,7 +1556,7 @@ types in the event_mask argument.
   <listitem>
     <para>
 If propagate is 
-<function>True </function>
+<function>True</function>
 and no clients have selected on destination any of
 the event types in event-mask, the destination is replaced with the
 closest ancestor of destination for which some client has selected a
@@ -1564,7 +1564,7 @@ type in event-mask and for which no intervening window has that type in its
 do-not-propagate-mask. 
 If no such window exists or if the window is
 an ancestor of the focus window and 
-<function>InputFocus </function>
+<function>InputFocus</function>
 was originally specified
 as the destination, the event is not sent to any clients.
 Otherwise, the event is reported to every client selecting on the final
@@ -1601,7 +1601,7 @@ and returns nonzero otherwise.
 can generate
 <function>BadValue</function>
 and 
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -1632,7 +1632,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned<function> long</function></funcdef>
+  <funcdef>unsigned <function>long</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1670,7 +1670,7 @@ To get the motion history for a specified window and time, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XTimeCoord<function> *XGetMotionEvents</function></funcdef>
+  <funcdef>XTimeCoord *<function>XGetMotionEvents</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Timestart,<parameter> stop</parameter></paramdef>
@@ -1781,7 +1781,7 @@ To free the data returned from this call, use
 <!-- .LP -->
 <function>XGetMotionEvents</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect1>
@@ -1811,7 +1811,7 @@ synchronization is enabled.
 <indexterm><primary>_Xdebug</primary></indexterm>
 On <acronym>POSIX</acronym>-conformant systems,
 there is also a global variable 
-<function>_Xdebug </function>
+<function>_Xdebug</function>
 that, if set to nonzero before starting a program under a debugger, will force
 synchronous library behavior.
 </para>
@@ -1826,7 +1826,7 @@ sets which function is to be called.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> int</function></funcdef>
+  <funcdef><function>int</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> (*procedure)()</parameter></paramdef>
 </funcprototype>
@@ -1871,7 +1871,7 @@ To enable or disable synchronization, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> int</function></funcdef>
+  <funcdef><function>int</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Bool<parameter> onoff</parameter></paramdef>
 </funcprototype>
@@ -1914,7 +1914,7 @@ If onoff is
 turns on synchronous behavior.
 If onoff is
 <function>False</function>,
-<function>XSynchronize </function>
+<function>XSynchronize</function>
 turns off synchronous behavior.
 </para>
 </sect2>
@@ -1947,7 +1947,7 @@ To set the error handler, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> *XSetErrorHandler</function></funcdef>
+  <funcdef>int *<function>XSetErrorHandler</function></funcdef>
   <paramdef>int <parameter> *handler</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2022,7 +2022,7 @@ typedef struct {
 The serial member is the number of requests, starting from one, 
 sent over the network connection since it was opened. 
 It is the number that was the value of 
-<function>NextRequest </function>
+<function>NextRequest</function>
 immediately before the failing call was made.  
 The request_code member is a protocol request
 of the procedure that failed, as defined in 
@@ -2119,7 +2119,7 @@ chapter:
     <row>
       <entry><function>BadGC</function></entry>
       <entry>A value for a
-      <function>GContext </function>
+      <function>GContext</function>
       argument does not name a defined 
       <function>GContext</function>.</entry>
     </row>
@@ -2156,7 +2156,7 @@ chapter:
     </row>
     <row>
       <entry></entry>
-      <entry>An <function>InputOnly </function> window is used as a drawable.</entry>
+      <entry>An <function>InputOnly</function> window is used as a drawable.</entry>
     </row>
     <row>
       <entry></entry>
@@ -2166,7 +2166,7 @@ chapter:
     </row>
     <row>
       <entry></entry>
-      <entry>An <function>InputOnly </function>
+      <entry>An <function>InputOnly</function>
       window lacks this attribute.</entry>
     </row>
     <row>
@@ -2237,7 +2237,7 @@ To obtain textual descriptions of the specified error code, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetErrorText</function></funcdef>
+  <funcdef><function>XGetErrorText</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> code</parameter></paramdef>
   <paramdef>char<parameter> *buffer_return</parameter></paramdef>
@@ -2309,7 +2309,7 @@ To obtain error messages from the error database, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetErrorDatabaseText</function></funcdef>
+  <funcdef><function>XGetErrorDatabaseText</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char*name,<parameter> *message</parameter></paramdef>
   <paramdef>char<parameter> *default_string</parameter></paramdef>
@@ -2454,7 +2454,7 @@ To report an error to the user when the requested display does not exist, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char<function> *XDisplayName</function></funcdef>
+  <funcdef>char *<function>XDisplayName</function></funcdef>
   <paramdef>char<parameter> *string</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2497,7 +2497,7 @@ To handle fatal I/O errors, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> int</function></funcdef>
+  <funcdef><function>int</function></funcdef>
   <paramdef>int(*handler)(Display<parameter> *)</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

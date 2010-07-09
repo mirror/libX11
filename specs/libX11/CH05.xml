@@ -23,7 +23,7 @@ To create a pixmap of a given size, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Pixmap<function> XCreatePixmap</function></funcdef>
+  <funcdef>Pixmap <function>XCreatePixmap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
@@ -123,7 +123,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadDrawable</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -135,7 +135,7 @@ To free all storage associated with a specified pixmap, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreePixmap</function></funcdef>
+  <funcdef><function>XFreePixmap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Pixmap<parameter> pixmap</parameter></paramdef>
 </funcprototype>
@@ -177,7 +177,7 @@ The pixmap should never be referenced again.
 <!-- .LP -->
 <function>XFreePixmap</function>
 can generate a
-<function>BadPixmap </function>
+<function>BadPixmap</function>
 error.
 </para>
 </sect1>
@@ -227,7 +227,7 @@ To create a cursor from the standard cursor font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Cursor<function> XCreateFontCursor</function></funcdef>
+  <funcdef>Cursor <function>XCreateFontCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedint<parameter> shape</parameter></paramdef>
 </funcprototype>
@@ -282,7 +282,7 @@ see appendix B.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -294,7 +294,7 @@ To create a cursor from font glyphs, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Cursor<function> XCreateGlyphCursor</function></funcdef>
+  <funcdef>Cursor <function>XCreateGlyphCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Fontsource_font,<parameter> mask_font</parameter></paramdef>
   <paramdef>unsignedintsource_char,<parameter> mask_char</parameter></paramdef>
@@ -420,7 +420,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadFont</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -433,7 +433,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Cursor<function> XCreatePixmapCursor</function></funcdef>
+  <funcdef>Cursor <function>XCreatePixmapCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Pixmap<parameter> source</parameter></paramdef>
   <paramdef>Pixmap<parameter> mask</parameter></paramdef>
@@ -580,7 +580,7 @@ To determine useful cursor sizes, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XQueryBestCursor</function></funcdef>
+  <funcdef>Status <function>XQueryBestCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
@@ -673,7 +673,7 @@ cannot support large ones.
 <!-- .LP -->
 <function>XQueryBestCursor</function>
 can generate a
-<function>BadDrawable </function>
+<function>BadDrawable</function>
 error.
 </para>
 <para>
@@ -685,7 +685,7 @@ To change the color of a given cursor, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XRecolorCursor</function></funcdef>
+  <funcdef><function>XRecolorCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
   <paramdef>XColor*foreground_color,<parameter> *background_color</parameter></paramdef>
@@ -751,7 +751,7 @@ structures are ignored; only the <acronym>RGB</acronym> values are used.
 <!-- .LP -->
 <function>XRecolorCursor</function>
 can generate a
-<function>BadCursor </function>
+<function>BadCursor</function>
 error.
 </para>
 <para>
@@ -763,7 +763,7 @@ To free (destroy) a given cursor, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeCursor</function></funcdef>
+  <funcdef><function>XFreeCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
 </funcprototype>
@@ -806,7 +806,7 @@ The specified cursor ID should not be referred to again.
 <!-- .LP -->
 <function>XFreeCursor</function>
 can generate a
-<function>BadCursor </function>
+<function>BadCursor</function>
 error.
 <!-- .bp -->
 

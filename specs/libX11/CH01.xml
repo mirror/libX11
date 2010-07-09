@@ -196,7 +196,7 @@ Xlib provides no support for sharing graphics contexts between applications.
 Client programs are informed of events.
 Events may either be side effects of a request (for example, restacking windows
 generates 
-<function>Expose </function>
+<function>Expose</function>
 events) or completely asynchronous (for example, from the keyboard).
 A client program asks to be informed of events.
 Because other applications can send events to your application,
@@ -611,7 +611,7 @@ Coordinates and sizes in X are actually 16-bit quantities.
 This decision was made to minimize the bandwidth required for a
 given level of performance.
 Coordinates usually are declared as an
-<function>int </function>
+<function>int</function>
 in the interface.
 Values larger than 16 bits are truncated silently.
 Sizes (width and height) are declared as unsigned quantities.
@@ -768,8 +768,8 @@ a..z A..Z 0..9 ._-
   <listitem>
     <para>
 Global symbols are printed in 
-<function>this </function>
-<function>special </function>
+<function>this</function>
+<function>special</function>
 <function>font</function>.
 These can be either function names,
 symbols defined in include files, or structure names.

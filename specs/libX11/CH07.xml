@@ -508,7 +508,7 @@ The line-style defines which sections of a line are drawn:
 The full path of the line is drawn,
 but the even dashes are filled differently
 from the odd dashes (see fill-style) with <!-- xref -->
-<function>CapButt </function>
+<function>CapButt</function>
 style used where even and odd dashes meet.
       </para>
     </listitem>
@@ -560,7 +560,7 @@ with no projection beyond.
 The line has a circular arc with the diameter equal to the line-width,
 centered on the endpoint.
 (This is equivalent to 
-<function>CapButt </function>
+<function>CapButt</function>
 for line-width of zero).
       </para>
     </listitem>
@@ -572,7 +572,7 @@ for line-width of zero).
 The line is square at the end, but the path continues beyond the endpoint
 for a distance equal to half the line-width.
 (This is equivalent to
-<function>CapButt </function>
+<function>CapButt</function>
 for line-width of zero).
       </para>
     </listitem>
@@ -610,7 +610,7 @@ centered on the joinpoint.
     <listitem>
       <para>
 The corner has
-<function>CapButt </function>
+<function>CapButt</function>
 endpoint styles with the triangular notch filled.
       </para>
     </listitem>
@@ -698,11 +698,11 @@ origin of whatever destination drawable is specified in a graphics
 request.
 The tile pixmap must have the same root and depth as the GC,
 or a
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.
 The stipple pixmap must have depth one and must have the same root as the
 GC, or a 
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.  
 For stipple operations where the fill-style is
 <function>FillStippled</function>
@@ -727,14 +727,14 @@ and
 <function>XFillArc</function>);
 for line requests 
 with line-style 
-<function>LineSolid </function>
+<function>LineSolid</function>
 (for example,
 <function>XDrawLine</function>,
 <function>XDrawSegments</function>,
 <function>XDrawRectangle</function>,
 <function>XDrawArc</function>);
 and for the even dashes for line requests with line-style 
-<function>LineOnOffDash </function>
+<function>LineOnOffDash</function>
 or 
 <function>LineDoubleDash</function>,
 the following apply:
@@ -839,7 +839,7 @@ The clip-mask restricts writes to the destination drawable.
 If the clip-mask is set to a pixmap,
 it must have depth one and have the same root as the GC,
 or a
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.
 If clip-mask is set to
 <function>None</function>,
@@ -875,7 +875,7 @@ neither source nor destination window is clipped by inferiors.
 This will result in including subwindow contents in the source
 and drawing through subwindow boundaries of the destination.
 The use of 
-<function>IncludeInferiors </function>
+<function>IncludeInferiors</function>
 on a window of one depth with mapped
 inferiors of differing depth is not illegal, but the semantics are
 undefined by the core protocol.
@@ -884,9 +884,9 @@ undefined by the core protocol.
 <!-- .LP -->
 The fill-rule defines what pixels are inside (drawn) for
 paths given in 
-<function>XFillPolygon </function>
+<function>XFillPolygon</function>
 requests and can be set to 
-<function>EvenOddRule </function>
+<function>EvenOddRule</function>
 or
 <function>WindingRule</function>.
 For
@@ -942,10 +942,10 @@ the arcs are chord filled.
 <para>
 <!-- .LP -->
 The graphics-exposure flag controls 
-<function>GraphicsExpose </function>
+<function>GraphicsExpose</function>
 event generation
 for 
-<function>XCopyArea </function>
+<function>XCopyArea</function>
 and 
 <function>XCopyPlane</function>
 requests (and any similar requests defined by extensions).
@@ -961,7 +961,7 @@ depth of drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>GC<function> XCreateGC</function></funcdef>
+  <funcdef>GC <function>XCreateGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
@@ -1037,7 +1037,7 @@ can generate
 <function>BadMatch</function>,
 <function>BadPixmap</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1049,7 +1049,7 @@ To copy components from a source GC to a destination GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XCopyGC</function></funcdef>
+  <funcdef><function>XCopyGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GCsrc,<parameter> dest</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
@@ -1135,7 +1135,7 @@ To change the components in a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangeGC</function></funcdef>
+  <funcdef><function>XChangeGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
@@ -1231,7 +1231,7 @@ To obtain components of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetGCValues</function></funcdef>
+  <funcdef>Status <function>XGetGCValues</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
@@ -1280,7 +1280,7 @@ GC component mask bits.
     <listitem>
       <para>
 Returns the GC values in the specified
-<function>XGCValues </function>
+<function>XGCValues</function>
 structure.
     </para>
   </listitem>
@@ -1343,7 +1343,7 @@ To free a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeGC</function></funcdef>
+  <funcdef><function>XFreeGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
 </funcprototype>
@@ -1383,21 +1383,21 @@ function destroys the specified GC as well as all the associated storage.
 <!-- .LP -->
 <function>XFreeGC</function>
 can generate a
-<function>BadGC </function>
+<function>BadGC</function>
 error.
 </para>
 <para>
 <!-- .LP -->
 <!-- .sp -->
 To obtain the 
-<function>GContext </function>
+<function>GContext</function>
 resource ID for a given GC, use 
 <function>XGContextFromGC</function>.
 <indexterm significance="preferred"><primary>XGContextFromGC</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>GContext<function> XGContextFromGC</function></funcdef>
+  <funcdef>GContext <function>XGContextFromGC</function></funcdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1433,7 +1433,7 @@ To force sending GC component changes, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XFlushGC</function></funcdef>
+  <funcdef>void <function>XFlushGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
 </funcprototype>
@@ -1527,7 +1527,7 @@ for a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetState</function></funcdef>
+  <funcdef><function>XSetState</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlongforeground,<parameter> background</parameter></paramdef>
@@ -1608,7 +1608,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1620,7 +1620,7 @@ To set the foreground of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetForeground</function></funcdef>
+  <funcdef><function>XSetForeground</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> foreground</parameter></paramdef>
@@ -1667,7 +1667,7 @@ Specifies the foreground you want to set for the specified GC.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 <para>
@@ -1679,7 +1679,7 @@ To set the background of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetBackground</function></funcdef>
+  <funcdef><function>XSetBackground</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> background</parameter></paramdef>
@@ -1726,7 +1726,7 @@ Specifies the background you want to set for the specified GC.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 <para>
@@ -1738,7 +1738,7 @@ To set the display function in a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetFunction</function></funcdef>
+  <funcdef><function>XSetFunction</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> function</parameter></paramdef>
@@ -1786,7 +1786,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1798,7 +1798,7 @@ To set the plane mask of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetPlaneMask</function></funcdef>
+  <funcdef><function>XSetPlaneMask</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
@@ -1846,7 +1846,7 @@ Specifies the plane mask.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 </sect2>
@@ -1863,7 +1863,7 @@ To set the line drawing components of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetLineAttributes</function></funcdef>
+  <funcdef><function>XSetLineAttributes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedint<parameter> line_width</parameter></paramdef>
@@ -1960,7 +1960,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1972,7 +1972,7 @@ To set the dash-offset and dash-list for dashed line styles of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetDashes</function></funcdef>
+  <funcdef><function>XSetDashes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> dash_offset</parameter></paramdef>
@@ -2084,7 +2084,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -2101,7 +2101,7 @@ To set the fill-style of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetFillStyle</function></funcdef>
+  <funcdef><function>XSetFillStyle</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> fill_style</parameter></paramdef>
@@ -2155,7 +2155,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2167,7 +2167,7 @@ To set the fill-rule of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetFillRule</function></funcdef>
+  <funcdef><function>XSetFillRule</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> fill_rule</parameter></paramdef>
@@ -2219,7 +2219,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -2247,7 +2247,7 @@ To obtain the best size of a tile, stipple, or cursor, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XQueryBestSize</function></funcdef>
+  <funcdef>Status <function>XQueryBestSize</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> class</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
@@ -2357,18 +2357,18 @@ For
 <function>CursorShape</function>,
 the drawable indicates the desired screen.
 For 
-<function>TileShape </function>
+<function>TileShape</function>
 and 
 <function>StippleShape</function>,
 the drawable indicates the screen and possibly the window class and depth.
 An 
-<function>InputOnly </function>
+<function>InputOnly</function>
 window cannot be used as the drawable for 
 <function>TileShape</function>
 or 
 <function>StippleShape</function>,
 or a
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.
 </para>
 <para>
@@ -2378,7 +2378,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadMatch</function>,
 and 
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2390,7 +2390,7 @@ To obtain the best fill tile shape, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XQueryBestTile</function></funcdef>
+  <funcdef>Status <function>XQueryBestTile</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
@@ -2473,9 +2473,9 @@ function returns the best or closest size, that is, the size that can be
 tiled fastest on the screen specified by which_screen.
 The drawable indicates the screen and possibly the window class and depth.
 If an 
-<function>InputOnly </function>
+<function>InputOnly</function>
 window is used as the drawable, a 
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.
 </para>
 <para>
@@ -2484,7 +2484,7 @@ error results.
 can generate
 <function>BadDrawable</function>
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 <para>
@@ -2496,7 +2496,7 @@ To obtain the best stipple shape, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XQueryBestStipple</function></funcdef>
+  <funcdef>Status <function>XQueryBestStipple</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
@@ -2590,7 +2590,7 @@ error results.
 can generate
 <function>BadDrawable</function>
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 <para>
@@ -2602,7 +2602,7 @@ To set the fill tile of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetTile</function></funcdef>
+  <funcdef><function>XSetTile</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>Pixmap<parameter> tile</parameter></paramdef>
@@ -2658,7 +2658,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadPixmap </function>
+<function>BadPixmap</function>
 errors.
 </para>
 <para>
@@ -2670,7 +2670,7 @@ To set the stipple of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetStipple</function></funcdef>
+  <funcdef><function>XSetStipple</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>Pixmap<parameter> stipple</parameter></paramdef>
@@ -2726,7 +2726,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadPixmap </function>
+<function>BadPixmap</function>
 errors.
 </para>
 <para>
@@ -2738,7 +2738,7 @@ To set the tile or stipple origin of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetTSOrigin</function></funcdef>
+  <funcdef><function>XSetTSOrigin</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intts_x_origin,<parameter> ts_y_origin</parameter></paramdef>
@@ -2802,7 +2802,7 @@ drawable is specified in the graphics request.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 </sect2>
@@ -2819,7 +2819,7 @@ To set the current font of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetFont</function></funcdef>
+  <funcdef><function>XSetFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>Font<parameter> font</parameter></paramdef>
@@ -2867,7 +2867,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadFont</function>,
 and 
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 </sect2>
@@ -2890,7 +2890,7 @@ To set the clip-origin of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetClipOrigin</function></funcdef>
+  <funcdef><function>XSetClipOrigin</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intclip_x_origin,<parameter> clip_y_origin</parameter></paramdef>
@@ -2953,7 +2953,7 @@ destination drawable is specified in the graphics request.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 <para>
@@ -2965,7 +2965,7 @@ To set the clip-mask of a given GC to the specified pixmap, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetClipMask</function></funcdef>
+  <funcdef><function>XSetClipMask</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>Pixmap<parameter> pixmap</parameter></paramdef>
@@ -3021,7 +3021,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadPixmap </function>
+<function>BadPixmap</function>
 errors.
 </para>
 <para>
@@ -3033,7 +3033,7 @@ To set the clip-mask of a given GC to the specified list of rectangles, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetClipRectangles</function></funcdef>
+  <funcdef><function>XSetClipRectangles</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intclip_x_origin,<parameter> clip_y_origin</parameter></paramdef>
@@ -3158,19 +3158,19 @@ If an incorrect ordering is specified, the X server may generate a
 error, but it is not required to do so.
 If no error is generated, the graphics
 results are undefined.
-<function>Unsorted </function>
+<function>Unsorted</function>
 means the rectangles are in arbitrary order.
-<function>YSorted </function>
+<function>YSorted</function>
 means that the rectangles are nondecreasing in their Y origin.
-<function>YXSorted </function>
+<function>YXSorted</function>
 additionally constrains 
-<function>YSorted </function>
+<function>YSorted</function>
 order in that all
 rectangles with an equal Y origin are nondecreasing in their X
 origin.  
-<function>YXBanded </function>
+<function>YXBanded</function>
 additionally constrains 
-<function>YXSorted </function>
+<function>YXSorted</function>
 by requiring that,
 for every possible Y scanline, all rectangles that include that
 scanline have an identical Y origins and Y extents.
@@ -3183,7 +3183,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3207,7 +3207,7 @@ To set the arc mode of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetArcMode</function></funcdef>
+  <funcdef><function>XSetArcMode</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> arc_mode</parameter></paramdef>
@@ -3259,7 +3259,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3271,7 +3271,7 @@ To set the subwindow mode of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetSubwindowMode</function></funcdef>
+  <funcdef><function>XSetSubwindowMode</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> subwindow_mode</parameter></paramdef>
@@ -3323,7 +3323,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3335,7 +3335,7 @@ To set the graphics-exposures flag of a given GC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetGraphicsExposures</function></funcdef>
+  <funcdef><function>XSetGraphicsExposures</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>Bool<parameter> graphics_exposures</parameter></paramdef>
@@ -3391,7 +3391,7 @@ can generate
 <function>BadAlloc</function>,
 <function>BadGC</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 <!-- .bp -->
 

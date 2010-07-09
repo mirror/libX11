@@ -258,7 +258,7 @@ To request that a top-level window be iconified, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XIconifyWindow</function></funcdef>
+  <funcdef>Status <function>XIconifyWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
@@ -302,11 +302,11 @@ Specifies the appropriate screen number on the host server.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XIconifyWindow </function>
+<function>XIconifyWindow</function>
 function sends a WM_CHANGE_STATE 
-<function>ClientMessage </function>
+<function>ClientMessage</function>
 event with a format of 32 and a first data element of 
-<function>IconicState </function>
+<function>IconicState</function>
 (as described in section 4.1.4 of the 
 <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>)
 and a window of w
@@ -332,7 +332,7 @@ To request that a top-level window be withdrawn, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XWithdrawWindow</function></funcdef>
+  <funcdef>Status <function>XWithdrawWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
@@ -376,17 +376,17 @@ Specifies the appropriate screen number on the host server.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XWithdrawWindow </function>
+<function>XWithdrawWindow</function>
 function unmaps the specified window 
 and sends a synthetic 
-<function>UnmapNotify </function>
+<function>UnmapNotify</function>
 event to the root window of the specified screen.
 Window managers may elect to receive this message 
 and may treat it as a request to change the window's state to withdrawn.
 When a window is in the withdrawn state, 
 neither its normal nor its iconic representations is visible.
 It returns a nonzero status if the 
-<function>UnmapNotify </function>
+<function>UnmapNotify</function>
 event is successfully sent; 
 otherwise, it returns a zero status.
 </para>
@@ -406,7 +406,7 @@ To request that a top-level window be reconfigured, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XReconfigureWMWindow</function></funcdef>
+  <funcdef>Status <function>XReconfigureWMWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> screen_number</parameter></paramdef>
@@ -465,7 +465,7 @@ This mask is the bitwise inclusive OR of the valid configure window values bits.
     <listitem>
       <para>
 Specifies the 
-<function>XWindowChanges </function>
+<function>XWindowChanges</function>
 structure.
     </para>
   </listitem>
@@ -476,15 +476,15 @@ structure.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XReconfigureWMWindow </function>
+<function>XReconfigureWMWindow</function>
 function issues a 
-<function>ConfigureWindow </function>
+<function>ConfigureWindow</function>
 request on the specified top-level window.
 If the stacking mode is changed and the request fails with a 
-<function>BadMatch </function>
+<function>BadMatch</function>
 error, 
 the error is trapped by Xlib and a synthetic 
-<function>ConfigureRequestEvent </function>
+<function>ConfigureRequestEvent</function>
 containing the same configuration parameters is sent to the root 
 of the specified window.
 Window managers may elect to receive this event 
@@ -494,11 +494,11 @@ otherwise, it returns a zero status.
 </para>
 <para>
 <!-- .LP -->
-<function>XReconfigureWMWindow </function>
+<function>XReconfigureWMWindow</function>
 can generate
-<function>BadValue </function>
+<function>BadValue</function>
 and 
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect2>
@@ -580,7 +580,7 @@ or
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XmbTextListToTextProperty</function></funcdef>
+  <funcdef>int <function>XmbTextListToTextProperty</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> **list</parameter></paramdef>
   <paramdef>int<parameter> count</parameter></paramdef>
@@ -591,7 +591,7 @@ or
 <!-- .FN -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XwcTextListToTextProperty</function></funcdef>
+  <funcdef>int <function>XwcTextListToTextProperty</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>wchar_t<parameter> **list</parameter></paramdef>
   <paramdef>int<parameter> count</parameter></paramdef>
@@ -672,7 +672,7 @@ of text_prop_return but is not included in the nitems member.
 <para>
 <!-- .LP -->
 The functions set the encoding field of text_prop_return to an
-<function>Atom </function>
+<function>Atom</function>
 for the specified display 
 naming the encoding determined by the specified style
 and convert the specified text list to this encoding for storage in
@@ -732,7 +732,7 @@ To free the storage for the value field, use
 <para>
 <!-- .LP -->
 To obtain a list of text strings from an 
-<function>XTextProperty </function>
+<function>XTextProperty</function>
 structure, use
 <function>XmbTextPropertyToTextList</function>
 or
@@ -742,7 +742,7 @@ or
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XmbTextPropertyToTextList</function></funcdef>
+  <funcdef>int <function>XmbTextPropertyToTextList</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
   <paramdef>char<parameter> ***list_return</parameter></paramdef>
@@ -752,7 +752,7 @@ or
 <!-- .FN -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XwcTextPropertyToTextList</function></funcdef>
+  <funcdef>int <function>XwcTextPropertyToTextList</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
   <paramdef>wchar_t<parameter> ***list_return</parameter></paramdef>
@@ -844,7 +844,7 @@ the functions return
 For supported locales,
 existence of a converter from COMPOUND_TEXT, STRING
 or the encoding of the current locale is guaranteed if
-<function>XSupportsLocale </function>
+<function>XSupportsLocale</function>
 returns 
 <function>True</function>
 for the current locale (but the actual text
@@ -900,7 +900,7 @@ wide character string list, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XwcFreeStringList</function></funcdef>
+  <funcdef>void <function>XwcFreeStringList</function></funcdef>
   <paramdef>wchar_t<parameter> **list</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -984,7 +984,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XStringListToTextProperty</function></funcdef>
+  <funcdef>Status <function>XStringListToTextProperty</function></funcdef>
   <paramdef>char<parameter> **list</parameter></paramdef>
   <paramdef>int<parameter> count</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop_return</parameter></paramdef>
@@ -1031,7 +1031,7 @@ structure.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XStringListToTextProperty </function>
+<function>XStringListToTextProperty</function>
 function sets the specified 
 <function>XTextProperty</function>
 to be of type STRING (format 8) with a value representing the
@@ -1059,7 +1059,7 @@ structure in the STRING encoding, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XTextPropertyToStringList</function></funcdef>
+  <funcdef>Status <function>XTextPropertyToStringList</function></funcdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
   <paramdef>char<parameter> ***list_return</parameter></paramdef>
   <paramdef>int<parameter> *count_return</parameter></paramdef>
@@ -1106,7 +1106,7 @@ Returns the number of (Cn.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XTextPropertyToStringList </function>
+<function>XTextPropertyToStringList</function>
 function returns a list of strings representing the null-separated elements 
 of the specified
 <function>XTextProperty</function>
@@ -1132,7 +1132,7 @@ To free the in-memory data associated with the specified string list, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XFreeStringList</function></funcdef>
+  <funcdef>void <function>XFreeStringList</function></funcdef>
   <paramdef>char<parameter> **list</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1154,7 +1154,7 @@ Specifies the list of strings to be freed.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XFreeStringList </function>
+<function>XFreeStringList</function>
 function releases memory allocated by 
 <function>XmbTextPropertyToTextList</function>
 and
@@ -1189,7 +1189,7 @@ To set one of a window's text properties, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetTextProperty</function></funcdef>
+  <funcdef>void <function>XSetTextProperty</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
@@ -1265,7 +1265,7 @@ can generate
 <function>BadAtom</function>,
 <function>BadValue</function>,
 and 
-<function>BadWindow  </function>
+<function>BadWindow</function>
 errors.
 <!-- .sp -->
 </para>
@@ -1277,7 +1277,7 @@ To read one of a window's text properties, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetTextProperty</function></funcdef>
+  <funcdef>Status <function>XGetTextProperty</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop_return</parameter></paramdef>
@@ -1334,7 +1334,7 @@ Specifies the property name.
 <!-- .LP -->
 <!-- .eM -->
 The
-<function>XGetTextProperty </function>
+<function>XGetTextProperty</function>
 function reads the specified property from the window
 and stores the data in the returned
 <function>XTextProperty</function>
@@ -1368,9 +1368,9 @@ otherwise, it returns a zero status.
 <!-- .LP -->
 <function>XGetTextProperty</function>
 can generate
-<function>BadAtom </function>
+<function>BadAtom</function>
 and 
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect2>
@@ -1393,7 +1393,7 @@ To set a window's WM_NAME property with the supplied convenience function, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMName</function></funcdef>
+  <funcdef>void <function>XSetWMName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
@@ -1441,7 +1441,7 @@ structure to be used.
 The
 <function>XSetWMName</function>
 convenience function calls
-<function>XSetTextProperty </function>
+<function>XSetTextProperty</function>
 to set the WM_NAME property.
 <!-- .sp -->
 </para>
@@ -1453,7 +1453,7 @@ To read a window's WM_NAME property with the supplied convenience function, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMName</function></funcdef>
+  <funcdef>Status <function>XGetWMName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop_return</parameter></paramdef>
@@ -1499,9 +1499,9 @@ structure.
 <!-- .LP -->
 <!-- .eM -->
 The
-<function>XGetWMName </function>
+<function>XGetWMName</function>
 convenience function calls
-<function>XGetTextProperty </function>
+<function>XGetTextProperty</function>
 to obtain the WM_NAME property.
 It returns a nonzero status on success;
 otherwise, it returns a zero status.
@@ -1526,7 +1526,7 @@ To assign a name to a window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XStoreName</function></funcdef>
+  <funcdef><function>XStoreName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> *window_name</parameter></paramdef>
@@ -1599,7 +1599,7 @@ To get the name of a window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XFetchName</function></funcdef>
+  <funcdef>Status <function>XFetchName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> **window_name_return</parameter></paramdef>
@@ -1687,7 +1687,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMIconName</function></funcdef>
+  <funcdef>void <function>XSetWMIconName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
@@ -1748,7 +1748,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMIconName</function></funcdef>
+  <funcdef>Status <function>XGetWMIconName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop_return</parameter></paramdef>
@@ -1794,9 +1794,9 @@ structure.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetWMIconName </function>
+<function>XGetWMIconName</function>
 convenience function calls
-<function>XGetTextProperty </function>
+<function>XGetTextProperty</function>
 to obtain the WM_ICON_NAME property.
 It returns a nonzero status on success;
 otherwise, it returns a zero status.
@@ -1822,7 +1822,7 @@ To set the name to be displayed in a window's icon, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetIconName</function></funcdef>
+  <funcdef><function>XSetIconName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> *icon_name</parameter></paramdef>
@@ -1884,7 +1884,7 @@ To get the name a window wants displayed in its icon, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetIconName</function></funcdef>
+  <funcdef>Status <function>XGetIconName</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> **icon_name_return</parameter></paramdef>
@@ -1962,7 +1962,7 @@ error.
 Xlib provides functions that you can use to set and read 
 the WM_HINTS property for a given window.
 These functions use the flags and the
-<function>XWMHints </function>
+<function>XWMHints</function>
 structure, as defined in the
 <!-- .hN X11/Xutil.h -->
 header file.
@@ -2067,10 +2067,10 @@ applications whose input member is
 Push model window managers should
 make sure that pull model applications do not break them 
 by resetting input focus to 
-<function>PointerRoot </function>
+<function>PointerRoot</function>
 when it is appropriate (for example, whenever an application whose
 input member is 
-<function>False </function>
+<function>False</function>
 sets input focus to one of its subwindows).
 </para>
 <para>
@@ -2119,7 +2119,7 @@ To set a window's WM_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetWMHints</function></funcdef>
+  <funcdef><function>XSetWMHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XWMHints<parameter> *wmhints</parameter></paramdef>
@@ -2176,7 +2176,7 @@ window manager to get keyboard input.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -2188,7 +2188,7 @@ To read a window's WM_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XWMHints<function> *XGetWMHints</function></funcdef>
+  <funcdef>XWMHints *<function>XGetWMHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
 </funcprototype>
@@ -2225,7 +2225,7 @@ The
 function reads the window manager hints and 
 returns NULL if no WM_HINTS property was set on the window 
 or returns a pointer to an 
-<function>XWMHints </function>
+<function>XWMHints</function>
 structure if it succeeds.
 When finished with the data,
 free the space used for it by calling
@@ -2235,7 +2235,7 @@ free the space used for it by calling
 <!-- .LP -->
 <function>XGetWMHints</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect2>
@@ -2249,7 +2249,7 @@ error.
 Xlib provides functions that you can use to set or read 
 the WM_NORMAL_HINTS property for a given window.
 The functions use the flags and the
-<function>XSizeHints </function>
+<function>XSizeHints</function>
 structure, as defined in the
 <!-- .hN X11/Xutil.h -->
 header file.
@@ -2382,7 +2382,7 @@ To set a window's WM_NORMAL_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMNormalHints</function></funcdef>
+  <funcdef>void <function>XSetWMNormalHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints</parameter></paramdef>
@@ -2426,7 +2426,7 @@ Specifies the size hints for the window in its normal state.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetWMNormalHints </function>
+<function>XSetWMNormalHints</function>
 function replaces the size hints for the WM_NORMAL_HINTS property 
 on the specified window.
 If the property does not already exist,
@@ -2452,7 +2452,7 @@ To read a window's WM_NORMAL_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMNormalHints</function></funcdef>
+  <funcdef>Status <function>XGetWMNormalHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints_return</parameter></paramdef>
@@ -2507,7 +2507,7 @@ Returns the hints that were supplied by the user.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetWMNormalHints </function>
+<function>XGetWMNormalHints</function>
 function returns the size hints stored in the WM_NORMAL_HINTS property 
 on the specified window.
 If the property is of type WM_SIZE_HINTS, is of format 32,
@@ -2563,7 +2563,7 @@ To set a window's WM_SIZE_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMSizeHints</function></funcdef>
+  <funcdef>void <function>XSetWMSizeHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints</parameter></paramdef>
@@ -2620,7 +2620,7 @@ Specifies the property name.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetWMSizeHints </function>
+<function>XSetWMSizeHints</function>
 function replaces the size hints for the specified property 
 on the named window.
 If the specified property does not already exist,
@@ -2652,7 +2652,7 @@ To read a window's WM_SIZE_HINTS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMSizeHints</function></funcdef>
+  <funcdef>Status <function>XGetWMSizeHints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints_return</parameter></paramdef>
@@ -2736,7 +2736,7 @@ and returns a nonzero status.
 Otherwise, it returns a zero status.
 To get a window's normal size hints, 
 you can use the 
-<function>XGetWMNormalHints </function>
+<function>XGetWMNormalHints</function>
 function.
 </para>
 <para>
@@ -2769,7 +2769,7 @@ PBaseSize|PWinGravity
 <!-- .LP -->
 <function>XGetWMSizeHints</function>
 can generate
-<function>BadAtom </function>
+<function>BadAtom</function>
 and 
 <function>BadWindow</function>
 errors.
@@ -2785,7 +2785,7 @@ errors.
 Xlib provides functions that you can use to set and get 
 the WM_CLASS property for a given window.
 These functions use the
-<function>XClassHint </function>
+<function>XClassHint</function>
 structure, which is defined in the
 <!-- .hN X11/Xutil.h -->
 header file.
@@ -2865,7 +2865,7 @@ To set a window's WM_CLASS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetClassHint</function></funcdef>
+  <funcdef><function>XSetClassHint</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XClassHint<parameter> *class_hints</parameter></paramdef>
@@ -2934,7 +2934,7 @@ To read a window's WM_CLASS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetClassHint</function></funcdef>
+  <funcdef>Status <function>XGetClassHint</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XClassHint<parameter> *class_hints_return</parameter></paramdef>
@@ -2997,7 +2997,7 @@ on each individually.
 <!-- .LP -->
 <function>XGetClassHint</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect2>
@@ -3020,7 +3020,7 @@ To set a window's WM_TRANSIENT_FOR property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetTransientForHint</function></funcdef>
+  <funcdef><function>XSetTransientForHint</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Window<parameter> prop_window</parameter></paramdef>
@@ -3086,7 +3086,7 @@ To read a window's WM_TRANSIENT_FOR property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetTransientForHint</function></funcdef>
+  <funcdef>Status <function>XGetTransientForHint</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Window<parameter> *prop_window_return</parameter></paramdef>
@@ -3139,7 +3139,7 @@ otherwise, it returns a zero status.
 <!-- .LP -->
 <function>XGetTransientForHint</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect2>
@@ -3162,7 +3162,7 @@ To set a window's WM_PROTOCOLS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XSetWMProtocols</function></funcdef>
+  <funcdef>Status <function>XSetWMProtocols</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Atom<parameter> *protocols</parameter></paramdef>
@@ -3218,7 +3218,7 @@ Specifies the number of (Cn.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetWMProtocols </function>
+<function>XSetWMProtocols</function>
 function replaces the WM_PROTOCOLS property on the specified window 
 with the list of atoms specified by the protocols argument.
 If the property does not already exist,
@@ -3249,7 +3249,7 @@ To read a window's WM_PROTOCOLS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMProtocols</function></funcdef>
+  <funcdef>Status <function>XGetWMProtocols</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Atom<parameter> **protocols_return</parameter></paramdef>
@@ -3305,7 +3305,7 @@ Returns the number of (Cn.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetWMProtocols </function>
+<function>XGetWMProtocols</function>
 function returns the list of atoms stored in the WM_PROTOCOLS property 
 on the specified window.
 These atoms describe window manager protocols in which the owner 
@@ -3348,7 +3348,7 @@ To set a window's WM_COLORMAP_WINDOWS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XSetWMColormapWindows</function></funcdef>
+  <funcdef>Status <function>XSetWMColormapWindows</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Window<parameter> *colormap_windows</parameter></paramdef>
@@ -3404,7 +3404,7 @@ Specifies the number of (Cn.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetWMColormapWindows </function>
+<function>XSetWMColormapWindows</function>
 function replaces the WM_COLORMAP_WINDOWS property on the specified
 window with the list of windows specified by the colormap_windows argument.
 If the property does not already exist,
@@ -3435,7 +3435,7 @@ To read a window's WM_COLORMAP_WINDOWS property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMColormapWindows</function></funcdef>
+  <funcdef>Status <function>XGetWMColormapWindows</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Window<parameter> **colormap_windows_return</parameter></paramdef>
@@ -3491,7 +3491,7 @@ Returns the number of (Cn.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetWMColormapWindows </function>
+<function>XGetWMColormapWindows</function>
 function returns the list of window identifiers stored 
 in the WM_COLORMAP_WINDOWS property on the specified window.
 These identifiers indicate the colormaps that the window manager
@@ -3525,7 +3525,7 @@ error.
 Xlib provides functions that you can use to set and read 
 the WM_ICON_SIZE property for a given window.
 These functions use the 
-<function>XIconSize </function>
+<function>XIconSize</function>
 <indexterm><primary>XIconSize</primary></indexterm>
 structure, which is defined in the
 <!-- .hN X11/Xutil.h -->
@@ -3548,9 +3548,9 @@ structure, use
 <!-- .LP -->
 <!-- .eM -->
 The
-<function>XAllocIconSize </function>
+<function>XAllocIconSize</function>
 function allocates and returns a pointer to an
-<function>XIconSize </function>
+<function>XIconSize</function>
 structure.
 Note that all fields in the
 <function>XIconSize</function>
@@ -3597,7 +3597,7 @@ To set a window's WM_ICON_SIZE property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetIconSizes</function></funcdef>
+  <funcdef><function>XSetIconSizes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XIconSize<parameter> *size_list</parameter></paramdef>
@@ -3661,7 +3661,7 @@ function is used only by window managers to set the supported icon sizes.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -3673,7 +3673,7 @@ To read a window's WM_ICON_SIZE property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetIconSizes</function></funcdef>
+  <funcdef>Status <function>XGetIconSizes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XIconSize<parameter> **size_list_return</parameter></paramdef>
@@ -3747,7 +3747,7 @@ To free the data allocated in size_list_return, use
 <!-- .LP -->
 <function>XGetIconSizes</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect2>
@@ -3770,7 +3770,7 @@ WM_COMMAND, WM_CLIENT_MACHINE, and WM_LOCALE_NAME.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XmbSetWMProperties</function></funcdef>
+  <funcdef>void <function>XmbSetWMProperties</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> *window_name</parameter></paramdef>
@@ -3930,7 +3930,7 @@ An argc of zero indicates a zero-length command.
 <para>
 <!-- .LP -->
 The hostname of the machine is stored using 
-<function>XSetWMClientMachine </function>
+<function>XSetWMClientMachine</function>
 (see section 14.2.2).
 </para>
 <para>
@@ -3988,7 +3988,7 @@ WM_COMMAND, and WM_CLIENT_MACHINE.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMProperties</function></funcdef>
+  <funcdef>void <function>XSetWMProperties</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *window_name</parameter></paramdef>
@@ -4104,7 +4104,7 @@ structure to be used.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetWMProperties </function>
+<function>XSetWMProperties</function>
 convenience function provides a single programming interface 
 for setting those essential window properties that are used 
 for communicating with other clients (particularly window and session
@@ -4129,7 +4129,7 @@ calls
 which sets the WM_COMMAND property (see section 14.2.1).
 Note that an argc of zero is allowed to indicate a zero-length command.
 Note also that the hostname of this machine is stored using
-<function>XSetWMClientMachine </function>
+<function>XSetWMClientMachine</function>
 (see section 14.2.2).
 </para>
 <para>
@@ -4214,7 +4214,7 @@ To set a window's WM_COMMAND property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetCommand</function></funcdef>
+  <funcdef><function>XSetCommand</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> **argv</parameter></paramdef>
@@ -4282,7 +4282,7 @@ the result is implementation-dependent.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 <!-- .sp -->
 </para>
@@ -4294,7 +4294,7 @@ To read a window's WM_COMMAND property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetCommand</function></funcdef>
+  <funcdef>Status <function>XGetCommand</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>char<parameter> ***argv_return</parameter></paramdef>
@@ -4349,7 +4349,7 @@ Returns the number of arguments returned.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetCommand </function>
+<function>XGetCommand</function>
 function reads the WM_COMMAND property from the specified window 
 and returns a string list.
 If the WM_COMMAND property exists, 
@@ -4385,7 +4385,7 @@ To set a window's WM_CLIENT_MACHINE property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetWMClientMachine</function></funcdef>
+  <funcdef>void <function>XSetWMClientMachine</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop</parameter></paramdef>
@@ -4445,7 +4445,7 @@ To read a window's WM_CLIENT_MACHINE property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetWMClientMachine</function></funcdef>
+  <funcdef>Status <function>XGetWMClientMachine</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XTextProperty<parameter> *text_prop_return</parameter></paramdef>
@@ -4493,7 +4493,7 @@ structure.
 The
 <function>XGetWMClientMachine</function>
 convenience function performs an 
-<function>XGetTextProperty </function>
+<function>XGetTextProperty</function>
 on the WM_CLIENT_MACHINE property.
 It returns a nonzero status on success;
 otherwise, it returns a zero status.
@@ -4634,7 +4634,7 @@ use
 <para>
 <!-- .LP -->
 The 
-<function>XStandardColormap </function>
+<function>XStandardColormap</function>
 structure contains:
 </para>
 <literallayout class="monospaced">
@@ -4713,7 +4713,7 @@ only the colormap, red_max, red_mult,
 and base_pixel members are defined. 
 The other members are ignored.  
 To compute a 
-<function>GrayScale </function>
+<function>GrayScale</function>
 pixel value, use the following expression:
 </para>
 <para>
@@ -4748,7 +4748,7 @@ function on the indicated resource.
 <para>
 <!-- .LP -->
 The properties containing the 
-<function>XStandardColormap </function>
+<function>XStandardColormap</function>
 information have 
 the type RGB_COLOR_MAP.
 </para>
@@ -4827,11 +4827,11 @@ red, as well as more green or red than blue.
       </para>
       <para>
 For an 8-plane 
-<function>PseudoColor </function>
+<function>PseudoColor</function>
 visual, 
 RGB_BEST_MAP is likely to be a 3/3/2 allocation.  
 For a 24-plane 
-<function>DirectColor </function>
+<function>DirectColor</function>
 visual, 
 RGB_BEST_MAP is normally an 8/8/8 allocation.  
       </para>
@@ -4867,13 +4867,13 @@ The value of the property is an
       </para>
       <para>
 The property describes the best 
-<function>GrayScale </function>
+<function>GrayScale</function>
 colormap available on the screen.  
 As previously mentioned, 
 only the colormap, red_max, red_mult, and base_pixel members of the
-<function>XStandardColormap </function>
+<function>XStandardColormap</function>
 structure are used for 
-<function>GrayScale </function>
+<function>GrayScale</function>
 colormaps.
       </para>
     </listitem>
@@ -4904,7 +4904,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>void<function> XSetRGBColormaps</function></funcdef>
+  <funcdef>void <function>XSetRGBColormaps</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XStandardColormap<parameter> *std_colormap</parameter></paramdef>
@@ -4973,7 +4973,7 @@ Specifies the property name.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XSetRGBColormaps </function>
+<function>XSetRGBColormaps</function>
 function replaces the <acronym>RGB</acronym> colormap definition in the specified property 
 on the named window.
 If the property does not already exist,
@@ -5077,14 +5077,14 @@ errors.
 <para>
 <!-- .LP -->
 To obtain the 
-<function>XStandardColormap </function>
+<function>XStandardColormap</function>
 structure associated with the specified property, use
 <function>XGetRGBColormaps</function>.
 <indexterm significance="preferred"><primary>XGetRGBColormaps</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XGetRGBColormaps</function></funcdef>
+  <funcdef>Status <function>XGetRGBColormaps</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>XStandardColormap<parameter> **std_colormap_return</parameter></paramdef>
@@ -5162,7 +5162,7 @@ and is long enough to contain a colormap definition,
 allocates and fills in space for the returned colormaps
 and returns a nonzero status.
 If the visualid is not present, 
-<function>XGetRGBColormaps </function>
+<function>XGetRGBColormaps</function>
 assumes the default visual for the screen on which the window is located; 
 if the killid is not present, 
 <function>None</function>

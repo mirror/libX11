@@ -481,7 +481,7 @@ Both windows and pixmaps can be used as sources and destinations
 in graphics operations.  
 These windows and pixmaps are collectively known as drawables.
 However, an 
-<function>InputOnly </function>
+<function>InputOnly</function>
 window cannot be used as a source or destination in a
 graphics operation.
 <!-- .KE -->
@@ -739,7 +739,7 @@ See <function>Bit gravity</function> and <function>Window gravity</function>.
   <glossdef>
 <indexterm significance="preferred"><primary>GrayScale</primary></indexterm>
     <para>
-<function>GrayScale </function>
+<function>GrayScale</function>
 can be viewed as a degenerate case of 
 <function>PseudoColor</function>,
 in which the red, green, and blue values in any given colormap entry 
@@ -835,12 +835,12 @@ client, which usually is part of a window manager.
 An
 <function>InputOnly</function>
 window is a window that cannot be used for graphics requests.  
-<function>InputOnly </function>
+<function>InputOnly</function>
 windows are invisible and are used to control such things as cursors,
 input event generation, and grabbing.
-<function>InputOnly </function>
+<function>InputOnly</function>
 windows cannot have 
-<function>InputOutput </function>
+<function>InputOutput</function>
 windows as inferiors.
 <!-- .KE -->
     </para>
@@ -854,11 +854,11 @@ windows as inferiors.
 An
 <function>InputOutput</function>
 window is the normal kind of window that is used for both input and output.
-<function>InputOutput </function>
+<function>InputOutput</function>
 windows can have both 
-<function>InputOutput </function>
+<function>InputOutput</function>
 and 
-<function>InputOnly </function>
+<function>InputOnly</function>
 windows as inferiors.
 <!-- .KE -->
     </para>
@@ -1066,7 +1066,7 @@ imply only that the strings <emphasis remap='I'>may</emphasis> contain multibyte
 A window is obscured if some other window obscures it.
 A window can be partially obscured and so still have visible regions.
 Window A obscures window B if both are viewable 
-<function>InputOutput </function>
+<function>InputOutput</function>
 windows, if A is higher in the global stacking order, 
 and if the rectangle defined by the outside
 edges of A intersects the rectangle defined by the outside edges of B.
@@ -1444,7 +1444,7 @@ which typically have physically independent monitors.
 This would be the expected configuration when there is only a single keyboard 
 and pointer shared among the screens.
 A 
-<function>Screen </function>
+<function>Screen</function>
 <indexterm><primary>Screen</primary><secondary>structure</secondary></indexterm>
 structure contains the information about that screen
 and is linked to the 
@@ -1586,7 +1586,7 @@ this means use of at most single shifts, not locking shifts.
   <glossdef>
 <indexterm significance="preferred"><primary>StaticColor</primary></indexterm>
     <para>
-<function>StaticColor </function>
+<function>StaticColor</function>
 can be viewed as a degenerate case of 
 <function>PseudoColor</function>
 in which the <acronym>RGB</acronym> values are predefined and read-only.
@@ -1599,7 +1599,7 @@ in which the <acronym>RGB</acronym> values are predefined and read-only.
   <glossdef>
 <indexterm significance="preferred"><primary>StaticGray</primary></indexterm>
     <para>
-<function>StaticGray </function>
+<function>StaticGray</function>
 can be viewed as a degenerate case of 
 <function>GrayScale</function>
 in which the gray values are predefined and read-only.

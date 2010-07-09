@@ -42,7 +42,7 @@ To clear a rectangular area of a given window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XClearArea</function></funcdef>
+  <funcdef><function>XClearArea</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>intx,<parameter> y</parameter></paramdef>
@@ -154,7 +154,7 @@ In either
 case, if exposures is 
 <function>True</function>,
 one or more 
-<function>Expose </function>
+<function>Expose</function>
 events are generated for regions of the rectangle that are either visible or are
 being retained in a backing store.
 If you specify a window whose class is
@@ -170,7 +170,7 @@ can generate
 <function>BadMatch</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -184,7 +184,7 @@ To clear the entire area in a given window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XClearWindow</function></funcdef>
+  <funcdef><function>XClearWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
 </funcprototype>
@@ -243,7 +243,7 @@ error results.
 can generate
 <function>BadMatch</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -268,7 +268,7 @@ root and depth, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XCopyArea</function></funcdef>
+  <funcdef><function>XCopyArea</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -417,7 +417,7 @@ If the destination is a window with a background other than
 corresponding regions
 of the destination are tiled with that background
 (with plane-mask of all ones and
-<function>GXcopy </function>
+<function>GXcopy</function>
 function).
 Regardless of tiling or whether the destination is a window or a pixmap,
 if graphics-exposures is 
@@ -426,11 +426,11 @@ then
 <function>GraphicsExpose</function>
 events for all corresponding destination regions are generated.
 If graphics-exposures is 
-<function>True </function>
+<function>True</function>
 but no
 <function>GraphicsExpose</function>
 events are generated, a
-<function>NoExpose </function>
+<function>NoExpose</function>
 event is generated.
 Note that by default graphics-exposures is
 <function>True</function>
@@ -449,7 +449,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 <!-- .sp -->
 </para>
@@ -463,7 +463,7 @@ To copy a single bit plane of a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XCopyPlane</function></funcdef>
+  <funcdef><function>XCopyPlane</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -644,7 +644,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and 
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect1>
@@ -767,7 +767,7 @@ To draw a single point in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawPoint</function></funcdef>
+  <funcdef><function>XDrawPoint</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -839,7 +839,7 @@ To draw multiple points in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawPoints</function></funcdef>
+  <funcdef><function>XDrawPoints</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -945,7 +945,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and 
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 <function>XDrawPoints</function>
 can generate
@@ -953,7 +953,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -980,7 +980,7 @@ To draw a single line between two points in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawLine</function></funcdef>
+  <funcdef><function>XDrawLine</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1074,7 +1074,7 @@ To draw multiple lines in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawLines</function></funcdef>
+  <funcdef><function>XDrawLines</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1162,7 +1162,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawSegments</function></funcdef>
+  <funcdef><function>XDrawSegments</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1233,7 +1233,7 @@ function uses the components of the specified GC to
 draw a line between the specified set of points (x1, y1) and (x2, y2).
 It does not perform joining at coincident endpoints.
 For any given line, 
-<function>XDrawLine </function>
+<function>XDrawLine</function>
 does not draw a pixel more than once.
 If lines intersect, the intersecting pixels are drawn multiple times.  
 </para>
@@ -1256,7 +1256,7 @@ If thin (zero line-width) lines intersect,
 the intersecting pixels are drawn multiple times.
 If wide lines intersect, the intersecting pixels are drawn only once, as though
 the entire 
-<function>PolyLine </function>
+<function>PolyLine</function>
 protocol request were a single, filled shape.
 <function>CoordModeOrigin</function>
 treats all coordinates as relative to the origin,
@@ -1267,10 +1267,10 @@ treats all coordinates after the first as relative to the previous point.
 <para>
 <!-- .LP -->
 The
-<function>XDrawSegments </function>
+<function>XDrawSegments</function>
 function draws multiple, unconnected lines. 
 For each segment, 
-<function>XDrawSegments </function>
+<function>XDrawSegments</function>
 draws a
 line between (x1, y1) and (x2, y2).
 It draws the lines in the order listed in the array of
@@ -1304,11 +1304,11 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 <function>XDrawLines</function>
 also can generate
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -1332,7 +1332,7 @@ To draw the outline of a single rectangle in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawRectangle</function></funcdef>
+  <funcdef><function>XDrawRectangle</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1429,7 +1429,7 @@ in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawRectangles</function></funcdef>
+  <funcdef><function>XDrawRectangles</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1500,7 +1500,7 @@ and
 <function>XDrawRectangles</function>
 functions draw the outlines of the specified rectangle or rectangles as
 if a five-point 
-<function>PolyLine </function>
+<function>PolyLine</function>
 protocol request were specified for each rectangle:
 </para>
 <itemizedlist>
@@ -1538,7 +1538,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -1563,7 +1563,7 @@ To draw a single arc in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawArc</function></funcdef>
+  <funcdef><function>XDrawArc</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1683,7 +1683,7 @@ To draw multiple arcs in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawArcs</function></funcdef>
+  <funcdef><function>XDrawArcs</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -1869,7 +1869,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -1921,7 +1921,7 @@ To fill a single rectangular area in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFillRectangle</function></funcdef>
+  <funcdef><function>XFillRectangle</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -2018,7 +2018,7 @@ To fill multiple rectangular areas in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFillRectangles</function></funcdef>
+  <funcdef><function>XFillRectangles</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -2133,7 +2133,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -2153,7 +2153,7 @@ To fill a polygon area in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFillPolygon</function></funcdef>
+  <funcdef><function>XFillPolygon</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -2249,7 +2249,7 @@ or
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<function>XFillPolygon </function>
+<function>XFillPolygon</function>
 fills the region closed by the specified path.
 The path is closed
 automatically if the last point in the list does not coincide with the
@@ -2284,10 +2284,10 @@ for every pair of points inside the polygon,
 the line segment connecting them does not intersect the path.
 If known by the client,
 specifying 
-<function>Convex </function>
+<function>Convex</function>
 can improve performance.  
 If you specify
-<function>Convex </function>
+<function>Convex</function>
 for a path that is not convex, 
 the graphics results are undefined.
     </para>
@@ -2300,12 +2300,12 @@ the path does not self-intersect, but the shape is not
 wholly convex. 
 If known by the client, 
 specifying 
-<function>Nonconvex </function>
+<function>Nonconvex</function>
 instead of
-<function>Complex </function>
+<function>Complex</function>
 may improve performance.  
 If you specify
-<function>Nonconvex </function>
+<function>Nonconvex</function>
 for a self-intersecting path, the graphics results are undefined.
     </para>
   </listitem>
@@ -2332,7 +2332,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -2352,7 +2352,7 @@ To fill a single arc in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFillArc</function></funcdef>
+  <funcdef><function>XFillArc</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -2472,7 +2472,7 @@ To fill multiple arcs in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFillArcs</function></funcdef>
+  <funcdef><function>XFillArcs</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -2579,7 +2579,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -2746,7 +2746,7 @@ specified in the structure defines a range of characters.
 <para>
 <!-- .LP -->
 The bounding box of a character is defined by the 
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 of that character.
 When characters are absent from a font,
 the default_char is used.
@@ -2758,18 +2758,18 @@ min and max bounds are used.
 <para>
 <!-- .LP -->
 The members of the 
-<function>XFontStruct </function>
+<function>XFontStruct</function>
 have the following semantics:
 </para>
 <itemizedlist>
   <listitem>
     <para>
 The direction member can be either 
-<function>FontLeftToRight </function>
+<function>FontLeftToRight</function>
 or 
 <function>FontRightToLeft</function>.
 It is just a hint as to whether most 
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 elements 
 have a positive 
 (<function>FontLeftToRight</function>)
@@ -2850,7 +2850,7 @@ no printing is performed for an undefined or nonexistent character.
     <para>
 The min_bounds and max_bounds members contain the most extreme values of
 each individual 
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 component over all elements of this array
 (and ignore nonexistent characters).
 The bounding box of the font (the smallest
@@ -2909,7 +2909,7 @@ For a character origin at [x,y],
 the bounding box of a character (that is, 
 the smallest rectangle that encloses the character's shape)
 described in terms of 
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 components is a rectangle with its upper-left corner at:
 </para>
 <para>
@@ -3007,7 +3007,7 @@ unload fonts, and free font information.
 <indexterm><primary>Fonts</primary><secondary>unloading</secondary></indexterm>
 <indexterm><primary>Fonts</primary><secondary>freeing font information</secondary></indexterm>
 A few font functions use a 
-<function>GContext </function>
+<function>GContext</function>
 resource ID or a font ID interchangeably.
 </para>
 <para>
@@ -3019,7 +3019,7 @@ To load a given font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Font<function> XLoadFont</function></funcdef>
+  <funcdef>Font <function>XLoadFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> *name</parameter></paramdef>
 </funcprototype>
@@ -3069,7 +3069,7 @@ If
 <function>XLoadFont</function>
 was unsuccessful at loading the specified font, 
 a 
-<function>BadName </function>
+<function>BadName</function>
 error results.
 Fonts are not associated with a particular screen 
 and can be stored as a component
@@ -3083,7 +3083,7 @@ When the font is no longer needed, call
 can generate
 <function>BadAlloc</function>
 and
-<function>BadName </function>
+<function>BadName</function>
 errors.
 </para>
 <para>
@@ -3095,7 +3095,7 @@ To return information about an available font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XFontStruct<function> *XQueryFont</function></funcdef>
+  <funcdef>XFontStruct *<function>XQueryFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XID<parameter> font_ID</parameter></paramdef>
 </funcprototype>
@@ -3138,7 +3138,7 @@ You can query a font or the font stored in a GC.
 The font ID stored in the 
 <function>XFontStruct</function>
 structure will be the 
-<function>GContext </function>
+<function>GContext</function>
 ID, and you need to be careful when using this ID in other functions
 (see
 <function>XGContextFromGC</function>).
@@ -3161,7 +3161,7 @@ in a single operation, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XFontStruct<function> *XLoadQueryFont</function></funcdef>
+  <funcdef>XFontStruct *<function>XLoadQueryFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> *name</parameter></paramdef>
 </funcprototype>
@@ -3212,7 +3212,7 @@ returns NULL.
 <!-- .LP -->
 <function>XLoadQueryFont</function>
 can generate a
-<function>BadAlloc </function>
+<function>BadAlloc</function>
 error.
 </para>
 <para>
@@ -3229,7 +3229,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeFont</function></funcdef>
+  <funcdef><function>XFreeFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
 </funcprototype>
@@ -3274,7 +3274,7 @@ The data and the font should not be referenced again.
 <!-- .LP -->
 <function>XFreeFont</function>
 can generate a
-<function>BadFont </function>
+<function>BadFont</function>
 error.
 </para>
 <para>
@@ -3286,7 +3286,7 @@ To return a given font property, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Bool<function> XGetFontProperty</function></funcdef>
+  <funcdef>Bool <function>XGetFontProperty</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>Atom<parameter> atom</parameter></paramdef>
   <paramdef>unsignedlong<parameter> *value_return</parameter></paramdef>
@@ -3358,7 +3358,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUnloadFont</function></funcdef>
+  <funcdef><function>XUnloadFont</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Font<parameter> font</parameter></paramdef>
 </funcprototype>
@@ -3400,7 +3400,7 @@ The font should not be referenced again.
 <!-- .LP -->
 <function>XUnloadFont</function>
 can generate a
-<function>BadFont </function>
+<function>BadFont</function>
 error.
 </para>
 </sect2>
@@ -3423,7 +3423,7 @@ To return a list of the available font names, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char<function> **XListFonts</function></funcdef>
+  <funcdef>char **<function>XListFonts</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> *pattern</parameter></paramdef>
   <paramdef>int<parameter> maxnames</parameter></paramdef>
@@ -3510,7 +3510,7 @@ To free a font name array, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeFontNames</function></funcdef>
+  <funcdef><function>XFreeFontNames</function></funcdef>
   <paramdef>char<parameter> *list[]</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3534,7 +3534,7 @@ Specifies the array of strings you want to free.
 The
 <function>XFreeFontNames</function>
 function frees the array and strings returned by
-<function>XListFonts </function>
+<function>XListFonts</function>
 or
 <function>XListFontsWithInfo</function>.
 </para>
@@ -3547,7 +3547,7 @@ To obtain the names and information about available fonts, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char<function> **XListFontsWithInfo</function></funcdef>
+  <funcdef>char **<function>XListFontsWithInfo</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> *pattern</parameter></paramdef>
   <paramdef>int<parameter> maxnames</parameter></paramdef>
@@ -3654,7 +3654,7 @@ To free font structures and font names, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeFontInfo</function></funcdef>
+  <funcdef><function>XFreeFontInfo</function></funcdef>
   <paramdef>char<parameter> **names</parameter></paramdef>
   <paramdef>XFontStruct<parameter> *free_info</parameter></paramdef>
   <paramdef>int<parameter> actual_count</parameter></paramdef>
@@ -3738,7 +3738,7 @@ To determine the width of an 8-bit character string, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XTextWidth</function></funcdef>
+  <funcdef>int <function>XTextWidth</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>char<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> count</parameter></paramdef>
@@ -3788,7 +3788,7 @@ To determine the width of a 2-byte character string, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XTextWidth16</function></funcdef>
+  <funcdef>int <function>XTextWidth16</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> count</parameter></paramdef>
@@ -3846,7 +3846,7 @@ To compute the bounding box of an 8-bit character string in a given font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XTextExtents</function></funcdef>
+  <funcdef><function>XTextExtents</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>char<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
@@ -3864,7 +3864,7 @@ To compute the bounding box of an 8-bit character string in a given font, use
     <listitem>
       <para>
 Specifies the 
-<function>XFontStruct </function>
+<function>XFontStruct</function>
 structure.
       </para>
     </listitem>
@@ -3929,7 +3929,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 structure.
     </para>
   </listitem>
@@ -3946,7 +3946,7 @@ To compute the bounding box of a 2-byte character string in a given font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XTextExtents16</function></funcdef>
+  <funcdef><function>XTextExtents16</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
@@ -3964,7 +3964,7 @@ To compute the bounding box of a 2-byte character string in a given font, use
     <listitem>
       <para>
 Specifies the 
-<function>XFontStruct </function>
+<function>XFontStruct</function>
 structure.
       </para>
     </listitem>
@@ -4029,7 +4029,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 structure.
     </para>
   </listitem>
@@ -4046,7 +4046,7 @@ and
 functions 
 perform the size computation locally and, thereby,
 avoid the round-trip overhead of
-<function>XQueryTextExtents </function>
+<function>XQueryTextExtents</function>
 and
 <function>XQueryTextExtents16</function>.
 Both functions return an
@@ -4072,7 +4072,7 @@ The rbearing member is set to the maximum R.
 <!-- .LP -->
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
 each 
-<function>XChar2b </function>
+<function>XChar2b</function>
 structure is interpreted as a 16-bit number with byte1 as the 
 most significant byte.
 If the font has no defined default character,
@@ -4093,7 +4093,7 @@ given font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XQueryTextExtents</function></funcdef>
+  <funcdef><function>XQueryTextExtents</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XID<parameter> font_ID</parameter></paramdef>
   <paramdef>char<parameter> *string</parameter></paramdef>
@@ -4187,7 +4187,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 structure.
     </para>
   </listitem>
@@ -4205,7 +4205,7 @@ in a given font, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XQueryTextExtents16</function></funcdef>
+  <funcdef><function>XQueryTextExtents16</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XID<parameter> font_ID</parameter></paramdef>
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
@@ -4299,7 +4299,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 structure.
     </para>
   </listitem>
@@ -4322,7 +4322,7 @@ overhead that is avoided by
 and 
 <function>XTextExtents16</function>.
 Both functions return a
-<function>XCharStruct </function>
+<function>XCharStruct</function>
 structure, whose members are set to the values as follows.
 </para>
 <para>
@@ -4344,7 +4344,7 @@ The rbearing member is set to the maximum R.
 <!-- .LP -->
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
 each 
-<function>XChar2b </function>
+<function>XChar2b</function>
 structure is interpreted as a 16-bit number with byte1 as the 
 most significant byte.
 If the font has no defined default character,
@@ -4364,7 +4364,7 @@ and
 can generate
 <function>BadFont</function>
 and
-<function>BadGC </function>
+<function>BadGC</function>
 errors.
 </para>
 </sect2>
@@ -4478,7 +4478,7 @@ To draw 8-bit characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawText</function></funcdef>
+  <funcdef><function>XDrawText</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -4574,7 +4574,7 @@ To draw 2-byte characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawText16</function></funcdef>
+  <funcdef><function>XDrawText16</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -4666,7 +4666,7 @@ Specifies the number of text items in the array.
 The
 <function>XDrawText16</function>
 function is similar to
-<function>XDrawText </function>
+<function>XDrawText</function>
 except that it uses 2-byte or 16-bit characters.
 Both functions allow complex spacing and font shifts between counted strings.
 </para>
@@ -4715,7 +4715,7 @@ can generate
 <function>BadFont</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -4734,7 +4734,7 @@ To draw 8-bit characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawString</function></funcdef>
+  <funcdef><function>XDrawString</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -4830,7 +4830,7 @@ To draw 2-byte characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawString16</function></funcdef>
+  <funcdef><function>XDrawString16</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -4945,7 +4945,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 </sect2>
@@ -4974,7 +4974,7 @@ To draw 8-bit image text characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawImageString</function></funcdef>
+  <funcdef><function>XDrawImageString</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -5070,7 +5070,7 @@ To draw 2-byte image text characters in a given drawable, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDrawImageString16</function></funcdef>
+  <funcdef><function>XDrawImageString16</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -5162,7 +5162,7 @@ Specifies the number of characters in the string argument.
 The
 <function>XDrawImageString16</function>
 function is similar to
-<function>XDrawImageString </function>
+<function>XDrawImageString</function>
 except that it uses 2-byte or 16-bit characters.
 Both functions also use both the foreground and background pixels 
 of the GC in the destination.
@@ -5204,7 +5204,7 @@ font-ascent + font-descent
 <!-- .LP -->
 The overall-width, font-ascent, and font-descent
 are as would be returned by 
-<function>XQueryTextExtents </function>
+<function>XQueryTextExtents</function>
 using gc and string.
 The function and fill-style defined in the GC are ignored for these functions. 
 The effective function is 
@@ -5234,7 +5234,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadGC</function>,
 and
-<function>BadMatch </function>
+<function>BadMatch</function>
 errors.
 </para>
 <para>
@@ -5267,7 +5267,7 @@ to an image (see section 16.8).
 <!-- .LP -->
 All the image manipulation functions discussed in this section make use of 
 the 
-<function>XImage </function>
+<function>XImage</function>
 structure,
 which describes an image as it exists in the client's memory.
 </para>
@@ -5315,7 +5315,7 @@ To initialize the image manipulation routines of an image structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status<function> XInitImage</function></funcdef>
+  <funcdef>Status <function>XInitImage</function></funcdef>
   <paramdef>XImage<parameter> *image</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -5373,7 +5373,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XPutImage</function></funcdef>
+  <funcdef><function>XPutImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
@@ -5433,7 +5433,7 @@ Specifies the image you want combined with the rectangle.
       <para>
 Specifies the offset in X from the left edge of the image defined
 by the 
-<function>XImage </function>
+<function>XImage</function>
 structure.
       </para>
     </listitem>
@@ -5446,7 +5446,7 @@ structure.
       <para>
 Specifies the offset in Y from the top edge of the image defined
 by the 
-<function>XImage </function>
+<function>XImage</function>
 structure.
 <!-- .ds Dx , which are relative to the origin of the drawable \ -->
 and are the coordinates of the subimage
@@ -5508,15 +5508,15 @@ combines an image with a rectangle of the specified drawable.
 The section of the image defined by the src_x, src_y, width, and height 
 arguments is drawn on the specified part of the drawable.
 If 
-<function>XYBitmap </function>
+<function>XYBitmap</function>
 format is used, the depth of the image must be one,
 or a
-<function>BadMatch </function>
+<function>BadMatch</function>
 error results.
 The foreground pixel in the GC defines the source for the one bits in the image,
 and the background pixel defines the source for the zero bits.
 For 
-<function>XYPixmap </function>
+<function>XYPixmap</function>
 and 
 <function>ZPixmap</function>,
 the depth of the image must match the depth of the drawable,
@@ -5528,7 +5528,7 @@ error results.
 <!-- .LP -->
 If the characteristics of the image (for example, byte_order and bitmap_unit)
 differ from what the server requires,
-<function>XPutImage </function>
+<function>XPutImage</function>
 automatically makes the appropriate
 conversions.
 </para>
@@ -5548,7 +5548,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -5562,7 +5562,7 @@ This function specifically supports rudimentary screen dumps.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XImage<function> *XGetImage</function></funcdef>
+  <funcdef>XImage *<function>XGetImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>intx,<parameter> y</parameter></paramdef>
@@ -5736,7 +5736,7 @@ can generate
 <function>BadDrawable</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 <!-- .sp -->
 </para>
@@ -5749,7 +5749,7 @@ to a location within a preexisting image structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XImage<function> *XGetSubImage</function></funcdef>
+  <funcdef>XImage *<function>XGetSubImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>intx,<parameter> y</parameter></paramdef>
@@ -5892,7 +5892,7 @@ Specify the x and y coordinates(Dx.
 <!-- .LP -->
 <!-- .eM -->
 The 
-<function>XGetSubImage </function>
+<function>XGetSubImage</function>
 function updates dest_image with the specified subimage in the same manner as 
 <function>XGetImage</function>.
 If the format argument is 
@@ -5950,7 +5950,7 @@ can generate
 <function>BadGC</function>,
 <function>BadMatch</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 <!-- .bp -->
 

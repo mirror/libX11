@@ -324,9 +324,9 @@ Unless the client has specifically asked for them,
 most events are not reported to clients when they are generated. 
 Unless the client suppresses them by setting graphics-exposures in the GC to
 <function>False</function>,
-<function>GraphicsExpose </function>
+<function>GraphicsExpose</function>
 and 
-<function>NoExpose </function>
+<function>NoExpose</function>
 are reported by default as a result of
 <function>XCopyPlane</function>
 and
@@ -522,7 +522,7 @@ In another case,
 two event masks can map to one event type.
 For example, 
 if you pass either
-<function>PointerMotionMask </function>
+<function>PointerMotionMask</function>
 or
 <function>ButtonMotionMask</function>,
 the X server sends back
@@ -929,7 +929,7 @@ with these client passed arguments:
     </row>
     <row>
       <entry><emphasis remap='I'>keyboard_mode</emphasis></entry>
-      <entry><function>GrabModeAsync </function></entry>
+      <entry><function>GrabModeAsync</function></entry>
     </row>
     <row>
       <entry><emphasis remap='I'>owner_events</emphasis></entry>
@@ -938,15 +938,15 @@ with these client passed arguments:
       <function>OwnerGrabButtonMask</function>
       on the event window,
       otherwise
-      <function>False </function></entry>
+      <function>False</function></entry>
     </row>
     <row>
       <entry><emphasis remap='I'>confine_to</emphasis></entry>
-      <entry><function>None </function></entry>
+      <entry><function>None</function></entry>
     </row>
     <row>
       <entry><emphasis remap='I'>cursor</emphasis></entry>
-      <entry><function>None </function></entry>
+      <entry><function>None</function></entry>
     </row>
   </tbody>
   </tgroup>
@@ -979,7 +979,7 @@ This section discusses the processing that occurs for the
 keyboard events
 <function>KeyPress</function>
 and 
-<function>KeyRelease </function>
+<function>KeyRelease</function>
 and the pointer events
 <function>ButtonPress</function>,
 <function>ButtonRelease</function>,
@@ -1033,13 +1033,13 @@ To receive
 <function>KeyRelease</function>,
 <function>ButtonPress</function>,
 and
-<function>ButtonRelease </function>
+<function>ButtonRelease</function>
 events, set 
 <function>KeyPressMask</function>,
 <function>KeyReleaseMask</function>,
 <function>ButtonPressMask</function>,
 and
-<function>ButtonReleaseMask </function>
+<function>ButtonReleaseMask</function>
 bits in the event-mask attribute of the window.
 </para>
 <para>
@@ -1212,7 +1212,7 @@ relative to the root window's origin at the time of the event.
 The same_screen member is set to indicate whether the event 
 window is on the same screen
 as the root window and can be either
-<function>True </function>
+<function>True</function>
 or
 <function>False</function>.
 If
@@ -1286,7 +1286,7 @@ It represents the pointer button that changed state and can be the
 <function>Button3</function>,
 <function>Button4</function>,
 or
-<function>Button5 </function>
+<function>Button5</function>
 value.
 For the
 <function>XPointerMovedEvent</function>
@@ -1445,14 +1445,14 @@ generated after any hierarchy event
 <function>CirculateNotify</function>)
 caused by that change;
 however, the X protocol does not constrain the ordering of 
-<function>EnterNotify </function>
+<function>EnterNotify</function>
 and 
-<function>LeaveNotify </function>
+<function>LeaveNotify</function>
 events with respect to
 <function>FocusOut</function>,
 <function>VisibilityNotify</function>,
 and 
-<function>Expose </function>
+<function>Expose</function>
 events.
 </para>
 <para>
@@ -1536,14 +1536,14 @@ on which the event occurred.
 <para>
 <!-- .LP -->
 For a
-<function>LeaveNotify </function>
+<function>LeaveNotify</function>
 event,
 if a child of the event window contains the initial position of the pointer,
 the subwindow component is set to that child.
 Otherwise, the X server sets the subwindow member to
 <function>None</function>.
 For an
-<function>EnterNotify </function>
+<function>EnterNotify</function>
 event, if a child of the event window contains the final pointer position, 
 the subwindow component is set to that child or
 <function>None</function>.
@@ -1567,7 +1567,7 @@ root window's origin at the time of the event.
 <!-- .LP -->
 The same_screen member is set to indicate whether the event window is on the same screen
 as the root window and can be either
-<function>True </function>
+<function>True</function>
 or
 <function>False</function>.
 If
@@ -1582,7 +1582,7 @@ the event and root windows are not on the same screen.
 The focus member is set to indicate whether the event window is the focus window or an
 inferior of the focus window.
 The X server can set this member to either
-<function>True </function>
+<function>True</function>
 or
 <function>False</function>.
 If
@@ -2346,7 +2346,7 @@ When the focus moves from window A to
 <function>PointerRoot</function>
 (events sent to the window under the pointer)
 or
-<function>None </function>
+<function>None</function>
 (discard), and the pointer is in window P,
 the X server does the following:
 <!-- .RS -->
@@ -2417,7 +2417,7 @@ When the focus moves from
 <function>PointerRoot</function>
 (events sent to the window under the pointer)
 or
-<function>None </function>
+<function>None</function>
 to window A, and the pointer is in window P, 
 the X server does the following: 
 <!-- .RS -->
@@ -2530,7 +2530,7 @@ event on all root windows,
 with the detail member of each
 <function>XFocusInEvent</function>
 structure set to
-<function>NotifyDetailNone </function>
+<function>NotifyDetailNone</function>
 or
 <function>NotifyPointerRoot</function>.
     </para>
@@ -2572,7 +2572,7 @@ are identified by
 or
 <function>XFocusOutEvent</function>
 structures whose mode member is set to 
-<function>NotifyUngrab </function>
+<function>NotifyUngrab</function>
 (see 
 <function>XGrabKeyboard</function>).
 </para>
@@ -2714,7 +2714,7 @@ restoring the contents of an exposed window region.
 (An exposed window region describes a formerly obscured window whose 
 region becomes visible.) 
 Therefore, the X server sends 
-<function>Expose </function>
+<function>Expose</function>
 events describing the window and the region of the window that has been exposed.
 A naive client application usually redraws the entire window. 
 A more sophisticated client application redraws only the exposed region.
@@ -2757,7 +2757,7 @@ event is generated for each rectangle.
 For any given window,
 the X server guarantees to report contiguously 
 all of the regions exposed by some action that causes 
-<function>Expose </function>
+<function>Expose</function>
 events, such as raising a window.
 </para>
 <para>
@@ -2805,7 +2805,7 @@ If count is zero, no more
 <function>Expose</function>
 events follow for this window.
 However, if count is nonzero, at least that number of 
-<function>Expose </function>
+<function>Expose</function>
 events (and possibly more) follow for this window.
 Simple applications that do not want to optimize redisplay by distinguishing
 between subareas of its window can just ignore all
@@ -2864,7 +2864,7 @@ attribute of the graphics context to
 <function>True</function>.
 You also can set the graphics-expose attribute when creating a graphics
 context using
-<function>XCreateGC </function>
+<function>XCreateGC</function>
 or by calling
 <function>XSetGraphicsExposures</function>.
 </para>
@@ -2985,7 +2985,7 @@ events
   </listitem>
   <listitem>
     <para>
-<function>CreateNotify </function>
+<function>CreateNotify</function>
 events
     </para>
   </listitem>
@@ -3015,7 +3015,7 @@ events
   </listitem>
   <listitem>
     <para>
-<function>ReparentNotify </function>
+<function>ReparentNotify</function>
 events
     </para>
   </listitem>
@@ -3344,7 +3344,7 @@ or
 <para>
 <!-- .LP -->
 The ordering of the 
-<function>DestroyNotify </function>
+<function>DestroyNotify</function>
 events is such that for any given window, 
 <function>DestroyNotify</function>
 is generated on all inferiors of the window
@@ -3644,7 +3644,7 @@ The X server can report
 events to clients wanting information about changing a window's parent.
 The X server generates this event whenever a client
 application calls
-<function>XReparentWindow </function>
+<function>XReparentWindow</function>
 and the window is actually reparented.
 </para>
 <para>
@@ -3763,7 +3763,7 @@ was selected.
 This is the window used by the X server to report the event.
 The window member is set to the window that was unmapped.
 The from_configure member is set to
-<function>True </function>
+<function>True</function>
 if the event was generated as a result of a resizing of the window's parent when
 the window itself had a win_gravity of
 <function>UnmapGravity</function>.
@@ -3801,7 +3801,7 @@ after any hierarchy event
 caused by that change.  Any
 <function>VisibilityNotify</function>
 event on a given window is generated before any
-<function>Expose </function>
+<function>Expose</function>
 events on that window, but it is not required that all
 <function>VisibilityNotify</function>
 events on all windows be generated before all 
@@ -3919,13 +3919,13 @@ events
   </listitem>
   <listitem>
     <para>
-<function>MapRequest </function>
+<function>MapRequest</function>
 events
     </para>
   </listitem>
   <listitem>
     <para>
-<function>ResizeRequest </function>
+<function>ResizeRequest</function>
 events
     </para>
   </listitem>
@@ -4054,7 +4054,7 @@ For example, suppose a client application calls
 <function>XLowerWindow</function>
 to lower a window.
 If you had selected
-<function>SubstructureRedirectMask </function>
+<function>SubstructureRedirectMask</function>
 on the parent window and if the override-redirect attribute 
 of the window is set to
 <function>False</function>,
@@ -4096,7 +4096,7 @@ The parent member is set to the parent window.
 The window member is set to the window whose size, position, border width, 
 and/or stacking order is to be reconfigured.
 The value_mask member indicates which components were specified in the
-<function>ConfigureWindow </function>
+<function>ConfigureWindow</function>
 protocol request.
 The corresponding values are reported as given in the request.
 The remaining values are filled in from the current geometry of the window,
@@ -4147,7 +4147,7 @@ For example, suppose a client application calls
 <function>XMapWindow</function>
 to map a window.
 If you (usually a window manager) had selected
-<function>SubstructureRedirectMask </function>
+<function>SubstructureRedirectMask</function>
 on the parent window and if the override-redirect attribute 
 of the window is set to
 <function>False</function>,
@@ -4271,7 +4271,7 @@ calling
 <function>XChangeWindowAttributes</function>,
 <function>XFreeColormap</function>,
 or
-<function>XSetWindowColormap </function>
+<function>XSetWindowColormap</function>
     </para>
   </listitem>
   <listitem>
@@ -4279,14 +4279,14 @@ or
 Installs or uninstalls the colormap by calling
 <function>XInstallColormap</function>
 or
-<function>XUninstallColormap </function>
+<function>XUninstallColormap</function>
     </para>
   </listitem>
 </itemizedlist>
 <para>
 <!-- .LP -->
 To receive 
-<function>ColormapNotify </function>
+<function>ColormapNotify</function>
 events, set the
 <function>ColormapChangeMask</function>
 bit in the event-mask attribute of the window. 
@@ -4356,7 +4356,7 @@ This section discusses:
 <itemizedlist>
   <listitem>
     <para>
-<function>ClientMessage </function>
+<function>ClientMessage</function>
 events
     </para>
   </listitem>
@@ -4584,7 +4584,7 @@ The X server reports
 events to the owner of a selection.
 The X server generates this event whenever a client 
 requests a selection conversion by calling 
-<function>XConvertSelection </function>
+<function>XConvertSelection</function>
 for the owned selection.
 </para>
 <para>
@@ -4627,7 +4627,7 @@ the selection is desired in.
 The property member can be a property name or 
 <function>None</function>.
 The time member is set to the timestamp or 
-<function>CurrentTime </function>
+<function>CurrentTime</function>
 value from the
 <function>ConvertSelection</function>
 request.
@@ -4652,7 +4652,7 @@ standard <emphasis remap='I'>Inter-Client Communication Conventions Manual</emph
 <indexterm><primary>Events</primary><secondary>SelectionNotify</secondary></indexterm>
 <indexterm significance="preferred"><primary>SelectionNotify</primary></indexterm>
 This event is generated by the X server in response to a
-<function>ConvertSelection </function>
+<function>ConvertSelection</function>
 protocol request when there is no owner for the selection.
 When there is an owner, it should be generated by the owner
 of the selection by using

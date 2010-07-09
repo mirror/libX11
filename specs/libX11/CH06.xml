@@ -148,10 +148,10 @@ are written to encourage sharing of colormap entries between applications.
 <para>
 <!-- .LP -->
 The 
-<function>DefaultColormap </function>
+<function>DefaultColormap</function>
 macro returns the default colormap.
 The 
-<function>DefaultVisual </function>
+<function>DefaultVisual</function>
 macro
 returns the default visual type for the specified screen.
 <indexterm><primary>Color map</primary></indexterm>
@@ -162,7 +162,7 @@ Possible visual types are
 <function>PseudoColor</function>,
 <function>TrueColor</function>,
 or 
-<function>DirectColor </function>
+<function>DirectColor</function>
 (see section 3.1).
 </para>
 <sect1 id="Color_Structures">
@@ -807,7 +807,7 @@ To create a colormap for a screen, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Colormap<function> XCreateColormap</function></funcdef>
+  <funcdef>Colormap <function>XCreateColormap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Visual<parameter> *visual</parameter></paramdef>
@@ -859,7 +859,7 @@ error results.
       <para>
 Specifies the colormap entries to be allocated.
 You can pass 
-<function>AllocNone </function>
+<function>AllocNone</function>
 or 
 <function>AllocAll</function>.
     </para>
@@ -943,7 +943,7 @@ can generate
 <function>BadMatch</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -956,7 +956,7 @@ shared colormap has failed because of resource exhaustion, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Colormap<function>XCopyColormapAndFree </function></funcdef>
+  <funcdef>Colormap <function>XCopyColormapAndFree</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
 </funcprototype>
@@ -1020,7 +1020,7 @@ and that have not been freed since they were allocated.
 can generate
 <function>BadAlloc</function>
 and
-<function>BadColor </function>
+<function>BadColor</function>
 errors.
 </para>
 <para>
@@ -1081,7 +1081,7 @@ or
 <function>XChangeWindowAttributes</function>),
 <function>XFreeColormap</function>
 changes the colormap associated with the window to
-<function>None </function>
+<function>None</function>
 and generates a
 <function>ColormapNotify</function>
 event.
@@ -1092,7 +1092,7 @@ X does not define the colors displayed for a window with a colormap of
 <!-- .LP -->
 <function>XFreeColormap</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 </para>
 </sect1>
@@ -1195,7 +1195,7 @@ otherwise, it returns zero.
 <!-- .LP -->
 <function>XLookupColor</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 </para>
 <para>
@@ -1285,7 +1285,7 @@ otherwise, it returns zero.
 <!-- .LP -->
 <function>XParseColor</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 </para>
 <para>
@@ -1526,7 +1526,7 @@ structure.
 <!-- .LP -->
 <function>XAllocColor</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 <!-- .EQ -->
 delim %%
@@ -1618,7 +1618,7 @@ returns the pixel value of the color cell and the color specification
 actually allocated.
 This returned color specification is the result of converting the <acronym>RGB</acronym> value
 returned by 
-<function>XAllocColor </function>
+<function>XAllocColor</function>
 into the format specified with the result_format argument.
 If there is no interest in a returned color specification, 
 unnecessary computation can be bypassed if result_format is set to
@@ -2014,7 +2014,7 @@ ncolors * %2 sup nplanes% distinct pixels can be produced.
 All of these are
 allocated writable by the request.
 For 
-<function>GrayScale </function>
+<function>GrayScale</function>
 or 
 <function>PseudoColor</function>,
 each mask has exactly one bit set to 1. 
@@ -2022,12 +2022,12 @@ For
 <function>DirectColor</function>,
 each has exactly three bits set to 1.
 If contig is 
-<function>True </function>
+<function>True</function>
 and if all masks are ORed
 together, a single contiguous set of bits set to 1 will be formed for 
 <function>GrayScale</function>
 or 
-<function>PseudoColor </function>
+<function>PseudoColor</function>
 and three contiguous sets of bits set to 1 (one within each
 pixel subfield) for 
 <function>DirectColor</function>.
@@ -2042,7 +2042,7 @@ returns nonzero if it succeeded or zero if it failed.
 can generate
 <function>BadColor</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2245,7 +2245,7 @@ returns nonzero if it succeeded or zero if it failed.
 can generate
 <function>BadColor</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2347,7 +2347,7 @@ and
 <function>XAllocColorPlanes</function>).
 Note that freeing an
 individual pixel obtained from 
-<function>XAllocColorPlanes </function>
+<function>XAllocColorPlanes</function>
 may not actually allow
 it to be reused until all of its related pixels are also freed.
 Similarly,
@@ -2360,7 +2360,7 @@ it must free the entry that many times before the entry is actually freed.
 All specified pixels that are allocated by the client in the colormap are
 freed, even if one or more pixels produce an error. 
 If a specified pixel is not a valid index into the colormap, a 
-<function>BadValue </function>
+<function>BadValue</function>
 error results.
 If a specified pixel is not allocated by the
 client (that is, is unallocated or is only allocated by another client)
@@ -2381,7 +2381,7 @@ can generate
 <function>BadAccess</function>,
 <function>BadColor</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect1>
@@ -2479,7 +2479,7 @@ can generate
 <function>BadAccess</function>,
 <function>BadColor</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2566,7 +2566,7 @@ in the flags member of the
 structures.
 If the colormap is an installed map for its screen, the
 changes are visible immediately.
-<function>XStoreColors </function>
+<function>XStoreColors</function>
 changes the specified pixels if they are allocated writable in the colormap 
 by any client, even if one or more pixels generates an error.
 If a specified pixel is not a valid index into the colormap, a
@@ -2585,7 +2585,7 @@ can generate
 <function>BadAccess</function>,
 <function>BadColor</function>,
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2951,7 +2951,7 @@ can generate
 <function>BadColor</function>,
 <function>BadName</function>,
 and 
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3045,7 +3045,7 @@ flags.
 can generate
 <function>BadColor</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3135,7 +3135,7 @@ flags in each structure.
 can generate
 <function>BadColor</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 <!-- .sp -->
 </para>
@@ -3601,7 +3601,7 @@ can return.
 
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Display <function>*XcmsDisplayOfCCC</function></funcdef>
+  <funcdef>Display *<function>XcmsDisplayOfCCC</function></funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3638,7 +3638,7 @@ Both return the display associated with the specified CCC.
 
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Visual<function>*XcmsVisualOfCCC</function></funcdef>
+  <funcdef>Visual *<function>XcmsVisualOfCCC</function></funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3748,7 +3748,7 @@ Both return the white point of the screen associated with the specified CCC.
 
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XcmsColor<function> *XcmsClientWhitePointOfCCC</function></funcdef>
+  <funcdef>XcmsColor *<function>XcmsClientWhitePointOfCCC</function></funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3788,7 +3788,7 @@ To set the Client White Point in the CCC, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Status <function> XcmsSetWhitePoint</function></funcdef>
+  <funcdef>Status <function>XcmsSetWhitePoint</function></funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
   <paramdef>XcmsColor<parameter> *color</parameter></paramdef>
 </funcprototype>
@@ -4851,7 +4851,7 @@ Once to convert to
   <listitem>
     <para>
 A second time to convert from
-<function>XcmsRGB </function>
+<function>XcmsRGB</function>
     </para>
   </listitem>
 </itemizedlist>
@@ -4864,7 +4864,7 @@ and the adjustment procedure is
 During conversion to
 <function>XcmsRGB</function>,
 the call to 
-<function>XcmsAllocColor </function>
+<function>XcmsAllocColor</function>
 results in the following series of color specification conversions:
 <!-- .\" Do these need to be font coded? -->
 </para>
@@ -5969,7 +5969,7 @@ for a given Psychometric Hue Angle and Psychometric Chroma, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> </function></funcdef>
+  <funcdef>Status <function>XcmsCIELuvQueryMinL</function></funcdef>
   <paramdef>XcmsCCC<parameter> ccc</parameter></paramdef>
   <paramdef>XcmsFloat<parameter> hue_angle</parameter></paramdef>
   <paramdef>XcmsFloat<parameter> chroma</parameter></paramdef>
@@ -6615,7 +6615,7 @@ associated with a specified color string prefix, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XcmsColorFormat<function>XcmsFormatOfPrefix</function></funcdef>
+  <funcdef>XcmsColorFormat <function>XcmsFormatOfPrefix</function></funcdef>
   <paramdef>char<parameter> *prefix</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -6657,7 +6657,7 @@ specified by a color format, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char <function>*XcmsPrefixOfFormat</function></funcdef>
+  <funcdef>char *<function>XcmsPrefixOfFormat</function></funcdef>
   <paramdef>XcmsColorFormat<parameter> format</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -7289,7 +7289,7 @@ Specifies the appropriate screen number on the host server.
     <listitem>
       <para>
 Specifies the 
-<function>XcmsPerScrnInfo </function>
+<function>XcmsPerScrnInfo</function>
 structure, which contains the per screen information.
     </para>
   </listitem>
@@ -7337,7 +7337,7 @@ structure.
   <listitem>
     <para>
 It then sets the state member to 
-<function>XcmsInitSuccess </function>
+<function>XcmsInitSuccess</function>
 and finally returns
 <function>XcmsSuccess</function>.
     </para>

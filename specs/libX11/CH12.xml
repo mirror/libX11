@@ -158,7 +158,7 @@ To grab the pointer, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XGrabPointer</function></funcdef>
+  <funcdef>int <function>XGrabPointer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
@@ -222,7 +222,7 @@ The mask is the bitwise inclusive OR of the valid pointer event mask bits.
       <para>
 Specifies further processing of pointer events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -236,7 +236,7 @@ or
       <para>
 Specifies further processing of keyboard events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -375,11 +375,11 @@ grabbed the pointer before its request was processed.
 </para>
 <para>
 <!-- .LP -->
-<function>XGrabPointer </function>
+<function>XGrabPointer</function>
 generates
-<function>EnterNotify </function>
+<function>EnterNotify</function>
 and
-<function>LeaveNotify </function>
+<function>LeaveNotify</function>
 events.
 </para>
 <para>
@@ -400,7 +400,7 @@ If the specified time is earlier than the last-pointer-grab time or later
 than the current X server time, it fails and returns
 <function>GrabInvalidTime</function>.
 Otherwise, the last-pointer-grab time is set to the specified time
-(<function>CurrentTime </function>
+(<function>CurrentTime</function>
 is replaced by the current X server time).
 </para>
 <para>
@@ -410,7 +410,7 @@ can generate
 <function>BadCursor</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -424,7 +424,7 @@ To ungrab the pointer, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUngrabPointer</function></funcdef>
+  <funcdef><function>XUngrabPointer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Time<parameter> time</parameter></paramdef>
 </funcprototype>
@@ -470,12 +470,12 @@ does not release the pointer if the specified
 time is earlier than the last-pointer-grab time or is later than the
 current X server time.
 It also generates 
-<function>EnterNotify </function>
+<function>EnterNotify</function>
 and 
-<function>LeaveNotify </function>
+<function>LeaveNotify</function>
 events.
 The X server performs an 
-<function>UngrabPointer </function>
+<function>UngrabPointer</function>
 request automatically if the event window or confine_to window 
 for an active pointer grab becomes not viewable
 or if window reconfiguration causes the confine_to window to lie completely
@@ -492,7 +492,7 @@ To change an active pointer grab, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangeActivePointerGrab</function></funcdef>
+  <funcdef><function>XChangeActivePointerGrab</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedint<parameter> event_mask</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
@@ -564,7 +564,7 @@ The interpretation of event_mask and cursor is the same as described in
 <!-- .LP -->
 <function>XChangeActivePointerGrab</function>
 can generate
-<function>BadCursor </function>
+<function>BadCursor</function>
 and
 <function>BadValue</function>
 errors.
@@ -580,7 +580,7 @@ To grab a pointer button, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGrabButton</function></funcdef>
+  <funcdef><function>XGrabButton</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedint<parameter> button</parameter></paramdef>
   <paramdef>unsignedint<parameter> modifiers</parameter></paramdef>
@@ -669,7 +669,7 @@ The mask is the bitwise inclusive OR of the valid pointer event mask bits.
       <para>
 Specifies further processing of pointer events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -683,7 +683,7 @@ or
       <para>
 Specifies further processing of keyboard events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -772,13 +772,13 @@ may lag the physical state if device event processing is frozen.
 This request overrides all previous grabs by the same client on the same
 button/key combinations on the same window.
 A modifiers of 
-<function>AnyModifier </function>
+<function>AnyModifier</function>
 is equivalent to issuing the grab request for all
 possible modifier combinations (including the combination of no modifiers).  
 It is not required that all modifiers specified have currently assigned 
 KeyCodes.
 A button of 
-<function>AnyButton </function>
+<function>AnyButton</function>
 is equivalent to
 issuing the request for all possible buttons.
 Otherwise, it is not required that the specified button currently be assigned
@@ -789,10 +789,10 @@ to a physical button.
 If some other client has already issued an
 <function>XGrabButton</function>
 with the same button/key combination on the same window, a
-<function>BadAccess </function>
+<function>BadAccess</function>
 error results.
 When using 
-<function>AnyModifier </function>
+<function>AnyModifier</function>
 or 
 <function>AnyButton</function>,
 the request fails completely,
@@ -810,7 +810,7 @@ can generate
 <function>BadCursor</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -824,7 +824,7 @@ To ungrab a pointer button, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUngrabButton</function></funcdef>
+  <funcdef><function>XUngrabButton</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedint<parameter> button</parameter></paramdef>
   <paramdef>unsignedint<parameter> modifiers</parameter></paramdef>
@@ -887,13 +887,13 @@ The
 function releases the passive button/key combination on the specified window if
 it was grabbed by this client.
 A modifiers of 
-<function>AnyModifier </function>
+<function>AnyModifier</function>
 is
 equivalent to issuing 
 the ungrab request for all possible modifier combinations, including 
 the combination of no modifiers.
 A button of 
-<function>AnyButton </function>
+<function>AnyButton</function>
 is equivalent to issuing the
 request for all possible buttons.
 <function>XUngrabButton</function>
@@ -905,7 +905,7 @@ has no effect on an active grab.
 can generate
 <function>BadValue</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -945,7 +945,7 @@ To grab the keyboard, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XGrabKeyboard</function></funcdef>
+  <funcdef>int <function>XGrabKeyboard</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
@@ -994,7 +994,7 @@ are to be reported as usual.
       <para>
 Specifies further processing of pointer events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -1008,7 +1008,7 @@ or
       <para>
 Specifies further processing of keyboard events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -1047,15 +1047,15 @@ If owner_events is
 all generated key events are reported with
 respect to grab_window.  
 If owner_events is 
-<function>True  </function>
+<function>True</function>
 and if a generated
 key event would normally be reported to this client, it is reported
 normally; otherwise, the event is reported with respect to the
 grab_window.  
 Both 
-<function>KeyPress </function>
+<function>KeyPress</function>
 and 
-<function>KeyRelease </function>
+<function>KeyRelease</function>
 events are always reported,
 independent of any event selection made by the client.
 </para>
@@ -1072,7 +1072,7 @@ If the keyboard_mode  argument is
 the state of the keyboard (as seen by client applications) appears to freeze,
 and the X server generates no further keyboard events until the
 grabbing client issues a releasing 
-<function>XAllowEvents </function>
+<function>XAllowEvents</function>
 call or until the keyboard grab is released.
 Actual keyboard changes are not lost while the keyboard is frozen; 
 they are simply queued in the server for later processing.
@@ -1088,7 +1088,7 @@ If pointer_mode is
 the state of the pointer (as seen by client applications) appears to freeze, 
 and the X server generates no further pointer events 
 until the grabbing client issues a releasing 
-<function>XAllowEvents </function>
+<function>XAllowEvents</function>
 call or until the keyboard grab is released.
 Actual pointer changes are not lost while the pointer is frozen; 
 they are simply queued in the server for later processing.
@@ -1110,7 +1110,7 @@ or later than the current X server time,
 it fails and returns
 <function>GrabInvalidTime</function>.
 Otherwise, the last-keyboard-grab time is set to the specified time
-(<function>CurrentTime </function>
+(<function>CurrentTime</function>
 is replaced by the current X server time).
 </para>
 <para>
@@ -1119,7 +1119,7 @@ is replaced by the current X server time).
 can generate
 <function>BadValue</function>
 and 
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -1133,7 +1133,7 @@ To ungrab the keyboard, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUngrabKeyboard</function></funcdef>
+  <funcdef><function>XUngrabKeyboard</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Time<parameter> time</parameter></paramdef>
 </funcprototype>
@@ -1180,12 +1180,12 @@ does not release the keyboard and any queued events
 if the specified time is earlier than
 the last-keyboard-grab time or is later than the current X server time.
 It also generates
-<function>FocusIn </function>
+<function>FocusIn</function>
 and 
-<function>FocusOut </function>
+<function>FocusOut</function>
 events.
 The X server automatically performs an 
-<function>UngrabKeyboard </function>
+<function>UngrabKeyboard</function>
 request if the event window for an
 active keyboard grab becomes not viewable.
 </para>
@@ -1200,7 +1200,7 @@ To passively grab a single key of the keyboard, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGrabKey</function></funcdef>
+  <funcdef><function>XGrabKey</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> keycode</parameter></paramdef>
   <paramdef>unsignedint<parameter> modifiers</parameter></paramdef>
@@ -1273,7 +1273,7 @@ are to be reported as usual.
       <para>
 Specifies further processing of pointer events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
       </para>
@@ -1287,7 +1287,7 @@ or
       <para>
 Specifies further processing of keyboard events.
 You can pass 
-<function>GrabModeSync </function>
+<function>GrabModeSync</function>
 or
 <function>GrabModeAsync</function>.
     </para>
@@ -1371,7 +1371,7 @@ error results.
 If some other client has issued a 
 <function>XGrabKey</function>
 with the same key combination on the same window, a 
-<function>BadAccess </function>
+<function>BadAccess</function>
 error results.
 When using
 <function>AnyModifier</function>
@@ -1379,7 +1379,7 @@ or
 <function>AnyKey</function>,
 the request fails completely,
 and a
-<function>BadAccess </function>
+<function>BadAccess</function>
 error results (no grabs are established) 
 if there is a conflicting grab for any combination.
 </para>
@@ -1390,7 +1390,7 @@ can generate
 <function>BadAccess</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -1404,7 +1404,7 @@ To ungrab a key, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUngrabKey</function></funcdef>
+  <funcdef><function>XUngrabKey</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> keycode</parameter></paramdef>
   <paramdef>unsignedint<parameter> modifiers</parameter></paramdef>
@@ -1481,7 +1481,7 @@ is equivalent to issuing the request for all possible key codes.
 can generate
 <function>BadValue</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -1505,7 +1505,7 @@ To allow further events to be processed when the device has been frozen, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAllowEvents</function></funcdef>
+  <funcdef><function>XAllowEvents</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> event_mode</parameter></paramdef>
   <paramdef>Time<parameter> time</parameter></paramdef>
@@ -1579,25 +1579,25 @@ Depending on the event_mode argument, the following occurs:
       <entry>If the pointer is frozen by the client,
       pointer event processing continues as usual.
       If the pointer is frozen twice by the client on behalf of two separate grabs,
-      <function>AsyncPointer </function>
+      <function>AsyncPointer</function>
       thaws for both.
       <function>AsyncPointer</function>
       has no effect if the pointer is not frozen by the client,
       but the pointer need not be grabbed by the client.</entry>
     </row>
     <row>
-      <entry><function>SyncPointer </function></entry>
+      <entry><function>SyncPointer</function></entry>
       <entry>If the pointer is frozen and actively grabbed by the client,
       pointer event processing continues as usual until the next
-      <function>ButtonPress </function>
+      <function>ButtonPress</function>
       or
-      <function>ButtonRelease </function>
+      <function>ButtonRelease</function>
       event is reported to the client.
       At this time,
       the pointer again appears to freeze.
       However, if the reported event causes the pointer grab to be released,
       the pointer does not freeze.
-      <function>SyncPointer </function>
+      <function>SyncPointer</function>
       has no effect if the pointer is not frozen by the client
       or if the pointer is not grabbed by the client.</entry>
     </row>
@@ -1605,9 +1605,9 @@ Depending on the event_mode argument, the following occurs:
       <entry><function>ReplayPointer</function></entry>
       <entry>If the pointer is actively grabbed by the client and is frozen as the result of
       an event having been sent to the client (either from the activation of an
-      <function>XGrabButton </function>
+      <function>XGrabButton</function>
       or from a previous
-      <function>XAllowEvents </function>
+      <function>XAllowEvents</function>
       with mode
       <function>SyncPointer</function>
       but not from an 
@@ -1619,13 +1619,13 @@ Depending on the event_mode argument, the following occurs:
       or if the pointer is not frozen as the result of an event.</entry>
     </row>
     <row>
-      <entry><function>AsyncKeyboard </function></entry>
+      <entry><function>AsyncKeyboard</function></entry>
       <entry>If the keyboard is frozen by the client,
       keyboard event processing continues as usual.
       If the keyboard is frozen twice by the client on behalf of two separate grabs,
-      <function>AsyncKeyboard </function>
+      <function>AsyncKeyboard</function>
       thaws for both.
-      <function>AsyncKeyboard </function>
+      <function>AsyncKeyboard</function>
       has no effect if the keyboard is not frozen by the client,
       but the keyboard need not be grabbed by the client.</entry>
     </row>
@@ -1633,15 +1633,15 @@ Depending on the event_mode argument, the following occurs:
       <entry><function>SyncKeyboard</function></entry>
       <entry>If the keyboard is frozen and actively grabbed by the client,
       keyboard event processing continues as usual until the next
-      <function>KeyPress </function>
+      <function>KeyPress</function>
       or
-      <function>KeyRelease </function>
+      <function>KeyRelease</function>
       event is reported to the client.
       At this time,
       the keyboard again appears to freeze.
       However, if the reported event causes the keyboard grab to be released,
       the keyboard does not freeze.
-      <function>SyncKeyboard </function>
+      <function>SyncKeyboard</function>
       has no effect if the keyboard is not frozen by the client
       or if the keyboard is not grabbed by the client.</entry>
     </row>
@@ -1650,11 +1650,11 @@ Depending on the event_mode argument, the following occurs:
       <entry>If the keyboard is actively grabbed by the client and is frozen
       as the result of an event having been sent to the client (either from the
       activation of an
-      <function>XGrabKey </function>
+      <function>XGrabKey</function>
       or from a previous
-      <function>XAllowEvents </function>
+      <function>XAllowEvents</function>
       with mode
-      <function>SyncKeyboard </function>
+      <function>SyncKeyboard</function>
       but not from an 
       <function>XGrabKeyboard</function>),
       the keyboard grab is released and that event is completely reprocessed.
@@ -1672,7 +1672,7 @@ Depending on the event_mode argument, the following occurs:
       <function>ButtonRelease</function>,
       <function>KeyPress</function>,
       or 
-      <function>KeyRelease </function>
+      <function>KeyRelease</function>
       event is reported to the client for a grabbed device 
       (button event for the pointer, key event for the keyboard), 
       at which time the devices again appear to freeze.  
@@ -1685,9 +1685,9 @@ Depending on the event_mode argument, the following occurs:
       are frozen by the client.
       If the pointer or keyboard is frozen twice
       by the client on behalf of two separate grabs, 
-      <function>SyncBoth </function>
+      <function>SyncBoth</function>
       thaws for both (but a subsequent freeze for 
-      <function>SyncBoth </function>
+      <function>SyncBoth</function>
       will only freeze each device once).</entry>
     </row>
     <row>
@@ -1695,9 +1695,9 @@ Depending on the event_mode argument, the following occurs:
       <entry>If the pointer and the keyboard are frozen by the
       client, event processing for both devices continues as usual.
       If a device is frozen twice by the client on behalf of two separate grabs,
-      <function>AsyncBoth </function>
+      <function>AsyncBoth</function>
       thaws for both.
-      <function>AsyncBoth </function>
+      <function>AsyncBoth</function>
       has no effect unless both
       pointer and keyboard are frozen by the client.</entry>
     </row>
@@ -1710,13 +1710,13 @@ Depending on the event_mode argument, the following occurs:
 <function>AsyncPointer</function>,
 <function>SyncPointer</function>,
 and 
-<function>ReplayPointer </function>
+<function>ReplayPointer</function>
 have no effect on the
 processing of keyboard events.
 <function>AsyncKeyboard</function>,
 <function>SyncKeyboard</function>,
 and 
-<function>ReplayKeyboard </function>
+<function>ReplayKeyboard</function>
 have no effect on the
 processing of pointer events.
 It is possible for both a pointer grab and a keyboard grab (by the same 
@@ -1736,7 +1736,7 @@ releases both.
 <!-- .LP -->
 <function>XAllowEvents</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 </sect1>
@@ -1760,7 +1760,7 @@ To move the pointer to an arbitrary point in a window, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XWarpPointer</function></funcdef>
+  <funcdef><function>XWarpPointer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Windowsrc_w,<parameter> dest_w</parameter></paramdef>
   <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
@@ -1908,7 +1908,7 @@ confine_to window.
 <!-- .LP -->
 <function>XWarpPointer</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect1>
@@ -1934,7 +1934,7 @@ To set the input focus, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetInputFocus</function></funcdef>
+  <funcdef><function>XSetInputFocus</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> focus</parameter></paramdef>
   <paramdef>int<parameter> revert_to</parameter></paramdef>
@@ -2005,13 +2005,13 @@ function changes the input focus and the last-focus-change time.
 It has no effect if the specified time is earlier than the current
 last-focus-change time or is later than the current X server time.
 Otherwise, the last-focus-change time is set to the specified time
-(<function>CurrentTime </function>
+(<function>CurrentTime</function>
 is replaced by the current X server time).
 <function>XSetInputFocus</function>
 causes the X server to generate
-<function>FocusIn </function>
+<function>FocusIn</function>
 and 
-<function>FocusOut </function>
+<function>FocusOut</function>
 events.
 </para>
 <para>
@@ -2072,7 +2072,7 @@ and the new revert_to value is taken to be
   <listitem>
     <para>
 If revert_to is
-<function>RevertToPointerRoot </function>
+<function>RevertToPointerRoot</function>
 or 
 <function>RevertToNone</function>,
 the focus reverts to
@@ -2096,7 +2096,7 @@ can generate
 <function>BadMatch</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -2108,7 +2108,7 @@ To obtain the current input focus, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetInputFocus</function></funcdef>
+  <funcdef><function>XGetInputFocus</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> *focus_return</parameter></paramdef>
   <paramdef>int<parameter> *revert_to_return</parameter></paramdef>
@@ -2323,7 +2323,7 @@ If an error is generated, a subset of the controls may have been altered.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangeKeyboardControl</function></funcdef>
+  <funcdef><function>XChangeKeyboardControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedlong<parameter> value_mask</parameter></paramdef>
   <paramdef>XKeyboardControl<parameter> *values</parameter></paramdef>
@@ -2380,7 +2380,7 @@ The value_mask argument specifies which values are to be changed.
 can generate
 <function>BadMatch</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -2392,7 +2392,7 @@ To obtain the current control values for the keyboard, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetKeyboardControl</function></funcdef>
+  <funcdef><function>XGetKeyboardControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XKeyboardState<parameter> *values_return</parameter></paramdef>
 </funcprototype>
@@ -2416,7 +2416,7 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Returns the current keyboard controls in the specified
-<function>XKeyboardState </function>
+<function>XKeyboardState</function>
 structure.
     </para>
   </listitem>
@@ -2476,7 +2476,7 @@ To turn on keyboard auto-repeat, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAutoRepeatOn</function></funcdef>
+  <funcdef><function>XAutoRepeatOn</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2510,7 +2510,7 @@ To turn off keyboard auto-repeat, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAutoRepeatOff</function></funcdef>
+  <funcdef><function>XAutoRepeatOff</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2544,7 +2544,7 @@ To ring the bell, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XBell</function></funcdef>
+  <funcdef><function>XBell</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> percent</parameter></paramdef>
 </funcprototype>
@@ -2616,7 +2616,7 @@ To change the base volume of the bell, use
 <!-- .LP -->
 <function>XBell</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -2628,7 +2628,7 @@ To obtain a bit vector that describes the state of the keyboard, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XQueryKeymap</function></funcdef>
+  <funcdef><function>XQueryKeymap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> keys_return[32]</parameter></paramdef>
 </funcprototype>
@@ -2684,7 +2684,7 @@ To set the mapping of the pointer buttons, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XSetPointerMapping</function></funcdef>
+  <funcdef>int <function>XSetPointerMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedchar<parameter> map[]</parameter></paramdef>
   <paramdef>int<parameter> nmap</parameter></paramdef>
@@ -2760,7 +2760,7 @@ and the mapping is not changed.
 <!-- .LP -->
 <function>XSetPointerMapping</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -2772,7 +2772,7 @@ To get the pointer mapping, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XGetPointerMapping</function></funcdef>
+  <funcdef>int <function>XGetPointerMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>unsignedchar<parameter> map_return[]</parameter></paramdef>
   <paramdef>int<parameter> nmap</parameter></paramdef>
@@ -2835,7 +2835,7 @@ To control the pointer's interactive feel, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangePointerControl</function></funcdef>
+  <funcdef><function>XChangePointerControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Booldo_accel,<parameter> do_threshold</parameter></paramdef>
   <paramdef>intaccel_numerator,<parameter> accel_denominator</parameter></paramdef>
@@ -2924,7 +2924,7 @@ only takes effect if the pointer moves more than threshold pixels at
 once and only applies to the amount beyond the value in the threshold argument.
 Setting a value to -1 restores the default.
 The values of the do_accel and do_threshold arguments must be 
-<function>True </function>
+<function>True</function>
 for the pointer values to be set,
 or the parameters are unchanged.
 Negative values (other than -1) generate a
@@ -2936,7 +2936,7 @@ for the accel_denominator argument.
 <!-- .LP -->
 <function>XChangePointerControl</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -2948,7 +2948,7 @@ To get the current pointer parameters, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetPointerControl</function></funcdef>
+  <funcdef><function>XGetPointerControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int*accel_numerator_return,<parameter> *accel_denominator_return</parameter></paramdef>
   <paramdef>int<parameter> *threshold_return</parameter></paramdef>
@@ -3114,9 +3114,9 @@ modifier.  The
 <function>Lock</function>
 modifier is interpreted as ShiftLock when the KeySym named XK_Shift_Lock
 is attached to some KeyCode and that KeyCode is attached to the
-<function>Lock </function>
+<function>Lock</function>
 modifier.  If the
-<function>Lock </function>
+<function>Lock</function>
 modifier could be interpreted as both
 CapsLock and ShiftLock, the CapsLock interpretation is used.
 </para>
@@ -3125,7 +3125,7 @@ CapsLock and ShiftLock, the CapsLock interpretation is used.
 The operation of keypad keys is controlled by the KeySym named XK_Num_Lock,
 by attaching that KeySym to some KeyCode and attaching that KeyCode to any
 one of the modifiers
-<function>Mod1 </function>
+<function>Mod1</function>
 through
 <function>Mod5</function>.
 This modifier is called the
@@ -3146,9 +3146,9 @@ rule that is satisfied from the following list:
     <para>
 The numlock modifier is on and the second KeySym is a keypad KeySym.  In
 this case, if the
-<function>Shift </function>
+<function>Shift</function>
 modifier is on, or if the
-<function>Lock </function>
+<function>Lock</function>
 modifier is on and
 is interpreted as ShiftLock, then the first KeySym is used, otherwise the
 second KeySym is used.
@@ -3157,9 +3157,9 @@ second KeySym is used.
   <listitem>
     <para>
 The
-<function>Shift </function>
+<function>Shift</function>
 and
-<function>Lock </function>
+<function>Lock</function>
 modifiers are both off.  In this case, the first
 KeySym is used.
     </para>
@@ -3167,9 +3167,9 @@ KeySym is used.
   <listitem>
     <para>
 The
-<function>Shift </function>
+<function>Shift</function>
 modifier is off, and the
-<function>Lock </function>
+<function>Lock</function>
 modifier is on and is
 interpreted as CapsLock.  In this case, the first KeySym is used, but if
 that KeySym is lowercase alphabetic, then the corresponding uppercase
@@ -3179,9 +3179,9 @@ KeySym is used instead.
   <listitem>
     <para>
 The
-<function>Shift </function>
+<function>Shift</function>
 modifier is on, and the
-<function>Lock </function>
+<function>Lock</function>
 modifier is on and is interpreted
 as CapsLock.  In this case, the second KeySym is used, but if that KeySym
 is lowercase alphabetic, then the corresponding uppercase KeySym is used
@@ -3191,9 +3191,9 @@ instead.
   <listitem>
     <para>
 The
-<function>Shift </function>
+<function>Shift</function>
 modifier is on, or the
-<function>Lock </function>
+<function>Lock</function>
 modifier is on and is interpreted
 as ShiftLock, or both.  In this case, the second KeySym is used.
     </para>
@@ -3217,7 +3217,7 @@ To obtain the legal KeyCodes for a display, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDisplayKeycodes</function></funcdef>
+  <funcdef><function>XDisplayKeycodes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int*min_keycodes_return,<parameter> *max_keycodes_return</parameter></paramdef>
 </funcprototype>
@@ -3276,7 +3276,7 @@ To obtain the symbols for the specified KeyCodes, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>KeySym<function> *XGetKeyboardMapping</function></funcdef>
+  <funcdef>KeySym *<function>XGetKeyboardMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>KeyCode<parameter> first_keycode</parameter></paramdef>
   <paramdef>int<parameter> keycode_count</parameter></paramdef>
@@ -3339,7 +3339,7 @@ The value specified in first_keycode must be greater than
 or equal to min_keycode as returned by
 <function>XDisplayKeycodes</function>,
 or a
-<function>BadValue </function>
+<function>BadValue</function>
 error results.
 In addition, the following expression must be less than or equal 
 to max_keycode as returned by
@@ -3354,7 +3354,7 @@ first_keycode + keycode_count - 1
 <para>
 <!-- .LP -->
 If this is not the case, a 
-<function>BadValue </function>
+<function>BadValue</function>
 error results. 
 The number of elements in the KeySyms list is:
 </para>
@@ -3377,7 +3377,7 @@ in the list, counting from zero:
 The X server arbitrarily chooses the keysyms_per_keycode_return value 
 to be large enough to report all requested symbols. 
 A special KeySym value of 
-<function>NoSymbol </function>
+<function>NoSymbol</function>
 is used to fill in unused elements for
 individual KeyCodes.
 To free the storage returned by 
@@ -3389,7 +3389,7 @@ use
 <!-- .LP -->
 <function>XGetKeyboardMapping</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -3401,7 +3401,7 @@ To change the keyboard mapping, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangeKeyboardMapping</function></funcdef>
+  <funcdef><function>XChangeKeyboardMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> first_keycode</parameter></paramdef>
   <paramdef>int<parameter> keysyms_per_keycode</parameter></paramdef>
@@ -3486,13 +3486,13 @@ The specified first_keycode must be greater than or equal to min_keycode
 returned by
 <function>XDisplayKeycodes</function>,
 or a 
-<function>BadValue </function>
+<function>BadValue</function>
 error results.
 In addition, the following expression must be less than or equal to 
 max_keycode as returned by
 <function>XDisplayKeycodes</function>,
 or a
-<function>BadValue </function>
+<function>BadValue</function>
 error results:
 </para>
 <para>
@@ -3517,16 +3517,16 @@ in keysyms, counting from zero:
 The specified keysyms_per_keycode can be chosen arbitrarily by the client
 to be large enough to hold all desired symbols. 
 A special KeySym value of 
-<function>NoSymbol </function>
+<function>NoSymbol</function>
 should be used to fill in unused elements 
 for individual KeyCodes.  
 It is legal for 
-<function>NoSymbol </function>
+<function>NoSymbol</function>
 to appear in nontrailing positions
 of the effective list for a KeyCode.
 <function>XChangeKeyboardMapping</function>
 generates a 
-<function>MappingNotify </function>
+<function>MappingNotify</function>
 event.
 </para>
 <para>
@@ -3538,9 +3538,9 @@ It is merely stored for reading and writing by clients.
 <!-- .LP -->
 <function>XChangeKeyboardMapping</function>
 can generate
-<function>BadAlloc </function>
+<function>BadAlloc</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3573,7 +3573,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XModifierKeymap<function> *XNewModifiermap</function></funcdef>
+  <funcdef>XModifierKeymap *<function>XNewModifiermap</function></funcdef>
   <paramdef>int<parameter> max_keys_per_mod</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3612,7 +3612,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XModifierKeymap<function> *XInsertModifiermapEntry</function></funcdef>
+  <funcdef>XModifierKeymap *<function>XInsertModifiermapEntry</function></funcdef>
   <paramdef>XModifierKeymap<parameter> *modmap</parameter></paramdef>
   <paramdef>KeyCode<parameter> keycode_entry</parameter></paramdef>
   <paramdef>int<parameter> modifier</parameter></paramdef>
@@ -3675,7 +3675,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XModifierKeymap<function> *XDeleteModifiermapEntry</function></funcdef>
+  <funcdef>XModifierKeymap *<function>XDeleteModifiermapEntry</function></funcdef>
   <paramdef>XModifierKeymap<parameter> *modmap</parameter></paramdef>
   <paramdef>KeyCode<parameter> keycode_entry</parameter></paramdef>
   <paramdef>int<parameter> modifier</parameter></paramdef>
@@ -3738,7 +3738,7 @@ structure, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeModifiermap</function></funcdef>
+  <funcdef><function>XFreeModifiermap</function></funcdef>
   <paramdef>XModifierKeymap<parameter> *modmap</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3776,7 +3776,7 @@ To set the KeyCodes to be used as modifiers, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>int<function> XSetModifierMapping</function></funcdef>
+  <funcdef>int <function>XSetModifierMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XModifierKeymap<parameter> *modmap</parameter></paramdef>
 </funcprototype>
@@ -3847,10 +3847,10 @@ Only nonzero KeyCodes have meaning in each set,
 and zero KeyCodes are ignored.
 In addition, all of the nonzero KeyCodes must be in the range specified by 
 min_keycode and max_keycode in the 
-<function>Display </function>
+<function>Display</function>
 structure,
 or a 
-<function>BadValue </function>
+<function>BadValue</function>
 error results.
 </para>
 <para>
@@ -3878,7 +3878,7 @@ and none of the modifiers is changed.
 can generate
 <function>BadAlloc</function>
 and 
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -3890,7 +3890,7 @@ To obtain the KeyCodes used as modifiers, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XModifierKeymap<function> *XGetModifierMapping</function></funcdef>
+  <funcdef>XModifierKeymap *<function>XGetModifierMapping</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

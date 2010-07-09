@@ -33,7 +33,7 @@ There is no way to move a window between screens.
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XReparentWindow</function></funcdef>
+  <funcdef><function>XReparentWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>Window<parameter> parent</parameter></paramdef>
@@ -130,7 +130,7 @@ request on it.
 The X server performs normal exposure processing on formerly obscured
 windows.
 The X server might not generate 
-<function>Expose </function>
+<function>Expose</function>
 events for regions from the initial
 <function>UnmapWindow</function>
 request that are immediately obscured by the final
@@ -175,7 +175,7 @@ specified window.
 can generate
 <function>BadMatch</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -217,7 +217,7 @@ To add or remove a window from the client's save-set, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XChangeSaveSet</function></funcdef>
+  <funcdef><function>XChangeSaveSet</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> change_mode</parameter></paramdef>
@@ -254,7 +254,7 @@ Specifies the window (Wi.
       <para>
 Specifies the mode.
 You can pass
-<function>SetModeInsert </function>
+<function>SetModeInsert</function>
 or
 <function>SetModeDelete</function>.
     </para>
@@ -280,7 +280,7 @@ can generate
 <function>BadMatch</function>,
 <function>BadValue</function>,
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -292,7 +292,7 @@ To add a window to the client's save-set, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAddToSaveSet</function></funcdef>
+  <funcdef><function>XAddToSaveSet</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
 </funcprototype>
@@ -339,7 +339,7 @@ error results.
 can generate
 <function>BadMatch</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 <para>
@@ -351,7 +351,7 @@ To remove a window from the client's save-set, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XRemoveFromSaveSet</function></funcdef>
+  <funcdef><function>XRemoveFromSaveSet</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
 </funcprototype>
@@ -396,9 +396,9 @@ error results.
 <!-- .LP -->
 <function>XRemoveFromSaveSet</function>
 can generate
-<function>BadMatch </function>
+<function>BadMatch</function>
 and
-<function>BadWindow </function>
+<function>BadWindow</function>
 errors.
 </para>
 </sect1>
@@ -448,7 +448,7 @@ To install a colormap, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XInstallColormap</function></funcdef>
+  <funcdef><function>XInstallColormap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
 </funcprototype>
@@ -509,7 +509,7 @@ event on each window that has that colormap.
 <!-- .LP -->
 <function>XInstallColormap</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 </para>
 <para>
@@ -521,7 +521,7 @@ To uninstall a colormap, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUninstallColormap</function></funcdef>
+  <funcdef><function>XUninstallColormap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
 </funcprototype>
@@ -580,7 +580,7 @@ event on each window that has that colormap.
 <!-- .LP -->
 <function>XUninstallColormap</function>
 can generate a
-<function>BadColor </function>
+<function>BadColor</function>
 error.
 </para>
 <para>
@@ -592,7 +592,7 @@ To obtain a list of the currently installed colormaps for a given screen, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>Colormap<function> *XListInstalledColormaps</function></funcdef>
+  <funcdef>Colormap *<function>XListInstalledColormaps</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int<parameter> *num_return</parameter></paramdef>
@@ -650,7 +650,7 @@ free it by using
 <!-- .LP -->
 <function>XListInstalledColormaps</function>
 can generate a
-<function>BadWindow </function>
+<function>BadWindow</function>
 error.
 </para>
 </sect1>
@@ -674,7 +674,7 @@ To set the font search path, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetFontPath</function></funcdef>
+  <funcdef><function>XSetFontPath</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> **directories</parameter></paramdef>
   <paramdef>int<parameter> ndirs</parameter></paramdef>
@@ -740,7 +740,7 @@ The meaning of an error from this request is implementation-dependent.
 <!-- .LP -->
 <function>XSetFontPath</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -752,7 +752,7 @@ To get the current font search path, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>char<function> **XGetFontPath</function></funcdef>
+  <funcdef>char **<function>XGetFontPath</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> *npaths_return</parameter></paramdef>
 </funcprototype>
@@ -804,7 +804,7 @@ use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XFreeFontPath</function></funcdef>
+  <funcdef><function>XFreeFontPath</function></funcdef>
   <paramdef>char<parameter> **list</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -860,7 +860,7 @@ To grab the server, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGrabServer</function></funcdef>
+  <funcdef><function>XGrabServer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -896,7 +896,7 @@ To ungrab the server, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XUngrabServer</function></funcdef>
+  <funcdef><function>XUngrabServer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -938,7 +938,7 @@ To destroy a client, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XKillClient</function></funcdef>
+  <funcdef><function>XKillClient</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XID<parameter> resource</parameter></paramdef>
 </funcprototype>
@@ -979,15 +979,15 @@ that created the resource
 if a valid resource is specified.
 If the client has already terminated in
 either 
-<function>RetainPermanent </function>
+<function>RetainPermanent</function>
 or 
-<function>RetainTemporary </function>
+<function>RetainTemporary</function>
 mode, all of the client's
 resources are destroyed.
 If 
-<function>AllTemporary </function>
+<function>AllTemporary</function>
 is specified, the resources of all clients that have terminated in
-<function>RetainTemporary </function>
+<function>RetainTemporary</function>
 are destroyed (see section 2.5).
 This permits implementation of window manager facilities that aid debugging.
 A client can set its close-down mode to
@@ -1001,7 +1001,7 @@ and use the window manager to destroy the zombie windows.
 <!-- .LP -->
 <function>XKillClient</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 </sect1>
@@ -1025,7 +1025,7 @@ To set the screen saver mode, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetScreenSaver</function></funcdef>
+  <funcdef><function>XSetScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>inttimeout,<parameter> interval</parameter></paramdef>
   <paramdef>int<parameter> prefer_blanking</parameter></paramdef>
@@ -1121,7 +1121,7 @@ if blanking is preferred and the hardware supports video blanking,
 the screen simply goes blank.  
 Otherwise, if either exposures are allowed or the screen can be regenerated 
 without sending 
-<function>Expose </function>
+<function>Expose</function>
 events to clients, 
 the screen is tiled with the root window background tile randomly 
 re-origined each interval seconds.
@@ -1148,7 +1148,7 @@ periodically.
 <!-- .LP -->
 <function>XSetScreenSaver</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -1160,7 +1160,7 @@ To force the screen saver on or off, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XForceScreenSaver</function></funcdef>
+  <funcdef><function>XForceScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> mode</parameter></paramdef>
 </funcprototype>
@@ -1197,13 +1197,13 @@ or
 <!-- .LP -->
 <!-- .eM -->
 If the specified mode is 
-<function>ScreenSaverActive </function>
+<function>ScreenSaverActive</function>
 and the screen saver currently is deactivated,
 <function>XForceScreenSaver</function>
 activates the screen saver even if the screen saver had been disabled
 with a timeout of zero.
 If the specified mode is 
-<function>ScreenSaverReset </function>
+<function>ScreenSaverReset</function>
 and the screen saver currently is enabled,
 <function>XForceScreenSaver</function>
 deactivates the screen saver if it was activated,
@@ -1214,7 +1214,7 @@ and the activation timer is reset to its initial state
 <!-- .LP -->
 <function>XForceScreenSaver</function>
 can generate a
-<function>BadValue </function>
+<function>BadValue</function>
 error.
 </para>
 <para>
@@ -1226,7 +1226,7 @@ To activate the screen saver, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XActivateScreenSaver</function></funcdef>
+  <funcdef><function>XActivateScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1254,7 +1254,7 @@ To reset the screen saver, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XResetScreenSaver</function></funcdef>
+  <funcdef><function>XResetScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1282,7 +1282,7 @@ To get the current screen saver values, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XGetScreenSaver</function></funcdef>
+  <funcdef><function>XGetScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int*timeout_return,<parameter> *interval_return</parameter></paramdef>
   <paramdef>int<parameter> *prefer_blanking_return</parameter></paramdef>
@@ -1405,7 +1405,7 @@ The host the window system is running on.
   <listitem>
     <para>
 On <acronym>POSIX</acronym>-conformant systems, each host listed in the
-<function>/etc/X?.hosts </function>
+<function>/etc/X?.hosts</function>
 file.
 The ? indicates the number of the
 display.
@@ -1442,7 +1442,7 @@ see ``X Window System Protocol.''
 Xlib provides functions that you can use to add, get, or remove hosts
 from the access control list.
 All the host access control functions use the 
-<function>XHostAddress </function>
+<function>XHostAddress</function>
 structure, which contains:
 </para>
 <para>
@@ -1529,7 +1529,7 @@ To add a single host, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAddHost</function></funcdef>
+  <funcdef><function>XAddHost</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XHostAddress<parameter> *host</parameter></paramdef>
 </funcprototype>
@@ -1575,7 +1575,7 @@ error results.
 can generate
 <function>BadAccess</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1587,7 +1587,7 @@ To add multiple hosts at one time, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XAddHosts</function></funcdef>
+  <funcdef><function>XAddHosts</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XHostAddress<parameter> *hosts</parameter></paramdef>
   <paramdef>int<parameter> num_hosts</parameter></paramdef>
@@ -1644,7 +1644,7 @@ error results.
 can generate
 <function>BadAccess</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1656,7 +1656,7 @@ To obtain a host list, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef>XHostAddress<function> *XListHosts</function></funcdef>
+  <funcdef>XHostAddress *<function>XListHosts</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> *nhosts_return</parameter></paramdef>
   <paramdef>Bool<parameter> *state_return</parameter></paramdef>
@@ -1720,7 +1720,7 @@ To remove a single host, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XRemoveHost</function></funcdef>
+  <funcdef><function>XRemoveHost</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XHostAddress<parameter> *host</parameter></paramdef>
 </funcprototype>
@@ -1770,7 +1770,7 @@ and this operation cannot be reversed unless you reset the server.
 can generate
 <function>BadAccess</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1782,7 +1782,7 @@ To remove multiple hosts at one time, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XRemoveHosts</function></funcdef>
+  <funcdef><function>XRemoveHosts</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XHostAddress<parameter> *hosts</parameter></paramdef>
   <paramdef>int<parameter> num_hosts</parameter></paramdef>
@@ -1843,7 +1843,7 @@ and this operation cannot be reversed unless you reset the server.
 can generate
 <function>BadAccess</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 </sect2>
@@ -1873,7 +1873,7 @@ To change access control, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XSetAccessControl</function></funcdef>
+  <funcdef><function>XSetAccessControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> mode</parameter></paramdef>
 </funcprototype>
@@ -1920,7 +1920,7 @@ at each connection setup.
 can generate
 <function>BadAccess</function>
 and
-<function>BadValue </function>
+<function>BadValue</function>
 errors.
 </para>
 <para>
@@ -1932,7 +1932,7 @@ To enable access control, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XEnableAccessControl</function></funcdef>
+  <funcdef><function>XEnableAccessControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1961,7 +1961,7 @@ function enables the use of the access control list at each connection setup.
 <!-- .LP -->
 <function>XEnableAccessControl</function>
 can generate a
-<function>BadAccess </function>
+<function>BadAccess</function>
 error.
 </para>
 <para>
@@ -1973,7 +1973,7 @@ To disable access control, use
 <!-- .sM -->
 <funcsynopsis>
 <funcprototype>
-  <funcdef><function> XDisableAccessControl</function></funcdef>
+  <funcdef><function>XDisableAccessControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2002,7 +2002,7 @@ function disables the use of the access control list at each connection setup.
 <!-- .LP -->
 <function>XDisableAccessControl</function>
 can generate a
-<function>BadAccess </function>
+<function>BadAccess</function>
 error.
 <!-- .bp -->
 

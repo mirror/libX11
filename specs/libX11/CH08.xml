@@ -124,7 +124,7 @@ Specify the width and height(Wh.
     <listitem>
       <para>
 Specifies a Boolean value that indicates if
-<function>Expose</function>
+<symbol>Expose</symbol>
 events are to be generated.
     </para>
   </listitem>
@@ -139,7 +139,7 @@ The
 function paints a rectangular area in the specified window according to the
 specified dimensions with the window's background pixel or pixmap.
 The subwindow-mode effectively is
-<function>ClipByChildren</function>.
+<symbol>ClipByChildren</symbol>.
 If width is zero, it
 is replaced with the current width of the window minus x.
 If height is
@@ -148,29 +148,29 @@ If the window has a defined background tile,
 the rectangle clipped by any children is filled with this tile.
 If the window has
 background 
-<function>None</function>,
+<symbol>None</symbol>,
 the contents of the window are not changed.  
 In either
 case, if exposures is 
-<function>True</function>,
+<symbol>True</symbol>,
 one or more 
-<function>Expose</function>
+<symbol>Expose</symbol>
 events are generated for regions of the rectangle that are either visible or are
 being retained in a backing store.
 If you specify a window whose class is
-<function>InputOnly</function>,
+<symbol>InputOnly</symbol>,
 a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 </para>
 <para>
 <!-- .LP -->
 <function>XClearArea</function>
 can generate
-<function>BadMatch</function>,
-<function>BadValue</function>,
+<errorname>BadMatch</errorname>,
+<errorname>BadValue</errorname>,
 and
-<function>BadWindow</function>
+<errorname>BadWindow</errorname>
 errors.
 </para>
 <para>
@@ -222,28 +222,28 @@ function clears the entire area in the specified window and is
 equivalent to
 <function>XClearArea</function>
 (display, w, 0, 0, 0, 0, 
-<function>False</function>).
+<symbol>False</symbol>).
 If the window has a defined background tile, the rectangle is tiled with a
 plane-mask of all ones and 
-<function>GXcopy</function>
+<symbol>GXcopy</symbol>
 function.
 If the window has
 background 
-<function>None</function>,
+<symbol>None</symbol>,
 the contents of the window are not changed.  
 If you specify a window whose class is
-<function>InputOnly</function>,
+<symbol>InputOnly</symbol>,
 a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results. 
 </para>
 <para>
 <!-- .LP -->
 <function>XClearWindow</function>
 can generate
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 and
-<function>BadWindow</function>
+<errorname>BadWindow</errorname>
 errors.
 </para>
 </sect1>
@@ -400,7 +400,7 @@ function combines the specified rectangle of src with the specified rectangle
 of dest.
 The drawables must have the same root and depth,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 </para>
 <para>
@@ -413,27 +413,27 @@ Instead, the
 following occurs on all corresponding destination regions that are either
 visible or are retained in backing store.  
 If the destination is a window with a background other than 
-<function>None</function>,
+<symbol>None</symbol>,
 corresponding regions
 of the destination are tiled with that background
 (with plane-mask of all ones and
-<function>GXcopy</function>
+<symbol>GXcopy</symbol>
 function).
 Regardless of tiling or whether the destination is a window or a pixmap,
 if graphics-exposures is 
-<function>True</function>,
+<symbol>True</symbol>,
 then
-<function>GraphicsExpose</function>
+<symbol>GraphicsExpose</symbol>
 events for all corresponding destination regions are generated.
 If graphics-exposures is 
-<function>True</function>
+<symbol>True</symbol>
 but no
-<function>GraphicsExpose</function>
+<symbol>GraphicsExpose</symbol>
 events are generated, a
-<function>NoExpose</function>
+<symbol>NoExpose</symbol>
 event is generated.
 Note that by default graphics-exposures is
-<function>True</function>
+<symbol>True</symbol>
 in new GCs.
 </para>
 <para>
@@ -446,10 +446,10 @@ clip-y-origin, and clip-mask.
 <!-- .LP -->
 <function>XCopyArea</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 <!-- .sp -->
 </para>
@@ -606,11 +606,11 @@ function uses a single bit plane of the specified source rectangle
 combined with the specified GC to modify the specified rectangle of dest.
 The drawables must have the same root but need not have the same depth.
 If the drawables do not have the same root, a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 If plane does not have exactly one bit set to 1 and the value of plane
 is not less than %2 sup n%, where <emphasis remap='I'>n</emphasis> is the depth of src, a
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 error results.
 </para>
 <para>
@@ -623,11 +623,11 @@ It uses the foreground/background pixels in the GC (foreground
 everywhere the bit plane in src contains a bit set to 1,
 background everywhere the bit plane in src contains a bit set to 0)
 and the equivalent of a 
-<function>CopyArea</function>
+<systemitem>CopyArea</systemitem>
 protocol request is performed with all the same exposure semantics.
 This can also be thought of as using the specified region of the source 
 bit plane as a stipple with a fill-style of
-<function>FillOpaqueStippled</function>
+<symbol>FillOpaqueStippled</symbol>
 for filling a rectangular area of the destination.
 </para>
 <para>
@@ -640,11 +640,11 @@ and clip-mask.
 <!-- .LP -->
 <function>XCopyPlane</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
+<errorname>BadMatch</errorname>,
 and 
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 </para>
 </sect1>
@@ -908,9 +908,9 @@ Specifies the number of points in the array.
       <para>
 Specifies the coordinate mode. 
 You can pass
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 or
-<function>CoordModePrevious</function>.
+<symbol>CoordModePrevious</symbol>.
     </para>
   </listitem>
   </varlistentry>
@@ -925,10 +925,10 @@ function uses the foreground pixel and function components of the
 GC to draw a single point into the specified drawable; 
 <function>XDrawPoints</function>
 draws multiple points this way.
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 treats all coordinates as relative to the origin,
 and
-<function>CoordModePrevious</function>
+<symbol>CoordModePrevious</symbol>
 treats all coordinates after the first as relative to the previous point.
 <function>XDrawPoints</function>
 draws the points in the order listed in the array.
@@ -942,18 +942,18 @@ foreground, subwindow-mode, clip-x-origin, clip-y-origin, and clip-mask.
 <!-- .LP -->
 <function>XDrawPoint</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and 
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 <function>XDrawPoints</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 </para>
 </sect2>
@@ -1143,9 +1143,9 @@ Specifies the number of points in the array.
       <para>
 Specifies the coordinate mode. 
 You can pass
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 or
-<function>CoordModePrevious</function>.
+<symbol>CoordModePrevious</symbol>.
     </para>
   </listitem>
   </varlistentry>
@@ -1244,7 +1244,7 @@ The
 function uses the components of the specified GC to draw 
 npoints-1 lines between each pair of points (point[i], point[i+1]) 
 in the array of
-<function>XPoint</function>
+<structname>XPoint</structname>
 structures.
 It draws the lines in the order listed in the array.
 The lines join correctly at all intermediate points, and if the first and last
@@ -1256,12 +1256,12 @@ If thin (zero line-width) lines intersect,
 the intersecting pixels are drawn multiple times.
 If wide lines intersect, the intersecting pixels are drawn only once, as though
 the entire 
-<function>PolyLine</function>
+<systemitem>PolyLine</systemitem>
 protocol request were a single, filled shape.
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 treats all coordinates as relative to the origin,
 and
-<function>CoordModePrevious</function>
+<symbol>CoordModePrevious</symbol>
 treats all coordinates after the first as relative to the previous point.
 </para>
 <para>
@@ -1274,7 +1274,7 @@ For each segment,
 draws a
 line between (x1, y1) and (x2, y2).
 It draws the lines in the order listed in the array of
-<function>XSegment</function>
+<structname>XSegment</structname>
 structures and does not perform joining at coincident endpoints.
 For any given line, 
 <function>XDrawSegments</function>
@@ -1301,14 +1301,14 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 and
 <function>XDrawSegments</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 <function>XDrawLines</function>
 also can generate
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 </para>
 </sect2>
@@ -1500,7 +1500,7 @@ and
 <function>XDrawRectangles</function>
 functions draw the outlines of the specified rectangle or rectangles as
 if a five-point 
-<function>PolyLine</function>
+<systemitem>PolyLine</systemitem>
 protocol request were specified for each rectangle:
 </para>
 <itemizedlist>
@@ -1535,10 +1535,10 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 and
 <function>XDrawRectangles</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -1866,10 +1866,10 @@ tile-stipple-y-origin, dash-offset, and dash-list.
 and
 <function>XDrawArcs</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -2089,7 +2089,7 @@ and
 <function>XFillRectangles</function>
 functions fill the specified rectangle or rectangles
 as if a four-point 
-<function>FillPolygon</function>
+<systemitem>FillPolygon</systemitem>
 protocol request were specified for each rectangle:
 </para>
 <para>
@@ -2130,10 +2130,10 @@ and tile-stipple-y-origin.
 and
 <function>XFillRectangles</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -2223,10 +2223,10 @@ Specifies the number of points in the array.
       <para>
 Specifies a shape that helps the server to improve performance.
 You can pass 
-<function>Complex</function>,
-<function>Convex</function>,
+<symbol>Complex</symbol>,
+<symbol>Convex</symbol>,
 or 
-<function>Nonconvex</function>.
+<symbol>Nonconvex</symbol>.
       </para>
     </listitem>
   </varlistentry>
@@ -2238,9 +2238,9 @@ or
       <para>
 Specifies the coordinate mode. 
 You can pass
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 or
-<function>CoordModePrevious</function>.
+<symbol>CoordModePrevious</symbol>.
     </para>
   </listitem>
   </varlistentry>
@@ -2256,10 +2256,10 @@ automatically if the last point in the list does not coincide with the
 first point.
 <function>XFillPolygon</function>
 does not draw a pixel of the region more than once.
-<function>CoordModeOrigin</function>
+<symbol>CoordModeOrigin</symbol>
 treats all coordinates as relative to the origin,
 and
-<function>CoordModePrevious</function>
+<symbol>CoordModePrevious</symbol>
 treats all coordinates after the first as relative to the previous point.
 </para>
 <para>
@@ -2270,7 +2270,7 @@ Depending on the specified shape, the following occurs:
   <listitem>
     <para>
 If shape is
-<function>Complex</function>,
+<symbol>Complex</symbol>,
 the path may self-intersect. 
 Note that contiguous coincident points in the path are not treated 
 as self-intersection.
@@ -2279,15 +2279,15 @@ as self-intersection.
   <listitem>
     <para>
 If shape is
-<function>Convex</function>,
+<symbol>Convex</symbol>,
 for every pair of points inside the polygon,
 the line segment connecting them does not intersect the path.
 If known by the client,
 specifying 
-<function>Convex</function>
+<symbol>Convex</symbol>
 can improve performance.  
 If you specify
-<function>Convex</function>
+<symbol>Convex</symbol>
 for a path that is not convex, 
 the graphics results are undefined.
     </para>
@@ -2295,17 +2295,17 @@ the graphics results are undefined.
   <listitem>
     <para>
 If shape is
-<function>Nonconvex</function>,
+<symbol>Nonconvex</symbol>,
 the path does not self-intersect, but the shape is not
 wholly convex. 
 If known by the client, 
 specifying 
-<function>Nonconvex</function>
+<symbol>Nonconvex</symbol>
 instead of
-<function>Complex</function>
+<symbol>Complex</symbol>
 may improve performance.  
 If you specify
-<function>Nonconvex</function>
+<symbol>Nonconvex</symbol>
 for a self-intersecting path, the graphics results are undefined.
     </para>
   </listitem>
@@ -2328,11 +2328,11 @@ and tile-stipple-y-origin.
 <!-- .LP -->
 <function>XFillPolygon</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 </para>
 </sect2>
@@ -2545,10 +2545,10 @@ fills the region closed by the infinitely thin path
 described by the specified arc and, depending on the 
 arc-mode specified in the GC, one or two line segments. 
 For 
-<function>ArcChord</function>,
+<symbol>ArcChord</symbol>,
 the single line segment joining the endpoints of the arc is used.  
 For 
-<function>ArcPieSlice</function>,
+<symbol>ArcPieSlice</symbol>,
 the two line segments joining the endpoints of the arc with the center
 point are used.  
 <function>XFillArcs</function>
@@ -2576,10 +2576,10 @@ and tile-stipple-y-origin.
 and
 <function>XFillArcs</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -2649,18 +2649,18 @@ This means that it makes sense to draw text using stipples or tiles
 <!-- .LP -->
 <!-- .sM -->
 The
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure contains all of the information for the font
 and consists of the font-specific information as well as
 a pointer to an array of
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structures for the
 characters contained in the font.
 The
-<function>XFontStruct</function>,
-<function>XFontProp</function>,
+<structname>XFontStruct</structname>,
+<structname>XFontProp</structname>,
 and
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structures contain:
 </para>
 <para>
@@ -2746,35 +2746,35 @@ specified in the structure defines a range of characters.
 <para>
 <!-- .LP -->
 The bounding box of a character is defined by the 
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 of that character.
 When characters are absent from a font,
 the default_char is used.
 When fonts have all characters of the same size,
 only the information in the
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 min and max bounds are used.
 </para>
 <para>
 <!-- .LP -->
 The members of the 
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 have the following semantics:
 </para>
 <itemizedlist>
   <listitem>
     <para>
 The direction member can be either 
-<function>FontLeftToRight</function>
+<symbol>FontLeftToRight</symbol>
 or 
-<function>FontRightToLeft</function>.
+<symbol>FontRightToLeft</symbol>.
 It is just a hint as to whether most 
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 elements 
 have a positive 
-(<function>FontLeftToRight</function>)
+(<symbol>FontLeftToRight</symbol>)
 or a negative 
-(<function>FontRightToLeft</function>)
+(<symbol>FontRightToLeft</symbol>)
 character width 
 metric.
 The core protocol defines no support for vertical text.
@@ -2830,7 +2830,7 @@ as given by both min_bounds and max_bounds.
   <listitem>
     <para>
 If all_chars_exist is 
-<function>True</function>,
+<symbol>True</symbol>,
 all characters in the per_char array have nonzero bounding boxes.
     </para>
   </listitem>
@@ -2850,7 +2850,7 @@ no printing is performed for an undefined or nonexistent character.
     <para>
 The min_bounds and max_bounds members contain the most extreme values of
 each individual 
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 component over all elements of this array
 (and ignore nonexistent characters).
 The bounding box of the font (the smallest
@@ -2909,7 +2909,7 @@ For a character origin at [x,y],
 the bounding box of a character (that is, 
 the smallest rectangle that encloses the character's shape)
 described in terms of 
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 components is a rectangle with its upper-left corner at:
 </para>
 <para>
@@ -2971,7 +2971,7 @@ a nonkerned character.
 When lbearing is zero,
 no pixels with X-coordinate less than x are drawn.
 Any of the
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 metric members could be negative.
 If the width is negative,
 the next character will be placed to the left of the current origin.
@@ -2980,10 +2980,10 @@ the next character will be placed to the left of the current origin.
 <!-- .LP -->
 The X protocol does not define the interpretation of the attributes member 
 in the
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure.
 A nonexistent character is represented with all members of its
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 set to zero.
 </para>
 <para>
@@ -3007,7 +3007,7 @@ unload fonts, and free font information.
 <indexterm><primary>Fonts</primary><secondary>unloading</secondary></indexterm>
 <indexterm><primary>Fonts</primary><secondary>freeing font information</secondary></indexterm>
 A few font functions use a 
-<function>GContext</function>
+<type>GContext</type>
 resource ID or a font ID interchangeably.
 </para>
 <para>
@@ -3069,7 +3069,7 @@ If
 <function>XLoadFont</function>
 was unsuccessful at loading the specified font, 
 a 
-<function>BadName</function>
+<errorname>BadName</errorname>
 error results.
 Fonts are not associated with a particular screen 
 and can be stored as a component
@@ -3081,9 +3081,9 @@ When the font is no longer needed, call
 <!-- .LP -->
 <function>XLoadFont</function>
 can generate
-<function>BadAlloc</function>
+<errorname>BadAlloc</errorname>
 and
-<function>BadName</function>
+<errorname>BadName</errorname>
 errors.
 </para>
 <para>
@@ -3119,7 +3119,7 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Specifies the font ID or the 
-<function>GContext</function>
+<type>GContext</type>
 ID.
     </para>
   </listitem>
@@ -3132,13 +3132,13 @@ ID.
 The
 <function>XQueryFont</function>
 function returns a pointer to the
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure, which contains information associated with the font.
 You can query a font or the font stored in a GC.
 The font ID stored in the 
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure will be the 
-<function>GContext</function>
+<type>GContext</type>
 ID, and you need to be careful when using this ID in other functions
 (see
 <function>XGContextFromGC</function>).
@@ -3200,7 +3200,7 @@ function provides the most common way for accessing a font.
 <function>XLoadQueryFont</function>
 both opens (loads) the specified font and returns a pointer to the
 appropriate
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
 If the font name is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
@@ -3212,7 +3212,7 @@ returns NULL.
 <!-- .LP -->
 <function>XLoadQueryFont</function>
 can generate a
-<function>BadAlloc</function>
+<errorname>BadAlloc</errorname>
 error.
 </para>
 <para>
@@ -3265,7 +3265,7 @@ The
 <function>XFreeFont</function>
 function deletes the association between the font resource ID and the specified 
 font and frees the
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
 The font itself will be freed when no other resource references it.
 The data and the font should not be referenced again.
@@ -3274,7 +3274,7 @@ The data and the font should not be referenced again.
 <!-- .LP -->
 <function>XFreeFont</function>
 can generate a
-<function>BadFont</function>
+<errorname>BadFont</errorname>
 error.
 </para>
 <para>
@@ -3335,9 +3335,9 @@ the
 function returns the value of the specified font property. 
 <function>XGetFontProperty</function>
 also returns 
-<function>False</function>
+<symbol>False</symbol>
 if the property was not defined or 
-<function>True</function>
+<symbol>True</symbol>
 if it was defined.
 A set of predefined atoms exists for font properties,
 which can be found in
@@ -3400,7 +3400,7 @@ The font should not be referenced again.
 <!-- .LP -->
 <function>XUnloadFont</function>
 can generate a
-<function>BadFont</function>
+<errorname>BadFont</errorname>
 error.
 </para>
 </sect2>
@@ -3864,7 +3864,7 @@ To compute the bounding box of an 8-bit character string in a given font, use
     <listitem>
       <para>
 Specifies the 
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
       </para>
     </listitem>
@@ -3896,9 +3896,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-(<function>FontLeftToRight</function>
+(<symbol>FontLeftToRight</symbol>
 or
-<function>FontRightToLeft</function>).
+<symbol>FontRightToLeft</symbol>).
       </para>
     </listitem>
   </varlistentry>
@@ -3929,7 +3929,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure.
     </para>
   </listitem>
@@ -3964,7 +3964,7 @@ To compute the bounding box of a 2-byte character string in a given font, use
     <listitem>
       <para>
 Specifies the 
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
       </para>
     </listitem>
@@ -3996,9 +3996,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-(<function>FontLeftToRight</function>
+(<symbol>FontLeftToRight</symbol>
 or
-<function>FontRightToLeft</function>).
+<symbol>FontRightToLeft</symbol>).
       </para>
     </listitem>
   </varlistentry>
@@ -4029,7 +4029,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure.
     </para>
   </listitem>
@@ -4050,7 +4050,7 @@ avoid the round-trip overhead of
 and
 <function>XQueryTextExtents16</function>.
 Both functions return an
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure, whose members are set to the values as follows.
 </para>
 <para>
@@ -4072,7 +4072,7 @@ The rbearing member is set to the maximum R.
 <!-- .LP -->
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
 each 
-<function>XChar2b</function>
+<structname>XChar2b</structname>
 structure is interpreted as a 16-bit number with byte1 as the 
 most significant byte.
 If the font has no defined default character,
@@ -4122,7 +4122,7 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Specifies either the font ID or the 
-<function>GContext</function>
+<type>GContext</type>
 ID that contains the font.
       </para>
     </listitem>
@@ -4154,9 +4154,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-(<function>FontLeftToRight</function>
+(<symbol>FontLeftToRight</symbol>
 or
-<function>FontRightToLeft</function>).
+<symbol>FontRightToLeft</symbol>).
       </para>
     </listitem>
   </varlistentry>
@@ -4187,7 +4187,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure.
     </para>
   </listitem>
@@ -4234,7 +4234,7 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Specifies either the font ID or the 
-<function>GContext</function>
+<type>GContext</type>
 ID that contains the font.
       </para>
     </listitem>
@@ -4266,9 +4266,9 @@ Specifies the number of characters in the character string.
     <listitem>
       <para>
 Returns the value of the direction hint
-(<function>FontLeftToRight</function>
+(<symbol>FontLeftToRight</symbol>
 or
-<function>FontRightToLeft</function>).
+<symbol>FontRightToLeft</symbol>).
       </para>
     </listitem>
   </varlistentry>
@@ -4299,7 +4299,7 @@ Returns the font descent.
     <listitem>
       <para>
 Returns the overall size in the specified
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure.
     </para>
   </listitem>
@@ -4322,7 +4322,7 @@ overhead that is avoided by
 and 
 <function>XTextExtents16</function>.
 Both functions return a
-<function>XCharStruct</function>
+<structname>XCharStruct</structname>
 structure, whose members are set to the values as follows.
 </para>
 <para>
@@ -4344,7 +4344,7 @@ The rbearing member is set to the maximum R.
 <!-- .LP -->
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
 each 
-<function>XChar2b</function>
+<structname>XChar2b</structname>
 structure is interpreted as a 16-bit number with byte1 as the 
 most significant byte.
 If the font has no defined default character,
@@ -4362,9 +4362,9 @@ the undefined characters in the string are also ignored.
 and
 <function>XQueryTextExtents16</function>
 can generate
-<function>BadFont</function>
+<errorname>BadFont</errorname>
 and
-<function>BadGC</function>
+<errorname>BadGC</errorname>
 errors.
 </para>
 </sect2>
@@ -4436,7 +4436,7 @@ typedef struct {
 <!-- .LP -->
 <!-- .eM -->
 If the font member is not
-<function>None</function>,
+<symbol>None</symbol>,
 the font is changed before printing and also is stored in the GC.
 If an error was generated during text drawing,
 the previous items may have been drawn.
@@ -4451,13 +4451,13 @@ If you want the upper-left corner of the background rectangle
 to be at pixel coordinate (x,y), pass the (x,y + ascent)
 as the baseline origin coordinates to the text functions.
 The ascent is the font ascent, as given in the
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
 If you want the lower-left corner of the background rectangle
 to be at pixel coordinate (x,y), pass the (x,y - descent + 1)
 as the baseline origin coordinates to the text functions.
 The descent is the font descent, as given in the
-<function>XFontStruct</function>
+<structname>XFontStruct</structname>
 structure.
 </para>
 <sect2 id="Drawing_Complex_Text">
@@ -4674,7 +4674,7 @@ Both functions allow complex spacing and font shifts between counted strings.
 <!-- .LP -->
 Each text item is processed in turn.
 A font member other than 
-<function>None</function>
+<symbol>None</symbol>
 in an item causes the font to be stored in the GC
 and used for subsequent text.  
 A text element delta specifies an additional change
@@ -4685,14 +4685,14 @@ Each character image, as defined by the font in the GC, is treated as an
 additional mask for a fill operation on the drawable.
 The drawable is modified only where the font character has a bit set to 1.
 If a text item generates a
-<function>BadFont</function>
+<errorname>BadFont</errorname>
 error, the previous text items may have been drawn.
 </para>
 <para>
 <!-- .LP -->
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
 each 
-<function>XChar2b</function>
+<structname>XChar2b</structname>
 structure is interpreted as a 16-bit number with byte1 as the 
 most significant byte.
 </para>
@@ -4711,11 +4711,11 @@ and tile-stipple-y-origin.
 and
 <function>XDrawText16</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadFont</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadFont</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -4942,10 +4942,10 @@ and tile-stipple-y-origin.
 and
 <function>XDrawString16</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 </sect2>
@@ -5208,9 +5208,9 @@ are as would be returned by
 using gc and string.
 The function and fill-style defined in the GC are ignored for these functions. 
 The effective function is 
-<function>GXcopy</function>,
+<symbol>GXcopy</symbol>,
 and the effective fill-style is
-<function>FillSolid</function>.
+<symbol>FillSolid</symbol>.
 </para>
 <para>
 <!-- .LP -->
@@ -5231,10 +5231,10 @@ clip-y-origin, and clip-mask.
 and
 <function>XDrawImageString16</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
 and
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 errors.
 </para>
 <para>
@@ -5267,7 +5267,7 @@ to an image (see section 16.8).
 <!-- .LP -->
 All the image manipulation functions discussed in this section make use of 
 the 
-<function>XImage</function>
+<structname>XImage</structname>
 structure,
 which describes an image as it exists in the client's memory.
 </para>
@@ -5433,7 +5433,7 @@ Specifies the image you want combined with the rectangle.
       <para>
 Specifies the offset in X from the left edge of the image defined
 by the 
-<function>XImage</function>
+<structname>XImage</structname>
 structure.
       </para>
     </listitem>
@@ -5446,7 +5446,7 @@ structure.
       <para>
 Specifies the offset in Y from the top edge of the image defined
 by the 
-<function>XImage</function>
+<structname>XImage</structname>
 structure.
 <!-- .ds Dx , which are relative to the origin of the drawable \ -->
 and are the coordinates of the subimage
@@ -5508,20 +5508,20 @@ combines an image with a rectangle of the specified drawable.
 The section of the image defined by the src_x, src_y, width, and height 
 arguments is drawn on the specified part of the drawable.
 If 
-<function>XYBitmap</function>
+<symbol>XYBitmap</symbol>
 format is used, the depth of the image must be one,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 The foreground pixel in the GC defines the source for the one bits in the image,
 and the background pixel defines the source for the zero bits.
 For 
-<function>XYPixmap</function>
+<symbol>XYPixmap</symbol>
 and 
-<function>ZPixmap</function>,
+<symbol>ZPixmap</symbol>,
 the depth of the image must match the depth of the drawable,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 </para>
 <para>
@@ -5544,11 +5544,11 @@ foreground and background.
 <!-- .LP -->
 <function>XPutImage</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 </para>
 <para>
@@ -5657,9 +5657,9 @@ Specifies the plane mask.
       <para>
 Specifies the format for the image.
 You can pass
-<function>XYPixmap</function>
+<symbol>XYPixmap</symbol>
 or 
-<function>ZPixmap</function>.
+<symbol>ZPixmap</symbol>.
     </para>
   </listitem>
   </varlistentry>
@@ -5671,18 +5671,18 @@ or
 The
 <function>XGetImage</function>
 function returns a pointer to an
-<function>XImage</function>
+<structname>XImage</structname>
 structure.
 This structure provides you with the contents of the specified rectangle of
 the drawable in the format you specify.
 If the format argument is 
-<function>XYPixmap</function>,
+<symbol>XYPixmap</symbol>,
 the image contains only the bit planes you passed to the plane_mask argument.
 If the plane_mask argument only requests a subset of the planes of the
 display, the depth of the returned image will be the number of planes
 requested.
 If the format argument is 
-<function>ZPixmap</function>,
+<symbol>ZPixmap</symbol>,
 <function>XGetImage</function>
 returns as zero the bits in all planes not 
 specified in the plane_mask argument.
@@ -5693,11 +5693,11 @@ extraneous bits.
 <!-- .LP -->
 <function>XGetImage</function>
 returns the depth of the image to the depth member of the
-<function>XImage</function>
+<structname>XImage</structname>
 structure.
 The depth of the image is as specified when the drawable was created,
 except when getting a subset of the planes in 
-<function>XYPixmap</function>
+<symbol>XYPixmap</symbol>
 format, when the depth is given by the number of bits set to 1 in plane_mask.
 </para>
 <para>
@@ -5705,7 +5705,7 @@ format, when the depth is given by the number of bits set to 1 in plane_mask.
 If the drawable is a pixmap, 
 the given rectangle must be wholly contained within the pixmap, 
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 If the drawable is a window, 
 the window must be viewable, 
@@ -5713,7 +5713,7 @@ and it must be the case that if there were no inferiors or overlapping windows,
 the specified rectangle of the window would be fully visible on the screen
 and wholly contained within the outside edges of the window,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 Note that the borders of the window can be included and read with
 this request.
@@ -5733,10 +5733,10 @@ returns NULL.
 <!-- .LP -->
 <function>XGetImage</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 <!-- .sp -->
 </para>
@@ -5846,9 +5846,9 @@ Specifies the plane mask.
       <para>
 Specifies the format for the image.
 You can pass
-<function>XYPixmap</function>
+<symbol>XYPixmap</symbol>
 or 
-<function>ZPixmap</function>.
+<symbol>ZPixmap</symbol>.
       </para>
     </listitem>
   </varlistentry>
@@ -5896,10 +5896,10 @@ The
 function updates dest_image with the specified subimage in the same manner as 
 <function>XGetImage</function>.
 If the format argument is 
-<function>XYPixmap</function>,
+<symbol>XYPixmap</symbol>,
 the image contains only the bit planes you passed to the plane_mask argument.
 If the format argument is 
-<function>ZPixmap</function>,
+<symbol>ZPixmap</symbol>,
 <function>XGetSubImage</function>
 returns as zero the bits in all planes not 
 specified in the plane_mask argument.
@@ -5908,20 +5908,20 @@ extraneous bits.
 As a convenience,
 <function>XGetSubImage</function>
 returns a pointer to the same
-<function>XImage</function>
+<structname>XImage</structname>
 structure specified by dest_image.
 </para>
 <para>
 <!-- .LP -->
 The depth of the destination
-<function>XImage</function>
+<structname>XImage</structname>
 structure must be the same as that of the drawable.
 If the specified subimage does not fit at the specified location
 on the destination image, the right and bottom edges are clipped.
 If the drawable is a pixmap,
 the given rectangle must be wholly contained within the pixmap,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 If the drawable is a window, 
 the window must be viewable, 
@@ -5929,7 +5929,7 @@ and it must be the case that if there were no inferiors or overlapping windows,
 the specified rectangle of the window would be fully visible on the screen
 and wholly contained within the outside edges of the window,
 or a
-<function>BadMatch</function>
+<errorname>BadMatch</errorname>
 error results.
 If the window has backing-store, 
 then the backing-store contents are returned for regions of the window 
@@ -5946,11 +5946,11 @@ returns NULL.
 <!-- .LP -->
 <function>XGetSubImage</function>
 can generate
-<function>BadDrawable</function>,
-<function>BadGC</function>,
-<function>BadMatch</function>,
+<errorname>BadDrawable</errorname>,
+<errorname>BadGC</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<function>BadValue</function>
+<errorname>BadValue</errorname>
 errors.
 <!-- .bp -->
 

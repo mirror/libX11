@@ -337,7 +337,7 @@ in many of the resource manager functions.
 Simple comparisons can be performed rather than string comparisons.
 The shorthand name for a string is called a quark and is the
 type 
-<function>XrmQuark</function>.
+<type>XrmQuark</type>.
 On some occasions,
 you may want to allocate a quark that has no string equivalent.
 </para>
@@ -368,7 +368,7 @@ is known to the resource manager.
 <!-- .LP -->
 <!-- .sp -->
 Each name, class, and representation type is typedef'd as an
-<function>XrmQuark</function>.
+<type>XrmQuark</type>.
 </para>
 <para>
 <!-- .LP -->
@@ -567,7 +567,7 @@ the conversion is implementation-dependent.
 <para>
 <!-- .LP -->
 A binding list is a list of type
-<function>XrmBindingList</function>
+<type>XrmBindingList</type>
 and indicates if components of name or class lists are bound tightly or loosely
 (that is, if wildcarding of intermediate components is specified).
 </para>
@@ -579,9 +579,9 @@ typedef enum {XrmBindTightly, XrmBindLoosely} XrmBinding, *XrmBindingList;
 </para>
 <para>
 <!-- .LP -->
-<function>XrmBindTightly</function>
+<constant>XrmBindTightly</constant>
 indicates that a period separates the components, and
-<function>XrmBindLoosely</function>
+<constant>XrmBindLoosely</constant>
 indicates that an asterisk separates the components.
 </para>
 <para>
@@ -668,9 +668,9 @@ bindings:     loose     tight     loose
 <!-- .LP -->
 <indexterm significance="preferred"><primary>XrmDatabase</primary></indexterm>
 A resource database is an opaque type,
-<function>XrmDatabase</function>.
+<type>XrmDatabase</type>.
 Each database value is stored in an
-<function>XrmValue</function>
+<type>XrmValue</type>
 structure.
 This structure consists of a size, an address, and a representation type.
 The size is specified in bytes.
@@ -678,7 +678,7 @@ The representation type is a way for you to store data tagged by some
 application-defined type (for example, the strings ``font'' or ``color'').
 It has nothing to do with the C data type or with its class. 
 The
-<function>XrmValue</function>
+<type>XrmValue</type>
 structure is defined as:
 </para>
 <para>
@@ -1163,7 +1163,7 @@ If the same specifier is used for an entry in both the file and
 the database,
 the entry in the file will replace the entry in the database
 if override is
-<function>True</function>;
+<symbol>True</symbol>;
 otherwise, the entry in the file is discarded.
 The file is parsed in the current locale.
 If the file cannot be read,
@@ -1235,7 +1235,7 @@ function merges the contents of one database into another.
 If the same specifier is used for an entry in both databases,
 the entry in the source_db will replace the entry in the target_db
 if override is
-<function>True</function>;
+<symbol>True</symbol>;
 otherwise, the entry in source_db is discarded.
 If target_db contains NULL,
 <function>XrmCombineDatabase</function>
@@ -1293,7 +1293,7 @@ Calling the
 function is equivalent to calling the
 <function>XrmCombineDatabase</function>
 function with an override argument of
-<function>True</function>.
+<symbol>True</symbol>.
 </para>
 </sect1>
 <sect1 id="Looking_Up_Resources">
@@ -1477,9 +1477,9 @@ If a resource was found, both
 and
 <function>XrmQGetResource</function>
 return 
-<function>True</function>;
+<symbol>True</symbol>;
 otherwise, they return 
-<function>False</function>.
+<symbol>False</symbol>.
 </para>
 <para>
 <!-- .LP -->
@@ -1586,9 +1586,9 @@ for determining precedence.
 If list_return was large enough for the search list,
 <function>XrmQGetSearchList</function>
 returns 
-<function>True</function>;
+<symbol>True</symbol>;
 otherwise, it returns
-<function>False</function>.
+<symbol>False</symbol>.
 </para>
 <para>
 <!-- .LP -->
@@ -1688,10 +1688,10 @@ that is fully identified by the specified name and class.
 The search stops with the first match.
 <function>XrmQGetSearchResource</function>
 returns 
-<function>True</function>
+<symbol>True</symbol>
 if the resource was found;
 otherwise, it returns
-<function>False</function>.
+<symbol>False</symbol>.
 </para>
 <para>
 <!-- .LP -->
@@ -2015,7 +2015,7 @@ If database contains NULL,
 creates a new database and returns a pointer to it.
 <function>XrmQPutStringResource</function>
 is a convenience routine that constructs an
-<function>XrmValue</function>
+<type>XrmValue</type>
 for the value string (by calling
 <function>strlen</function>
 to compute the size) and
@@ -2077,7 +2077,7 @@ the database that results from using a string
 with incorrect syntax is implementation-dependent.
 The string is parsed in the locale of the database.
 If the
-<function>ResourceName</function>
+<replaceable>ResourceName</replaceable>
 is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
 Note that comment lines are not stored.
@@ -2185,20 +2185,20 @@ function calls the specified procedure for each resource in the database
 that would match some completion of the given name/class resource prefix.
 The order in which resources are found is implementation-dependent.
 If mode is
-<function>XrmEnumOneLevel</function>,
+<symbol>XrmEnumOneLevel</symbol>,
 a resource must match the given name/class prefix with
 just a single name and class appended.  If mode is
-<function>XrmEnumAllLevels</function>,
+<symbol>XrmEnumAllLevels</symbol>,
 the resource must match the given name/class prefix with one or more names and
 classes appended.
 If the procedure returns
-<function>True</function>,
+<symbol>True</symbol>,
 the enumeration terminates and the function returns
-<function>True</function>.
+<symbol>True</symbol>.
 If the procedure always returns
-<function>False</function>,
+<symbol>False</symbol>,
 all matching resources are enumerated and the function returns
-<function>False</function>.
+<symbol>False</symbol>.
 </para>
 <para>
 <!-- .LP -->
@@ -2223,7 +2223,7 @@ The procedure is called with the following arguments:
 <para>
 <!-- .LP -->
 The bindings and quarks lists are terminated by
-<function>NULLQUARK</function>.
+<symbol>NULLQUARK</symbol>.
 Note that pointers
 to the database and type are passed, but these values should not be modified.
 </para>
@@ -2271,14 +2271,14 @@ typedef enum {
 <!-- .LP -->
 <!-- .eM -->
 Note that
-<function>XrmoptionSkipArg</function>
+<constant>XrmoptionSkipArg</constant>
 is equivalent to 
-<function>XrmoptionSkipNArgs</function>
+<constant>XrmoptionSkipNArgs</constant>
 with the
-<function>XrmOptionDescRec.value</function>
+<structname>XrmOptionDescRec</structname>.<structfield>value</structfield>
 field containing the value one.
 Note also that the value zero for
-<function>XrmoptionSkipNArgs</function>
+<constant>XrmoptionSkipNArgs</constant>
 indicates that only the option itself is to be skipped.
 </para>
 <para>
@@ -2404,7 +2404,7 @@ in the order they occur in argv.
 The table entries contain information on the option string,
 the option name, the style of option, 
 and a value to provide if the option kind is 
-<function>XrmoptionNoArg</function>.
+<constant>XrmoptionNoArg</constant>.
 The option names are compared byte-for-byte to arguments in argv,
 independent of any locale.
 The resource values given in the table are stored in the resource database

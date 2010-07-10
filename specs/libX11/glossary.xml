@@ -52,7 +52,7 @@ Atoms are used to identify properties, types, and selections.
 <indexterm significance="preferred"><primary>Background</primary></indexterm>
     <para>
 An
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 window can have a background, which is defined as a pixmap.
 When regions of the window have their contents lost 
 or invalidated,
@@ -78,20 +78,20 @@ the pixels saved off-screen are known as a backing store.
 A font name used to select a family of fonts whose members may be encoded 
 in various charsets.
 The
-<function>CharSetRegistry</function>
+<structfield>CharSetRegistry</structfield>
 and 
-<function>CharSetEncoding</function>
+<structfield>CharSetEncoding</structfield>
 fields of an <acronym>XLFD</acronym> name identify the charset of the font.
 A base font name may be a full <acronym>XLFD</acronym> name, with all fourteen '-' delimiters, 
 or an abbreviated <acronym>XLFD</acronym> name containing only the first 12 fields of an <acronym>XLFD</acronym> name,
 up to but not including 
-<function>CharSetRegistry</function>,
+<structfield>CharSetRegistry</structfield>,
 with or without the thirteenth '-', or a non-<acronym>XLFD</acronym> name.
 Any <acronym>XLFD</acronym> fields may contain wild cards.
 </para>
     <para>
 When creating an 
-<function>XFontSet</function>,
+<type>XFontSet</type>,
 Xlib accepts from the client a list of one or more base font names 
 which select one or more font families.
 They are combined with charset names obtained from the encoding of the locale
@@ -138,7 +138,7 @@ A bitmap is a <glossterm linkend="glossary:Pixmap">pixmap</glossterm> of depth o
 <indexterm significance="preferred"><primary>Border</primary></indexterm>
     <para>
 An
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 window can have a border of equal thickness on all four sides of the window.
 The contents of the border are defined by a pixmap,
 and the server automatically maintains the contents of the border.
@@ -413,7 +413,7 @@ and the pointer.
   <glossdef>
 <indexterm significance="preferred"><primary>DirectColor</primary></indexterm>
     <para>
-<function>DirectColor</function>
+<symbol>DirectColor</symbol>
 is a class of colormap in which a pixel value is decomposed into three
 separate subfields for indexing.
 The first subfield indexes an array to produce red intensity values. 
@@ -431,7 +431,7 @@ changed dynamically.
     <para>
 A server, together with its screens and input devices, is called a display.
 The Xlib
-<function>Display</function>
+<type>Display</type>
 <indexterm><primary>Display</primary><secondary>structure</secondary></indexterm>
 structure contains all information about the particular display and its screens
 as well as the state that Xlib needs to communicate with the display over a
@@ -448,7 +448,7 @@ Both windows and pixmaps can be used as sources and destinations
 in graphics operations.  
 These windows and pixmaps are collectively known as drawables.
 However, an 
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 window cannot be used as a source or destination in a
 graphics operation.
     </para>
@@ -471,9 +471,9 @@ sets, and the X Compound Text encoding.
     <para>
 In X, encodings are identified by a string
 which appears as: the
-<function>CharSetRegistry</function>
+<structfield>CharSetRegistry</structfield>
 and
-<function>CharSetEncoding</function>
+<structfield>CharSetEncoding</structfield>
 components of an <acronym>XLFD</acronym>
 name; the name of a charset of the locale for which a font could not be
 found; or an atom which identifies the encoding of a text property or
@@ -688,9 +688,9 @@ See <glossterm linkend="glossary:Bit_gravity">Bit gravity</glossterm> and
   <glossdef>
 <indexterm significance="preferred"><primary>GrayScale</primary></indexterm>
     <para>
-<function>GrayScale</function>
+<symbol>GrayScale</symbol>
 can be viewed as a degenerate case of 
-<glossterm linkend="glossary:PseudoColor"><function>PseudoColor</function></glossterm>,
+<glossterm linkend="glossary:PseudoColor"><symbol>PseudoColor</symbol></glossterm>,
 in which the red, green, and blue values in any given colormap entry 
 are equal and thus, produce shades of gray.
 The gray values can be changed dynamically.
@@ -775,14 +775,14 @@ client, which usually is part of a window manager.
 <indexterm significance="preferred"><primary>Window</primary><secondary>InputOnly</secondary></indexterm>
     <para>
 An
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 window is a window that cannot be used for graphics requests.  
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 windows are invisible and are used to control such things as cursors,
 input event generation, and grabbing.
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 windows cannot have 
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 windows as inferiors.
     </para>
   </glossdef>
@@ -793,13 +793,13 @@ windows as inferiors.
 <indexterm significance="preferred"><primary>Window</primary><secondary>InputOutput</secondary></indexterm>
     <para>
 An
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 window is the normal kind of window that is used for both input and output.
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 windows can have both 
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 and 
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 windows as inferiors.
     </para>
   </glossdef>
@@ -964,7 +964,7 @@ ShiftLock, and similar keys are called modifier keys.
 <indexterm significance="preferred"><primary>Monochrome</primary></indexterm>
     <para>
 Monochrome is a special case of 
-<glossterm linkend="glossary:StaticGray"><function>StaticGray</function></glossterm>
+<glossterm linkend="glossary:StaticGray"><symbol>StaticGray</symbol></glossterm>
 in which there are only two colormap entries.
     </para>
   </glossdef>
@@ -991,7 +991,7 @@ imply only that the strings <emphasis remap='I'>may</emphasis> contain multibyte
 A window is obscured if some other window obscures it.
 A window can be partially obscured and so still have visible regions.
 Window A obscures window B if both are viewable 
-<function>InputOutput</function>
+<symbol>InputOutput</symbol>
 windows, if A is higher in the global stacking order, 
 and if the rectangle defined by the outside
 edges of A intersects the rectangle defined by the outside edges of B.
@@ -1013,7 +1013,7 @@ by the outside edges of B.
 Note the distinction between occludes and obscures.
 Also note that window borders are included in the calculation
 and that
-<function>InputOnly</function>
+<symbol>InputOnly</symbol>
 windows never obscure other windows but can occlude other windows.
     </para>
   </glossdef>
@@ -1186,7 +1186,7 @@ been defined for the window.
   <glossdef>
 <indexterm significance="preferred"><primary>PseudoColor</primary></indexterm>
     <para>
-<function>PseudoColor</function>
+<symbol>PseudoColor</symbol>
 is a class of colormap in which a pixel value indexes the colormap entry to
 produce an independent <acronym>RGB</acronym> value;
 that is, the colormap is viewed as an array of triples (<acronym>RGB</acronym> values).
@@ -1341,11 +1341,11 @@ which typically have physically independent monitors.
 This would be the expected configuration when there is only a single keyboard 
 and pointer shared among the screens.
 A 
-<function>Screen</function>
+<type>Screen</type>
 <indexterm><primary>Screen</primary><secondary>structure</secondary></indexterm>
 structure contains the information about that screen
 and is linked to the 
-<function>Display</function>
+<type>Display</type>
 <indexterm><primary>Display</primary><secondary>structure</secondary></indexterm>
 structure.
     </para>
@@ -1474,9 +1474,9 @@ this means use of at most single shifts, not locking shifts.
   <glossdef>
 <indexterm significance="preferred"><primary>StaticColor</primary></indexterm>
     <para>
-<function>StaticColor</function>
+<symbol>StaticColor</symbol>
 can be viewed as a degenerate case of 
-<glossterm linkend="glossary:PseudoColor"><function>PseudoColor</function></glossterm>
+<glossterm linkend="glossary:PseudoColor"><symbol>PseudoColor</symbol></glossterm>
 in which the <acronym>RGB</acronym> values are predefined and read-only.
     </para>
   </glossdef>
@@ -1486,9 +1486,9 @@ in which the <acronym>RGB</acronym> values are predefined and read-only.
   <glossdef>
 <indexterm significance="preferred"><primary>StaticGray</primary></indexterm>
     <para>
-<function>StaticGray</function>
+<symbol>StaticGray</symbol>
 can be viewed as a degenerate case of 
-<glossterm linkend="glossary:GrayScale"><function>GrayScale</function></glossterm>
+<glossterm linkend="glossary:GrayScale"><symbol>GrayScale</symbol></glossterm>
 in which the gray values are predefined and read-only.
 The values are typically linear or near-linear increasing ramps.
     </para>
@@ -1565,7 +1565,7 @@ always interprets timestamps from clients by treating half
 of the timestamp space as being earlier in time than T 
 and half of the timestamp space as being later in time than T.
 One timestamp value, represented by the constant 
-<function>CurrentTime</function>,
+<symbol>CurrentTime</symbol>,
 is never generated by the server. 
 This value is reserved for use in requests to represent the current server time.
     </para>
@@ -1576,9 +1576,9 @@ This value is reserved for use in requests to represent the current server time.
   <glossdef>
 <indexterm significance="preferred"><primary>TrueColor</primary></indexterm>
     <para>
-<function>TrueColor</function>
+<symbol>TrueColor</symbol>
 can be viewed as a degenerate case of 
-<glossterm linkend="glossary:DirectColor"><function>DirectColor</function></glossterm>
+<glossterm linkend="glossary:DirectColor"><symbol>DirectColor</symbol></glossterm>
 in which the subfields in the pixel value directly encode the corresponding <acronym>RGB</acronym>
 values.
 That is, the colormap has predefined read-only <acronym>RGB</acronym> values.

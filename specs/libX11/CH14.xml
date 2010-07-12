@@ -1964,7 +1964,7 @@ the WM_HINTS property for a given window.
 These functions use the flags and the
 <structname>XWMHints</structname>
 structure, as defined in the
-<!-- .hN X11/Xutil.h -->
+&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
 header file.
 <!-- .sp -->
 </para>
@@ -2251,7 +2251,7 @@ the WM_NORMAL_HINTS property for a given window.
 The functions use the flags and the
 <structname>XSizeHints</structname>
 structure, as defined in the
-<!-- .hN X11/Xutil.h -->
+&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
 header file.
 </para>
 <para>
@@ -2787,7 +2787,7 @@ the WM_CLASS property for a given window.
 These functions use the
 <structname>XClassHint</structname>
 structure, which is defined in the
-<!-- .hN X11/Xutil.h -->
+&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
 header file.
 <!-- .sp -->
 </para>
@@ -3528,7 +3528,7 @@ These functions use the
 <structname>XIconSize</structname>
 <indexterm><primary>XIconSize</primary></indexterm>
 structure, which is defined in the
-<!-- .hN X11/Xutil.h -->
+&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
 header file.
 <!-- .sp -->
 </para>
@@ -4772,7 +4772,7 @@ and each such property is identified by an atom.
 The following list names the atoms and describes the colormap
 associated with each one.
 The
-<!-- .hN X11/Xatom.h -->
+&lt;<filename class="headerfile">X11/Xatom.h</filename>&gt;
 header file contains the definitions for each of the following atoms,
 which are prefixed with XA_.
 </para>

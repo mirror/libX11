@@ -179,7 +179,7 @@ These can be of type
 and 
 <type>GContext</type>,
 as defined in the file
-<!-- .hN X11/X.h . -->
+&lt;<filename class="headerfile">X11/X.h</filename>&gt;.
 These resources are created by requests and are destroyed
 (or freed) by requests or when connections are closed.
 Most of these resources are potentially sharable between
@@ -283,7 +283,7 @@ the error is printed, and your program terminates.
 The following include files are part of the Xlib standard:
 </para>
 <!-- .IP \(bu 5 -->
-<!-- .hN X11/Xlib.h -->
+&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;
 <!-- .IP -->
 
 <variablelist>

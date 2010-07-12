@@ -910,7 +910,7 @@ arbitrary extension in this type scheme.
 Certain property names are
 predefined in the server for commonly used functions.
 The atoms for these properties are defined in 
-<!-- .hN X11/Xatom.h . -->
+&lt;<filename class="headerfile">X11/Xatom.h</filename>&gt;.
 To avoid name clashes with user symbols, the 
 <code>#define</code>
 name for each atom has the XA_ prefix.

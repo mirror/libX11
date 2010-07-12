@@ -3341,7 +3341,7 @@ if the property was not defined or
 if it was defined.
 A set of predefined atoms exists for font properties,
 which can be found in
-<!-- .hN X11/Xatom.h . -->
+&lt;<filename class="headerfile">X11/Xatom.h</filename>&gt;.
 This set contains the standard properties associated with
 a font.
 Although it is not guaranteed,

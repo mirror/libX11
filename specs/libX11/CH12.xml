@@ -3035,14 +3035,14 @@ standards.
 In areas where no standards exist,
 some of these sets are derived from Digital Equipment Corporation standards.
 The list of defined symbols can be found in
-<!-- .hN X11/keysymdef.h . -->
+&lt;<filename class="headerfile">X11/keysymdef.h</filename>&gt;.
 Unfortunately, some C preprocessors have
 limits on the number of defined symbols.
 If you must use KeySyms not
 in the Latin 1-4, Greek, and miscellaneous classes,
 you may have to define a symbol for those sets.
 Most applications usually only include 
-<!-- .hN X11/keysym.h , -->
+&lt;<filename class="headerfile">X11/keysym.h</filename>&gt;,
 which defines symbols for ISO Latin 1-4, Greek, and miscellaneous.
 </para>
 <para>

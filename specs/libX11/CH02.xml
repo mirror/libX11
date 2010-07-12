@@ -219,7 +219,7 @@ returns a pointer to a
 <type>Display</type>
 structure,
 which is defined in 
-<!-- .hN X11/Xlib.h . -->
+&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;.
 If 
 <function>XOpenDisplay</function>
 does not succeed, it returns NULL.

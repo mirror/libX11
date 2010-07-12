@@ -77,9 +77,9 @@ Add new color spaces
 <!-- .LP -->
 All functions, types, and symbols in this chapter with the prefix ``Xcms''
 are defined in
-<!-- .hN X11/Xcms.h . -->
+&lt;<filename class="headerfile">X11/Xcms.h</filename>&gt;.
 The remaining functions and types are defined in
-<!-- .hN X11/Xlib.h . -->
+&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;.
 </para>
 <para>
 <!-- .LP -->

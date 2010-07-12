@@ -191,7 +191,7 @@ Xlib provides functions that you can use to set or get window sizing hints.
 The functions discussed in this section use the flags and the
 <structname>XSizeHints</structname>
 structure, as defined in the
-<!-- .hN X11/Xutil.h -->
+&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
 header file and use the WM_NORMAL_HINTS property.
 </para>
 <para>
@@ -1339,7 +1339,7 @@ vertex structure.
 <para>
 <!-- .LP -->
 Each Vertex, as defined in
-<!-- .hN X11/X10.h , -->
+&lt;<filename class="headerfile">X11/X10.h</filename>&gt;,
 is a structure with the following members:
 </para>
 <para>
@@ -1369,7 +1369,7 @@ is one).
 <para>
 <!-- .LP -->
 The flags, as defined in 
-<!-- .hN X11/X10.h ,  -->
+&lt;<filename class="headerfile">X11/X10.h</filename>&gt;,
 are as follows:
 <indexterm significance="preferred"><primary>VertexRelative</primary></indexterm>
 <indexterm significance="preferred"><primary>VertexDontDraw</primary></indexterm>

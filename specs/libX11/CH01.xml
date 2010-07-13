@@ -282,13 +282,10 @@ the error is printed, and your program terminates.
 <!-- .LP -->
 The following include files are part of the Xlib standard:
 </para>
-<!-- .IP \(bu 5 -->
-&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;
-<!-- .IP -->
 
 <variablelist>
   <varlistentry>
-    <term>&lt;/X11/Xlib.h&gt;</term>
+    <term>&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;</term>
     <listitem>
       <para>
 This is the main header file for Xlib.

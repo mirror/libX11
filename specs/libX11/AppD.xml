@@ -744,19 +744,9 @@ colormap for a display,
 you use
 <function>XGetStandardColormap</function>
 with the following syntax:
-</para>
-<para>
-<!-- .LP -->
-<!-- .sM -->
-<literallayout class="monospaced">
-<!-- .TA .5i 1.5i -->
-<!-- .ta .5i 1.5i -->
+<programlisting>
 XGetStandardColormap(dpy, DefaultRootWindow(dpy), &amp;cmap, XA_RGB_GRAY_MAP);
-</literallayout>
-</para>
-<para>
-<!-- .LP -->
-<!-- .eM -->
+</programlisting>
 See section 14.3 for the semantics of standard colormaps.
 </para>
 <para>
@@ -1335,23 +1325,13 @@ vertex structure.
 Each Vertex, as defined in
 &lt;<filename class="headerfile">X11/X10.h</filename>&gt;,
 is a structure with the following members:
-</para>
-<para>
-<!-- .LP -->
 <indexterm significance="preferred"><primary>Vertex</primary></indexterm>
-<!-- .sM -->
-<literallayout class="monospaced">
-<!-- .TA .5i 1.5i -->
-<!-- .ta .5i 1.5i -->
+<synopsis>
 typedef struct _Vertex {
 	short x,y;
 	unsigned short flags;
 } Vertex;
-</literallayout>
-</para>
-<para>
-<!-- .LP -->
-<!-- .eM -->
+</synopsis>
 The x and y members are the coordinates of the vertex 
 that are relative to either the upper left inside corner of the drawable 
 (if 
@@ -1371,15 +1351,14 @@ are as follows:
 <indexterm significance="preferred"><primary>VertexStartClosed</primary></indexterm>
 <indexterm significance="preferred"><primary>VertexEndClosed</primary></indexterm>
 <!-- .sM -->
-</para>
 
-<literallayout class="monospaced">
+<synopsis>
 VertexRelative     0x0001     /* else absolute */
 VertexDontDraw     0x0002     /* else draw */
 VertexCurved       0x0004     /* else straight */
 VertexStartClosed  0x0008     /* else not */
 VertexEndClosed    0x0010     /* else not */
-</literallayout>
+</synopsis>
 
 <itemizedlist>
   <listitem>
@@ -1443,6 +1422,7 @@ and successor vertices for the spline algorithm.
     </para>
   </listitem>
 </itemizedlist>
+</para>
 <para>
 <!-- .LP -->
 This function uses these GC components:

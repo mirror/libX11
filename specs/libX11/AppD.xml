@@ -1,17 +1,14 @@
 <appendix id="compatibility_functions">
 <title>Compatibility Functions</title>
 <para>
-<!-- .LP -->
 The X Version 11 and X Version 10 functions discussed in this appendix 
 are obsolete, have been superseded by newer X Version 11 functions,
 and are maintained for compatibility reasons only.
-<!-- .SH -->
-X Version 11 Compatibility Functions
 </para>
+<sect1 id="X_Version_11_Compatibility_Functions">
+<title>X Version 11 Compatibility Functions</title>
 <para>
-<!-- .LP -->
 You can use the X Version 11 compatibility functions to:
-</para>
 <itemizedlist>
   <listitem>
     <para>
@@ -38,13 +35,13 @@ Parse window geometry
   <listitem>
     <para>
 Get X environment defaults
-<!-- .SH -->
-Setting Standard Properties
     </para>
   </listitem>
 </itemizedlist>
+</para>
+<sect2 id="Setting_Standard_Properties">
+<title>Setting Standard Properties</title>
 <para>
-<!-- .LP -->
 To specify a minimum set of properties describing the simplest application,
 use
 <function>XSetStandardProperties</function>.
@@ -180,13 +177,11 @@ can generate
 and
 <errorname>BadWindow</errorname>
 errors.
-<!-- .SH -->
 </para>
+</sect2>
+<sect2 id="Setting_and_Getting_Window_Sizing_Hints">
+<title>Setting and Getting Window Sizing Hints</title>
 <para>
-Setting and Getting Window Sizing Hints
-</para>
-<para>
-<!-- .LP -->
 Xlib provides functions that you can use to set or get window sizing hints.
 The functions discussed in this section use the flags and the
 <structname>XSizeHints</structname>
@@ -667,11 +662,11 @@ can generate
 and 
 <errorname>BadWindow</errorname>
 errors.
-<!-- .SH -->
-Getting and Setting an XStandardColormap Structure
 </para>
+</sect2>
+<sect2 id="Getting_and_Setting_an_XStandardColormap_Structure">
+<title>Getting and Setting an XStandardColormap Structure</title>
 <para>
-<!-- .LP -->
 To get the 
 <structname>XStandardColormap</structname>
 structure associated with one of the described atoms, use
@@ -852,11 +847,11 @@ can generate
 and
 <errorname>BadWindow</errorname>
 errors.
-<!-- .SH -->
-Parsing Window Geometry
 </para>
+</sect2>
+<sect2 id="Parsing_Window_Geometry">
+<title>Parsing Window Geometry</title>
 <para>
-<!-- .LP -->
 To parse window geometry given a user-specified position 
 and a default position, use
 <function>XGeometry</function>.
@@ -1051,13 +1046,11 @@ The x and y coordinates are computed by using the border width,
 the screen width and height, padding as specified by xadder and yadder,
 and the fheight and fwidth times the width and height from the
 geometry specifications.
-<!-- .SH -->
 </para>
+</sect2>
+<sect2 id="Getting_the_X_Environment_Defaults">
+<title>Getting the X Environment Defaults</title>
 <para>
-Getting the X Environment Defaults
-</para>
-<para>
-<!-- .LP -->
 The
 <function>XGetDefault</function>
 function provides a primitive interface to the resource manager facilities 
@@ -1161,13 +1154,13 @@ looks for
 "<filename>$HOME/.Xdefaults-<replaceable>name</replaceable></filename>" ,
 where <replaceable>name</replaceable> specifies the name of the machine on which the application
 is running.
-<!-- .SH -->
-X Version 10 Compatibility Functions
 </para>
+</sect2>
+</sect1>
+<sect1 id="X_Version_10_Compatibility_Functions">
+<title>X Version 10 Compatibility Functions</title>
 <para>
-<!-- .LP -->
 You can use the X Version 10 compatibility functions to:
-</para>
 <itemizedlist>
   <listitem>
     <para>
@@ -1177,11 +1170,12 @@ Draw and fill polygons and curves
   <listitem>
     <para>
 Associate user data with a value
-<!-- .SH -->
-Drawing and Filling Polygons and Curves
     </para>
   </listitem>
 </itemizedlist>
+</para>
+<sect2 id="Drawing_and_Filling_Polygons_and_Curves">
+<title>Drawing and Filling Polygons and Curves</title>
 <para>
 <!-- .LP -->
 Xlib provides functions that you can use to draw or fill
@@ -1555,9 +1549,10 @@ It also uses these GC mode-dependent components:
 foreground, background, tile, stipple,
 tile-stipple-x-origin, tile-stipple-y-origin, 
 dash-offset, dash-list, fill-style, and fill-rule.
-<!-- .SH -->
-Associating User Data with a Value
 </para>
+</sect2>
+<sect2 id="Associating_User_Data_with_a_Value">
+<title>Associating User Data with a Value</title>
 <para>
 <!-- .LP -->
 These functions have been superseded by the context management functions
@@ -1865,7 +1860,7 @@ function deletes an association in an
 <function>XAssocTable</function>
 keyed on its XID.
 Redundant deletes (and deletes of nonexistent XIDs) are ignored.
-Deleting associations in no way impairs the performance of an 
+Deleting associations in no way impairs the performance of an
 <function>XAssocTable</function>.
 </para>
 <para>
@@ -1897,4 +1892,6 @@ Specifies the assoc table.
   </listitem>
   </varlistentry>
 </variablelist>
+</sect2>
+</sect1>
 </appendix>

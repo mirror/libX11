@@ -1196,7 +1196,7 @@ The
 function combines any geometry information (given in the format used by 
 <function>XParseGeometry</function>)
 specified by the user and by the calling program with size hints 
-(usually the ones to be stored in WM_NORMAL_HINTS) and returns the position, 
+(usually the ones to be stored in <property>WM_NORMAL_HINTS</property>) and returns the position, 
 size, and gravity
 (<symbol>NorthWestGravity</symbol>,
 <symbol>NorthEastGravity</symbol>,

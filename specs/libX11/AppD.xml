@@ -48,8 +48,8 @@ use
 This function has been superseded by
 <function>XSetWMProperties</function>
 and sets all or portions of the 
-WM_NAME, WM_ICON_NAME, WM_HINTS, WM_COMMAND, 
-and WM_NORMAL_HINTS properties.
+<property>WM_NAME</property>, <property>WM_ICON_NAME</property>, <property>WM_HINTS</property>, <property>WM_COMMAND</property>, 
+and <property>WM_NORMAL_HINTS</property> properties.
 <indexterm significance="preferred"><primary>XSetStandardProperties</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis>
@@ -187,7 +187,7 @@ The functions discussed in this section use the flags and the
 <structname>XSizeHints</structname>
 structure, as defined in the
 &lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
-header file and use the WM_NORMAL_HINTS property.
+header file and use the <property>WM_NORMAL_HINTS</property> property.
 </para>
 <para>
 <!-- .LP -->
@@ -348,7 +348,7 @@ error.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-The next two functions set and read the WM_ZOOM_HINTS property.
+The next two functions set and read the <property>WM_ZOOM_HINTS</property> property.
 </para>
 <para>
 <!-- .LP -->
@@ -489,7 +489,7 @@ error.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To set the value of any property of type WM_SIZE_HINTS, use
+To set the value of any property of type <property>WM_SIZE_HINTS</property>, use
 <function>XSetSizeHints</function>.
 This function has been superseded by
 <function>XSetWMSizeHints</function>.
@@ -560,7 +560,7 @@ This is used by
 <function>XSetNormalHints</function>
 and
 <function>XSetZoomHints</function>
-and can be used to set the value of any property of type WM_SIZE_HINTS.
+and can be used to set the value of any property of type <property>WM_SIZE_HINTS</property>.
 Thus, it may be useful if other properties of that type get defined.
 </para>
 <para>
@@ -576,7 +576,7 @@ errors.
 <para>
 <!-- .LP -->
 <!-- .sp -->
-To read the value of any property of type WM_SIZE_HINTS, use
+To read the value of any property of type <property>WM_SIZE_HINTS</property>, use
 <function>XGetSizeHints</function>.
 This function has been superseded by
 <function>XGetWMSizeHints</function>.
@@ -648,7 +648,7 @@ This is used by
 and
 <function>XGetZoomHints</function>.
 It also can be used to retrieve the value of any property of type
-WM_SIZE_HINTS.
+<property>WM_SIZE_HINTS</property>.
 Thus, it may be useful if other properties of that type get defined.
 <function>XGetSizeHints</function>
 returns a nonzero status if a size hint was defined

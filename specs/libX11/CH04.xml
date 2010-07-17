@@ -1001,55 +1001,55 @@ The built-in property names are:
     </row>
     <row>
       <entry>CUT_BUFFER1</entry>
-      <entry>WM_CLASS</entry>
+      <entry><property>WM_CLASS</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER2</entry>
-      <entry>WM_CLIENT_MACHINE</entry>
+      <entry><property>WM_CLIENT_MACHINE</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER3</entry>
-      <entry>WM_COLORMAP_WINDOWS</entry>
+      <entry><property>WM_COLORMAP_WINDOWS</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER4</entry>
-      <entry>WM_COMMAND</entry>
+      <entry><property>WM_COMMAND</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER5</entry>
-      <entry>WM_HINTS</entry>
+      <entry><property>WM_HINTS</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER6</entry>
-      <entry>WM_ICON_NAME</entry>
+      <entry><property>WM_ICON_NAME</property></entry>
     </row>
     <row>
       <entry>CUT_BUFFER7</entry>
-      <entry>WM_ICON_SIZE</entry>
+      <entry><property>WM_ICON_SIZE</property></entry>
     </row>
     <row>
       <entry>RGB_BEST_MAP</entry>
-      <entry>WM_NAME</entry>
+      <entry><property>WM_NAME</property></entry>
     </row>
     <row>
       <entry>RGB_BLUE_MAP</entry>
-      <entry>WM_NORMAL_HINTS</entry>
+      <entry><property>WM_NORMAL_HINTS</property></entry>
     </row>
     <row>
       <entry>RGB_DEFAULT_MAP</entry>
-      <entry>WM_PROTOCOLS</entry>
+      <entry><property>WM_PROTOCOLS</property></entry>
     </row>
     <row>
       <entry>RGB_GRAY_MAP</entry>
-      <entry>WM_STATE</entry>
+      <entry><property>WM_STATE</property></entry>
     </row>
     <row>
       <entry>RGB_GREEN_MAP</entry>
-      <entry>WM_TRANSIENT_FOR</entry>
+      <entry><property>WM_TRANSIENT_FOR</property></entry>
     </row>
     <row>
       <entry>RGB_RED_MAP</entry>
-      <entry>WM_ZOOM_HINTS</entry>
+      <entry><property>WM_ZOOM_HINTS</property></entry>
     </row>
   </tbody>
   </tgroup>
@@ -1095,11 +1095,11 @@ The built-in property types are:
     </row>
     <row>
       <entry>DRAWABLE</entry>
-      <entry>WM_HINTS</entry>
+      <entry><property>WM_HINTS</property></entry>
     </row>
     <row>
       <entry>FONT</entry>
-      <entry>WM_SIZE_HINTS</entry>
+      <entry><property>WM_SIZE_HINTS</property></entry>
     </row>
     <row>
       <entry>INTEGER</entry>

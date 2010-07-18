@@ -123,7 +123,10 @@ value for that entry.
 <para>
 <!-- .LP -->
 The definitions for the resource manager are contained in
-&lt;<filename class="headerfile">X11/Xresource.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xresource.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xresource.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xresource.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xresource.h&gt;</filename></secondary></indexterm>
 </para>
 <sect1 id="Resource_File_Syntax">
 <title>Resource File Syntax</title>

@@ -1964,7 +1964,10 @@ the <property>WM_HINTS</property> property for a given window.
 These functions use the flags and the
 <structname>XWMHints</structname>
 structure, as defined in the
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 header file.
 <!-- .sp -->
 </para>
@@ -2251,7 +2254,10 @@ the <property>WM_NORMAL_HINTS</property> property for a given window.
 The functions use the flags and the
 <structname>XSizeHints</structname>
 structure, as defined in the
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 header file.
 </para>
 <para>
@@ -2787,7 +2793,10 @@ the <property>WM_CLASS</property> property for a given window.
 These functions use the
 <structname>XClassHint</structname>
 structure, which is defined in the
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 header file.
 <!-- .sp -->
 </para>
@@ -3528,7 +3537,10 @@ These functions use the
 <structname>XIconSize</structname>
 <indexterm><primary>XIconSize</primary></indexterm>
 structure, which is defined in the
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 header file.
 <!-- .sp -->
 </para>
@@ -4772,7 +4784,10 @@ and each such property is identified by an atom.
 The following list names the atoms and describes the colormap
 associated with each one.
 The
-&lt;<filename class="headerfile">X11/Xatom.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xatom.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xatom.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xatom.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xatom.h&gt;</filename></secondary></indexterm>
 header file contains the definitions for each of the following atoms,
 which are prefixed with XA_.
 </para>

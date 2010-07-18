@@ -875,7 +875,10 @@ arbitrary extension in this type scheme.
 Certain property names are
 predefined in the server for commonly used functions.
 The atoms for these properties are defined in 
-&lt;<filename class="headerfile">X11/Xatom.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xatom.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xatom.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xatom.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xatom.h&gt;</filename></secondary></indexterm>
 To avoid name clashes with user symbols, the 
 <code>#define</code>
 name for each atom has the XA_ prefix.

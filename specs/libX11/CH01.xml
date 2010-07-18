@@ -179,7 +179,10 @@ These can be of type
 and 
 <type>GContext</type>,
 as defined in the file
-&lt;<filename class="headerfile">X11/X.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/X.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/X.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/X.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/X.h&gt;</filename></secondary></indexterm>
 These resources are created by requests and are destroyed
 (or freed) by requests or when connections are closed.
 Most of these resources are potentially sharable between

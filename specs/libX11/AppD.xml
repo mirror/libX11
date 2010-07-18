@@ -186,7 +186,10 @@ Xlib provides functions that you can use to set or get window sizing hints.
 The functions discussed in this section use the flags and the
 <structname>XSizeHints</structname>
 structure, as defined in the
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 header file and use the <property>WM_NORMAL_HINTS</property> property.
 </para>
 <para>
@@ -1323,7 +1326,10 @@ vertex structure.
 <para>
 <!-- .LP -->
 Each Vertex, as defined in
-&lt;<filename class="headerfile">X11/X10.h</filename>&gt;,
+<filename class="headerfile">&lt;X11/X10.h&gt;</filename>,
+<indexterm type="file"><primary><filename class="headerfile">X11/X10.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/X10.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/X10.h&gt;</filename></secondary></indexterm>
 is a structure with the following members:
 <indexterm significance="preferred"><primary>Vertex</primary></indexterm>
 <synopsis>
@@ -1343,7 +1349,10 @@ is one).
 <para>
 <!-- .LP -->
 The flags, as defined in 
-&lt;<filename class="headerfile">X11/X10.h</filename>&gt;,
+<filename class="headerfile">&lt;X11/X10.h&gt;</filename>,
+<indexterm type="file"><primary><filename class="headerfile">X11/X10.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/X10.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/X10.h&gt;</filename></secondary></indexterm>
 are as follows:
 <indexterm significance="preferred"><primary>VertexRelative</primary></indexterm>
 <indexterm significance="preferred"><primary>VertexDontDraw</primary></indexterm>

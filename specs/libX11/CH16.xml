@@ -394,7 +394,10 @@ Specifies the name of the KeySym that is to be converted.
 <!-- .LP -->
 <!-- .eM -->
 Standard KeySym names are obtained from
-&lt;<filename class="headerfile">X11/keysymdef.h</filename>&gt;
+<filename class="headerfile">&lt;X11/keysymdef.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/keysymdef.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/keysymdef.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/keysymdef.h&gt;</filename></secondary></indexterm>
 by removing the XK_ prefix from each name.
 KeySyms that are not part of the Xlib standard also may be obtained
 with this function.
@@ -1037,7 +1040,10 @@ The bits are represented by
 or
 <symbol>YNegative</symbol>
 and are defined in 
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 They will be set whenever one of the values is defined 
 or one of the signs is set.
 </para>
@@ -1239,7 +1245,10 @@ Xlib provides functions for manipulating regions.
 The opaque type 
 <structname>Region</structname>
 is defined in 
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 Xlib provides functions that you can use to manipulate regions.
 This section discusses how to:
 </para>
@@ -2456,7 +2465,10 @@ The functions in this section use the visual information masks and the
 <structname>XVisualInfo</structname>
 structure,
 which is defined in
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 and contains:
 <!-- .sM -->
 </para>
@@ -2675,7 +2687,10 @@ All operations on images are defined using an
 <structname>XImage</structname>
 structure, 
 as defined in
-&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xlib.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xlib.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xlib.h&gt;</filename></secondary></indexterm>
 Because the number of different types of image formats can be very large,
 this hides details of image storage properly from applications.
 </para>
@@ -2900,7 +2915,10 @@ The basic functions used to get a pixel, set a pixel, create a subimage,
 and add a constant value to an image are defined in the image object.
 The functions in this section are really macro invocations of the functions
 in the image object and are defined in
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 </para>
 <para>
 <!-- .LP -->
@@ -3909,7 +3927,10 @@ Xlib provides context management functions with which you can
 save data values, get data values, delete entries, and create a unique
 context type.
 The symbols used are in
-&lt;<filename class="headerfile">X11/Xutil.h</filename>&gt;.
+<filename class="headerfile">&lt;X11/Xutil.h&gt;</filename>.
+<indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+<indexterm><primary>Files</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
+<indexterm><primary>Headers</primary><secondary><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></secondary></indexterm>
 </para>
 <para>
 <!-- .LP -->

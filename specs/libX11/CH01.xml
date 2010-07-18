@@ -35,7 +35,6 @@ To provide an introduction to X programming, this chapter discusses:
   <listitem><para>Formatting conventions</para></listitem>
 </itemizedlist>
 
-
 <sect1 id="Overview_of_the_X_Window_System">
 <title>Overview of the X Window System</title>
 <!-- .XS -->
@@ -284,12 +283,15 @@ the error is printed, and your program terminates.
 <para>
 <!-- .LP -->
 The following include files are part of the Xlib standard:
-</para>
+<indexterm><primary>Headers</primary></indexterm>
 
 <variablelist>
-  <varlistentry>
-    <term>&lt;<filename class="headerfile">X11/Xlib.h</filename>&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xlib.h">
+    <term><filename class="headerfile">&lt;X11/Xlib.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xlib.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xlib.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xlib.h&gt;</secondary></indexterm>
       <para>
 This is the main header file for Xlib.
 The majority of all Xlib symbols are declared by including this file.
@@ -301,63 +303,82 @@ This symbol is defined to have the 6 in this release of the standard.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/X.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:X.h">
+    <term><filename class="headerfile">&lt;X11/X.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/X.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/X.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/X.h&gt;</secondary></indexterm>
       <para>
 This file declares types and constants for the X protocol that are
 to be used by applications.  It is included automatically from
-&gt;X11/Xlib.h&lt; so application code should never need to 
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename> so application code should never need to 
 reference this file directly.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xcms.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xcms.h">
+    <term><filename class="headerfile">&lt;X11/Xcms.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xcms.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xcms.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xcms.h&gt;</secondary></indexterm>
       <para>
 This file contains symbols for much of the color management facilities
 described in chapter 6.  All functions, types, and symbols with the 
 prefix "Xcms", <!-- xref -->
 plus the Color Conversion Contexts macros, are declared in this file.
-&lt;X11/Xlib.h&gt; must be included before including this file.
-      </para>
-    </listitem>
-  </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xutil.h&gt;</term>
-    <listitem>
-      <para>
-This file declares various functions, types, and symbols used for
-inter-client communication and application utility functions,
-which are described in chapters 14 and 16. <!-- xref -->
-&lt;X11/Xlib.h&gt; must be included before including this file.
-      </para>
-    </listitem>
-  </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xresource.h&gt;</term>
-    <listitem>
-      <para>
-This file declares all functions, types, and symbols for the
-resource manager facilities, which are described in chapter 15.
-&lt;X11/Xlib.h&gt; <!-- xref -->
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename>
 must be included before including this file.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xatom.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xutil.h">
+    <term><filename class="headerfile">&lt;X11/Xutil.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xutil.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xutil.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xutil.h&gt;</secondary></indexterm>
+      <para>
+This file declares various functions, types, and symbols used for
+inter-client communication and application utility functions,
+which are described in chapters 14 and 16. <!-- xref -->
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename> must be included before including this file.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry id="Standard_Header_Files:Xresource.h">
+    <term><filename class="headerfile">&lt;X11/Xresource.h&gt;</filename></term>
+    <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xresource.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xresource.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xresource.h&gt;</secondary></indexterm>
+      <para>
+This file declares all functions, types, and symbols for the
+resource manager facilities, which are described in chapter 15.
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename> <!-- xref -->
+must be included before including this file.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry id="Standard_Header_Files:Xatom.h">
+    <term><filename class="headerfile">&lt;X11/Xatom.h&gt;</filename></term>
+    <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xatom.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xatom.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xatom.h&gt;</secondary></indexterm>
       <para>
 This file declares all predefined atoms, 
 which are symbols with the prefix "XA_".
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/cursorfont.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:cursorfont.h">
+    <term><filename class="headerfile">&lt;X11/cursorfont.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/cursorfont.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/cursorfont.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/cursorfont.h&gt;</secondary></indexterm>
       <para>
 This file declares the cursor symbols for the standard cursor font,
 which are listed in appendix B.
@@ -365,9 +386,12 @@ All cursor symbols have the prefix "XC_".
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/keysymdef.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:keysymdef.h">
+    <term><filename class="headerfile">&lt;X11/keysymdef.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/keysymdef.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/keysymdef.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/keysymdef.h&gt;</secondary></indexterm>
       <para>
 This file declares all standard KeySym values,
 which are symbols with the prefix "XK_".
@@ -381,57 +405,72 @@ XK_HEBREW, XK_THAI, and XK_KOREAN</function>.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/keysym.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:keysym.h">
+    <term><filename class="headerfile">&lt;X11/keysym.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/keysym.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/keysym.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/keysym.h&gt;</secondary></indexterm>
       <para>
 This file defines the preprocessor symbols
 XK_MISCELLANY, XK_XKB_KEYS, XK_LATIN1, XK_LATIN2, XK_LATIN3,
 XK_LATIN4, and XK_GREEK
-and then includes &lt;X11/keysymdef.h&gt;
+and then includes <filename class="headerfile">&lt;X11/keysymdef.h&gt;</filename>.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xlibint.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xlibint.h">
+    <term><filename class="headerfile">&lt;X11/Xlibint.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xlibint.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xlibint.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xlibint.h&gt;</secondary></indexterm>
       <para>
 This file declares all the functions, types, and symbols used for
 extensions, which are described in appendix C.
 This file automatically includes
-&lt;X11/Xlib.h&lt;.
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename>.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xproto.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xproto.h">
+    <term><filename class="headerfile">&lt;X11/Xproto.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xproto.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xproto.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xproto.h&gt;</secondary></indexterm>
       <para>
 This file declares types and symbols for the basic X protocol,
 for use in implementing extensions.
 It is included automatically from
-&lt;X11/Xlibint.h&lt;,
+<filename class="headerfile">&lt;X11/Xlibint.h&gt;</filename>,
 so application and extension code should never need to
 reference this file directly.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/Xprotostr.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:Xprotostr.h">
+    <term><filename class="headerfile">&lt;X11/Xprotostr.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/Xprotostr.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/Xprotostr.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/Xprotostr.h&gt;</secondary></indexterm>
       <para>
 This file declares types and symbols for the basic X protocol,
 for use in implementing extensions.
 It is included automatically from
-&lt;X11/Xproto.h&lt;,
+<filename class="headerfile">&lt;X11/Xproto.h&gt;</filename>,
 so application and extension code should never need to
 reference this file directly.
       </para>
     </listitem>
   </varlistentry>
-  <varlistentry>
-    <term>&lt;X11/X10.h&gt;</term>
+  <varlistentry id="Standard_Header_Files:X10.h">
+    <term><filename class="headerfile">&lt;X11/X10.h&gt;</filename></term>
     <listitem>
+      <indexterm type="file"><primary><filename class="headerfile">X11/X10.h</filename></primary></indexterm>
+      <indexterm><primary>Files</primary><secondary>&lt;X11/X10.h&gt;</secondary></indexterm>
+      <indexterm><primary>Headers</primary><secondary>&lt;X11/X10.h&gt;</secondary></indexterm>
       <para>
 This file declares all the functions, types, and symbols used for the
 X10 compatibility functions, which are described in appendix D.
@@ -439,9 +478,8 @@ X10 compatibility functions, which are described in appendix D.
     </listitem>
   </varlistentry>
 </variablelist>
+</para>
 </sect1>
-
-
 
 <sect1 id="Generic_Values_and_Types">
 <title>Generic Values and Types</title>

@@ -1064,8 +1064,7 @@ masks bits in the event-mask attribute of the window.
 <itemizedlist>
   <listitem>
     <para>
-<function>Button1MotionMask \ \-</function>
-<symbol>Button5MotionMask</symbol>
+<symbol>Button1MotionMask</symbol> - <symbol>Button5MotionMask</symbol>
     </para>
   </listitem>
   <listitem>

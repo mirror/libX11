@@ -530,7 +530,7 @@ is used for generic resource IDs.
   <listitem>
     <para>
 <indexterm significance="preferred"><primary>XPointer</primary></indexterm>
-The type <type>XPointer</type> is defined to be <type>char\^*</type>
+The type <type>XPointer</type> is defined to be <type>char&hairsp;*</type>
 and is used as a generic opaque pointer to data.
     </para>
   </listitem>
@@ -820,11 +820,11 @@ see section 11.8.2. <!-- xref -->
 To eliminate any ambiguity between those arguments that you pass and those that
 a function returns to you,
 the explanations for all arguments that you pass start with the word
-<emphasis remap='I'>specifies</emphasis> or, in the case of multiple arguments, the word <emphasis remap='I'>specify\^</emphasis>.
+<emphasis remap='I'>specifies</emphasis> or, in the case of multiple arguments, the word <emphasis remap='I'>specify</emphasis>.
 The explanations for all arguments that are returned to you start with the
-word <emphasis remap='I'>returns</emphasis> or, in the case of multiple arguments, the word <emphasis remap='I'>return\^</emphasis>.
+word <emphasis remap='I'>returns</emphasis> or, in the case of multiple arguments, the word <emphasis remap='I'>return</emphasis>.
 The explanations for all arguments that you can pass and are returned start
-with the words <emphasis remap='I'>specifies and returns\^</emphasis>.
+with the words <emphasis remap='I'>specifies and returns</emphasis>.
 	  </para>
 	</listitem>
 	<listitem>

@@ -968,10 +968,10 @@ depth of drawable, use
 <funcsynopsis>
 <funcprototype>
   <funcdef>GC <function>XCreateGC</function></funcdef>
-  <paramdef>Display<parameter> *display</parameter></paramdef>
+  <paramdef>Display <parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
-  <paramdef>XGCValues<parameter> *\^values</parameter></paramdef>
+  <paramdef>XGCValues *<parameter>values</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1145,7 +1145,7 @@ To change the components in a given GC, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>unsignedlong<parameter> valuemask</parameter></paramdef>
-  <paramdef>XGCValues<parameter> *\^values</parameter></paramdef>
+  <paramdef>XGCValues<parameter> *values</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1982,7 +1982,7 @@ To set the dash-offset and dash-list for dashed line styles of a given GC, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int<parameter> dash_offset</parameter></paramdef>
-  <paramdef>char<parameter> dash_list[]\^</parameter></paramdef>
+  <paramdef>char<parameter> dash_list[]</parameter></paramdef>
   <paramdef>int<parameter> n</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2080,7 +2080,7 @@ are only required to match this ideal for horizontal and vertical lines.
 Failing the ideal semantics, it is suggested that the length be measured along the
 major axis of the line.
 The major axis is defined as the x axis for lines drawn at an angle of between
-\-45 and +45 degrees or between 135 and 225 degrees from the x axis.
+&minus;45 and +45 degrees or between 135 and 225 degrees from the x axis.
 For all other lines, the major axis is the y axis.
 </para>
 <para>
@@ -3043,7 +3043,7 @@ To set the clip-mask of a given GC to the specified list of rectangles, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intclip_x_origin,<parameter> clip_y_origin</parameter></paramdef>
-  <paramdef>XRectangle<parameter> rectangles[]\^</parameter></paramdef>
+  <paramdef>XRectangle<parameter> rectangles[]</parameter></paramdef>
   <paramdef>int<parameter> n</parameter></paramdef>
   <paramdef>int<parameter> ordering</parameter></paramdef>
 </funcprototype>

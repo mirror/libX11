@@ -1412,7 +1412,7 @@ To obtain the type, format, and value of a property of a given window, use
 <funcsynopsis>
 <funcprototype>
   <funcdef>int <function>XGetWindowProperty</function></funcdef>
-  <paramdef><parameter> \^display</parameter></paramdef>
+  <paramdef><parameter> display</parameter></paramdef>
   <paramdef><parameter> w</parameter></paramdef>
   <paramdef><parameter> property</parameter></paramdef>
   <paramdef><parameter> long_offset</parameter></paramdef>
@@ -1968,7 +1968,7 @@ To rotate a window's property list, use
   <funcdef><function>XRotateWindowProperties</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>Atom<parameter> properties[]\^</parameter></paramdef>
+  <paramdef>Atom<parameter> properties[]</parameter></paramdef>
   <paramdef>int<parameter> num_prop</parameter></paramdef>
   <paramdef>int<parameter> npositions</parameter></paramdef>
 </funcprototype>
@@ -2039,7 +2039,7 @@ events.
 If the property names in the properties array are viewed as being numbered 
 starting from zero and if there are num_prop property names in the list,
 then the value associated with property name I becomes the value associated 
-with property name (I + npositions) mod N for all I from zero to N \- 1.
+with property name (I + npositions) mod N for all I from zero to N &minus; 1.
 The effect is to rotate the states by npositions places around the virtual ring
 of property names (right for positive npositions, 
 left for negative npositions).

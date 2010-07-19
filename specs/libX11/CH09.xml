@@ -1105,7 +1105,7 @@ or
 Timeout and interval are specified in seconds. 
 A timeout of 0 disables the screen saver 
 (but an activated screen saver is not deactivated),
-and a timeout of \-1 restores the default.
+and a timeout of &minus;1 restores the default.
 Other negative values generate a
 <errorname>BadValue</errorname>
 error.

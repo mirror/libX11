@@ -11,7 +11,7 @@ CLEANFILES= \
 	locale.dir locale.dir.l1 locale.dir.l2 \
 	XLC_LOCALE
 
-SUBDIRS= \
+locales = \
 	am_ET.UTF-8		\
 	armscii-8		\
 	C			\
@@ -75,6 +75,8 @@ SUBDIRS= \
 
 include $(top_srcdir)/cpprules.in
 
+# Global data files
+
 locale.alias: locale.alias.pre
 	$(AM_V_GEN)$(RAWCPP) $(RAWCPPFLAGS) $(CPP_FILES_FLAGS) < $(srcdir)/locale.alias.pre | $(CPP_SED_MAGIC) > locale.alias.l1
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
@@ -92,3 +94,21 @@ locale.dir: locale.dir.pre
 	sed -e '/^[^#][^        ]*:/s/://' -e '/^[^#].*[        ].*:/d' \
         < locale.dir.l1 > locale.dir.l2
 	cat locale.dir.l2 locale.dir.l1 > locale.dir
+
+# Per-locale data files
+
+nobase_dist_x11locale_DATA = $(locales:%=%/XI18N_OBJS)
+
+nobase_x11locale_DATA = $(locales:%=%/XLC_LOCALE) $(locales:%=%/Compose)
+EXTRA_DIST += $(nobase_x11locale_DATA:%=%.pre)
+CLEANFILES += $(nobase_x11locale_DATA)
+
+$(nobase_x11locale_DATA): builddirs
+
+builddirs:
+	$(MKDIR_P) $(locales)
+
+if HAVE_PERL
+TESTS_ENVIRONMENT = $(PERL)
+TESTS = $(srcdir)/compose-check.pl
+endif HAVE_PERL

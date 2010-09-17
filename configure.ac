@@ -544,7 +544,6 @@ echo " Internationalization support:            "$XLOCALE
 echo " XF86BigFont support:                     "$XF86BIGFONT
 echo " XKB support:                             "$XKB
 echo " XLOCALEDIR environment variable support: "$ENABLE_XLOCALEDIR
-echo " Manual pages suffix:                     "$LIB_MAN_SUFFIX
 echo " Compose table cache enabled:             "$COMPOSECACHE
 echo " Functional specs building enabled:       "$build_specs
 echo ""

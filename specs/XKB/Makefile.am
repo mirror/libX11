@@ -50,7 +50,28 @@ dist_spec_DATA = 		\
 	ch20.xml		\
 	ch21.xml		\
 	ch22.xml		\
-	glossary.xml
+	glossary.xml		\
+	XKBlib-1.gif		\
+	XKBlib-2.gif		\
+	XKBlib-3.gif		\
+	XKBlib-4.gif		\
+	XKBlib-5.gif		\
+	XKBlib-6.gif		\
+	XKBlib-7.gif		\
+	XKBlib-8.gif		\
+	XKBlib-9.gif		\
+	XKBlib-10.gif		\
+	XKBlib-11.gif		\
+	XKBlib-12.gif		\
+	XKBlib-13.gif		\
+	XKBlib-14.gif		\
+	XKBlib-15.gif		\
+	XKBlib-16.gif		\
+	XKBlib-17.gif		\
+	XKBlib-18.gif		\
+	XKBlib-19.gif		\
+	XKBlib-20.gif		\
+	XKBlib-21.gif
 
 include $(top_srcdir)/specs/xmlrules.in
 

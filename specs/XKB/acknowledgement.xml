@@ -1,4 +1,4 @@
-<chapter id='acknowledgement'>
+<preface id='acknowledgement'>
 <title>Acknowledgement</title>
 <para>
 This document is the result of a great deal of hard work by a great
@@ -32,4 +32,4 @@ Manager, X Window System
 <para>
 X Consortium Inc.
 </para>
-</chapter>
+</preface>

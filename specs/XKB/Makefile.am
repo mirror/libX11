@@ -51,27 +51,27 @@ dist_spec_DATA = 		\
 	ch21.xml		\
 	ch22.xml		\
 	glossary.xml		\
-	XKBlib-1.gif		\
-	XKBlib-2.gif		\
-	XKBlib-3.gif		\
-	XKBlib-4.gif		\
-	XKBlib-5.gif		\
-	XKBlib-6.gif		\
-	XKBlib-7.gif		\
-	XKBlib-8.gif		\
-	XKBlib-9.gif		\
-	XKBlib-10.gif		\
-	XKBlib-11.gif		\
-	XKBlib-12.gif		\
-	XKBlib-13.gif		\
-	XKBlib-14.gif		\
-	XKBlib-15.gif		\
-	XKBlib-16.gif		\
-	XKBlib-17.gif		\
-	XKBlib-18.gif		\
-	XKBlib-19.gif		\
-	XKBlib-20.gif		\
-	XKBlib-21.gif
+	XKBlib-1.svg		\
+	XKBlib-2.svg		\
+	XKBlib-3.svg		\
+	XKBlib-4.svg		\
+	XKBlib-5.svg		\
+	XKBlib-6.svg		\
+	XKBlib-7.svg		\
+	XKBlib-8.svg		\
+	XKBlib-9.svg		\
+	XKBlib-10.svg		\
+	XKBlib-11.svg		\
+	XKBlib-12.svg		\
+	XKBlib-13.svg		\
+	XKBlib-14.svg		\
+	XKBlib-15.svg		\
+	XKBlib-16.svg		\
+	XKBlib-17.svg		\
+	XKBlib-18.svg		\
+	XKBlib-19.svg		\
+	XKBlib-20.svg		\
+	XKBlib-21.svg
 
 include $(top_srcdir)/specs/xmlrules.in
 

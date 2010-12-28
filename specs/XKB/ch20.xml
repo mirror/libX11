@@ -972,7 +972,7 @@ database of components and returning all or part of it is diagrammed in Figure
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-21.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-21.svg"/>
  </imageobject>
  <caption>Building a New Keyboard Description from the Server Database</caption>
 </mediaobject>

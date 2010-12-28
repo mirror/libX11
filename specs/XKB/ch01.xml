@@ -110,7 +110,7 @@ Figure 1.1 shows the overall structure of the Xkb extension:
 
 <mediaobject>
   <imageobject>
-    <imagedata fileref="XKBlib-1.gif"/>
+    <imagedata format="SVG" fileref="XKBlib-1.svg"/>
   </imageobject>
   <caption>Overall Xkb Structure</caption>
 </mediaobject>

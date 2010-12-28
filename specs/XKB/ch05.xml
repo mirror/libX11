@@ -7,7 +7,7 @@ Keyboard state encompasses all of the transitory information necessary to map a 
 
 <mediaobject>
 <!-- <title>Keyboard State Description</title> -->
- <imageobject> <imagedata fileref="XKBlib-2.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-2.svg"/>
  </imageobject>
 <caption>Xkb State</caption>
 </mediaobject>

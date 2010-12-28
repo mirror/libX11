@@ -32,7 +32,7 @@ origin. An example of a keyboard with rotated sections is shown in Figure 13.1.
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-7.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-7.svg"/>
  </imageobject>
 <caption>Rotated Keyboard Sections</caption>
 </mediaobject>
@@ -234,7 +234,7 @@ section.
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-8.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-8.svg"/>
  </imageobject>
 <caption>Keyboard with Four Sections</caption>
 </mediaobject>
@@ -399,7 +399,7 @@ rows. Rows and keys are defined below.
 </itemizedlist>
 
 <mediaobject>
-  <imageobject> <imagedata fileref="XKBlib-9.gif"/>
+  <imageobject> <imagedata format="SVG" fileref="XKBlib-9.svg"/>
   </imageobject>
   <caption>Rows in a Section</caption>
 </mediaobject>
@@ -692,7 +692,7 @@ pointer into the array.
 </MAP>
 -->
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-10.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-10.svg"/>
  </imageobject>
 <caption>Xkb Geometry Data Structures</caption>
 </mediaobject>
@@ -706,7 +706,7 @@ Xkb Geometry Data Structures</H5>
 </MAP>
 -->
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-11.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-11.svg"/>
  </imageobject>
 <caption>Xkb Geometry Data Structures (Doodads)</caption>
 </mediaobject>
@@ -721,7 +721,7 @@ Xkb Geometry Data Structures (Doodads)</H5>
 </MAP>
 -->
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-12.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-12.svg"/>
  </imageobject>
 <caption>Xkb Geometry Data Structures (Overlays)</caption>
 </mediaobject>
@@ -1218,7 +1218,7 @@ all the outlines of that shape.
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-13.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-13.svg"/>
  </imageobject>
 <caption>Key Surface, Shape Outlines, and Bounding Box</caption>
  </mediaobject>

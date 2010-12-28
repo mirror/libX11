@@ -1405,7 +1405,7 @@ accelerated according to the formula:
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-3.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-3.svg"/>
  </imageobject>
  </mediaobject>
 
@@ -1429,7 +1429,7 @@ mk_curve</emphasis>
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-4.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-4.svg"/>
  </imageobject>
  </mediaobject>
 
@@ -1440,7 +1440,7 @@ mk_curve</emphasis>
  of zero causes the distance moved to increase linearly from <emphasis>
 action_delta</emphasis>
  to <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-5.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-5.svg"/>
  </imageobject>
  </mediaobject>
 
@@ -1462,7 +1462,7 @@ A distance vs. time graph of the pointer motion is shown in Figure 10.1. <!-- xr
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-6.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-6.svg"/>
  </imageobject>
 <caption>MouseKeys Acceleration</caption>
  </mediaobject>

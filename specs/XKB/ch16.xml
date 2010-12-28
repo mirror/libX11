@@ -14,7 +14,7 @@ Figure 16.1 shows the relationships between elements in the server map:
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-16.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-16.svg"/>
  </imageobject>
 <caption>Server Map Relationships</caption>
  </mediaobject>
@@ -4553,7 +4553,7 @@ keyboard description are shown in Figure 16.2.
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-17.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-17.svg"/>
  </imageobject>
 <caption>Virtual Modifier Relationships</caption>
 </mediaobject>

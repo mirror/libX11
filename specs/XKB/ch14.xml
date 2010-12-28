@@ -94,7 +94,7 @@ that are implied or expected but are not actually engraved on the key):
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-14.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-14.svg"/>
  </imageobject>
 <caption>Shift Levels and Groups</caption>
  </mediaobject>

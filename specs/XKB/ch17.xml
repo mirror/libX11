@@ -16,7 +16,7 @@ keyboard mappings and core protocol state / keyboard mappings, and vice versa.
 </para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-18.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-18.svg"/>
  </imageobject>
  <caption>Server Interaction with Types of Clients</caption>
 </mediaobject>
@@ -57,7 +57,7 @@ others that were computed. Figure 17.2 illustrates these relationships.
 client-side data structures.</para></note>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-19.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-19.svg"/>
  </imageobject>
  <caption>Server Derivation of State and Keyboard Mapping Components</caption>
 </mediaobject>
@@ -159,7 +159,7 @@ typedef struct _XkbCompatMapRec {
 </programlisting></para>
 
 <mediaobject>
- <imageobject> <imagedata fileref="XKBlib-20.gif"/>
+ <imageobject> <imagedata format="SVG" fileref="XKBlib-20.svg"/>
  </imageobject>
  <caption>Xkb Compatibility Data Structures</caption>
 </mediaobject>

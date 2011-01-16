@@ -34,7 +34,6 @@ XORG_PROG_RAWCPP
 
 # Checks for programs.
 AC_PROG_LIBTOOL
-AC_PROG_CC
 PKG_PROG_PKG_CONFIG
 
 if test x"$CC_FOR_BUILD" = x; then

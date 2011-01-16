@@ -364,10 +364,8 @@ AC_ARG_ENABLE(xf86bigfont,
 		[Disable XF86BigFont extension support]),
 	      [XF86BIGFONT=$enableval],[XF86BIGFONT="yes"])
 if test "x$XF86BIGFONT" = "xyes"; then
-    PKG_CHECK_MODULES(BIGFONT, xf86bigfontproto,
+    PKG_CHECK_MODULES(BIGFONT, [xf86bigfontproto >= 1.2.0],
          AC_DEFINE(XF86BIGFONT,1,[Enable XF86BIGFONT extension]),XF86BIGFONT="no")
-    AC_SUBST(BIGFONT_CFLAGS)
-    AC_SUBST(BIGFONT_LIBS)
 fi
 
 AC_ARG_ENABLE(xkb,

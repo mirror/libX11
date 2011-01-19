@@ -7,14 +7,13 @@ AC_INIT([libX11],
         [https://bugs.freedesktop.org/enter_bug.cgi?product=xorg],
         libX11)
 AC_CONFIG_SRCDIR([Makefile.am])
+AC_CONFIG_HEADERS([src/config.h include/X11/XlibConf.h])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CANONICAL_BUILD
 AC_CANONICAL_HOST
 
 AM_INIT_AUTOMAKE([foreign dist-bzip2])
 AM_MAINTAINER_MODE
-AM_CONFIG_HEADER([src/config.h])
-AC_CONFIG_HEADER([include/X11/XlibConf.h])
 
 # Set common system defines for POSIX extensions, such as _GNU_SOURCE
 # Must be called before any macros that run the compiler (like AC_PROG_LIBTOOL)

@@ -842,8 +842,10 @@ static void PutEntry(
 	nprev = NodeBuckets(table); \
     } else { \
 	table->leaf = 1; \
-	if (!(nprev = (NTable *)Xmalloc(sizeof(VEntry *)))) \
+	if (!(nprev = (NTable *)Xmalloc(sizeof(VEntry *)))) {\
+	    Xfree(table); \
 	    return; \
+        } \
 	((LTable)table)->buckets = (VEntry *)nprev; \
     } \
     *nprev = (NTable)NULL; \

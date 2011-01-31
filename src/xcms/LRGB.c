@@ -687,6 +687,7 @@ LINEAR_RGB_InitSCCData(
 	    /* Red Intensity Table */
 	    if (!(pScreenData->pRedTbl = (IntensityTbl *)
 		    Xcalloc (1, sizeof(IntensityTbl)))) {
+		XFree ((char * ) property_return);
 		goto FreeSCCData;
 	    }
 	    if (_XcmsGetTableType0(pScreenData->pRedTbl, format_return, &pChar,
@@ -724,6 +725,7 @@ LINEAR_RGB_InitSCCData(
 	    /* Red Intensity Table */
 	    if (!(pScreenData->pRedTbl = (IntensityTbl *)
 		    Xcalloc (1, sizeof(IntensityTbl)))) {
+		XFree ((char * ) property_return);
 		goto FreeSCCData;
 	    }
 	    if (_XcmsGetTableType1(pScreenData->pRedTbl, format_return, &pChar,

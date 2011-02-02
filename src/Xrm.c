@@ -1596,16 +1596,11 @@ ReadInFile(_Xconst char *filename)
      */
     {
 	struct stat status_buffer;
-	if ( (fstat(fd, &status_buffer)) == -1 )
-	    size = -1;
-	else
+	if ( (fstat(fd, &status_buffer)) == -1 ) {
+	    close (fd);
+	    return (char *)NULL;
+	} else
 	    size = status_buffer.st_size;
-    }
-
-    /* There might have been a problem trying to stat a file */
-    if (size == -1) {
-	close (fd);
-	return (char *)NULL;
     }
 
     if (!(filebuf = Xmalloc(size + 1))) { /* leave room for '\0' */

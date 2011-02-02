@@ -60,8 +60,8 @@ from The Open Group.
 #ifdef XTHREADS
 #include	"locking.h"
 #endif
-#include 	"XrmI.h"
 #include	<X11/Xos.h>
+#include	<sys/stat.h>
 #include "Xresinternal.h"
 #include "Xresource.h"
 
@@ -1594,7 +1594,13 @@ ReadInFile(_Xconst char *filename)
      * result that the number of bytes actually read with be <=
      * to the size returned by fstat.
      */
-    GetSizeOfFile(fd, size);
+    {
+	struct stat status_buffer;
+	if ( (fstat(fd, &status_buffer)) == -1 )
+	    size = -1;
+	else
+	    size = status_buffer.st_size;
+    }
 
     /* There might have been a problem trying to stat a file */
     if (size == -1) {

@@ -1932,8 +1932,10 @@ read_EncodingInfo(
 	} else
             len = strlen(buf);
         font_data->name = (char *) Xmalloc(len + 1);
-        if (font_data->name == NULL)
+        if (font_data->name == NULL) {
+            Xfree(font_data);
             return NULL;
+	}
         strncpy(font_data->name, buf,len);
 	font_data->name[len] = 0;
         if (bufptr && _XlcCompareISOLatin1(bufptr, "GL") == 0)

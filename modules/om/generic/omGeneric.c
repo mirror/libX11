@@ -2119,22 +2119,24 @@ init_om(
     if (required_list == NULL)
 	return False;
 
-    bufptr = (char *) Xmalloc(length);
-    if (bufptr == NULL) {
-	Xfree(required_list);
-	return False;
-    }
-
     om->core.required_charset.charset_list = required_list;
     om->core.required_charset.charset_count = gen->data_num;
 
     count = gen->data_num;
     data = gen->data;
 
-    for ( ; count-- > 0; data++) {
-	strcpy(bufptr, data->font_data->name);
-	*required_list++ = bufptr;
-	bufptr += strlen(bufptr) + 1;
+    if (count > 0) {
+	bufptr = (char *) Xmalloc(length);
+	if (bufptr == NULL) {
+	    Xfree(required_list);
+	    return False;
+	}
+
+	for ( ; count-- > 0; data++) {
+	    strcpy(bufptr, data->font_data->name);
+	    *required_list++ = bufptr;
+	    bufptr += strlen(bufptr) + 1;
+	}
     }
 
     /* orientation list */

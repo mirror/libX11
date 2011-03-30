@@ -802,7 +802,7 @@ FreeBlueTbl:
     Xfree((char *)pScreenData->pBlueTbl);
 
 FreeGreenTblElements:
-    Xfree((char *)pScreenData->pBlueTbl->pBase);
+    Xfree((char *)pScreenData->pGreenTbl->pBase);
 
 FreeGreenTbl:
     Xfree((char *)pScreenData->pGreenTbl);

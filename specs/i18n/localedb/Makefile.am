@@ -5,7 +5,7 @@ if ENABLE_SPECS
 docbook = localedb.xml
 
 # The location where the DocBook/XML files and their generated formats are installed
-shelfdir = $(docdir)/localedb
+shelfdir = $(docdir)/i18n/localedb
 
 # Generate DocBook/XML output formats with or without stylesheets
 include $(top_srcdir)/docbook.am

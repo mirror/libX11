@@ -60,15 +60,13 @@ create(
     XLCd lcd;
     XLCdPublicMethods new;
 
-    lcd = (XLCd) Xmalloc(sizeof(XLCdRec));
+    lcd = Xcalloc(1, sizeof(XLCdRec));
     if (lcd == NULL)
         return (XLCd) NULL;
-    bzero((char *) lcd, sizeof(XLCdRec));
 
-    lcd->core = (XLCdCore) Xmalloc(sizeof(XLCdGenericRec));
+    lcd->core = Xcalloc(1, sizeof(XLCdGenericRec));
     if (lcd->core == NULL)
 	goto err;
-    bzero((char *) lcd->core, sizeof(XLCdGenericRec));
 
     new = (XLCdPublicMethods) Xmalloc(sizeof(XLCdPublicMethodsRec));
     if (new == NULL)
@@ -180,10 +178,9 @@ add_codeset(
     CodeSet new, *new_list;
     int num;
 
-    new = (CodeSet) Xmalloc(sizeof(CodeSetRec));
+    new = Xcalloc(1, sizeof(CodeSetRec));
     if (new == NULL)
         return NULL;
-    bzero((char *) new, sizeof(CodeSetRec));
 
     if ((num = gen->codeset_num))
         new_list = (CodeSet *) Xrealloc(gen->codeset_list,
@@ -223,16 +220,14 @@ add_parse_list(
         return False;
     strcpy(str, encoding);
 
-    new = (ParseInfo) Xmalloc(sizeof(ParseInfoRec));
+    new = Xcalloc(1, sizeof(ParseInfoRec));
     if (new == NULL)
         goto err;
-    bzero((char *) new, sizeof(ParseInfoRec));
 
     if (gen->mb_parse_table == NULL) {
-        gen->mb_parse_table = (unsigned char *) Xmalloc(256); /* 2^8 */
+        gen->mb_parse_table = Xcalloc(1, 256); /* 2^8 */
         if (gen->mb_parse_table == NULL)
             goto err;
-        bzero((char *) gen->mb_parse_table, 256);
     }
 
     if ((num = gen->mb_parse_list_num))

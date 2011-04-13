@@ -1654,10 +1654,9 @@ create_oc(
     XOCMethodsList methods_list = oc_methods_list;
     int count;
 
-    oc = (XOC) Xmalloc(sizeof(XOCGenericRec));
+    oc = Xcalloc(1, sizeof(XOCGenericRec));
     if (oc == NULL)
 	return (XOC) NULL;
-    bzero((char *) oc, sizeof(XOCGenericRec));
 
     oc->core.om = om;
 
@@ -1842,10 +1841,9 @@ create_om(
 {
     XOM om;
 
-    om = (XOM) Xmalloc(sizeof(XOMGenericRec));
+    om = Xcalloc(1, sizeof(XOMGenericRec));
     if (om == NULL)
 	return (XOM) NULL;
-    bzero((char *) om, sizeof(XOMGenericRec));
 
     om->methods = &methods;
     om->core.lcd = lcd;
@@ -1913,10 +1911,9 @@ read_EncodingInfo(
     FontData font_data,ret;
     char *buf, *bufptr,*scp;
     int len;
-    font_data = (FontData) Xmalloc(sizeof(FontDataRec) * count);
+    font_data = Xcalloc(count, sizeof(FontDataRec));
     if (font_data == NULL)
         return NULL;
-    bzero((char *) font_data, sizeof(FontDataRec) * count);
 
     ret = font_data;
     for ( ; count-- > 0; font_data++) {

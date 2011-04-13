@@ -80,15 +80,13 @@ create(
     XLCd lcd;
     XLCdPublicMethods new;
 
-    lcd = (XLCd) Xmalloc(sizeof(XLCdRec));
+    lcd = Xcalloc(1, sizeof(XLCdRec));
     if (lcd == NULL)
         return (XLCd) NULL;
-    bzero((char *) lcd, sizeof(XLCdRec));
 
-    lcd->core = (XLCdCore) Xmalloc(sizeof(XLCdPublicRec));
+    lcd->core = Xcalloc(1, sizeof(XLCdPublicRec));
     if (lcd->core == NULL)
 	goto err;
-    bzero((char *) lcd->core, sizeof(XLCdPublicRec));
 
     new = (XLCdPublicMethods) Xmalloc(sizeof(XLCdPublicMethodsRec));
     if (new == NULL)

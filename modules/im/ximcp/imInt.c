@@ -204,9 +204,8 @@ _XimOpenIM(
     Xim			 im;
     register int	 i;
 
-    if (!(im = (Xim)Xmalloc(sizeof(XimRec))))
+    if (!(im = Xcalloc(1, sizeof(XimRec))))
 	return (XIM)NULL;
-    bzero(im, sizeof(XimRec));
 
     im->core.lcd       = lcd;
     im->core.ic_chain  = (XIC)NULL;

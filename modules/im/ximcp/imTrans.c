@@ -293,12 +293,10 @@ _XimTransConf(
     if (!(paddr = (char *)Xmalloc(strlen(address) + 1)))
 	return False;
 
-    if (!(spec = (TransSpecRec *) Xmalloc(sizeof(TransSpecRec)))) {
+    if (!(spec = Xcalloc(1, sizeof(TransSpecRec)))) {
 	Xfree(paddr);
 	return False;
     }
-
-    bzero(spec, sizeof(TransSpecRec));
 
     (void)strcpy(paddr, address);
     spec->address   = paddr;

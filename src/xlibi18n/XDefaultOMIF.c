@@ -128,10 +128,9 @@ init_fontset(
 
     data = XOM_GENERIC(oc->core.om)->data;
 
-    font_set = (FontSet) Xmalloc(sizeof(FontSetRec));
+    font_set = Xcalloc(1, sizeof(FontSetRec));
     if (font_set == NULL)
 	return False;
-    bzero((char *) font_set, sizeof(FontSetRec));
 
     gen = XOC_GENERIC(oc);
     gen->font_set = font_set;
@@ -1005,10 +1004,9 @@ create_oc(
 {
     XOC oc;
 
-    oc = (XOC) Xmalloc(sizeof(XOCGenericRec));
+    oc = Xcalloc(1, sizeof(XOCGenericRec));
     if (oc == NULL)
 	return (XOC) NULL;
-    bzero((char *) oc, sizeof(XOCGenericRec));
 
     oc->core.om = om;
 
@@ -1126,14 +1124,12 @@ add_data(
     XOMGenericPart *gen = XOM_GENERIC(om);
     OMData new;
 
-    new = (OMData) Xmalloc(sizeof(OMDataRec));
+    new = Xcalloc(1, sizeof(OMDataRec));
 
     if (new == NULL)
         return NULL;
 
     gen->data = new;
-
-    bzero((char *) new, sizeof(OMDataRec));
 
     return new;
 }
@@ -1168,10 +1164,9 @@ init_om(
     if (data == NULL)
 	return False;
 
-    font_data = (FontData) Xmalloc(sizeof(FontDataRec) * count);
+    font_data = Xcalloc(count, sizeof(FontDataRec));
     if (font_data == NULL)
 	return False;
-    bzero((char *) font_data, sizeof(FontDataRec) * count);
     data->font_data = font_data;
     data->font_data_count = count;
 
@@ -1237,10 +1232,9 @@ _XDefaultOpenOM(XLCd lcd, Display *dpy, XrmDatabase rdb,
 {
     XOM om;
 
-    om = (XOM) Xmalloc(sizeof(XOMGenericRec));
+    om = Xcalloc(1, sizeof(XOMGenericRec));
     if (om == NULL)
 	return (XOM) NULL;
-    bzero((char *) om, sizeof(XOMGenericRec));
 
     om->methods = (XOMMethods)&methods;
     om->core.lcd = lcd;

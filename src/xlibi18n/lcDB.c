@@ -591,11 +591,10 @@ store_to_database(
 	goto err;
     }
 
-    new = (Database)Xmalloc(sizeof(DatabaseRec));
+    new = Xcalloc(1, sizeof(DatabaseRec));
     if (new == (Database)NULL) {
 	goto err;
     }
-    bzero(new, sizeof(DatabaseRec));
 
     new->category = (char *)Xmalloc(strlen(parse_info.category) + 1);
     if (new->category == NULL) {
@@ -1309,10 +1308,9 @@ _XlcCreateLocaleDataBase(
 	return (XPointer)NULL;
     }
     n = CountDatabase(database);
-    lc_db = (XlcDatabase)Xmalloc(sizeof(XlcDatabaseRec) * (n + 1));
+    lc_db = Xcalloc(n + 1, sizeof(XlcDatabaseRec));
     if (lc_db == (XlcDatabase)NULL)
 	goto err;
-    bzero(lc_db, sizeof(XlcDatabaseRec) * (n + 1));
     for (p = database, i = 0; p && i < n; p = p->next, ++i) {
 	lc_db[i].category_q = XrmStringToQuark(p->category);
 	lc_db[i].name_q = XrmStringToQuark(p->name);

@@ -360,10 +360,9 @@ _XimDefaultStyles(
 
     n = XIMNumber(supported_local_styles) - 1;
     len = sizeof(XIMStyles) + sizeof(XIMStyle) * n;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xcalloc(1, len))) {
 	return False;
     }
-    bzero(tmp, len);
 
     styles = (XIMStyles *)tmp;
     if (n > 0) {
@@ -396,10 +395,9 @@ _XimDefaultIMValues(
 
     n = XIMNumber(supported_local_im_values_list);
     len = sizeof(XIMValuesList) + sizeof(char **) * n;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xcalloc(1, len))) {
 	return False;
     }
-    bzero(tmp, len);
 
     values_list = (XIMValuesList *)tmp;
     if (n > 0) {
@@ -433,10 +431,9 @@ _XimDefaultICValues(
 
     n = XIMNumber(supported_local_ic_values_list);
     len = sizeof(XIMValuesList) + sizeof(char **) * n;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xcalloc(1, len))) {
 	return False;
     }
-    bzero(tmp, len);
 
     values_list = (XIMValuesList *)tmp;
     if (n > 0) {
@@ -1085,10 +1082,9 @@ _XimDecodeStyles(
     num = styles->count_styles;
 
     len = sizeof(XIMStyles) + sizeof(XIMStyle) * num;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xcalloc(1, len))) {
 	return False;
     }
-    bzero(tmp, len);
 
     out = (XIMStyles *)tmp;
     if(num >0) {
@@ -1124,10 +1120,9 @@ _XimDecodeValues(
     num = values_list->count_values;
 
     len = sizeof(XIMValuesList) + sizeof(char **) * num;
-    if(!(tmp = (char *)Xmalloc(len))) {
+    if(!(tmp = Xcalloc(1, len))) {
 	return False;
     }
-    bzero(tmp, len);
 
     out = (XIMValuesList *)tmp;
     if(num) {
@@ -2143,10 +2138,9 @@ _XimSetResourceList(
     XIMResourceList	  res;
 
     len = sizeof(XIMResource) * num_resource;
-    if(!(res = (XIMResourceList)Xmalloc(len))) {
+    if(!(res = Xcalloc(1, len))) {
 	return False;
     }
-    bzero((char *)res, len);
 
     for(i = 0; i < num_resource; i++, id++) {
 	res[i]    = resource[i];

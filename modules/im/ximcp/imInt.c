@@ -214,14 +214,12 @@ _XimOpenIM(
     im->core.res_name  = NULL;
     im->core.res_class = NULL;
     if((res_name != NULL) && (*res_name != '\0')){
-	if(!(im->core.res_name  = (char *)Xmalloc(strlen(res_name)+1)))
+	if(!(im->core.res_name  = strdup(res_name)))
 	    goto Error1;
-	strcpy(im->core.res_name,res_name);
     }
     if((res_class != NULL) && (*res_class != '\0')){
-	if(!(im->core.res_class = (char *)Xmalloc(strlen(res_class)+1)))
+	if(!(im->core.res_class = strdup(res_class)))
 	    goto Error2;
-	strcpy(im->core.res_class,res_class);
     }
     if(!(im->core.im_name = _XimMakeImName(lcd)))
 	goto Error3;

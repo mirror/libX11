@@ -596,20 +596,18 @@ store_to_database(
 	goto err;
     }
 
-    new->category = (char *)Xmalloc(strlen(parse_info.category) + 1);
+    new->category = strdup(parse_info.category);
     if (new->category == NULL) {
 	goto err;
     }
-    strcpy(new->category, parse_info.category);
 
     if (! construct_name(name, sizeof(name))) {
 	goto err;
     }
-    new->name = (char *)Xmalloc(strlen(name) + 1);
+    new->name = strdup(name);
     if (new->name == NULL) {
 	goto err;
     }
-    strcpy(new->name, name);
     new->next = *db;
     new->value = parse_info.value;
     new->value_num = parse_info.value_num;
@@ -943,10 +941,9 @@ f_default(
     case S_NULL:
 	if (parse_info.category != NULL)
 	    goto err;
-	p = (char *)Xmalloc(strlen(wordp) + 1);
+	p = strdup(wordp);
 	if (p == NULL)
 	    goto err;
-	strcpy(p, wordp);
 	parse_info.category = p;
 	parse_info.pre_state = S_CATEGORY;
 	break;
@@ -960,10 +957,9 @@ f_default(
 		break;
 	    }
 	}
-	p = (char *)Xmalloc(strlen(wordp) + 1);
+	p = strdup(wordp);
 	if (p == NULL)
 	    goto err;
-	strcpy(p, wordp);
 	if (parse_info.name[parse_info.nest_depth] != NULL) {
 	    Xfree(parse_info.name[parse_info.nest_depth]);
 	}

@@ -216,9 +216,8 @@ check_fontname(
 		fname = prop_fname;
 	}
 	if (data) {
-	    font_set->font_name = (char *) Xmalloc(strlen(fname) + 1);
+	    font_set->font_name = strdup(fname);
 	    if (font_set->font_name) {
-		strcpy(font_set->font_name, fname);
 		found_num++;
 	    }
 	}
@@ -387,9 +386,7 @@ get_font_name(
 
     list = XListFonts(dpy, pattern, 1, &count);
     if (list != NULL) {
-	name = (char *) Xmalloc(strlen(*list) + 1);
-	if (name)
-	    strcpy(name, *list);
+	name = strdup(*list);
 
 	XFreeFontNames(list);
     } else {
@@ -459,13 +456,11 @@ parse_fontname(
 	    if (font_data == NULL)
 		continue;
 
-	    font_set->font_name = (char *) Xmalloc(strlen(font_name) + 1);
+	    font_set->font_name = strdup(font_name);
+	    Xfree(font_name);
 	    if (font_set->font_name == NULL) {
-		Xfree(font_name);
 		goto err;
 	    }
-	    strcpy(font_set->font_name, font_name);
-	    Xfree(font_name);
 	    found_num++;
 	    goto found;
 	}
@@ -548,11 +543,10 @@ Limit the length of the string copy to prevent stack corruption.
 	}
     }
   found:
-    base_name = (char *) Xmalloc(strlen(oc->core.base_name_list) + 1);
+    base_name = strdup(oc->core.base_name_list);
     if (base_name == NULL)
 	goto err;
 
-    strcpy(base_name, oc->core.base_name_list);
     oc->core.base_name_list = base_name;
 
     XFreeStringList(name_list);
@@ -1177,10 +1171,9 @@ This one is fine.  *value points to one of the local strings in
 supported_charset_list[].
 */
 	strcpy(buf, *value++);
-	font_data->name = (char *) Xmalloc(strlen(buf) + 1);
+	font_data->name = strdup(buf);
 	if (font_data->name == NULL)
 	    return False;
-	strcpy(font_data->name, buf);
     }
 
     length += strlen(data->font_data->name) + 1;
@@ -1241,16 +1234,14 @@ _XDefaultOpenOM(XLCd lcd, Display *dpy, XrmDatabase rdb,
     om->core.display = dpy;
     om->core.rdb = rdb;
     if (res_name) {
-	om->core.res_name = (char *)Xmalloc(strlen(res_name) + 1);
+	om->core.res_name = strdup(res_name);
 	if (om->core.res_name == NULL)
 	    goto err;
-	strcpy(om->core.res_name, res_name);
     }
     if (res_class) {
-	om->core.res_class = (char *)Xmalloc(strlen(res_class) + 1);
+	om->core.res_class = strdup(res_class);
 	if (om->core.res_class == NULL)
 	    goto err;
-	strcpy(om->core.res_class, res_class);
     }
 
     if (om_resources[0].xrm_name == NULLQUARK)

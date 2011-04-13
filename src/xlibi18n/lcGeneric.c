@@ -215,10 +215,9 @@ add_parse_list(
     unsigned char ch;
     int num;
 
-    str = (char *) Xmalloc(strlen(encoding) + 1);
+    str = strdup(encoding);
     if (str == NULL)
         return False;
-    strcpy(str, encoding);
 
     new = Xcalloc(1, sizeof(ParseInfoRec));
     if (new == NULL)
@@ -463,10 +462,9 @@ read_charset_define(
                 break;
         }
         if (new) {
-            tmp = (char *)Xmalloc(strlen(cset_name)+1);
+            tmp = strdup(cset_name);
             if (tmp == NULL)
                 return;
-            strcpy(tmp,cset_name);
             charsetd->name = tmp;
         }
         /* side   */
@@ -522,8 +520,7 @@ read_charset_define(
                 Xfree(charsetd->encoding_name);
             }
 */
-            tmp = (char *)Xmalloc(strlen(value[0])+1);
-            strcpy(tmp,value[0]);
+            tmp = strdup(value[0]);
             charsetd->encoding_name = tmp;
             charsetd->xrm_encoding_name = XrmStringToQuark(tmp);
         }
@@ -593,10 +590,9 @@ read_segmentconversion(
         if (num > 0) {
             char *tmp;
             _XlcDbg_printValue(name,value,num);
-            tmp = (char *)Xmalloc(strlen(value[0])+1);
+            tmp = strdup(value[0]);
             if (tmp == NULL)
                 return;
-            strcpy(tmp,value[0]);
             conversion->source_encoding = tmp;
             conversion->source = srch_charset_define(tmp,&new);
         }
@@ -606,10 +602,9 @@ read_segmentconversion(
         if (num > 0) {
             char *tmp;
             _XlcDbg_printValue(name,value,num);
-            tmp = (char *)Xmalloc(strlen(value[0])+1);
+            tmp = strdup(value[0]);
             if (tmp == NULL)
                 return;
-            strcpy(tmp,value[0]);
             conversion->destination_encoding = tmp;
             conversion->dest = srch_charset_define(tmp,&new);
         }
@@ -645,12 +640,11 @@ create_ctextseg(
     ret = (ExtdSegment)Xmalloc(sizeof(ExtdSegmentRec));
     if (ret == NULL)
         return NULL;
-    ret->name = (char *)Xmalloc(strlen(value[0]) + 1);
+    ret->name = strdup(value[0]);
     if (ret->name == NULL) {
         Xfree (ret);
         return NULL;
     }
-    strcpy(ret->name,value[0]);
     cset_name = (char*) Xmalloc (strlen(ret->name) + 1);
     if (cset_name == NULL) {
         Xfree (ret->name);

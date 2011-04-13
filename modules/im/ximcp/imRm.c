@@ -793,19 +793,15 @@ _XimEncodeString(
     XPointer	 	  top,
     XPointer	 	  val)
 {
-    int			  len;
     char		 *string;
     char		**out;
 
     if(val == (XPointer)NULL) {
 	return False;
     }
-    len = strlen((char *)val);
-    if(!(string = (char *)Xmalloc(len + 1))) {
+    if (!(string = strdup((char *)val))) {
 	return False;
     }
-    (void)strcpy(string, (char *)val);
-    string[len] = '\0';
 
     out = (char **)((char *)top + info->offset);
     if(*out) {
@@ -1163,21 +1159,18 @@ _XimDecodeString(
     XPointer	 	 top,
     XPointer	 	 val)
 {
-    int			 len = 0;
     char		*in;
     char		*string;
 
     in = *((char **)((char *)top + info->offset));
-    if(in != (char *)NULL) {
-	len = strlen(in);
+    if (in != NULL) {
+	string = strdup(in);
+    } else {
+	string = Xcalloc(1, 1); /* strdup("") */
     }
-    if(!(string = (char *)Xmalloc(len + 1))) {
+    if (string == NULL) {
 	return False;
     }
-    if(in != (char *)NULL) {
-	(void)strcpy(string, in);
-    }
-    string[len] = '\0';
     *((char **)val) = string;
     return True;
 }

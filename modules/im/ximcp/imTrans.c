@@ -290,7 +290,7 @@ _XimTransConf(
     char		*paddr;
     TransSpecRec	*spec;
 
-    if (!(paddr = (char *)Xmalloc(strlen(address) + 1)))
+    if (!(paddr = strdup(address)))
 	return False;
 
     if (!(spec = Xcalloc(1, sizeof(TransSpecRec)))) {
@@ -298,7 +298,6 @@ _XimTransConf(
 	return False;
     }
 
-    (void)strcpy(paddr, address);
     spec->address   = paddr;
 
     im->private.proto.spec     = (XPointer)spec;

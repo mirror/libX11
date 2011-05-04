@@ -112,7 +112,6 @@ XkbBoundsPtr	bounds,sbounds;
 
     if ((!geom)||(!section)||(!row))
 	return False;
-    pos= 0;
     bounds= &row->bounds;
     bzero(bounds,sizeof(XkbBoundsRec));
     for (key=row->keys,pos=k=0;k<row->num_keys;k++,key++) {

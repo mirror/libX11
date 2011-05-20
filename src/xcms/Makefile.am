@@ -85,7 +85,7 @@ libxcms_la_SOURCES = \
                   xyY.c \
                   Xcmsint.h
 
-X11dir = $(libdir)/X11
+X11dir = $(X11_DATADIR)
 dist_X11_DATA = Xcms.txt
 
 

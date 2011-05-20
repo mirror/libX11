@@ -303,6 +303,7 @@ en_BE:						en_BE.ISO8859-1
 en_BE@euro:					en_BE.ISO8859-15
 en_BE.utf8:					en_BE.UTF-8
 en_BW:						en_BW.ISO8859-1
+en_BW.utf8:					en_BW.UTF-8
 en_BW.iso88591:					en_BW.ISO8859-1
 en_BW.ISO-8859-1:				en_BW.ISO8859-1
 en_CA:						en_CA.ISO8859-1
@@ -310,6 +311,7 @@ en_CA.iso88591:					en_CA.ISO8859-1
 en_CA.ISO-8859-1:				en_CA.ISO8859-1
 en_CA.ISO_8859-1:				en_CA.ISO8859-1
 en_CA.utf8:					en_CA.UTF-8
+en_DL.utf8:					en_DL.UTF-8
 en_GB:						en_GB.ISO8859-1
 en_GB.88591:					en_GB.ISO8859-1
 en_GB.88591.en:					en_GB.ISO8859-1
@@ -325,6 +327,7 @@ ENG_GB.8859.in:					en_GB.ISO8859-1
 en_HK:						en_HK.ISO8859-1
 en_HK.iso88591:					en_HK.ISO8859-1
 en_HK.ISO-8859-1:				en_HK.ISO8859-1
+en_HK.utf8:					en_HK.UTF-8						
 en_IE:						en_IE.ISO8859-1
 en_IE.iso88591:					en_IE.ISO8859-1
 en_IE.ISO-8859-1:				en_IE.ISO8859-1
@@ -334,15 +337,18 @@ en_IE.ISO-8859-15@euro:				en_IE.ISO8859-15
 en_IE@euro:					en_IE.ISO8859-15
 en_IE.UTF-8@euro:				en_IE.UTF-8
 en_IE.utf8:					en_IE.UTF-8
+en_IN.utf8:					en_IN.UTF-8
 en_IN:						en_IN.ISO8859-1
 en_NZ:						en_NZ.ISO8859-1
 en_NZ.iso88591:					en_NZ.ISO8859-1
 en_NZ.ISO-8859-1:				en_NZ.ISO8859-1
 en_NZ.utf8:					en_NZ.UTF-8
 en_PH:						en_PH.ISO8859-1
+en_PH.utf8:					en_PH.UTF-8
 en_PH.iso88591:					en_PH.ISO8859-1
 en_PH.ISO-8859-1:				en_PH.ISO8859-1
 en_SG:						en_SG.ISO8859-1
+en_SG.utf8:					en_SG.UTF-8
 en_SG.iso88591:					en_SG.ISO8859-1
 en_SG.ISO-8859-1:				en_SG.ISO8859-1
 en_US:						en_US.ISO8859-1
@@ -368,6 +374,7 @@ en_ZA.iso885915:				en_ZA.ISO8859-15
 en_ZA.ISO-8859-15:				en_ZA.ISO8859-15
 en_ZA.utf8:					en_ZA.UTF-8
 en_ZW:						en_ZW.ISO8859-1
+en_ZW.utf8:					en_ZS.UTF-8
 en_ZW.iso88591:					en_ZW.ISO8859-1
 en_ZW.ISO-8859-1:				en_ZW.ISO8859-1
 eo:						eo_XX.ISO8859-3
@@ -1176,6 +1183,10 @@ zh_HK.Big5_hkscs:				zh_HK.big5hkscs
 zh_HK.Big5HKSCS:				zh_HK.big5hkscs
 zh_HK.BIG5-HKSCS:				zh_HK.big5hkscs
 zh_HK.BIG5_HKSCS:				zh_HK.big5hkscs
+zh_HK.Big5-HKSCS:				zh_HK.big5hkscs
+zh_HK.big5-hkscs:				zh_HK.big5hkscs
+zh_HK.Big5-HKSCS:				zh_HK.big5hkscs
+zh_HK.Big5HKSCS:				zh_HK.big5hkscs
 zh_HK.Big5:					zh_HK.big5
 zh_HK.utf8:					zh_HK.UTF-8
 ZH_HK.UTF-8:					zh_HK.UTF-8

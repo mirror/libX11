@@ -22,7 +22,7 @@ iso8859-6/Compose:		ar_SA.ISO8859-6
 iso8859-6/Compose:		ar_TN.ISO8859-6
 iso8859-6/Compose:		ar_YE.ISO8859-6
 iso8859-9e/Compose:		az_AZ.ISO8859-9E
-koi8-c/Compose:			a3_AZ.KOI8-C
+koi8-c/Compose:			az_AZ.KOI8-C
 microsoft-cp1251/Compose:	be_BY.CP1251
 iso8859-5/Compose:		bg_BG.ISO8859-5
 microsoft-cp1251/Compose:	bg_BG.CP1251
@@ -256,7 +256,6 @@ en_US.UTF-8/Compose:		ar_YE.UTF-8
 en_US.UTF-8/Compose:		bo_IN.UTF-8
 en_US.UTF-8/Compose:		bs_BA.UTF-8
 en_US.UTF-8/Compose:		az_AZ.UTF-8
-en_US.UTF-8/Compose:		a3_AZ.UTF-8
 en_US.UTF-8/Compose:		be_BY.UTF-8
 en_US.UTF-8/Compose:		bg_BG.UTF-8
 en_US.UTF-8/Compose:		bn_IN.UTF-8

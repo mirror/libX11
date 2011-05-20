@@ -12,8 +12,8 @@ see the Inter-Client Communication Conventions Manual.
 </para>
 <para>
 Xlib provides a number of standard properties and programming interfaces that are <acronym>ICCCM</acronym>
-compliant. The predeﬁned atoms for some of these properties are deﬁned in the &lt;X11/Xatom.h&gt;
-header ﬁle, where to avoid name conﬂicts with user symbols their #deﬁne name has an XA_ preﬁx.
+compliant. The predefined atoms for some of these properties are defined in the &lt;X11/Xatom.h&gt;
+header file, where to avoid name conflicts with user symbols their #define name has an XA_ prefix.
 For further information about atoms and properties, see section 4.3.
 </para>
 <para>

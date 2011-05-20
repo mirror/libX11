@@ -8,13 +8,12 @@
 An internationalized application is one that is adaptable to the requirements of different native
 languages, local customs, and character string encodings. The process of adapting the operation
 to a particular native language, local custom, or string encoding is called localization. A goal of
-internationalization is to permit localization without program source modiﬁcations or recompila-
-tion.
+internationalization is to permit localization without program source modiﬁcations or recompilation.
 </para>
 <para>
-As one of the localization mechanisms, Xlib provides an X Input Method (<acronym>XIM</acronym>) functional inter-
-face for internationalized text input and an X Output Method (<acronym>XOM</acronym>) functional interface for
-internationalized text output.
+As one of the localization mechanisms, Xlib provides an X Input Method (<acronym>XIM</acronym>)
+functional interface for internationalized text input and an X Output Method
+(<acronym>XOM</acronym>) functional interface for internationalized text output.
 </para>
 <para>
 Internationalization in X is based on the concept of a locale. A locale deﬁnes the localized
@@ -32,9 +31,9 @@ behavior of a program at run time. Locales affect Xlib in its:
 <para>
 •
 Encoding and decoding for inter-client text communication
-Characters from various languages are represented in a computer using an encoding. Different
-languages have different encodings, and there are even different encodings for the same charac-
-ters in the same language.
+Characters from various languages are represented in a computer using an encoding.
+Different languages have different encodings, and there are even different
+encodings for the same characters in the same language.
 </para>
 <para>
 This chapter deﬁnes support for localized text imaging and text input and describes the locale
@@ -44,10 +43,10 @@ C language environment. The multibyte and wide character functions are equivalen
 the form of the text argument.
 </para>
 <para>
-The Xlib internationalization functions are not meant to provide support for multilingual applica-
-tions (mixing multiple languages within a single piece of text), but they make it possible to imple-
-ment applications that work in limited fashion with more than one language in independent con-
-texts.
+The Xlib internationalization functions are not meant to provide support for
+multilingual applications (mixing multiple languages within a single piece of text),
+but they make it possible to implement applications that work in limited
+fashion with more than one language in independent contexts.
 </para>
 <para>
 The remainder of this chapter discusses:
@@ -9361,9 +9360,10 @@ typedef unsigned long XIMFeedback;
 #define     XIMVisibleToCenter               (1L&lt;&lt;10)
 
 *† The values for XIMPrimary, XIMSecondary, and XIMTertiary were incorrectly deﬁned in
-the R5 speciﬁcation. The X Consortium’s X11R5 implementation correctly implemented the val-
-ues for these highlights. The value of these highlights has been corrected in this speciﬁcation to
-agree with the values in the Consortium’s X11R5 and X11R6 implementations.
+the R5 speciﬁcation. The X Consortium’s X11R5 implementation correctly
+implemented the values for these highlights. The value of these highlights has
+been corrected in this speciﬁcation to agree with the values in the
+Consortium’s X11R5 and X11R6 implementations.
 
 </literallayout>
 

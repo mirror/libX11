@@ -674,6 +674,8 @@ it_IT.ISO-8859-15@euro:				it_IT.ISO8859-15
 it_IT@euro:					it_IT.ISO8859-15
 it_IT.utf8:					it_IT.UTF-8
 it_IT.UTF-8@euro:				it_IT.UTF-8
+XCOMM NUNACOM is an encoding for the Inuktitut syllabics
+XCOMM we have little else on this encoding.
 iu:						iu_CA.NUNACOM-8
 iu_CA:						iu_CA.NUNACOM-8
 iu_CA.nunacom8:					iu_CA.NUNACOM-8

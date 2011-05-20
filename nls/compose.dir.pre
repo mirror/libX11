@@ -158,7 +158,6 @@ iso8859-4/Compose:		lv_LV.ISO8859-4
 iso8859-13/Compose:		lv_LV.ISO8859-13
 iso8859-13/Compose:		mi_NZ.ISO8859-13
 iso8859-5/Compose:		mk_MK.ISO8859-5
-XCOMM mk_MK.UTF-8/Compose:		mk_MK.UTF-8
 microsoft-cp1251/Compose:	mk_MK.CP1251
 iso8859-1/Compose:		ms_MY.ISO8859-1
 iso8859-3/Compose:		mt_MT.ISO8859-3

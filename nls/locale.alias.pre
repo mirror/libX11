@@ -192,7 +192,7 @@ cs_CS:						cs_CZ.ISO8859-2
 cs_CS.ISO8859-2:				cs_CZ.ISO8859-2
 cs_CZ:						cs_CZ.ISO8859-2
 cs_CZ.iso88592:					cs_CZ.ISO8859-2
-cs_CS.iso8859-2:                                cs_CS.ISO8859-2
+cs_CS.iso8859-2:                                cs_CZ.ISO8859-2
 cs_CZ.ISO-8859-2:				cs_CZ.ISO8859-2
 cs_CZ.ISO_8859-2:				cs_CZ.ISO8859-2
 cs_CZ.utf8:					cs_CZ.UTF-8
@@ -1231,8 +1231,8 @@ german:						de_DE.ISO8859-1
 german.iso88591:				de_CH.ISO8859-1
 greek:						el_GR.ISO8859-7
 greek.iso88597:					el_GR.ISO8859-7
-hebrew:						iw_IL.ISO8859-8
-hebrew.iso88598:				iw_IL.ISO8859-8
+hebrew:						he_IL.ISO8859-8
+hebrew.iso88598:				he_IL.ISO8859-8
 hrvatski:					hr_HR.ISO8859-2
 hungarian:					hu_HU.ISO8859-2
 icelandic.iso88591:				is_IS.ISO8859-1

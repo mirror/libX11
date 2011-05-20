@@ -167,8 +167,6 @@ iso8859-15/Compose:		it_IT.ISO8859-15
 ja/Compose:			ja_JP.eucJP
 ja.SJIS/Compose:		ja_JP.SJIS
 ja.JIS/Compose:			ja_JP.JIS7
-ja.S90/Compose:			ja_JP.S90
-ja.U90/Compose:			ja_JP.U90
 georgian-academy/Compose:	ka_GE.GEORGIAN-ACADEMY
 georgian-ps/Compose:		ka_GE.GEORGIAN-PS
 iso8859-1/Compose:		kl_GL.ISO8859-1

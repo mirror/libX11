@@ -470,7 +470,3 @@ zh_HK.UTF-8/XLC_LOCALE:			zh_HK.UTF-8
 zh_CN.UTF-8/XLC_LOCALE:			zh_SG.UTF-8
 zh_TW.UTF-8/XLC_LOCALE:			zh_TW.UTF-8
 en_US.UTF-8/XLC_LOCALE:			zu_ZA.UTF-8
-#ifdef __uxp__
-ja.U90/XLC_LOCALE:			ja_JP.U90
-ja.S90/XLC_LOCALE:			ja_JP.S90
-#endif

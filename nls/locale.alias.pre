@@ -701,13 +701,7 @@ iw_IL:						he_IL.ISO8859-8
 Iw_IL:						he_IL.ISO8859-8
 iw_IL.iso88598:					he_IL.ISO8859-8
 iw_IL.ISO-8859-8:				he_IL.ISO8859-8
-#ifndef __uxp__
 ja_JP:						ja_JP.eucJP
-#else /* __uxp__ */
-ja_JP:						ja_JP.U90
-ja_JP.U90:					ja_JP.U90
-ja_JP.S90:					ja_JP.S90
-#endif /* __uxp__ */
 ja:						ja_JP.eucJP
 ja.JIS:						ja_JP.JIS7
 ja.SJIS:					ja_JP.SJIS
@@ -1392,9 +1386,5 @@ Chinese(Taiwan)_Taiwan.950:			zh_TW.EUC
 XCOMM Other miscellaneous locale names
 ISO8859-1:					en_US.ISO8859-1
 ISO-8859-1:					en_US.ISO8859-1
-#ifndef __uxp__
 japan:						ja_JP.eucJP
-#else
-japan:						ja_JP.U90
-#endif
 Japanese-EUC:					ja_JP.eucJP

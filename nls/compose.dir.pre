@@ -337,12 +337,12 @@ en_US.UTF-8/Compose:		is_IS.UTF-8
 en_US.UTF-8/Compose:		it_CH.UTF-8
 en_US.UTF-8/Compose:		it_IT.UTF-8
 en_US.UTF-8/Compose:		iu_CA.UTF-8
-en_US.UTF-8/Compose:		ja_JP.UTF-8
+ja_JP.UTF-8/Compose:		ja_JP.UTF-8
 en_US.UTF-8/Compose:		ka_GE.UTF-8
 en_US.UTF-8/Compose:		kl_GL.UTF-8
 en_US.UTF-8/Compose:		kk_KZ.UTF-8
 en_US.UTF-8/Compose:		kn_IN.UTF-8
-en_US.UTF-8/Compose:		ko_KR.UTF-8
+ko_KR.UTF-8/Compose:		ko_KR.UTF-8
 en_US.UTF-8/Compose:		ks_IN.UTF-8
 en_US.UTF-8/Compose:		ks_IN@devanagari.UTF-8
 en_US.UTF-8/Compose:		kw_GB.UTF-8
@@ -377,7 +377,7 @@ en_US.UTF-8/Compose:		pp_AN.UTF-8
 pt_BR.UTF-8/Compose:		pt_BR.UTF-8
 en_US.UTF-8/Compose:		pt_PT.UTF-8
 en_US.UTF-8/Compose:		ro_RO.UTF-8
-en_US.UTF-8/Compose:		ru_RU.UTF-8
+ru_RU.UTF-8/Compose:		ru_RU.UTF-8
 en_US.UTF-8/Compose:		ru_UA.UTF-8
 en_US.UTF-8/Compose:		rw_RW.UTF-8
 en_US.UTF-8/Compose:		sa_IN.UTF-8
@@ -399,7 +399,7 @@ en_US.UTF-8/Compose:		sv_SE.UTF-8
 en_US.UTF-8/Compose:		ta_IN.UTF-8
 en_US.UTF-8/Compose:		te_IN.UTF-8
 en_US.UTF-8/Compose:		tg_TJ.UTF-8
-en_US.UTF-8/Compose:		th_TH.UTF-8
+th_TH.UTF-8/Compose:		th_TH.UTF-8
 en_US.UTF-8/Compose:		tl_PH.UTF-8
 en_US.UTF-8/Compose:		tn_ZA.UTF-8
 en_US.UTF-8/Compose:		tr_TR.UTF-8
@@ -413,8 +413,10 @@ en_US.UTF-8/Compose:		vi_VN.UTF-8
 en_US.UTF-8/Compose:		wa_BE.UTF-8
 en_US.UTF-8/Compose:		yi_US.UTF-8
 en_US.UTF-8/Compose:		xh_ZA.UTF-8
-en_US.UTF-8/Compose:		zh_TW.UTF-8
+zh_CN.UTF-8/Compose:		zh_CN.UTF-8
+zh_HK.UTF-8/Compose:		zh_HK.UTF-8
+zh_TW.UTF-8/Compose:		zh_TW.UTF-8
 en_US.UTF-8/Compose:		zu_ZA.UTF-8
 en_US.UTF-8/Compose:		bs_BA.UTF-8
 en_US.UTF-8/Compose:		ne_NP.UTF-8
-
+am_ET.UTF-8/Compose:		am_ET.UTF-8

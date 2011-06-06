@@ -2029,7 +2029,7 @@ It is the number that was the value of
 immediately before the failing call was made.  
 The request_code member is a protocol request
 of the procedure that failed, as defined in 
-&lt; X11/Xproto.h .&gt;
+<filename class="headerfile">&lt;X11/Xproto.h&gt;</filename>.
 The following error codes can be returned by the functions described in this
 chapter:
 </para>

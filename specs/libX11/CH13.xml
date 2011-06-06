@@ -10285,7 +10285,7 @@ called back the client and obtained no response
 <para>
 <!-- .LP -->
 The following symbols for string constants are defined in
-&lt;X11/Xlib.h&gt; .
+<filename class="headerfile">&lt;X11/Xlib.h&gt;</filename>.
 Although they are shown here with particular macro definitions,
 they may be implemented as macros, as global symbols, or as a
 mixture of the two.  The string pointer value itself

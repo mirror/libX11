@@ -255,7 +255,7 @@ Because Xlib usually does not transmit requests to the server immediately
 actually occur.
 For debugging purposes, however,
 Xlib provides a mechanism for forcing synchronous behavior
-(see section 11.8.1). <!-- xref -->
+(see <link linkend="Enabling_or_Disabling_Synchronization">section 11.8.1</link>).
 When synchronization is enabled,
 errors are reported as they are generated.
     </para>
@@ -812,7 +812,7 @@ Where applicable,
 the last paragraph of the explanation lists the possible
 Xlib error codes that the function can generate.
 For a complete discussion of the Xlib error codes,
-see section 11.8.2. <!-- xref -->
+see <link linkend="Using_the_Default_Error_Handlers">section 11.8.2</link>.
 	  </para>
 	</listitem>
 	<listitem>

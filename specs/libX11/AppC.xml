@@ -1262,7 +1262,8 @@ returned to.
 If your procedure returns a zero value, 
 the error is not suppressed, and 
 the client's error handler is called.
-(For further information, see section 11.8.2.)
+(For further information,
+see <link linkend="Using_the_Default_Error_Handlers">section 11.8.2</link>.)
 If your procedure returns nonzero, 
 the error is suppressed, and 
 <function>_XReply</function>

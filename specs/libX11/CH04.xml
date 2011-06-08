@@ -867,7 +867,7 @@ If you define further properties of complex type,
 you must encode and decode them yourself.
 These functions must be carefully written if they are to be portable.
 For further information about how to write a library extension,
-see appendix C. <!-- xref -->
+see <link linkend="extensions">appendix C</link>.
 <!-- .NE -->
 The type of a property is defined by an atom, which allows for
 arbitrary extension in this type scheme.

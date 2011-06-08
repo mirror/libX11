@@ -24,7 +24,8 @@ This chapter discusses the following topics associated with events:
 </itemizedlist>
 
 <para>
-Functions for handling events are dealt with in the next chapter.
+Functions for handling events are dealt with in
+<link linkend="event_handling_functions">the next chapter</link>.
 </para>
 
 <sect1 id="Event_Types">
@@ -999,7 +1000,7 @@ and the pointer events
 and
 <symbol>MotionNotify</symbol>.
 For information about the keyboard event-handling utilities,
-see chapter 11.
+see <link linkend="event_handling_functions">chapter 11</link>.
 </para>
 <para>
 <!-- .LP -->

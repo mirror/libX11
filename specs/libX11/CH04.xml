@@ -887,7 +887,7 @@ To avoid name clashes with user symbols, the
 name for each atom has the XA_ prefix.
 For an explanation of the functions that let you get and set
 much of the information stored in these predefined properties,
-see chapter 14. <!-- xref -->
+see <link linkend="inter_client_communication_functions">chapter 14</link>.
 </para>
 <para>
 <!-- .LP -->
@@ -1397,7 +1397,8 @@ is used to represent 32-bit quantities.
 Xlib provides functions that you can use to obtain, 
 change, update, or interchange window properties.
 In addition, Xlib provides other utility functions for inter-client
-communication (see chapter 14). <!-- xref -->
+communication
+(see <link linkend="inter_client_communication_functions">chapter 14</link>).
 </para>
 <para>
 <!-- .LP -->

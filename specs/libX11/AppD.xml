@@ -1051,7 +1051,7 @@ geometry specifications.
 The
 <function>XGetDefault</function>
 function provides a primitive interface to the resource manager facilities 
-discussed in chapter 15. <!-- xref -->
+discussed in <link linkend="resource_manager_functions">chapter 15</link>.
 It is only useful in very simple applications.
 </para>
 <para>

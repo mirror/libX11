@@ -3205,7 +3205,9 @@ for threads using
 <!-- .LP -->
 In addition to the connection to the X server, an Xlib implementation
 may require connections to other kinds of servers (for example, to
-input method servers as described in chapter 13).  Toolkits and clients
+input method servers as described in
+<link linkend="locales_and_internationalized_text_functions">chapter 13</link>).
+Toolkits and clients
 that use multiple displays, or that use displays in combination with
 other inputs, need to obtain these additional connections to correctly
 block until input is available and need to process that input

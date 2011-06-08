@@ -655,7 +655,8 @@ if the specified KeySym is a PF key.
 <!-- .XE -->
 <para>
 <!-- .LP -->
-Chapter 13 describes internationalized text input facilities,
+<link linkend="locales_and_internationalized_text_functions">Chapter 13</link>
+describes internationalized text input facilities,
 but sometimes it is expedient to write an application that
 only deals with Latin-1 characters and ASCII controls,
 so Xlib provides a simple function for that purpose.

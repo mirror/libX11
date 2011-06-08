@@ -251,7 +251,8 @@ of top-level windows (that is, those that were created as children
 of the root window).
 Note that the subwindows that you create are ignored by window managers.
 Therefore,
-you should use the basic window functions described in chapter 3
+you should use the basic window functions described in
+<link linkend="window_functions">chapter 3</link>
 to manipulate your application's subwindows.
 </para>
 <para>

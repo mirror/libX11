@@ -1072,7 +1072,7 @@ or
 <symbol>False</symbol>
 (default).
 Window managers use this information to avoid tampering with pop-up windows
-(see also chapter 14).
+(see also <link linkend="inter_client_communication_functions">chapter 14</link>).
 </para>
 </sect2>
 <sect2 id="Colormap_Attribute">
@@ -1167,7 +1167,7 @@ which are discussed in the appropriate toolkit documentation.
 If you do not use a toolkit, however,
 you must provide some standard information or hints for the window
 manager by using the Xlib inter-client communication functions
-(see chapter 14).
+(see <link linkend="inter_client_communication_functions">chapter 14</link>).
 </para>
 <para>
 <!-- .LP -->
@@ -1211,7 +1211,8 @@ you should set these properties for top-level windows before mapping them.
 <para>
 <!-- .LP -->
 For further information,
-see chapter 14 and the <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
+see <link linkend="inter_client_communication_functions">chapter 14</link> and
+the <emphasis remap='I'>Inter-Client Communication Conventions Manual</emphasis>.
 </para>
 <para>
 <!-- .LP -->

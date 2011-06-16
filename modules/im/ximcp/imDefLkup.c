@@ -704,7 +704,9 @@ _XimCommitRecv(
 
     (void)_XimRespSyncReply(ic, flag);
 
-    MARK_FABRICATED(im);
+    if (ic->private.proto.registed_filter_event
+	& (KEYPRESS_MASK | KEYRELEASE_MASK))
+	    MARK_FABRICATED(im);
 
     ev.type = KeyPress;
     ev.send_event = False;

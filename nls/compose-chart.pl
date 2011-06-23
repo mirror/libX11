@@ -83,13 +83,13 @@ if ($make_index) {
 	    q(<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"),
 	    q( "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">),
 	    q(<article id="compose-index">),
-	    q(<simplesect>),
-	    q(<title>Xlib Compose Key Charts</title>),
-	    q(<simplelist type='horiz' columns='3'>),
-	    ( map { qq(<member><ulink url="$_.html">$_</ulink></member>) }
+	    q(  <articleinfo>),
+	    q(    <title>Xlib Compose Key Charts</title>),
+	    q(  </articleinfo>),
+	    ( map { qq(  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude"  href="$_.xml">\
+    <xi:fallback><section><title>$_</title><para></para></section></xi:fallback>\
+  </xi:include>) }
 	      @ARGV ),
-	    q(</simplelist>),
-	    q(</simplesect>),
 	    q(</article>),
 	    "\n"
       );
@@ -210,10 +210,9 @@ sub make_compose_chart {
   print $OUTPUT
       join ("\n",
 	    qq(<?xml version="1.0" encoding="$charset" ?>),
-	    q(<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"),
+	    q(<!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"),
 	    q( "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">),
-	    qq(<article id="$locale_name">),
-	    q(<simplesect>),
+	    qq(<section id="$locale_name">),
 	    qq(<title>Xlib Compose Keys for $locale_name</title>),
 	    q(<para>Applications using Xlib input handling should recognize),
 	    q( these compose key sequences in locales using the),
@@ -290,7 +289,7 @@ sub make_compose_chart {
 	qq(This compose table defines no sequences of its own.),
 	qq(</emphasis></para>\n);
   }
-  print $OUTPUT "</simplesect>\n</article>\n";
+  print $OUTPUT "</section>\n";
 
   close $OUTPUT or die "Couldn't write $output_filename: $!";
 

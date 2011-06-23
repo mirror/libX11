@@ -129,7 +129,7 @@ TESTS_ENVIRONMENT = $(PERL)
 TESTS = $(srcdir)/compose-check.pl
 
 COMPOSE_CHARTS = $(locales:%=%/Compose.xml)
-doc_sources += $(locales:%=Compose/%.xml)
+nodist_noinst_DATA = $(locales:%=Compose/%.xml)
 CLEANFILES += $(COMPOSE_CHARTS) $(doc_sources)
 
 XMLTO_FLAGS += -o $(@D)
@@ -139,6 +139,7 @@ XMLTO_FLAGS += -o $(@D)
 	 --locale="$(@D)" --output="$@" $<
 
 Compose/%.xml: %/Compose.xml
+	@$(MKDIR_P) $(@D)
 	$(AM_V_GEN)cp $< $@
 
 endif HAVE_PERL

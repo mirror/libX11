@@ -20,14 +20,14 @@ AM_MAINTAINER_MODE
 # Initialize libtool
 AC_PROG_LIBTOOL
 
-# Require xorg-macros minimum of 1.12 for DocBook external references
+# Require xorg-macros minimum of 1.15 for fop minimum version
 m4_ifndef([XORG_MACROS_VERSION],
-          [m4_fatal([must install xorg-macros 1.12 or later before running autoconf/autogen])])
-XORG_MACROS_VERSION(1.12)
+          [m4_fatal([must install xorg-macros 1.15 or later before running autoconf/autogen])])
+XORG_MACROS_VERSION(1.15)
 XORG_DEFAULT_OPTIONS
 XORG_ENABLE_SPECS
 XORG_WITH_XMLTO(0.0.22)
-XORG_WITH_FOP([no])
+XORG_WITH_FOP([],[no])
 XORG_WITH_XSLTPROC
 XORG_CHECK_SGML_DOCTOOLS(1.8)
 XORG_PROG_RAWCPP

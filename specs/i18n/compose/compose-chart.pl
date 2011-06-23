@@ -82,7 +82,7 @@ if ($make_index) {
 	    qq(<?xml version="1.0" encoding="$charset" ?>),
 	    q(<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"),
 	    q( "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">),
-	    q(<article id="compose-index">),
+	    q(<article id="libX11-keys">),
 	    q(  <articleinfo>),
 	    q(    <title>Xlib Compose Key Charts</title>),
 	    q(  </articleinfo>),

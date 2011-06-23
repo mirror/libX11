@@ -31,6 +31,7 @@ XORG_WITH_FOP([],[no])
 XORG_WITH_XSLTPROC
 XORG_CHECK_SGML_DOCTOOLS(1.8)
 XORG_PROG_RAWCPP
+XORG_WITH_PERL
 
 # Required when PKG_CHECK_MODULES called within an if statement
 PKG_PROG_PKG_CONFIG
@@ -64,15 +65,6 @@ if test x"$LDFLAGS_FOR_BUILD" = x; then
 	fi
 fi
 AC_SUBST(LDFLAGS_FOR_BUILD)
-
-# Find perl for "make check" tests in nls/Makefile.am
-AC_ARG_WITH(perl,
-	AS_HELP_STRING([--with-perl=<path>],
-			[path to perl interpreter for build-time tests]),
-	[PERL=$withval ; AC_MSG_CHECKING([perl]) ;
-	 AC_MSG_RESULT([(from --with-perl) $PERL])],
-	AC_CHECK_PROGS([PERL], [perl], [no]))
-AM_CONDITIONAL(HAVE_PERL, test x$PERL != xno)
 
 # Checks for pkg-config packages
 

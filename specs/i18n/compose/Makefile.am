@@ -12,7 +12,7 @@ shelfdir = $(docdir)/i18n/compose
 
 # Generate DocBook/XML output formats with or without stylesheets
 # The XML source is generated and cleaned but not distributed
-include $(top_srcdir)/docbook-gen.am
+include $(top_srcdir)/docbook-gen-chunk.am
 
 # Generated DocBook/XML source files using a perl script
 %.xml: $(top_builddir)/nls/%/Compose

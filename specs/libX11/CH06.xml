@@ -961,6 +961,7 @@ errors.
 To create a new colormap when the allocation out of a previously
 shared colormap has failed because of resource exhaustion, use
 <function>XCopyColormapAndFree</function>.
+</para>
 <indexterm significance="preferred"><primary>XCopyColormapAndFree</primary></indexterm>
 <!-- .sM -->
 <funcsynopsis id='xcopycolormapandfree'>
@@ -993,7 +994,6 @@ Specifies the colormap.
   </listitem>
   </varlistentry>
 </variablelist>
-</para>
 <para>
 <!-- .LP -->
 <!-- .eM -->

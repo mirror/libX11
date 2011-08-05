@@ -287,63 +287,54 @@ the following table describes the locale (and modifiers) dependency:
 </para>
 
 <informaltable>
-  <tgroup cols='3' align='center'>
+  <tgroup cols='3'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <colspec colname='c3'/>
   <thead>
     <row>
-      <entry>Locale from</entry>
-      <entry>Affects the Function</entry>
-      <entry>In</entry>
+      <entry align='center'>Locale from</entry>
+      <entry align='center'>Affects the Function</entry>
+      <entry align='center'>In</entry>
     </row>
   </thead>
   <tbody>
     <row>
-      <entry></entry>
-      <entry>Locale Query/Configuration:</entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Locale Query/Configuration:</emphasis></entry>
     </row>
     <row>
-      <entry><function>setlocale</function></entry>
+      <entry morerows='1'><function>setlocale</function></entry>
       <entry><function>XSupportsLocale</function></entry>
       <entry>Locale queried</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XSetLocaleModifiers</function></entry>
       <entry>Locale modified</entry>
     </row>
     <row>
-      <entry></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>Resources:</entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Resources:</emphasis></entry>
     </row>
     <row>
       <entry><function>setlocale</function></entry>
-      <entry><function>XrmGetFileDatabase</function></entry>
+      <entry>
+        <para><function>XrmGetFileDatabase</function></para>
+        <para><function>XrmGetStringDatabase</function></para>
+      </entry>
       <entry>Locale of <type>XrmDatabase</type></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry><function>XrmGetStringDatabase</function></entry>
     </row>
     <row>
       <entry><type>XrmDatabase</type></entry>
-      <entry><function>XrmPutFileDatabase</function></entry>
+      <entry>
+        <para><function>XrmPutFileDatabase</function></para>
+        <para><function>XrmLocaleOfDatabase</function></para>
+      </entry>
       <entry>Locale of <type>XrmDatabase</type></entry>
     </row>
     <row>
-      <entry></entry>
-      <entry><function>XrmLocaleOfDatabase</function></entry>
-    </row>
-    <row>
-      <entry></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>Setting Standard Properties:</entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Setting Standard Properties:</emphasis></entry>
     </row>
     <row>
       <entry><function>setlocale</function></entry>
@@ -354,128 +345,99 @@ the following table describes the locale (and modifiers) dependency:
     </row>
     <row>
       <entry><function>setlocale</function></entry>
-      <entry><function>XmbTextPropertyToTextList</function></entry>
+      <entry>
+        <para><function>XmbTextPropertyToTextList</function></para>
+        <para><function>XwcTextPropertyToTextList</function></para>
+        <para><function>XmbTextListToTextProperty</function></para>
+        <para><function>XwcTextListToTextProperty</function></para>
+      </entry>
       <entry>Encoding of supplied/returned text</entry>
     </row>
     <row>
-      <entry></entry>
-      <entry><function>XwcTextPropertyToTextList</function></entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Text Input:</emphasis></entry>
     </row>
     <row>
-      <entry></entry>
-      <entry><function>XmbTextListToTextProperty</function></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry><function>XwcTextListToTextProperty</function></entry>
-    </row>
-    <row>
-      <entry></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>Text Input:</entry>
-    </row>
-    <row>
-      <entry><function>setlocale</function></entry>
+      <entry morerows='2'><function>setlocale</function></entry>
       <entry><function>XOpenIM</function></entry>
       <entry><acronym>XIM</acronym> input method selection</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XRegisterIMInstantiateCallback</function></entry>
       <entry><acronym>XIM</acronym> selection</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XUnregisterIMInstantiateCallback</function></entry>
       <entry><acronym>XIM</acronym> selection</entry>
     </row>
     <row>
-      <entry><type>XIM</type></entry>
+      <entry morerows='1'><type>XIM</type></entry>
       <entry><function>XCreateIC</function></entry>
       <entry><acronym>XIC</acronym> input method configuration</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XLocaleOfIM</function>,  and so on</entry>
       <entry>Queried locale</entry>
     </row>
     <row>
-      <entry><type>XIC</type></entry>
+      <entry morerows='1'><type>XIC</type></entry>
       <entry><function>XmbLookupString</function></entry>
       <entry>Keyboard layout</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XwcLookupString</function></entry>
       <entry>Encoding of returned text</entry>
     </row>
     <row>
-      <entry></entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Text Drawing:</emphasis></entry>
     </row>
     <row>
-      <entry></entry>
-      <entry>Text Drawing:</entry>
-    </row>
-    <row>
-      <entry><function>setlocale</function></entry>
+      <entry morerows='1'><function>setlocale</function></entry>
       <entry><function>XOpenOM</function></entry>
       <entry><acronym>XOM</acronym> output method selection</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XCreateFontSet</function></entry>
       <entry>Charsets of fonts in XFontSet</entry>
     </row>
     <row>
-      <entry><type>XOM</type></entry>
+      <entry morerows='1'><type>XOM</type></entry>
       <entry><function>XCreateOC</function></entry>
       <entry><acronym>XOC</acronym> output method configuration</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XLocaleOfOM</function>,  and so on</entry>
       <entry>Queried locale</entry>
     </row>
     <row>
-      <entry><type>XFontSet</type></entry>
+      <entry morerows='2'><type>XFontSet</type></entry>
       <entry><function>XmbDrawText</function>,</entry>
       <entry>Locale of supplied text</entry>
     </row>
     <row>
-      <entry></entry>
       <entry><function>XwcDrawText</function>, and so on</entry>
       <entry>Locale of supplied text</entry>
     </row>
     <row>
-      <entry></entry>
-      <entry><function>XExtentsOfFontSet</function>, and so on</entry>
+      <entry>
+        <para><function>XExtentsOfFontSet</function>,  and so on</para>
+        <para><function>XmbTextExtents</function>,</para>
+        <para><function>XwcTextExtents</function>,  and so on</para>
+      </entry>
       <entry>Locale-dependent metrics</entry>
     </row>
     <row>
-      <entry></entry>
-      <entry><function>XmbTextExtents</function>,</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry><function>XwcTextExtents</function>,  and so on</entry>
-    </row>
-    <row>
-      <entry></entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>Xlib Errors:</entry>
+      <entry nameend='c3' namest='c1'>
+      <emphasis role='bold'>Xlib Errors:</emphasis></entry>
     </row>
     <row>
       <entry><function>setlocale</function></entry>
-      <entry><function>XGetErrorDatabaseText</function></entry>
+      <entry>
+        <para><function>XGetErrorDatabaseText</function>,</para>
+        <para><function>XGetErrorText</function>,  and so on</para>
+      </entry>
       <entry>Locale of error message</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry><function>XGetErrorText</function></entry>
     </row>
   </tbody>
   </tgroup>
@@ -1067,13 +1029,13 @@ The following key applies to this table.
 </para>
 
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>Key</entry>
-      <entry>Explanation</entry>
+      <entry align='left'>Key</entry>
+      <entry align='left'>Explanation</entry>
     </row>
   </thead>
   <tbody>
@@ -1085,14 +1047,16 @@ The following key applies to this table.
   </tgroup>
 </informaltable>
 
+<para></para>
+
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry><acronym>XOM</acronym> Value</entry>
-      <entry>Key</entry>
+      <entry align='left'><acronym>XOM</acronym> Value</entry>
+      <entry align='left'>Key</entry>
     </row>
   </thead>
   <tbody>
@@ -1676,13 +1640,13 @@ The third column indicates how each of the <acronym>XOC</acronym> values is trea
 The following keys apply to this table.
 </para>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>Key</entry>
-      <entry>Explanation</entry>
+      <entry align='left'>Key</entry>
+      <entry align='left'>Explanation</entry>
     </row>
   </thead>
   <tbody>
@@ -1707,17 +1671,18 @@ The following keys apply to this table.
   </tgroup>
 </informaltable>
 
-<!-- .LP -->
+<para></para>
+
 <informaltable>
-  <tgroup cols='3' align='center'>
+  <tgroup cols='3'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <colspec colname='c3'/>
   <thead>
     <row>
-      <entry><acronym>XOC</acronym> Value</entry>
-      <entry>Alternative Interface</entry>
-      <entry>Key</entry>
+      <entry align='left'><acronym>XOC</acronym> Value</entry>
+      <entry align='left'>Alternative Interface</entry>
+      <entry align='left'>Key</entry>
     </row>
   </thead>
   <tbody>
@@ -5037,7 +5002,7 @@ To support management of input methods in these cases, the following
 functions are provided:
 </para>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -5779,13 +5744,13 @@ are treated by that input style.
 The following keys apply to this table.
 </para>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>Key</entry>
-      <entry>Explanation</entry>
+      <entry align='left'>Key</entry>
+      <entry align='left'>Explanation</entry>
     </row>
   </thead>
   <tbody>
@@ -5808,15 +5773,16 @@ The following keys apply to this table.
   </tgroup>
 </informaltable>
 
-<!-- .LP -->
+<para></para>
+
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry><acronym>XIM</acronym> Value</entry>
-      <entry>Key</entry>
+      <entry align='left'><acronym>XIM</acronym> Value</entry>
+      <entry align='left'>Key</entry>
     </row>
   </thead>
   <tbody>
@@ -5965,7 +5931,7 @@ by the input method for preedit information.
 <indexterm significance="preferred"><primary>XIMPreeditNothing</primary></indexterm>
 <indexterm significance="preferred"><primary>XIMPreeditNone</primary></indexterm>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -6023,7 +5989,7 @@ by the input method for status information.
 <indexterm significance="preferred"><primary>XIMStatusNothing</primary></indexterm>
 <indexterm significance="preferred"><primary>XIMStatusNone</primary></indexterm>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -6866,13 +6832,13 @@ are treated by that input style.
 The following keys apply to these tables.
 </para>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>Key</entry>
-      <entry>Explanation</entry>
+      <entry align='left'>Key</entry>
+      <entry align='left'>Explanation</entry>
     </row>
   </thead>
   <tbody>
@@ -6926,9 +6892,11 @@ The following keys apply to these tables.
   </tgroup>
 </informaltable>
 
+<para></para>
+
 <!-- .LP -->
 <informaltable>
-  <tgroup cols='7' align='center'>
+  <tgroup cols='7'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <colspec colname='c3'/>
@@ -6936,7 +6904,7 @@ The following keys apply to these tables.
   <colspec colname='c5'/>
   <colspec colname='c6'/>
   <colspec colname='c7'/>
-  <tbody>
+  <thead>
     <row>
       <entry><acronym>XIC</acronym> Value</entry>
       <entry>Geometry Mangement</entry>
@@ -6946,6 +6914,8 @@ The following keys apply to these tables.
       <entry>Preedit Nothing</entry>
       <entry>Preedit None</entry>
     </row>
+    </thead>
+  <tbody>
     <row>
       <entry>Input Style</entry>
       <entry></entry>
@@ -7187,9 +7157,11 @@ The following keys apply to these tables.
   </tgroup>
 </informaltable>
 
+<para></para>
+
 <!-- .LP -->
 <informaltable>
-  <tgroup cols='6' align='center'>
+  <tgroup cols='6'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <colspec colname='c3'/>
@@ -7844,7 +7816,7 @@ is ignored when evaluating whether the key is hot or not.
 </para>
 
 <informaltable>
-  <tgroup cols='3' align='center'>
+  <tgroup cols='3'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <colspec colname='c3'/>
@@ -8411,7 +8383,7 @@ The set of preedit callbacks is as follows:
 <indexterm significance="preferred"><primary>XNPreeditDrawCallback</primary></indexterm>
 <indexterm significance="preferred"><primary>XNPreeditCaretCallback</primary></indexterm>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -8447,7 +8419,7 @@ The set of status callbacks is as follows:
 <indexterm significance="preferred"><primary>XNStatusDoneCallback</primary></indexterm>
 <indexterm significance="preferred"><primary>XNStatusDrawCallback</primary></indexterm>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -9549,7 +9521,7 @@ These values are defined as follows:
 <indexterm significance="preferred"><primary>XIMCaretUp</primary></indexterm>
 <indexterm significance="preferred"><primary>XIMCaretDown</primary></indexterm>
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -10133,7 +10105,7 @@ The possible values returned are:
 </para>
 
 <informaltable>
-  <tgroup cols='2' align='center'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>

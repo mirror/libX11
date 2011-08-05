@@ -2049,40 +2049,30 @@ chapter:
 <indexterm significance="preferred"><primary>BadFont</primary></indexterm>
 <indexterm significance="preferred"><primary>BadGC</primary></indexterm>
 <indexterm significance="preferred"><primary>BadIDChoice</primary></indexterm>
-<informaltable>
-  <tgroup cols='2' align='center'>
+<informaltable frame='none'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <thead>
     <row>
-      <entry>Error Code</entry>
-      <entry>Description</entry>
+      <entry align='left'>Error Code</entry>
+      <entry align='left'>Description</entry>
     </row>
   </thead>
   <tbody>
     <row>
       <entry><errorname id='BadAccess'>BadAccess</errorname></entry>
-      <entry>A client attempts to grab a key/button combination already grabbed
-      by another client.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>A client attempts to free a colormap entry that it had not already allocated
-      or to free an entry in a colormap that was created with all entries writable.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>A client attempts to store into a read-only or unallocated colormap entry.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>A client attempts to modify the access control list from other than the local
-      (or otherwise authorized) host.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>A client attempts to select an event type that another client
-      has already selected.</entry>
+      <entry>
+      <para>A client attempts to grab a key/button combination already grabbed
+      by another client.</para>
+      <para>A client attempts to free a colormap entry that it had not already allocated
+      or to free an entry in a colormap that was created with all entries writable.</para>
+      <para>A client attempts to store into a read-only or unallocated colormap entry.</para>
+      <para>A client attempts to modify the access control list from other than the local
+      (or otherwise authorized) host.</para>
+      <para>A client attempts to select an event type that another client
+      has already selected.</para>
+      </entry>
     </row>
     <row>
       <entry><errorname id='BadAlloc'>BadAlloc</errorname></entry>
@@ -2144,34 +2134,22 @@ chapter:
     </row>
     <row>
       <entry><errorname id='BadLength'>BadLength</errorname></entry>
-      <entry>The length of a request is shorter or longer than that required to
+      <entry><para>The length of a request is shorter or longer than that required to
       contain the arguments.
-      This is an internal Xlib or server error.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>
-      The length of a request exceeds the maximum length accepted by the server.</entry>
+      This is an internal Xlib or server error.</para>
+      <para>The length of a request exceeds the maximum length accepted by the server.</para>
+      </entry>
     </row>
     <row>
       <entry><errorname id='BadMatch'>BadMatch</errorname></entry>
-      <entry>In a graphics request,
-      the root and depth of the graphics context do not match those of the drawable.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>An <symbol>InputOnly</symbol> window is used as a drawable.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>
-      Some argument or pair of arguments has the correct type and range,
-      but it fails to match in some other way required by the request.</entry>
-    </row>
-    <row>
-      <entry></entry>
-      <entry>An <symbol>InputOnly</symbol>
-      window lacks this attribute.</entry>
+      <entry><para>In a graphics request,
+      the root and depth of the graphics context do not match those of the drawable.</para>
+      <para>An <symbol>InputOnly</symbol> window is used as a drawable.</para>
+      <para>Some argument or pair of arguments has the correct type and range,
+      but it fails to match in some other way required by the request.</para>
+      <para>An <symbol>InputOnly</symbol>
+      window lacks this attribute.</para>
+      </entry>
     </row>
     <row>
       <entry><errorname id='BadName'>BadName</errorname></entry>

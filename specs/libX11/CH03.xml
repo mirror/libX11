@@ -426,17 +426,17 @@ and
 windows:
 </para>
 <informaltable>
-  <tgroup cols='4' align='center'>
-  <colspec colname='c1'/>
-  <colspec colname='c2'/>
-  <colspec colname='c3'/>
-  <colspec colname='c4'/>
+  <tgroup cols='4'>
+  <colspec colname='c1' align='left'/>
+  <colspec colname='c2' align='left'/>
+  <colspec colname='c3' align='center'/>
+  <colspec colname='c4' align='center'/>
   <thead>
     <row>
       <entry>Attribute</entry>
       <entry>Default</entry>
       <entry>InputOutput</entry>
-      <entry>nputOnly</entry>
+      <entry>InputOnly</entry>
     </row>
   </thead>
   <tbody>
@@ -758,9 +758,9 @@ change of width and height, the (x, y) pairs are defined:
 <para>
 <!-- .LP -->
 <informaltable>
-  <tgroup cols='2' align='center'>
-  <colspec colname='c1'/>
-  <colspec colname='c2'/>
+  <tgroup cols='2'>
+  <colspec colname='c1' align='left'/>
+  <colspec colname='c2' align='left'/>
   <thead>
     <row>
       <entry>Gravity Direction</entry>
@@ -2437,8 +2437,8 @@ error results.
 If a sibling and a stack_mode are specified, 
 the window is restacked as follows:
 </para>
-<informaltable>
-  <tgroup cols='2' align='center'>
+<informaltable  frame="none">
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -2476,8 +2476,8 @@ If a stack_mode is specified but no sibling is specified,
 the window is restacked as follows:
 </para>
 
-<informaltable>
-  <tgroup cols='2' align='center'>
+<informaltable  frame="none">
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>
@@ -2497,6 +2497,7 @@ the top of the stack.
       </entry>
     </row>
     <row>
+      <entry><symbol>BottomIf</symbol></entry>
       <entry>
 If the window occludes any sibling, the window is placed at
 the bottom of the stack.

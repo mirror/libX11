@@ -1572,8 +1572,8 @@ time of the most recent active grab for the client or if the specified time
 is later than the current X server time.
 Depending on the event_mode argument, the following occurs:
 </para>
-<informaltable>
-  <tgroup cols='2' align='center'>
+<informaltable frame='none'>
+  <tgroup cols='2'>
   <colspec colname='c1'/>
   <colspec colname='c2'/>
   <tbody>

@@ -21,12 +21,10 @@ shelf_DATA =
 dist_shelf_DATA = $(docbook) $(chapters)
 
 if HAVE_XMLTO
+if HAVE_STYLESHEETS
 #
 # Generate DocBook/XML output formats with or without stylesheets
 #
-
-# Stylesheets are available if the package xorg-sgml-doctools is installed
-if HAVE_STYLESHEETS
 
 # The location where all cross reference databases are installed
 sgmldbsdir = $(XORG_SGML_PATH)/X11/dbs
@@ -43,7 +41,6 @@ XMLTO_XHTML_FLAGS = \
 
 XMLTO_FO_FLAGS = \
 	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl
-endif HAVE_STYLESHEETS
 
 shelf_DATA += $(docbook:.xml=.html)
 %.html: %.xml  $(chapters)
@@ -66,9 +63,6 @@ endif HAVE_XMLTO_TEXT
 #
 # Generate documents cross-reference target databases
 #
-
-# This is only possible if the xorg-sgml-doctools package is installed
-if HAVE_STYLESHEETS
 if HAVE_XSLTPROC
 
 # DocBook/XML generated document cross-reference database

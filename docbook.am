@@ -22,67 +22,71 @@ dist_shelf_DATA = $(docbook) $(chapters)
 
 if HAVE_XMLTO
 if HAVE_STYLESHEETS
-#
-# Generate DocBook/XML output formats with or without stylesheets
-#
 
-# The location where all cross reference databases are installed
-sgmldbsdir = $(XORG_SGML_PATH)/X11/dbs
-masterdb = "$(sgmldbsdir)/masterdb$(suffix $@).xml"
-XMLTO_FLAGS =							\
-	--searchpath "$(XORG_SGML_PATH)/X11"			\
-	--stringparam target.database.document=$(masterdb)	\
-	--stringparam current.docid="$(<:.xml=)"		\
-	--stringparam collect.xref.targets="no"
-
-XMLTO_XHTML_FLAGS = \
-	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl \
-	--stringparam html.stylesheet=$(STYLESHEET_SRCDIR)/xorg.css
-
-XMLTO_FO_FLAGS = \
-	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl
+# The name and location of cross referencing databases
+masterdb = "$(XORG_SGML_PATH)/X11/dbs/masterdb$(suffix $@).xml"
 
 shelf_DATA += $(docbook:.xml=.html)
 %.html: %.xml  $(chapters)
-	$(AM_V_GEN)$(XMLTO) $(XMLTO_FLAGS) $(XMLTO_XHTML_FLAGS) xhtml-nochunks $<
+	$(AM_V_GEN)$(XMLTO)						\
+	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl				\
+	--searchpath "$(XORG_SGML_PATH)/X11"				\
+	--stringparam html.stylesheet=$(STYLESHEET_SRCDIR)/xorg.css	\
+	--stringparam target.database.document=$(masterdb)		\
+	--stringparam current.docid="$(<:.xml=)"			\
+	xhtml-nochunks $<
 
 if HAVE_FOP
-shelf_DATA += $(docbook:.xml=.pdf) $(docbook:.xml=.ps)
+shelf_DATA += $(docbook:.xml=.pdf)
 %.pdf: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO) $(XMLTO_FLAGS) $(XMLTO_FO_FLAGS) --with-fop pdf $<
+	$(AM_V_GEN)$(XMLTO)					\
+	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl			\
+	--searchpath "$(XORG_SGML_PATH)/X11"			\
+	--stringparam target.database.document=$(masterdb)	\
+	--stringparam current.docid="$(<:.xml=)"		\
+	--stringparam img.src.path=$(abs_builddir)/		\
+	--with-fop pdf $<
+
+shelf_DATA += $(docbook:.xml=.ps)
 %.ps: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO) $(XMLTO_FLAGS) $(XMLTO_FO_FLAGS) --with-fop ps $<
+	$(AM_V_GEN)$(XMLTO) 					\
+	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl			\
+	--searchpath "$(XORG_SGML_PATH)/X11"			\
+	--stringparam target.database.document=$(masterdb)	\
+	--stringparam current.docid="$(<:.xml=)"		\
+	--stringparam img.src.path=$(abs_builddir)/		\
+	--with-fop ps $<
 endif HAVE_FOP
 
 if HAVE_XMLTO_TEXT
 shelf_DATA += $(docbook:.xml=.txt)
 %.txt: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO) $(XMLTO_FLAGS) $(XMLTO_XHTML_FLAGS) txt $<
+	$(AM_V_GEN)$(XMLTO) 				\
+	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl		\
+	--searchpath "$(XORG_SGML_PATH)/X11"		\
+	txt $<
 endif HAVE_XMLTO_TEXT
 
-#
 # Generate documents cross-reference target databases
-#
 if HAVE_XSLTPROC
 
-# DocBook/XML generated document cross-reference database
-shelf_DATA += $(docbook:.xml=.html.db) $(docbook:.xml=.fo.db)
-
-# Generate DocBook/XML document cross-reference database
-# Flags for the XSL Transformation processor generating xref target databases
 XSLTPROC_FLAGS =					\
 	--path "$(XORG_SGML_PATH)/X11"			\
 	--stringparam targets.filename "$@"		\
 	--stringparam collect.xref.targets "only"	\
 	--nonet --xinclude
 
+shelf_DATA += $(docbook:.xml=.html.db)
 %.html.db: %.xml  $(chapters)
-	$(AM_V_GEN)$(XSLTPROC) $(XSLTPROC_FLAGS) \
-	http://docbook.sourceforge.net/release/xsl/current/xhtml/docbook.xsl $<
+	$(AM_V_GEN)$(XSLTPROC)				\
+	$(XSLTPROC_FLAGS)				\
+	$(STYLESHEET_SRCDIR)/xorg-xhtml.xsl $<
 
+shelf_DATA += $(docbook:.xml=.fo.db)
 %.fo.db: %.xml $(chapters)
-	$(AM_V_GEN)$(XSLTPROC) $(XSLTPROC_FLAGS) \
-	http://docbook.sourceforge.net/release/xsl/current/fo/docbook.xsl $<
+	$(AM_V_GEN)$(XSLTPROC)				\
+	$(XSLTPROC_FLAGS)				\
+	$(STYLESHEET_SRCDIR)/xorg-fo.xsl $<
 
 endif HAVE_XSLTPROC
 endif HAVE_STYLESHEETS

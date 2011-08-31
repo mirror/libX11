@@ -26,72 +26,90 @@ if HAVE_STYLESHEETS
 # The name and location of cross referencing databases
 masterdb = "$(XORG_SGML_PATH)/X11/dbs/masterdb$(suffix $@).xml"
 
+XMLTO_SEARCHPATH_FLAGS = \
+	--searchpath "$(XORG_SGML_PATH)/X11" \
+	--searchpath "$(abs_top_builddir)"
+XMLTO_OLINK_FLAGS = \
+	--stringparam target.database.document=$(masterdb) \
+	--stringparam current.docid="$(<:.xml=)"
+XMLTO_HTML_STYLESHEET_FLAGS = \
+	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl
+XMLTO_CSS_STYLESHEET_FLAGS = \
+	--stringparam html.stylesheet=$(STYLESHEET_SRCDIR)/xorg.css
+XMLTO_HTML_FLAGS = \
+	$(XMLTO_HTML_STYLESHEET_FLAGS)	\
+	$(XMLTO_CSS_STYLESHEET_FLAGS)	\
+	$(XMLTO_SEARCHPATH_FLAGS)	\
+	$(XMLTO_OLINK_FLAGS)
+
 shelf_DATA += $(docbook:.xml=.html)
 %.html: %.xml  $(chapters)
-	$(AM_V_GEN)$(XMLTO)						\
-	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl				\
-	--searchpath "$(XORG_SGML_PATH)/X11"				\
-	--searchpath "$(abs_top_builddir)"				\
-	--stringparam html.stylesheet=$(STYLESHEET_SRCDIR)/xorg.css	\
-	--stringparam target.database.document=$(masterdb)		\
-	--stringparam current.docid="$(<:.xml=)"			\
-	xhtml-nochunks $<
+	$(AM_V_GEN)$(XMLTO) $(XMLTO_HTML_FLAGS) xhtml-nochunks $<
+
+if HAVE_XMLTO_TEXT
+XMLTO_TXT_FLAGS = \
+	$(XMLTO_HTML_STYLESHEET_FLAGS)	\
+	$(XMLTO_SEARCHPATH_FLAGS)
+
+shelf_DATA += $(docbook:.xml=.txt)
+%.txt: %.xml $(chapters)
+	$(AM_V_GEN)$(XMLTO) $(XMLTO_TXT_FLAGS) txt $<
+endif HAVE_XMLTO_TEXT
 
 if HAVE_FOP
+XMLTO_FO_IMAGEPATH_FLAGS = \
+	--stringparam img.src.path=$(abs_builddir)/
+XMLTO_FO_STYLESHEET_FLAGS = \
+	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl
+XMLTO_FO_FLAGS = 			\
+	$(XMLTO_FO_STYLESHEET_FLAGS)	\
+	$(XMLTO_FO_IMAGEPATH_FLAGS)	\
+	$(XMLTO_SEARCHPATH_FLAGS)	\
+	$(XMLTO_OLINK_FLAGS)
+
 shelf_DATA += $(docbook:.xml=.pdf)
 %.pdf: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO)					\
-	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl			\
-	--searchpath "$(XORG_SGML_PATH)/X11"			\
-	--searchpath "$(abs_top_builddir)"			\
-	--stringparam target.database.document=$(masterdb)	\
-	--stringparam current.docid="$(<:.xml=)"		\
-	--stringparam img.src.path=$(abs_builddir)/		\
-	--with-fop pdf $<
+	$(AM_V_GEN)$(XMLTO) $(XMLTO_FO_FLAGS) --with-fop pdf $<
 
 shelf_DATA += $(docbook:.xml=.ps)
 %.ps: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO) 					\
-	-x $(STYLESHEET_SRCDIR)/xorg-fo.xsl			\
-	--searchpath "$(XORG_SGML_PATH)/X11"			\
-	--searchpath "$(abs_top_builddir)"			\
-	--stringparam target.database.document=$(masterdb)	\
-	--stringparam current.docid="$(<:.xml=)"		\
-	--stringparam img.src.path=$(abs_builddir)/		\
-	--with-fop ps $<
+	$(AM_V_GEN)$(XMLTO) $(XMLTO_FO_FLAGS) --with-fop ps $<
 endif HAVE_FOP
-
-if HAVE_XMLTO_TEXT
-shelf_DATA += $(docbook:.xml=.txt)
-%.txt: %.xml $(chapters)
-	$(AM_V_GEN)$(XMLTO) 				\
-	-x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl		\
-	--searchpath "$(XORG_SGML_PATH)/X11"		\
-	--searchpath "$(abs_top_builddir)"		\
-	txt $<
-endif HAVE_XMLTO_TEXT
 
 # Generate documents cross-reference target databases
 if HAVE_XSLTPROC
 
-XSLTPROC_FLAGS =					\
-	--path "$(XORG_SGML_PATH)/X11"			\
-	--path "$(abs_top_builddir)"			\
+XSLT_SEARCHPATH_FLAGS = \
+	--path "$(XORG_SGML_PATH)/X11"	\
+	--path "$(abs_top_builddir)"
+XSLT_OLINK_FLAGS = \
 	--stringparam targets.filename "$@"		\
-	--stringparam collect.xref.targets "only"	\
+	--stringparam collect.xref.targets "only"
+XSLT_HTML_STYLESHEET_FLAGS = \
+	$(STYLESHEET_SRCDIR)/xorg-xhtml.xsl
+XSLT_FO_STYLESHEET_FLAGS = \
+	$(STYLESHEET_SRCDIR)/xorg-fo.xsl
+XSLT_PROC_FLAGS = \
 	--nonet --xinclude
+XSLT_HTML_FLAGS = \
+	$(XSLT_SEARCHPATH_FLAGS) 	\
+	$(XSLT_OLINK_FLAGS)		\
+	$(XSLT_PROC_FLAGS)		\
+	$(XSLT_HTML_STYLESHEET_FLAGS)
+
+XSLT_FO_FLAGS = \
+	$(XSLT_SEARCHPATH_FLAGS) 	\
+	$(XSLT_OLINK_FLAGS)		\
+	$(XSLT_PROC_FLAGS)		\
+	$(XSLT_FO_STYLESHEET_FLAGS)
 
 shelf_DATA += $(docbook:.xml=.html.db)
 %.html.db: %.xml  $(chapters)
-	$(AM_V_GEN)$(XSLTPROC)				\
-	$(XSLTPROC_FLAGS)				\
-	$(STYLESHEET_SRCDIR)/xorg-xhtml.xsl $<
+	$(AM_V_GEN)$(XSLTPROC) $(XSLT_HTML_FLAGS) $<
 
 shelf_DATA += $(docbook:.xml=.fo.db)
 %.fo.db: %.xml $(chapters)
-	$(AM_V_GEN)$(XSLTPROC)				\
-	$(XSLTPROC_FLAGS)				\
-	$(STYLESHEET_SRCDIR)/xorg-fo.xsl $<
+	$(AM_V_GEN)$(XSLTPROC) $(XSLT_FO_FLAGS) $<
 
 endif HAVE_XSLTPROC
 endif HAVE_STYLESHEETS

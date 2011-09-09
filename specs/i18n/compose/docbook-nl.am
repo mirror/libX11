@@ -41,20 +41,16 @@ XMLTO_HTML_OLINK_FLAGS = \
 	--stringparam current.docid="$(<:.xml=)"
 XMLTO_HTML_STYLESHEET_FLAGS = -x $(STYLESHEET_SRCDIR)/xorg-chunk.xsl
 XMLTO_TXT_STYLESHEET_FLAGS = -x $(STYLESHEET_SRCDIR)/xorg-xhtml.xsl
-XMLTO_CSS_STYLESHEET_FLAGS = 				\
-	--stringparam html.stylesheet=$(STYLESHEET_SRCDIR)/xorg.css
 XMLTO_HTML_CHUNKING_FLAGS = 				\
 	--stringparam root.filename="$(<:.xml=)"
 XMLTO_HTML_FLAGS = 					\
 	$(XMLTO_SEARCHPATH_FLAGS)			\
 	$(XMLTO_HTML_STYLESHEET_FLAGS)			\
-	$(XMLTO_CSS_STYLESHEET_FLAGS)			\
 	$(XMLTO_HTML_CHUNKING_FLAGS)			\
 	$(XMLTO_HTML_OLINK_FLAGS)
 XMLTO_TXT_FLAGS = 					\
 	$(XMLTO_SEARCHPATH_FLAGS)			\
 	$(XMLTO_TXT_STYLESHEET_FLAGS)			\
-	$(XMLTO_CSS_STYLESHEET_FLAGS)			\
 	$(XMLTO_HTML_OLINK_FLAGS)
 
 shelf_DATA += $(docbook:.xml=.html) $(chapters:.xml=.html)

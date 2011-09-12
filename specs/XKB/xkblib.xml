@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE book
           PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
-          "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+          "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd"
+[
+<!ENTITY % defs SYSTEM "defs.ent"> %defs;
+]>
 
 <book id="xkblib">
 
@@ -39,7 +42,7 @@
        <affiliation><orgname>Digital Equipment Corporation</orgname></affiliation>
      </author>
    </authorgroup>
-   <releaseinfo>X Version 11, Release 6.4</releaseinfo>
+   <releaseinfo>X Version 11, Release &fullrelvers;</releaseinfo>
 
 <legalnotice>
 <para>Copyright © 1995, 1996 X Consortium Inc.</para>

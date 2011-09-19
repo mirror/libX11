@@ -17,12 +17,7 @@
          <affiliation><orgname>FUJITSU LIMITED</orgname></affiliation>
       </author>
    </authorgroup>
-   <copyright>
-     <year>1994</year>
-     <holder>FUJITSU LIMITED</holder>
-     <holder>X Consortium</holder>
-   </copyright>
-
+   <copyright><year>1994</year><holder>FUJITSU LIMITED</holder></copyright>
 
 <abstract>
 <title>Abstract</title>
@@ -34,6 +29,16 @@ which makes various channels usable such as X protocol or TCP/IP, DECnet and etc
 
 <legalnotice>
 
+<para>
+Permission to use, copy, modify, and distribute this documentation for any purpose 
+and without fee is hereby granted, provided that the above copyright notice and
+this permission notice appear in all copies.
+Fujitsu makes no representations about the suitability for any purpose of the
+information in this document. This documentation is provided as is
+without express or implied warranty.
+</para>
+
+<para role="multiLicensing">Copyright © 1994 X Consortium</para>
 <para>
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files

@@ -10,7 +10,7 @@
 
 <bookinfo>
    <title>Xlib - C Language X Interface</title>
-   <subtitle>X Window System Standard</subtitle>
+   <subtitle>X Consortium Standard</subtitle>
    <releaseinfo>X Version 11, Release &fullrelvers;</releaseinfo>
    <authorgroup>
       <author>

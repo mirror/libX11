@@ -2885,13 +2885,13 @@ _XimSetICValueData(
 
 	    if(mode & XIM_PREEDIT_ATTR) {
 		if (!_XimEncodeLocalPreeditValue(ic, res, (XPointer)p))
-	    	    return False;
+		    return p->name;
     	    } else if(mode & XIM_STATUS_ATTR) {
 		if (!_XimEncodeLocalStatusValue(ic, res, (XPointer)p))
-	    	    return False;
+		    return p->name;
     	    } else {
 		if (!_XimEncodeLocalTopValue(ic, res, (XPointer)p, flag))
-	    	    return False;
+		    return p->name;
     	    }
 	    if(_XimEncodeLocalICAttr(ic, res, top, p, mode) == False) {
 		return p->name;

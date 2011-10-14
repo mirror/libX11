@@ -433,6 +433,18 @@ extern LockInfoPtr _Xglobal_lock;
  */
 extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 
+/* GetReqSized is the same as GetReq but allows the caller to specify the
+ * size in bytes. 'sz' must be a multiple of 4! */
+
+#if !defined(UNIXCPP) || defined(ANSICPP)
+#define GetReqSized(name, sz, req) \
+	req = (x##name##Req *) _XGetRequest(dpy, X_##name, sz)
+#else
+#define GetReqSized(name, sz, req) \
+	req = (x/**/name/**/Req *) _XGetRequest(dpy, X_/**/name, sz)
+#endif
+
+
 /*
  * GetReq - Get the next available X request packet in the buffer and
  * return it.

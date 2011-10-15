@@ -1784,9 +1784,6 @@ mbtocs(
         return( 0 );
     }
 
-    if (*from_left > *to_left)
-        *from_left = *to_left;
-
     while (*from_left && *to_left) {
 
 	ch = *inbufptr++;

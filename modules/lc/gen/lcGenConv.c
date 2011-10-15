@@ -1869,7 +1869,7 @@ output:
 	return -1;
     }
 
-    /* nomal end */
+    /* normal end */
     *from = (XPointer) inbufptr;
     *to = (XPointer) outbufptr;
 
@@ -2168,7 +2168,7 @@ end:
         return -1;
     }
 
-    /* nomal end */
+    /* normal end */
     *from = (XPointer) inbufptr;
     *to = (XPointer) outbufptr;
 
@@ -2222,7 +2222,7 @@ end:
 	return -1;
     }
 
-    /* nomal end */
+    /* normal end */
     *from = (XPointer) src;
     *from_left = src_left;
 

@@ -470,26 +470,12 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 
 #if !defined(UNIXCPP) || defined(ANSICPP)
 #define GetResReq(name, rid, req) \
-        WORD64ALIGN\
-	if ((dpy->bufptr + SIZEOF(xResourceReq)) > dpy->bufmax)\
-	    _XFlush(dpy);\
-	req = (xResourceReq *) (dpy->last_req = dpy->bufptr);\
-	req->reqType = X_##name;\
-	req->length = 2;\
-	req->id = (rid);\
-	dpy->bufptr += SIZEOF(xResourceReq);\
-	dpy->request++
+	req = (xResourceReq *) _XGetRequest(dpy, X_##name, SIZEOF(xResourceReq)); \
+	req->id = (rid)
 #else
 #define GetResReq(name, rid, req) \
-        WORD64ALIGN\
-	if ((dpy->bufptr + SIZEOF(xResourceReq)) > dpy->bufmax)\
-	    _XFlush(dpy);\
-	req = (xResourceReq *) (dpy->last_req = dpy->bufptr);\
-	req->reqType = X_/**/name;\
-	req->length = 2;\
-	req->id = (rid);\
-	dpy->bufptr += SIZEOF(xResourceReq);\
-	dpy->request++
+	req = (xResourceReq *) _XGetRequest(dpy, X_/**/name, SIZEOF(xResourceReq)); \
+	req->id = (rid)
 #endif
 
 /*
@@ -498,24 +484,10 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
  */
 #if !defined(UNIXCPP) || defined(ANSICPP)
 #define GetEmptyReq(name, req) \
-        WORD64ALIGN\
-	if ((dpy->bufptr + SIZEOF(xReq)) > dpy->bufmax)\
-	    _XFlush(dpy);\
-	req = (xReq *) (dpy->last_req = dpy->bufptr);\
-	req->reqType = X_##name;\
-	req->length = 1;\
-	dpy->bufptr += SIZEOF(xReq);\
-	dpy->request++
+	req = (xReq *) _XGetRequest(dpy, X_##name, SIZEOF(xReq))
 #else
 #define GetEmptyReq(name, req) \
-        WORD64ALIGN\
-	if ((dpy->bufptr + SIZEOF(xReq)) > dpy->bufmax)\
-	    _XFlush(dpy);\
-	req = (xReq *) (dpy->last_req = dpy->bufptr);\
-	req->reqType = X_/**/name;\
-	req->length = 1;\
-	dpy->bufptr += SIZEOF(xReq);\
-	dpy->request++
+	req = (xReq *) _XGetRequest(dpy, X_/**/name, SIZEOF(xReq))
 #endif
 
 #ifdef WORD64

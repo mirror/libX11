@@ -456,10 +456,10 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 
 #if !defined(UNIXCPP) || defined(ANSICPP)
 #define GetReq(name, req) \
-	req = (x##name##Req *) _XGetRequest(dpy, X_##name, SIZEOF(x##name##Req))
+	GetReqSized(name, SIZEOF(x##name##Req), req)
 #else  /* non-ANSI C uses empty comment instead of "##" for token concatenation */
 #define GetReq(name, req) \
-	req = (x/**/name/**/Req *) _XGetRequest(dpy, X_/**/name, SIZEOF(x/**/name/**/Req))
+	GetReqSized(name, SIZEOF(x/**/name/**/Req), req)
 #endif
 
 /* GetReqExtra is the same as GetReq, but allocates "n" additional
@@ -467,10 +467,10 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 
 #if !defined(UNIXCPP) || defined(ANSICPP)
 #define GetReqExtra(name, n, req) \
-	req = (x##name##Req *) _XGetRequest(dpy, X_##name, SIZEOF(x##name##Req) + n)
+        GetReqSized(name, SIZEOF(x##name##Req) + n, req)
 #else
 #define GetReqExtra(name, n, req) \
-	req = (x/**/name/**/Req *) _XGetRequest(dpy, X_/**/name, SIZEOF(x/**/name/**/Req) + n)
+        GetReqSized(name, SIZEOF(x/**/name/**/Req) + n, req)
 #endif
 
 

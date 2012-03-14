@@ -232,6 +232,10 @@ XCOMM Dashes
 <Multi_key> <minus> <minus> <minus> 	: "—"   U2014 # EM DASH
 
 XCOMM Musical alterations
+<Multi_key> <numbersign> <q>    	: "♩"   U2669 # QUARTER NOTE
+<Multi_key> <numbersign> <e>    	: "♪"   U266a # EIGHTH NOTE
+<Multi_key> <numbersign> <E>    	: "♫"   U266b # BEAMED EIGHTH NOTES
+<Multi_key> <numbersign> <S>    	: "♬"   U266c # BEAMED SIXTEENTH NOTES
 <Multi_key> <numbersign> <b>     	: "♭"   U266d # MUSIC FLAT SIGN
 <Multi_key> <numbersign> <f>     	: "♮"   U266e # MUSIC NATURAL SIGN
 <Multi_key> <numbersign> <numbersign> 	: "♯"   U266f # MUSIC SHARP SIGN

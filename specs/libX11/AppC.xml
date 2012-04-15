@@ -2023,7 +2023,8 @@ Some servers may not support single requests of such a length.
 The value of dpy-&gt;max_request_size contains the maximum length as
 defined by the server implementation.
 For further information,
-see ``X Window System Protocol.''
+see <olink targetdoc='x11protocol' targetptr='Maximum-request-length'
+><citetitle>X Window System Protocol</citetitle></olink>.
 <!-- .SH -->
 Requests, Replies, and Xproto.h
 </para>

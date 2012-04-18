@@ -894,7 +894,7 @@ see <link linkend='Inter_Client_Communication_Functions'>chapter 14</link>.
 The core protocol imposes no semantics on these property names,
 but semantics are specified in other X Consortium standards,
 such as the <olink targetdoc='icccm' targetptr='icccm'><citetitle>Inter-Client Communication Conventions Manual</citetitle></olink>
-and the <emphasis remap='I'>X Logical Font Description Conventions</emphasis>.
+and the <olink targetdoc='xlfd' targetptr='xlfd'><citetitle>X Logical Font Description Conventions</citetitle></olink>.
 </para>
 <para>
 <!-- .LP -->

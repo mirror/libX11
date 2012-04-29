@@ -223,8 +223,9 @@ AC_CHECK_HEADERS([sys/select.h])
 AC_CHECK_FUNCS([strtol seteuid])
 # Used in lcFile.c (see also --enable-xlocaledir settings below)
 XLOCALEDIR_IS_SAFE="no"
-AC_CHECK_FUNC([issetugid], [XLOCALEDIR_IS_SAFE="yes"]
-	AC_DEFINE(HASSETUGID,1,[Has issetugid() function]))
+AC_CHECK_DECL([issetugid],
+	AC_CHECK_FUNC([issetugid], [XLOCALEDIR_IS_SAFE="yes"]
+		AC_DEFINE(HASSETUGID,1,[Has issetugid() function])))
 AC_CHECK_FUNC([getresuid], [XLOCALEDIR_IS_SAFE="yes"]
 	AC_DEFINE(HASGETRESUID,1,[Has getresuid() & getresgid() functions]))
 # Used in Font.c

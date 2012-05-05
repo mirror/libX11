@@ -532,19 +532,11 @@ XCOMM Part 3
 <dead_circumflex> <KP_2>         	: "²"   twosuperior # SUPERSCRIPT TWO
 <Multi_key> <asciicircum> <KP_2> 	: "²"   twosuperior # SUPERSCRIPT TWO
 <Multi_key> <2> <asciicircum> 		: "²"   twosuperior # SUPERSCRIPT TWO
-<Multi_key> <2> <S> 			: "²"   twosuperior # SUPERSCRIPT TWO
-<Multi_key> <S> <2> 			: "²"   twosuperior # SUPERSCRIPT TWO
-<Multi_key> <2> <s> 			: "²"   twosuperior # SUPERSCRIPT TWO
-<Multi_key> <s> <2> 			: "²"   twosuperior # SUPERSCRIPT TWO
 <dead_circumflex> <3>            	: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <asciicircum> <3>    	: "³"   threesuperior # SUPERSCRIPT THREE
 <dead_circumflex> <KP_3>         	: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <asciicircum> <KP_3> 	: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <3> <asciicircum> 		: "³"   threesuperior # SUPERSCRIPT THREE
-<Multi_key> <3> <S> 			: "³"   threesuperior # SUPERSCRIPT THREE
-<Multi_key> <S> <3> 			: "³"   threesuperior # SUPERSCRIPT THREE
-<Multi_key> <3> <s> 			: "³"   threesuperior # SUPERSCRIPT THREE
-<Multi_key> <s> <3> 			: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <m> <u>              	: "µ"   mu # MICRO SIGN
 <Multi_key> <slash> <U> 		: "µ"   mu # MICRO SIGN
 <Multi_key> <U> <slash> 		: "µ"   mu # MICRO SIGN
@@ -555,10 +547,6 @@ XCOMM Part 3
 <dead_circumflex> <KP_1>         	: "¹"   onesuperior # SUPERSCRIPT ONE
 <Multi_key> <asciicircum> <KP_1> 	: "¹"   onesuperior # SUPERSCRIPT ONE
 <Multi_key> <1> <asciicircum> 		: "¹"   onesuperior # SUPERSCRIPT ONE
-<Multi_key> <1> <S> 			: "¹"   onesuperior # SUPERSCRIPT ONE
-<Multi_key> <S> <1> 			: "¹"   onesuperior # SUPERSCRIPT ONE
-<Multi_key> <1> <s> 			: "¹"   onesuperior # SUPERSCRIPT ONE
-<Multi_key> <s> <1> 			: "¹"   onesuperior # SUPERSCRIPT ONE
 <dead_circumflex> <Multi_key> <underscore> <o> 	: "º"   masculine # MASCULINE ORDINAL INDICATOR
 <Multi_key> <asciicircum> <underscore> <o> 	: "º"   masculine # MASCULINE ORDINAL INDICATOR
 <dead_circumflex> <Multi_key> <underbar> <o> 	: "º"   masculine # MASCULINE ORDINAL INDICATOR

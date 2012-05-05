@@ -538,8 +538,6 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <KP_3> 	: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <3> <asciicircum> 		: "³"   threesuperior # SUPERSCRIPT THREE
 <Multi_key> <m> <u>              	: "µ"   mu # MICRO SIGN
-<Multi_key> <slash> <U> 		: "µ"   mu # MICRO SIGN
-<Multi_key> <U> <slash> 		: "µ"   mu # MICRO SIGN
 <Multi_key> <slash> <u> 		: "µ"   mu # MICRO SIGN
 <Multi_key> <u> <slash> 		: "µ"   mu # MICRO SIGN
 <dead_circumflex> <1>            	: "¹"   onesuperior # SUPERSCRIPT ONE

@@ -647,6 +647,7 @@ XCOMM Part 3
 <Multi_key> <acute> <O>          	: "Ó"   Oacute # LATIN CAPITAL LETTER O WITH ACUTE
 <Multi_key> <O> <acute> 		: "Ó"   Oacute # LATIN CAPITAL LETTER O WITH ACUTE
 <Multi_key> <apostrophe> <O>     	: "Ó"   Oacute # LATIN CAPITAL LETTER O WITH ACUTE
+<Multi_key> <O> <apostrophe>     	: "Ó"   Oacute # LATIN CAPITAL LETTER O WITH ACUTE
 <dead_circumflex> <O>            	: "Ô"   Ocircumflex # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
 <Multi_key> <asciicircum> <O>    	: "Ô"   Ocircumflex # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
 <Multi_key> <O> <asciicircum> 		: "Ô"   Ocircumflex # LATIN CAPITAL LETTER O WITH CIRCUMFLEX
@@ -772,6 +773,7 @@ XCOMM Part 3
 <Multi_key> <acute> <o>          	: "ó"   oacute # LATIN SMALL LETTER O WITH ACUTE
 <Multi_key> <o> <acute> 		: "ó"   oacute # LATIN SMALL LETTER O WITH ACUTE
 <Multi_key> <apostrophe> <o>     	: "ó"   oacute # LATIN SMALL LETTER O WITH ACUTE
+<Multi_key> <o> <apostrophe>     	: "ó"   oacute # LATIN SMALL LETTER O WITH ACUTE
 <dead_circumflex> <o>            	: "ô"   ocircumflex # LATIN SMALL LETTER O WITH CIRCUMFLEX
 <Multi_key> <asciicircum> <o>    	: "ô"   ocircumflex # LATIN SMALL LETTER O WITH CIRCUMFLEX
 <Multi_key> <o> <asciicircum> 		: "ô"   ocircumflex # LATIN SMALL LETTER O WITH CIRCUMFLEX
@@ -1458,7 +1460,6 @@ XCOMM Part 3
 <dead_acute> <Multi_key> <o> <A> 	: "Ǻ"   U01FA # LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <acute> <dead_abovering> <A> 	: "Ǻ"   U01FA # LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <apostrophe> <dead_abovering> <A> 	: "Ǻ"   U01FA # LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE
-<Multi_key> <o> <apostrophe> <A> 	: "Ǻ"   U01FA # LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <asterisk> <apostrophe> <A> 	: "Ǻ"   U01FA # LATIN CAPITAL LETTER A WITH RING ABOVE AND ACUTE
 <dead_acute> <aring>             	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <acute> <aring>      	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
@@ -1467,7 +1468,6 @@ XCOMM Part 3
 <dead_acute> <Multi_key> <o> <a> 	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <acute> <dead_abovering> <a> 	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <apostrophe> <dead_abovering> <a> 	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
-<Multi_key> <o> <apostrophe> <a> 	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
 <Multi_key> <asterisk> <apostrophe> <a> 	: "ǻ"   U01FB # LATIN SMALL LETTER A WITH RING ABOVE AND ACUTE
 <dead_acute> <AE>                	: "Ǽ"   U01FC # LATIN CAPITAL LETTER AE WITH ACUTE
 <Multi_key> <acute> <AE>         	: "Ǽ"   U01FC # LATIN CAPITAL LETTER AE WITH ACUTE

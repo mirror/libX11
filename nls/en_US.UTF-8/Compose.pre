@@ -567,8 +567,6 @@ XCOMM Part 3
 <Multi_key> <A> <asciicircum> 		: "Â"   Acircumflex # LATIN CAPITAL LETTER A WITH CIRCUMFLEX
 <dead_tilde> <A>                 	: "Ã"   Atilde # LATIN CAPITAL LETTER A WITH TILDE
 <Multi_key> <asciitilde> <A>     	: "Ã"   Atilde # LATIN CAPITAL LETTER A WITH TILDE
-<Multi_key> <minus> <A> 		: "Ã"   Atilde # LATIN CAPITAL LETTER A WITH TILDE
-<Multi_key> <A> <minus> 		: "Ã"   Atilde # LATIN CAPITAL LETTER A WITH TILDE
 <Multi_key> <A> <asciitilde> 		: "Ã"   Atilde # LATIN CAPITAL LETTER A WITH TILDE
 <dead_diaeresis> <A>             	: "Ä"   Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
 <Multi_key> <quotedbl> <A>       	: "Ä"   Adiaeresis # LATIN CAPITAL LETTER A WITH DIAERESIS
@@ -640,8 +638,6 @@ XCOMM Part 3
 <dead_tilde> <O>                 	: "Õ"   Otilde # LATIN CAPITAL LETTER O WITH TILDE
 <Multi_key> <asciitilde> <O>     	: "Õ"   Otilde # LATIN CAPITAL LETTER O WITH TILDE
 <Multi_key> <O> <asciitilde> 		: "Õ"   Otilde # LATIN CAPITAL LETTER O WITH TILDE
-<Multi_key> <minus> <O> 		: "Õ"   Otilde # LATIN CAPITAL LETTER O WITH TILDE
-<Multi_key> <O> <minus> 		: "Õ"   Otilde # LATIN CAPITAL LETTER O WITH TILDE
 <dead_diaeresis> <O>             	: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
 <Multi_key> <quotedbl> <O>       	: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
 <Multi_key> <O> <quotedbl> 		: "Ö"   Odiaeresis # LATIN CAPITAL LETTER O WITH DIAERESIS
@@ -692,8 +688,6 @@ XCOMM Part 3
 <dead_tilde> <a>                 	: "ã"   atilde # LATIN SMALL LETTER A WITH TILDE
 <Multi_key> <asciitilde> <a>     	: "ã"   atilde # LATIN SMALL LETTER A WITH TILDE
 <Multi_key> <a> <asciitilde> 		: "ã"   atilde # LATIN SMALL LETTER A WITH TILDE
-<Multi_key> <minus> <a> 		: "ã"   atilde # LATIN SMALL LETTER A WITH TILDE
-<Multi_key> <a> <minus> 		: "ã"   atilde # LATIN SMALL LETTER A WITH TILDE
 <dead_diaeresis> <a>             	: "ä"   adiaeresis # LATIN SMALL LETTER A WITH DIAERESIS
 <Multi_key> <quotedbl> <a>       	: "ä"   adiaeresis # LATIN SMALL LETTER A WITH DIAERESIS
 <Multi_key> <a> <quotedbl> 		: "ä"   adiaeresis # LATIN SMALL LETTER A WITH DIAERESIS
@@ -764,8 +758,6 @@ XCOMM Part 3
 <dead_tilde> <o>                 	: "õ"   otilde # LATIN SMALL LETTER O WITH TILDE
 <Multi_key> <asciitilde> <o>     	: "õ"   otilde # LATIN SMALL LETTER O WITH TILDE
 <Multi_key> <o> <asciitilde> 		: "õ"   otilde # LATIN SMALL LETTER O WITH TILDE
-<Multi_key> <minus> <o> 		: "õ"   otilde # LATIN SMALL LETTER O WITH TILDE
-<Multi_key> <o> <minus> 		: "õ"   otilde # LATIN SMALL LETTER O WITH TILDE
 <dead_diaeresis> <o>             	: "ö"   odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
 <Multi_key> <o> <diaeresis> 		: "ö"   odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
 <Multi_key> <diaeresis> <o> 		: "ö"   odiaeresis # LATIN SMALL LETTER O WITH DIAERESIS
@@ -809,9 +801,15 @@ XCOMM Part 3
 <dead_macron> <A>                	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <Multi_key> <macron> <A>         	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <Multi_key> <underscore> <A>     	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <A> <underscore>     	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <minus> <A>          	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <A> <minus>          	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <dead_macron> <a>                	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
 <Multi_key> <macron> <a>         	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
 <Multi_key> <underscore> <a>     	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
+<Multi_key> <a> <underscore>     	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
+<Multi_key> <minus> <a>          	: "ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <a> <minus>          	: "ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <dead_breve> <A>                 	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE
 <Multi_key> <U> <A>              	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE
 <Multi_key> <b> <A>              	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE
@@ -1066,10 +1064,14 @@ XCOMM Part 3
 <Multi_key> <macron> <O>         	: "Ō"   U014C # LATIN CAPITAL LETTER O WITH MACRON
 <Multi_key> <underscore> <O>     	: "Ō"   U014C # LATIN CAPITAL LETTER O WITH MACRON
 <Multi_key> <O> <underscore>     	: "Ō"   U014C # LATIN CAPITAL LETTER O WITH MACRON
+<Multi_key> <minus> <O>         	: "Ō"   U014C # LATIN CAPITAL LETTER O WITH MACRON
+<Multi_key> <O> <minus>         	: "Ō"   U014C # LATIN CAPITAL LETTER O WITH MACRON
 <dead_macron> <o>                	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
 <Multi_key> <macron> <o>         	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
 <Multi_key> <underscore> <o>     	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
 <Multi_key> <o> <underscore>     	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
+<Multi_key> <minus> <o>         	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
+<Multi_key> <o> <minus>         	: "ō"   U014D # LATIN SMALL LETTER O WITH MACRON
 <dead_breve> <O>                 	: "Ŏ"   U014E # LATIN CAPITAL LETTER O WITH BREVE
 <Multi_key> <U> <O>              	: "Ŏ"   U014E # LATIN CAPITAL LETTER O WITH BREVE
 <Multi_key> <b> <O>              	: "Ŏ"   U014E # LATIN CAPITAL LETTER O WITH BREVE

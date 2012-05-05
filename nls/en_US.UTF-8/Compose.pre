@@ -626,8 +626,6 @@ XCOMM Part 3
 <dead_tilde> <N>                 	: "Ñ"   Ntilde # LATIN CAPITAL LETTER N WITH TILDE
 <Multi_key> <asciitilde> <N>     	: "Ñ"   Ntilde # LATIN CAPITAL LETTER N WITH TILDE
 <Multi_key> <N> <asciitilde> 		: "Ñ"   Ntilde # LATIN CAPITAL LETTER N WITH TILDE
-<Multi_key> <minus> <N> 		: "Ñ"   Ntilde # LATIN CAPITAL LETTER N WITH TILDE
-<Multi_key> <N> <minus> 		: "Ñ"   Ntilde # LATIN CAPITAL LETTER N WITH TILDE
 <dead_grave> <O>                 	: "Ò"   Ograve # LATIN CAPITAL LETTER O WITH GRAVE
 <Multi_key> <grave> <O>          	: "Ò"   Ograve # LATIN CAPITAL LETTER O WITH GRAVE
 <Multi_key> <O> <grave> 		: "Ò"   Ograve # LATIN CAPITAL LETTER O WITH GRAVE
@@ -752,8 +750,6 @@ XCOMM Part 3
 <dead_tilde> <n>                 	: "ñ"   ntilde # LATIN SMALL LETTER N WITH TILDE
 <Multi_key> <asciitilde> <n>     	: "ñ"   ntilde # LATIN SMALL LETTER N WITH TILDE
 <Multi_key> <n> <asciitilde> 		: "ñ"   ntilde # LATIN SMALL LETTER N WITH TILDE
-<Multi_key> <minus> <n> 		: "ñ"   ntilde # LATIN SMALL LETTER N WITH TILDE
-<Multi_key> <n> <minus> 		: "ñ"   ntilde # LATIN SMALL LETTER N WITH TILDE
 <dead_grave> <o>                 	: "ò"   ograve # LATIN SMALL LETTER O WITH GRAVE
 <Multi_key> <grave> <o>          	: "ò"   ograve # LATIN SMALL LETTER O WITH GRAVE
 <Multi_key> <o> <grave> 		: "ò"   ograve # LATIN SMALL LETTER O WITH GRAVE

@@ -66,8 +66,11 @@ Pixmap XCreatePixmapFromBitmapData(
     pix = XCreatePixmap(display, d, width, height, depth);
     gcv.foreground = fg;
     gcv.background = bg;
-    if (! (gc = XCreateGC(display, pix, GCForeground|GCBackground, &gcv)))
-	return (Pixmap) NULL;
+    gc = XCreateGC(display, pix, GCForeground|GCBackground, &gcv);
+    if (gc == NULL) {
+        XFreePixmap(display, pix);
+        return (Pixmap) None;
+    }
     ximage.height = height;
     ximage.width = width;
     ximage.depth = 1;

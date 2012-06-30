@@ -58,8 +58,11 @@ Pixmap XCreateBitmapFromData(
     Pixmap pix;
 
     pix = XCreatePixmap(display, d, width, height, 1);
-    if (! (gc = XCreateGC(display, pix, (unsigned long) 0, (XGCValues *) 0)))
-	return (Pixmap) None;
+    gc = XCreateGC(display, pix, (unsigned long) 0, (XGCValues *) 0);
+    if (gc == NULL) {
+        XFreePixmap(display, pix);
+        return (Pixmap) None;
+    }
     ximage.height = height;
     ximage.width = width;
     ximage.depth = 1;

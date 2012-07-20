@@ -266,7 +266,7 @@ XCOMM Sequences with COMBINING OGONEK / <dead_ogonek>
 <dead_ogonek> <U>                       : "Ų"   # LATIN CAPITAL LETTER U WITH OGONEK
 
 XCOMM Sequences with COMBINING RING ABOVE / <dead_abovering>
-<dead_abovering> <space>                : "°"   # RING ABOVE
+<dead_abovering> <space>                : "˚"   # RING ABOVE
 <dead_abovering> <a>                    : "å"   # LATIN SMALL LETTER A WITH RING ABOVE
 <dead_abovering> <A>                    : "Å"   # LATIN CAPITAL LETTER A WITH RING ABOVE
 <dead_abovering> <u>                    : "ů"   # LATIN SMALL LETTER U WITH RING ABOVE

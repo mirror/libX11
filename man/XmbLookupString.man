@@ -179,8 +179,8 @@ and
 .ZN XwcLookupString
 begins in the initial state of the encoding of the locale
 (if the encoding of the locale is state-dependent).
-.NT
-To ensure proper input processing,
+.LP
+Note: To ensure proper input processing,
 it is essential that the client pass only 
 .ZN KeyPress
 events to
@@ -191,7 +191,6 @@ and
 Their behavior when a client passes a 
 .ZN KeyRelease
 event is undefined.
-.NE
 .LP
 Clients should check the status_return argument before
 using the other returned values.

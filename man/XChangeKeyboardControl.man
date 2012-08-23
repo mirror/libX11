@@ -50,7 +50,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -311,20 +311,18 @@ T}
 .TE
 .IN "XKeyboardControl" "" "@DEF@"
 .Ds 0
-.TA .5i 2.5i
-.ta .5i 2.5i
 /\&* Values */
 
 typedef struct {
-	int key_click_percent;
-	int bell_percent;
-	int bell_pitch;
-	int bell_duration;
-	int led;
-	int led_mode;	/\&* LedModeOn, LedModeOff */
-	int key;
-	int auto_repeat_mode;	/\&* AutoRepeatModeOff, AutoRepeatModeOn, 
-                            	AutoRepeatModeDefault */
+        int key_click_percent;
+        int bell_percent;
+        int bell_pitch;
+        int bell_duration;
+        int led;
+        int led_mode;   /\&* LedModeOn, LedModeOff */
+        int key;
+        int auto_repeat_mode;   /\&* AutoRepeatModeOff, AutoRepeatModeOn, 
+                                AutoRepeatModeDefault */
 } XKeyboardControl;
 .De
 .LP
@@ -405,15 +403,13 @@ The
 structure contains:
 .LP
 .Ds 0
-.TA .5i 
-.ta .5i
 typedef struct {
-	int key_click_percent;
-	int bell_percent;
-	unsigned int bell_pitch, bell_duration;
-	unsigned long led_mask;
-	int global_auto_repeat;
-	char auto_repeats[32];
+        int key_click_percent;
+        int bell_percent;
+        unsigned int bell_pitch, bell_duration;
+        unsigned long led_mask;
+        int global_auto_repeat;
+        char auto_repeats[32];
 } XKeyboardState;
 .De
 .LP

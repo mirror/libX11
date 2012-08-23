@@ -49,7 +49,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -219,39 +219,33 @@ and
 structures contain:
 .LP
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	unsigned int size;
-	XPointer addr;
+        unsigned int size;
+        XPointer addr;
 } XrmValue, *XrmValuePtr;
 .De
 .LP
 .Ds 0
-.TA .5i 2.5i
-.ta .5i 2.5i
 typedef enum {
-	XrmoptionNoArg,	/\&* Value is specified in XrmOptionDescRec.value */
-	XrmoptionIsArg,	/\&* Value is the option string itself */
-	XrmoptionStickyArg,	/\&* Value is characters immediately following option */
-	XrmoptionSepArg,	/\&* Value is next argument in argv */
-	XrmoptionResArg,	/\&* Resource and value in next argument in argv */
-	XrmoptionSkipArg,	/\&* Ignore this option and the next argument in argv */
-	XrmoptionSkipLine,	/\&* Ignore this option and the rest of argv */
-	XrmoptionSkipNArgs	/\&* Ignore this option and the next
-		\ \ \ XrmOptionDescRec.value arguments in argv */
+        XrmoptionNoArg, /\&* Value is specified in XrmOptionDescRec.value */
+        XrmoptionIsArg, /\&* Value is the option string itself */
+        XrmoptionStickyArg,     /\&* Value is characters immediately following option */
+        XrmoptionSepArg,        /\&* Value is next argument in argv */
+        XrmoptionResArg,        /\&* Resource and value in next argument in argv */
+        XrmoptionSkipArg,       /\&* Ignore this option and the next argument in argv */
+        XrmoptionSkipLine,      /\&* Ignore this option and the rest of argv */
+        XrmoptionSkipNArgs      /\&* Ignore this option and the next
+                \ \ \ XrmOptionDescRec.value arguments in argv */
 } XrmOptionKind;
 .De
 .LP
 .Ds 0
-.TA .5i 2.5i
-.ta .5i 2.5i
 typedef struct {
-	char *option;	/\&* Option specification string in argv		    */
-	char *specifier;	/\&* Binding and resource name (sans application name)    */
-	XrmOptionKind argKind;	/\&* Which style of option it is	    */
-	XPointer value;	/\&* Value to provide if XrmoptionNoArg or 
-		\ \ \ XrmoptionSkipNArgs   */
+        char *option;   /\&* Option specification string in argv                    */
+        char *specifier;        /\&* Binding and resource name (sans application name)    */
+        XrmOptionKind argKind;  /\&* Which style of option it is            */
+        XPointer value; /\&* Value to provide if XrmoptionNoArg or 
+                \ \ \ XrmoptionSkipNArgs   */
 } XrmOptionDescRec, *XrmOptionDescList;
 .De
 .SH "SEE ALSO"

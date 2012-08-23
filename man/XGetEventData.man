@@ -27,7 +27,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -134,17 +134,15 @@ Specifies the cookie to free or retrieve the data for.
 
 .SH STRUCTURES
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	int type;
-	unsigned long serial;
-	Bool send_event;
-	Display *display;
-	int extension;
-	int evtype;
-	unsigned int cookie;
-	void *data;
+        int type;
+        unsigned long serial;
+        Bool send_event;
+        Display *display;
+        int extension;
+        int evtype;
+        unsigned int cookie;
+        void *data;
 } XGenericEventCookie;
 .De
 

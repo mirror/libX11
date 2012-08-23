@@ -49,7 +49,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -148,11 +148,9 @@ The
 structure contains:
 .LP
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	XRectangle max_ink_extent;	/\&* over all drawable characters */
-	XRectangle max_logical_extent;	/\&* over all drawable characters */
+        XRectangle max_ink_extent;      /\&* over all drawable characters */
+        XRectangle max_logical_extent;  /\&* over all drawable characters */
 } XFontSetExtents;
 .De
 .LP

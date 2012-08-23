@@ -50,7 +50,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -387,16 +387,14 @@ T}
 .TE
 .IN "XWindowChanges" "" "@DEF@"
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 /\&* Values */
 
 typedef struct {
-	int x, y;
-	int width, height;
-	int border_width;
-	Window sibling;
-	int stack_mode;
+        int x, y;
+        int width, height;
+        int border_width;
+        Window sibling;
+        int stack_mode;
 } XWindowChanges;
 .De
 .LP

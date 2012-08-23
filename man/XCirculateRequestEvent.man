@@ -49,7 +49,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -148,16 +148,14 @@ The structure for
 events contains:
 .LP
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	int type;	/\&* CirculateRequest */
-	unsigned long serial;	/\&* # of last request processed by server */
-	Bool send_event;	/\&* true if this came from a SendEvent request */
-	Display *display;	/\&* Display the event was read from */
-	Window parent;
-	Window window;
-	int place;	/\&* PlaceOnTop, PlaceOnBottom */
+        int type;       /\&* CirculateRequest */
+        unsigned long serial;   /\&* # of last request processed by server */
+        Bool send_event;        /\&* true if this came from a SendEvent request */
+        Display *display;       /\&* Display the event was read from */
+        Window parent;
+        Window window;
+        int place;      /\&* PlaceOnTop, PlaceOnBottom */
 } XCirculateRequestEvent;
 .De
 .LP

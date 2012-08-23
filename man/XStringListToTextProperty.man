@@ -50,7 +50,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -225,13 +225,11 @@ The
 structure contains:
 .LP
 .Ds 0
-.TA .5i 2.5i
-.ta .5i 2.5i
 typedef struct {
-	unsigned char *value;	/\&* property data */
-	Atom encoding;	/\&* type of property */
-	int format;	/\&* 8, 16, or 32 */
-	unsigned long nitems;	/\&* number of items in value */
+        unsigned char *value;   /\&* property data */
+        Atom encoding;  /\&* type of property */
+        int format;     /\&* 8, 16, or 32 */
+        unsigned long nitems;   /\&* number of items in value */
 } XTextProperty;
 .De
 .SH "SEE ALSO"

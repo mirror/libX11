@@ -49,7 +49,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -221,13 +221,10 @@ structure contains:
 .LP
 .IN "XClassHint" "" "@DEF@"
 .Ds 0
-.TA .5i
-.ta .5i
 typedef struct {
-	char *res_name;
-	char *res_class;
+        char *res_name;
+        char *res_class;
 } XClassHint;
-.De
 .LP
 The res_name member contains the application name, 
 and the res_class member contains the application class. 

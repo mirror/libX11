@@ -50,7 +50,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -290,21 +290,19 @@ T}
 .TE
 .IN "XVisualInfo" "" "@DEF@"
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 /\&* Values */
 
 typedef struct {
-	Visual *visual;
-	VisualID visualid;
-	int screen;
-	int depth;
-	int class;
-	unsigned long red_mask;
-	unsigned long green_mask;
-	unsigned long blue_mask;
-	int colormap_size;
-	int bits_per_rgb;
+        Visual *visual;
+        VisualID visualid;
+        int screen;
+        int depth;
+        int class;
+        unsigned long red_mask;
+        unsigned long green_mask;
+        unsigned long blue_mask;
+        int colormap_size;
+        int bits_per_rgb;
 } XVisualInfo;
 .De
 .SH "SEE ALSO"

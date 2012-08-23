@@ -49,7 +49,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -266,10 +266,8 @@ The
 structure contains:
 .LP
 .Ds 0
-.TA .5i
-.ta .5i
 typedef struct {
-	short x1, y1, x2, y2;
+        short x1, y1, x2, y2;
 } XSegment;
 .De
 .LP

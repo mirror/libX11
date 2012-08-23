@@ -75,7 +75,7 @@
 .de Ds
 .nf
 .\\$1D \\$2 \\$1
-.ft 1
+.ft CW
 .\".ps \\n(PS
 .\".if \\n(VS>=40 .vs \\n(VSu
 .\".if \\n(VS<=39 .vs \\n(VSp
@@ -320,12 +320,10 @@ The
 structure contains:
 .LP
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	int family;	/\&* for example FamilyInternet */
-	int length;	/\&* length of address, in bytes */
-	char *address;	/\&* pointer to where to find the address */
+        int family;     /\&* for example FamilyInternet */
+        int length;     /\&* length of address, in bytes */
+        char *address;  /\&* pointer to where to find the address */
 } XHostAddress;
 .De
 .LP
@@ -346,13 +344,11 @@ member is a pointer to a
 structure which contains:
 .LP
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 typedef struct {
-	int typelength;		/\&* length of type string, in bytes */
-	int valuelength;	/\&* length of value string, in bytes */
-	char *type;		/\&* pointer to where to find the type string */
-	char *value;		/\&* pointer to where to find the address */
+        int typelength;         /\&* length of type string, in bytes */
+        int valuelength;        /\&* length of value string, in bytes */
+        char *type;             /\&* pointer to where to find the type string */
+        char *value;            /\&* pointer to where to find the address */
 } XServerInterpretedAddress;
 .De
 .LP

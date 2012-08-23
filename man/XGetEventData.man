@@ -41,11 +41,6 @@
 .sp \\n(DDu
 .fi
 ..
-.de FN
-.fi
-.KE
-.LP
-..
 .de IN		\" send an index entry to the stderr
 ..
 .de C{

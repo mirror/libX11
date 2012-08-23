@@ -288,21 +288,19 @@ T}
 .TE
 .IN "XWMHints" "" "@DEF@"
 .Ds 0
-.TA .5i 2.5i
-.ta .5i 2.5i
 /\&* Values */
 
 typedef struct {
-	long flags;	/\&* marks which fields in this structure are defined */
-	Bool input;	/\&* does this application rely on the window manager to
-			get keyboard input? */
-	int initial_state;	/\&* see below */
-	Pixmap icon_pixmap;	/\&* pixmap to be used as icon */
-	Window icon_window;	/\&* window to be used as icon */
-	int icon_x, icon_y;	/\&* initial position of icon */
-	Pixmap icon_mask;	/\&* pixmap to be used as mask for icon_pixmap */
-	XID window_group;	/\&* id of related window group */
-	/\&* this structure may be extended in the future */
+        long flags;     /\&* marks which fields in this structure are defined */
+        Bool input;     /\&* does this application rely on the window manager to
+                        get keyboard input? */
+        int initial_state;      /\&* see below */
+        Pixmap icon_pixmap;     /\&* pixmap to be used as icon */
+        Window icon_window;     /\&* window to be used as icon */
+        int icon_x, icon_y;     /\&* initial position of icon */
+        Pixmap icon_mask;       /\&* pixmap to be used as mask for icon_pixmap */
+        XID window_group;       /\&* id of related window group */
+        /\&* this structure may be extended in the future */
 } XWMHints;
 .De
 .LP

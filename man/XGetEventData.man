@@ -186,8 +186,6 @@ for each cookie claimed with
 
 .SH EXAMPLE CODE
 .Ds 0
-.TA .5i 3i
-.ta .5i 3i
 XEvent event;
 XGenericEventCookie *cookie = &ev;
 

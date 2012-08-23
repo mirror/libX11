@@ -342,8 +342,6 @@ ranges, one then can compute a corresponding pixel value by
 using the following expression:
 .LP
 .Ds
-.TA .5i 1.5i
-.ta .5i 1.5i
 (r * red_mult + g * green_mult + b * blue_mult + base_pixel) & 0xFFFFFFFF
 .De
 .LP
@@ -358,8 +356,6 @@ To compute a
 pixel value, use the following expression:
 .LP
 .Ds
-.TA .5i 1.5i
-.ta .5i 1.5i
 (gray * red_mult + base_pixel) & 0xFFFFFFFF
 .De
 .LP

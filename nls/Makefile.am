@@ -38,7 +38,7 @@ locale.dir: locale.dir.pre
 
 if HAVE_PERL
 TESTS_ENVIRONMENT = $(PERL)
-TESTS = $(srcdir)/compose-check.pl
+TESTS = compose-check.pl
 endif HAVE_PERL
 
 

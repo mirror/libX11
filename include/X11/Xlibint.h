@@ -574,7 +574,7 @@ extern void _XFlushGCCache(Display *dpy, GC gc);
  * 32 bit word alignment.  Transmit if the buffer fills.
  *
  * "dpy" is a pointer to a Display.
- * "data" is a pinter to a data buffer.
+ * "data" is a pointer to a data buffer.
  * "len" is the length of the data buffer.
  */
 #ifndef DataRoutineIsProcedure
@@ -584,7 +584,7 @@ extern void _XFlushGCCache(Display *dpy, GC gc);
 		dpy->bufptr += ((len) + 3) & ~3;\
 	} else\
 		_XSend(dpy, data, len);\
-	}
+}
 #endif /* DataRoutineIsProcedure */
 
 

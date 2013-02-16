@@ -1722,7 +1722,7 @@ void _Xbcopy(b1, b2, length)
 #ifdef DataRoutineIsProcedure
 void Data(
 	Display *dpy,
-	char *data,
+	_Xconst char *data,
 	long len)
 {
 	if (dpy->bufptr + (len) <= dpy->bufmax) {
@@ -1739,7 +1739,7 @@ void Data(
 int
 _XData32(
     Display *dpy,
-    register long *data,
+    register _Xconst long *data,
     unsigned len)
 {
     register int *buf;
@@ -1781,7 +1781,7 @@ _XData32(
 
 static doData16(
     register Display *dpy,
-    short *data,
+    _Xconst short *data,
     unsigned len,
     char *packbuffer)
 {
@@ -1814,7 +1814,7 @@ static doData16(
 
 _XData16 (
     Display *dpy,
-    short *data,
+    _Xconst short *data,
     unsigned len)
 {
     char packbuffer[PACKBUFFERSIZE];
@@ -1836,7 +1836,7 @@ _XData16 (
 
 static doData32(
     register Display *dpy
-    long *data,
+    _Xconst long *data,
     unsigned len,
     char *packbuffer)
 {
@@ -1867,7 +1867,7 @@ static doData32(
 
 void _XData32(
     Display *dpy,
-    long *data,
+    _Xconst long *data,
     unsigned len)
 {
     char packbuffer[PACKBUFFERSIZE];

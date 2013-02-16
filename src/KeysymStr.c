@@ -107,7 +107,7 @@ char *XKeysymToString(KeySym ks)
 	XrmQuark empty = NULLQUARK;
 	GRNData data;
 
-	sprintf(buf, "%lX", ks);
+	snprintf(buf, sizeof(buf), "%lX", ks);
 	resval.addr = (XPointer)buf;
 	resval.size = strlen(buf) + 1;
 	data.name = (char *)NULL;

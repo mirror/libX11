@@ -1432,7 +1432,7 @@ static int _XPrintDefaultError(
 	mesg, BUFSIZ);
     (void) fprintf(fp, mesg, event->request_code);
     if (event->request_code < 128) {
-	sprintf(number, "%d", event->request_code);
+	snprintf(number, sizeof(number), "%d", event->request_code);
 	XGetErrorDatabaseText(dpy, "XRequest", number, "", buffer, BUFSIZ);
     } else {
 	for (ext = dpy->ext_procs;
@@ -1452,7 +1452,7 @@ static int _XPrintDefaultError(
 	fputs("  ", fp);
 	(void) fprintf(fp, mesg, event->minor_code);
 	if (ext) {
-	    sprintf(mesg, "%s.%d", ext->name, event->minor_code);
+	    snprintf(mesg, sizeof(mesg), "%s.%d", ext->name, event->minor_code);
 	    XGetErrorDatabaseText(dpy, "XRequest", mesg, "", buffer, BUFSIZ);
 	    (void) fprintf(fp, " (%s)", buffer);
 	}
@@ -1475,8 +1475,8 @@ static int _XPrintDefaultError(
 		bext = ext;
 	}
 	if (bext)
-	    sprintf(buffer, "%s.%d", bext->name,
-		    event->error_code - bext->codes.first_error);
+	    snprintf(buffer, sizeof(buffer), "%s.%d", bext->name,
+                     event->error_code - bext->codes.first_error);
 	else
 	    strcpy(buffer, "Value");
 	XGetErrorDatabaseText(dpy, mtype, buffer, "", mesg, BUFSIZ);

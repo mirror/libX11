@@ -209,13 +209,6 @@ struct _XDisplay
 
 #define XAllocIDs(dpy,ids,n) (*(dpy)->idlist_alloc)(dpy,ids,n)
 
-/*
- * define the following if you want the Data macro to be a procedure instead
- */
-#ifdef CRAY
-#define DataRoutineIsProcedure
-#endif /* CRAY */
-
 #ifndef _XEVENT_
 /*
  * _QEvent datatype for use in input queueing.

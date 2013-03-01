@@ -408,25 +408,8 @@ extern LockInfoPtr _Xglobal_lock;
  * X Protocol packetizing macros.
  */
 
-/*   Need to start requests on 64 bit word boundaries
- *   on a CRAY computer so add a NoOp (127) if needed.
- *   A character pointer on a CRAY computer will be non-zero
- *   after shifting right 61 bits of it is not pointing to
- *   a word boundary.
- */
-#ifdef WORD64
-#define WORD64ALIGN if ((long)dpy->bufptr >> 61) {\
-           dpy->last_req = dpy->bufptr;\
-           *(dpy->bufptr)   = X_NoOperation;\
-           *(dpy->bufptr+1) =  0;\
-           *(dpy->bufptr+2) =  0;\
-           *(dpy->bufptr+3) =  1;\
-             dpy->request++;\
-             dpy->bufptr += 4;\
-         }
-#else /* else does not require alignment on 64-bit boundaries */
+/* Leftover from CRAY support - was defined empty on all non-Cray systems */
 #define WORD64ALIGN
-#endif /* WORD64 */
 
 /**
  * Return a len-sized request buffer for the request type. This function may
@@ -510,18 +493,6 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 	req = (xReq *) _XGetRequest(dpy, X_/**/name, SIZEOF(xReq))
 #endif
 
-#ifdef WORD64
-#define MakeBigReq(req,n) \
-    { \
-    char _BRdat[4]; \
-    unsigned long _BRlen = req->length - 1; \
-    req->length = 0; \
-    memcpy(_BRdat, ((char *)req) + (_BRlen << 2), 4); \
-    memmove(((char *)req) + 8, ((char *)req) + 4, _BRlen << 2); \
-    memcpy(((char *)req) + 4, _BRdat, 4); \
-    Data32(dpy, (long *)&_BRdat, 4); \
-    }
-#else
 #ifdef LONG64
 #define MakeBigReq(req,n) \
     { \
@@ -544,7 +515,6 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
     ((CARD32 *)req)[1] = _BRlen + n + 2; \
     Data32(dpy, &_BRdat, 4); \
     }
-#endif
 #endif
 
 #ifndef __clang_analyzer__
@@ -609,10 +579,6 @@ extern void _XFlushGCCache(Display *dpy, GC gc);
     memset(ptr, '\0', n); \
     dpy->bufptr += (n);
 
-#ifdef WORD64
-#define Data16(dpy, data, len) _XData16(dpy, (_Xconst short *)data, len)
-#define Data32(dpy, data, len) _XData32(dpy, (_Xconst long *)data, len)
-#else
 #define Data16(dpy, data, len) Data((dpy), (_Xconst char *)(data), (len))
 #define _XRead16Pad(dpy, data, len) _XReadPad((dpy), (char *)(data), (len))
 #define _XRead16(dpy, data, len) _XRead((dpy), (char *)(data), (len))
@@ -632,7 +598,6 @@ extern void _XRead32(
 #define Data32(dpy, data, len) Data((dpy), (_Xconst char *)(data), (len))
 #define _XRead32(dpy, data, len) _XRead((dpy), (char *)(data), (len))
 #endif
-#endif /* not WORD64 */
 
 #define PackData16(dpy,data,len) Data16 (dpy, data, len)
 #define PackData32(dpy,data,len) Data32 (dpy, data, len)

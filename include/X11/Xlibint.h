@@ -701,19 +701,10 @@ extern void _XRead32(
 }
 
 
-#ifdef MUSTCOPY
-
-/* for when 32-bit alignment is not good enough */
-#define OneDataCard32(dpy,dstaddr,srcvar) \
-  { dpy->bufptr -= 4; Data32 (dpy, (char *) &(srcvar), 4); }
-
-#else
-
 /* srcvar must be a variable for large architecture version */
 #define OneDataCard32(dpy,dstaddr,srcvar) \
   { *(CARD32 *)(dstaddr) = (srcvar); }
 
-#endif /* MUSTCOPY */
 
 typedef struct _XInternalAsync {
     struct _XInternalAsync *next;

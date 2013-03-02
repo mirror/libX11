@@ -305,8 +305,10 @@ register int i;
 xkbBehaviorWireDesc	*wire;
 
     if ( rep->totalKeyBehaviors>0 ) {
+	int size = xkb->max_key_code + 1;
+	if ( ((int) rep->firstKeyBehavior + rep->nKeyBehaviors) > size)
+	    return BadLength;
 	if ( xkb->server->behaviors == NULL ) {
-	    int size = xkb->max_key_code+1;
 	    xkb->server->behaviors = _XkbTypedCalloc(size,XkbBehavior);
 	    if (xkb->server->behaviors==NULL)
 		return BadAlloc;
@@ -318,7 +320,7 @@ xkbBehaviorWireDesc	*wire;
 	for (i=0;i<rep->totalKeyBehaviors;i++) {
 	    wire= (xkbBehaviorWireDesc *)_XkbGetReadBufferPtr(buf,
 						SIZEOF(xkbBehaviorWireDesc));
-	    if (wire==NULL)
+	    if (wire==NULL || wire->key >= size)
 		return BadLength;
 	    xkb->server->behaviors[wire->key].type= wire->type;
 	    xkb->server->behaviors[wire->key].data= wire->data;

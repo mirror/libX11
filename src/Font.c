@@ -31,6 +31,7 @@ authorization from the X Consortium and the XFree86 Project.
 #include <config.h>
 #endif
 #include "Xlibint.h"
+#include <limits.h>
 
 #if defined(XF86BIGFONT)
 #define USE_XF86BIGFONT
@@ -183,7 +184,8 @@ _XQueryFont (
     unsigned long seq)
 {
     register XFontStruct *fs;
-    register long nbytes;
+    unsigned long nbytes;
+    unsigned long reply_left; /* unused data words left in reply buffer */
     xQueryFontReply reply;
     register xResourceReq *req;
     register _XExtension *ext;
@@ -211,9 +213,10 @@ _XQueryFont (
     }
     if (seq)
 	DeqAsyncHandler(dpy, &async);
+    reply_left = reply.length -
+	((SIZEOF(xQueryFontReply) - SIZEOF(xReply)) >> 2);
     if (! (fs = (XFontStruct *) Xmalloc (sizeof (XFontStruct)))) {
-	_XEatData(dpy, (unsigned long)(reply.nFontProps * SIZEOF(xFontProp) +
-				       reply.nCharInfos * SIZEOF(xCharInfo)));
+	_XEatDataWords(dpy, reply_left);
 	return (XFontStruct *)NULL;
     }
     fs->ext_data 		= NULL;
@@ -239,16 +242,19 @@ _XQueryFont (
      */
     fs->properties = NULL;
     if (fs->n_properties > 0) {
-	    nbytes = reply.nFontProps * sizeof(XFontProp);
-	    fs->properties = (XFontProp *) Xmalloc ((unsigned) nbytes);
+	    /* nFontProps is a CARD16 */
 	    nbytes = reply.nFontProps * SIZEOF(xFontProp);
+	    if ((nbytes >> 2) <= reply_left) {
+		size_t pbytes = reply.nFontProps * sizeof(XFontProp);
+		fs->properties = Xmalloc (pbytes);
+	    }
 	    if (! fs->properties) {
 		Xfree((char *) fs);
-		_XEatData(dpy, (unsigned long)
-			  (nbytes + reply.nCharInfos * SIZEOF(xCharInfo)));
+		_XEatDataWords(dpy, reply_left);
 		return (XFontStruct *)NULL;
 	    }
 	    _XRead32 (dpy, (long *)fs->properties, nbytes);
+	    reply_left -= (nbytes >> 2);
     }
     /*
      * If no characters in font, then it is a bad font, but
@@ -256,16 +262,21 @@ _XQueryFont (
      */
     fs->per_char = NULL;
     if (reply.nCharInfos > 0){
-	nbytes = reply.nCharInfos * sizeof(XCharStruct);
-	if (! (fs->per_char = (XCharStruct *) Xmalloc ((unsigned) nbytes))) {
+	/* nCharInfos is a CARD32 */
+	if (reply.nCharInfos < (INT_MAX / sizeof(XCharStruct))) {
+	    nbytes = reply.nCharInfos * SIZEOF(xCharInfo);
+	    if ((nbytes >> 2) <= reply_left) {
+		size_t cibytes = reply.nCharInfos * sizeof(XCharStruct);
+		fs->per_char = Xmalloc (cibytes);
+	    }
+	}
+	if (! fs->per_char) {
 	    if (fs->properties) Xfree((char *) fs->properties);
 	    Xfree((char *) fs);
-	    _XEatData(dpy, (unsigned long)
-			    (reply.nCharInfos * SIZEOF(xCharInfo)));
+	    _XEatDataWords(dpy, reply_left);
 	    return (XFontStruct *)NULL;
 	}
 
-	nbytes = reply.nCharInfos * SIZEOF(xCharInfo);
 	_XRead16 (dpy, (char *)fs->per_char, nbytes);
     }
 

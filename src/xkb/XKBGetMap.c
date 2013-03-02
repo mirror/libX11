@@ -390,6 +390,9 @@ register int i;
 unsigned char *wire;
 
     if ( rep->totalModMapKeys>0 ) {
+	if ( ((int)rep->firstModMapKey + rep->nModMapKeys) >
+	     (xkb->max_key_code + 1))
+	    return BadLength;
 	if ((xkb->map->modmap==NULL)&&
 	    (XkbAllocClientMap(xkb,XkbModifierMapMask,0)!=Success)) {
 	    return BadAlloc;
@@ -402,6 +405,8 @@ unsigned char *wire;
 	if (!wire)
 	    return BadLength;
 	for (i=0;i<rep->totalModMapKeys;i++,wire+=2) {
+	    if (wire[0] > xkb->max_key_code || wire[1] > xkb->max_key_code)
+		return BadLength;
 	    xkb->map->modmap[wire[0]]= wire[1];
 	}
     }

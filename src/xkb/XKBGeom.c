@@ -364,12 +364,16 @@ Status	rtrn;
 	    }
 	    ol->num_points= olWire->nPoints;
 	}
-	if (shapeWire->primaryNdx!=XkbNoShape)
+	if ((shapeWire->primaryNdx!=XkbNoShape) &&
+	    (shapeWire->primaryNdx < shapeWire->nOutlines))
 	     shape->primary= &shape->outlines[shapeWire->primaryNdx];
-	else shape->primary= NULL;
-	if (shapeWire->approxNdx!=XkbNoShape)
+	else
+	    shape->primary= NULL;
+	if ((shapeWire->approxNdx!=XkbNoShape) &&
+	    (shapeWire->approxNdx < shapeWire->nOutlines))
 	     shape->approx= &shape->outlines[shapeWire->approxNdx];
-	else shape->approx= NULL;
+	else
+	    shape->approx= NULL;
 	XkbComputeShapeBounds(shape);
     }
     return Success;

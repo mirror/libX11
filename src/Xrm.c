@@ -62,6 +62,7 @@ from The Open Group.
 #endif
 #include	<X11/Xos.h>
 #include	<sys/stat.h>
+#include	<limits.h>
 #include "Xresinternal.h"
 #include "Xresource.h"
 
@@ -1594,11 +1595,12 @@ ReadInFile(_Xconst char *filename)
      */
     {
 	struct stat status_buffer;
-	if ( (fstat(fd, &status_buffer)) == -1 ) {
+	if ( ((fstat(fd, &status_buffer)) == -1 ) ||
+             (status_buffer.st_size >= INT_MAX) ) {
 	    close (fd);
 	    return (char *)NULL;
 	} else
-	    size = status_buffer.st_size;
+	    size = (int) status_buffer.st_size;
     }
 
     if (!(filebuf = Xmalloc(size + 1))) { /* leave room for '\0' */

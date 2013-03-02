@@ -37,13 +37,6 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include <X11/extensions/XKBgeom.h>
 #include <X11/extensions/XKBproto.h>
 
-
-#ifdef X_NOT_POSIX
-#define Size_t unsigned int
-#else
-#define Size_t size_t
-#endif
-
 /***====================================================================***/
 
 static void
@@ -464,7 +457,7 @@ _XkbGeomAlloc(	XPointer *		old,
 		unsigned short *	num,
 		unsigned short *	total,
 		int			num_new,
-		Size_t			sz_elem)
+		size_t			sz_elem)
 {
     if (num_new<1)
 	return Success;

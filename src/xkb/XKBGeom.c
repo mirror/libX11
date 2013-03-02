@@ -619,6 +619,9 @@ XkbGeometryPtr	geom;
 	    if (status==Success)
 		status= _XkbReadGeomKeyAliases(&buf,geom,rep);
 	    left= _XkbFreeReadBuffer(&buf);
+	    if ((rep->baseColorNdx > geom->num_colors) ||
+		(rep->labelColorNdx > geom->num_colors))
+		status = BadLength;
 	    if ((status!=Success) || left || buf.error) {
 		if (status==Success)
 		    status= BadLength;

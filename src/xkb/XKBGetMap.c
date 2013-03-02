@@ -362,8 +362,10 @@ register int i;
 unsigned char *wire;
 
     if ( rep->totalKeyExplicit>0 ) {
+	int size = xkb->max_key_code + 1;
+	if ( ((int) rep->firstKeyExplicit + rep->nKeyExplicit) > size)
+	    return BadLength;
 	if ( xkb->server->explicit == NULL ) {
-	    int size = xkb->max_key_code+1;
 	    xkb->server->explicit = _XkbTypedCalloc(size,unsigned char);
 	    if (xkb->server->explicit==NULL)
 		return BadAlloc;
@@ -377,6 +379,8 @@ unsigned char *wire;
 	if (!wire)
 	    return BadLength;
 	for (i=0;i<rep->totalKeyExplicit;i++,wire+=2) {
+	    if (wire[0] > xkb->max_key_code || wire[1] > xkb->max_key_code)
+		return BadLength;
 	    xkb->server->explicit[wire[0]]= wire[1];
 	}
     }

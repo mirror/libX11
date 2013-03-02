@@ -269,6 +269,10 @@ Status		ret = Success;
 	symMap = &info->map->key_sym_map[rep->firstKeyAct];
 	for (i=0;i<(int)rep->nKeyActs;i++,symMap++) {
 	    if (numDesc[i]==0) {
+		if ((i + rep->firstKeyAct) > (info->max_key_code + 1)) {
+		    ret = BadLength;
+		    goto done;
+		}
 		info->server->key_acts[i+rep->firstKeyAct]= 0;
 	    }
 	    else {

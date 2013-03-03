@@ -78,7 +78,7 @@ char *XGetAtomName(
 	name[rep.nameLength] = '\0';
 	_XUpdateAtomCache(dpy, name, atom, 0, -1, 0);
     } else {
-	_XEatData(dpy, (unsigned long) (rep.nameLength + 3) & ~3);
+	_XEatDataWords(dpy, rep.length);
 	name = (char *) NULL;
     }
     UnlockDisplay(dpy);
@@ -176,7 +176,7 @@ XGetAtomNames (
 		_XUpdateAtomCache(dpy, names_return[missed], atoms[missed],
 				  0, -1, 0);
 	    } else {
-		_XEatData(dpy, (unsigned long) (rep.nameLength + 3) & ~3);
+		_XEatDataWords(dpy, rep.length);
 		async_state.status = 0;
 	    }
 	}

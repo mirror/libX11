@@ -495,7 +495,7 @@ static XrmDatabase NewDatabase(void)
 {
     register XrmDatabase db;
 
-    db = (XrmDatabase) Xmalloc(sizeof(XrmHashBucketRec));
+    db = Xmalloc(sizeof(XrmHashBucketRec));
     if (db) {
 	_XCreateMutex(&db->linfo);
 	db->table = (NTable)NULL;
@@ -828,7 +828,7 @@ static void PutEntry(
     NTable *nprev, *firstpprev;
 
 #define NEWTABLE(q,i) \
-    table = (NTable)Xmalloc(sizeof(LTableRec)); \
+    table = Xmalloc(sizeof(LTableRec)); \
     if (!table) \
 	return; \
     table->name = q; \
@@ -841,7 +841,7 @@ static void PutEntry(
 	nprev = NodeBuckets(table); \
     } else { \
 	table->leaf = 1; \
-	if (!(nprev = (NTable *)Xmalloc(sizeof(VEntry *)))) {\
+	if (!(nprev = Xmalloc(sizeof(VEntry *)))) {\
 	    Xfree(table); \
 	    return; \
         } \
@@ -955,9 +955,8 @@ static void PutEntry(
 	prev = nprev;
     }
     /* now allocate the value entry */
-    entry = (VEntry)Xmalloc(((type == XrmQString) ?
-			     sizeof(VEntryRec) : sizeof(DEntryRec)) +
-			    value->size);
+    entry = Xmalloc(((type == XrmQString) ?
+		     sizeof(VEntryRec) : sizeof(DEntryRec)) + value->size);
     if (!entry)
 	return;
     entry->name = q = *quarks;
@@ -987,13 +986,12 @@ static void PutEntry(
 	if (resourceQuarks) {
 	    unsigned char *prevQuarks = resourceQuarks;
 
-	    resourceQuarks = (unsigned char *)Xrealloc((char *)resourceQuarks,
-						       size);
+	    resourceQuarks = Xrealloc(resourceQuarks, size);
 	    if (!resourceQuarks) {
 		Xfree(prevQuarks);
 	    }
 	} else
-	    resourceQuarks = (unsigned char *)Xmalloc(size);
+	    resourceQuarks = Xmalloc(size);
 	if (resourceQuarks) {
 	    bzero((char *)&resourceQuarks[oldsize], size - oldsize);
 	    maxResourceQuark = (size << 3) - 1;
@@ -1138,11 +1136,11 @@ static void GetDatabase(
 
     str_len = strlen (str);
     if (DEF_BUFF_SIZE > str_len) lhs = lhs_s;
-    else if ((lhs = (char*) Xmalloc (str_len)) == NULL)
+    else if ((lhs = Xmalloc (str_len)) == NULL)
 	return;
 
     alloc_chars = DEF_BUFF_SIZE < str_len ? str_len : DEF_BUFF_SIZE;
-    if ((rhs = (char*) Xmalloc (alloc_chars)) == NULL) {
+    if ((rhs = Xmalloc (alloc_chars)) == NULL) {
 	if (lhs != lhs_s) Xfree (lhs);
 	return;
     }

@@ -97,11 +97,11 @@ XSetModifierMapping(
 XModifierKeymap *
 XNewModifiermap(int keyspermodifier)
 {
-    XModifierKeymap *res = (XModifierKeymap *) Xmalloc((sizeof (XModifierKeymap)));
+    XModifierKeymap *res = Xmalloc((sizeof (XModifierKeymap)));
     if (res) {
 	res->max_keypermod = keyspermodifier;
 	res->modifiermap = (keyspermodifier > 0 ?
-			    (KeyCode *) Xmalloc((unsigned) (8 * keyspermodifier))
+			    Xmalloc(8 * keyspermodifier)
 			    : (KeyCode *) NULL);
 	if (keyspermodifier && (res->modifiermap == NULL)) {
 	    Xfree((char *) res);

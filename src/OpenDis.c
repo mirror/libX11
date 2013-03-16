@@ -340,7 +340,7 @@ XOpenDisplay (
 /*
  * Now iterate down setup information.....
  */
-	dpy->pixmap_format = Xmalloc(dpy->nformats * sizeof(ScreenFormat));
+	dpy->pixmap_format = Xcalloc(dpy->nformats, sizeof(ScreenFormat));
 	if (dpy->pixmap_format == NULL) {
 	        OutOfMemory (dpy);
 		return(NULL);
@@ -368,7 +368,7 @@ XOpenDisplay (
 /*
  * next the Screen structures.
  */
-	dpy->screens = Xmalloc(dpy->nscreens * sizeof(Screen));
+	dpy->screens = Xcalloc(dpy->nscreens, sizeof(Screen));
 	if (dpy->screens == NULL) {
 	        OutOfMemory (dpy);
 		return(NULL);
@@ -410,7 +410,7 @@ XOpenDisplay (
 /*
  * lets set up the depth structures.
  */
-	    sp->depths = Xmalloc(sp->ndepths * sizeof(Depth));
+	    sp->depths = Xcalloc(sp->ndepths, sizeof(Depth));
 	    if (sp->depths == NULL) {
 		OutOfMemory (dpy);
 		return(NULL);
@@ -432,7 +432,7 @@ XOpenDisplay (
 		dp->nvisuals = u.dp->nVisuals;
 		u.dp = (xDepth *) (((char *) u.dp) + sz_xDepth);
 		if (dp->nvisuals > 0) {
-		    dp->visuals = Xmalloc(dp->nvisuals * sizeof(Visual));
+		    dp->visuals = Xcalloc(dp->nvisuals, sizeof(Visual));
 		    if (dp->visuals == NULL) {
 			OutOfMemory (dpy);
 			return(NULL);

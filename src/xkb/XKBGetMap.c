@@ -484,6 +484,8 @@ unsigned	mask;
 
     if ( xkb->device_spec == XkbUseCoreKbd )
 	xkb->device_spec= rep->deviceID;
+    if ( rep->maxKeyCode < rep->minKeyCode )
+	return BadImplementation;
     xkb->min_key_code = rep->minKeyCode;
     xkb->max_key_code = rep->maxKeyCode;
 

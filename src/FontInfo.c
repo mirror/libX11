@@ -174,8 +174,10 @@ XFontStruct **info)	/* RETURN */
   badmem:
     /* Free all memory allocated by this function. */
     for (j=(i-1); (j >= 0); j--) {
-	Xfree(flist[j]);
-	if (finfo[j].properties) Xfree((char *) finfo[j].properties);
+        if (j == 0)
+            flist[j]--;         /* was incremented above */
+        Xfree(flist[j]);
+        if (finfo[j].properties) Xfree((char *) finfo[j].properties);
     }
     if (flist) Xfree((char *) flist);
     if (finfo) Xfree((char *) finfo);

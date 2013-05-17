@@ -507,6 +507,7 @@ _XF86BigfontQueryFont (
        any real font needs, so the combined total doesn't overflow either */
     if (reply.nUniqCharInfos > ((ULONG_MAX / 2) / SIZEOF(xCharInfo)) ||
 	reply.nCharInfos > ((ULONG_MAX / 2) / sizeof(CARD16))) {
+	Xfree((char *) fs->properties);
 	Xfree((char *) fs);
 	_XEatDataWords(dpy, reply_left);
 	return (XFontStruct *)NULL;

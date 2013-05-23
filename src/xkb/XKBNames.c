@@ -180,7 +180,7 @@ _XkbReadGetNamesReply(	Display *		dpy,
 	    nKeys= xkb->max_key_code+1;
 	    names->keys= _XkbTypedCalloc(nKeys,XkbKeyNameRec);
 	}
-	else if ( ((int)rep->firstKey + rep->nKeys) > xkb->max_key_code)
+	if ( ((int)rep->firstKey + rep->nKeys) > xkb->max_key_code + 1)
 	    goto BAILOUT;
 	if (names->keys!=NULL) {
 	    if (!_XkbCopyFromReadBuffer(&buf,

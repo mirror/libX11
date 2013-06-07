@@ -1511,12 +1511,9 @@ To obtain the pixmap format information for a given display, use
 <indexterm significance="preferred"><primary>XListPixmapFormats</primary></indexterm>
 <!-- .sM -->
 </para>
-<para>
-ImageByteOrder(<emphasis remap='I'>display</emphasis>)
-</para>
-<funcsynopsis id='XImageByteOrder'>
+<funcsynopsis id='XListPixmapFormats'>
 <funcprototype>
-  <funcdef>int <function>XImageByteOrder</function></funcdef>
+  <funcdef>XPixmapFormatValues *<function>XListPixmapFormats</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> *count_return</parameter></paramdef>
 </funcprototype>
@@ -1577,7 +1574,7 @@ These are often used by toolkits as well as by simple applications.
 <para>
 ImageByteOrder(<emphasis remap='I'>display</emphasis>)
 </para>
-<funcsynopsis>
+<funcsynopsis id='XImageByteOrder'>
 <funcprototype>
   <funcdef>int <function>XImageByteOrder</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>

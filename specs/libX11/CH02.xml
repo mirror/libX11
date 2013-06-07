@@ -608,7 +608,6 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Specifies the appropriate screen number on the host server.
-<!-- .ds Cn depths -->
       </para>
     </listitem>
   </varlistentry>
@@ -618,7 +617,7 @@ Specifies the appropriate screen number on the host server.
     </term>
     <listitem>
       <para>
-Returns the number of (Cn.
+Returns the number of depths.
     </para>
   </listitem>
   </varlistentry>
@@ -1527,7 +1526,6 @@ To obtain the pixmap format information for a given display, use
     <listitem>
       <para>
 Specifies the connection to the X server.
-<!-- .ds Cn pixmap formats that are supported by the display -->
       </para>
     </listitem>
   </varlistentry>
@@ -1537,7 +1535,7 @@ Specifies the connection to the X server.
     </term>
     <listitem>
       <para>
-Returns the number of (Cn.
+Returns the number of pixmap formats that are supported by the display.
     </para>
   </listitem>
   </varlistentry>
@@ -3463,7 +3461,6 @@ Specifies the connection to the X server.
     <listitem>
       <para>
 Returns the file descriptors.
-<!-- .ds Cn file descriptors -->
       </para>
     </listitem>
   </varlistentry>
@@ -3473,7 +3470,7 @@ Returns the file descriptors.
     </term>
     <listitem>
       <para>
-Returns the number of (Cn.
+Returns the number of file descriptors.
     </para>
   </listitem>
   </varlistentry>

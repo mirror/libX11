@@ -210,11 +210,12 @@ realloc_parse_info(
     int len)
 {
     char *p;
+    int newsize = BUFSIZE * ((parse_info.bufsize + len)/BUFSIZE + 1);
 
-    parse_info.bufMaxSize = BUFSIZE * ((parse_info.bufsize + len)/BUFSIZE + 1);
-    p = (char *)Xrealloc(parse_info.buf, parse_info.bufMaxSize);
+    p = Xrealloc(parse_info.buf, newsize);
     if (p == NULL)
         return False;
+    parse_info.bufMaxSize = newsize;
     parse_info.buf = p;
 
     return True;

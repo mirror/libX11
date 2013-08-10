@@ -106,12 +106,6 @@ typedef struct _XkbInfoRec {
 	/*
 	 * Handy helper macros
 	 */
-#define	XKB_INSURE_SIZE(f,t,nNum,oNum)	{\
-	if ((f)==NULL)	\
-	     (f)=(t *)Xmalloc(sizeof(t)*(nNum));\
-	else if ((nNum)<(oNum))\
-	     (f)=(t *)Xrealloc((f),sizeof(t)*(nNum));\
-	}
 
 typedef struct _XkbReadBuffer {
 	int	 error;

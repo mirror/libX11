@@ -507,7 +507,7 @@ XIntersectRegion(
     return 1;
 }
 
-static void
+static int
 miRegionCopy(
     register Region dstrgn,
     register Region rgn)
@@ -525,7 +525,8 @@ miRegionCopy(
 					 rgn->numRects * (sizeof(BOX)));
 		if (! dstrgn->rects) {
 		    Xfree(prevRects);
-		    return;
+		    dstrgn->size = 0;
+		    return 0;
 		}
             }
             dstrgn->size = rgn->numRects;
@@ -539,6 +540,7 @@ miRegionCopy(
 	memcpy((char *) dstrgn->rects, (char *) rgn->rects,
 	       (int) (rgn->numRects * sizeof(BOX)));
     }
+    return 1;
 }
 
 /*======================================================================
@@ -1150,7 +1152,7 @@ XUnionRegion(
     if ( (reg1 == reg2) || (!(reg1->numRects)) )
     {
         if (newReg != reg2)
-            miRegionCopy(newReg, reg2);
+            return miRegionCopy(newReg, reg2);
         return 1;
     }
 
@@ -1160,7 +1162,7 @@ XUnionRegion(
     if (!(reg2->numRects))
     {
         if (newReg != reg1)
-            miRegionCopy(newReg, reg1);
+            return miRegionCopy(newReg, reg1);
         return 1;
     }
 
@@ -1174,7 +1176,7 @@ XUnionRegion(
 	(reg1->extents.y2 >= reg2->extents.y2))
     {
         if (newReg != reg1)
-            miRegionCopy(newReg, reg1);
+            return miRegionCopy(newReg, reg1);
         return 1;
     }
 
@@ -1188,7 +1190,7 @@ XUnionRegion(
 	(reg2->extents.y2 >= reg1->extents.y2))
     {
         if (newReg != reg2)
-            miRegionCopy(newReg, reg2);
+            return miRegionCopy(newReg, reg2);
         return 1;
     }
 
@@ -1429,8 +1431,7 @@ XSubtractRegion(
     if ( (!(regM->numRects)) || (!(regS->numRects))  ||
 	(!EXTENTCHECK(&regM->extents, &regS->extents)) )
     {
-	miRegionCopy(regD, regM);
-        return 1;
+	return miRegionCopy(regD, regM);
     }
 
     miRegionOp (regD, regM, regS, miSubtractO,

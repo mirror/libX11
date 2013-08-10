@@ -1148,10 +1148,9 @@ init_om(
     FontData font_data;
     char **required_list;
     XOrientation *orientation;
-    char **value, buf[BUFSIZ], *bufptr;
-    int count, length = 0;
+    char *bufptr;
+    int i, count, length = 0;
 
-    value = (char**)supported_charset_list;
     count = XlcNumber(supported_charset_list);
 
     data = add_data(om);
@@ -1164,14 +1163,8 @@ init_om(
     data->font_data = font_data;
     data->font_data_count = count;
 
-    for ( ; count-- > 0; font_data++) {
-/*
-1266793
-This one is fine.  *value points to one of the local strings in
-supported_charset_list[].
-*/
-	strcpy(buf, *value++);
-	font_data->name = strdup(buf);
+    for (i = 0; i < count; i++, font_data++) {
+	font_data->name = strdup(supported_charset_list[i]);
 	if (font_data->name == NULL)
 	    return False;
     }

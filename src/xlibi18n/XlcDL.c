@@ -189,12 +189,7 @@ resolve_object(char *path, const char *lc_name)
 	  Xmalloc(sizeof(XI18NObjectsListRec) * lc_len);
       if (!xi18n_objects_list) return;
     }
-/*
-1266793
-Limit the length of path to prevent stack buffer corruption.
-    sprintf(filename, "%s/%s", path, "XI18N_OBJS");
-*/
-    sprintf(filename, "%.*s/%s", BUFSIZ - 12, path, "XI18N_OBJS");
+    snprintf(filename, sizeof(filename), "%s/%s", path, "XI18N_OBJS");
     fp = fopen(filename, "r");
     if (fp == (FILE *)NULL){
 	return;

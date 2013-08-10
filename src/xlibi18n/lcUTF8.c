@@ -1731,10 +1731,10 @@ create_tofontcs_conv(
     lazy_init_all_charsets();
 
     for (i = 0, num = 0;; i++) {
-	sprintf(buf, "fs%d.charset.name", i);
+	snprintf(buf, sizeof(buf), "fs%d.charset.name", i);
 	_XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
 	if (count < 1) {
-	    sprintf(buf, "fs%d.charset", i);
+	    snprintf(buf, sizeof(buf), "fs%d.charset", i);
 	    _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
 	    if (count < 1)
 		break;
@@ -1749,10 +1749,10 @@ create_tofontcs_conv(
 
     /* Loop through all fontsets mentioned in the locale. */
     for (i = 0, num = 0;; i++) {
-        sprintf(buf, "fs%d.charset.name", i);
+        snprintf(buf, sizeof(buf), "fs%d.charset.name", i);
         _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
         if (count < 1) {
-            sprintf(buf, "fs%d.charset", i);
+            snprintf(buf, sizeof(buf), "fs%d.charset", i);
             _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
             if (count < 1)
                 break;

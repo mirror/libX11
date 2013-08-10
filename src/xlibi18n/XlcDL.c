@@ -216,7 +216,8 @@ Limit the length of path to prevent stack buffer corruption.
 	  xi18n_objects_list = (XI18NObjectsList)
 	    Xrealloc(xi18n_objects_list,
 		     sizeof(XI18NObjectsListRec) * lc_len);
-	  if (!xi18n_objects_list) return;
+	  if (!xi18n_objects_list)
+	      goto done;
 	}
 	n = parse_line(p, args, 6);
 
@@ -244,6 +245,7 @@ Limit the length of path to prevent stack buffer corruption.
 	  lc_count++;
 	}
     }
+  done:
     fclose(fp);
 }
 

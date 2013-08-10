@@ -207,12 +207,13 @@ resolve_object(char *path, const char *lc_name)
 	}
 
 	if (lc_count == lc_len) {
-	  lc_len += OBJECT_INC_LEN;
-	  xi18n_objects_list = (XI18NObjectsList)
-	    Xrealloc(xi18n_objects_list,
-		     sizeof(XI18NObjectsListRec) * lc_len);
-	  if (!xi18n_objects_list)
+	  int new_len = lc_len + OBJECT_INC_LEN;
+	  XI18NObjectsListRec *tmp = Xrealloc(xi18n_objects_list,
+	      sizeof(XI18NObjectsListRec) * new_len);
+	  if (tmp == NULL)
 	      goto done;
+	  xi18n_objects_list = tmp;
+	  lc_len = new_len;
 	}
 	n = parse_line(p, args, 6);
 

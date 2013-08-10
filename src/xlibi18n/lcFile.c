@@ -486,8 +486,11 @@ _XlcFileName(
     for (i = 0; i < n; ++i) {
 	char buf[PATH_MAX], *name;
 
+	if (args[i] == NULL)
+	    continue;
+
 	name = NULL;
-	if ((5 + (args[i] ? strlen (args[i]) : 0) + strlen(cat)) < PATH_MAX) {
+	if ((5 + strlen(args[i]) + strlen(cat)) < PATH_MAX) {
 	    sprintf(buf, "%s/%s.dir", args[i], cat);
 	    name = resolve_name(siname, buf, RtoL);
 	}
@@ -498,7 +501,7 @@ _XlcFileName(
 	    /* supposed to be absolute path name */
 	    file_name = name;
 	} else {
-	    file_name = Xmalloc(2 + (args[i] ? strlen (args[i]) : 0) +
+	    file_name = Xmalloc(2 + strlen(args[i]) +
 				(name ? strlen (name) : 0));
 	    if (file_name != NULL)
 		sprintf(file_name, "%s/%s", args[i], name);
@@ -535,8 +538,10 @@ _XlcResolveLocaleName(
     xlocaledir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, NUM_LOCALEDIR);
     for (i = 0; i < n; ++i) {
-	if ((2 + (args[i] ? strlen (args[i]) : 0) +
-	    strlen (locale_alias)) < PATH_MAX) {
+	if (args[i] == NULL)
+	    continue;
+
+	if ((2 + strlen (args[i]) + strlen (locale_alias)) < PATH_MAX) {
 	    sprintf (buf, "%s/%s", args[i], locale_alias);
 	    name = resolve_name (lc_name, buf, LtoR);
 	    if (!name) {
@@ -633,9 +638,10 @@ _XlcLocaleDirName(char *dir_name, size_t dir_len, char *lc_name)
     xlocaledir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, 256);
     for (i = 0; i < n; ++i) {
+	if (args[i] == NULL)
+	    continue;
 
-	if ((2 + (args[i] ? strlen(args[i]) : 0) +
- 	     strlen(locale_alias)) < PATH_MAX) {
+	if ((2 + strlen(args[i]) + strlen(locale_alias)) < PATH_MAX) {
  	    sprintf (buf, "%s/%s", args[i], locale_alias);
  	    name = resolve_name(lc_name, buf, LtoR);
 	    if (!name) {
@@ -653,12 +659,6 @@ _XlcLocaleDirName(char *dir_name, size_t dir_len, char *lc_name)
  	/* look at locale.dir */
 
  	target_dir = args[i];
- 	if (!target_dir) {
- 	    /* something wrong */
- 	    if (name != lc_name)
- 		Xfree(name);
- 	    continue;
- 	}
  	if ((1 + strlen (target_dir) + strlen("locale.dir")) < PATH_MAX) {
  	    sprintf(buf, "%s/locale.dir", target_dir);
  	    target_name = resolve_name(name, buf, RtoL);
@@ -731,9 +731,10 @@ _XlcLocaleLibDirName(char *dir_name, size_t dir_len, char *lc_name)
     xlocalelibdir (dir, PATH_MAX);
     n = _XlcParsePath(dir, args, 256);
     for (i = 0; i < n; ++i) {
+	if (args[i] == NULL)
+	    continue;
 
-	if ((2 + (args[i] ? strlen(args[i]) : 0) +
- 	     strlen(locale_alias)) < PATH_MAX) {
+	if ((2 + strlen(args[i]) + strlen(locale_alias)) < PATH_MAX) {
  	    sprintf (buf, "%s/%s", args[i], locale_alias);
  	    name = resolve_name(lc_name, buf, LtoR);
 	    if (!name) {
@@ -751,12 +752,6 @@ _XlcLocaleLibDirName(char *dir_name, size_t dir_len, char *lc_name)
  	/* look at locale.dir */
 
  	target_dir = args[i];
- 	if (!target_dir) {
- 	    /* something wrong */
- 	    if (name != lc_name)
- 		Xfree(name);
- 	    continue;
- 	}
  	if ((1 + strlen (target_dir) + strlen("locale.dir")) < PATH_MAX) {
  	    sprintf(buf, "%s/locale.dir", target_dir);
  	    target_name = resolve_name(name, buf, RtoL);

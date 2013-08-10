@@ -75,8 +75,10 @@ _XimSetProtoResource(im)
 {
     char	res_name_buf[256];
     char*	res_name;
+    size_t	res_name_len;
     char	res_class_buf[256];
     char*	res_class;
+    size_t	res_class_len;
     char*	str_type;
     XrmValue	value;
     XIMStyle	preedit_style = 0;
@@ -90,17 +92,31 @@ _XimSetProtoResource(im)
     if (!im->core.rdb)
 	return;
 
-    if (strlen (im->core.res_name) < 200) res_name = res_name_buf;
-    else res_name = Xmalloc (strlen (im->core.res_name) + 50);
-    if (strlen (im->core.res_class) < 200) res_class = res_class_buf;
-    else res_class = Xmalloc (strlen (im->core.res_class) + 50);
+    res_name_len = strlen (im->core.res_name);
+    if (res_name_len < 200) {
+	res_name = res_name_buf;
+	res_name_len = sizeof(res_name_buf);
+    }
+    else {
+	res_name_len += 50;
+	res_name = Xmalloc (res_name_len);
+    }
+    res_class_len = strlen (im->core.res_class);
+    if (res_class_len < 200) {
+	res_class = res_class_buf;
+	res_class_len = sizeof(res_class_buf);
+    }
+    else {
+	res_class_len += 50;
+	res_class = Xmalloc (res_class_len);
+    }
     /* pretend malloc always works */
 
-    (void) sprintf (res_name, "%s%s%s",
+    (void) snprintf (res_name, res_name_len, "%s%s%s",
 	im->core.res_name != NULL ? im->core.res_name : "*",
 	im->core.res_name != NULL ? dotximdot : ximdot,
 	"useAuth");
-    (void) sprintf (res_class, "%s%s%s",
+    (void) snprintf (res_class, res_class_len, "%s%s%s",
 	im->core.res_class != NULL ? im->core.res_class : "*",
 	im->core.res_class != NULL ? dotXimdot : Ximdot,
 	"UseAuth");
@@ -111,11 +127,11 @@ _XimSetProtoResource(im)
 	}
     }
 
-    (void) sprintf (res_name, "%s%s%s",
+    (void) snprintf (res_name, res_name_len, "%s%s%s",
 	im->core.res_name != NULL ? im->core.res_name : "*",
 	im->core.res_name != NULL ? dotximdot : ximdot,
 	"delaybinding");
-    (void) sprintf (res_class, "%s%s%s",
+    (void) snprintf (res_class, res_class_len, "%s%s%s",
 	im->core.res_class != NULL ? im->core.res_class : "*",
 	im->core.res_class != NULL ? dotXimdot : Ximdot,
 	"Delaybinding");
@@ -126,11 +142,11 @@ _XimSetProtoResource(im)
 	}
     }
 
-    (void) sprintf (res_name, "%s%s%s",
+    (void) snprintf (res_name, res_name_len, "%s%s%s",
 	im->core.res_name != NULL ? im->core.res_name : "*",
 	im->core.res_name != NULL ? dotximdot : ximdot,
 	"reconnect");
-    (void) sprintf (res_class, "%s%s%s",
+    (void) snprintf (res_class, res_class_len, "%s%s%s",
 	im->core.res_class != NULL ? im->core.res_class : "*",
 	im->core.res_class != NULL ? dotXimdot : Ximdot,
 	"Reconnect");
@@ -147,11 +163,11 @@ _XimSetProtoResource(im)
 	return;
     }
 
-    (void) sprintf (res_name, "%s%s%s",
+    (void) snprintf (res_name, res_name_len, "%s%s%s",
 	im->core.res_name != NULL ? im->core.res_name : "*",
 	im->core.res_name != NULL ? dotximdot : ximdot,
 	"preeditDefaultStyle");
-    (void) sprintf (res_class, "%s%s%s",
+    (void) snprintf (res_class, res_class_len, "%s%s%s",
 	im->core.res_class != NULL ? im->core.res_class : "*",
 	im->core.res_class != NULL ? dotXimdot : Ximdot,
 	"PreeditDefaultStyle");
@@ -170,11 +186,11 @@ _XimSetProtoResource(im)
     if(!preedit_style)
 	preedit_style = XIMPreeditNothing;
 
-    (void) sprintf (res_name, "%s%s%s",
+    (void) snprintf (res_name, res_name_len, "%s%s%s",
 	im->core.res_name != NULL ? im->core.res_name : "*",
 	im->core.res_name != NULL ? dotximdot : ximdot,
 	"statusDefaultStyle");
-    (void) sprintf (res_class, "%s%s%s",
+    (void) snprintf (res_class, res_class_len, "%s%s%s",
 	im->core.res_class != NULL ? im->core.res_class : "*",
 	im->core.res_class != NULL ? dotXimdot : Ximdot,
 	"StatusDefaultStyle");

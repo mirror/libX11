@@ -585,7 +585,8 @@ get_rotate_fontname(
 	}
     }
     pixel_size = atoi(fields[PIXEL_SIZE_FIELD - 1]);
-    sprintf(str_pixel, "[ 0 ~%d %d 0 ]", pixel_size, pixel_size);
+    snprintf(str_pixel, sizeof(str_pixel),
+	     "[ 0 ~%d %d 0 ]", pixel_size, pixel_size);
     fields[6] = str_pixel;
 
     /* Point Size field : fields[7] */
@@ -1960,7 +1961,7 @@ static void read_vw(
     char **value, buf[BUFSIZ];
     int count;
 
-    sprintf(buf, "fs%d.font.vertical_map", num);
+    snprintf(buf, sizeof(buf), "fs%d.font.vertical_map", num);
     _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
     if (count > 0){
         _XlcDbg_printValue(buf,value,count);
@@ -1968,7 +1969,7 @@ static void read_vw(
         font_set->vmap = read_EncodingInfo(count,value);
     }
 
-    sprintf(buf, "fs%d.font.vertical_rotate", num);
+    snprintf(buf, sizeof(buf), "fs%d.font.vertical_rotate", num);
     _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
     if (count > 0){
         _XlcDbg_printValue(buf,value,count);
@@ -2004,11 +2005,11 @@ init_om(
 
     for (num = 0; ; num++) {
 
-        sprintf(buf, "fs%d.charset.name", num);
+        snprintf(buf, sizeof(buf), "fs%d.charset.name", num);
         _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
 
         if( count < 1){
-            sprintf(buf, "fs%d.charset", num);
+            snprintf(buf, sizeof(buf), "fs%d.charset", num);
             _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
             if (count < 1)
                 break;
@@ -2027,7 +2028,7 @@ init_om(
 	while (count-- > 0){
 	    *charset_list++ = _XlcGetCharSet(*value++);
         }
-        sprintf(buf, "fs%d.charset.udc_area", num);
+        snprintf(buf, sizeof(buf), "fs%d.charset.udc_area", num);
         _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
         if( count > 0){
             UDCArea udc;
@@ -2051,10 +2052,10 @@ init_om(
 	    }
         }
 
-        sprintf(buf, "fs%d.font.primary", num);
+        snprintf(buf, sizeof(buf), "fs%d.font.primary", num);
         _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
         if (count < 1){
-            sprintf(buf, "fs%d.font", num);
+            snprintf(buf, sizeof(buf), "fs%d.font", num);
             _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
             if (count < 1)
                 return False;
@@ -2067,7 +2068,7 @@ init_om(
 	data->font_data = font_data;
 	data->font_data_count = count;
 
-        sprintf(buf, "fs%d.font.substitute", num);
+        snprintf(buf, sizeof(buf), "fs%d.font.substitute", num);
         _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
         if (count > 0){
             font_data = read_EncodingInfo(count,value);
@@ -2076,7 +2077,7 @@ init_om(
             data->substitute      = font_data;
             data->substitute_num = count;
         } else {
-            sprintf(buf, "fs%d.font", num);
+            snprintf(buf, sizeof(buf), "fs%d.font", num);
             _XlcGetResource(lcd, "XLC_FONTSET", buf, &value, &count);
             if (count < 1) {
                 data->substitute      = NULL;

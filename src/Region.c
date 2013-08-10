@@ -980,11 +980,12 @@ miRegionOp(
 	if (REGION_NOT_EMPTY(newReg))
 	{
 	    BoxPtr prev_rects = newReg->rects;
-	    newReg->size = newReg->numRects;
 	    newReg->rects = Xrealloc (newReg->rects,
-				      sizeof(BoxRec) * newReg->size);
+				      sizeof(BoxRec) * newReg->numRects);
 	    if (! newReg->rects)
 		newReg->rects = prev_rects;
+	    else
+		newReg->size = newReg->numRects;
 	}
 	else
 	{

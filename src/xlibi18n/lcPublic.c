@@ -106,7 +106,8 @@ load_public(
     XLCd lcd)
 {
     XLCdPublicPart *pub = XLC_PUBLIC_PART(lcd);
-    char **values, *str;
+    char **values;
+    const char *str;
     int num;
 
     if(_XlcCreateLocaleDataBase(lcd) == NULL)

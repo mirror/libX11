@@ -381,9 +381,9 @@ _XlcDynamicLoad(const char *lc_name)
 
     if (lc_name == NULL) return (XLCd)NULL;
 
-    if (_XlcLocaleDirName(lc_dir, BUFSIZE, (char *)lc_name) == (char *)NULL)
+    if (_XlcLocaleDirName(lc_dir, BUFSIZE, lc_name) == NULL)
         return (XLCd)NULL;
-    if (_XlcLocaleLibDirName(lc_lib_dir, BUFSIZE, (char *)lc_name) == (char*)NULL)
+    if (_XlcLocaleLibDirName(lc_lib_dir, BUFSIZE, lc_name) == NULL)
 	return (XLCd)NULL;
 
     resolve_object(lc_dir, lc_name);
@@ -510,7 +510,7 @@ _XDynamicUnRegisterIMInstantiateCallback(
     XPointer	 client_data)
 {
   char lc_dir[BUFSIZE];
-  char *lc_name;
+  const char *lc_name;
   dynamicUnregisterProcp im_unregisterIM = (dynamicUnregisterProcp)NULL;
   Bool ret_flag = False;
   int count;

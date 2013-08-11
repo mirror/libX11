@@ -671,7 +671,7 @@ create_conv(
 {
     XlcConv conv;
 
-    conv = (XlcConv) Xmalloc(sizeof(XlcConvRec));
+    conv = Xmalloc(sizeof(XlcConvRec));
     if (conv == NULL)
 	return (XlcConv) NULL;
 

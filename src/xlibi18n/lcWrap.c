@@ -218,7 +218,7 @@ _XlcAddLoader(
 
     _XlcRemoveLoader(proc);		/* remove old loader, if exist */
 
-    loader = (XlcLoaderList) Xmalloc(sizeof(XlcLoaderListRec));
+    loader = Xmalloc(sizeof(XlcLoaderListRec));
     if (loader == NULL)
 	return False;
 
@@ -293,7 +293,7 @@ _XOpenLC(
     for (loader = loader_list; loader; loader = loader->next) {
 	lcd = (*loader->proc)(name);
 	if (lcd) {
-	    cur = (XLCdList) Xmalloc (sizeof(XLCdListRec));
+	    cur = Xmalloc (sizeof(XLCdListRec));
 	    if (cur) {
 		cur->lcd = lcd;
 		cur->ref_count = 1;
@@ -565,7 +565,7 @@ _XlcVaToArgList(
 {
     XlcArgList args;
 
-    *args_ret = args = (XlcArgList) Xmalloc(sizeof(XlcArg) * count);
+    *args_ret = args = Xmalloc(sizeof(XlcArg) * count);
     if (args == (XlcArgList) NULL)
 	return;
 

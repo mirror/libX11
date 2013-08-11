@@ -128,7 +128,7 @@ _XIMVaToNestedList(va_list var, int max_count, XIMArg **args_return)
 	return;
     }
 
-    args = (XIMArg *)Xmalloc((unsigned)(max_count + 1) * sizeof(XIMArg));
+    args = Xmalloc((unsigned)(max_count + 1) * sizeof(XIMArg));
     *args_return = args;
     if (!args) return;
 

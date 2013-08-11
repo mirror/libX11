@@ -577,11 +577,11 @@ create_conv(
     XlcConv conv;
     State state;
 
-    conv = (XlcConv) Xcalloc(1, sizeof(XlcConvRec));
+    conv = Xcalloc(1, sizeof(XlcConvRec));
     if (conv == NULL)
 	return (XlcConv) NULL;
 
-    state = (State) Xmalloc(sizeof(StateRec));
+    state = Xmalloc(sizeof(StateRec));
     if (state == NULL) {
 	close_converter(conv);
 	return (XlcConv) NULL;

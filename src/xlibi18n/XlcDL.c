@@ -185,8 +185,7 @@ resolve_object(char *path, const char *lc_name)
 
     if (lc_len == 0) { /* True only for the 1st time */
       lc_len = OBJECT_INIT_LEN;
-      xi18n_objects_list = (XI18NObjectsList)
-	  Xmalloc(sizeof(XI18NObjectsListRec) * lc_len);
+      xi18n_objects_list = Xmalloc(sizeof(XI18NObjectsListRec) * lc_len);
       if (!xi18n_objects_list) return;
     }
     snprintf(filename, sizeof(filename), "%s/%s", path, "XI18N_OBJS");

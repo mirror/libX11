@@ -237,7 +237,7 @@ _XcmsSetGetColors(
     /*
      * Allocate space for XColors
      */
-    if ((pXColors_in_out = (XColor *)Xcalloc(nColors, sizeof(XColor))) ==
+    if ((pXColors_in_out = Xcalloc(nColors, sizeof(XColor))) ==
 	    NULL) {
 	return(XcmsFailure);
     }

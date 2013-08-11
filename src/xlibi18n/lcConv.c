@@ -101,7 +101,7 @@ _XlcSetConverter(
 	}
     }
 
-    list = (XlcConverterList) Xmalloc(sizeof(XlcConverterListRec));
+    list = Xmalloc(sizeof(XlcConverterListRec));
     if (list == NULL)
 	return False;
 
@@ -250,13 +250,13 @@ open_indirect_converter(
 	to_type == QChar)
 	return (XlcConv) NULL;
 
-    lc_conv = (XlcConv) Xmalloc(sizeof(XlcConvRec));
+    lc_conv = Xmalloc(sizeof(XlcConvRec));
     if (lc_conv == NULL)
 	return (XlcConv) NULL;
 
     lc_conv->methods = &conv_methods;
 
-    lc_conv->state = (XPointer) Xcalloc(1, sizeof(ConvRec));
+    lc_conv->state = Xcalloc(1, sizeof(ConvRec));
     if (lc_conv->state == NULL)
 	goto err;
 

@@ -68,7 +68,7 @@ create(
     if (lcd->core == NULL)
 	goto err;
 
-    new = (XLCdPublicMethods) Xmalloc(sizeof(XLCdPublicMethodsRec));
+    new = Xmalloc(sizeof(XLCdPublicMethodsRec));
     if (new == NULL)
 	goto err;
     memcpy(new,methods,sizeof(XLCdPublicMethodsRec));
@@ -156,10 +156,10 @@ add_charset(
     int num;
 
     if ((num = codeset->num_charsets))
-        new_list = (XlcCharSet *) Xrealloc(codeset->charset_list,
+        new_list = Xrealloc(codeset->charset_list,
                                         (num + 1) * sizeof(XlcCharSet));
     else
-        new_list = (XlcCharSet *) Xmalloc(sizeof(XlcCharSet));
+        new_list = Xmalloc(sizeof(XlcCharSet));
 
     if (new_list == NULL)
 	return False;
@@ -183,10 +183,10 @@ add_codeset(
         return NULL;
 
     if ((num = gen->codeset_num))
-        new_list = (CodeSet *) Xrealloc(gen->codeset_list,
+        new_list = Xrealloc(gen->codeset_list,
                                         (num + 1) * sizeof(CodeSet));
     else
-        new_list = (CodeSet *) Xmalloc(sizeof(CodeSet));
+        new_list = Xmalloc(sizeof(CodeSet));
 
     if (new_list == NULL)
         goto err;
@@ -230,10 +230,10 @@ add_parse_list(
     }
 
     if ((num = gen->mb_parse_list_num))
-        new_list = (ParseInfo *) Xrealloc(gen->mb_parse_list,
+        new_list = Xrealloc(gen->mb_parse_list,
                                           (num + 2) * sizeof(ParseInfo));
     else {
-        new_list = (ParseInfo *) Xmalloc(2 * sizeof(ParseInfo));
+        new_list = Xmalloc(2 * sizeof(ParseInfo));
     }
 
     if (new_list == NULL)
@@ -351,7 +351,7 @@ _XlcParse_scopemaps(
     const char *str_sc;
 
     num = count_scopemap(str);
-    scope = (FontScope) Xmalloc(num * sizeof(FontScopeRec));
+    scope = Xmalloc(num * sizeof(FontScopeRec));
     if (scope == NULL)
 	return NULL;
 
@@ -504,7 +504,7 @@ read_charset_define(
                 Xfree(charsetd->ct_sequence);
             }
 */
-            tmp = (char *)Xmalloc(strlen(value[0])+1);
+            tmp = Xmalloc(strlen(value[0])+1);
             if (tmp == NULL)
                 return;
             charsetd->ct_sequence = tmp;
@@ -536,10 +536,10 @@ add_conversion(
     int num;
 
     if ((num = gen->segment_conv_num) > 0) {
-        new_list = (SegConv) Xrealloc(gen->segment_conv,
+        new_list = Xrealloc(gen->segment_conv,
                                         (num + 1) * sizeof(SegConvRec));
     } else {
-        new_list = (SegConv) Xmalloc(sizeof(SegConvRec));
+        new_list = Xmalloc(sizeof(SegConvRec));
     }
 
     if (new_list == NULL)
@@ -638,7 +638,7 @@ create_ctextseg(
     size_t cset_len;
     int i,new;
     FontScope scope;
-    ret = (ExtdSegment)Xmalloc(sizeof(ExtdSegmentRec));
+    ret = Xmalloc(sizeof(ExtdSegmentRec));
     if (ret == NULL)
         return NULL;
     ret->name = strdup(value[0]);
@@ -668,7 +668,7 @@ create_ctextseg(
         ret->side =  XlcGLGR;
         strcpy(cset_name,ret->name);
     }
-    ret->area = (FontScope)Xmalloc((num - 1)*sizeof(FontScopeRec));
+    ret->area = Xmalloc((num - 1)*sizeof(FontScopeRec));
     if (ret->area == NULL) {
 	Xfree (cset_name);
 	Xfree (ret->name);
@@ -871,8 +871,7 @@ load_generic(
                     codeset->byteM = NULL;
                     break ;
                 }
-                codeset->byteM =
-                    (ByteInfoListRec *)Xmalloc(
+                codeset->byteM = Xmalloc(
                          (codeset->length)*sizeof(ByteInfoListRec));
                 if (codeset->byteM == NULL) {
                     goto err;
@@ -884,7 +883,7 @@ load_generic(
                 (codeset->byteM)[M-1].M = M;
                 (codeset->byteM)[M-1].byteinfo_num = num;
                 (codeset->byteM)[M-1].byteinfo =
-                    (ByteInfo)Xmalloc( num * sizeof(ByteInfoRec));
+		    Xmalloc(num * sizeof(ByteInfoRec));
                 for (ii = 0 ; ii < num ; ii++) {
                     tmpb = (codeset->byteM)[M-1].byteinfo ;
                     /* default 0x00 - 0xff */

@@ -2619,11 +2619,11 @@ create_conv(
     XlcConv conv;
     State state;
 
-    conv = (XlcConv) Xcalloc(1, sizeof(XlcConvRec));
+    conv = Xcalloc(1, sizeof(XlcConvRec));
     if (conv == NULL)
 	return (XlcConv) NULL;
 
-    conv->methods = (XlcConvMethods) Xmalloc(sizeof(XlcConvMethodsRec));
+    conv->methods = Xmalloc(sizeof(XlcConvMethodsRec));
     if (conv->methods == NULL)
 	goto err;
     *conv->methods = *methods;

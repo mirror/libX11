@@ -88,7 +88,7 @@ create(
     if (lcd->core == NULL)
 	goto err;
 
-    new = (XLCdPublicMethods) Xmalloc(sizeof(XLCdPublicMethodsRec));
+    new = Xmalloc(sizeof(XLCdPublicMethodsRec));
     if (new == NULL)
 	goto err;
     memcpy(new,methods,sizeof(XLCdPublicMethodsRec));

@@ -250,7 +250,7 @@ _XcmsAddCmapRec(
 {
     XcmsCmapRec *pNew;
 
-    if ((pNew = (XcmsCmapRec *) Xcalloc(1, (unsigned) sizeof(XcmsCmapRec)))
+    if ((pNew = Xcalloc(1, (unsigned) sizeof(XcmsCmapRec)))
 	    == NULL) {
 	return((XcmsCmapRec *)NULL);
     }
@@ -301,7 +301,7 @@ _XcmsCopyCmapRecAndFree(
 	pRec_copy =_XcmsAddCmapRec(dpy, copy_cmap, pRec_src->windowID,
 		pRec_src->visual);
 	if (pRec_copy != NULL && pRec_src->ccc) {
-	    pRec_copy->ccc = (XcmsCCC)Xcalloc(1, (unsigned) sizeof(XcmsCCCRec));
+	    pRec_copy->ccc = Xcalloc(1, (unsigned) sizeof(XcmsCCCRec));
 	    memcpy((char *)pRec_copy->ccc, (char *)pRec_src->ccc,
 		   sizeof(XcmsCCCRec));
 	}

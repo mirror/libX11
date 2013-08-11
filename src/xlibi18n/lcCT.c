@@ -478,7 +478,7 @@ _XlcAddCT(
 
     /* Allocate a CTinfo record. */
     length = strlen(ct_sequence);
-    ct_info = (CTInfo) Xmalloc(sizeof(CTInfoRec) + length+1);
+    ct_info = Xmalloc(sizeof(CTInfoRec) + length+1);
     if (ct_info == NULL)
 	return charset;
 
@@ -514,7 +514,7 @@ _XlcAddCT(
                 Xfree(ct_info);
                 return charset;
             }
-            p = (char *) Xmalloc(n+1);
+            p = Xmalloc(n+1);
             if (p == NULL) {
                 Xfree(ct_info);
                 return charset;
@@ -1169,7 +1169,7 @@ create_conv(
 {
     XlcConv conv;
 
-    conv = (XlcConv) Xmalloc(sizeof(XlcConvRec) + sizeof(StateRec));
+    conv = Xmalloc(sizeof(XlcConvRec) + sizeof(StateRec));
     if (conv == NULL)
 	return (XlcConv) NULL;
 

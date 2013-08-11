@@ -86,7 +86,7 @@ create_conv(
 {
     XlcConv conv;
 
-    conv = (XlcConv) Xmalloc(sizeof(XlcConvRec));
+    conv = Xmalloc(sizeof(XlcConvRec));
     if (conv == (XlcConv) NULL)
 	return (XlcConv) NULL;
 
@@ -498,7 +498,7 @@ create_tocs_conv(
     if (charset_num > all_charsets_count-1)
 	charset_num = all_charsets_count-1;
 
-    conv = (XlcConv) Xmalloc(sizeof(XlcConvRec)
+    conv = Xmalloc(sizeof(XlcConvRec)
 			     + (charset_num + 1) * sizeof(Utf8Conv));
     if (conv == (XlcConv) NULL)
 	return (XlcConv) NULL;
@@ -961,7 +961,7 @@ create_ucstocs_conv(
 
 	lazy_init_all_charsets();
 
-	conv = (XlcConv) Xmalloc(sizeof(XlcConvRec) + 2 * sizeof(Utf8Conv));
+	conv = Xmalloc(sizeof(XlcConvRec) + 2 * sizeof(Utf8Conv));
 	if (conv == (XlcConv) NULL)
 	    return (XlcConv) NULL;
 	preferred = (Utf8Conv *) ((char *) conv + sizeof(XlcConvRec));
@@ -1742,7 +1742,7 @@ create_tofontcs_conv(
 	num += count;
     }
 
-    conv = (XlcConv) Xmalloc(sizeof(XlcConvRec) + (num + 1) * sizeof(Utf8Conv));
+    conv = Xmalloc(sizeof(XlcConvRec) + (num + 1) * sizeof(Utf8Conv));
     if (conv == (XlcConv) NULL)
 	return (XlcConv) NULL;
     preferred = (Utf8Conv *) ((char *) conv + sizeof(XlcConvRec));

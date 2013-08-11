@@ -165,7 +165,7 @@ init_parse_info (void)
     int size;
     if (!allocated) {
 	bzero(&parse_info, sizeof(DBParseInfo));
-	parse_info.buf = (char *)Xmalloc(BUFSIZE);
+	parse_info.buf = Xmalloc(BUFSIZE);
 	parse_info.bufMaxSize = BUFSIZE;
 	allocated = 1;
 	return;
@@ -248,9 +248,9 @@ realloc_line(
     char *str = line->str;
 
     if (str != NULL) {
-	str = (char *)Xrealloc(str, size);
+	str = Xrealloc(str, size);
     } else {
-	str = (char *)Xmalloc(size);
+	str = Xmalloc(size);
     }
     if (str == NULL) {
 	/* malloc error */
@@ -486,7 +486,7 @@ append_value_list (void)
     }
 
     if (value_list == (char **)NULL) {
-	value_list = (char **)Xmalloc(sizeof(char *) * 2);
+	value_list = Xmalloc(sizeof(char *) * 2);
 	*value_list = NULL;
     } else {
 	char **prev_list = value_list;
@@ -502,11 +502,11 @@ append_value_list (void)
 
     value = *value_list;
     if (value == NULL) {
-	value = (char *)Xmalloc(value_len + len + 1);
+	value = Xmalloc(value_len + len + 1);
     } else {
 	char *prev_value = value;
 
-	value = (char *)Xrealloc(value, value_len + len + 1);
+	value = Xrealloc(value, value_len + len + 1);
 	if (value == NULL) {
 	    Xfree(prev_value);
 	}
@@ -1314,7 +1314,7 @@ _XlcCreateLocaleDataBase(
 	lc_db[i].db = p;
     }
 
-    new = (XlcDatabaseList)Xmalloc(sizeof(XlcDatabaseListRec));
+    new = Xmalloc(sizeof(XlcDatabaseListRec));
     if (new == (XlcDatabaseList)NULL) {
 	goto err;
     }

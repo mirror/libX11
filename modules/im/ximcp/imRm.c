@@ -207,7 +207,7 @@ _XimSetProtoResource(im)
     if(!status_style)
 	status_style = XIMStatusNothing;
 
-    if(!(imstyles = (XIMStyles *)Xmalloc(sizeof(XIMStyles) + sizeof(XIMStyle)))){
+    if(!(imstyles = Xmalloc(sizeof(XIMStyles) + sizeof(XIMStyle)))){
 	if (res_name != res_name_buf) Xfree (res_name);
 	if (res_class != res_class_buf) Xfree (res_class);
 	return;
@@ -902,7 +902,7 @@ _XimEncodeHotKey(
     }
 
     len = sizeof(XIMHotKeyTriggers) + sizeof(XIMHotKeyTrigger) * num;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xmalloc(len))) {
 	return False;
     }
 
@@ -1159,7 +1159,7 @@ _XimDecodeCallback(
     XIMCallback		*callback;
 
     in = (XIMCallback *)((char *)top + info->offset);
-    if(!(callback = (XIMCallback *)Xmalloc(sizeof(XIMCallback)))) {
+    if(!(callback = Xmalloc(sizeof(XIMCallback)))) {
 	return False;
     }
     callback->client_data = in->client_data;
@@ -1272,7 +1272,7 @@ _XimDecodeHotKey(
     in = *((XIMHotKeyTriggers **)((char *)top + info->offset));
     num = in->num_hot_key;
     len = sizeof(XIMHotKeyTriggers) + sizeof(XIMHotKeyTrigger) * num;
-    if(!(tmp = (XPointer)Xmalloc(len))) {
+    if(!(tmp = Xmalloc(len))) {
 	return False;
     }
 
@@ -1312,7 +1312,7 @@ _XimDecodeRectangle(
     XRectangle		*rect;
 
     in = (XRectangle *)((char *)top + info->offset);
-    if(!(rect = (XRectangle *)Xmalloc(sizeof(XRectangle)))) {
+    if(!(rect = Xmalloc(sizeof(XRectangle)))) {
 	return False;
     }
     *rect = *in;
@@ -1330,7 +1330,7 @@ _XimDecodeSpot(
     XPoint		*spot;
 
     in = (XPoint *)((char *)top + info->offset);
-    if(!(spot = (XPoint *)Xmalloc(sizeof(XPoint)))) {
+    if(!(spot = Xmalloc(sizeof(XPoint)))) {
 	return False;
     }
     *spot = *in;

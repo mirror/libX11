@@ -197,7 +197,7 @@ _XrmDefaultInitParseInfo(
 {
     if (XLC_PUBLIC(lcd, mb_cur_max) == 1) {
 	/* Unibyte case. */
-	UbState state = (UbState) Xmalloc(sizeof(UbStateRec));
+	UbState state = Xmalloc(sizeof(UbStateRec));
 	if (state == NULL)
 	    return (XrmMethods) NULL;
 
@@ -207,7 +207,7 @@ _XrmDefaultInitParseInfo(
 	return &ub_methods;
     } else {
 	/* Multibyte case. */
-	MbState state = (MbState) Xmalloc(sizeof(MbStateRec));
+	MbState state = Xmalloc(sizeof(MbStateRec));
 	if (state == NULL)
 	    return (XrmMethods) NULL;
 

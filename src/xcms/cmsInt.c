@@ -183,7 +183,7 @@ _XcmsInitDefaultCCCs(
      * Create an array of XcmsCCC structures, one for each screen.
      * They serve as the screen's default CCC.
      */
-    if (!(ccc = Xcalloc((unsigned)nScrn, (unsigned) sizeof(XcmsCCCRec)))) {
+    if (!(ccc = Xcalloc((unsigned)nScrn, sizeof(XcmsCCCRec)))) {
 	return(0);
     }
     dpy->cms.defaultCCCs = (XPointer)ccc;
@@ -322,7 +322,7 @@ _XcmsInitScrnInfo(
 	 * here are referenced by the default CCC.
 	 */
 	if (!(defaultccc->pPerScrnInfo =
-		Xcalloc(1, (unsigned) sizeof(XcmsPerScrnInfo)))) {
+		Xcalloc(1, sizeof(XcmsPerScrnInfo)))) {
 	    return(0);
 	}
 	defaultccc->pPerScrnInfo->state = XcmsInitNone;

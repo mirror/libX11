@@ -2416,8 +2416,8 @@ _XimSetICMode(XIMResourceList res_list, unsigned int list_num, XIMStyle style)
 						list_num, ic_mode_quark[i]))) {
 	    continue;
 	}
-	res->mode = ( (*(unsigned short *)((char *)&ic_mode[i] + pre_offset))
-		    | (*(unsigned short *)((char *)&ic_mode[i] + sts_offset)));
+	res->mode = ( (*(const unsigned short *)((const char *)&ic_mode[i] + pre_offset))
+		    | (*(const unsigned short *)((const char *)&ic_mode[i] + sts_offset)));
     }
     return;
 }

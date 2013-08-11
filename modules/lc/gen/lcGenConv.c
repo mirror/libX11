@@ -342,7 +342,7 @@ byteM_parse_codeset(
 	    continue;
 
         for (j = 0; j < codeset->length; j++) {
-	    ch = *((unsigned char *)(inbufptr + j));
+	    ch = *((const unsigned char *)(inbufptr + j));
 	    byteM_rec = byteM[j];
 	    byteinfo = byteM_rec.byteinfo;
 

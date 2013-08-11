@@ -102,7 +102,7 @@ XcmsStoreColors(
      * Free copies as needed.
      */
     if (nColors > 1) {
-	Xfree((char *)pColors_tmp);
+	Xfree(pColors_tmp);
     }
 
     /*

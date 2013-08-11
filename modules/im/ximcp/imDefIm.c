@@ -1105,10 +1105,10 @@ _XimProtoCloseIM(
 	next = ic->core.next;
 #ifdef XIM_CONNECTABLE
 	if (!(!IS_SERVER_CONNECTED(im) && IS_RECONNECTABLE(im))) {
-	    Xfree ((char *) ic);
+	    Xfree (ic);
 	}
 #else
-	Xfree ((char *) ic);
+	Xfree (ic);
 #endif /* XIM_CONNECTABLE */
 	ic = next;
     }

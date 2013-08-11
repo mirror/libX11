@@ -1420,7 +1420,7 @@ static void
 close_converter(
     XlcConv conv)
 {
-	Xfree((char *) conv);
+	Xfree(conv);
 }
 
 

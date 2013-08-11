@@ -85,7 +85,7 @@ ub_destroy(
     XPointer state)
 {
     _XCloseLC(((UbState) state)->lcd);
-    Xfree((char *) state);
+    Xfree(state);
 }
 
 static const XrmMethodsRec ub_methods = {
@@ -177,7 +177,7 @@ mb_destroy(
 {
     _XlcCloseConverter(((MbState) state)->conv);
     _XCloseLC(((MbState) state)->lcd);
-    Xfree((char *) state);
+    Xfree(state);
 }
 
 static const XrmMethodsRec mb_methods = {
@@ -214,7 +214,7 @@ _XrmDefaultInitParseInfo(
 	state->lcd = lcd;
 	state->conv = _XlcOpenConverter(lcd, XlcNMultiByte, lcd, XlcNWideChar);
 	if (state->conv == NULL) {
-	    Xfree((char *) state);
+	    Xfree(state);
 	    return (XrmMethods) NULL;
 	}
 

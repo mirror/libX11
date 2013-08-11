@@ -199,10 +199,10 @@ close_indirect_converter(
 	if (conv->to_conv)
 	    close_converter(conv->to_conv);
 
-	Xfree((char *) conv);
+	Xfree(conv);
     }
 
-    Xfree((char *) lc_conv);
+    Xfree(lc_conv);
 }
 
 static void

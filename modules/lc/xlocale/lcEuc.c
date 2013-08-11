@@ -1363,7 +1363,7 @@ static void
 close_converter(
     XlcConv conv)
 {
-	Xfree((char *) conv);
+	Xfree(conv);
 }
 
 enum { MBSTOCS, WCSTOCS, MBTOCS, CSTOMBS, CSTOWCS, MBSTOWCS, WCSTOMBS,

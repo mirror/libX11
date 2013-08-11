@@ -520,10 +520,10 @@ close_converter(
     XlcConv conv)
 {
     if (conv->state) {
-	Xfree((char *) conv->state);
+	Xfree(conv->state);
     }
 
-    Xfree((char *) conv);
+    Xfree(conv);
 }
 
 static XlcConv

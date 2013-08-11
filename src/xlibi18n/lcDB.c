@@ -196,7 +196,7 @@ clear_parse_info (void)
 	if (*parse_info.value) {
 	    Xfree(*parse_info.value);
 	}
-	Xfree((char *)parse_info.value);
+	Xfree(parse_info.value);
     }
     ptr = parse_info.buf;
     size = parse_info.bufMaxSize;
@@ -1033,10 +1033,10 @@ DestroyDatabase(
 	    if (*p->value != NULL) {
 		Xfree(*p->value);
 	    }
-	    Xfree((char *)p->value);
+	    Xfree(p->value);
 	}
 	db = p->next;
-	Xfree((char *)p);
+	Xfree(p);
 	p = db;
     }
 }
@@ -1249,7 +1249,7 @@ _XlcDestroyLocaleDataBase(
 	if (p->lc_db == lc_db) {
 	    if ((-- p->ref_count) < 1) {
 		if (p->lc_db != (XlcDatabase)NULL) {
-		    Xfree((char *)p->lc_db);
+		    Xfree(p->lc_db);
 		}
 		DestroyDatabase(p->database);
 		if (prev == (XlcDatabaseList)NULL) {
@@ -1331,7 +1331,7 @@ _XlcCreateLocaleDataBase(
  err:
     DestroyDatabase(database);
     if (lc_db != (XlcDatabase)NULL) {
-	Xfree((char *)lc_db);
+	Xfree(lc_db);
     }
     Xfree (name);
     return (XPointer)NULL;

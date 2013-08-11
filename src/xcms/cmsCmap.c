@@ -191,7 +191,7 @@ CmapRecForColormap(
 	    SyncHandle();
 	} while (async_state.error_count > 0 && ++j < nVisualsMatched);
 
-	Xfree((char *)visualList);
+	Xfree(visualList);
 
 	/*
 	 * if successful
@@ -352,7 +352,7 @@ _XcmsDeleteCmapRec(
 	    XcmsFreeCCC(pRec->ccc);
 	}
 	*pPrevPtr = pRec->pNext;
-	Xfree((char *)pRec);
+	Xfree(pRec);
     }
 }
 
@@ -387,7 +387,7 @@ _XcmsFreeClientCmaps(
 	    XcmsFreeCCC(pRecFree->ccc);
 	}
 	/* Now free the XcmsCmapRec structure */
-	Xfree((char *)pRecFree);
+	Xfree(pRecFree);
     }
     dpy->cms.clientCmaps = (XPointer)NULL;
 }

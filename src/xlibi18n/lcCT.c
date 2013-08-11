@@ -1187,7 +1187,7 @@ close_converter(
     XlcConv conv)
 {
     /* conv->state is allocated together with conv, free both at once.  */
-    Xfree((char *) conv);
+    Xfree(conv);
 }
 
 

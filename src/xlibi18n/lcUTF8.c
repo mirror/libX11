@@ -100,7 +100,7 @@ static void
 close_converter(
     XlcConv conv)
 {
-    Xfree((char *) conv);
+    Xfree(conv);
 }
 
 /* Replacement character for invalid multibyte sequence or wide character. */
@@ -539,7 +539,7 @@ close_tocs_converter(
     XlcConv conv)
 {
     /* conv->state is allocated together with conv, free both at once.  */
-    Xfree((char *) conv);
+    Xfree(conv);
 }
 
 /*

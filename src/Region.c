@@ -142,7 +142,7 @@ XCreateRegion(void)
     if (! (temp = Xmalloc(sizeof( REGION ))))
 	return (Region) NULL;
     if (! (temp->rects = Xmalloc(sizeof( BOX )))) {
-	Xfree((char *) temp);
+	Xfree(temp);
 	return (Region) NULL;
     }
     temp->numRects = 0;
@@ -994,11 +994,11 @@ miRegionOp(
 	     * the region is empty
 	     */
 	    newReg->size = 1;
-	    Xfree((char *) newReg->rects);
+	    Xfree(newReg->rects);
 	    newReg->rects = Xmalloc(sizeof(BoxRec));
 	}
     }
-    Xfree ((char *) oldRects);
+    Xfree (oldRects);
     return;
 }
 

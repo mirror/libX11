@@ -635,7 +635,7 @@ _XlcLocaleDirName(char *dir_name, size_t dir_len, const char *lc_name)
     }
 
     xlocaledir (dir, PATH_MAX);
-    n = _XlcParsePath(dir, args, 256);
+    n = _XlcParsePath(dir, args, NUM_LOCALEDIR);
     for (i = 0; i < n; ++i) {
 	char *name = NULL;
 
@@ -714,7 +714,7 @@ _XlcLocaleLibDirName(char *dir_name, size_t dir_len, const char *lc_name)
     }
 
     xlocalelibdir (dir, PATH_MAX);
-    n = _XlcParsePath(dir, args, 256);
+    n = _XlcParsePath(dir, args, NUM_LOCALEDIR);
     for (i = 0; i < n; ++i) {
 	char *name = NULL;
 

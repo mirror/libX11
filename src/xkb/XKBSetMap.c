@@ -59,14 +59,14 @@ _XkbWriteKeyTypes(Display *dpy, XkbDescPtr xkb, xkbSetMapReq *req)
 {
     char *buf;
     XkbKeyTypePtr type;
-    int i, n, sz;
+    int i, n;
     xkbKeyTypeWireDesc *desc;
 
     if ((req->present & XkbKeyTypesMask) == 0)
         return;
     type = &xkb->map->types[req->firstType];
     for (i = 0; i < req->nTypes; i++, type++) {
-        sz = SIZEOF(xkbKeyTypeWireDesc);
+        int sz = SIZEOF(xkbKeyTypeWireDesc);
         sz += type->map_count * SIZEOF(xkbKTSetMapEntryWireDesc);
         if (type->preserve)
             sz += type->map_count * SIZEOF(xkbModsWireDesc);
@@ -79,9 +79,8 @@ _XkbWriteKeyTypes(Display *dpy, XkbDescPtr xkb, xkbSetMapReq *req)
         desc->preserve = (type->preserve != NULL);
         buf = (char *) &desc[1];
         if (desc->nMapEntries > 0) {
-            xkbKTSetMapEntryWireDesc *wire;
+            xkbKTSetMapEntryWireDesc *wire = (xkbKTSetMapEntryWireDesc *) buf;
 
-            wire = (xkbKTSetMapEntryWireDesc *) buf;
             for (n = 0; n < type->map_count; n++, wire++) {
                 wire->level = type->map[n].level;
                 wire->realMods = type->map[n].mods.real_mods;
@@ -89,9 +88,8 @@ _XkbWriteKeyTypes(Display *dpy, XkbDescPtr xkb, xkbSetMapReq *req)
             }
             buf = (char *) wire;
             if (type->preserve) {
-                xkbModsWireDesc *pwire;
+                xkbModsWireDesc *pwire = (xkbModsWireDesc *) buf;
 
-                pwire = (xkbModsWireDesc *) buf;
                 for (n = 0; n < type->map_count; n++, pwire++) {
                     pwire->realMods = type->preserve[n].real_mods;
                     pwire->virtualMods = type->preserve[n].vmods;

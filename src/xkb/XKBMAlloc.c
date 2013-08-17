@@ -297,9 +297,7 @@ XkbAddKeyType(XkbDescPtr xkb,
     if ((map) && (map->types)) {
         for (i = 0; i < map->num_types; i++) {
             if (map->types[i].name == name) {
-                Status status;
-
-                status =
+                Status status =
                     XkbResizeKeyType(xkb, i, map_count, want_preserve,
                                      num_lvls);
                 return (status == Success ? &map->types[i] : NULL);

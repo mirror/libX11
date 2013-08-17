@@ -68,9 +68,8 @@ XkbNoteDeviceChanges(XkbDeviceChangesPtr old,
         XkbDeviceLedChangesPtr this;
 
         if (old->changed & XkbXI_IndicatorsMask) {
-            XkbDeviceLedChangesPtr found;
+            XkbDeviceLedChangesPtr found = NULL;
 
-            found = NULL;
             for (this = &old->leds; this && (!found); this = this->next) {
                 if ((this->led_class == new->led_class) &&
                     (this->led_id == new->led_id)) {
@@ -607,9 +606,8 @@ _XkbWriteLedInfo(char *wire, unsigned changed, XkbDeviceLedInfoPtr devli)
     lwire->state = devli->state;
     wire = (char *) &lwire[1];
     if (namesNeeded) {
-        CARD32 *awire;
+        CARD32 *awire = (CARD32 *) wire;
 
-        awire = (CARD32 *) wire;
         for (i = 0, bit = 1; i < XkbNumIndicators; i++, bit <<= 1) {
             if (namesNeeded & bit) {
                 *awire = (CARD32) devli->names[i];
@@ -619,14 +617,12 @@ _XkbWriteLedInfo(char *wire, unsigned changed, XkbDeviceLedInfoPtr devli)
         wire = (char *) awire;
     }
     if (mapsNeeded) {
-        xkbIndicatorMapWireDesc *mwire;
+        xkbIndicatorMapWireDesc *mwire = (xkbIndicatorMapWireDesc *) wire;
 
-        mwire = (xkbIndicatorMapWireDesc *) wire;
         for (i = 0, bit = 1; i < XkbNumIndicators; i++, bit <<= 1) {
             if (mapsNeeded & bit) {
-                XkbIndicatorMapPtr map;
+                XkbIndicatorMapPtr map = &devli->maps[i];
 
-                map = &devli->maps[i];
                 mwire->flags = map->flags;
                 mwire->whichGroups = map->which_groups;
                 mwire->groups = map->groups;
@@ -650,13 +646,11 @@ _XkbWriteSetDeviceInfo(char *wire,
                        SetLedStuff *stuff,
                        XkbDeviceInfoPtr devi)
 {
-    char *start;
+    char *start = wire;
 
-    start = wire;
     if (changes->changed & XkbXI_ButtonActionsMask) {
-        int size;
+        int size = changes->num_btns * SIZEOF(xkbActionWireDesc);
 
-        size = changes->num_btns * SIZEOF(xkbActionWireDesc);
         memcpy(wire, (char *) &devi->btn_acts[changes->first_btn], size);
         wire += size;
     }

@@ -261,13 +261,11 @@ _XkbReadGeomProperties(XkbReadBufferPtr buf,
         return Success;
     if ((rtrn = XkbAllocGeomProps(geom, rep->nProperties)) == Success) {
         register int i;
-        register Bool ok;
-        char *name, *value;
+        register Bool ok = True;
 
-        ok = True;
         for (i = 0; (i < rep->nProperties) && ok; i++) {
-            name = NULL;
-            value = NULL;
+            char *name = NULL;
+            char *value = NULL;
             ok = _XkbGetReadBufferCountedString(buf, &name) && ok;
             ok = _XkbGetReadBufferCountedString(buf, &value) && ok;
             ok = ok && (XkbAddGeomProperty(geom, name, value) != NULL);
@@ -317,10 +315,9 @@ _XkbReadGeomColors(XkbReadBufferPtr buf,
         return Success;
     if ((rtrn = XkbAllocGeomColors(geom, rep->nColors)) == Success) {
         register int i;
-        char *spec;
 
         for (i = 0; i < rep->nColors; i++) {
-            spec = NULL;
+            char *spec = NULL;
             if (!_XkbGetReadBufferCountedString(buf, &spec))
                 rtrn = BadLength;
             else if (XkbAddGeomColor(geom, spec, geom->num_colors) == NULL)
@@ -531,10 +528,11 @@ _XkbReadGeomSections(XkbReadBufferPtr buf,
         section->priority = sectionWire->priority;
         if (sectionWire->nRows > 0) {
             register int r;
-            XkbRowPtr row;
-            xkbRowWireDesc *rowWire;
 
             for (r = 0; r < sectionWire->nRows; r++) {
+                XkbRowPtr row;
+                xkbRowWireDesc *rowWire;
+
                 rowWire = (xkbRowWireDesc *)
                     _XkbGetReadBufferPtr(buf, SIZEOF(xkbRowWireDesc));
                 if (!rowWire)
@@ -547,10 +545,11 @@ _XkbReadGeomSections(XkbReadBufferPtr buf,
                 row->vertical = rowWire->vertical;
                 if (rowWire->nKeys > 0) {
                     register int k;
-                    XkbKeyPtr key;
-                    xkbKeyWireDesc *keyWire;
 
                     for (k = 0; k < rowWire->nKeys; k++) {
+                        XkbKeyPtr key;
+                        xkbKeyWireDesc *keyWire;
+
                         keyWire = (xkbKeyWireDesc *)
                             _XkbGetReadBufferPtr(buf, SIZEOF(xkbKeyWireDesc));
                         if (!keyWire)

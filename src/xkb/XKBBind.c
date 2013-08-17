@@ -450,23 +450,24 @@ XRefreshKeyboardMapping(register XMappingEvent * event)
                 fprintf(stderr, "     symbols:  %d..%d\n", first, last);
             }
             if (changes.changed & XkbKeyActionsMask) {
-                int last, first = changes.first_key_act;
+                int first = changes.first_key_act;
+                int last = changes.first_key_act + changes.num_key_acts - 1;
 
-                last = changes.first_key_act + changes.num_key_acts - 1;
                 fprintf(stderr, "     acts:  %d..%d\n", first, last);
             }
             if (changes.changed & XkbKeyBehaviorsMask) {
-                int last, first = changes.first_key_behavior;
-		last = first + changes.num_key_behaviors - 1;
+                int first = changes.first_key_behavior;
+                int last = first + changes.num_key_behaviors - 1;
+
                 fprintf(stderr, "   behaviors:  %d..%d\n", first, last);
             }
             if (changes.changed & XkbVirtualModsMask) {
                 fprintf(stderr, "virtual mods: 0x%04x\n", changes.vmods);
             }
             if (changes.changed & XkbExplicitComponentsMask) {
-                int last, first = changes.first_key_explicit;
+                int first = changes.first_key_explicit;
+                int last = first + changes.num_key_explicit - 1;
 
-		last = first + changes.num_key_explicit - 1;
                 fprintf(stderr, "    explicit:  %d..%d\n", first, last);
             }
 #endif
@@ -643,10 +644,9 @@ XkbTranslateKeySym(register Display *dpy,
     if ((!xkb->cvt.KSToUpper) && (mods & LockMask)) {
         register int i;
         int change;
-        char ch;
 
         for (i = change = 0; i < n; i++) {
-            ch = toupper(buffer[i]);
+            char ch = toupper(buffer[i]);
             change = (change || (buffer[i] != ch));
             buffer[i] = ch;
         }

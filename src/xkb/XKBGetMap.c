@@ -211,13 +211,13 @@ _XkbReadKeySyms(XkbReadBufferPtr buf, XkbDescPtr xkb, xkbGetMapReply *rep)
         map->num_syms = offset;
     }
     else {
-        xkbSymMapWireDesc *newMap;
-        XkbSymMapPtr oldMap;
-        KeySym *newSyms;
-        int tmp;
+        XkbSymMapPtr oldMap = &map->key_sym_map[rep->firstKeySym];
 
-        oldMap = &map->key_sym_map[rep->firstKeySym];
         for (i = 0; i < (int) rep->nKeySyms; i++, oldMap++) {
+            xkbSymMapWireDesc *newMap;
+            KeySym *newSyms;
+            int tmp;
+
             newMap = (xkbSymMapWireDesc *)
                 _XkbGetReadBufferPtr(buf, SIZEOF(xkbSymMapWireDesc));
             if (newMap == NULL)
@@ -310,7 +310,6 @@ static Status
 _XkbReadKeyBehaviors(XkbReadBufferPtr buf, XkbDescPtr xkb, xkbGetMapReply *rep)
 {
     register int i;
-    xkbBehaviorWireDesc *wire;
 
     if (rep->totalKeyBehaviors > 0) {
         int size = xkb->max_key_code + 1;
@@ -327,6 +326,8 @@ _XkbReadKeyBehaviors(XkbReadBufferPtr buf, XkbDescPtr xkb, xkbGetMapReply *rep)
                   (rep->nKeyBehaviors * sizeof(XkbBehavior)));
         }
         for (i = 0; i < rep->totalKeyBehaviors; i++) {
+            xkbBehaviorWireDesc *wire;
+
             wire = (xkbBehaviorWireDesc *) _XkbGetReadBufferPtr(buf,
                                                SIZEOF(xkbBehaviorWireDesc));
             if (wire == NULL || wire->key >= size)

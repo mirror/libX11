@@ -116,14 +116,14 @@ _XkbReadGetNamesReply(Display *dpy,
     if (rep->which & XkbKTLevelNamesMask) {
         CARD8 *nLevels;
         XkbClientMapPtr map = xkb->map;
-        XkbKeyTypePtr type;
 
         nLevels =
             (CARD8 *) _XkbGetReadBufferPtr(&buf, XkbPaddedSize(rep->nTypes));
         if (nLevels == NULL)
             goto BAILOUT;
         if (map != NULL) {
-            type = map->types;
+            XkbKeyTypePtr type = map->types;
+
             for (i = 0; i < (int) rep->nTypes; i++, type++) {
                 if (i >= map->num_types) {
                     if (!_XkbSkipReadBufferData(&buf, nLevels[i] * 4))
@@ -577,14 +577,14 @@ XkbChangeNames(Display *dpy, XkbDescPtr xkb, XkbNameChangesPtr changes)
     names = xkb->names;
     if (which & (XkbKTLevelNamesMask | XkbKeyTypeNamesMask)) {
         register int i;
-        XkbKeyTypePtr type;
 
         if ((xkb->map == NULL) || (xkb->map->types == NULL) || (nTypes == 0) ||
             (firstType + nTypes > xkb->map->num_types) ||
             (firstLvlType + nLvlTypes > xkb->map->num_types))
             return False;
         if (which & XkbKTLevelNamesMask) {
-            type = &xkb->map->types[firstLvlType];
+            XkbKeyTypePtr type = &xkb->map->types[firstLvlType];
+
             for (i = nLvlNames = 0; i < nLvlTypes; i++, type++) {
                 if (type->level_names != NULL)
                     nLvlNames += type->num_levels;

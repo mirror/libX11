@@ -132,9 +132,8 @@ XkbAllocNames(XkbDescPtr xkb, unsigned which, int nTotalRG, int nTotalAliases)
     if ((which & XkbKTLevelNamesMask) && (xkb->map != NULL) &&
         (xkb->map->types != NULL)) {
         register int i;
-        XkbKeyTypePtr type;
+        XkbKeyTypePtr type = xkb->map->types;
 
-        type = xkb->map->types;
         for (i = 0; i < xkb->map->num_types; i++, type++) {
             if (type->level_names == NULL) {
                 type->level_names = _XkbTypedCalloc(type->num_levels, Atom);

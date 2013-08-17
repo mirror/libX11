@@ -193,9 +193,8 @@ XkbListComponents(Display *dpy,
         return list;
     }
     if (_XkbInitReadBuffer(dpy, &buf, extraLen)) {
-        Status status;
+        Status status = Success;
 
-        status = Success;
         list = _XkbTypedCalloc(1, XkbComponentListRec);
         if (!list) {
             _XkbFreeReadBuffer(&buf);

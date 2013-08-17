@@ -245,10 +245,10 @@ static char *
 _WriteGeomDoodads(char *wire, int num_doodads, XkbDoodadPtr doodad)
 {
     register int i;
-    xkbDoodadWireDesc *doodadWire;
 
     for (i = 0; i < num_doodads; i++, doodad++) {
-        doodadWire = (xkbDoodadWireDesc *) wire;
+        xkbDoodadWireDesc *doodadWire = (xkbDoodadWireDesc *) wire;
+
         wire = (char *) &doodadWire[1];
         bzero(doodadWire, SIZEOF(xkbDoodadWireDesc));
         doodadWire->any.name = doodad->any.name;
@@ -292,25 +292,22 @@ _WriteGeomOverlay(char *wire, XkbOverlayPtr ol)
 {
     register int r;
     XkbOverlayRowPtr row;
-    xkbOverlayWireDesc *olWire;
+    xkbOverlayWireDesc *olWire = (xkbOverlayWireDesc *) wire;
 
-    olWire = (xkbOverlayWireDesc *) wire;
     olWire->name = ol->name;
     olWire->nRows = ol->num_rows;
     wire = (char *) &olWire[1];
     for (r = 0, row = ol->rows; r < ol->num_rows; r++, row++) {
         unsigned int k;
         XkbOverlayKeyPtr key;
-        xkbOverlayRowWireDesc *rowWire;
+        xkbOverlayRowWireDesc *rowWire = (xkbOverlayRowWireDesc *) wire;
 
-        rowWire = (xkbOverlayRowWireDesc *) wire;
         rowWire->rowUnder = row->row_under;
         rowWire->nKeys = row->num_keys;
         wire = (char *) &rowWire[1];
         for (k = 0, key = row->keys; k < row->num_keys; k++, key++) {
-            xkbOverlayKeyWireDesc *keyWire;
+            xkbOverlayKeyWireDesc *keyWire = (xkbOverlayKeyWireDesc *) wire;
 
-            keyWire = (xkbOverlayKeyWireDesc *) wire;
             memcpy(keyWire->over, key->over.name, XkbKeyNameLength);
             memcpy(keyWire->under, key->under.name, XkbKeyNameLength);
             wire = (char *) &keyWire[1];
@@ -324,11 +321,11 @@ _WriteGeomSections(char *wire, XkbGeometryPtr geom)
 {
     register int i;
     XkbSectionPtr section;
-    xkbSectionWireDesc *sectionWire;
 
     for (i = 0, section = geom->sections; i < geom->num_sections;
          i++, section++) {
-        sectionWire = (xkbSectionWireDesc *) wire;
+        xkbSectionWireDesc *sectionWire = (xkbSectionWireDesc *) wire;
+
         sectionWire->name = section->name;
         sectionWire->top = section->top;
         sectionWire->left = section->left;
@@ -344,10 +341,10 @@ _WriteGeomSections(char *wire, XkbGeometryPtr geom)
         if (section->rows) {
             int r;
             XkbRowPtr row;
-            xkbRowWireDesc *rowWire;
 
             for (r = 0, row = section->rows; r < section->num_rows; r++, row++) {
-                rowWire = (xkbRowWireDesc *) wire;
+                xkbRowWireDesc *rowWire = (xkbRowWireDesc *) wire;
+
                 rowWire->top = row->top;
                 rowWire->left = row->left;
                 rowWire->nKeys = row->num_keys;
@@ -357,9 +354,8 @@ _WriteGeomSections(char *wire, XkbGeometryPtr geom)
                 if (row->keys) {
                     int k;
                     XkbKeyPtr key;
-                    xkbKeyWireDesc *keyWire;
+                    xkbKeyWireDesc *keyWire = (xkbKeyWireDesc *) wire;
 
-                    keyWire = (xkbKeyWireDesc *) wire;
                     for (k = 0, key = row->keys; k < row->num_keys; k++, key++) {
                         memcpy(keyWire[k].name, key->name.name,
                                XkbKeyNameLength);

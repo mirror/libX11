@@ -195,9 +195,8 @@ _XkbWriteSetCompatMap(Display *dpy, xkbSetCompatMapReq *req, XkbDescPtr xkb)
         buf += nSI * SIZEOF(xkbSymInterpretWireDesc);
     }
     if (groups & XkbAllGroupsMask) {
-        xkbModsWireDesc *out;
+        xkbModsWireDesc *out = (xkbModsWireDesc *) buf;
 
-        out = (xkbModsWireDesc *) buf;
         for (i = 0, bit = 1; i < XkbNumKbdGroups; i++, bit <<= 1) {
             if ((groups & bit) != 0) {
                 out->mask = xkb->compat->groups[i].mask;

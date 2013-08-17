@@ -263,9 +263,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
 
         if ((xkbi->selected_events & XkbMapNotifyMask) &&
             (xkbi->selected_map_details & mn->changed)) {
-            XkbMapNotifyEvent *mev;
+            XkbMapNotifyEvent *mev = (XkbMapNotifyEvent *) re;
 
-            mev = (XkbMapNotifyEvent *) re;
             mev->type = XkbEventCode + xkbi->codes->first_event;
             mev->xkb_type = XkbMapNotify;
             mev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -318,9 +317,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbControlsNotifyMask) {
             xkbControlsNotify *cn = (xkbControlsNotify *) event;
-            XkbControlsNotifyEvent *cev;
+            XkbControlsNotifyEvent *cev = (XkbControlsNotifyEvent *) re;
 
-            cev = (XkbControlsNotifyEvent *) re;
             cev->type = XkbEventCode + xkbi->codes->first_event;
             cev->xkb_type = XkbControlsNotify;
             cev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -344,9 +342,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbIndicatorMapNotifyMask) {
             xkbIndicatorNotify *in = (xkbIndicatorNotify *) event;
-            XkbIndicatorNotifyEvent *iev;
+            XkbIndicatorNotifyEvent *iev = (XkbIndicatorNotifyEvent *) re;
 
-            iev = (XkbIndicatorNotifyEvent *) re;
             iev->type = XkbEventCode + xkbi->codes->first_event;
             iev->xkb_type = XkbIndicatorMapNotify;
             iev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -364,9 +361,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbIndicatorStateNotifyMask) {
             xkbIndicatorNotify *in = (xkbIndicatorNotify *) event;
-            XkbIndicatorNotifyEvent *iev;
+            XkbIndicatorNotifyEvent *iev = (XkbIndicatorNotifyEvent *) re;
 
-            iev = (XkbIndicatorNotifyEvent *) re;
             iev->type = XkbEventCode + xkbi->codes->first_event;
             iev->xkb_type = XkbIndicatorStateNotify;
             iev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -384,9 +380,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbBellNotifyMask) {
             xkbBellNotify *bn = (xkbBellNotify *) event;
-            XkbBellNotifyEvent *bev;
+            XkbBellNotifyEvent *bev = (XkbBellNotifyEvent *) re;
 
-            bev = (XkbBellNotifyEvent *) re;
             bev->type = XkbEventCode + xkbi->codes->first_event;
             bev->xkb_type = XkbBellNotify;
             bev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -410,9 +405,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbAccessXNotifyMask) {
             xkbAccessXNotify *axn = (xkbAccessXNotify *) event;
-            XkbAccessXNotifyEvent *axev;
+            XkbAccessXNotifyEvent *axev = (XkbAccessXNotifyEvent *) re;
 
-            axev = (XkbAccessXNotifyEvent *) re;
             axev->type = XkbEventCode + xkbi->codes->first_event;
             axev->xkb_type = XkbAccessXNotify;
             axev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -432,9 +426,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbNamesNotifyMask) {
             xkbNamesNotify *nn = (xkbNamesNotify *) event;
-            XkbNamesNotifyEvent *nev;
+            XkbNamesNotifyEvent *nev = (XkbNamesNotifyEvent *) re;
 
-            nev = (XkbNamesNotifyEvent *) re;
             nev->type = XkbEventCode + xkbi->codes->first_event;
             nev->xkb_type = XkbNamesNotify;
             nev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -462,9 +455,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbCompatMapNotifyMask) {
             xkbCompatMapNotify *cmn = (xkbCompatMapNotify *) event;
-            XkbCompatMapNotifyEvent *cmev;
+            XkbCompatMapNotifyEvent *cmev = (XkbCompatMapNotifyEvent *) re;
 
-            cmev = (XkbCompatMapNotifyEvent *) re;
             cmev->type = XkbEventCode + xkbi->codes->first_event;
             cmev->xkb_type = XkbCompatMapNotify;
             cmev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -484,9 +476,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbActionMessageMask) {
             xkbActionMessage *am = (xkbActionMessage *) event;
-            XkbActionMessageEvent *amev;
+            XkbActionMessageEvent *amev = (XkbActionMessageEvent *) re;
 
-            amev = (XkbActionMessageEvent *) re;
             amev->type = XkbEventCode + xkbi->codes->first_event;
             amev->xkb_type = XkbActionMessage;
             amev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -509,9 +500,9 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
     {
         if (xkbi->selected_events & XkbExtensionDeviceNotifyMask) {
             xkbExtensionDeviceNotify *ed = (xkbExtensionDeviceNotify *) event;
-            XkbExtensionDeviceNotifyEvent *edev;
+            XkbExtensionDeviceNotifyEvent *edev
+                = (XkbExtensionDeviceNotifyEvent *) re;
 
-            edev = (XkbExtensionDeviceNotifyEvent *) re;
             edev->type = XkbEventCode + xkbi->codes->first_event;
             edev->xkb_type = XkbExtensionDeviceNotify;
             edev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -538,9 +529,8 @@ wire_to_event(Display *dpy, XEvent *re, xEvent *event)
 
         if ((xkbi->selected_events & XkbNewKeyboardNotifyMask) &&
             (xkbi->selected_nkn_details & nkn->changed)) {
-            XkbNewKeyboardNotifyEvent *nkev;
+            XkbNewKeyboardNotifyEvent *nkev = (XkbNewKeyboardNotifyEvent *) re;
 
-            nkev = (XkbNewKeyboardNotifyEvent *) re;
             nkev->type = XkbEventCode + xkbi->codes->first_event;
             nkev->xkb_type = XkbNewKeyboardNotify;
             nkev->serial = _XSetLastRequestRead(dpy, (xGenericReply *) event);
@@ -763,9 +753,8 @@ XkbUseExtension(Display *dpy, int *major_rtrn, int *minor_rtrn)
     req->wantedMajor = XkbMajorVersion;
     req->wantedMinor = XkbMinorVersion;
     if (!_XReply(dpy, (xReply *) &rep, 0, xFalse) || !rep.supported) {
-        Bool fail;
+        Bool fail = True;
 
-        fail = True;
         if (debugMsg)
             fprintf(stderr,
                     "XKEYBOARD version mismatch (want %d.%02d, got %d.%02d)\n",

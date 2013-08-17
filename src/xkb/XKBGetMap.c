@@ -147,15 +147,16 @@ _XkbReadKeySyms(XkbReadBufferPtr buf,XkbDescPtr xkb,xkbGetMapReply *rep)
 {
 register int i;
 XkbClientMapPtr	map;
+int size = xkb->max_key_code + 1;
+
+    if (((unsigned short)rep->firstKeySym + rep->nKeySyms) > size)
+	return BadLength;
 
     map= xkb->map;
     if (map->key_sym_map==NULL) {
 	register int offset;
-	int size = xkb->max_key_code + 1;
 	XkbSymMapPtr	oldMap;
 	xkbSymMapWireDesc *newMap;
-	if (((unsigned short)rep->firstKeySym + rep->nKeySyms) > size)
-	    return BadLength;
 	map->key_sym_map= _XkbTypedCalloc(size,XkbSymMapRec);
 	if (map->key_sym_map==NULL)
 	    return BadAlloc;
@@ -212,8 +213,6 @@ XkbClientMapPtr	map;
 	KeySym *		newSyms;
 	int			tmp;
 
-	if (((unsigned short)rep->firstKeySym + rep->nKeySyms) > map->num_syms)
-	    return BadLength;
 	oldMap = &map->key_sym_map[rep->firstKeySym];
 	for (i=0;i<(int)rep->nKeySyms;i++,oldMap++) {
 	    newMap= (xkbSymMapWireDesc *)

@@ -644,7 +644,7 @@ parseline(
     }
     while (b->utf8used + l + 1 > b->utf8size) {
 	DTCharIndex newsize = b->utf8size ? b->utf8size * 1.5 : 1024;
-	char *newutf8 = Xrealloc (b->utf8, b->utf8size);
+	char *newutf8 = Xrealloc (b->utf8, newsize);
 	if (newutf8 == NULL)
 	    goto error;
 	b->utf8 = newutf8;

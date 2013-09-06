@@ -5230,9 +5230,17 @@ XCOMM
 <dead_circumflex> <otilde> 	      : "ỗ"   ocircumflextilde    # LATIN SMALL LETTER O WITH CIRCUMFLEX AND TILDE
 <dead_circumflex> <nobreakspace>      : "̂"   U0302               # COMBINING CIRCUMFLEX ACCENT
 <dead_belowcomma> <S> 		      : "Ș"   U0218               # LATIN CAPITAL LETTER S WITH COMMA BELOW
+<Multi_key> <semicolon> <S> 	      : "Ș"   U0218               # LATIN CAPITAL LETTER S WITH COMMA BELOW
+<Multi_key> <S> <semicolon> 	      : "Ș"   U0218               # LATIN CAPITAL LETTER S WITH COMMA BELOW
 <dead_belowcomma> <s> 		      : "ș"   U0219               # LATIN SMALL LETTER S WITH COMMA BELOW
+<Multi_key> <semicolon> <s> 	      : "ș"   U0219               # LATIN SMALL LETTER S WITH COMMA BELOW
+<Multi_key> <s> <semicolon> 	      : "ș"   U0219               # LATIN SMALL LETTER S WITH COMMA BELOW
 <dead_belowcomma> <T> 		      : "Ț"   U021A               # LATIN CAPITAL LETTER T WITH COMMA BELOW
+<Multi_key> <semicolon> <T> 	      : "Ț"   U021A               # LATIN CAPITAL LETTER T WITH COMMA BELOW
+<Multi_key> <T> <semicolon> 	      : "Ț"   U021A               # LATIN CAPITAL LETTER T WITH COMMA BELOW
 <dead_belowcomma> <t> 		      : "ț"   U021B               # LATIN SMALL LETTER T WITH COMMA BELOW
+<Multi_key> <semicolon> <t> 	      : "ț"   U021B               # LATIN SMALL LETTER T WITH COMMA BELOW
+<Multi_key> <t> <semicolon> 	      : "ț"   U021B               # LATIN SMALL LETTER T WITH COMMA BELOW
 <dead_belowcomma> <dead_belowcomma>   : ","   comma               # COMMA
 <dead_belowcomma> <nobreakspace>      : "̦"   U0326               # COMBINING COMMA BELOW
 <dead_belowcomma> <space> 	      : ","   comma               # COMMA

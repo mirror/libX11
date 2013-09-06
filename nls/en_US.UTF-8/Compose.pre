@@ -832,10 +832,12 @@ XCOMM Part 3
 <Multi_key> <a> <parenleft> 		: "ă"   U0103 # LATIN SMALL LETTER A WITH BREVE
 <dead_ogonek> <A>                	: "Ą"   U0104 # LATIN CAPITAL LETTER A WITH OGONEK
 <Multi_key> <semicolon> <A>      	: "Ą"   U0104 # LATIN CAPITAL LETTER A WITH OGONEK
+<Multi_key> <A> <semicolon>      	: "Ą"   U0104 # LATIN CAPITAL LETTER A WITH OGONEK
 <Multi_key> <comma> <A>         	: "Ą"   U0104 # LATIN CAPITAL LETTER A WITH OGONEK
 <Multi_key> <A> <comma> 		: "Ą"   U0104 # LATIN CAPITAL LETTER A WITH OGONEK
 <dead_ogonek> <a>                	: "ą"   U0105 # LATIN SMALL LETTER A WITH OGONEK
 <Multi_key> <semicolon> <a>      	: "ą"   U0105 # LATIN SMALL LETTER A WITH OGONEK
+<Multi_key> <a> <semicolon>      	: "ą"   U0105 # LATIN SMALL LETTER A WITH OGONEK
 <Multi_key> <comma> <a>         	: "ą"   U0105 # LATIN SMALL LETTER A WITH OGONEK
 <Multi_key> <a> <comma> 		: "ą"   U0105 # LATIN SMALL LETTER A WITH OGONEK
 <dead_acute> <C>                 	: "Ć"   U0106 # LATIN CAPITAL LETTER C WITH ACUTE
@@ -906,10 +908,12 @@ XCOMM Part 3
 <Multi_key> <e> <period> 		: "ė"   U0117 # LATIN SMALL LETTER E WITH DOT ABOVE
 <dead_ogonek> <E>                	: "Ę"   U0118 # LATIN CAPITAL LETTER E WITH OGONEK
 <Multi_key> <semicolon> <E>      	: "Ę"   U0118 # LATIN CAPITAL LETTER E WITH OGONEK
+<Multi_key> <E> <semicolon>      	: "Ę"   U0118 # LATIN CAPITAL LETTER E WITH OGONEK
 <Multi_key> <comma> <E>          	: "Ę"   U0118 # LATIN CAPITAL LETTER E WITH OGONEK
 <Multi_key> <E> <comma> 		: "Ę"   U0118 # LATIN CAPITAL LETTER E WITH OGONEK
 <dead_ogonek> <e>                	: "ę"   U0119 # LATIN SMALL LETTER E WITH OGONEK
 <Multi_key> <semicolon> <e>      	: "ę"   U0119 # LATIN SMALL LETTER E WITH OGONEK
+<Multi_key> <e> <semicolon>      	: "ę"   U0119 # LATIN SMALL LETTER E WITH OGONEK
 <Multi_key> <comma> <e>          	: "ę"   U0119 # LATIN SMALL LETTER E WITH OGONEK
 <Multi_key> <e> <comma> 		: "ę"   U0119 # LATIN SMALL LETTER E WITH OGONEK
 <dead_caron> <E>                 	: "Ě"   U011A # LATIN CAPITAL LETTER E WITH CARON
@@ -988,6 +992,7 @@ XCOMM Part 3
 <Multi_key> <b> <i>              	: "ĭ"   U012D # LATIN SMALL LETTER I WITH BREVE
 <dead_ogonek> <I>                	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <Multi_key> <semicolon> <I>      	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
+<Multi_key> <I> <semicolon>      	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <Multi_key> <comma> <I>         	: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <Multi_key> <I> <comma> 		: "Į"   U012E # LATIN CAPITAL LETTER I WITH OGONEK
 <dead_ogonek> <i>                	: "į"   U012F # LATIN SMALL LETTER I WITH OGONEK
@@ -1213,10 +1218,12 @@ XCOMM Part 3
 <Multi_key> <equal> <u>          	: "ű"   U0171 # LATIN SMALL LETTER U WITH DOUBLE ACUTE
 <dead_ogonek> <U>                	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <Multi_key> <semicolon> <U>      	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
+<Multi_key> <U> <semicolon>      	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <Multi_key> <comma> <U>         	: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <Multi_key> <U> <comma> 		: "Ų"   U0172 # LATIN CAPITAL LETTER U WITH OGONEK
 <dead_ogonek> <u>                	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <Multi_key> <semicolon> <u>      	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
+<Multi_key> <u> <semicolon>      	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <Multi_key> <comma> <u>         	: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <Multi_key> <u> <comma> 		: "ų"   U0173 # LATIN SMALL LETTER U WITH OGONEK
 <dead_circumflex> <W>            	: "Ŵ"   U0174 # LATIN CAPITAL LETTER W WITH CIRCUMFLEX
@@ -1414,8 +1421,10 @@ XCOMM Part 3
 <Multi_key> <c> <k>              	: "ǩ"   U01E9 # LATIN SMALL LETTER K WITH CARON
 <dead_ogonek> <O>                	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
 <Multi_key> <semicolon> <O>      	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
+<Multi_key> <O> <semicolon>      	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
 <dead_ogonek> <o>                	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
 <Multi_key> <semicolon> <o>      	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
+<Multi_key> <o> <semicolon>      	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
 <dead_macron> <U01EA>        	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON
 <Multi_key> <macron> <U01EA> 	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON
 <Multi_key> <underscore> <U01EA> 	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON

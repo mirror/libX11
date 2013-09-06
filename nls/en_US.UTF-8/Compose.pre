@@ -1422,9 +1422,13 @@ XCOMM Part 3
 <dead_ogonek> <O>                	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
 <Multi_key> <semicolon> <O>      	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
 <Multi_key> <O> <semicolon>      	: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
+<Multi_key> <comma> <O>      		: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
+<Multi_key> <O> <comma>      		: "Ǫ"   U01EA # LATIN CAPITAL LETTER O WITH OGONEK
 <dead_ogonek> <o>                	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
 <Multi_key> <semicolon> <o>      	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
 <Multi_key> <o> <semicolon>      	: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
+<Multi_key> <comma> <o>      		: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
+<Multi_key> <o> <comma>      		: "ǫ"   U01EB # LATIN SMALL LETTER O WITH OGONEK
 <dead_macron> <U01EA>        	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON
 <Multi_key> <macron> <U01EA> 	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON
 <Multi_key> <underscore> <U01EA> 	: "Ǭ"   U01EC # LATIN CAPITAL LETTER O WITH OGONEK AND MACRON

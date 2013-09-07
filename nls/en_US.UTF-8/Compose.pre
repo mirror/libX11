@@ -4428,7 +4428,8 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <plus> 	: "⁺"   U207A # SUPERSCRIPT PLUS SIGN
 <dead_circumflex> <KP_Add>       	: "⁺"   U207A # SUPERSCRIPT PLUS SIGN
 <Multi_key> <asciicircum> <KP_Add> 	: "⁺"   U207A # SUPERSCRIPT PLUS SIGN
-<dead_circumflex> <U2212>    	: "⁻"   U207B # SUPERSCRIPT MINUS
+<dead_circumflex> <minus> 		: "⁻"   U207B # SUPERSCRIPT MINUS
+<dead_circumflex> <U2212> 		: "⁻"   U207B # SUPERSCRIPT MINUS
 <Multi_key> <asciicircum> <U2212> 	: "⁻"   U207B # SUPERSCRIPT MINUS
 <dead_circumflex> <equal>        	: "⁼"   U207C # SUPERSCRIPT EQUALS SIGN
 <Multi_key> <asciicircum> <equal> 	: "⁼"   U207C # SUPERSCRIPT EQUALS SIGN
@@ -5219,7 +5220,6 @@ XCOMM
 <dead_cedilla> <U0114> 		      : "Ḝ"   U1E1C               # LATIN CAPITAL LETTER E WITH CEDILLA AND BREVE
 <dead_cedilla> <U0115> 		      : "ḝ"   U1E1D               # LATIN SMALL LETTER E WITH CEDILLA AND BREVE
 <dead_cedilla> <nobreakspace> 	      : "̧"   U0327               # COMBINING CEDILLA
-<dead_circumflex> <minus> 	      : "⁻"   U207B               # SUPERSCRIPT MINUS
 <dead_circumflex> <Aacute> 	      : "Ấ"   Acircumflexacute    # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND ACUTE
 <dead_circumflex> <Agrave> 	      : "Ầ"   Acircumflexgrave    # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND GRAVE
 <dead_circumflex> <Ahook> 	      : "Ẩ"   Acircumflexhook     # LATIN CAPITAL LETTER A WITH CIRCUMFLEX AND HOOK ABOVE

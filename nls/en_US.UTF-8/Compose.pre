@@ -119,8 +119,6 @@ XCOMM Spaces
 <Multi_key> <plus> <minus>       	: "±"   plusminus # PLUS-MINUS SIGN
 <Multi_key> <minus> <plus> 		: "±"   plusminus # PLUS-MINUS SIGN
 <Multi_key> <question> <question> 	: "¿"   questiondown # INVERTED QUESTION MARK
-<Multi_key> <minus> <d>          	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
-<Multi_key> <minus> <D>          	: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <s> <s>              	: "ß"   ssharp # LATIN SMALL LETTER SHARP S
 <Multi_key> <S> <S>              	: "ẞ"   U1e9e # LATIN CAPITAL LETTER SHARP S
 
@@ -881,12 +879,14 @@ XCOMM Part 3
 <Multi_key> <less> <d> 			: "ď"   U010F # LATIN SMALL LETTER D WITH CARON
 <Multi_key> <d> <less> 			: "ď"   U010F # LATIN SMALL LETTER D WITH CARON
 <dead_stroke> <D>               	: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
+<Multi_key> <minus> <D>          	: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
+<Multi_key> <D> <minus> 		: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <slash> <D>          	: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
 <Multi_key> <KP_Divide> <D>      	: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
-<Multi_key> <D> <minus> 		: "Đ"   Dstroke # LATIN CAPITAL LETTER D WITH STROKE
 <dead_stroke> <d>               	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
-<Multi_key> <slash> <d>          	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
+<Multi_key> <minus> <d>          	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
 <Multi_key> <d> <minus> 		: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
+<Multi_key> <slash> <d>          	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
 <Multi_key> <KP_Divide> <d>      	: "đ"   dstroke # LATIN SMALL LETTER D WITH STROKE
 <dead_macron> <E>                	: "Ē"   U0112 # LATIN CAPITAL LETTER E WITH MACRON
 <Multi_key> <macron> <E>         	: "Ē"   U0112 # LATIN CAPITAL LETTER E WITH MACRON

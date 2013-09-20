@@ -103,6 +103,7 @@ XCOMM Spaces
 <Multi_key> <o> <R>              	: "®"   registered # REGISTERED SIGN
 <Multi_key> <O> <r>              	: "®"   registered # REGISTERED SIGN
 <Multi_key> <O> <R>              	: "®"   registered # REGISTERED SIGN
+<Multi_key> <R> <o> 			: "®"   registered # REGISTERED SIGN
 <Multi_key> <R> <O> 			: "®"   registered # REGISTERED SIGN
 
 <Multi_key> <period> <greater>   	: "›"   U203a # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK

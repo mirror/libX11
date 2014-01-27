@@ -818,8 +818,8 @@ XCOMM Part 3
 <Multi_key> <macron> <a>         	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
 <Multi_key> <underscore> <a>     	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
 <Multi_key> <a> <underscore>     	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
-<Multi_key> <minus> <a>          	: "ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
-<Multi_key> <a> <minus>          	: "ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
+<Multi_key> <minus> <a>          	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
+<Multi_key> <a> <minus>          	: "ā"   U0101 # LATIN SMALL LETTER A WITH MACRON
 <dead_breve> <A>                 	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE
 <Multi_key> <U> <A>              	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE
 <Multi_key> <b> <A>              	: "Ă"   U0102 # LATIN CAPITAL LETTER A WITH BREVE

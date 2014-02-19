@@ -390,7 +390,7 @@ en_US.UTF-8/XLC_LOCALE:			kl_GL.UTF-8
 en_US.UTF-8/XLC_LOCALE:			km_KH.UTF-8
 en_US.UTF-8/XLC_LOCALE:			kn_IN.UTF-8
 en_US.UTF-8/XLC_LOCALE:                 ks_IN.UTF-8
-en_US.UTF-8/XLC_LOCALE:                 ks_IN@devanagari.UTF-8
+en_US.UTF-8/XLC_LOCALE:                 ks_IN.UTF-8@devanagari
 ko_KR.UTF-8/XLC_LOCALE:			ko_KR.UTF-8
 en_US.UTF-8/XLC_LOCALE:			ku_TR.UTF-8
 en_US.UTF-8/XLC_LOCALE:			kw_GB.UTF-8
@@ -430,7 +430,7 @@ en_US.UTF-8/XLC_LOCALE:			ru_UA.UTF-8
 en_US.UTF-8/XLC_LOCALE:         	rw_RW.UTF-8
 en_US.UTF-8/XLC_LOCALE:                 sa_IN.UTF-8
 en_US.UTF-8/XLC_LOCALE:                 sd_IN.UTF-8
-en_US.UTF-8/XLC_LOCALE:                 sd_IN@devanagari.UTF-8
+en_US.UTF-8/XLC_LOCALE:                 sd_IN.UTF-8@devanagari
 en_US.UTF-8/XLC_LOCALE:			se_NO.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sh_BA.UTF-8
 en_US.UTF-8/XLC_LOCALE:			sh_YU.UTF-8

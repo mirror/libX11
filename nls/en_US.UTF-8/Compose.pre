@@ -285,7 +285,7 @@ XCOMM There are some conflicts among sequences, but I left them alone.
 XCOMM
 XCOMM group 1: cluster jamos made of three basic jamos
 
-/* The follwing block gets overridden by later shorter compositions
+/* The following block gets overridden by later shorter compositions
  * <Multi_key> <U1107> <U1109> <U1100> 	: "ᄢ"   U1122 # HANGUL CHOSEONG PIEUP-SIOS-KIYEOK
  * <Multi_key> <U1107> <U1109> <U1103> 	: "ᄣ"   U1123 # HANGUL CHOSEONG PIEUP-SIOS-TIKEUT
  * <Multi_key> <U1107> <U1109> <U1107> 	: "ᄤ"   U1124 # HANGUL CHOSEONG PIEUP-SIOS-PIEUP

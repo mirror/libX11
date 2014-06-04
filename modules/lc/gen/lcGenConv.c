@@ -753,7 +753,7 @@ mbstowcs_org(
 
     CodeSet codeset = NULL;
 
-    const char *inbufptr = *from;
+    const char *inbufptr;
     wchar_t *outbufptr = (wchar_t *) *to;
     int from_size = *from_left;
 
@@ -763,6 +763,8 @@ mbstowcs_org(
 	_XlcResetConverter(conv);
         return( 0 );
     }
+
+    inbufptr = *from;
 
     while (*from_left && *to_left) {
 
@@ -1252,7 +1254,7 @@ ctstowcs(
     CodeSet codeset = NULL;
     XlcCharSet charset_tmp;
 
-    const char *inbufptr = *from;
+    const char *inbufptr;
     wchar_t *outbufptr = (wchar_t *) *to;
     int from_size = *from_left;
 
@@ -1262,6 +1264,7 @@ ctstowcs(
 	_XlcResetConverter(conv);
         return( 0 );
     }
+    inbufptr = *from;
 
     while (*from_left && *to_left) {
 
@@ -1437,13 +1440,15 @@ cstowcs(
     CodeSet codeset = NULL;
     XlcCharSet charset, charset_tmp;
 
-    const char *inbufptr = *from;
+    const char *inbufptr;
     wchar_t *outbufptr = (wchar_t *) *to;
     int from_size = *from_left;
 
     if (from == NULL || *from == NULL) {
         return( 0 );
     }
+
+    inbufptr = *from;
 
     charset = (XlcCharSet) args[0];
 
@@ -1643,7 +1648,7 @@ mbstostr(
 
     CodeSet codeset = NULL;
 
-    const char *inbufptr = *from;
+    const char *inbufptr;
     char *outbufptr = *to;
     int from_size = *from_left;
 
@@ -1653,6 +1658,8 @@ mbstostr(
 	_XlcResetConverter(conv);
         return( 0 );
     }
+
+    inbufptr = *from;
 
     while (*from_left && *to_left) {
 
@@ -1758,7 +1765,7 @@ mbtocs(
     CodeSet codeset = NULL;
     XlcCharSet charset = NULL;
 
-    const char *inbufptr = *from;
+    const char *inbufptr;
     char *outbufptr = *to;
     int from_size = *from_left;
 
@@ -1768,6 +1775,8 @@ mbtocs(
 	_XlcResetConverter(conv);
         return( 0 );
     }
+
+    inbufptr = *from;
 
     while (*from_left && *to_left) {
 

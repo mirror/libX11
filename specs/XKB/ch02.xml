@@ -8,40 +8,40 @@ The following include files are part of the Xkb standard:
 <itemizedlist>
   <listitem>
     <para>
-<emphasis>&lt;X11/XKBlib.h&gt;</emphasis>
+<filename class="headerfile">&lt;X11/XKBlib.h&gt;</filename>
     </para>
-    <para><emphasis>XKBlib.h</emphasis>
+    <para><filename class="headerfile">XKBlib.h</filename>
 is the main header file for Xkb; it declares constants, types, and
 functions.
     </para>
   </listitem>
   <listitem>
     <para>
-<emphasis>&lt;X11/extensions/XKBstr.h&gt;</emphasis>
+<filename class="headerfile">&lt;X11/extensions/XKBstr.h&gt;</filename>
     </para>
     <para>
-<emphasis>XKBstr.h</emphasis> declares types and
+<filename class="headerfile">XKBstr.h</filename> declares types and
 constants for Xkb. It is included automatically from
-<emphasis>&lt;X11/XKBlib.h&gt;</emphasis>
+<filename class="headerfile">&lt;X11/XKBlib.h&gt;</filename>
 ; you should never need to reference it directly in your application code.
     </para>
   </listitem>
   <listitem>
     <para>
-<emphasis>&lt;X11/extensions/XKB.h&gt;</emphasis>
+<filename class="headerfile">&lt;X11/extensions/XKB.h&gt;</filename>
     </para>
     <para>
-<emphasis>XKB.h</emphasis>
-defines constants for Xkb. It is included automatically from <emphasis>
-&lt;X11/XKBstr.h&gt;</emphasis>
+<filename class="headerfile">XKB.h</filename>
+defines constants for Xkb. It is included automatically from
+<filename class="headerfile">&lt;X11/XKBstr.h&gt;</filename>
 ; you should never need to reference it directly in your application code.
     </para>
   </listitem>
   <listitem>
     <para>
-<emphasis>&lt;X11/extensions/XKBgeom.h&gt;</emphasis>
+<filename class="headerfile">&lt;X11/extensions/XKBgeom.h&gt;</filename>
    </para>
-   <para><emphasis>XKBgeom.h</emphasis>
+   <para><filename class="headerfile">XKBgeom.h</filename>
 declares types, symbolic constants, and functions for manipulating
 keyboard geometry descriptions.
     </para>
@@ -51,8 +51,8 @@ keyboard geometry descriptions.
 <sect1 id='Extension_Name'>
 <title>Extension Name</title>
 <para>
-The name of the Xkb extension is given in <emphasis>
-&lt;X11/extensions/Xkb.h&gt;:</emphasis>
+The name of the Xkb extension is given in
+<filename class="headerfile">&lt;X11/extensions/Xkb.h&gt;</filename>:
 </para>
 
 <para>

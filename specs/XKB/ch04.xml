@@ -61,15 +61,16 @@ XkbQueryExtension</emphasis>
 XkbOpenDisplay</emphasis>
 . The second field is the Xkb event type, which contains a value uniquely
 identifying each different Xkb event type. Possible values are defined by
-constants declared in the header file &lt;X11/extensions/Xkb.h&gt;.
+constants declared in the header file
+<filename class="headerfile">&lt;X11/extensions/Xkb.h&gt;</filename>.
 </para>
 
 
 <para>
 Table 4.1 lists the categories of events defined by Xkb and their associated
-event types, as defined in <emphasis>
-Xkb.h</emphasis>
-. Each event is described in more detail in the section referenced for that
+event types, as defined in
+<filename class="headerfile">Xkb.h</filename>.
+Each event is described in more detail in the section referenced for that
 event.
 </para>
 

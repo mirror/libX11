@@ -1256,7 +1256,8 @@ To create an unmapped window and set its window attributes, use
   <funcdef>Window <function>XCreateWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> parent</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>unsignedint<parameter> border_width</parameter></paramdef>
   <paramdef>int<parameter> depth</parameter></paramdef>
@@ -1520,7 +1521,8 @@ subwindow of a given parent window, use
   <funcdef>Window <function>XCreateSimpleWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> parent</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>unsignedint<parameter> border_width</parameter></paramdef>
   <paramdef>unsignedlong<parameter> border</parameter></paramdef>
@@ -2640,7 +2642,8 @@ To move a window without changing its size, use
   <funcdef><function>XMoveWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN      -->
@@ -2843,7 +2846,8 @@ To change the size and location of a window, use
   <funcdef><function>XMoveResizeWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

@@ -1975,7 +1975,8 @@ To determine if a specified point resides in a specified region, use
 <funcprototype>
   <funcdef>Bool <function>XPointInRegion</function></funcdef>
   <paramdef>Region<parameter> r</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2033,7 +2034,8 @@ To determine if a specified rectangle is inside a region, use
 <funcprototype>
   <funcdef>int <function>XRectInRegion</function></funcdef>
   <paramdef>Region<parameter> r</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

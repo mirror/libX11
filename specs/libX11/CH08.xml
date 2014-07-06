@@ -49,7 +49,8 @@ To clear a rectangular area of a given window, use
   <funcdef><function>XClearArea</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>Bool<parameter> exposures</parameter></paramdef>
 </funcprototype>
@@ -770,7 +771,8 @@ To draw a single point in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1335,7 +1337,8 @@ To draw the outline of a single rectangle in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1566,7 +1569,8 @@ To draw a single arc in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
 </funcprototype>
@@ -1923,7 +1927,8 @@ To fill a single rectangular area in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2353,7 +2358,8 @@ To fill a single arc in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
 </funcprototype>
@@ -4481,7 +4487,8 @@ To draw 8-bit characters in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>XTextItem<parameter> *items</parameter></paramdef>
   <paramdef>int<parameter> nitems</parameter></paramdef>
 </funcprototype>
@@ -4576,7 +4583,8 @@ To draw 2-byte characters in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>XTextItem16<parameter> *items</parameter></paramdef>
   <paramdef>int<parameter> nitems</parameter></paramdef>
 </funcprototype>
@@ -4831,7 +4839,8 @@ To draw 2-byte characters in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> length</parameter></paramdef>
 </funcprototype>
@@ -4974,7 +4983,8 @@ To draw 8-bit image text characters in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>char<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> length</parameter></paramdef>
 </funcprototype>
@@ -5069,7 +5079,8 @@ To draw 2-byte image text characters in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> length</parameter></paramdef>
 </funcprototype>
@@ -5558,7 +5569,8 @@ This function specifically supports rudimentary screen dumps.
   <funcdef>XImage *<function>XGetImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
@@ -5744,7 +5756,8 @@ to a location within a preexisting image structure, use
   <funcdef>XImage *<function>XGetSubImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
-  <paramdef>intx,<parameter> y</parameter></paramdef>
+  <paramdef>int <parameter>x</parameter></paramdef>
+  <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>

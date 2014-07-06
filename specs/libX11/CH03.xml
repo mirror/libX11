@@ -1258,7 +1258,8 @@ To create an unmapped window and set its window attributes, use
   <paramdef>Window<parameter> parent</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedint<parameter> border_width</parameter></paramdef>
   <paramdef>int<parameter> depth</parameter></paramdef>
   <paramdef>unsignedint<parameter> class</parameter></paramdef>
@@ -1523,7 +1524,8 @@ subwindow of a given parent window, use
   <paramdef>Window<parameter> parent</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedint<parameter> border_width</parameter></paramdef>
   <paramdef>unsignedlong<parameter> border</parameter></paramdef>
   <paramdef>unsignedlong<parameter> background</parameter></paramdef>
@@ -2744,7 +2746,8 @@ To change a window's size without changing the upper-left coordinate, use
   <funcdef><function>XResizeWindow</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2848,7 +2851,8 @@ To change the size and location of a window, use
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

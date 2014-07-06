@@ -378,7 +378,8 @@ To obtain the current geometry of a given drawable, use
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>Window<parameter> *root_return</parameter></paramdef>
   <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>unsignedint<parameter> *border_width_return</parameter></paramdef>
   <paramdef>unsignedint<parameter> *depth_return</parameter></paramdef>
 </funcprototype>

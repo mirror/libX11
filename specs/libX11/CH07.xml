@@ -2257,8 +2257,10 @@ To obtain the best size of a tile, stipple, or cursor, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> class</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2399,8 +2401,10 @@ To obtain the best fill tile shape, use
   <funcdef>Status <function>XQueryBestTile</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2505,8 +2509,10 @@ To obtain the best stipple shape, use
   <funcdef>Status <function>XQueryBestStipple</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> which_screen</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

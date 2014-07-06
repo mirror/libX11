@@ -30,7 +30,8 @@ To create a pixmap of a given size, use
   <funcdef>Pixmap <function>XCreatePixmap</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedint<parameter> depth</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -586,8 +587,10 @@ To determine useful cursor sizes, use
   <funcdef>Status <function>XQueryBestCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

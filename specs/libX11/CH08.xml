@@ -51,7 +51,8 @@ To clear a rectangular area of a given window, use
   <paramdef>Window<parameter> w</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>Bool<parameter> exposures</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -276,7 +277,8 @@ root and depth, use
   <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -469,7 +471,8 @@ To copy a single bit plane of a given drawable, use
   <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane</parameter></paramdef>
 </funcprototype>
@@ -1339,7 +1342,8 @@ To draw the outline of a single rectangle in a given drawable, use
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1571,7 +1575,8 @@ To draw a single arc in a given drawable, use
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1929,7 +1934,8 @@ To fill a single rectangular area in a given drawable, use
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2360,7 +2366,8 @@ To fill a single arc in a given drawable, use
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -5385,7 +5392,8 @@ use
   <paramdef>XImage<parameter> *image</parameter></paramdef>
   <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -5571,7 +5579,8 @@ This function specifically supports rudimentary screen dumps.
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
 </funcprototype>
@@ -5758,7 +5767,8 @@ to a location within a preexisting image structure, use
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
   <paramdef>XImage<parameter> *dest_image</parameter></paramdef>

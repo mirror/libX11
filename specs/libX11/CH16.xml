@@ -930,7 +930,8 @@ To parse standard window geometry strings, use
   <funcdef>int <function>XParseGeometry</function></funcdef>
   <paramdef>char<parameter> *parsestring</parameter></paramdef>
   <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2036,7 +2037,8 @@ To determine if a specified rectangle is inside a region, use
   <paramdef>Region<parameter> r</parameter></paramdef>
   <paramdef>int <parameter>x</parameter></paramdef>
   <paramdef>int <parameter>y</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3281,7 +3283,8 @@ To read a bitmap from a file and store it in a pixmap, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>char<parameter> *filename</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>Pixmap<parameter> *bitmap_return</parameter></paramdef>
   <paramdef>int*x_hot_return,<parameter> *y_hot_return</parameter></paramdef>
 </funcprototype>
@@ -3433,7 +3436,8 @@ To read a bitmap from a file and return it as data, use
 <funcprototype>
   <funcdef>int <function>XReadBitmapFileData</function></funcdef>
   <paramdef>char<parameter> *filename</parameter></paramdef>
-  <paramdef>unsignedint*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
+  <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>unsignedchar<parameter> *data_return</parameter></paramdef>
   <paramdef>int*x_hot_return,<parameter> *y_hot_return</parameter></paramdef>
 </funcprototype>
@@ -3532,7 +3536,8 @@ To write out a bitmap from a pixmap to a file, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>char<parameter> *filename</parameter></paramdef>
   <paramdef>Pixmap<parameter> bitmap</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intx_hot,<parameter> y_hot</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3659,7 +3664,8 @@ To create a pixmap and then store bitmap-format data into it, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>char<parameter> *data</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>unsignedlongfg,<parameter> bg</parameter></paramdef>
   <paramdef>unsignedint<parameter> depth</parameter></paramdef>
 </funcprototype>
@@ -3790,7 +3796,8 @@ in a program directly, as opposed to reading it in every time at run time, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>char<parameter> *data</parameter></paramdef>
-  <paramdef>unsignedintwidth,<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

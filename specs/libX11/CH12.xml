@@ -1767,7 +1767,8 @@ To move the pointer to an arbitrary point in a window, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Windowsrc_w,<parameter> dest_w</parameter></paramdef>
   <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
-  <paramdef>unsignedintsrc_width,<parameter> src_height</parameter></paramdef>
+  <paramdef>unsigned int <parameter>src_width</parameter></paramdef>
+  <paramdef>unsigned int <parameter>src_height</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

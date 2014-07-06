@@ -861,50 +861,55 @@ current state of the keyboard indicators, use <emphasis>
 XkbGetIndicatorState</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbGetIndicatorState</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetIndicatorState"><primary><function>XkbGetIndicatorState</function></primary></indexterm>
+<funcsynopsis id="XkbGetIndicatorState">
+  <funcprototype>
+    <funcdef>Status <function>XkbGetIndicatorState</function></funcdef>
+<!-- (<emphasis>
 display</emphasis>
 , <emphasis>
 device_spec</emphasis>
 , <emphasis>
 state_return</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *      <emphasis>
-display</emphasis>
-;            /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-device_spec</emphasis>
-;            /* device ID, or <emphasis>
-XkbUseCoreKbd</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int *      <emphasis>
-state_return</emphasis>
-;            /* backfilled with a mask of the indicator state */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>display</parameter></paramdef>
+    <paramdef>unsigned int <parameter>device_spec</parameter></paramdef>
+    <paramdef>unsigned int *<parameter>state_return</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>display</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>device_spec</parameter>
+    </term>
+    <listitem>
+      <para>
+        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>state_return</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with a mask of the indicator state
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -942,48 +947,55 @@ indicators, use <emphasis>
 XkbGetIndicatorMap</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbGetIndicatorMap</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetIndicatorMap"><primary><function>XkbGetIndicatorMap</function></primary></indexterm>
+<funcsynopsis id="XkbGetIndicatorMap">
+  <funcprototype>
+    <funcdef>Status <function>XkbGetIndicatorMap</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  which</emphasis>
 ,<emphasis>
  desc</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *      <emphasis>
-dpy</emphasis>
-;      /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-which</emphasis>
-;      /* mask of indicators for which maps should be returned */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-desc</emphasis>
-;      /* keyboard description to be updated */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>unsigned int <parameter>which</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>desc</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>which</parameter>
+    </term>
+    <listitem>
+      <para>
+        mask of indicators for which maps should be returned
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>desc</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1052,16 +1064,11 @@ XkbGetNamedIndicator</emphasis>
  to look up the indicator map and other information for an indicator by name.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbGetNamedIndicator</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetNamedIndicator"><primary><function>XkbGetNamedIndicator</function></primary></indexterm>
+<funcsynopsis id="XkbGetNamedIndicator">
+  <funcprototype>
+    <funcdef>Bool <function>XkbGetNamedIndicator</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  dev_spec</emphasis>
@@ -1075,65 +1082,90 @@ dpy</emphasis>
  map_rtrn</emphasis>
 , <emphasis>
 real_rtrn</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *            <emphasis>
-dpy</emphasis>
-;            /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-      device_spec</emphasis>
-;            /* keyboard device ID, or <emphasis>
-XkbUseCoreKbd</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;            /* name of the indicator to be retrieved */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int *            <emphasis>
-ndx_rtrn</emphasis>
-;            /* backfilled with the index of the retrieved indicator */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool *            <emphasis>
-state_rtrn</emphasis>
-;            /* backfilled with the current state of the retrieved indicator */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorMapPtr      <emphasis>
-      map_rtrn</emphasis>
-;            /* backfilled with the mapping for the retrieved indicator */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool *            <emphasis>
-real_rtrn</emphasis>
-;            /* backfilled with <emphasis>
-True</emphasis>
- if the named indicator is real (physical) */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>unsigned int <parameter>device_spec</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+    <paramdef>int *<parameter>ndx_rtrn</parameter></paramdef>
+    <paramdef>Bool *<parameter>state_rtrn</parameter></paramdef>
+    <paramdef>XkbIndicatorMapPtr <parameter>map_rtrn</parameter></paramdef>
+    <paramdef>Bool *<parameter>real_rtrn</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>device_spec</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the indicator to be retrieved
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>ndx_rtrn</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with the index of the retrieved indicator
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>state_rtrn</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with the current state of the retrieved indicator
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>map_rtrn</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with the mapping for the retrieved indicator
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>real_rtrn</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with <emphasis>True</emphasis>
+         if the named indicator is real (physical)
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If the device specified by <emphasis>
@@ -1336,48 +1368,55 @@ XkbSetIndicatorMap</emphasis>
  to download the changes to the server:
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool<emphasis>
- XkbSetIndicatorMap</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbSetIndicatorMap"><primary><function>XkbSetIndicatorMap</function></primary></indexterm>
+<funcsynopsis id="XkbSetIndicatorMap">
+  <funcprototype>
+    <funcdef>Bool <function>XkbSetIndicatorMap</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  which</emphasis>
 ,<emphasis>
  desc</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *      <emphasis>
-dpy</emphasis>
-;      /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-which</emphasis>
-;      /* mask of indicators to change */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-desc</emphasis>
-;      /* keyboard description from which the maps are taken */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>unsigned int <parameter>which</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>desc</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>which</parameter>
+    </term>
+    <listitem>
+      <para>
+        mask of indicators to change
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>desc</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description from which the maps are taken
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 For each<emphasis>
@@ -1425,16 +1464,11 @@ Set the indicator map for the indicator
 </listitem>
 </itemizedlist>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool<emphasis>
- XkbSetNamedIndicator</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbSetNamedIndicator"><primary><function>XkbSetNamedIndicator</function></primary></indexterm>
+<funcsynopsis id="XkbSetNamedIndicator">
+  <funcprototype>
+    <funcdef>Bool<function>XkbSetNamedIndicator</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  device_spec</emphasis>
@@ -1446,64 +1480,90 @@ dpy</emphasis>
  create_new</emphasis>
 ,<emphasis>
  map</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *      <emphasis>
-      dpy</emphasis>
-;            /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-      device_spec</emphasis>
-;            /* device ID, or <emphasis>
-XkbUseCoreKbd</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;            /* name of the indicator to change */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      change_state</emphasis>
-;            /* whether to change the indicator state or not */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      state</emphasis>
-;            /* desired new state for the indicator */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool            <emphasis>
-create_new</emphasis>
-;            /* whether a new indicator with the specified name should be
-created when necessary */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorMapPtr            <emphasis>
-map</emphasis>
-;            /* new map for the indicator */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>unsigned int <parameter>device_spec</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+    <paramdef>Bool <parameter>change_state</parameter></paramdef>
+    <paramdef>Bool <parameter>state</parameter></paramdef>
+    <paramdef>Bool <parameter>create_new</parameter></paramdef>
+    <paramdef>XkbIndicatorMapPtr <parameter>map</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>device_spec</parameter>
+    </term>
+    <listitem>
+      <para>
+        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the indicator to change
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>change_state</parameter>
+    </term>
+    <listitem>
+      <para>
+        whether to change the indicator state or not
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>state</parameter>
+    </term>
+    <listitem>
+      <para>
+        desired new state for the indicator
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>create_new</parameter>
+    </term>
+    <listitem>
+      <para>
+        whether a new indicator with the specified name should be
+        created when necessary
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>map</parameter>
+    </term>
+    <listitem>
+      <para>
+        new map for the indicator
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If a compatible version of the Xkb extension is not available in the server,
@@ -1618,57 +1678,64 @@ XkbChangeIndicators</emphasis>
 .
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbChangeIndicators</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbChangeIndicators"><primary><function>XkbChangeIndicators</function></primary></indexterm>
+<funcsynopsis id="XkbChangeIndicators">
+  <funcprototype>
+    <funcdef>Bool <function>XkbChangeIndicators</function></funcdef>
+<!-- (<emphasis>
 dpy, xkb, changes, state</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *                  <emphasis>
-dpy</emphasis>
-;      /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr                  <emphasis>
-xkb</emphasis>
-;      /* keyboard description from which names are to be
-                        taken. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorChangesPtr                  <emphasis>
-changes</emphasis>
-;      /* indicators to be updated on the server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int                  <emphasis>
-state</emphasis>
-;      /* new state of indicators listed in
-<emphasis>
-                        changes</emphasis>
--&gt;<emphasis>
-state_changes</emphasis>
- */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+    <paramdef>XkbIndicatorChangesPtr <parameter>changes</parameter></paramdef>
+    <paramdef>unsigned int <parameter>state</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description from which names are to be  taken.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>changes</parameter>
+    </term>
+    <listitem>
+      <para>
+        indicators to be updated on the server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>state</parameter>
+    </term>
+    <listitem>
+      <para>
+        new state of indicators listed in <parameter>changes</parameter>
+        -&gt;<emphasis>
+        state_changes</emphasis>
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1824,48 +1891,55 @@ XkbIndicatorMapNotify</emphasis>
 XkbNoteIndicatorChanges</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbNoteIndicatorChanges</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbNoteIndicatorChanges"><primary><function>XkbNoteIndicatorChanges</function></primary></indexterm>
+<funcsynopsis id="XkbNoteIndicatorChanges">
+  <funcprototype>
+    <funcdef>void <function>XkbNoteIndicatorChanges</function></funcdef>
+<!-- (<emphasis>
 old</emphasis>
 ,<emphasis>
  new</emphasis>
 ,<emphasis>
  wanted</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorChangesPtr            <emphasis>
-      old</emphasis>
-;      /* XkbIndicatorChanges structure to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorNotifyEvent *                  <emphasis>
-new</emphasis>
-;      /* event from which changes are to be copied */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int            <emphasis>
-      wanted</emphasis>
-;      /* which changes are to be noted */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbIndicatorChangesPtr <parameter>old</parameter></paramdef>
+    <paramdef>XkbIndicatorNotifyEvent *<parameter>new</parameter></paramdef>
+    <paramdef>unsigned int <parameter>wanted</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>old</parameter>
+    </term>
+    <listitem>
+      <para>
+        XkbIndicatorChanges structure to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>new</parameter>
+    </term>
+    <listitem>
+      <para>
+        event from which changes are to be copied
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>wanted</parameter>
+    </term>
+    <listitem>
+      <para>
+        which changes are to be noted
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 The <emphasis>
@@ -1894,16 +1968,11 @@ XkbGetIndicatorChanges</emphasis>:
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbGetIndicatorChanges</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetIndicatorChanges"><primary><function>XkbGetIndicatorChanges</function></primary></indexterm>
+<funcsynopsis id="XkbGetIndicatorChanges">
+  <funcprototype>
+    <funcdef>Status <function>XkbGetIndicatorChanges</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  xkb</emphasis>
@@ -1911,40 +1980,56 @@ dpy</emphasis>
  changes</emphasis>
 ,<emphasis>
  state</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *            <emphasis>
-dpy</emphasis>
-;            /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr            <emphasis>
-xkb</emphasis>
-;            /* keyboard description to hold the new values */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbIndicatorChangesPtr            <emphasis>
-changes</emphasis>
-;            /* indicator maps/state to be obtained from the server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int *            <emphasis>
-state</emphasis>
-;            /* backfilled with the state of the indicators */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+    <paramdef>XkbIndicatorChangesPtr <parameter>changes</parameter></paramdef>
+    <paramdef>unsigned int *<parameter>state</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description to hold the new values
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>changes</parameter>
+    </term>
+    <listitem>
+      <para>
+        indicator maps/state to be obtained from the server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>state</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with the state of the indicators
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2003,30 +2088,29 @@ described in Chapter 6). If the need arises, however, use <emphasis>
 XkbAllocIndicatorMaps.</emphasis>
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocIndicatorMaps</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocIndicatorMaps"><primary><function>XkbAllocIndicatorMaps</function></primary></indexterm>
+<funcsynopsis id="XkbAllocIndicatorMaps">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocIndicatorMaps</function></funcdef>
+<!-- (<emphasis>
 xkb</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-xkb</emphasis>
-;      /* keyboard description structure */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description structure
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 The <emphasis>
@@ -2058,30 +2142,29 @@ XkbDescRec</emphasis>
 XkbFreeIndicatorMaps.</emphasis>
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeIndicatorMaps</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeIndicatorMaps"><primary><function>XkbFreeIndicatorMaps</function></primary></indexterm>
+<funcsynopsis id="XkbFreeIndicatorMaps">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeIndicatorMaps</function></funcdef>
+<!-- (<emphasis>
 xkb</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-xkb</emphasis>
-;      /* keyboard description structure */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description structure
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If the <emphasis>indicators</emphasis>

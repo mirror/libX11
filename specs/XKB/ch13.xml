@@ -1093,40 +1093,43 @@ To load a keyboard geometry if you already have the keyboard description, use
 <emphasis>XkbGetGeometry</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbGetGeometry</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetGeometry"><primary><function>XkbGetGeometry</function></primary></indexterm>
+<funcsynopsis id="XkbGetGeometry">
+  <funcprototype>
+    <funcdef>Status <function>XkbGetGeometry</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  xkb</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *            <emphasis>
-dpy</emphasis>
-;      /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-      xkb</emphasis>
-;      /* keyboard description that contains the ID for the keyboard and into
-which the geometry should be loaded */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description that contains the ID for the keyboard and into
+        which the geometry should be loaded
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1153,48 +1156,55 @@ description from this database by name, use <emphasis>
 XkbGetNamedGeometry</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbGetNamedGeometry</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbGetNamedGeometry"><primary><function>XkbGetNamedGeometry</function></primary></indexterm>
+<funcsynopsis id="XkbGetNamedGeometry">
+  <funcprototype>
+    <funcdef>Status <function>XkbGetNamedGeometry</function></funcdef>
+<!-- (<emphasis>
 dpy</emphasis>
 ,<emphasis>
  xkb</emphasis>
 ,<emphasis>
  name</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Display *      <emphasis>
-dpy</emphasis>
-;      /* connection to the X server */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-xkb</emphasis>
-;      /* keyboard description into which the geometry should be loaded */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-name</emphasis>
-;      /* name of the geometry to be loaded */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>Display *<parameter>dpy</parameter></paramdef>
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>dpy</parameter>
+    </term>
+    <listitem>
+      <para>
+        connection to the X server
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description into which the geometry should be loaded
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the geometry to be loaded
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1239,39 +1249,42 @@ To determine the bounding box of the top surface of a shape, use <emphasis>
 XkbComputeShapeTop</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbComputeShapeTop</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbComputeShapeTop"><primary><function>XkbComputeShapeTop</function></primary></indexterm>
+<funcsynopsis id="XkbComputeShapeTop">
+  <funcprototype>
+    <funcdef>Bool <function>XkbComputeShapeTop</function></funcdef>
+<!-- (<emphasis>
 shape</emphasis>
 ,<emphasis>
  bounds_rtrn</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbShapePtr      <emphasis>
-      shape</emphasis>
-;      /* shape to be examined */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbBoundsPtr      <emphasis>
-      bounds_rtrn</emphasis>
-      /* backfilled with the bounding box for the shape */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
+    <paramdef>XkbBoundsPtr <parameter>bounds_rtrn</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>shape</parameter>
+    </term>
+    <listitem>
+      <para>
+        shape to be examined
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>bounds_rtrn</parameter>
+    </term>
+    <listitem>
+      <para>
+        backfilled with the bounding box for the shape
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1317,30 +1330,29 @@ shape, use <emphasis>XkbComputeShapeBounds</emphasis>.
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbComputeShapeBounds</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbComputeShapeBounds"><primary><function>XkbComputeShapeBounds</function></primary></indexterm>
+<funcsynopsis id="XkbComputeShapeBounds">
+  <funcprototype>
+    <funcdef>Bool <function>XkbComputeShapeBounds</function></funcdef>
+<!-- (<emphasis>
 shape</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbShapePtr      <emphasis>
-      shape</emphasis>
-;            /* shape to be examined */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>shape</parameter>
+    </term>
+    <listitem>
+      <para>
+        shape to be examined
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1371,50 +1383,55 @@ of the keys in that row, you may need to update the bounding box of that row.
 To update the bounding box of a row, use <emphasis>XkbComputeRowBounds</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbComputeRowBounds</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbComputeRowBounds"><primary><function>XkbComputeRowBounds</function></primary></indexterm>
+<funcsynopsis id="XkbComputeRowBounds">
+  <funcprototype>
+    <funcdef>Bool <function>XkbComputeRowBounds</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  section</emphasis>
 ,<emphasis>
  row</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry that contains the <emphasis>
-section</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section that contains the row */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr            <emphasis>
-row</emphasis>
-;      /* row to be examined and updated */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry that contains the <parameter>section</parameter>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section that contains the row
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row to be examined and updated
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1439,41 +1456,42 @@ that section. To update the bounding box of a section, use
 <emphasis>XkbComputeSectionBounds</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Bool <emphasis>
-XkbComputeSectionBounds</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbComputeSectionBounds"><primary><function>XkbComputeSectionBounds</function></primary></indexterm>
+<funcsynopsis id="XkbComputeSectionBounds">
+  <funcprototype>
+    <funcdef>Bool <function>XkbComputeSectionBounds</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  section</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry that contains the <emphasis>
-section</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section to be examined and updated */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry that contains the <parameter>section</parameter>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section to be examined and updated
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1499,50 +1517,55 @@ by using the primary name for a key that is part of an overlay, use <emphasis>
 XkbFindOverlayForKey</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-char * <emphasis>
-XkbFindOverlayForKey</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFindOverlayForKey"><primary><function>XkbFindOverlayForKey</function></primary></indexterm>
+<funcsynopsis id="XkbFindOverlayForKey">
+  <funcprototype>
+    <funcdef>char *<function>XkbFindOverlayForKey</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  section</emphasis>
 ,<emphasis>
  under</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry that contains the <emphasis>
-section</emphasis>
- */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section to be searched for matching keys */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      under</emphasis>
-.      /* primary name of the key to be considered */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>char *<parameter>under</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry that contains the <parameter>section</parameter>
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section to be searched for matching keys
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>under</parameter>
+    </term>
+    <listitem>
+      <para>
+        .primary name of the key to be considered
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1590,48 +1613,55 @@ XkbAddGeomProperty</emphasis>
 .
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbPropertyPtr <emphasis>
-XkbAddGeomProperty</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomProperty"><primary><function>XkbAddGeomProperty</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomProperty">
+  <funcprototype>
+    <funcdef>XkbPropertyPtr <function>XkbAddGeomProperty</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  name</emphasis>
 ,<emphasis>
  value</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      name</emphasis>
-;      /* name of the new property */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      value</emphasis>
-;      /* value for the new property */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>char *<parameter>name</parameter></paramdef>
+    <paramdef>char *<parameter>value</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the new property
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>value</parameter>
+    </term>
+    <listitem>
+      <para>
+        value for the new property
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1660,46 +1690,53 @@ XkbAddGeomKeyAlias</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbKeyAliasPtr <emphasis>
-XkbAddGeomKeyAlias</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomKeyAlias"><primary><function>XkbAddGeomKeyAlias</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomKeyAlias">
+  <funcprototype>
+    <funcdef>XkbKeyAliasPtr <function>XkbAddGeomKeyAlias</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  alias, real</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      alias</emphasis>
-;      /* alias to be added */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      real</emphasis>
-;      /* real name to be bound to the new alias */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>char *<parameter>alias</parameter></paramdef>
+    <paramdef>char *<parameter>real</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>alias</parameter>
+    </term>
+    <listitem>
+      <para>
+        alias to be added
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>real</parameter>
+    </term>
+    <listitem>
+      <para>
+        real name to be bound to the new alias
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1723,48 +1760,55 @@ XkbAddGeomColor</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbColorPtr <emphasis>
-XkbAddGeomColor</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomColor"><primary><function>XkbAddGeomColor</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomColor">
+  <funcprototype>
+    <funcdef>XkbColorPtr <function>XkbAddGeomColor</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  spec</emphasis>
 ,<emphasis>
  pixel</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      spec</emphasis>
-;      /* color to be added */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-      pixel</emphasis>
-;      /* color to be added */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>char *<parameter>spec</parameter></paramdef>
+    <paramdef>unsigned int <parameter>pixel</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>spec</parameter>
+    </term>
+    <listitem>
+      <para>
+        color to be added
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>pixel</parameter>
+    </term>
+    <listitem>
+      <para>
+        color to be added
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -1802,39 +1846,42 @@ To add one outline to an existing shape, use <emphasis>
 XkbAddGeomOutline</emphasis>.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbOutlinePtr <emphasis>
-XkbAddGeomOutline</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomOutline"><primary><function>XkbAddGeomOutline</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomOutline">
+  <funcprototype>
+    <funcdef>XkbOutlinePtr <function>XkbAddGeomOutline</function></funcdef>
+<!-- (<emphasis>
 shape</emphasis>
 ,<emphasis>
  sz_points</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbShapePtr      <emphasis>
-      shape</emphasis>
-;      /* shape to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_points</emphasis>
-;      /* number of points to be reserved */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
+    <paramdef>int <parameter>sz_points</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>shape</parameter>
+    </term>
+    <listitem>
+      <para>
+        shape to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_points</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of points to be reserved
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 An outline consists of an arbitrary number of points. <emphasis>
@@ -1860,48 +1907,55 @@ XkbAddGeomShape</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbShapePtr <emphasis>
-XkbAddGeomShape</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomShape"><primary><function>XkbAddGeomShape</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomShape">
+  <funcprototype>
+    <funcdef>XkbShapePtr <function>XkbAddGeomShape</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  name</emphasis>
 ,<emphasis>
  sz_outlines</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;      /* name of the new shape */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_outlines</emphasis>
-;      /* number of outlines to be reserved */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+    <paramdef>int <parameter>sz_outlines</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the new shape
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_outlines</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of outlines to be reserved
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 A geometry contains an arbitrary number of shapes, each of which is made up of
@@ -1933,30 +1987,29 @@ XkbAddGeomKey</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbKeyPtr <emphasis>
-XkbAddGeomKey</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomKey"><primary><function>XkbAddGeomKey</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomKey">
+  <funcprototype>
+    <funcdef>XkbKeyPtr <function>XkbAddGeomKey</function></funcdef>
+<!-- (<emphasis>
 row</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row</emphasis>
-;      /* row to be updated */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 Keys are grouped into rows. <emphasis>
@@ -1981,16 +2034,11 @@ XkbAddGeomSection</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbSectionPtr <emphasis>
-XkbAddGeomSection</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomSection"><primary><function>XkbAddGeomSection</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomSection">
+  <funcprototype>
+    <funcdef>XkbSectionPtr <function>XkbAddGeomSection</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  name</emphasis>
@@ -2000,47 +2048,67 @@ geom</emphasis>
  sz_doodads</emphasis>
 ,<emphasis>
  sz_overlays</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;      /* name of the new section */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_rows</emphasis>
-;      /* number of rows to reserve in the section */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_doodads</emphasis>
-;      /* number of doodads to reserve in the section */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_overlays</emphasis>
-;      /* number of overlays to reserve in the section */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+    <paramdef>int <parameter>sz_rows</parameter></paramdef>
+    <paramdef>int <parameter>sz_doodads</parameter></paramdef>
+    <paramdef>int <parameter>sz_overlays</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the new section
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_rows</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of rows to reserve in the section
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_doodads</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of doodads to reserve in the section
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_overlays</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of overlays to reserve in the section
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 A keyboard geometry contains an arbitrary number of sections. <emphasis>
@@ -2077,39 +2145,42 @@ XkbAddGeomRow</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbRowPtr <emphasis>
-XkbAddGeomRow</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomRow"><primary><function>XkbAddGeomRow</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomRow">
+  <funcprototype>
+    <funcdef>XkbRowPtr <function>XkbAddGeomRow</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  sz_keys</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int            <emphasis>
-sz_keys</emphasis>
-;      /* number of keys to be reserved */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>sz_keys</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_keys</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of keys to be reserved
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 One of the components of a keyboard geometry section is one or more rows of
@@ -2138,48 +2209,55 @@ XkbAddGeomDoodad</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbDoodadPtr <emphasis>
-XkbAddGeomDoodad</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomDoodad"><primary><function>XkbAddGeomDoodad</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomDoodad">
+  <funcprototype>
+    <funcdef>XkbDoodadPtr <function>XkbAddGeomDoodad</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  section</emphasis>
 ,<emphasis>
  name</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to which the doodad is added */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section, if any, to which the doodad is added */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;      /* name of the new doodad */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to which the doodad is added
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section, if any, to which the doodad is added
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the new doodad
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 A <emphasis>
@@ -2224,48 +2302,55 @@ XkbAddGeomOverlay</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbOverlayPtr <emphasis>
-XkbAddGeomOverlay</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomOverlay"><primary><function>XkbAddGeomOverlay</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomOverlay">
+  <funcprototype>
+    <funcdef>XkbOverlayPtr <function>XkbAddGeomOverlay</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  name</emphasis>
 ,<emphasis>
  sz_rows</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section to which an overlay will be added */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Atom      <emphasis>
-      name</emphasis>
-;      /* name of the overlay */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_rows</emphasis>
-;      /* number of rows to reserve in the overlay */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>Atom <parameter>name</parameter></paramdef>
+    <paramdef>int <parameter>sz_rows</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section to which an overlay will be added
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>name</parameter>
+    </term>
+    <listitem>
+      <para>
+        name of the overlay
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_rows</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of rows to reserve in the overlay
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2293,48 +2378,54 @@ XkbAddGeomOverlayRow</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbOverlayRowPtr <emphasis>
-XkbAddGeomOverlayRow</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomOverlayRow"><primary><function>XkbAddGeomOverlayRow</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomOverlayRow">
+  <funcprototype>
+    <funcdef>XkbOverlayRowPtr <function>XkbAddGeomOverlayRow</function></funcdef>
+<!-- (<emphasis>
 overlay</emphasis>
 ,<emphasis>
  row_under, sz_keys</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbOverlayPtr      <emphasis>
-      overlay</emphasis>
-;      /* overlay to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row_under</emphasis>
-;      /* row to be overlayed in the section <emphasis>
-overlay</emphasis>
- overlays */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      sz_keys</emphasis>
-;      /* number of keys to reserve in the row */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbOverlayPtr <parameter>overlay</parameter></paramdef>
+    <paramdef>XkbRowPtr <parameter>row_under</parameter></paramdef>
+    <paramdef>int <parameter>sz_keys</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>overlay</parameter>
+    </term>
+    <listitem>
+      <para>
+        overlay to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>row_under</parameter>
+    </term>
+    <listitem>
+      <para>
+        row to be overlayed in the section <parameter>overlay</parameter>
+         overlays
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sz_keys</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of keys to reserve in the row
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2365,46 +2456,53 @@ XkbAddGeomOverlayKey</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-XkbOverlayKeyPtr <emphasis>
-XkbAddGeomOverlayKey</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAddGeomOverlayKey"><primary><function>XkbAddGeomOverlayKey</function></primary></indexterm>
+<funcsynopsis id="XkbAddGeomOverlayKey">
+  <funcprototype>
+    <funcdef>XkbOverlayKeyPtr <function>XkbAddGeomOverlayKey</function></funcdef>
+<!-- (<emphasis>
 overlay</emphasis>
 ,<emphasis>
  row, under</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbOverlayPtr      <emphasis>
-      overlay</emphasis>
-;      /* overlay to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row</emphasis>
-;      /* row in overlay to be updated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-char *      <emphasis>
-      under</emphasis>
-;      /* primary name of the key to be considered */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbOverlayPtr <parameter>overlay</parameter></paramdef>
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>char *<parameter>under</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>overlay</parameter>
+    </term>
+    <listitem>
+      <para>
+        overlay to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row in overlay to be updated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>under</parameter>
+    </term>
+    <listitem>
+      <para>
+        primary name of the key to be considered
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2464,39 +2562,42 @@ To allocate space for an arbitrary number of outlines to a shape, use
 XkbAllocGeomOutlines.
 </para>
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomOutlines</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomOutlines"><primary><function>XkbAllocGeomOutlines</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomOutlines">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomOutlines</function></funcdef>
+<!-- (<emphasis>
 shape</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbShapePtr            <emphasis>
-shape</emphasis>
-;      /* shape for which outlines should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new outlines required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>shape</parameter>
+    </term>
+    <listitem>
+      <para>
+        shape for which outlines should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new outlines required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2516,16 +2617,11 @@ XkbFreeGeomOutlines</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomOutlines</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomOutlines"><primary><function>XkbFreeGeomOutlines</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomOutlines">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomOutlines</function></funcdef>
+<!-- (<emphasis>
 shape</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -2533,42 +2629,56 @@ shape</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbShapePtr      <emphasis>
-      shape</emphasis>
-;      /* shape in which outlines should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first outline to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of outlines to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all outlines are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>shape</parameter>
+    </term>
+    <listitem>
+      <para>
+        shape in which outlines should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first outline to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of outlines to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all outlines are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -2584,39 +2694,42 @@ XkbAllocGeomKeys.
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomKeys</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomKeys"><primary><function>XkbAllocGeomKeys</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomKeys">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomKeys</function></funcdef>
+<!-- (<emphasis>
 row</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row</emphasis>
-;      /* row to which keys should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new keys required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row to which keys should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new keys required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2633,16 +2746,11 @@ XkbFreeGeomKeys</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomKeys</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomKeys"><primary><function>XkbFreeGeomKeys</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomKeys">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomKeys</function></funcdef>
+<!-- (<emphasis>
 row</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -2650,42 +2758,56 @@ row</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row</emphasis>
-;      /* row in which keys should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first key to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of keys to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all keys are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row in which keys should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first key to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of keys to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all keys are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -2702,39 +2824,42 @@ XkbAllocGeomProps</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomProps</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomProps"><primary><function>XkbAllocGeomProps</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomProps">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomProps</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry for which properties should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new properties required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which properties should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new properties required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2757,16 +2882,11 @@ XkbFreeGeomProperties</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomProperties</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomProperties"><primary><function>XkbFreeGeomProperties</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomProperties">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomProperties</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -2774,42 +2894,56 @@ geom</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry in which properties should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first property to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of properties to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all properties are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry in which properties should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first property to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of properties to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all properties are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -2826,39 +2960,42 @@ XkbAllocGeomKeyAliases</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomKeyAliases</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomKeyAliases"><primary><function>XkbAllocGeomKeyAliases</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomKeyAliases">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomKeyAliases</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry for which key aliases should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new key aliases required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which key aliases should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new key aliases required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -2878,16 +3015,11 @@ XkbFreeGeomKeyAliases</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomKeyAliases</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomKeyAliases"><primary><function>XkbFreeGeomKeyAliases</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomKeyAliases">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomKeyAliases</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -2895,42 +3027,56 @@ geom</emphasis>
 count</emphasis>
 , <emphasis>
 free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry in which key aliases should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first key alias to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of key aliases to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all key aliases are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry in which key aliases should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first key alias to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of key aliases to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all key aliases are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -2951,39 +3097,42 @@ XkbAllocGeomColors</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomColors</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomColors"><primary><function>XkbAllocGeomColors</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomColors">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomColors</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry for which colors should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new colors required. */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which colors should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new colors required.
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3004,16 +3153,11 @@ XkbFreeGeomColors</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomColors</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomColors"><primary><function>XkbFreeGeomColors</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomColors">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomColors</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3021,42 +3165,56 @@ geom</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry in which colors should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first color to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of colors to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all colors are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry in which colors should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first color to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of colors to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all colors are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3073,39 +3231,42 @@ XkbAllocGeomPoints</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomPoints</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomPoints"><primary><function>XkbAllocGeomPoints</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomPoints">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomPoints</function></funcdef>
+<!-- (<emphasis>
 outline</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbOutlinePtr      <emphasis>
-      outline</emphasis>
-;      /* outline for which points should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new points required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbOutlinePtr <parameter>outline</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>outline</parameter>
+    </term>
+    <listitem>
+      <para>
+        outline for which points should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new points required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3125,16 +3286,11 @@ XkbFreeGeomPoints</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomPoints</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomPoints"><primary><function>XkbFreeGeomPoints</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomPoints">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomPoints</function></funcdef>
+<!-- (<emphasis>
 outline</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3142,42 +3298,56 @@ outline</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbOutlinePtr      <emphasis>
-      outline</emphasis>
-;      /* outline in which points should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first point to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of points to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all points are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbOutlinePtr <parameter>outline</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>outline</parameter>
+    </term>
+    <listitem>
+      <para>
+        outline in which points should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first point to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of points to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all points are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3195,39 +3365,42 @@ XkbAllocGeomShapes</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomShapes</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomShapes"><primary><function>XkbAllocGeomShapes</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomShapes">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomShapes</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry for which shapes should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new shapes required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which shapes should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new shapes required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3247,16 +3420,11 @@ XkbFreeGeomShapes</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomShapes</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomShapes"><primary><function>XkbFreeGeomShapes</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomShapes">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomShapes</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3264,42 +3432,56 @@ geom</emphasis>
  count</emphasis>
 ,<emphasis>
  f ree_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry in which shapes should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first shape to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of shapes to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all shapes are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry in which shapes should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first shape to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of shapes to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all shapes are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3317,39 +3499,42 @@ XkbAllocGeomSections</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomSections</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomSections"><primary><function>XkbAllocGeomSections</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomSections">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomSections</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /*geometry for which sections should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new sections required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which sections should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new sections required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3366,16 +3551,11 @@ XkbFreeGeomSections</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomSections</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomSections"><primary><function>XkbFreeGeomSections</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomSections">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomSections</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3383,42 +3563,56 @@ geom</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry in which sections should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first section to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of sections to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all sections are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry in which sections should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first section to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of sections to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all sections are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3436,39 +3630,42 @@ XkbAllocGeomRows</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomRows</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomRows"><primary><function>XkbAllocGeomRows</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomRows">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomRows</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr            <emphasis>
-section</emphasis>
-;      /* section for which rows should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new rows required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section for which rows should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new rows required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3485,16 +3682,11 @@ XkbFreeGeomRows</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomRows</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomRows"><primary><function>XkbFreeGeomRows</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomRows">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomRows</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3502,42 +3694,56 @@ section</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section in which rows should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first row to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of rows to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all rows are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section in which rows should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first row to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of rows to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all rows are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3555,39 +3761,42 @@ XkbAllocGeomOverlays</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomOverlays</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomOverlays"><primary><function>XkbAllocGeomOverlays</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomOverlays">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomOverlays</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr            <emphasis>
-section</emphasis>
-;      /* section for which overlays should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new overlays required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section for which overlays should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new overlays required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3604,16 +3813,11 @@ XkbFreeGeomOverlays</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomOverlays</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomOverlays"><primary><function>XkbFreeGeomOverlays</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomOverlays">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomOverlays</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3621,42 +3825,56 @@ section</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section in which overlays should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first overlay to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of overlays to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all overlays are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section in which overlays should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first overlay to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of overlays to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all overlays are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3674,39 +3892,42 @@ XkbAllocGeomOverlayRows</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomOverlayRows</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomOverlayRows"><primary><function>XkbAllocGeomOverlayRows</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomOverlayRows">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomOverlayRows</function></funcdef>
+<!-- (<emphasis>
 overlay</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr            <emphasis>
-overlay</emphasis>
-;      /* section for which rows should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new rows required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>overlay</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>overlay</parameter>
+    </term>
+    <listitem>
+      <para>
+        section for which rows should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new rows required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3723,16 +3944,11 @@ XkbFreeGeomOverlayRows</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomOverlayRows</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomOverlayRows"><primary><function>XkbFreeGeomOverlayRows</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomOverlayRows">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomOverlayRows</function></funcdef>
+<!-- (<emphasis>
 overlay</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3740,42 +3956,56 @@ overlay</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      overlay</emphasis>
-;      /* section in which rows should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first row to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of rows to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all rows are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>overlay</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>overlay</parameter>
+    </term>
+    <listitem>
+      <para>
+        section in which rows should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first row to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of rows to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all rows are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3793,39 +4023,42 @@ XkbAllocGeomOverlayKeys</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomOverlayKeys</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomOverlayKeys"><primary><function>XkbAllocGeomOverlayKeys</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomOverlayKeys">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomOverlayKeys</function></funcdef>
+<!-- (<emphasis>
 row</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr            <emphasis>
-row</emphasis>
-;      /* section for which rows should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new rows required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        section for which rows should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new rows required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3842,16 +4075,11 @@ XkbFreeGeomOverlayKeys</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomOverlayKeys</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomOverlayKeys"><primary><function>XkbFreeGeomOverlayKeys</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomOverlayKeys">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomOverlayKeys</function></funcdef>
+<!-- (<emphasis>
 row</emphasis>
 ,<emphasis>
  first</emphasis>
@@ -3859,42 +4087,56 @@ row</emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbRowPtr      <emphasis>
-      row</emphasis>
-;      /* row in which keys should be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      first</emphasis>
-;      /* first key to be freed. */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of keys to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all keys are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>int <parameter>first</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>row</parameter>
+    </term>
+    <listitem>
+      <para>
+        row in which keys should be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>first</parameter>
+    </term>
+    <listitem>
+      <para>
+        first key to be freed.
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of keys to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all keys are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If free_all is <emphasis>
@@ -3912,39 +4154,42 @@ XkbAllocGeomDoodads</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomDoodads</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomDoodads"><primary><function>XkbAllocGeomDoodads</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomDoodads">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomDoodads</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry for which doodads should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new doodads required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry for which doodads should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new doodads required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -3962,39 +4207,42 @@ XkbAllocGeomSectionDoodads</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeomSectionDoodads</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeomSectionDoodads"><primary><function>XkbAllocGeomSectionDoodads</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeomSectionDoodads">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeomSectionDoodads</function></funcdef>
+<!-- (<emphasis>
 section</emphasis>
 ,<emphasis>
  num_needed</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbSectionPtr      <emphasis>
-      section</emphasis>
-;      /* section for which doodads should be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      num_needed</emphasis>
-;      /* number of new doodads required */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
+    <paramdef>int <parameter>num_needed</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>section</parameter>
+    </term>
+    <listitem>
+      <para>
+        section for which doodads should be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>num_needed</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of new doodads required
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -4012,50 +4260,55 @@ XkbFreeGeomDoodads</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeomDoodads</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeomDoodads"><primary><function>XkbFreeGeomDoodads</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeomDoodads">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeomDoodads</function></funcdef>
+<!-- (<emphasis>
 doodads</emphasis>
 ,<emphasis>
  count</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDoodadPtr      <emphasis>
-      doodads</emphasis>
-;      /* doodads to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-int      <emphasis>
-      count</emphasis>
-;      /* number of doodads to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; all doodads are freed */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbDoodadPtr <parameter>doodads</parameter></paramdef>
+    <paramdef>int <parameter>count</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>doodads</parameter>
+    </term>
+    <listitem>
+      <para>
+        doodads to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>count</parameter>
+    </term>
+    <listitem>
+      <para>
+        number of doodads to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; all doodads are freed
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 If <emphasis>
@@ -4074,39 +4327,42 @@ XkbAllocGeometry</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-Status <emphasis>
-XkbAllocGeometry</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbAllocGeometry"><primary><function>XkbAllocGeometry</function></primary></indexterm>
+<funcsynopsis id="XkbAllocGeometry">
+  <funcprototype>
+    <funcdef>Status <function>XkbAllocGeometry</function></funcdef>
+<!-- (<emphasis>
 xkb</emphasis>
 ,<emphasis>
  sizes</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbDescPtr      <emphasis>
-      xkb</emphasis>
-;      /* keyboard description for which geometry is to be allocated */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometrySizesPtr<emphasis>
-            sizes</emphasis>
-;      /* initial sizes for all geometry components */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
+    <paramdef>XkbGeometrySizesPtr <parameter>sizes</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>xkb</parameter>
+    </term>
+    <listitem>
+      <para>
+        keyboard description for which geometry is to be allocated
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>sizes</parameter>
+    </term>
+    <listitem>
+      <para>
+        initial sizes for all geometry components
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 <emphasis>
@@ -4127,50 +4383,55 @@ XkbFreeGeometry</emphasis>
 </para>
 
 
-<informaltable frame='none'>
-<?dbfo keep-together="always" ?>
-<tgroup cols='1' align='left' colsep='0' rowsep='0'>
-<colspec colname='c1' colwidth='1.0*'/>
-<tbody>
-  <row>
-    <entry role='functiondecl'>
-void <emphasis>
-XkbFreeGeometry</emphasis>
-(<emphasis>
+<indexterm significance="preferred" zone="XkbFreeGeometry"><primary><function>XkbFreeGeometry</function></primary></indexterm>
+<funcsynopsis id="XkbFreeGeometry">
+  <funcprototype>
+    <funcdef>void <function>XkbFreeGeometry</function></funcdef>
+<!-- (<emphasis>
 geom</emphasis>
 ,<emphasis>
  which</emphasis>
 ,<emphasis>
  free_all</emphasis>
-)
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-XkbGeometryPtr      <emphasis>
-      geom</emphasis>
-;      /* geometry to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-unsigned int      <emphasis>
-      which</emphasis>
-;      /* mask of geometry components to be freed */
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
-Bool      <emphasis>
-      free_all;</emphasis>
-      /* <emphasis>
-True</emphasis>
- =&gt; the entire geometry is freed. */
-    </entry>
-</row>
-</tbody>
-</tgroup>
-</informaltable>
+) -->
+
+    <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
+    <paramdef>unsigned int <parameter>which</parameter></paramdef>
+    <paramdef>Bool <parameter>free_all</parameter></paramdef>
+  </funcprototype>
+</funcsynopsis>
+<variablelist>
+  <varlistentry>
+    <term>
+      <parameter>geom</parameter>
+    </term>
+    <listitem>
+      <para>
+        geometry to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>which</parameter>
+    </term>
+    <listitem>
+      <para>
+        mask of geometry components to be freed
+      </para>
+    </listitem>
+  </varlistentry>
+  <varlistentry>
+    <term>
+      <parameter>free_all</parameter>
+    </term>
+    <listitem>
+      <para>
+        <emphasis>True</emphasis> =&gt; the entire geometry is freed.
+      </para>
+    </listitem>
+  </varlistentry>
+</variablelist>
 
 <para>
 The values of which and free_all determine how much of the specified geometry

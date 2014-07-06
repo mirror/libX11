@@ -1644,10 +1644,6 @@ dpy</emphasis>
 XkbDescPtr                  <emphasis>
 xkb</emphasis>
 ;      /* keyboard description from which names are to be
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
                         taken. */
     </entry>
   </row>
@@ -1663,10 +1659,6 @@ changes</emphasis>
 unsigned int                  <emphasis>
 state</emphasis>
 ;      /* new state of indicators listed in
-    </entry>
-  </row>
-  <row>
-    <entry role='functionargdecl'>
 <emphasis>
                         changes</emphasis>
 -&gt;<emphasis>

@@ -399,7 +399,7 @@ dpy</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            which;            /* mask indicating information to
+unsigned int            <emphasis>which</emphasis>;            /* mask indicating information to
 return */
     </entry>
   </row>
@@ -637,7 +637,7 @@ dpy</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure to update with
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure to update with
 results */
     </entry>
   </row>
@@ -652,13 +652,13 @@ True</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            first_button;            /* number of first button for
+unsigned int            <emphasis>first_button</emphasis>;            /* number of first button for
 which info is desired */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            num_buttons;            /* number of buttons for which
+unsigned int            <emphasis>num_buttons</emphasis>;            /* number of buttons for which
 info is desired */
     </entry>
 </row>
@@ -771,7 +771,7 @@ dpy</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure to update with
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure to update with
 results */
     </entry>
   </row>
@@ -784,13 +784,13 @@ led_class</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            led_id;            /* LED feedback ID assigned by input
+unsigned int            <emphasis>led_id</emphasis>;            /* LED feedback ID assigned by input
 extension */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            which;            /* mask indicating desired
+unsigned int            <emphasis>which</emphasis>;            /* mask indicating desired
 information */
     </entry>
 </row>
@@ -951,7 +951,7 @@ XkbAllocDeviceInfo</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            device_spec;            /* device ID with which
+unsigned int            <emphasis>device_spec</emphasis>;            /* device ID with which
 structure will be used */
     </entry>
   </row>
@@ -1079,7 +1079,7 @@ XkbAddDeviceLedInfo</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure in which to
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure in which to
 add LED info */
     </entry>
   </row>
@@ -1174,7 +1174,7 @@ XkbResizeDeviceButtonActions</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure in which to
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure in which to
 allocate button actions */
     </entry>
   </row>
@@ -1238,7 +1238,7 @@ XkbFreeDeviceInfo</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* pointer to <emphasis>
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* pointer to <emphasis>
 XkbDeviceInfoRec</emphasis>
  in which to free items */
     </entry>
@@ -1417,7 +1417,7 @@ which</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure defining the
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure defining the
 device and modifications */
     </entry>
 </row>
@@ -1609,19 +1609,19 @@ dpy</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure defining the
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure defining the
 device and modifications */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            first_button;            /* number of first button to
+unsigned int            <emphasis>first_button</emphasis>;            /* number of first button to
 update, 0 relative */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            num_buttons;            /* number of buttons to update
+unsigned int            <emphasis>num_buttons</emphasis>;            /* number of buttons to update
 */
     </entry>
 </row>
@@ -1957,7 +1957,7 @@ dpy</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-XkbDeviceInfoPtr            device_info;            /* structure to update with
+XkbDeviceInfoPtr            <emphasis>device_info</emphasis>;            /* structure to update with
 results */
     </entry>
   </row>

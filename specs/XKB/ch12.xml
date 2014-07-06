@@ -252,22 +252,22 @@ dpy, kc, group, level</emphasis>
   </row>
   <row>
     <entry role='functionargdecl'>
-Display *            dpy;            /* connection to X server */
+Display *            <emphasis>dpy</emphasis>;            /* connection to X server */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-KeyCode            kc;            /* key of interest */
+KeyCode            <emphasis>kc</emphasis>;            /* key of interest */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            group;            /* group of interest */
+unsigned int            <emphasis>group</emphasis>;            /* group of interest */
     </entry>
   </row>
   <row>
     <entry role='functionargdecl'>
-unsigned int            level;            /* shift level of interest */
+unsigned int            <emphasis>level</emphasis>;            /* shift level of interest */
     </entry>
 </row>
 </tbody>
@@ -307,9 +307,7 @@ XkbKeysymToModifiers</emphasis>
 <tbody>
   <row>
     <entry role='functiondecl'>
-unsigned<emphasis>
- </emphasis>
-int <emphasis>
+unsigned int <emphasis>
 XkbKeysymToModifiers</emphasis>
 (<emphasis>
 dpy</emphasis>

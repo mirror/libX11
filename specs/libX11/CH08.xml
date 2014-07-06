@@ -474,7 +474,7 @@ To copy a single bit plane of a given drawable, use
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
-  <paramdef>unsignedlong<parameter> plane</parameter></paramdef>
+  <paramdef>unsigned long <parameter> plane</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3298,7 +3298,7 @@ To return a given font property, use
   <funcdef>Bool <function>XGetFontProperty</function></funcdef>
   <paramdef>XFontStruct<parameter> *font_struct</parameter></paramdef>
   <paramdef>Atom<parameter> atom</parameter></paramdef>
-  <paramdef>unsignedlong<parameter> *value_return</parameter></paramdef>
+  <paramdef>unsigned long <parameter> *value_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -5581,7 +5581,7 @@ This function specifically supports rudimentary screen dumps.
   <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
+  <paramdef>unsigned long <parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -5769,7 +5769,7 @@ to a location within a preexisting image structure, use
   <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>unsignedlong<parameter> plane_mask</parameter></paramdef>
+  <paramdef>unsigned long <parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
   <paramdef>XImage<parameter> *dest_image</parameter></paramdef>
   <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>

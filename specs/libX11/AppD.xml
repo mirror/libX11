@@ -864,7 +864,7 @@ This function has been superseded by
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen</parameter></paramdef>
   <paramdef>char*position,<parameter> *default_position</parameter></paramdef>
-  <paramdef>unsignedint<parameter> bwidth</parameter></paramdef>
+  <paramdef>unsigned int <parameter> bwidth</parameter></paramdef>
   <paramdef>unsigned int <parameter>fwidth</parameter></paramdef>
   <paramdef>unsigned int <parameter>fheight</parameter></paramdef>
   <paramdef>intxadder,<parameter> yadder</parameter></paramdef>

@@ -895,7 +895,7 @@ To allocate some memory you will never give back, use
 <funcsynopsis id='Xpermalloc'>
 <funcprototype>
   <funcdef>char *<function>Xpermalloc</function></funcdef>
-  <paramdef>unsignedint<parameter> size</parameter></paramdef>
+  <paramdef>unsigned int <parameter> size</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1067,7 +1067,7 @@ To construct a window's geometry information, use
   <paramdef>int<parameter> screen</parameter></paramdef>
   <paramdef>char<parameter> *user_geom</parameter></paramdef>
   <paramdef>char<parameter> *def_geom</parameter></paramdef>
-  <paramdef>unsignedint<parameter> bwidth</parameter></paramdef>
+  <paramdef>unsigned int <parameter> bwidth</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints</parameter></paramdef>
   <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
   <paramdef>int<parameter> *width_return</parameter></paramdef>
@@ -2744,12 +2744,12 @@ structure and initialize it with image format values from a display, use
   <funcdef>XImage *<function>XCreateImage</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Visual<parameter> *visual</parameter></paramdef>
-  <paramdef>unsignedint<parameter> depth</parameter></paramdef>
+  <paramdef>unsigned int <parameter> depth</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
   <paramdef>int<parameter> offset</parameter></paramdef>
   <paramdef>char<parameter> *data</parameter></paramdef>
-  <paramdef>unsignedint<parameter> width</parameter></paramdef>
-  <paramdef>unsignedint<parameter> height</parameter></paramdef>
+  <paramdef>unsigned int <parameter> width</parameter></paramdef>
+  <paramdef>unsigned int <parameter> height</parameter></paramdef>
   <paramdef>int<parameter> bitmap_pad</parameter></paramdef>
   <paramdef>int<parameter> bytes_per_line</parameter></paramdef>
 </funcprototype>
@@ -2989,7 +2989,7 @@ To set a pixel value in an image, use
   <paramdef>XImage<parameter> *ximage</parameter></paramdef>
   <paramdef>int<parameter> x</parameter></paramdef>
   <paramdef>int<parameter> y</parameter></paramdef>
-  <paramdef>unsignedlong<parameter> pixel</parameter></paramdef>
+  <paramdef>unsigned long <parameter> pixel</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3061,8 +3061,8 @@ To create a subimage, use
   <paramdef>XImage<parameter> *ximage</parameter></paramdef>
   <paramdef>int<parameter> x</parameter></paramdef>
   <paramdef>int<parameter> y</parameter></paramdef>
-  <paramdef>unsignedint<parameter> subimage_width</parameter></paramdef>
-  <paramdef>unsignedint<parameter> subimage_height</parameter></paramdef>
+  <paramdef>unsigned int <parameter> subimage_width</parameter></paramdef>
+  <paramdef>unsigned int <parameter> subimage_height</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3666,8 +3666,8 @@ To create a pixmap and then store bitmap-format data into it, use
   <paramdef>char<parameter> *data</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>unsignedlongfg,<parameter> bg</parameter></paramdef>
-  <paramdef>unsignedint<parameter> depth</parameter></paramdef>
+  <paramdef>unsigned long fg,<parameter> bg</parameter></paramdef>
+  <paramdef>unsigned int <parameter> depth</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

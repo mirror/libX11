@@ -10,9 +10,9 @@ when the
 shifted and unshifted state for the numeric keypad keys. The core protocol does
 not provide a convenient way to determine the mapping of modifier bits (in
 particular
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
  through
-<emphasis>Mod5</emphasis>
+<symbol>Mod5</symbol>
 ) to keysyms such as
 <emphasis>Num_Lock</emphasis>
  and
@@ -33,13 +33,13 @@ Xkb provides a set of sixteen named
 <emphasis>virtual modifiers</emphasis>.
 Each virtual modifier can be bound to any set of the real modifiers
 (
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
-<emphasis>Control</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
+<symbol>Control</symbol>,
  and
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
 -
-<emphasis>Mod5</emphasis>
+<symbol>Mod5</symbol>
 ).
 </para>
 
@@ -50,9 +50,9 @@ specify more clearly the intent of a binding. X servers do not all assign
 modifiers the same way — for example,
 <emphasis>Num_Lock</emphasis>
  might be bound to
-<emphasis>Mod2</emphasis>
+<symbol>Mod2</symbol>
  for one vendor and to
-<emphasis>Mod4</emphasis>
+<symbol>Mod4</symbol>
  for another. This makes it cumbersome to automatically remap the keyboard to a
 desired configuration without some kind of prior knowledge about the keyboard
 layout and bindings. With XKB, applications can use virtual modifiers to
@@ -65,7 +65,7 @@ in effect.
 
 <para>
 Virtual modifiers are named by converting their string name to an X
-<emphasis>Atom</emphasis>
+<type>Atom</type>
  and storing the Atom in the
 <emphasis>names.vmods</emphasis>
  array in an
@@ -203,7 +203,7 @@ use virtual modifier mappings (see section 16.4).
 
 <para>
 For example, if
-<emphasis>Mod3</emphasis>
+<symbol>Mod3</symbol>
  is bound to the
 <emphasis>Num_Lock</emphasis>
  key by the core protocol modifier mapping, and the
@@ -211,7 +211,7 @@ For example, if
  virtual modifier is bound to they
 <emphasis>Num_Lock</emphasis>
  key by the virtual modifier mapping,
-<emphasis>Mod3</emphasis>
+<symbol>Mod3</symbol>
  is added to the set of modifiers associated with
 <emphasis>NumLock</emphasis>.
 </para>
@@ -312,9 +312,9 @@ description in
  does not include virtual modifier bindings,
 <function>XkbVirtualModsToReal</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
 ; otherwise, it returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 <note><para>It is possible for a local (client-side) keyboard description (the
@@ -352,7 +352,7 @@ If the
 <emphasis>NumLock</emphasis>
  virtual modifier is not bound to any real modifiers, the effective masks for
 these two cases are identical (that is, contain only
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
 ). When it is essential to distinguish between
 <emphasis>OneThing</emphasis>
  and Another, Xkb considers only those modifier definitions for which all
@@ -393,11 +393,11 @@ bit for the
  virtual modifier. If
 <emphasis>server.vmods</emphasis>
 [2] contains
-<emphasis>Mod3Mask</emphasis>,
+<symbol>Mod3Mask</symbol>,
 then the
 <emphasis>NumLock</emphasis>
  virtual modifier is bound to the
-<emphasis>Mod3</emphasis>
+<symbol>Mod3</symbol>
  real modifier.
 </para>
 
@@ -425,10 +425,10 @@ Continuing the example, if the keyboard has a
 
 <para>
 Finally, if the keyboard also used the real
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
  modifier for numeric lock operations, the modifier definition below would
 represent the situation where either the key bound to
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
  or the
 <emphasis>NumLock</emphasis>
  virtual modifier could be used for this purpose:

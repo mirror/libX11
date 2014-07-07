@@ -167,7 +167,7 @@ typedef struct {
       char *          name;          /* name for device */
       Atom            type;          /* name for class of devices */
       unsigned short  device_spec;   /* device of interest */
-      Bool            has_own_state; /* <emphasis> True</emphasis> =&gt;this
+      Bool            has_own_state; /* <symbol>True</symbol> =&gt;this
                                         device has its own state */
       unsigned short  supported;     /* bits indicating supported capabilities */
       unsigned short  unsupported;   /* bits indicating unsupported capabilities */
@@ -206,11 +206,11 @@ The
 ), it has its own state, and
 <emphasis>has_own_state</emphasis>
  is
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 If
 <emphasis>has_own_state</emphasis>
  is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the state of the core keyboard is used. The
 <emphasis>supported</emphasis>
  and
@@ -654,7 +654,7 @@ XkbGetDeviceButtonActions.
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; get information for all buttons
+        <symbol>True</symbol> =&gt; get information for all buttons
       </para>
     </listitem>
   </varlistentry>
@@ -700,7 +700,7 @@ by the
 and
 <emphasis>unsupported</emphasis>
  fields, and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -712,11 +712,11 @@ and
  specify the device buttons for which actions should be returned. Setting
 <emphasis>all_buttons</emphasis>
  to
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  requests actions for all device buttons; if
 <emphasis>all_buttons</emphasis>
  is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 <emphasis>first_button</emphasis>
  and
 <emphasis>num_buttons</emphasis>
@@ -727,9 +727,9 @@ and
 <para>
 If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized, XkbGetDeviceButtonActions returns
-<emphasis>BadAccess</emphasis>.
+<errorname>BadAccess</errorname>.
 If allocation errors occur, a
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  status is returned. If the specified device (
 <emphasis>device_info</emphasis>
 -&gt;
@@ -839,7 +839,7 @@ by
  as determined by
 <emphasis>which</emphasis>
  with the results and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 Valid values for
 <emphasis>which</emphasis>
  are the inclusive OR of any of
@@ -928,7 +928,7 @@ If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
 <function>XkbGetDeviceLedInfo</function>
  returns
-<emphasis>BadAccess</emphasis>.
+<errorname>BadAccess</errorname>.
 If allocation errors occur, a BadAlloc status is returned. If the device has
 no indicators, a BadMatch error is returned. If
 <emphasis>ledClass</emphasis>
@@ -1241,7 +1241,7 @@ To allocate additional space for button actions in an
 <emphasis>NULL</emphasis>.
 If device_info is invalid or new_total is greater than 255, BadValue is
 returned. If a memory allocation failure occurs, a
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  is returned.
 </para>
 
@@ -1291,7 +1291,7 @@ To free an
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; free everything, including device_info
+        <symbol>True</symbol> =&gt; free everything, including device_info
       </para>
     </listitem>
   </varlistentry>
@@ -1299,7 +1299,7 @@ To free an
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the
 <function>XkbFreeDeviceInfo</function>
  frees all components of
@@ -1309,7 +1309,7 @@ the
  structure pointed to by
 <emphasis>device_info</emphasis>
  itself. If free_all is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the value of which determines which subcomponents are freed.
 <emphasis>which </emphasis>
 is an inclusive OR of one or more of the values from Table 21.1. If which
@@ -1477,11 +1477,11 @@ set in
  (see Table 21.1).
 <function>XkbSetDeviceInfo</function>
  returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was successfully sent to the server. If the X server
 implementation does not allow interaction between the X input extension and the
 Xkb Extension, the function does nothing and returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -1508,7 +1508,7 @@ If the device specified in
  does not contain buttons and a request affecting buttons is made, or the
 device does not contain indicators and a request affecting indicators is made,
 a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  protocol error results.
 </para>
 
@@ -1531,9 +1531,9 @@ s specified in
 If the number of buttons requested to be updated is not valid for the device,
 <function>XkbSetDeviceInfo</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  and a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error results.
 </para>
 
@@ -1579,14 +1579,14 @@ the indicator maps and / or names for all
 <emphasis>led_id</emphasis>
  specify the input extension class and device ID for each indicator device to
 modify; if they have invalid values, a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error results and
 <function>XkbSetDeviceInfo</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 If they have legal values but do not specify a keyboard or indicator class
 feedback for the device in question, a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error results. If any of the values in
 <emphasis>device_info</emphasis>
 -&gt;
@@ -1594,9 +1594,9 @@ feedback for the device in question, a
 <emphasis>-&gt;</emphasis>
 <emphasis>names</emphasis>
  are not a valid Atom or
-<emphasis>None</emphasis>,
+<symbol>None</symbol>,
 a
-<emphasis>BadAtom</emphasis>
+<errorname>BadAtom</errorname>
  protocol error results.
 </para>
 
@@ -1694,7 +1694,7 @@ If the server does not support assignment of Xkb actions to extension device
 buttons,
 <function>XkbSetDeviceButtonActions</function>
  has no effect and returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 If the device has no buttons or if
 <emphasis>first_button</emphasis>
  or
@@ -1704,18 +1704,18 @@ If the device has no buttons or if
 -&gt;
 <emphasis>num_btns</emphasis>,
 the function has no effect and returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbSetDeviceButtonActions</function>
  sends a request to the server to change the actions for the specified buttons
 and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
 <para>
 If the actual request sent to the server involved illegal button numbers, a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error is generated. If an invalid device identifier is specified in
 device_info-&gt;
 <emphasis>device_spec</emphasis>,
@@ -1724,7 +1724,7 @@ a BadKeyboard protocol error results. If the actual device specified in
 -&gt;
 <emphasis>device_spec</emphasis>
  does not contain buttons and a request affecting buttons is made, a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  protocol error is generated.
 </para>
 
@@ -1799,7 +1799,7 @@ The structure for
 typedef struct {
       int      type;           /* Xkb extension base event code */
       unsigned long  serial;   /* X server serial number for event */
-      Bool     send_event;     /* <emphasis>True</emphasis>
+      Bool     send_event;     /* <symbol>True</symbol>
                                   =&gt; synthetically generated*/
       Display *      display;  /* server connection where event generated */
       Time     time;           /* server time when event generated */

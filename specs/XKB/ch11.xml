@@ -36,7 +36,7 @@ Controls affecting event delivery
 
 <para>
 There are two types of string lookups performed by
-<emphasis>XLookupString</emphasis>.
+<function>XLookupString</function>.
 The first type involves translating a single keycode into a string; the
 controls in the first category affect this type of lookup. The second type
 involves translating a series of keysyms into a string; the controls in the
@@ -78,11 +78,11 @@ affecting simple string lookups are:
 If the
 <emphasis>ForceLatin1Lookup</emphasis>
  control is enabled,
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  only returns strings using the Latin1 character set. If
 <emphasis>ForceLatin1Lookup</emphasis>
  is not enabled,
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  can return characters that are not in the Latin1 set. By default, this control
 is disabled, allowing characters outside of the Latin1 set to be returned.
 </para>
@@ -94,7 +94,7 @@ is disabled, allowing characters outside of the Latin1 set to be returned.
 
 <para>
 Simple string lookups in
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  involve two different translation phases. The first phase translates raw
 device keycodes to individual keysyms. The second phase attempts to map the
 resulting keysym into a string of one or more characters. In the first phase,
@@ -107,12 +107,12 @@ level for a key.
 The
 <emphasis>ConsumeLookupMods</emphasis>
  control determines whether or not
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
 <emphasis>consumes</emphasis>
  the modifiers it uses during the first phase of processing (mapping a keycode
 to a keysym). When a modifier is consumed, it is effectively removed from the
 working copy of the keyboard state information
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  is using and appears to be unset for the remainder of the processing.
 </para>
 
@@ -121,21 +121,21 @@ working copy of the keyboard state information
 If the
 <emphasis>ConsumeLookupMods</emphasis>
  control is enabled,
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  does not use the modifiers used to translate the keycode of the event to a
 keysym when it is determining the string associated with a keysym. For example,
 assume the keymap for the ‘A’ key only contains the shift modifier and the
 <emphasis>ConsumeLookupMods</emphasis>
  control is enabled. If a user presses the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key and the
 <emphasis>A</emphasis>
  key while the
 <emphasis>Num_Lock</emphasis>
  key is locked,
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  uses the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier when mapping the keycode for the ‘a’ key to the keysym for
 ‘A’; subsequently, it only uses the
 <emphasis>NumLock</emphasis>
@@ -147,10 +147,10 @@ assume the keymap for the ‘A’ key only contains the shift modifier and the
 If the
 <emphasis>ConsumeLookupMods</emphasis>
  control is not enabled,
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  uses all of the event modifiers to determine the string associated with a
 keysym. This behavior mirrors the behavior of
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  in the core implementation.
 </para>
 
@@ -171,11 +171,11 @@ refer to Chapter 12.
 The
 <emphasis>AlwaysConsumeShiftAndLock</emphasis>
  control, if enabled, forces
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  to consume the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifiers when processing all keys, even if the definition for the key type
 does not specify these modifiers. The
 <emphasis>AlwaysConsumeShiftAndLock</emphasis>
@@ -190,10 +190,10 @@ does not specify these modifiers. The
 
 <para>
 The second type of string lookup performed by
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  involves translating a series of keysyms into a string. Because these lookups
 can involve more than one key event, they require
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  to retain some state information between successive calls. The process of
 mapping a series of keysyms to a string is known as
 <emphasis>compose processing</emphasis>.
@@ -229,7 +229,7 @@ translation, some decision must be made about what to do with the key events
 that were processed while attempting the compose. The
 <emphasis>ConsumeKeysOnComposeFail</emphasis>
  control allows a client to specify what happens with the key events
-<emphasis>XLookupString</emphasis>
+<function>XLookupString</function>
  has been considering when it reaches a dead end in a compose sequence.
 </para>
 
@@ -331,7 +331,7 @@ When Xkb is initialized, it implicitly forces requests for
 <emphasis>NewKeyboardNotify</emphasis>
  events. These events may be used by the Xkb library extension internally; they
 are normally translated into core protocol
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events before being passed to the client. While delivering the event to the
 client is appropriate in most cases, it is not appropriate for some clients
 that maintain per-key data structures. This is because once the server has sent
@@ -349,7 +349,7 @@ The
  control, if enabled, prevents Xkb from mapping
 <emphasis>NewKeyboardNotify</emphasis>
  events to core
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events and passing them to the client. The control is initially disabled.
 </para>
 

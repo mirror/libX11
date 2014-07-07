@@ -11,9 +11,9 @@ cumbersome in the core X protocol.
 
 <para>
 The core X protocol specifies the ways that the
-<emphasis>Shift</emphasis>,
-<emphasis>Control</emphasis>, and
-<emphasis>Lock</emphasis>
+<symbol>Shift</symbol>,
+<symbol>Control</symbol>, and
+<symbol>Lock</symbol>
 modifiers and the modifiers bound to the
 <emphasis>Mode_switch</emphasis> or
 <emphasis>Num_Lock</emphasis>
@@ -353,9 +353,9 @@ extension has been properly initialized prior to doing any other operations. If
 the extension has not been properly initialized or the application, library,
 and server versions are incompatible, these functions return an error
 indication as shown in Table 1.1. Because of this test,
-<emphasis>BadAccess</emphasis>
+<errorname>BadAccess</errorname>
  and
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  (due to incompatible versions) protocol errors should normally not be
 generated.
 </para>

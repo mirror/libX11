@@ -198,9 +198,9 @@ undefined.
 Normally, the Xkb-aware server reports keyboard state in the
 <emphasis>state</emphasis>
  member of events such as a
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  event and
-<emphasis>ButtonPress</emphasis>
+<symbol>ButtonPress</symbol>
  event, encoded as follows:
 </para>
 
@@ -309,7 +309,7 @@ For each changed key, assign the symbols in the core map to the appropriate
 group on the key. If the total number of symbols required by the Xkb map for a
 particular key needs more symbols than the core protocol map contains, the
 additional symbols are taken to be
-<emphasis>NoSymbol</emphasis>
+<symbol>NoSymbol</symbol>
  keysyms appended to the end of the core set. If the core map contains more
 symbols than are needed by the Xkb map, trailing symbols in the core map are
 discarded. In the absence of an explicit override for group one or two, symbols
@@ -871,12 +871,12 @@ Unless you have specifically modified this field, it is the default keyboard
 device.
 <function>XkbGetCompatMap</function>
  returns
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if successful,
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  if it is unable to obtain necessary storage for either the return values or
 work space,
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  if the
 <emphasis>dpy</emphasis>
  field of the
@@ -886,7 +886,7 @@ work space,
  and does not match the
 <emphasis>display</emphasis>
  argument, and
-<emphasis>BadLength</emphasis>
+<errorname>BadLength</errorname>
  under certain conditions caused by server or Xkb implementation errors.
 </para>
 
@@ -900,7 +900,7 @@ Xkb provides several functions that make it easier to apply the compatibility
 map to configure a client-side Xkb keyboard mapping, given a core protocol
 representation of part or all of a keyboard mapping. Obtain a core protocol
 representation of a keyboard mapping from an actual server (by using
-<emphasis>XGetKeyboardMapping</emphasis>,
+<function>XGetKeyboardMapping</function>,
 for example), a data file, or some other source.
 </para>
 
@@ -1009,14 +1009,14 @@ keys with keycodes in the range
  - 1. If
 <function>XkbUpdateMapFromCore</function>
  is being called in response to a
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
 
 event<emphasis>,
 first_key</emphasis>
  and
 <emphasis>num_keys</emphasis>
  are reported in the
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  event.
 <emphasis>core_keysyms</emphasis>
  contains the keysyms corresponding to the keycode range being updated, in core
@@ -1346,7 +1346,7 @@ the vector of
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; apply to server’s keyboard map
+        <symbol>True</symbol> =&gt; apply to server’s keyboard map
       </para>
     </listitem>
   </varlistentry>
@@ -1374,13 +1374,13 @@ of the bits shown in Table 17.2.
 After updating its compatibility map for the specified device, if
 <emphasis>update_actions</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
  the server applies the new compatibility map to its entire keyboard for the
 device to generate a new set of key semantics, compatibility state, and a new
 core keyboard map. If
 <emphasis>update_actions</emphasis>
  is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the new compatibility map is not used to generate any modifications to the
 current device semantics, state, or core keyboard map. One reason for not
 applying the compatibility map immediately would be if one server was being
@@ -1392,16 +1392,16 @@ until everything is updated. To force an update at a later time, use
  as zero and
 <emphasis>update_actions</emphasis>
  as
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
 <para>
 <function>XkbSetCompatMap</function>
  returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if unsuccessful. The server may report problems it encounters when processing
 the request subsequently via protocol errors.
 </para>
@@ -1456,7 +1456,7 @@ use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis>=&gt;apply compatibility map to keys
+        <symbol>True</symbol>=&gt;apply compatibility map to keys
       </para>
     </listitem>
   </varlistentry>
@@ -1481,7 +1481,7 @@ use
 If
 <emphasis>updateMap</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 it (re)applies the compatibility map to all of the keys on the keyboard. If
 <emphasis>changes</emphasis>
  is non-
@@ -1489,7 +1489,7 @@ it (re)applies the compatibility map to all of the keys on the keyboard. If
 it reports the parts of the keyboard that were affected (unless
 <emphasis>updateMap</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 not much changes).
 <function>XkbAddSymInterpret</function>
  returns a pointer to the actual new symbol interpretation in the list or
@@ -1504,18 +1504,18 @@ not much changes).
 
 <para>
 The server automatically generates
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events when the keyboard mapping changes. If you wish to be notified of
 changes to the compatibility map, you should select for
 <emphasis>XkbCompatMapNotify</emphasis>
  events. If you select for
 <emphasis>XkbMapNotify</emphasis>
  events, you no longer receive the automatically generated
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events. If you subsequently deselect
 <emphasis>XkbMapNotifyEvent</emphasis>
  delivery, you again receive
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events.
 </para>
 
@@ -1567,7 +1567,7 @@ The structure for the
 typedef struct {
       int            type;          /* Xkb extension base event code */
       unsigned long  serial;        /* X server serial number for event */
-      Bool           send_event;    /* <emphasis>True</emphasis> =&gt;
+      Bool           send_event;    /* <symbol>True</symbol> =&gt;
                                        synthetically generated */
       Display *      display;       /* server connection where event generated */
       Time           time;          /* server time when event generated */
@@ -1726,15 +1726,15 @@ added, use
 <para>
 <function>XkbAllocCompatMap</function>
  returns
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if successful,
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  if
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
 or
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  if errors are encountered when attempting to allocate storage.
 </para>
 
@@ -1785,7 +1785,7 @@ To free an entire compatibility map or selected portions of one, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; free <emphasis>XkbCompatMap</emphasis>
+        <symbol>True</symbol> =&gt; free <emphasis>XkbCompatMap</emphasis>
          structure itself
       </para>
     </listitem>
@@ -1809,7 +1809,7 @@ in section 17.2).
  structure itself should be freed. If
 <emphasis>free_map</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 <emphasis>which</emphasis>
  is ignored, all non-
 <emphasis>NULL</emphasis>

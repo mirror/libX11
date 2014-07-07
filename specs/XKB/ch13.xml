@@ -854,8 +854,8 @@ typedef struct _XkbRow {             /* row in a section */
       short               left;      /* left coordinate of row origin, relative to section’s origin */
       unsigned short      num_keys;  /* number of keys in the keys array */
       unsigned short      sz_keys;   /* size of the keys array */
-      int                 vertical;  /* <emphasis>True</emphasis> =&gt;vertical row,
-                                        <emphasis> False</emphasis> =&gt;horizontal row */
+      int                 vertical;  /* <symbol>True</symbol> =&gt;vertical row,
+                                        <symbol>False</symbol> =&gt;horizontal row */
       XkbKeyPtr           keys;      /* array of keys in the row*/
       XkbBoundsRec        bounds;    /* bounding box for the row */
 } <emphasis>XkbRowRec</emphasis>, *XkbRowPtr;
@@ -1119,14 +1119,14 @@ To load a keyboard geometry if you already have the keyboard description, use
 <para>
 <function>XkbGetGeometry</function>
  can return
-<emphasis>BadValue</emphasis>,
-<emphasis>BadImplementation</emphasis>,
-<emphasis>BadName</emphasis>,
-<emphasis>BadAlloc</emphasis>,
+<errorname>BadValue</errorname>,
+<errorname>BadImplementation</errorname>,
+<errorname>BadName</errorname>,
+<errorname>BadAlloc</errorname>,
  or
-<emphasis>BadLength</emphasis>
+<errorname>BadLength</errorname>
  errors or
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if it succeeds.
 </para>
 
@@ -1188,7 +1188,7 @@ description from this database by name, use
 <para>
 <function>XkbGetNamedGeometry</function>
  can return
-<emphasis>BadName</emphasis>
+<errorname>BadName</errorname>
  if the
 <emphasis>name</emphasis>
  cannot be found.
@@ -1284,13 +1284,13 @@ the top surface is defined as the last outline in the
 ’s array of outlines.
 <function>XkbComputeShapeTop</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if
 <emphasis>shape</emphasis>
  is
 <emphasis>NULL</emphasis>
  or if there are no outlines for the shape; otherwise, it returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
@@ -1341,13 +1341,13 @@ shape, use <function>XkbComputeShapeBounds</function>.
 those outlines.
 <function>XkbComputeShapeBounds</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if
 <emphasis>shape</emphasis>
  is
 <emphasis>NULL</emphasis>
  or if there are no outlines for the shape; otherwise, it returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 <para>
@@ -1411,11 +1411,11 @@ To update the bounding box of a row, use <function>XkbComputeRowBounds</function
 and updates the bounding box of the row if necessary.
 <function>XkbComputeRowBounds</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if any of the arguments is
 <emphasis>NULL</emphasis>
 ; otherwise, it returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 <para>
@@ -1468,11 +1468,11 @@ that section. To update the bounding box of a section, use
  and updates the bounding box of that section so that it contains all rows.
 <function>XkbComputeSectionBounds</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if any of the arguments is
 <emphasis>NULL</emphasis>
 ; otherwise, it returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 <para>
@@ -2453,11 +2453,11 @@ functions increase
 <emphasis>num_</emphasis>
 <emphasis>*</emphasis>
  to zero). These functions return
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if they succeed,
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  if they are not able to allocate space, or
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  if a parameter is not as expected.
 </para>
 
@@ -2573,7 +2573,7 @@ To free geometry outlines, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all outlines are freed
+        <symbol>True</symbol> =&gt; all outlines are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2581,7 +2581,7 @@ To free geometry outlines, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all outlines are freed regardless of the value of first or count. Otherwise,
 count outlines are freed beginning with the one specified by first.
 </para>
@@ -2696,7 +2696,7 @@ To free geometry keys, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all keys are freed
+        <symbol>True</symbol> =&gt; all keys are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2704,7 +2704,7 @@ To free geometry keys, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all keys are freed regardless of the value of first or count. Otherwise,
 count keys are freed beginning with the one specified by first.
 </para>
@@ -2825,7 +2825,7 @@ To free geometry properties, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all properties are freed
+        <symbol>True</symbol> =&gt; all properties are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2833,7 +2833,7 @@ To free geometry properties, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all properties are freed regardless of the value of first or count.
 Otherwise, count properties are freed beginning with the one specified by first.
 </para>
@@ -2951,7 +2951,7 @@ To free geometry key aliases, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all key aliases are freed
+        <symbol>True</symbol> =&gt; all key aliases are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2959,7 +2959,7 @@ To free geometry key aliases, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all aliases in the top level of the specified geometry
 <emphasis>geom</emphasis>
  are freed regardless of the value of first or count. Otherwise, count aliases
@@ -3081,7 +3081,7 @@ To free geometry colors, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all colors are freed
+        <symbol>True</symbol> =&gt; all colors are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3089,7 +3089,7 @@ To free geometry colors, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all colors are freed regardless of the value of first or count. Otherwise,
 count colors are freed beginning with the one specified by first.
 </para>
@@ -3207,7 +3207,7 @@ To free points in a outline, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all points are freed
+        <symbol>True</symbol> =&gt; all points are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3215,7 +3215,7 @@ To free points in a outline, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all points are freed regardless of the value of first and count. Otherwise,
 the number of points specified by count are freed, beginning with the point
 specified by first in the specified outline.
@@ -3334,7 +3334,7 @@ To free geometry shapes, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all shapes are freed
+        <symbol>True</symbol> =&gt; all shapes are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3342,7 +3342,7 @@ To free geometry shapes, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all shapes in the geometry are freed regardless of the values of first and
 count. Otherwise, count shapes are freed, beginning with the shape specified by
 first.
@@ -3458,7 +3458,7 @@ To free geometry sections, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all sections are freed
+        <symbol>True</symbol> =&gt; all sections are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3466,7 +3466,7 @@ To free geometry sections, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all sections are freed regardless of the value of first and count. Otherwise,
 the number of sections specified by count are freed, beginning with the section
 specified by first in the specified geometry.
@@ -3582,7 +3582,7 @@ To free rows in a section, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all rows are freed
+        <symbol>True</symbol> =&gt; all rows are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3590,7 +3590,7 @@ To free rows in a section, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all rows are freed regardless of the value of first and count. Otherwise, the
 number of rows specified by count are freed, beginning with the row specified
 by first in the specified section.
@@ -3706,7 +3706,7 @@ To free rows in an section, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all overlays are freed
+        <symbol>True</symbol> =&gt; all overlays are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3714,7 +3714,7 @@ To free rows in an section, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all overlays are freed regardless of the value of first and count. Otherwise,
 the number of overlays specified by count are freed, beginning with the overlay
 specified by first in the specified section.
@@ -3830,7 +3830,7 @@ To free rows in an overlay, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all rows are freed
+        <symbol>True</symbol> =&gt; all rows are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3838,7 +3838,7 @@ To free rows in an overlay, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all rows are freed regardless of the value of first and count. Otherwise, the
 number of rows specified by count are freed, beginning with the row specified
 by first in the specified overlay.
@@ -3954,7 +3954,7 @@ To free keys in an overlay row, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all keys are freed
+        <symbol>True</symbol> =&gt; all keys are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3962,7 +3962,7 @@ To free keys in an overlay row, use
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all keys are freed regardless of the value of first and count. Otherwise, the
 number of keys specified by count are freed, beginning with the key specified
 by first in the specified row.
@@ -4117,7 +4117,7 @@ To free geometry doodads, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; all doodads are freed
+        <symbol>True</symbol> =&gt; all doodads are freed
       </para>
     </listitem>
   </varlistentry>
@@ -4127,7 +4127,7 @@ To free geometry doodads, use
 If
 <emphasis>free_all</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 all doodads in the array are freed, regardless of the value of count.
 Otherwise, count doodads are freed.
 </para>
@@ -4234,7 +4234,7 @@ To free an entire geometry, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; the entire geometry is freed.
+        <symbol>True</symbol> =&gt; the entire geometry is freed.
       </para>
     </listitem>
   </varlistentry>
@@ -4256,7 +4256,7 @@ is freed. The valid values for which are:
 
 <para>
 If free_all is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the entire geometry is freed regardless of the value of which. Otherwise, the
 portions of the geometry specified by which are freed.
 </para>

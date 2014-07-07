@@ -281,7 +281,7 @@ described in the
 typedef struct {
       int                type;        /* Xkb extension base event code */
       unsigned long      serial;      /* X server serial number for event */
-      Bool               send_event;  /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool               send_event;  /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *          display;     /* server connection where event
 generated */
       Time               time;        /* server time when event generated */
@@ -473,13 +473,13 @@ If a bit is not set in the
  parameter, but the corresponding bit is set in the
 <emphasis>values_for_bits</emphasis>
  parameter, a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  protocol error results. If an undefined bit is set in either the
 <emphasis>bits_to_change</emphasis>
  or the
 <emphasis>values_for_bits</emphasis>
  parameter, a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error results.
 </para>
 
@@ -495,9 +495,9 @@ clear them via another call to
 <para>
 <function>XkbSelectEvents</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if the Xkb extension has not been initilialized and
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  otherwise.
 </para>
 
@@ -617,19 +617,19 @@ the detail in the
 
 <para>
 If an invalid event type is specified, a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error results. If a bit is not set in the
 <emphasis>bits_to_change</emphasis>
  parameter, but the corresponding bit is set in the
 <emphasis>values_for_bits</emphasis>
  parameter, a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  protocol error results. If an undefined bit is set in either the
 <emphasis>bits_to_change</emphasis>
  or the
 <emphasis>values_for_bits</emphasis>
  parameter, a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error results.
 </para>
 
@@ -781,7 +781,7 @@ The
 <emphasis>XkbEvent</emphasis>
  structure is a union of the individual structures declared for each Xkb event
 type and for the core protocol
-<emphasis>XEvent</emphasis>
+<structname>XEvent</structname>
  type. Given an
 <emphasis>XkbEvent</emphasis>
  structure, you may use the
@@ -817,7 +817,7 @@ typedef union _XkbEvent {
 
 <para>
 This unified Xkb event type includes a normal
-<emphasis>XEvent</emphasis>
+<structname>XEvent</structname>
  as used by the core protocol, so it is straightforward for applications that
 use Xkb events to call the X library event functions without having to cast
 every reference. For example, to get the next event, you can simply declare a

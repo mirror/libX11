@@ -18,7 +18,7 @@ Furthermore, the core X implementation does not provide clients with the
 ability to determine what bits in the
 <emphasis>led_mask</emphasis>
  field of the
-<emphasis>XKeyboardState</emphasis>
+<structname>XKeyboardState</structname>
  map to the particular LEDs on the keyboard. For example, X does not provide a
 method for a client to determine what bit to set in the
 <emphasis>led_mask</emphasis>
@@ -179,7 +179,7 @@ The effect (if any) of attempts to explicitly change the state of the indicator
 using the functions
 <function>XkbSetControls</function>
  or
-<emphasis>XChangeKeyboardControl</emphasis>
+<function>XChangeKeyboardControl</function>
 
   </para>
 </listitem>
@@ -910,12 +910,12 @@ set in
 If a compatible version of the Xkb extension is not available in the server,
 <function>XkbGetIndicatorState</function>
  returns a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error. Otherwise, it sends the request to the X server, places the state of
 the indicators into
 <emphasis>state_return</emphasis>,
  and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 Thus the value reported by
 <function>XkbGetIndicatorState</function>
  is identical to the value reported by the core protocol.
@@ -1000,11 +1000,11 @@ If the
 <para>
 <function>XkbGetIndicatorMap</function>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadLength</emphasis>,
-<emphasis>BadMatch</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadLength</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors.
 </para>
 
@@ -1130,7 +1130,7 @@ Use
     </term>
     <listitem>
       <para>
-        backfilled with <emphasis>True</emphasis>
+        backfilled with <symbol>True</symbol>
          if the named indicator is real (physical)
       </para>
     </listitem>
@@ -1144,12 +1144,12 @@ If the device specified by
 <emphasis>name</emphasis>,
 <function>XkbGetNamedIndicator</function>
  returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  and populates the rest of the parameters with information about the indicator.
 Otherwise,
 <function>XkbGetNamedIndicator</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -1163,16 +1163,16 @@ bits, as well as the indicator’s index into the
  array of indicator maps.
 <emphasis>state_rtrn</emphasis>
  returns the current state of the named indicator (
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  = on,
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  = off).
 <emphasis>map_rtrn</emphasis>
  returns the indicator map for the named indicator. In addition, if the
 indicator is mapped to a physical LED, the
 <emphasis>real_rtrn</emphasis>
  parameter is set to
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
@@ -1190,9 +1190,9 @@ Each of the "
 <para>
 <function>XkbGetNamedIndicator</function>
  can generate
-<emphasis>BadAtom</emphasis>
+<errorname>BadAtom</errorname>
  and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors.
 </para>
 
@@ -1303,10 +1303,10 @@ does not extinguish an indicator with
  and
 <emphasis>mods</emphasis>
  of
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  if, at the time Xkb processes the request to extinguish the indicator, one of
 the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  keys is physically depressed.
 </para>
 
@@ -1525,12 +1525,12 @@ Set the indicator map for the indicator
 If a compatible version of the Xkb extension is not available in the server,
 <function>XkbSetNamedIndicator</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise, it sends a request to the X server to change the indicator
 specified by
 <emphasis>name</emphasis>
  and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
@@ -1538,7 +1538,7 @@ specified by
 If
 <emphasis>change_state</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 and the optional parameter,
 <emphasis>state</emphasis>,
 is not
@@ -1558,7 +1558,7 @@ If an indicator with the name specified by
  parameter tells the server whether it should create a new named indicator. If
 <emphasis>create_new</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the server finds the first indicator that doesn’t have a name and gives it
 the name specified by
 <emphasis>name</emphasis>.
@@ -1578,9 +1578,9 @@ in <emphasis>map</emphasis>.
 <para>
 <function>XkbSetNamedIndicator</function>
  can generate
-<emphasis>BadAtom</emphasis>
+<errorname>BadAtom</errorname>
  and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
  (see section 8.5), <emphasis> <!-- xref -->
@@ -1709,9 +1709,9 @@ If any bits are set in the
 <para>
 <emphasis>XkbChangeIndicator</emphasis>
 s can generate
-<emphasis>BadAtom</emphasis>
+<errorname>BadAtom</errorname>
  and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
  and
@@ -1781,7 +1781,7 @@ Both types of indicator events use the same structure:
 typedef struct _XkbIndicatorNotify {
       int            type;        /* Xkb extension base event code */
       unsigned long  serial;      /* X server serial number for event */
-      Bool           send_event;  /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool           send_event;  /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;     /* server connection where event generated */
       Time           time;        /* server time when event generated */
       int            xkb_type;    /* specifies state or map notify */
@@ -1997,10 +1997,10 @@ If the
 <para>
 <function>XkbGetIndicatorChanges</function>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadImplementation</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadImplementation</errorname>,
  and
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  errors.
 </para>
 
@@ -2047,13 +2047,13 @@ The
  parameter must point to a valid keyboard description. If it doesn’t,
 <function>XkbAllocIndicatorMaps</function>
  returns a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error. Otherwise,
 <function>XkbAllocIndicatorMaps</function>
  allocates and initializes the
 <emphasis>indicators</emphasis>
  member of the keyboard description record and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 If
 <function>XkbAllocIndicatorMaps</function>
  was unable to allocate the indicators record, it reports a Bad

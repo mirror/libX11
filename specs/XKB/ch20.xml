@@ -623,7 +623,7 @@ one, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; load into <parameter>device_spec</parameter>
+        <symbol>True</symbol> =&gt; load into <parameter>device_spec</parameter>
       </para>
     </listitem>
   </varlistentry>
@@ -811,7 +811,7 @@ If a required component has not been specified in the
 In addition, if
 <emphasis>load</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the server modifies
 <emphasis>names</emphasis>
  if necessary (again using a "
@@ -927,11 +927,11 @@ these components,
 If
 <emphasis>load</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the server updates its keyboard description for
 <emphasis>device_spec</emphasis>
  to match the result of the keyboard description just built. If load is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the server’s description for device
 <emphasis>device_spec</emphasis>
  is not updated. In all cases, the parts specified by
@@ -1088,7 +1088,7 @@ is synchronous; it sends the request to the server to build a new keyboard
 description and waits for the reply. If successful, the return value is
 non-<emphasis>NULL</emphasis>.
 <function>XkbGetKeyboardByName</function>
-generates a <emphasis>BadMatch</emphasis>
+generates a <errorname>BadMatch</errorname>
 protocol error if errors are encountered when building the keyboard
 description.
 </para>
@@ -1167,7 +1167,7 @@ keyboard device. It calls
 <emphasis>NULL</emphasis>,
 <emphasis>which</emphasis>,
 <emphasis>which</emphasis>,
-<emphasis>False</emphasis>
+<symbol>False</symbol>
 ).
 </para>
 

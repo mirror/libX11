@@ -267,7 +267,7 @@ The valid masks for
 <para>
 <function>XkbGetKeyboard</function>
  can generate
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  protocol errors.
 </para>
 
@@ -378,7 +378,7 @@ To destroy either an entire an
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; free all components and <parameter>xkb</parameter>
+        <symbol>True</symbol> =&gt; free all components and <parameter>xkb</parameter>
       </para>
     </listitem>
   </varlistentry>
@@ -395,7 +395,7 @@ To destroy either an entire an
 If
 <emphasis>free_all</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 <function>XkbFreeKeyboard</function>
  frees every non-
 <emphasis>NULL</emphasis>

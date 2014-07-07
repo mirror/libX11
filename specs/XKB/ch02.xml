@@ -61,11 +61,11 @@ The name of the Xkb extension is given in
 
 <para>
 Most extensions to the X protocol are initialized by calling
-<emphasis>XInitExtension</emphasis>
+<function>XInitExtension</function>
  and passing the extension name. However, as explained in section 2.4, Xkb
 requires a more complex initialization sequence, and a client program should
 not call
-<emphasis>XInitExtension</emphasis>
+<function>XInitExtension</function>
  directly.
 </para>
 </sect1>
@@ -147,9 +147,9 @@ run time in
 If the versions of the compile time and run time libraries are compatible,
 <function>XkbLibraryVersion</function>
 returns
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 otherwise, it returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 <para>
@@ -169,9 +169,9 @@ Call
  to check for the presence and compatibility of the extension in the server and
 to initialize the extension. Because of potential version mismatches, you
 cannot use the generic extension mechanism functions (
-<emphasis>XQueryExtension </emphasis>
+<function>XQueryExtension</function>
 and
-<emphasis>XInitExtension</emphasis>
+<function>XInitExtension</function>
 ) for checking for the presence of, and initializing the Xkb extension.
 </para>
 
@@ -188,7 +188,7 @@ and a handful of audible-bell functions. You should not use any other Xkb
 functions if the extension is not present or is uninitialized. In general,
 calls to Xkb library functions made prior to initializing the Xkb extension
 cause
-<emphasis>BadAccess</emphasis>
+<errorname>BadAccess</errorname>
  protocol errors.
 </para>
 
@@ -284,9 +284,9 @@ The
 is present in the server. If a compatible extension is present,
 <function>XkbQueryExtension</function>
  returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
 ; otherwise, it returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 <para>
@@ -430,7 +430,7 @@ returns
 If the library is compatible,
 <function>XkbOpenDisplay</function>
 next calls
-<emphasis>XOpenDisplay</emphasis>
+<function>XOpenDisplay</function>
  with the
 <emphasis>display_name</emphasis>.
 If this fails, the function returns
@@ -464,7 +464,7 @@ The possible values for
  indicates
 <function>XkbLibraryVersion</function>
 returned
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
   </para>
 </listitem>
 <listitem>
@@ -533,7 +533,7 @@ disable use of the extension once a connection is established.
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> means ignore the extension
+        <symbol>True</symbol> means ignore the extension
       </para>
     </listitem>
   </varlistentry>
@@ -543,18 +543,18 @@ disable use of the extension once a connection is established.
 <function>XkbIgnoreExtension</function>
  tells the X library whether to use the X Keyboard Extension on any
 subsequently opened X display connections. If ignore is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the library does not initialize the Xkb extension when it opens a new
 display. This forces the X server to use compatibility mode and communicate
 with the client using only core protocol requests and events. If ignore is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the library treats subsequent calls to
-<emphasis>XOpenDisplay</emphasis>
+<function>XOpenDisplay</function>
  normally and uses Xkb extension requests, events, and state. Do not explicitly
 use Xkb on a connection for which it is disabled.
 <function>XkbIgnoreExtension</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if it was unable to apply the ignore request.
 </para>
 
@@ -644,7 +644,7 @@ An argument is out of range
     <entry>
 <para>
 A name is neither a valid Atom or
-<emphasis>None</emphasis>
+<symbol>None</symbol>
 </para>
     </entry>
   </row>
@@ -670,7 +670,7 @@ to the core protocol error set. This error code will be reported as the
  is called. When a
 <emphasis>BadKeyboard</emphasis>
  error is reported in an
-<emphasis>XErrorEvent</emphasis>,
+<structname>XErrorEvent</structname>,
 additional information is reported in the
 <emphasis>resource_id</emphasis>
  field. The most significant byte of the
@@ -755,9 +755,9 @@ If they don’t match or the
  field is not
 <emphasis>NULL</emphasis>,
 a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error is returned (either in the return value or a backfilled
-<emphasis>Status</emphasis>
+<type>Status</type>
  variable). Upon successful return, the
 <emphasis>dpy</emphasis>
  field of the
@@ -811,9 +811,9 @@ and if the function returns successfully, the
  field of the
 <emphasis>XkbDescPtr</emphasis>
  argument. If they don’t match, a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error is returned (either in the return value or a backfilled
-<emphasis>Status</emphasis>
+<type>Status</type>
  variable).
 </para>
 

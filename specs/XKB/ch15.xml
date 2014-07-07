@@ -93,7 +93,7 @@ typedef struct {                       /* Key Type */
 
 <para><programlisting>
 typedef struct {                   /* Modifiers for a key type */
-      Bool            active;      /* <emphasis> True</emphasis> =&gt; entry
+      Bool            active;      /* <symbol>True</symbol> =&gt; entry
                                       active when determining shift level */
       unsigned char   level;       /* shift level if modifiers match <emphasis> mods</emphasis> */
       XkbModsRec      mods;        /* mods needed for this level to be
@@ -161,13 +161,13 @@ Each map entry contains an
  field should be considered when determining shift level. If
 <emphasis>active</emphasis>
  is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 this
 <emphasis>map</emphasis>
  entry is ignored. If
 <emphasis>active</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the
 <emphasis>level</emphasis>
  field of the
@@ -319,8 +319,8 @@ The
 <emphasis>name</emphasis>
  of the example key type is "ALPHATHREE," and the modifiers it pays attention
 to are
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
 and the virtual modifier
 <emphasis>LevelThree</emphasis>.
 There are three shift levels. The name of shift level one is "Base," the name
@@ -337,14 +337,14 @@ Given the combination of the
 <emphasis>map</emphasis>
  entries. The first map entry specifies that shift level one is to be used if
 no modifiers are set. The second entry specifies the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier alone also yields shift level one. The third entry specifies the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier alone yields shift level two. The fourth and fifth entries specify
 that the virtual
 <emphasis>LevelThree</emphasis>
  modifier alone, or in combination with the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier, yields shift level three.
 </para>
 
@@ -358,7 +358,7 @@ that the virtual
 
 <para>
 Because the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier is to be preserved for further event processing, the
 <emphasis>preserve</emphasis>
  list is not
@@ -370,20 +370,20 @@ Because the
  entries, except for the one corresponding to the
 <emphasis>map</emphasis>
  entry that specifies the
-<emphasis>Lock </emphasis>
+<symbol>Lock</symbol>
 modifier, do not list any modifiers. For the
 <emphasis>map</emphasis>
  entry that specifies the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier, the corresponding
 <emphasis>preserve</emphasis>
  list entry lists the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier, meaning do not consume the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier. In this particular case, the preserved modifier is passed to Xlib
 translation functions and causes them to notice that the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier is set; consequently, the Xlib functions apply the appropriate
 capitalization rules to the symbol. Because this preserve entry is set only for
 a modifier that yields shift level one, the capitalization occurs only for
@@ -451,9 +451,9 @@ The description of the ONE_LEVEL key type is stored in the
 The TWO_LEVEL key type describes groups that consist of two symbols but are
 neither alphabetic nor numeric keypad keys. The default TWO_LEVEL type uses
 only the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier. It returns shift level two if
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  is set, and level one if it is not. A symbolic representation of this key type
 could look like the following:
 </para>
@@ -485,9 +485,9 @@ The ALPHABETIC key type describes groups consisting of two symbols: the
 lowercase form of a symbol followed by the uppercase form of the same symbol.
 The default ALPHABETIC type implements locale-sensitive "Shift cancels
 CapsLock" behavior using both the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifiers as follows:
 </para>
 
@@ -495,25 +495,25 @@ CapsLock" behavior using both the
 <listitem>
   <para>
 If
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  are both set, the default ALPHABETIC type yields level one.
   </para>
 </listitem>
 <listitem>
   <para>
 If
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  alone is set, it yields level two.
   </para>
 </listitem>
 <listitem>
   <para>
 If
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  alone is set, it yields level one, but preserves the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier so Xlib notices and applies the appropriate capitalization rules. The
 Xlib functions are locale-sensitive and apply different capitalization rules
 for different locales.
@@ -522,9 +522,9 @@ for different locales.
 <listitem>
   <para>
 If neither
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  nor
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  is set, it yields level one.
   </para>
 </listitem>
@@ -571,7 +571,7 @@ virtual modifier named "NumLock," known as the
 <listitem>
   <para>
 If
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
 <emphasis>NumLock</emphasis>
  are both set, the default KEYPAD type yields level one.
@@ -580,7 +580,7 @@ If
 <listitem>
   <para>
 If
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  alone is set, it yields level two.
   </para>
 </listitem>
@@ -594,7 +594,7 @@ If
 <listitem>
   <para>
 If neither
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  nor
 <emphasis>NumLock</emphasis>
  is set, it yields level one.
@@ -725,9 +725,9 @@ initializing the KEYPAD key type. If the
 <para>
 <function>XkbInitCanonicalKeyTypes</function>
  normally returns Success. It returns
-<emphasis>BadAccess</emphasis>
+<errorname>BadAccess</errorname>
  if the Xkb extension has not been properly initialized, and
-<emphasis>BadAccess</emphasis>
+<errorname>BadAccess</errorname>
  if the
 <emphasis>xkb</emphasis>
  parameter is not valid.
@@ -825,9 +825,9 @@ If successful, it returns Success.
 <para>
 <function>XkbGetKeyTypes</function>
  returns
-<emphasis>BadAccess</emphasis>
+<errorname>BadAccess</errorname>
  if the Xkb extension has not been properly initialized and
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  if the combination of
 <emphasis>first</emphasis>
  and
@@ -901,7 +901,7 @@ To change the number of levels in a key type, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis>
+        <symbol>True</symbol>
          =&gt; list of preserved modifiers is necessary
       </para>
     </listitem>
@@ -965,7 +965,7 @@ The
  list for the key should be created. If
 <emphasis>want_preserve</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 the
 <emphasis>preserve</emphasis>
  list with
@@ -973,7 +973,7 @@ the
  entries is allocated or reallocated if it already exists. Otherwise, if
 <emphasis>want_preserve</emphasis>
  is
-<emphasis>False</emphasis>,
+<symbol>False</symbol>,
 the
 <emphasis>preserve</emphasis>
  field is freed if necessary and set to
@@ -1000,13 +1000,13 @@ If
  is less than zero,
 <function>XkbResizeKeyType</function>
  returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 If
 <function>XkbResizeKeyType</function>
  encounters any problems with allocation, it returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 Otherwise, it returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -1087,7 +1087,7 @@ and
 <emphasis>into</emphasis>,
 <function>XkbCopyKeyType</function>
  returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 Otherwise,
 <function>XkbCopyKeyType</function>
  copies
@@ -1095,7 +1095,7 @@ Otherwise,
  to
 <emphasis>into</emphasis>
  and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -1176,7 +1176,7 @@ If any allocation errors occur while copying
 <emphasis>into</emphasis>,
 <function>XkbCopyKeyTypes</function>
  returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 Otherwise,
 <function>XkbCopyKeyTypes</function>
  copies
@@ -1184,7 +1184,7 @@ Otherwise,
  to
 <emphasis>into</emphasis>
  and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -1425,7 +1425,7 @@ The
 key as well as the specification of the treatment of out-of-range groups. It is
 legal for a key to have zero groups, in which case it also has zero symbols and
 all events from that key yield
-<emphasis>NoSymbol</emphasis>.
+<symbol>NoSymbol</symbol>.
 To obtain the number of groups of symbols bound to the key, use
 <function>XkbKeyNumGroups</function>.
 To change the number of groups bound to a key, use
@@ -2097,7 +2097,7 @@ It waits for a reply and returns the keysyms in the
 If successful,
 <function>XkbGetKeySyms</function>
  returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 The
 <emphasis>xkb</emphasis>
  parameter must be a pointer to a valid Xkb keyboard description.
@@ -2120,18 +2120,18 @@ If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
 <function>XkbGetKeySyms</function>
  returns
-<emphasis>BadAccess</emphasis>.
+<errorname>BadAccess</errorname>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeySyms</function>
  returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 If any allocation errors occur,
 <function>XkbGetKeySyms</function>
  returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 </para>
 
 
@@ -2233,7 +2233,7 @@ To change the number of groups and the types bound to a key, use
 <function>XkbChangeTypesOfKey</function>
  reallocates the symbols and actions bound to the key, if necessary, and
 initializes any new symbols or actions to
-<emphasis>NoSymbol</emphasis>
+<symbol>NoSymbol</symbol>
  or
 <emphasis>NoAction</emphasis>,
 as appropriate. If the
@@ -2260,7 +2260,7 @@ as appropriate. If the
  structure. If successful,
 <function>XkbChangeTypesOfKey</function>
  returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -2353,7 +2353,7 @@ groups:
 If the Xkb extension has not been properly initialized,
 <function>XkbChangeTypesOfKey</function>
  returns
-<emphasis>BadAccess</emphasis>.
+<errorname>BadAccess</errorname>.
 If the
 <emphasis>xkb</emphasis>
  parameter it not valid (that is, it is
@@ -2373,12 +2373,12 @@ or the
  mask does not contain any of the valid group mask bits,
 <function>XkbChangeTypesOfKey</function>
  returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 If it is necessary to resize the key symbols or key actions arrays and any
 allocation errors occur,
 <function>XkbChangeTypesOfKey</function>
  returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 </para>
 
 
@@ -2471,7 +2471,7 @@ If
  is greater than the current number of keysyms for the key,
 <function>XkbResizeKeySyms</function>
  initializes all new keysyms in the array to
-<emphasis>NoSymbol</emphasis>.
+<symbol>NoSymbol</symbol>.
 </para>
 
 
@@ -2518,15 +2518,15 @@ The
  entry of the client map is an array, indexed by keycode, specifying the real
 modifiers bound to a key. Each entry is a mask composed of a bitwise inclusive
 OR of the legal real modifiers:
-<emphasis>ShiftMask</emphasis>,
-<emphasis>LockMask</emphasis>,
-<emphasis>ControlMask</emphasis>,
-<emphasis>Mod1Mask</emphasis>,
-<emphasis>Mod2Mask</emphasis>,
-<emphasis>Mod3Mask</emphasis>,
-<emphasis>Mod4Mask</emphasis>,
+<symbol>ShiftMask</symbol>,
+<symbol>LockMask</symbol>,
+<symbol>ControlMask</symbol>,
+<symbol>Mod1Mask</symbol>,
+<symbol>Mod2Mask</symbol>,
+<symbol>Mod3Mask</symbol>,
+<symbol>Mod4Mask</symbol>,
 and
-<emphasis>Mod5Mask</emphasis>.
+<symbol>Mod5Mask</symbol>.
 If a bit is set in a
 <emphasis>modmap</emphasis>
  entry, the corresponding key is bound to that modifier.
@@ -2621,7 +2621,7 @@ It waits for a reply and places the results in the
 -&gt;map-&gt;modmap array. If successful,
 <emphasis>XkbGetKeyModifier</emphasis>
  returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 </para>
 
 
@@ -2639,11 +2639,11 @@ If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
 <function>XkbGetKeySyms</function>
  returns
-<emphasis>BadAccess</emphasis>.
+<errorname>BadAccess</errorname>.
 If any allocation errors occur while obtaining the modifier map,
 <function>XkbGetKeyModifierMap</function>
  returns
-<emphasis>BadAlloc</emphasis>.
+<errorname>BadAlloc</errorname>.
 </para>
 </sect2>
 </sect1>

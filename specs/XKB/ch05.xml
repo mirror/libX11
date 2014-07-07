@@ -51,13 +51,13 @@ The state of the core pointer buttons
 The
 <emphasis>modifiers</emphasis>
  are
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
-<emphasis>Control</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
+<symbol>Control</symbol>,
 and
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
 -
-<emphasis>Mod5</emphasis>,
+<symbol>Mod5</symbol>,
 as defined by the core protocol. A modifier can be thought of as a toggle that is either set or unset. All modifiers are initially unset. When a modifier is locked, it is set and remains set for all future key events, until it is explicitly unset. A latched modifier is set, but automatically unsets after the next key event that does not change the keyboard state. Locked and latched modifier state can be changed by keyboard activity or via Xkb extension library functions.
 </para>
 
@@ -99,9 +99,9 @@ Changing to a different group changes the keyboard state to produce characters f
 The
 <emphasis>pointer buttons</emphasis>
  are
-<emphasis>Button1</emphasis>
+<symbol>Button1</symbol>
  -
-<emphasis>Button5</emphasis>,
+<symbol>Button5</symbol>,
 as defined by the core protocol.
 </para>
 
@@ -210,9 +210,9 @@ The
  and
 <emphasis>lookup group</emphasis>
  are represented in the state field of core X events. The modifier state and keycode of a key event are used to determine the symbols associated with the event. For
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  and
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events, the lookup modifiers are computed as:
 </para>
 
@@ -414,9 +414,9 @@ To lock and unlock any of the eight real keyboard modifiers, use
 <emphasis>values</emphasis>.
 <function>XkbLockModifiers</function>
  does not wait for a reply from the server. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -496,9 +496,9 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 <emphasis>values</emphasis>.
 <function>XkbLatchModifiers</function>
  does not wait for a reply from the server. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -598,9 +598,9 @@ To lock the keysym group, use
  sends a request to the server to lock the specified
 <emphasis>group </emphasis>
 and does not wait for a reply. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -660,9 +660,9 @@ To latch the keysym group, use
 <para>
 <function>XkbLatchGroup</function>
  sends a request to the server to latch the specified group and does not wait for a reply. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -912,7 +912,7 @@ The structure for
 typedef struct {
       int            type;            /* Xkb extension base event code */
       unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
       int            xkb_type;        /* <emphasis> XkbStateNotify</emphasis> */
@@ -982,14 +982,14 @@ caused the state change, the
 <emphasis>keycode</emphasis>
  field gives the keycode of the key event, and the
 <emphasis>event_type</emphasis>
- field is set to either <emphasis>KeyPress</emphasis>
+ field is set to either <symbol>KeyPress</symbol>
  or
-<emphasis>KeyRelease</emphasis>.
+<symbol>KeyRelease</symbol>.
 If a pointer button event caused the state change, the
 <emphasis>keycode</emphasis>
  field is zero, and the <emphasis>event_type</emphasis>
- field is set to either <emphasis>ButtonPress</emphasis>
- or <emphasis>ButtonRelease</emphasis>.
+ field is set to either <symbol>ButtonPress</symbol>
+ or <symbol>ButtonRelease</symbol>.
 Otherwise, the major and minor codes of the request that caused the
 state change are given in the
 <emphasis>req_major</emphasis>

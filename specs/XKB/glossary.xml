@@ -209,14 +209,14 @@ An event created from the core X server.
     <para>
 Detectable auto-repeat allows a client to detect an auto-repeating key. If a
 client requests and the server supports detectable auto-repeat, Xkb generates
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events only when the key is physically released. Thus the client receives a
 number of
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  events for that key without intervening
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events until the key is finally released, when a
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  event is received.
     </para>
   </glossdef>
@@ -740,13 +740,13 @@ to a keysym.
 A modifier is a logical condition that is either set or unset. The modifiers
 control the Shift Level selected when a key event occurs. Xkb supports the core
 protocol eight modifiers (
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
-<emphasis>Control</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
+<symbol>Control</symbol>,
 and
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
  through
-<emphasis>Mod5</emphasis>
+<symbol>Mod5</symbol>
 ), called the
 <emphasis>real</emphasis>
  modifiers. In addition, Xkb extends modifier flexibility by providing a set of
@@ -862,13 +862,13 @@ be logically depressed at one time.
   <glossdef>
     <para>
 Xkb supports the eight core protocol modifiers (
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
-<emphasis>Control</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
+<symbol>Control</symbol>,
 and
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
  through
-<emphasis>Mod5</emphasis>
+<symbol>Mod5</symbol>
 ); these are called the
 <emphasis>real</emphasis>
  modifiers, as opposed to the set of sixteen named virtual modifiers that can
@@ -957,13 +957,13 @@ slider, or a dial.
 Xkb provides a set of sixteen named virtual modifiers that can be bound to any
 set of the eight real modifiers. Each virtual modifier can be bound to any set
 of the real modifiers (
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>,
-<emphasis>Control</emphasis>,
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>,
+<symbol>Control</symbol>,
  and
-<emphasis>Mod1</emphasis>
+<symbol>Mod1</symbol>
 -
-<emphasis>Mod5</emphasis>
+<symbol>Mod5</symbol>
 ).
     </para>
   </glossdef>

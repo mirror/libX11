@@ -8,10 +8,10 @@ application that presents the keyboard to a user in an easy-to-understand way.
 Such applications have to examine the vendor string and keycodes to determine
 the type of keyboard connected to the server and then examine keysyms and
 modifier mappings to determine the effects of most modifiers (the
-<emphasis>Shift</emphasis>,
-<emphasis>Lock</emphasis>
+<symbol>Shift</symbol>,
+<symbol>Lock</symbol>
  and
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  modifiers are defined by the core protocol but no semantics are implied for
 any other modifiers).
 </para>
@@ -471,13 +471,13 @@ If the
 <para>
 <function>XkbGetNames</function>
  can return
-<emphasis>Success</emphasis>,
+<symbol>Success</symbol>,
 or
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadLength</emphasis>,
-<emphasis>BadMatch</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadLength</errorname>,
+<errorname>BadMatch</errorname>,
 and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors.
 </para>
 
@@ -506,12 +506,12 @@ structure and call
  and
 <function>XkbChangeNames</function>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadAtom</emphasis>,
-<emphasis>BadLength</emphasis>,
-<emphasis>BadMatch</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadAtom</errorname>,
+<errorname>BadLength</errorname>,
+<errorname>BadMatch</errorname>,
  and
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  errors.
 </para>
 
@@ -612,7 +612,7 @@ changed. If either or both of these mask bits are set but the specified types
 are illegal,
 <function>XkbSetNames</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  and does not update any of the names specified in
 <emphasis>which</emphasis>.
 The specified types are illegal if
@@ -818,7 +818,7 @@ to the X server specified by
 <emphasis>dpy</emphasis>.
 <function>XkbChangeNames</function>
  aborts and returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if any illegal type names or type shift level names are specified by
 <emphasis>changes</emphasis>.
 </para>
@@ -871,7 +871,7 @@ typedef struct {
       int      type;                  /* Xkb extension base event code */
       unsigned long      serial;      /* X server serial number for
                                          event */
-      Bool      send_event;           /* <emphasis>True</emphasis>
+      Bool      send_event;           /* <symbol>True</symbol>
                                          =&gt; synthetically generated */
       Display *      display;         /* server connection where event
                                          generated */
@@ -1051,10 +1051,10 @@ results into the
 <para>
 <emphasis>XkbGetNamesChanges</emphasis>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadImplementation</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadImplementation</errorname>,
  and
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  errors.
 </para>
 
@@ -1134,10 +1134,10 @@ from the X server. Instead use
 <para>
 <function>XkbAllocNames</function>
  can return
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadMatch</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadMatch</errorname>,
  and
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  errors.
 The
 <emphasis>which</emphasis>
@@ -1150,7 +1150,7 @@ Table 18.1.
 Do not free symbolic names structures directly using
 <emphasis>free</emphasis>
  or
-<emphasis>XFree</emphasis>.
+<function>XFree</function>.
 Use
 <function>XkbFreeNames</function>
  instead.
@@ -1196,7 +1196,7 @@ Use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis>
+        <symbol>True</symbol>
          =&gt; XkbNamesRec structure itself should be freed
       </para>
     </listitem>

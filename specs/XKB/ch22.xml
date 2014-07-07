@@ -209,11 +209,11 @@ Xkb modifies its behavior according to each controls bit.
 <para>
 <function>XkbSetDebuggingFlags</function>
  returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise. The only protocol error it may generate is
-<emphasis>BadAlloc</emphasis>,
+<errorname>BadAlloc</errorname>,
 if for some reason it is unable to allocate storage.
 </para>
 

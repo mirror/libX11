@@ -437,7 +437,7 @@ To ring the bell on an X input extension device or the default keyboard, use
 Set
 <emphasis>percent</emphasis>
  to be the volume relative to the base volume for the keyboard as described for
-<emphasis>XBell</emphasis>.
+<function>XBell</function>.
 </para>
 
 <para>
@@ -462,11 +462,11 @@ See the X input extension documentation for more information on
 If a compatible keyboard extension is not present in the X server,
 <function>XkbDeviceBell</function>
  immediately returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbDeviceBell</function>
 rings the bell as specified for the display and keyboard device and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 If you have disabled the audible bell, the server does not ring the system
 bell, although it does generate a
 <emphasis>XkbBellNotify</emphasis>
@@ -546,13 +546,13 @@ default keyboard:
 If a compatible keyboard extension isn’t present in the X server,
 <function>XkbBell</function>
  calls
-<emphasis>XBell </emphasis>
+<function>XBell</function>
 with the specified
 <emphasis>display</emphasis>
  and
 <emphasis>percent</emphasis>,
 and returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbBell</function>
 calls
@@ -574,7 +574,7 @@ and a
 of
 <emphasis>XkbDfltXIId</emphasis>,
  and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 <para>
@@ -709,17 +709,17 @@ without ringing the corresponding bell, use
 If a compatible keyboard extension isn’t present in the X server,
 <function>XkbDeviceBellEvent</function>
  immediately returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbDeviceBellEvent</function>
  causes an
 <emphasis>XkbBellNotify</emphasis>
  event to be sent to all interested clients and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Set
 <emphasis>percent</emphasis>
  to be the volume relative to the base volume for the keyboard as described for
-<emphasis>XBell</emphasis>.
+<function>XBell</function>.
 </para>
 
 
@@ -727,7 +727,7 @@ Set
 In addition,
 <function>XkbDeviceBellEvent</function>
  may generate
-<emphasis>Atom</emphasis>
+<type>Atom</type>
  protocol errors as well as
 <emphasis>XkbBellNotify</emphasis>
  events. You can call
@@ -804,7 +804,7 @@ the keyboard without ringing the bell:
 If a compatible keyboard extension isn’t present in the X server,
 <function>XkbBellEvent</function>
  immediately returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbBellEvent</function>
 calls
@@ -935,15 +935,15 @@ audible bells, use <function>XkbForceDeviceBell</function>.
 If a compatible keyboard extension isn’t present in the X server,
 <function>XkbForceDeviceBell</function>
  immediately returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbForceDeviceBell</function>
 rings the bell as specified for the display and keyboard device and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Set
 <emphasis>percent</emphasis>
  to be the volume relative to the base volume for the keyboard as described for
-<emphasis>XBell</emphasis>.
+<function>XBell</function>.
 There is no
 <emphasis>name</emphasis>
  parameter because
@@ -1003,13 +1003,13 @@ for audible bells, use
 If a compatible keyboard extension isn’t present in the X server,
 <function>XkbForceBell</function>
  calls
-<emphasis>XBell </emphasis>
+<function>XBell</function>
 with the specified
 <emphasis>display</emphasis>
  and
 <emphasis>percent</emphasis>
  and returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise,
 <function>XkbForceBell</function>
 calls
@@ -1105,7 +1105,7 @@ The structure for the
 typedef struct _XkbBellNotify {
       int             type;        /* Xkb extension base event code */
       unsigned long   serial;      /* X server serial number for event */
-      Bool            send_event;  /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool            send_event;  /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *       display;     /* server connection where event generated */
       Time            time;        /* server time when event generated */
       int             xkb_type;    /* <emphasis> XkbBellNotify</emphasis> */
@@ -1117,7 +1117,7 @@ typedef struct _XkbBellNotify {
       unsigned int    bell_id;     /* X input extension feedback ID */
       Atom            name;        /* "name" of requested bell */
       Window          window;      /* window associated with event */
-      Bool            event_only;  /* <emphasis> False</emphasis> -&gt; the server did not produce a beep */
+      Bool            event_only;  /* <symbol>False</symbol> -&gt; the server did not produce a beep */
 } <emphasis>XkbBellNotifyEvent</emphasis>;
 </programlisting></para>
 

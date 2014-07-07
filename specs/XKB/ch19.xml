@@ -117,7 +117,7 @@ In addition to filtering out-of-range key events, Xkb:
 <listitem>
   <para>
 Adjusts core protocol
-<emphasis>MappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  events to refer only to keys that match the stored legal range.
   </para>
 </listitem>
@@ -167,7 +167,7 @@ The structure for the
 typedef struct _XkbNewKeyboardNotify {
       int            type;         /* Xkb extension base event code */
       unsigned long  serial;       /* X server serial number for event*/
-      Bool           send_event;   /* <emphasis>True</emphasis>
+      Bool           send_event;   /* <symbol>True</symbol>
                                       =&gt; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */

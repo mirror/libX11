@@ -312,9 +312,9 @@ If the X server does not support a compatible version of Xkb or the Xkb
 extension has not been properly initialized,
 <function>XkbChangeEnabledControls</function>
  returns
-<emphasis>False</emphasis>
+<symbol>False</symbol>
 ; otherwise, it sends the request to the X server and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
@@ -438,9 +438,9 @@ To get the current values of the auto-reset controls, use
  with the
 <emphasis>AutoReset</emphasis>
  control attributes for this particular client. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -768,11 +768,11 @@ To get the current attributes of the
  and
 <emphasis>interval_rtrn</emphasis>
  with them, and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 If a compatible version of the Xkb extension is not available in the server
 <function>XkbGetAutoRepeatRate</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -853,18 +853,18 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
 <para>
 <function>XkbSetAutoRepeatRate</function>
  does not wait for a reply; it normally returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Specifying a zero value for either
 <emphasis>timeout</emphasis>
  or
 <emphasis>interval</emphasis>
  causes the server to generate a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server,
 <function>XkbSetAutoRepeatRate</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -876,21 +876,21 @@ in the server,
 Auto-repeat is the generation of multiple key events by a keyboard when the
 user presses a key and holds it down. Keyboard hardware and device-dependent X
 server software often implement auto-repeat by generating multiple
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  events with no intervening
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  event. The standard behavior of the X server is to generate a
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  event for every
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  event. If the keyboard hardware and device-dependent software of the X server
 implement auto-repeat by generating multiple
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  events, the device-independent part of the X server by default synthetically
 generates a
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  event after each
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  event. This provides predictable behavior for X clients, but does not allow
 those clients to detect the fact that a key is auto-repeating.
 </para>
@@ -902,13 +902,13 @@ Xkb allows clients to request
 If a client requests and the server supports
 <emphasis>DetectableAutorepeat</emphasis>,
 Xkb generates
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events only when the key is physically released. If
 <emphasis>DetectableAutorepeat</emphasis>
  is not supported or has not been requested, the server synthesizes a
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  event for each repeating
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  event it generates.
 </para>
 
@@ -975,7 +975,7 @@ use
     </term>
     <listitem>
       <para>
-        backfilled <emphasis>True</emphasis> if
+        backfilled <symbol>True</symbol> if
 <emphasis>DetectableAutorepeat</emphasis>
          supported
       </para>
@@ -992,21 +992,21 @@ use
  is not
 <emphasis>NULL</emphasis>,
 it backfills supported_rtrn with
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the server supports
 <emphasis>DetectableAutorepeat</emphasis>,
 and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 <function>XkbGetDetectableAutorepeat</function>
  returns the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  for the requesting client:
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if
 <emphasis>DetectableAutorepeat</emphasis>
  is set, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -1052,7 +1052,7 @@ they have requested otherwise.
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; set
+        <symbol>True</symbol> =&gt; set
 <emphasis>DetectableAutorepeat</emphasis>
       </para>
     </listitem>
@@ -1063,7 +1063,7 @@ they have requested otherwise.
     </term>
     <listitem>
       <para>
-        backfilled <emphasis>True</emphasis> if
+        backfilled <symbol>True</symbol> if
 <emphasis>DetectableAutorepeat</emphasis>
          supported
       </para>
@@ -1078,11 +1078,11 @@ they have requested otherwise.
  on for the current client if
 <emphasis>detectable</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 and off it
 <emphasis>detectable</emphasis>
  is
-<emphasis>False</emphasis>
+<symbol>False</symbol>
 ; it then waits for a reply. If
 <emphasis>supported_rtrn</emphasis>
  is not
@@ -1091,21 +1091,21 @@ and off it
  backfills
 <emphasis>supported_rtrn</emphasis>
  with
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the server supports
 <emphasis>DetectableAutorepeat</emphasis>,
 and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  if it does not.
 <function>XkbSetDetectableAutorepeat</function>
  returns the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  for the requesting client:
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if
 <emphasis>DetectableAutorepeat</emphasis>
  is set, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -1197,9 +1197,9 @@ When
  are enabled, all keys with
 <emphasis>MouseKeys</emphasis>
  actions bound to them generate core pointer events instead of normal
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  and
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events.
 </para>
 
@@ -1526,7 +1526,7 @@ Holding down a shift key by itself for eight seconds toggles the
 <listitem>
   <para>
 Pressing and releasing the left or right
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key five times in a row, without any intervening key events and with less than
 30 seconds delay between consecutive presses, toggles the state of the
 <emphasis>StickyKeys</emphasis>
@@ -1709,12 +1709,12 @@ which is a field in the
  structure (see section 10.8).  <!-- xref -->
 <function>XkbGetAccessXTimeout</function>
 returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful; if a compatible version of the Xkb extension is not available
 in the server,
 <function>XkbGetAccessXTimeout</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -1850,11 +1850,11 @@ for the
 <emphasis>AccessXTimeout</emphasis>
  control to the server.
 It does not wait for a reply, and normally returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 If a compatible version of the Xkb extension is not available in the server,
 <function>XkbSetAccessXTimeout</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -2015,7 +2015,7 @@ The server can generate
 typedef struct {
       int             type;            /* Xkb extension base event code */
       unsigned long   serial;          /* X server serial number for event */
-      Bool            send_event;      /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool            send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *       display;         /* server connection where event generated */
       Time            time;            /* server time when event generated */
       int             xkb_type;        /* <emphasis> XkbAccessXNotify</emphasis> */
@@ -2208,10 +2208,10 @@ locking, or unlocking of modifiers using
 <emphasis>StickyKeys</emphasis>
  generates
 <emphasis>XkbStateNotify</emphasis>
- events as described in section 5.4. Repeating keys generate normal <emphasis> <!-- xref -->
-KeyPress</emphasis>
+ events as described in section 5.4. Repeating keys generate normal
+<symbol>KeyPress</symbol>
  and
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events, though the auto-repeat can be detected using
 <emphasis>DetectableAutorepeat</emphasis>
  (see section 10.3.3). Finally, <emphasis> <!-- xref -->
@@ -2317,12 +2317,12 @@ with the
  delay attribute.
 <function>XkbGetSlowKeysDelay</function>
 returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful; if a compatible version of the Xkb extension is not available
 in the server,
 <function>XkbGetSlowKeysDelay</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -2388,7 +2388,7 @@ To set the
 <emphasis>SlowKeys</emphasis>
  control to the server.
 It does not wait for a reply, and normally returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Specifying a value of
 <emphasis>0</emphasis>
  for the
@@ -2396,12 +2396,12 @@ Specifying a value of
 parameter causes
 <emphasis>XkbSetSlowKeys</emphasis>
  to generate a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server
 <function>XkbSetSlowKeysDelay</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -2499,12 +2499,12 @@ with the
  delay attribute.
 <function>XkbGetBounceKeysDelay</function>
 returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful; if a compatible version of the Xkb extension is not available
 in the server
 <function>XkbGetSlowKeysDelay</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -2570,7 +2570,7 @@ To set the
 <emphasis>BounceKeys</emphasis>
  control to the server.
 It does not wait for a reply and normally returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Specifying a value of
 <emphasis>zero </emphasis>
 for the
@@ -2578,12 +2578,12 @@ for the
 parameter causes
 <function>XkbSetBounceKeysDelay</function>
  to generate a
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server,
 <function>XkbSetBounceKeysDelay</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 </sect2>
@@ -2593,7 +2593,7 @@ in the server,
 <para>
 Some people find it difficult or even impossible to press two keys at once. For
 example, a one-fingered typist or someone using a mouth stick cannot press the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
 <emphasis>1</emphasis>
  keys at the same time. The
@@ -2604,7 +2604,7 @@ With
 the user can first press a modifier, release it, then press another key. For
 example, to get an exclamation point on a PC-style keyboard, the user can press
 the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key, release it, and then press the
 <emphasis>1</emphasis>
  key.
@@ -2625,39 +2625,39 @@ it one more time.
 <para>
 When a modifier is latched, it becomes unlatched when the user presses a
 nonmodifier key or a pointer button. For instance, to enter the sequence
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
 +
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
 +
 <emphasis>Z</emphasis>
  the user could press and release the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key to latch it, then press and release the
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  key to latch it, and finally press and release the Z key. Because the
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  key is a modifier key, pressing it does not unlatch the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key. Thus, after the user presses the
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  key, both the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  modifiers are latched. When the user presses the
 <emphasis>Z</emphasis>
  key, the effect is as though the user had pressed
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
 +
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
 +
 <emphasis>Z</emphasis>.
 In addition, because the
 <emphasis>Z</emphasis>
  key is not a modifier key, the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  and
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  modifiers are unlatched.
 </para>
 
@@ -2668,9 +2668,9 @@ button the user presses until the user unlocks it or it is unlocked
 programmatically. For example, to enter the sequence ("XKB") on a keyboard
 where ‘(’ is a shifted ‘9’, ‘)’ is a shifted ‘0’, and ‘"’
 is a shifted single quote, the user could press and release the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key twice to lock the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier. Then, when the user presses the
 <emphasis>9</emphasis>,
 <emphasis>‘</emphasis>,
@@ -2681,9 +2681,9 @@ is a shifted single quote, the user could press and release the
 and
 <emphasis>0</emphasis>
  keys in sequence, it generates ("XKB"). To unlock the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier, the user can press and release the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  key.
 </para>
 
@@ -2802,12 +2802,12 @@ with a mask indicating whether the individual
 <para>
 <function>XkbGetStickyKeysOptions</function>
 returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful; if a compatible version of the Xkb extension is not available
 in the server
 <function>XkbGetStickyKeysOptions</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -2883,7 +2883,7 @@ To set the
 <emphasis>StickyKeys</emphasis>
  control to the server.
 It does not wait for a reply and normally returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 The valid bits to use for both the
 <emphasis>mask</emphasis>
  and
@@ -2902,7 +2902,7 @@ The valid bits to use for both the
  If a compatible version of the Xkb extension is not available in the server,
 <function>XkbSetStickyKeysOptions</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 </sect3>
@@ -3036,9 +3036,9 @@ The
 <emphasis>IgnoreLockMods</emphasis>
  control specifies modifiers that should be excluded from grab calculations.
 These modifiers are also not reported in any core events except
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  and
-<emphasis>KeyRelease</emphasis>
+<symbol>KeyRelease</symbol>
  events that do not activate a passive grab and that do not occur while a grab
 is active.
 </para>
@@ -3175,12 +3175,12 @@ added and removed from the server’s
  and
 <emphasis>real_values</emphasis>
  consist of any combination of the eight core modifier bits:
-<emphasis>ShiftMask</emphasis>,
-<emphasis>LockMask</emphasis>,
-<emphasis>ControlMask</emphasis>,
-<emphasis>Mod1Mask</emphasis>
+<symbol>ShiftMask</symbol>,
+<symbol>LockMask</symbol>,
+<symbol>ControlMask</symbol>,
+<symbol>Mod1Mask</symbol>
  -
-<emphasis>Mod5Mask</emphasis>.
+<symbol>Mod5Mask</symbol>.
 <emphasis>affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>
@@ -3206,9 +3206,9 @@ affect_virtual</emphasis>
 <emphasis>virtual_values</emphasis>.
 <function>XkbSetIgnoreLockMods</function>
  does not wait for a reply from the server. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -3378,12 +3378,12 @@ selected by both
  and
 <emphasis>real_values</emphasis>
  consist of any combination of the eight core modifier bits:
-<emphasis>ShiftMask</emphasis>,
-<emphasis>LockMask</emphasis>,
-<emphasis>ControlMask</emphasis>,
-<emphasis>Mod1Mask</emphasis>
+<symbol>ShiftMask</symbol>,
+<symbol>LockMask</symbol>,
+<symbol>ControlMask</symbol>,
+<symbol>Mod1Mask</symbol>
  -
-<emphasis>Mod5Mask</emphasis>.
+<symbol>Mod5Mask</symbol>.
 <emphasis>affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>
@@ -3404,9 +3404,9 @@ affect_virtual</emphasis>
 <emphasis>virtual_values</emphasis>.
 <function>XkbSetServerInternalMods</function>
  does not wait for a reply from the server. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if the request was sent and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -3847,9 +3847,9 @@ The individual fields of the
 ). It</emphasis>
  specifies the mouse button number to use for keyboard simulated mouse button
 operations. Its value should be one of the core symbols
-<emphasis>Button1</emphasis>
+<symbol>Button1</symbol>
  -
-<emphasis>Button5</emphasis>.
+<symbol>Button5</symbol>.
 </para>
 
 
@@ -3930,12 +3930,12 @@ its four low-order bits specify the index of the group to use.
  control (see section 10.7.4). It specifies modifiers to be consumed in the  <!-- xref -->
 server and not passed on to clients when events are reported. Valid values
 consist of any combination of the eight core modifier bits:
-<emphasis>ShiftMask</emphasis>,
-<emphasis>LockMask</emphasis>,
-<emphasis>ControlMask</emphasis>,
-<emphasis>Mod1Mask</emphasis>
+<symbol>ShiftMask</symbol>,
+<symbol>LockMask</symbol>,
+<symbol>ControlMask</symbol>,
+<symbol>Mod1Mask</symbol>
  -
-<emphasis>Mod5Mask</emphasis>.
+<symbol>Mod5Mask</symbol>.
 </para>
 
 
@@ -3950,12 +3950,12 @@ consist of any combination of the eight core modifier bits:
  control (see section 10.7.2). It specifies modifiers to be ignored in grab  <!-- xref -->
 calculations. Valid values consist of any combination of the eight core
 modifier bits:
-<emphasis>ShiftMask</emphasis>,
-<emphasis>LockMask</emphasis>,
-<emphasis>ControlMask</emphasis>,
-<emphasis>Mod1Mask</emphasis>
+<symbol>ShiftMask</symbol>,
+<symbol>LockMask</symbol>,
+<symbol>ControlMask</symbol>,
+<symbol>Mod1Mask</symbol>
  -
-<emphasis>Mod5Mask</emphasis>.
+<symbol>Mod5Mask</symbol>.
 </para>
 
 
@@ -4234,9 +4234,9 @@ accepts a pointer to an
  structure and a feedback option from the table above. If both the
 <emphasis>AccessXFeedback</emphasis>
  control and the specified feedback option are enabled, the macro returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 Otherwise it returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 </para>
 
 
@@ -4269,7 +4269,7 @@ The
  field mirrors the
 <emphasis>auto_repeats</emphasis>
  field of the core protocol
-<emphasis>XKeyboardState</emphasis>
+<structname>XKeyboardState</structname>
  structure: changing the
 <emphasis>auto_repeats</emphasis>
  field automatically changes
@@ -4281,7 +4281,7 @@ delay and rate, use
 If the
 <emphasis>per_key_repeat</emphasis>
  were not in this structure, you would have to call both
-<emphasis>XGetKeyboardControl</emphasis>
+<function>XGetKeyboardControl</function>
  and
 <function>XkbGetControls</function>
  to get this information. The bits correspond to keycodes. The first seven keys
@@ -4396,11 +4396,11 @@ If
 <para>
 <function>XkbGetControls</function>
  returns
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if successful; otherwise, it returns
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  if it cannot obtain sufficient storage,
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  if
 <emphasis>xkb</emphasis>
  is
@@ -4408,7 +4408,7 @@ If
  or
 <emphasis>which</emphasis>
  is empty, or
-<emphasis>BadImplementation</emphasis>.
+<errorname>BadImplementation</errorname>.
 </para>
 
 
@@ -4529,9 +4529,9 @@ the server does not support a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
 <function>XkbSetControls</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise, it sends the request to the X server and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
@@ -4601,7 +4601,7 @@ changes, to be propagated to the server. The
 typedef struct _XkbControlsChanges {
       unsigned int changed_ctrls;          /* bits indicating changed control data */
       unsigned int enabled_ctrls_changes;  /* bits indicating enabled/disabled controls */
-      Bool         num_groups_changed;     /* <emphasis> True</emphasis> if
+      Bool         num_groups_changed;     /* <symbol>True</symbol> if
                                               number of keyboard groups changed */
 } <emphasis>XkbControlsChangesRec</emphasis>,*XkbControlsChangesPtr;
 </programlisting></para>
@@ -4624,7 +4624,7 @@ XkbControlsRec Data Fields" column in Table 10.6 have been modified. The
 <emphasis>enabled_ctrls</emphasis>
  field have changed. If the number of keyboard groups has changed, the
 <emphasis>num_groups_changed</emphasis>
- field is set to <emphasis>True</emphasis>.
+ field is set to <symbol>True</symbol>.
 </para>
 
 
@@ -4745,7 +4745,7 @@ The structure for the
 typedef struct {
       int            type;            /* Xkb extension base event code */
       unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <emphasis> True</emphasis> =&gt; synthetically generated */
+      Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
       int            xkb_type;        /* <emphasis> XkbCompatMapNotify</emphasis> */
@@ -4805,13 +4805,13 @@ and the
  value is the same as the major extension opcode. Otherwise,
 <emphasis>event_type</emphasis>
  is set to the type of event that caused the change (one of
-<emphasis>KeyPress</emphasis>,
-<emphasis>KeyRelease</emphasis>,
+<symbol>KeyPress</symbol>,
+<symbol>KeyRelease</symbol>,
 <emphasis>DeviceKeyPress</emphasis>,
 <emphasis>DeviceKeyRelease</emphasis>,
-<emphasis>ButtonPress</emphasis>
+<symbol>ButtonPress</symbol>
  or
-<emphasis>ButtonRelease</emphasis>
+<symbol>ButtonRelease</symbol>
 ), and
 <emphasis>req_major</emphasis>
  and
@@ -4819,8 +4819,8 @@ and the
  are undefined. If
 <emphasis>event_type</emphasis>
  is
-<emphasis>KeyPress</emphasis>,
-<emphasis>KeyRelease</emphasis>,
+<symbol>KeyPress</symbol>,
+<symbol>KeyRelease</symbol>,
 <emphasis>DeviceKeyPress</emphasis>,
 or
 <emphasis>DeviceKeyRelease</emphasis>,
@@ -4829,9 +4829,9 @@ the
  field is set to the key that caused the change. If
 <emphasis>event_type</emphasis>
  is
-<emphasis>ButtonPress</emphasis>
+<symbol>ButtonPress</symbol>
  or
-<emphasis>ButtonRelease</emphasis>,
+<symbol>ButtonRelease</symbol>,
 <emphasis>keycode</emphasis>
  contains the button number.
 </para>
@@ -4993,12 +4993,12 @@ results into the
 <para>
 <function>XkbGetControlsChanges</function>
  returns
-<emphasis>Success</emphasis>
+<symbol>Success</symbol>
  if successful and can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadImplementation</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadImplementation</errorname>,
  and
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  errors.
 </para>
 
@@ -5062,25 +5062,25 @@ allocate one by calling
  field of the
 <emphasis>xkb</emphasis>
  parameter, initializes all fields to zero, and returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 If the
 <emphasis>ctrls</emphasis>
  field is not
 <emphasis>NULL</emphasis>,
 <function>XkbAllocControls</function>
  simply returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 If
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
 <function>XkbAllocControls</function>
  reports a
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  error. If the
 <emphasis>ctrls</emphasis>
  field could not be allocated, it reports a
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  error.
 </para>
 
@@ -5146,7 +5146,7 @@ structure, use
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis> =&gt; free everything + ctrls itself
+        <symbol>True</symbol> =&gt; free everything + ctrls itself
       </para>
     </listitem>
   </varlistentry>
@@ -5175,7 +5175,7 @@ The
 If
 <emphasis>free_all</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 <function>XkbFreeControls</function>
  frees every non-
 <emphasis>NULL</emphasis>
@@ -5252,9 +5252,9 @@ To get the current values of the
  with the
 <emphasis>per-client </emphasis>
 control attributes for this particular client. It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 
@@ -5325,9 +5325,9 @@ by OR-ing the values together. XkbSetPerClientControls backfills value with the
 <emphasis>per-client </emphasis>
 <emphasis>control attributes for this particular client</emphasis>.
 It returns
-<emphasis>True</emphasis>
+<symbol>True</symbol>
  if successful, and
-<emphasis>False</emphasis>
+<symbol>False</symbol>
  otherwise.
 </para>
 

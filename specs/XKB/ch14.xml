@@ -79,7 +79,7 @@ starting at one.
 
 <note><para>Shift level is derived from the modifier state, but not necessarily
 in the same way for all keys. For example, the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier selects shift level 2 on most keys, but for keypad keys the modifier
 bound to
 <emphasis>Num_Lock</emphasis>
@@ -123,16 +123,16 @@ and the symbol for shift level two is
 The standard interpretation rules for the core X keymap only allow clients to
 access keys such as the one shown in Figure 14.1. That is, clients using the
 standard interpretation rules can only access one of four keysyms for any given
-<emphasis>KeyPress</emphasis>
+<symbol>KeyPress</symbol>
  event — two different symbols in two different groups.
 </para>
 
 
 <para>
 In general, the
-<emphasis>Shift</emphasis>
+<symbol>Shift</symbol>
  modifier, the
-<emphasis>Lock</emphasis>
+<symbol>Lock</symbol>
  modifier, and the modifier bound to the
 <emphasis>Num_Lock</emphasis>
  key are used to change between shift level 1 and shift level 2. To switch
@@ -190,7 +190,7 @@ type and specifies the modifier combinations necessary to access each level.
 
 <para>
 For example, Xkb allows key types where the
-<emphasis>Control</emphasis>
+<symbol>Control</symbol>
  modifier can be used to access the shift level two of a key. Key types are in
 the client map component and are described in detail in section 15.2. <!-- xref -->
 </para>
@@ -327,16 +327,16 @@ XkbGetMap</emphasis>
  returns
 <emphasis>NULL</emphasis>.
 When unsuccessful, one of the following protocol errors is also generated:
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  (unable to allocate the
 <emphasis>XkbDescRec</emphasis>
  structure),
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  (some mask bits in
 <emphasis>which</emphasis>
  are undefined),
 or
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  (a compatible version of the Xkb extension is not available in the server). To
 free the returned data, use
 <function>XkbFreeClientMap</function>.
@@ -562,19 +562,19 @@ components of the
 reply, and then returns. If successful<emphasis>,
 XkbGetUpdatedMap</emphasis>
  returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 If unsuccessful,
 <function>XkbGetUpdatedMap</function>
  returns one of the following:
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  (unable to allocate a component in the
 <emphasis>XkbDescRec</emphasis>
  structure),
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  (some mask bits in
 <emphasis>which</emphasis>
  are undefined),
-<emphasis>BadImplementation</emphasis>
+<errorname>BadImplementation</errorname>
  (a compatible version of the Xkb extension is not available in the server or
 the reply from the server was invalid).
 </para>
@@ -671,15 +671,15 @@ If any components specified by
  parameter,
 <function>XkbSetMap</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise, it sends the update request to the server and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 <function>XkbSetMap</function>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadLength</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadLength</errorname>,
 and
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol errors.
 </para>
 
@@ -940,19 +940,19 @@ If any components specified by
  parameter,
 <function>XkbChangeMap</function>
  returns
-<emphasis>False</emphasis>.
+<symbol>False</symbol>.
 Otherwise, it sends a request to the server and returns
-<emphasis>True</emphasis>.
+<symbol>True</symbol>.
 </para>
 
 
 <para>
 <function>XkbChangeMap</function>
  can generate
-<emphasis>BadAlloc</emphasis>,
-<emphasis>BadLength</emphasis>,
+<errorname>BadAlloc</errorname>,
+<errorname>BadLength</errorname>,
 and
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  protocol errors.
 </para>
 
@@ -1013,7 +1013,7 @@ The structure for
 typedef struct {
       int            type;         /* Xkb extension base event code */
       unsigned long  serial;       /* X server serial number for event */
-      Bool           send_event;   /* <emphasis>True</emphasis> =&gt; synthetically generated */
+      Bool           send_event;   /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */
       int            xkb_type;     /* <emphasis> XkbMapNotify</emphasis> */
@@ -1186,7 +1186,7 @@ field specifies the number of entries to preallocate for the
 field is less than
 <emphasis>XkbNumRequiredTypes</emphasis>
  (see section 15.2.1), returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 </entry>
   </row>
   <row>
@@ -1248,7 +1248,7 @@ of entries necessary for
  parameter. If they are not valid,
 <function>XkbAllocClientMap</function>
  returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 </para></note>
 
 <para>
@@ -1277,12 +1277,12 @@ request. The only exception is the
 If
 <function>XkbAllocClientMap</function>
  is successful, it returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 Otherwise, it can return either
-<emphasis>BadMatch</emphasis>,
-<emphasis>BadAlloc</emphasis>,
+<errorname>BadMatch</errorname>,
+<errorname>BadAlloc</errorname>,
 or
-<emphasis>BadValue</emphasis>
+<errorname>BadValue</errorname>
  errors.
 </para>
 
@@ -1338,7 +1338,7 @@ To free memory used by the client map member of an
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis>
+        <symbol>True</symbol>
          =&gt; free all client components and map itself
       </para>
     </listitem>
@@ -1365,7 +1365,7 @@ The
 If
 <emphasis>free_all</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 <emphasis>which</emphasis>
  is ignored;
 <function>XkbFreeClientMap</function>
@@ -1537,7 +1537,7 @@ field of the server map.
  parameter must be legal values. If they are not valid,
 <function>XkbAllocServerMap</function>
  returns
-<emphasis>BadValue</emphasis>.
+<errorname>BadValue</errorname>.
 </para></note>
 
 <para>
@@ -1565,11 +1565,11 @@ field accordingly.
 If
 <function>XkbAllocServerMap</function>
  is successful, it returns
-<emphasis>Success</emphasis>.
+<symbol>Success</symbol>.
 Otherwise, it can return either
-<emphasis>BadMatch</emphasis>
+<errorname>BadMatch</errorname>
  or
-<emphasis>BadAlloc</emphasis>
+<errorname>BadAlloc</errorname>
  errors.
 </para>
 
@@ -1625,7 +1625,7 @@ To free memory used by the server member of an
     </term>
     <listitem>
       <para>
-        <emphasis>True</emphasis>
+        <symbol>True</symbol>
          =&gt; free all server map components and server itself
       </para>
     </listitem>
@@ -1647,7 +1647,7 @@ The
 inclusive OR of the masks listed in Table 14.4. If
 <emphasis>free_all</emphasis>
  is
-<emphasis>True</emphasis>,
+<symbol>True</symbol>,
 <emphasis>which</emphasis>
  is ignored and
 <function>XkbFreeServerMap</function>

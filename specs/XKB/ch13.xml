@@ -128,7 +128,7 @@ a top label.
   <para>
 The top-level keyboard geometry description includes a list of
 <emphasis>key aliases</emphasis>
- (see Chapter 18). Key aliases allow the keyboard layout designer to assign
+ (see <xref linkend="Symbolic_Names" />). Key aliases allow the keyboard layout designer to assign
 multiple key names to a single key.
   </para>
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
@@ -1132,7 +1132,7 @@ To load a keyboard geometry if you already have the keyboard description, use
 
 <para>
 It is also possible to load a keyboard geometry by name. The X server maintains
-a database of keyboard components (see Chapter 20). To load a keyboard geometry
+a database of keyboard components (see <xref linkend="Server_Database_of_Keyboard_Components" />). To load a keyboard geometry
 description from this database by name, use
 <function>XkbGetNamedGeometry</function>.
 </para>

@@ -90,31 +90,31 @@ components of the
 <tbody>
 <row>
     <entry>ctrls</entry>
-    <entry>Chapter 10</entry>
+    <entry><xref linkend="Keyboard_Controls" /></entry>
 </row>
 <row>
     <entry>server</entry>
-    <entry>Chapter 16</entry>
+    <entry><xref linkend="Xkb_Server_Keyboard_Mapping" /></entry>
 </row>
 <row>
     <entry>map</entry>
-    <entry>Chapter 15</entry>
+    <entry><xref linkend="Xkb_Client_Keyboard_Mapping" /></entry>
 </row>
 <row>
     <entry>indicators</entry>
-    <entry>Chapter 8</entry>
+    <entry><xref linkend="Indicators" /></entry>
 </row>
 <row>
     <entry>names</entry>
-    <entry>Chapter 18</entry>
+    <entry><xref linkend="Symbolic_Names" /></entry>
 </row>
 <row>
     <entry>compat</entry>
-    <entry>Chapter 17</entry>
+    <entry><xref linkend="The_Xkb_Compatibility_Map" /></entry>
 </row>
 <row>
     <entry>geom</entry>
-    <entry>Chapter 13</entry>
+    <entry><xref linkend="Keyboard_Geometry" /></entry>
   </row>
 </tbody>
 </tgroup>

@@ -947,7 +947,7 @@ The
 <emphasis>names</emphasis>
  structure in an
 <emphasis>XkbDescRec</emphasis>
- keyboard description record (see Chapter 18) contains one field for each of
+ keyboard description record (see <xref linkend="Symbolic_Names" />) contains one field for each of
 the five component types used to build a keyboard description. When a keyboard
 description is built from a set of database components, the corresponding
 fields in this

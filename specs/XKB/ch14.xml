@@ -25,8 +25,8 @@ the virtual modifiers and the per-key virtual modifier mapping.
 
 <para>
 For detailed information on particular components of the keyboard map, refer to
-Chapter 15, "Xkb Client Keyboard Mapping" and Chapter 16, "Xkb Server Keyboard
-Mapping."
+<xref linkend="Xkb_Client_Keyboard_Mapping" />, and
+<xref linkend="Xkb_Server_Keyboard_Mapping" />.
 </para>
 
 <sect1 id='Notation_and_Terminology'>
@@ -170,7 +170,7 @@ group. Most keys will only have a few shift levels.
 </para></footnote>. In
 addition, Xkb provides precise specifications regarding the behavior of keys.
 In Xkb, modifier state and the current group are independent (with the
-exception of compatibility mapping, discussed in Chapter 17).
+exception of compatibility mapping, discussed in <xref linkend="The_Xkb_Compatibility_Map" />).
 </para>
 
 

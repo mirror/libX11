@@ -192,7 +192,7 @@ name LEFT as an alias for A31 in the
 </para>
 
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
-(see Chapter 13) override those defined in the keycodes component of the server
+(see <xref linkend="Keyboard_Geometry" />) override those defined in the keycodes component of the server
 database, which are stored in the
 <emphasis>XkbNamesRec</emphasis>
  (

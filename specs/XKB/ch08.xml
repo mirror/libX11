@@ -51,13 +51,13 @@ doesn’t use these symbolic names for anything; they are there only to help
 make the keyboard description comprehensible to humans. To set the names of
 specific indicators, use
 <function>XkbSetNames</function>
- as discussed in Chapter 18. Then set the map using
+ as discussed in <xref linkend="Symbolic_Names" />. Then set the map using
 <function>XkbSetMap</function>
  (see section 14.3) or
 <function>XkbSetNamedIndicator</function>
  (below). To retrieve indicator names, use
 <function>XkbGetNames</function>
- (Chapter 18). <!-- xref -->
+ (<xref linkend="Symbolic_Names" />). <!-- xref -->
 </para>
 
 
@@ -80,7 +80,7 @@ to inquire about and control most indicator properties and behaviors.
 <para>
 The description for all the Xkb indicators is held in the
 <emphasis>indicators</emphasis>
- field of the complete keyboard description (see Chapter 6), which is defined  <!-- xref -->
+ field of the complete keyboard description (see <xref linkend="Complete_Keyboard_Description" />), which is defined  <!-- xref -->
 as follows:
 </para>
 
@@ -572,8 +572,8 @@ Remember that the
 <emphasis>mask</emphasis>
  field is comprised of all of the real modifiers specified in the definition
 plus any real modifiers that are bound to the virtual modifiers specified in
-the definition. (See Chapter 5 for more information on the keyboard state and  <!-- xref -->
-Chapter 7 for more information on virtual modifiers.) Use a bitwise inclusive
+the definition. (See <xref linkend="Keyboard_State" /> for more information on the keyboard state and  <!-- xref -->
+<xref linkend="Virtual_Modifiers" /> for more information on virtual modifiers.) Use a bitwise inclusive
 OR of the following values to compose a value for
 <emphasis>which_mods</emphasis>:
 </para>
@@ -792,7 +792,7 @@ Any modifiers specified in the
 <para>
 The
 <emphasis>ctrls</emphasis>
- field specifies what controls (see Chapter 10) the indicator watches and is
+ field specifies what controls (see <xref linkend="Keyboard_Controls" />) the indicator watches and is
 composed using the bitwise inclusive OR of the following values:
 </para> <!-- xref -->
 
@@ -1023,7 +1023,7 @@ To free the indicator maps, use
 <para>
 Xkb also allows applications to refer to indicators by name. Use
 <function>XkbGetNames</function>
- to get the indicator names (see Chapter 18). Using names eliminates the need
+ to get the indicator names (see <xref linkend="Symbolic_Names" />). Using names eliminates the need
 for hard-coding bitmask values for particular keyboards. For example, instead
 of using vendor-specific constants such as
 <emphasis>WSKBLed_ScrollLock</emphasis>
@@ -2013,7 +2013,7 @@ If the
 Most applications do not need to directly allocate the
 <emphasis>indicators</emphasis>
  member of the keyboard description record (the keyboard description record is
-described in Chapter 6). If the need arises, however, use
+described in <xref linkend="Complete_Keyboard_Description" />). If the need arises, however, use
 <function>XkbAllocIndicatorMaps</function>.
 </para>
 

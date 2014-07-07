@@ -622,7 +622,7 @@ have an associated data structure.
 Actions associated with the
 <emphasis>XkbModAction</emphasis>
  structure change the state of the modifiers when keys are pressed and released
-(see Chapter 7 for a discussion of modifiers):
+(see <xref linkend="Virtual_Modifiers" /> for a discussion of modifiers):
 </para>
 
 <para><programlisting>
@@ -995,7 +995,7 @@ type XkbAction, these macros may be used only with Actions of type
 Actions associated with the
 <emphasis>XkbGroupAction</emphasis>
  structure change the current group state when keys are pressed and released
-(see Chapter 5 for a description of groups and keyboard state):
+(see <xref linkend="Keyboard_State" /> for a description of groups and keyboard state):
 </para>
 
 <para><programlisting>
@@ -3179,7 +3179,7 @@ The
 <emphasis>vmods_mask1</emphasis>
  fields actually represent one
 <emphasis>vmods_mask</emphasis>
- value, as described in Chapter 7. Xkb provides the following macros, to
+ value, as described in <xref linkend="Virtual_Modifiers" />. Xkb provides the following macros, to
 convert between the two formats:
 </para>
 
@@ -3274,7 +3274,7 @@ Similarly, the
 <emphasis>vmods1</emphasis>
  fields actually represent one
 <emphasis>vmods </emphasis>
-value, as described in Chapter 7. To convert between the two formats, Xkb
+value, as described in <xref linkend="Virtual_Modifiers" />. To convert between the two formats, Xkb
 provides the following convenience macros:
 </para>
 

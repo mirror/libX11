@@ -1439,7 +1439,7 @@ out-of-range groups, use
 
 
 <para>
-The keyboard controls (see Chapter 10) contain a
+The keyboard controls (see <xref linkend="Keyboard_Controls" />) contain a
 <emphasis>groups_wrap</emphasis>
  field specifying the handling of illegal groups on a global basis. That is,
 when the user performs an action causing the effective group to go out of the
@@ -2537,7 +2537,7 @@ If a bit is set in a
 Pressing or releasing the key bound to a modifier changes the modifier set and
 unset state. The particular manner in which the modifier set and unset state
 changes is determined by the behavior and actions assigned to the key (see
-Chapter 16).
+<xref linkend="Xkb_Server_Keyboard_Mapping" />).
 </para>
 
 

@@ -3,7 +3,7 @@
 
 <para>
 The Xkb extension is composed of two parts: a server extension, and a
-client-side X library extension. Chapter 10 discusses functions used to modify
+client-side X library extension. <xref linkend="Keyboard_Controls" /> discusses functions used to modify
 controls affecting the behavior of the server portion of the Xkb extension.
 This chapter discusses functions used to modify controls that affect only the
 behavior of the client portion of the extension; these controls are known as
@@ -159,7 +159,7 @@ keysym. This behavior mirrors the behavior of
 The
 <emphasis>ConsumeLookupMods</emphasis>
  control is unset by default. For more information on modifier consumption,
-refer to Chapter 12.
+refer to <xref linkend="Interpreting_Key_Events" />.
 </para>
 
 

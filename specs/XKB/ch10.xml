@@ -5,7 +5,7 @@
 The Xkb extension is composed of two parts: a server extension, and a
 client-side X library extension. This chapter discusses functions used to
 modify controls effecting the behavior of the server portion of the Xkb
-extension. Chapter 11 discusses functions used to modify controls that affect
+extension. <xref linkend="X_Library_Controls" /> discusses functions used to modify controls that affect
 only the behavior of the client portion of the extension; those controls are
 known as Library Controls.
 </para>
@@ -599,7 +599,7 @@ bits are valid in the returned values, not just the ones selected in the
 <para>
 The X server’s generation of sounds is controlled by the
 <emphasis>AudibleBell</emphasis>
- control. Configuration of different bell sounds is discussed in Chapter 9.
+ control. Configuration of different bell sounds is discussed in <xref linkend="Bells" />.
 </para>
 
 
@@ -1181,7 +1181,7 @@ and disable them using either the
 <emphasis>AutoReset</emphasis>
  control discussed in section 10.1.1. The individual keys that simulate  <!-- xref -->
 different aspects of the pointer device are determined by the keyboard mapping,
-discussed in Chapter 16. <!-- xref -->
+discussed in <xref linkend="Xkb_Server_Keyboard_Mapping" />. <!-- xref -->
 </para>
 
 

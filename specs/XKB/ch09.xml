@@ -55,7 +55,7 @@ listed.
 <para>
 You can disable audible bells on a global basis (to set the
 <emphasis>AudibleBell</emphasis>
- control, see Chapter 10). For example, a client that replaces the keyboard
+ control, see <xref linkend="Keyboard_Controls" />). For example, a client that replaces the keyboard
 bell with some other audible cue might want to turn off the
 <emphasis>AudibleBell</emphasis>
  control to prevent the server from also generating a sound and avoid

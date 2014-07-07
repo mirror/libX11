@@ -275,7 +275,7 @@ The valid masks for
 <para>
 To free the returned keyboard description, use
 <function>XkbFreeKeyboard</function>
- (see section 6.4). <!-- xref -->
+ (see <link linkend="Allocating_and_Freeing_a_Keyboard_Description">section 6.4</link>). <!-- xref -->
 </para>
 
 
@@ -285,7 +285,7 @@ To free the returned keyboard description, use
 
 <para>
 The server can generate events whenever its copy of the keyboard description
-for a device changes. Refer to section 14.4 for detailed information on  <!-- xref -->
+for a device changes. Refer to <link linkend="Tracking_Changes_to_Map_Components">section 14.4</link> for detailed information on  <!-- xref -->
 tracking changes to the keyboard description.
 </para>
 

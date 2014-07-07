@@ -253,8 +253,8 @@ composed of characters from the ISO
 <emphasis>?</emphasis>
 ’ and ‘
 <emphasis>*</emphasis>
-’, and characters permitted in a component class or member name (see section
-20.1). A pattern may be
+’, and characters permitted in a component class or member name
+(see <link linkend="Component_Names">section 20.1</link>). A pattern may be
 <emphasis>NULL</emphasis>,
 in which case no components for that type is returned. Pattern matches with
 component names are case sensitive. The ‘
@@ -265,7 +265,7 @@ the ‘
 ’ wildcard matches any number of characters, except a left or right
 parenthesis. If an implementation allows additional characters in a component
 class or member name other than those required by the Xkb extension (see
-section 20.1), the result of comparing one of the additional characters to
+<link linkend="Component_Names">section 20.1</link>), the result of comparing one of the additional characters to
 either of the wildcard characters is implementation-dependent.
 </para>
 
@@ -1099,7 +1099,7 @@ If you simply want to obtain information about the current keyboard device,
 rather than generating a new keyboard description from elements in the server
 database, use
 <function>XkbGetKeyboard</function>
- (see section 6.2).
+ (see <link linkend="Obtaining_a_Keyboard_Description_from_the_Server">section 6.2</link>).
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyboard"><primary><function>XkbGetKeyboard</function></primary></indexterm>

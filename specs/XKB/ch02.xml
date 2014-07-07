@@ -62,7 +62,7 @@ The name of the Xkb extension is given in
 <para>
 Most extensions to the X protocol are initialized by calling
 <function>XInitExtension</function>
- and passing the extension name. However, as explained in section 2.4, Xkb
+ and passing the extension name. However, as explained in <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>, Xkb
 requires a more complex initialization sequence, and a client program should
 not call
 <function>XInitExtension</function>
@@ -308,7 +308,7 @@ and the major and minor version numbers of the extension in
 The major opcode is reported in the
 <emphasis>req_major</emphasis>
  fields of some Xkb events. For a discussion of the base event code, see
-section 4.1. <!-- xref -->
+<link linkend="Xkb_Event_Types">section 4.1</link>. <!-- xref -->
 </para>
 
 <para>

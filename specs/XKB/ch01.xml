@@ -219,7 +219,7 @@ and incremental reconfiguration are both supported.
 
 <para>
 The graphic characters or control functions that may be accessed by one key are
-logically arranged in groups and levels. See section 14.1for a complete
+logically arranged in groups and levels. See <link linkend="Notation_and_Terminology">section 14.1</link> for a complete
 description of groups and levels.
 </para>
 
@@ -307,7 +307,7 @@ configuration.
 <para>
 The Xkb extension adds a single protocol error,
 <emphasis>BadKeyboard</emphasis>,
-to the core protocol error set. See section 2.6 for a discussion of the  <!-- xref -->
+to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6</link> for a discussion of the  <!-- xref -->
 <emphasis>BadKeyboard</emphasis>
  protocol error.
 </para>

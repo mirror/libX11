@@ -187,7 +187,7 @@ typedef struct _XkbNewKeyboardNotify {
 <para>
 To receive name notify events, use
 <function>XkbSelectEvents</function>
- (see section 4.3) with
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
 <emphasis>XkbNewKeyboardNotifyMask</emphasis>
  in both the
 <emphasis>bits_to_change</emphasis>
@@ -309,7 +309,7 @@ If the keyboard change is the result of an
 <emphasis>X_kbGetKbdByName</emphasis>
  request,
 <emphasis>req_major</emphasis>
- contains the Xkb extension base event code (see section 2.4), and
+ contains the Xkb extension base event code (see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>), and
 <emphasis>req_minor</emphasis>
  contains the event code for the Xkb extension request
 <emphasis>X_kbGetKbdByName</emphasis>.

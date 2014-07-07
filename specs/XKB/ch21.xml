@@ -596,8 +596,8 @@ the
 function description are updated. The
 <emphasis>XkbDeviceInfo</emphasis>
 Rec structure used in the function call can be obtained by calling
-XkbGetDeviceInfo or can be allocated by calling XkbAllocDeviceInfo (see section
-21.3).
+XkbGetDeviceInfo or can be allocated by calling XkbAllocDeviceInfo
+(see <link linkend="Allocating_Initializing_and_Freeing_the_XkbDeviceInfoRecStructure">section 21.3</link>).
 </para>
 
 
@@ -1407,7 +1407,7 @@ modify a local copy of the device structure and then use either
 <function>XkbSetDeviceInfo</function>,
  or, to save network traffic, use an
 <emphasis>XkbDeviceChangesRec</emphasis>
- structure (see section 21.6) and call
+ structure (see <link linkend="Tracking_Changes_to_Extension_Devices">section 21.6</link>) and call
 <function>XkbChangeDeviceInfo</function>
  to download the changes to the server.
 </para>
@@ -1751,7 +1751,7 @@ unsupported features of a device, select to receive
 <function>XkbSelectEvents</function>
  or
 <function>XkbSelectEventDetails</function>
- (see section 4.3).
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 

@@ -179,7 +179,7 @@ The
  modifiers when processing all keys, even if the definition for the key type
 does not specify these modifiers. The
 <emphasis>AlwaysConsumeShiftAndLock</emphasis>
- control is unset by default. See section 15.2 for a discussion of key types.
+ control is unset by default. See <link linkend="Key_Types">section 15.2</link> for a discussion of key types.
 </para>
 
 

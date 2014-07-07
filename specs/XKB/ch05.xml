@@ -166,7 +166,7 @@ The global locked or effective group changes. In this case, the changed group is
 <emphasis>groups_wrap</emphasis>
  field of the
 <emphasis>XkbControlsRec</emphasis>
- structure for the keyboard (see section 10.7.1). <!-- xref -->
+ structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>). <!-- xref -->
   </para></listitem>
   <listitem><para>
 
@@ -257,7 +257,7 @@ The
 <para>
 If the server’s
 <emphasis>IgnoreGroupLock</emphasis>
- control (see section 10.7.3) is not set, the grab group is the same as the effective group. Otherwise, the grab group is computed from the base group and latched group, ignoring the locked group.
+ control (see <link linkend="The_IgnoreGroupLock_Control">section 10.7.3</link>) is not set, the grab group is the same as the effective group. Otherwise, the grab group is computed from the base group and latched group, ignoring the locked group.
 </para>
 
 
@@ -867,7 +867,7 @@ To track changes in the keyboard state for a particular device, select to receiv
 <function>XkbSelectEvents</function>
  or
 <function>XkbSelectEventDetails</function>
- (see section 4.3). <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>). <!-- xref -->
 </para>
 
 

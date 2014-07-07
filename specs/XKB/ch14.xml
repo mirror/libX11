@@ -177,7 +177,7 @@ exception of compatibility mapping, discussed in <xref linkend="The_Xkb_Compatib
 <para>
 Xkb handles switching between groups via key actions, independent of any
 modifier state information. Key actions are in the server map component and are
-described in detail in section 16.1.4.
+described in detail in <link linkend="Actions_for_Changing_Group_State">section 16.1.4</link>.
 </para>
 
 
@@ -192,14 +192,14 @@ type and specifies the modifier combinations necessary to access each level.
 For example, Xkb allows key types where the
 <symbol>Control</symbol>
  modifier can be used to access the shift level two of a key. Key types are in
-the client map component and are described in detail in section 15.2. <!-- xref -->
+the client map component and are described in detail in <link linkend="Key_Types">section 15.2</link>. <!-- xref -->
 </para>
 
 
 <para>
 Xkb provides precise specification of the behavior of a key using key
 behaviors. Key behaviors are in the server map component and are described in
-detail in section 16.2. <!-- xref -->
+detail in <link linkend="Key_Behavior">section 16.2</link>. <!-- xref -->
 </para>
 
 
@@ -234,7 +234,7 @@ map, use
 <function>XkbGetMap</function>
 is similar to
 <function>XkbGetKeyboard</function>
- (see section 6.2), but is used only for obtaining the address of an
+ (see <link linkend="Obtaining_a_Keyboard_Description_from_the_Server">section 6.2</link>), but is used only for obtaining the address of an
 <emphasis>XkbDescRec</emphasis>
  structure that is populated with keyboard mapping components. It allows finer
 control over which substructures of the keyboard mapping components are to be
@@ -977,7 +977,7 @@ To receive
 <emphasis>XkbMapNotify</emphasis>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see section 4.3) and pass
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <emphasis>XkbMapNotifyMask</emphasis>
  in both
 <emphasis>bits_to_change</emphasis>
@@ -1047,7 +1047,7 @@ The
 inclusive OR of the mask bits defined in Table 14.1. The other fields in this
 event are interpreted as the like-named fields in an
 <emphasis>XkbMapChangesRec</emphasis>
- (see section 14.3.1). The
+ (see <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link>). The
 <emphasis>XkbMapNotifyEvent</emphasis>
  structure also has an additional
 <emphasis>resized</emphasis>
@@ -1062,7 +1062,7 @@ event are interpreted as the like-named fields in an
 <para>
 Calling
 <function>XkbGetMap</function>
- (see section 14.2) should be sufficient for most applications to get client
+ (see <link linkend="Getting_Map_Components_from_the_Server">section 14.2</link>) should be sufficient for most applications to get client
 and server maps. As a result, most applications do not need to directly
 allocate client and server maps.
 </para>
@@ -1185,7 +1185,7 @@ field specifies the number of entries to preallocate for the
 <emphasis>type_count </emphasis>
 field is less than
 <emphasis>XkbNumRequiredTypes</emphasis>
- (see section 15.2.1), returns
+ (see <link linkend="The_Canonical_Key_Types">section 15.2.1</link>), returns
 <errorname>BadValue</errorname>.
 </entry>
   </row>

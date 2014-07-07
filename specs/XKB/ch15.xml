@@ -31,7 +31,7 @@ Xkb Client Map</H5>
 <para>
 The
 <emphasis>map </emphasis>
-field of the complete Xkb keyboard description (see section 6.1) is a pointer
+field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb client map, which is of type
 <emphasis>XkbClientMapRec</emphasis>
 :
@@ -106,7 +106,7 @@ The
 <emphasis>mods</emphasis>
  field of a key type is an
 <emphasis>XkbModsRec</emphasis>
- (see section 7.2) specifying the modifiers the key type uses when calculating
+ (see <link linkend="Modifier_Definitions">section 7.2</link>) specifying the modifiers the key type uses when calculating
 the shift level, and can be composed of both the core modifiers and virtual
 modifiers. To set the modifiers associated with a key type, modify the
 <emphasis>real_mods</emphasis>
@@ -136,7 +136,7 @@ The
 <emphasis>num_levels</emphasis>
  directly to change the number if shift levels for a key type. Instead, use
 <function>XkbResizeKeyType</function>
- (see section 15.2.3).
+ (see <link linkend="Changing_the_Number_of_Levels_in_a_Key_Type">section 15.2.3</link>).
 </para>
 
 
@@ -197,7 +197,7 @@ Any modifiers specified in
 <emphasis>consumed</emphasis>
  by
 <function>XkbTranslateKeyCode</function>
- (see section 12.1.3). For those rare occasions a modifier
+ (see <link linkend="X_Library_Functions_Affected_by_Xkb">section 12.1.3</link>). For those rare occasions a modifier
 <emphasis>should</emphasis>
  be considered despite having been used to look up a symbol, key types include
 an optional
@@ -350,7 +350,7 @@ that the virtual
 
 <note><para>Shift level three can be reached only if the virtual modifier
 <emphasis>LevelThree</emphasis>
- is bound to a real modifier (see section 16.4). If
+ is bound to a real modifier (see <link linkend="Virtual_Modifier_Mapping">section 16.4</link>). If
 <emphasis>LevelThree</emphasis>
  is not bound to a real modifier, the
 <emphasis>map</emphasis>
@@ -811,7 +811,7 @@ use
 bound to individual keys. To obtain the key types bound to an individual key,
 refer to the
 <emphasis>key_sym_map</emphasis>
- field of the client map (see section 15.3.1).</para></note>
+ field of the client map (see <link linkend="Per_Key_Key_Type_Indices">section 15.3.1</link>).</para></note>
 
 <para>
 <function>XkbGetKeyTypes</function>
@@ -1279,7 +1279,7 @@ The
 <emphasis>kt_index</emphasis>
  array of the
 <emphasis>XkbSymMapRec</emphasis>
- structure contains the indices of the key types (see section 15.2) for each
+ structure contains the indices of the key types (see <link linkend="Key_Types">section 15.2</link>) for each
 possible group of symbols associated with the key. To obtain the index of a key
 type or the pointer to a key type, Xkb provides the following macros, to access
 the key types:
@@ -1430,7 +1430,7 @@ To obtain the number of groups of symbols bound to the key, use
 <function>XkbKeyNumGroups</function>.
 To change the number of groups bound to a key, use
 <function>XkbChangeTypesOfKey</function>
- (see section 15.3.6). To obtain a mask that determines the treatment of
+ (see <link linkend="Changing_the_Number_of_Groups_and_Types_Bound_to_a_Key">section 15.3.6</link>). To obtain a mask that determines the treatment of
 out-of-range groups, use
 <function>XkbKeyGroupInfo</function>
  and
@@ -1469,7 +1469,7 @@ Out-of-range groups for individual keys are mapped to a legal group using the
 same options as are used for the overall keyboard group. The particular type of
 mapping used is controlled by the bits set in the
 <emphasis>group_info</emphasis>
- flag, as shown in Table 15.2. See section 10.7.1 for more details on the
+ flag, as shown in Table 15.2. See <link linkend="The_GroupsWrap_Control">section 10.7.1</link> for more details on the
 normalization methods in this table.
 </para>
 
@@ -2255,7 +2255,7 @@ as appropriate. If the
 <emphasis>p_changes</emphasis>
  to include the
 <emphasis>key</emphasis>
- that was changed. See section 14.3.1 for more information on the
+ that was changed. See <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link> for more information on the
 <emphasis>XkbMapChangesPtr</emphasis>
  structure. If successful,
 <function>XkbChangeTypesOfKey</function>
@@ -2503,7 +2503,7 @@ the key,
 
 <note><para>A change to the number of symbols bound to a key should be
 accompanied by a change in the number of actions bound to a key. Refer to
-section 16.1.16 for more information on changing the number of actions bound to
+<link linkend="Changing_the_Number_of_Actions_Bound_to_a_Key">section 16.1.16</link> for more information on changing the number of actions bound to
 a key.</para></note>
 
 

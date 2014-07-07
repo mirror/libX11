@@ -31,7 +31,7 @@ includes ways to control or disable it.
 Because
 <function>XOpenDisplay</function>
  initializes Xkb, some events contain an Xkb description of the keyboard state
-instead of that normally used by the core protocol. See section 17.1.1 for more
+instead of that normally used by the core protocol. See <link linkend="Xkb_State_to_Core_Protocol_State_Transformation">section 17.1.1</link> for more
 information about the differences between Xkb keyboard state and that reported
 by the core protocol.
 </para>
@@ -105,7 +105,7 @@ client’s knowledge. Most clients don’t really care about the range of legal
 keycodes, but some clients maintain information about each key and might have
 problems with events that come from unexpected keys. Such clients can set the
 <emphasis>XkbLC_IgnoreNewKeyboards</emphasis>
- library control (see section 11.3.1) to prevent the implicit support from
+ library control (see <link linkend="IgnoreNewKeyboards">section 11.3.1</link>) to prevent the implicit support from
 requesting notification of changes to the legal range of keycodes.
 </para>
 
@@ -145,7 +145,7 @@ key. The index specifies a column of symbols in the core keyboard mapping (that
 is, as reported by the core protocol
 <emphasis>GetKeyboardMapping</emphasis>
  request). The order of the symbols in the core mapping does not necessarily
-correspond to the order of the symbols used by Xkb; section 17.1.3 describes
+correspond to the order of the symbols used by Xkb; <link linkend="Xkb_Keyboard_Mapping_to_Core_Keyboard_Mapping_Transformations">section 17.1.3</link> describes
 the differences.
 </para>
 
@@ -186,7 +186,7 @@ Xkb is present,
  is allowed, but not required, to return strings in character sets other than
 ISO Latin-1, depending on the current locale. If any key bindings are defined,
 <function>XLookupString</function>
- does not use any consumed modifiers (see sections 11.1.2 and 15.2) to
+ does not use any consumed modifiers (see <link linkend="ConsumeLookupMods">section 11.1.2</link> and <link linkend="Key_Types">section 15.2</link>) to
 determine matching bindings.
 </para>
 
@@ -859,7 +859,7 @@ To translate a keycode to a key symbol and modifiers, use
 <symbol>Mod5Mask</symbol>.
 The
 <emphasis>AlwaysConsumeShiftAndLock</emphasis>
- library control (see section 11.1.3), if enabled, causes
+ library control (see <link linkend="AlwaysConsumeShiftAndLock">section 11.1.3</link>), if enabled, causes
 <function>XkbTranslateKeyCode</function>
  to consume shift and lock.
 <function>XkbTranslateKeyCode</function>

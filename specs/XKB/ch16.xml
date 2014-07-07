@@ -4,7 +4,7 @@
 <para>
 The
 <emphasis>server</emphasis>
- field of the complete Xkb keyboard description (see section 6.1) is a pointer
+ field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb server map.
 </para>
 
@@ -56,9 +56,9 @@ The
 <emphasis>acts</emphasis>,
 and
 <emphasis>key_acts</emphasis>
- fields specify the key actions, defined in section 16.1. The
+ fields specify the key actions, defined in <link linkend="Key_Actions">section 16.1</link>. The
 <emphasis>behaviors</emphasis>
- field describes the behavior for each key and is defined in section 16.2. The
+ field describes the behavior for each key and is defined in <link linkend="Key_Behavior">section 16.2</link>. The
 <emphasis>explicit</emphasis>
  field describes the explicit components for a key and is defined in section
 16.3. The
@@ -66,7 +66,7 @@ and
  and the
 <emphasis>vmodmap</emphasis>
  fields describe the virtual modifiers and the per-key virtual modifier mapping
-and are defined in section 16.4.
+and are defined in <link linkend="Virtual_Modifier_Mapping">section 16.4</link>.
 </para>
 
 <sect1 id='Key_Actions'>
@@ -244,7 +244,7 @@ to key actions:
 <emphasis>keycode</emphasis>.
 This should be the same value as the result of
 <function>XkbKeyNumSyms</function>
- (see section 15.3.3).
+ (see <link linkend="Key_Width">section 15.3.3</link>).
 </para>
 
 
@@ -874,8 +874,8 @@ The
 <emphasis>vmods1</emphasis>,
 and
 <emphasis>vmods2</emphasis>
- fields represent the components of an Xkb modifier description (see section
-7.2). While the
+ fields represent the components of an Xkb modifier description
+(see <link linkend="Modifier_Definitions">section 7.2</link>). While the
 <emphasis>mask</emphasis>
  and
 <emphasis>real_mods</emphasis>
@@ -1044,14 +1044,14 @@ the
  field to the base keyboard group. In either case, the resulting effective
 keyboard group is brought back into range depending on the value of the
 <emphasis>groups_wrap</emphasis>
- field of the controls structure (see section 10.7.1).
+ field of the controls structure (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
     </para>
   </listitem>
   <listitem>
     <para>
 If a key with an
 <emphasis>XkbSA_ISOLock</emphasis>
- action (see section 16.1.8) is pressed while this key is down, the key release
+ action (see <link linkend="Actions_for_Locking_Modifiers_and_Group">section 16.1.8</link>) is pressed while this key is down, the key release
 of this key has no effect. Otherwise, the key release cancels the effects of
 the key press.
     </para>
@@ -1306,7 +1306,7 @@ typedef struct _XkbPtrAction {
 <para>
 If the
 <emphasis>MouseKeys</emphasis>
- control is not enabled (see section 10.5.1),
+ control is not enabled (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>),
 <symbol>KeyPress</symbol>
  and
 <symbol>KeyRelease</symbol>
@@ -1366,7 +1366,7 @@ The
     <entry>
 If not set, and the
 <emphasis>MouseKeysAccel</emphasis>
- control is enabled (see section 10.5.2), the
+ control is enabled (see <link linkend="The_MouseKeysAccel_Control">section 10.5.2</link>), the
 <symbol>KeyPress</symbol>
  initiates a mouse keys timer for this key; every time the timer expires, the
 cursor moves.
@@ -1597,7 +1597,7 @@ typedef struct _XkbPtrBtnAction {
 <para>
 If the
 <emphasis>MouseKeys</emphasis>
- (see section 10.5.1) control is not enabled,
+ (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>) control is not enabled,
 <symbol>KeyPress</symbol>
  and
 <symbol>KeyRelease</symbol>
@@ -1639,7 +1639,7 @@ If
 <emphasis>mk_dflt_btn</emphasis>
  attribute of the
 <emphasis>MouseKeys</emphasis>
- control (see section 10.5.1). Otherwise, the event is generated for the button
+ control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). Otherwise, the event is generated for the button
 specified by the
 <emphasis>button</emphasis>
  field.
@@ -1765,7 +1765,7 @@ If set, the action uses the pointer button specified by the
 <emphasis>mk_dflt_btn</emphasis>
  attribute of the
 <emphasis>MouseKeys</emphasis>
- control (see section 10.5.1). Otherwise, the action uses the pointer button
+ control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). Otherwise, the action uses the pointer button
 specified by the
 <emphasis>button </emphasis>
 field.
@@ -1802,7 +1802,7 @@ Actions associated with the
 <emphasis>mk_dflt_btn</emphasis>
  attribute of the
 <emphasis>MouseKeys</emphasis>
- control (see section 10.5.1):
+ control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>):
 </para>
 
 <para><programlisting>
@@ -1891,7 +1891,7 @@ The
 <emphasis>mk_dflt_btn</emphasis>
  attribute of the
 <emphasis>MouseKeys</emphasis>
- control (see section 10.5.1). If
+ control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). If
 <emphasis>XkbSA_DfltBtnAbsolute</emphasis>
  is set in
 <emphasis>flags</emphasis>,
@@ -2219,7 +2219,7 @@ the
 <emphasis>vmods1</emphasis>,
 and
 <emphasis>vmods2 </emphasis>
-fields (see section 16.1.3). If no other actions are transformed by the
+fields (see <link linkend="Actions_for_Changing_Modifiers_State">section 16.1.3</link>). If no other actions are transformed by the
 <emphasis>XkbISO_Lock</emphasis>
  action, a key release locks the action modifiers. Otherwise, a key release
 clears the base modifiers set by the key press.
@@ -2319,8 +2319,8 @@ The
 <emphasis>vmods1</emphasis>,
 and
 <emphasis>vmods2</emphasis>
- fields represent the components of an Xkb modifier description (see section
-7.2). While the
+ fields represent the components of an Xkb modifier description
+ (see <link linkend="Modifier_Definitions">section 7.2</link>). While the
 <emphasis>mask</emphasis>
  and
 <emphasis>real_mods</emphasis>
@@ -2335,7 +2335,7 @@ and
  fields are combined to correspond to the
 <emphasis>vmods</emphasis>
  field of an Xkb modifier description. Xkb provides macros to convert between
-the two formats as shown in section 16.1.3.
+the two formats as shown in <link linkend="Actions_for_Changing_Modifiers_State">section 16.1.3</link>.
 </para>
 
 
@@ -2600,7 +2600,7 @@ signed character value for screen numbers in
 <para>
 Actions associated with the
 <emphasis>XkbCtrlsAction</emphasis>
- structure change the state of the boolean controls (see section 10.1):
+ structure change the state of the boolean controls (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>):
 </para>
 
 <para><programlisting>
@@ -2659,7 +2659,7 @@ A key release disables any controls enabled by the key press.
     <para>
 This action can cause
 <emphasis>XkbControlsNotify</emphasis>
- events (see section 10.1).
+ events (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>).
     </para>
   </listitem>
 </itemizedlist>
@@ -2695,7 +2695,7 @@ If the
     <para>
 This action can cause
 <emphasis>XkbControlsNotify</emphasis>
- events (see section 10.1).
+ events (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>).
     </para>
   </listitem>
 </itemizedlist>
@@ -2770,7 +2770,7 @@ and
 <emphasis>ctrls3</emphasis>
  fields represent the boolean controls in the
 <emphasis>enabled_ctrls</emphasis>
- field of the controls structure (see section 10.1). Xkb provides the following
+ field of the controls structure (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>). Xkb provides the following
 macros, to convert between the two formats:
 </para>
 
@@ -2963,7 +2963,7 @@ To receive
 <function>XkbSelectEvents</function>
  or
 <function>XkbSelectEventDetails</function>
- (see section 4.3).
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 
@@ -3930,7 +3930,7 @@ the key,
 
 <note><para>A change to the number of actions bound to a key should be
 accompanied by a change in the number of symbols bound to a key. Refer to
-section 15.3.7 for more information on changing the number of symbols bound to
+<link linkend="Changing_the_Number_of_Symbols_Bound_to_a_Key">section 15.3.7</link> for more information on changing the number of symbols bound to
 a key.</para></note>
 
 
@@ -4086,7 +4086,7 @@ All other key release events are ignored.
     <entry>
 If the
 <emphasis>Overlay1</emphasis>
- control is enabled (see section 10.4),
+ control is enabled (see <link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">section 10.4</link>),
 <emphasis>data</emphasis>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
@@ -4099,7 +4099,7 @@ came from
     <entry>
 If the
 <emphasis>Overlay2</emphasis>
- control is enabled (see section 10.4),
+ control is enabled (see <link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">section 10.4</link>),
 <emphasis>data</emphasis>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
@@ -4255,7 +4255,7 @@ If any allocation errors occur,
 <para>
 Whenever a client remaps the keyboard using core protocol requests, Xkb
 examines the map to determine likely default values for the components that
-cannot be specified using the core protocol (see section 17.1.2 for more
+cannot be specified using the core protocol (see <link linkend="Core_Keyboard_Mapping_to_Xkb_Keyboard_Mapping_Transformation">section 17.1.2</link> for more
 information on how Xkb chooses the default values).
 </para>
 
@@ -4517,7 +4517,7 @@ The
 <emphasis>vmodmap</emphasis>
  member of the server map is similar to the
 <emphasis>modmap</emphasis>
- array of the client map (see section 15.4), but is used to define the virtual
+ array of the client map (see <link linkend="The_Per_Key_Modifier_Map">section 15.4</link>), but is used to define the virtual
 modifier mapping for each key. Like the
 <emphasis>modmap</emphasis>
  member, it is indexed by keycode, and each entry is a mask representing the
@@ -4644,7 +4644,7 @@ To obtain a subset of the virtual modifier bindings (the
 <emphasis>vmods</emphasis>
  entries for the virtual modifiers specified in the mask,
 <emphasis>which</emphasis>,
-and waits for a reply. See section 7.1 for a description of how to determine
+and waits for a reply. See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a description of how to determine
 the virtual modifier mask. For each bit set in
 <emphasis>which</emphasis>,
 <function>XkbGetVirtualMods</function>

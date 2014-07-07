@@ -34,7 +34,7 @@ describing how the control should work, and a state describing whether the
 behavior as a whole is enabled or disabled. The attributes and state for most
 of these controls are held in the
 <emphasis>XkbControlsRec</emphasis>
- structure (see section 10.8).
+ structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
 </para>
 
 
@@ -45,7 +45,7 @@ as a whole. To treat them as a group, modify an
  structure to describe all of the changes to be made, and then pass that
 structure and appropriate flags to an Xkb library function, or use a
 <emphasis>XkbControlsChangesRec</emphasis>
- (see section 10.10.1) to reduce network traffic. When using a convenience
+ (see <link linkend="The_XkbControlsChangesRec_Structure">section 10.10.1</link>) to reduce network traffic. When using a convenience
 function to manipulate one control individually, you do not use an
 <emphasis>XkbControlsRec</emphasis>
  structure directly.
@@ -221,7 +221,7 @@ control is enabled, and when turned off, disabled. It corresponds to the
 <emphasis>enabled_ctrls</emphasis>
  field of an
 <emphasis>XkbControlsRec</emphasis>
- structure (see section 10.8). The bits describing which controls are turned on
+ structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The bits describing which controls are turned on
 or off are defined in Table 10.7. <!-- xref -->
 </para>
 
@@ -614,10 +614,10 @@ and disable it using either the
 <emphasis>EnabledControls</emphasis>
  control or the
 <emphasis>AutoReset</emphasis>
- control discussed in section 10.1.1. When enabled, protocol requests to  <!-- xref -->
+ control discussed in <link linkend="The_EnabledControls_Control">section 10.1.1</link>. When enabled, protocol requests to  <!-- xref -->
 generate a sound result in the X server actually producing a real sound; when
 disabled, requests to the server to generate a sound are ignored unless the
-sound is forced. See section 9.2. <!-- xref -->
+sound is forced. See <link linkend="Audible_Bells">section 9.2</link>. <!-- xref -->
 </para>
 
 
@@ -661,7 +661,7 @@ control. The
 <emphasis>per_key_repeat</emphasis>
  field of an
 <emphasis>XkbControlsRec</emphasis>
- structure, discussed in section 10.8. <!-- xref -->
+ structure, discussed in <link linkend="The_XkbControlsRec_Structure">section 10.8</link>. <!-- xref -->
 </para>
 
 
@@ -691,7 +691,7 @@ generated repeat event. The second,
 <emphasis>interval</emphasis>,
 is the delay between all subsequent generated repeat events. As with all
 boolean controls, configuring the attributes that determine how the control
-operates does not automatically enable the control as a whole; see section 10.1.
+operates does not automatically enable the control as a whole; see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>.
 </para>
 
 
@@ -1146,7 +1146,7 @@ the
 <emphasis>EnabledControls</emphasis>
  control or the
 <emphasis>AutoReset</emphasis>
- control discussed in section 10.1.1.  <!-- xref -->
+ control discussed in <link linkend="The_EnabledControls_Control">section 10.1.1</link>.  <!-- xref -->
 </para>
 
 
@@ -1156,7 +1156,7 @@ should generate when that overlay is enabled, assign it either the
 <emphasis>XkbKB_Overlay1</emphasis>
  or
 <emphasis>XkbKB_Overlay2</emphasis>
- key behaviors, as described in section 16.2. <!-- xref -->
+ key behaviors, as described in <link linkend="Key_Behavior">section 16.2</link>. <!-- xref -->
 </para>
 
 
@@ -1179,7 +1179,7 @@ and disable them using either the
 <emphasis>EnabledControls</emphasis>
  control or the
 <emphasis>AutoReset</emphasis>
- control discussed in section 10.1.1. The individual keys that simulate  <!-- xref -->
+ control discussed in <link linkend="The_EnabledControls_Control">section 10.1.1</link>. The individual keys that simulate  <!-- xref -->
 different aspects of the pointer device are determined by the keyboard mapping,
 discussed in <xref linkend="Xkb_Server_Keyboard_Mapping" />. <!-- xref -->
 </para>
@@ -1215,7 +1215,7 @@ or setting the attribute; instead use
 <function>XkbGetControls</function>
  and
 <function>XkbSetControls</function>
- (see sections 10.9 and 10.10). <!-- xref -->
+ (see <link linkend="Querying_Controls">section 10.9</link> and <link linkend="Changing_Controls">section 10.10</link>). <!-- xref -->
 </para>
 
 <note><para>
@@ -1242,7 +1242,7 @@ mouse-pointer key yields one mouse event. When
 <emphasis>XkbSA_MovePtr</emphasis>
  action and the following fields in the
 <emphasis>XkbControlsRec</emphasis>
- structure (see section 10.8). <!-- xref -->
+ structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). <!-- xref -->
 </para>
 
 <table frame='topbot'>
@@ -1291,7 +1291,7 @@ There are no convenience functions to query or change the attributes of the
 <function>XkbGetControls</function>
  and
 <function>XkbSetControls</function>
- (see sections 10.9 and 10.10). <!-- xref -->
+ (see <link linkend="Querying_Controls">section 10.9</link> and <link linkend="Changing_Controls">section 10.10</link>). <!-- xref -->
 </para>
 
 
@@ -1300,7 +1300,7 @@ The effects of the attributes of the
 <emphasis>MouseKeysAccel</emphasis>
  control depend on whether the
 <emphasis>XkbSA_MovePtr</emphasis>
- action (see section 16.1) specifies relative or absolute pointer motion. <!-- xref -->
+ action (see <link linkend="Key_Actions">section 16.1</link>) specifies relative or absolute pointer motion. <!-- xref -->
 </para>
 
 <sect3 id='Absolute_Pointer_Motion'>
@@ -1498,7 +1498,7 @@ Enabling or disabling the keyboard controls through a graphical user interface
 may be impossible for people who need to use the controls. For example, a user
 who needs
 <emphasis>SlowKeys</emphasis>
- (see section 10.6.6) may not even be able to start the graphical application,  <!-- xref -->
+ (see <link linkend="The_SlowKeys_Control">section 10.6.6</link>) may not even be able to start the graphical application,  <!-- xref -->
 let alone use it, if
 <emphasis>SlowKeys</emphasis>
  is not enabled. To allow easier access to some of the controls, the
@@ -1551,9 +1551,9 @@ When the
 
 <para>
 Some of these key sequences optionally generate audible feedback of the change
-in state, as described in section 10.6.3, or  <!-- xref -->
+in state, as described in <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>, or  <!-- xref -->
 <emphasis>XkbControlsNotify</emphasis>
- events, described in section 10.11. <!-- xref -->
+ events, described in <link linkend="Tracking_Changes_to_Keyboard_Controls">section 10.11</link>. <!-- xref -->
 </para>
 
 </sect2>
@@ -1585,7 +1585,7 @@ When a timeout as specified by
 <emphasis>XkbControlsNotify</emphasis>
  event. For more information on
 <emphasis>XkbControlsNotify</emphasis>
- events, refer to section 10.11. <!-- xref -->
+ events, refer to <link linkend="Tracking_Changes_to_Keyboard_Controls">section 10.11</link>. <!-- xref -->
 </para>
 
 
@@ -1706,7 +1706,7 @@ The parameters
 <emphasis>ax_options</emphasis>,
 which is a field in the
 <emphasis>XkbControlsRec</emphasis>
- structure (see section 10.8).  <!-- xref -->
+ structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).  <!-- xref -->
 <function>XkbGetAccessXTimeout</function>
 returns
 <symbol>True</symbol>
@@ -1826,8 +1826,8 @@ are modified.
  specifies what controls are to be enabled or disabled, and
 <emphasis>ctrls_values</emphasis>
  specifies whether those controls are to be enabled or disabled. The bit values
-correspond to those for enabling and disabling boolean controls (see section
-10.1.1). The
+correspond to those for enabling and disabling boolean controls
+(see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). The
 <emphasis>opts_mask</emphasis>
  field specifies which attributes of the
 <emphasis>AccessXKeys</emphasis>
@@ -1840,7 +1840,7 @@ for the
 <emphasis>ax_options</emphasis>
  field of an
 <emphasis>XkbDescRec</emphasis>
- (see section 10.8). <!-- xref -->
+ (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). <!-- xref -->
 </para>
 
 
@@ -1875,14 +1875,14 @@ codes. Use the
 There is no convenience function for modifying the
 <emphasis>AccessXFeedback</emphasis>
  control, although the feedback as a whole can be enabled or disabled just as
-other boolean controls are (see section 10.1). Individual beep codes are turned
+other boolean controls are (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>). Individual beep codes are turned
 on or off by modifying the following bits in the
 <emphasis>ax_options</emphasis>
  field of an
 <emphasis>XkbControlsRec</emphasis>
  structure and using
 <function>XkbSetControls</function>
- (see section 10.10): <!-- xref -->
+ (see <link linkend="Changing_Controls">section 10.10</link>): <!-- xref -->
 </para>
 
 <table frame='topbot'>
@@ -1995,7 +1995,7 @@ pitch. In these cases, use the
 <para>
 When any of the above feedbacks occur, Xkb may generate a
 <emphasis>XkbBellNotify</emphasis>
- event (see section 9.4). <!-- xref -->
+ event (see <link linkend="Detecting_Bells">section 9.4</link>). <!-- xref -->
 </para>
 
 
@@ -2108,7 +2108,7 @@ To receive
 <emphasis>XkbAccessXNotify</emphasis>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see section 4.3) and pass <emphasis> <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass <emphasis> <!-- xref -->
 XkbAccesXNotifyMask</emphasis>
  in both
 <emphasis>bits_to_change</emphasis>
@@ -2208,13 +2208,13 @@ locking, or unlocking of modifiers using
 <emphasis>StickyKeys</emphasis>
  generates
 <emphasis>XkbStateNotify</emphasis>
- events as described in section 5.4. Repeating keys generate normal
+ events as described in <link linkend="Tracking_Keyboard_State">section 5.4</link>. Repeating keys generate normal
 <symbol>KeyPress</symbol>
  and
 <symbol>KeyRelease</symbol>
  events, though the auto-repeat can be detected using
 <emphasis>DetectableAutorepeat</emphasis>
- (see section 10.3.3). Finally, <emphasis> <!-- xref -->
+ (see <link linkend="The_DetectableAutorepeat_Control">section 10.3.3</link>). Finally, <emphasis> <!-- xref -->
 MouseKeys</emphasis>
  generates pointer events identical to those of the core pointer device.
 </para>
@@ -2248,7 +2248,7 @@ When the
 acceptance or rejection, and release of any key to interested clients by
 sending an appropriate
 <emphasis>AccessXNotify</emphasis>
- event (see section 10.6.4). <!-- xref -->
+ event (see <link linkend="AccessXNotify_Events">section 10.6.4</link>). <!-- xref -->
 </para>
 
 <para>
@@ -2428,7 +2428,7 @@ When the
  control is active, the server reports acceptance or rejection of any key to
 interested clients by sending an appropriate
 <emphasis>AccessXNotify</emphasis>
- event (see section 10.6.4). <!-- xref -->
+ event (see <link linkend="AccessXNotify_Events">section 10.6.4</link>). <!-- xref -->
 </para>
 
 
@@ -2705,7 +2705,7 @@ The
 <emphasis>ax_options</emphasis>
  of an
 <emphasis>XkbControlsRec</emphasis>
- structure (see section 10.8). The first option,
+ structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The first option,
 <emphasis>TwoKeys</emphasis>,
 specifies whether
 <emphasis>StickyKeys</emphasis>
@@ -3013,10 +3013,10 @@ There are no convenience functions for manipulating the
 <function>XkbSetControls</function>
  and
 <function>XkbGetControls</function>
- (see section 10.9 and section 10.10) to query and change this control. <!-- xref -->
+ (see <link linkend="Querying_Controls">section 10.9</link> and <link linkend="Changing_Controls">section 10.10</link>) to query and change this control. <!-- xref -->
 </para>
 
-<note><para>See also section 15.3.2 or a discussion of the related field,  <!-- xref -->
+<note><para>See also <link linkend="Per_Key_Group_Information">section 15.3.2</link> or a discussion of the related field,  <!-- xref -->
 <emphasis>group_info</emphasis>,
 which also normalizes a group under certain circumstances.</para></note>
 
@@ -3055,7 +3055,7 @@ Manipulate the
 <function>XkbSetControls</function>
  and
 <function>XkbGetControls</function>
- (see sections 10.9 and 10.10) to query and change this control. Alternatively,  <!-- xref -->
+ (see <link linkend="Querying_Controls">section 10.9</link> and <link linkend="Changing_Controls">section 10.10</link>) to query and change this control. Alternatively,  <!-- xref -->
 use
 <function>XkbSetIgnoreLockMods</function>.
 </para>
@@ -3200,7 +3200,7 @@ be added and removed from the server’s
  are removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control.
-See section 7.1 for a discussion of virtual modifier masks to use in <emphasis> <!-- xref -->
+See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in <emphasis> <!-- xref -->
 affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
@@ -3228,7 +3228,7 @@ passive grabs.
 Because
 <emphasis>IgnoreGroupLock</emphasis>
  is a boolean control with no attributes, use the general boolean controls
-functions (see section 10.1) to change its state. <!-- xref -->
+functions (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>) to change its state. <!-- xref -->
 </para>
 
 
@@ -3265,7 +3265,8 @@ Manipulate the
 <function>XkbSetControls</function>
  and
 <function>XkbGetControls</function>
- (see sections10.9 and 10.10). Alternatively, use
+ (see <link linkend="Querying_Controls">section 10.9</link>
+ and <link linkend="Changing_Controls">section 10.10</link>). Alternatively, use
 <function>XkbSetServerInternalMods</function>.
 </para>
 
@@ -3398,7 +3399,7 @@ selected by both
  but not by
 <emphasis>virtual_values</emphasis>
  are removed from the server’s internal modifiers control.
-See section 7.1 for a discussion of virtual modifier masks to use in <emphasis> <!-- xref -->
+See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in <emphasis> <!-- xref -->
 affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
@@ -3510,14 +3511,14 @@ is described in more detail.
     <entry>XkbAccessXFeedbackMask</entry>
     <entry>ax_options:      XkbAX_*FBMask</entry>
     <entry>XkbAccessXFeedback&#xAD;Mask</entry>
-    <entry>10.6.3</entry> <!-- xref -->
+    <entry><link linkend="The_AccessXFeedback_Control">10.6.3</link></entry>
   </row>
   <row>
     <entry>AccessXKeys</entry>
     <entry></entry>
     <entry></entry>
     <entry>XkbAccessXKeys&#xAD;Mask</entry>
-    <entry>10.6.1</entry> <!-- xref -->
+    <entry><link linkend="The_AccessXKeys_Control">10.6.1</link></entry>
   </row>
   <row>
     <entry>AccessXTimeout</entry>
@@ -3530,77 +3531,77 @@ is described in more detail.
       <para>axt_ctrls_values</para>
     </entry>
     <entry>XkbAccessXTimeout&#xAD;Mask</entry>
-    <entry>10.6.2</entry>
+    <entry><link linkend="The_AccessXTimeout_Control">10.6.2</link></entry>
   </row>
   <row>
     <entry>AudibleBell</entry>
     <entry></entry>
     <entry></entry>
     <entry>XkbAudibleBellMask</entry>
-    <entry>9.2</entry>
+    <entry><link linkend="Audible_Bells">9.2</link></entry>
   </row>
   <row>
     <entry>AutoReset</entry>
     <entry></entry>
     <entry></entry>
     <entry></entry>
-    <entry>10.1.2</entry>
+    <entry><link linkend="The_AutoReset_Control">10.1.2</link></entry>
   </row>
   <row>
     <entry>BounceKeys</entry>
     <entry>XkbBounceKeysMask</entry>
     <entry>debounce_delay</entry>
     <entry>XkbBounceKeysMask</entry>
-    <entry>10.6.7</entry>
+    <entry><link linkend="The_BounceKeys_Control">10.6.7</link></entry>
   </row>
   <row>
     <entry>Detectable-Autorepeat</entry>
     <entry></entry>
     <entry></entry>
     <entry></entry>
-    <entry>10.3.3</entry>
+    <entry><link linkend="The_DetectableAutorepeat_Control">10.3.3</link></entry>
   </row>
   <row>
     <entry>EnabledControls</entry>
     <entry>XkbControlsEnabledMask</entry>
     <entry>enabled_ctrls</entry>
     <entry><emphasis>Non-Boolean Control</emphasis></entry>
-    <entry>10.1.1</entry>
+    <entry><link linkend="The_EnabledControls_Control">10.1.1</link></entry>
   </row>
   <row>
     <entry>GroupsWrap</entry>
     <entry>XkbGroupsWrapMask</entry>
     <entry>groups_wrap</entry>
     <entry><emphasis>Non-Boolean Control</emphasis></entry>
-    <entry>10.7.1</entry>
+    <entry><link linkend="The_GroupsWrap_Control">10.7.1</link></entry>
   </row>
   <row>
     <entry>IgnoreGroupLock</entry>
     <entry></entry>
     <entry></entry>
     <entry>XkbIgnoreGroupLock&#xAD;Mask</entry>
-    <entry>10.7.3</entry>
+    <entry><link linkend="The_IgnoreGroupLock_Control">10.7.3</link></entry>
   </row>
   <row>
     <entry>IgnoreLockMods</entry>
     <entry>XkbIgnoreLockModsMask</entry>
     <entry>ignore_lock</entry>
     <entry><emphasis>Non-Boolean Control</emphasis></entry>
-    <entry>5.1</entry>
+    <entry><link linkend="Keyboard_State_Description">5.1</link></entry>
   </row>
   <row>
     <entry>InternalMods</entry>
     <entry>XkbInternalModsMask</entry>
     <entry>internal</entry>
     <entry><emphasis>Non-Boolean Control</emphasis></entry>
-    <entry>5.1</entry>
+    <entry><link linkend="Keyboard_State_Description">5.1</link></entry>
   </row>
   <row>
     <entry>MouseKeys</entry>
     <entry>XkbMouseKeysMask</entry>
     <entry>mk_dflt_btn</entry>
     <entry>XkbMouseKeysMask</entry>
-    <entry>10.5.1</entry>
+    <entry><link linkend="The_MouseKeys_Control">10.5.1</link></entry>
   </row>
   <row>
     <entry>MouseKeysAccel</entry>
@@ -3613,28 +3614,28 @@ is described in more detail.
       <para>mk_curve</para>
     </entry>
     <entry>XkbMouseKeysAccel&#xAD;Mask</entry>
-    <entry>10.5.2</entry>
+    <entry><link linkend="The_MouseKeysAccel_Control">10.5.2</link></entry>
   </row>
   <row>
     <entry>Overlay1</entry>
     <entry></entry>
     <entry></entry>
     <entry>XkbOverlay1Mask</entry>
-    <entry>10.4</entry>
+    <entry><link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">10.4</link></entry>
   </row>
   <row>
     <entry>Overlay2</entry>
     <entry></entry>
     <entry></entry>
     <entry>XkbOverlay2Mask</entry>
-    <entry>10.4</entry>
+    <entry><link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">10.4</link></entry>
   </row>
   <row>
     <entry>PerKeyRepeat</entry>
     <entry>XkbPerKeyRepeatMask</entry>
     <entry>per_key_repeat</entry>
     <entry><emphasis>Non-Boolean Control</emphasis></entry>
-    <entry>10.3.1</entry>
+    <entry><link linkend="The_PerKeyRepeat_Control">10.3.1</link></entry>
   </row>
   <row>
     <entry>RepeatKeys</entry>
@@ -3644,14 +3645,14 @@ is described in more detail.
       <para>repeat_interval</para>
     </entry>
     <entry>XkbRepeatKeysMask</entry>
-    <entry>10.3</entry>
+    <entry><link linkend="Controls_for_Repeat_Key_Behavior">10.3</link></entry>
   </row>
   <row>
     <entry>SlowKeys</entry>
     <entry>XkbSlowKeysMask</entry>
     <entry>slow_keys_delay</entry>
     <entry>XkbSlowKeysMask</entry>
-    <entry>10.6.6</entry>
+    <entry><link linkend="The_SlowKeys_Control">10.6.6</link></entry>
   </row>
   <row>
     <entry>StickyKeys</entry>
@@ -3662,7 +3663,7 @@ is described in more detail.
       <para>XkbAX_Latch&#xAD;ToLockMask</para>
     </entry>
     <entry>XkbStickyKeysMask</entry>
-    <entry>10.6.8</entry>
+    <entry><link linkend="The_StickyKeys_Control">10.6.8</link></entry>
   </row>
 </tbody>
 </tgroup>
@@ -3843,8 +3844,7 @@ The individual fields of the
 <emphasis>mk_dflt_btn is an attribute of the </emphasis>
 <emphasis>MouseKeys</emphasis>
 <emphasis>control</emphasis>
- (see section 10.5<emphasis> <!-- xref -->
-). It</emphasis>
+ (see <link linkend="Controls_for_Using_the_Mouse_from_the_Keyboard">section 10.5</link>). It
  specifies the mouse button number to use for keyboard simulated mouse button
 operations. Its value should be one of the core symbols
 <symbol>Button1</symbol>
@@ -3875,7 +3875,7 @@ computed automatically by the server whenever the keyboard mapping changes.
 <emphasis>groups_wrap</emphasis>
  is an attribute of the
 <emphasis>GroupsWrap</emphasis>
- control (see section 10.7.1). It specifies the handling of illegal groups on a  <!-- xref -->
+ control (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>). It specifies the handling of illegal groups on a  <!-- xref -->
 global basis. Valid values for
 <emphasis>groups_wrap</emphasis>
  are shown in Table 10.8.
@@ -3927,7 +3927,7 @@ its four low-order bits specify the index of the group to use.
 <emphasis>internal</emphasis>
  is an attribute of the
 <emphasis>InternalMods</emphasis>
- control (see section 10.7.4). It specifies modifiers to be consumed in the  <!-- xref -->
+ control (see <link linkend="The_InternalMods_Control">section 10.7.4</link>). It specifies modifiers to be consumed in the  <!-- xref -->
 server and not passed on to clients when events are reported. Valid values
 consist of any combination of the eight core modifier bits:
 <symbol>ShiftMask</symbol>,
@@ -3947,7 +3947,7 @@ consist of any combination of the eight core modifier bits:
 <emphasis>ignore_lock</emphasis>
  is an attribute of the
 <emphasis>IgnoreLockMods</emphasis>
- control (see section 10.7.2). It specifies modifiers to be ignored in grab  <!-- xref -->
+ control (see <link linkend="The_IgnoreLockMods_Control">section 10.7.2</link>). It specifies modifiers to be ignored in grab  <!-- xref -->
 calculations. Valid values consist of any combination of the eight core
 modifier bits:
 <symbol>ShiftMask</symbol>,
@@ -3967,7 +3967,7 @@ modifier bits:
 <emphasis>enabled_ctrls</emphasis>
  is an attribute of the
 <emphasis>EnabledControls</emphasis>
- control (see section 10.1.1). It contains one bit per boolean control. Each  <!-- xref -->
+ control (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). It contains one bit per boolean control. Each  <!-- xref -->
 bit determines whether the corresponding control is enabled or disabled; a one
 bit means the control is enabled. The mask bits used to enable these controls
 are listed in Table 10.7, using only those masks with "ok" in the
@@ -3986,7 +3986,7 @@ are listed in Table 10.7, using only those masks with "ok" in the
 <emphasis>repeat_interval</emphasis>
  are attributes of the
 <emphasis>RepeatKeys</emphasis>
- control (see section 10.3.2). <emphasis> <!-- xref -->
+ control (see <link linkend="The_RepeatKeys_Control">section 10.3.2</link>). <emphasis> <!-- xref -->
 repeat_delay</emphasis>
  is the initial delay before a key begins repeating, in milliseconds;
 <emphasis>repeat_interval</emphasis>
@@ -4002,7 +4002,7 @@ repeat_delay</emphasis>
 <emphasis>slow_keys_delay</emphasis>
  is an attribute of the
 <emphasis>SlowKeys</emphasis>
- control (see section 10.6.6). Its value specifies the <emphasis> <!-- xref -->
+ control (see <link linkend="The_SlowKeys_Control">section 10.6.6</link>). Its value specifies the <emphasis> <!-- xref -->
 SlowKeys</emphasis>
  acceptance delay period in milliseconds before a key press is accepted by the
 server.
@@ -4017,7 +4017,7 @@ server.
 <emphasis>debounce_delay</emphasis>
  is an attribute of the
 <emphasis>BounceKeys</emphasis>
- control (see section 10.6.7). Its value specifies the <emphasis> <!-- xref -->
+ control (see <link linkend="The_BounceKeys_Control">section 10.6.7</link>). Its value specifies the <emphasis> <!-- xref -->
 BounceKeys</emphasis>
  delay period in milliseconds for which the key is disabled after having been
 pressed before another press of the same key is accepted by the server.
@@ -4037,7 +4037,7 @@ and
 <emphasis>mk_curve</emphasis>
  are attributes of the
 <emphasis>MouseKeysAccel</emphasis>
- control. Refer to section 10.5.2 for a description of these fields and the  <!-- xref -->
+ control. Refer to <link linkend="The_MouseKeysAccel_Control">section 10.5.2</link> for a description of these fields and the  <!-- xref -->
 units involved.
 </para>
 
@@ -4051,9 +4051,9 @@ The
 <emphasis>ax_options</emphasis>
  field contains attributes used to configure two different controls, the
 <emphasis>StickyKeys</emphasis>
- control (see section 10.6.8) and the <emphasis> <!-- xref -->
+ control (see <link linkend="The_StickyKeys_Control">section 10.6.8</link>) and the <emphasis> <!-- xref -->
 AccessXFeedback</emphasis>
- control (see section 10.6.3). The <emphasis> <!-- xref -->
+ control (see <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>). The <emphasis> <!-- xref -->
 ax_options</emphasis>
  field is a bitmask and may include any combination of the bits defined in
 Table 10.9.  <!-- xref -->
@@ -4254,7 +4254,7 @@ and
 <emphasis>axt_ctrls_values</emphasis>
  are attributes of the
 <emphasis>AccessXTimeout</emphasis>
- control. Refer to section 10.6.2 for a description of these fields and the  <!-- xref -->
+ control. Refer to <link linkend="The_AccessXTimeout_Control">section 10.6.2</link> for a description of these fields and the  <!-- xref -->
 units involved.
 </para>
 
@@ -4417,7 +4417,7 @@ To free the
 <emphasis>ctrls</emphasis>
  member of a keyboard description, use
 <function>XkbFreeControls</function>
- (see section 10.12)
+ (see <link linkend="Allocating_and_Freeing_an_XkbControlsRec">section 10.12</link>)
 </para>
 
 
@@ -4552,7 +4552,7 @@ the corresponding values are still updated in the X server. For example, the
  set in
 <emphasis>enabled_ctrls</emphasis>
 ). It is permissible to modify the attributes of a control in one call to
-XkbSetControls and enable the control in a subsequent call. See section 10.1.1  <!-- xref -->
+XkbSetControls and enable the control in a subsequent call. See <link linkend="The_EnabledControls_Control">section 10.1.1</link>  <!-- xref -->
 for more information on enabling and disabling controls.
 </para>
 
@@ -4574,7 +4574,7 @@ Because this is somewhat awkward if all you want to do is enable and disable
 controls, and not modify any of their attributes, a convenience function is
 also provided for this purpose (
 <function>XkbChangeEnabledControls</function>,
-section 10.1.1). <!-- xref -->
+<link linkend="The_EnabledControls_Control">section 10.1.1</link>). <!-- xref -->
 </para>
 
 
@@ -4709,7 +4709,7 @@ description, the server sends an
 <emphasis>XkbControlsNotify</emphasis>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see section 4.3) and pass
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <emphasis>XkbControlsNotifyMask</emphasis>
  in both
 <emphasis>bits_to_change</emphasis>
@@ -4986,7 +4986,7 @@ results into the
 <emphasis>ctrls</emphasis>
  field, use
 <function>XkbFreeControls</function>
- (see section 10.12). <!-- xref -->
+ (see <link linkend="Allocating_and_Freeing_an_XkbControlsRec">section 10.12</link>). <!-- xref -->
 </para>
 
 
@@ -5197,7 +5197,7 @@ and sets
 
 <para>
 You can configure the boolean per-client controls which affect the state
-reported in button and key events. See section 12.1.1, 12.3, 12.5, and 16.3.11  <!-- xref -->
+reported in button and key events. See <link linkend="Effects_of_Xkb_on_Event_State">section 12.1.1</link>, 12.3, 12.5, and 16.3.11  <!-- xref -->
 of the XKB Protocol specification for more details.
 </para>
 

@@ -70,7 +70,7 @@ Virtual modifiers are named by converting their string name to an X
 <emphasis>names.vmods</emphasis>
  array in an
 <emphasis>XkbDescRec</emphasis>
- structure (see section 6.1). The position of a name Atom in the
+ structure (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>). The position of a name Atom in the
 <emphasis>names.vmods</emphasis>
  array defines the bit position used to represent the virtual modifier and also
 the index used when accessing virtual modifier information in arrays: the name
@@ -110,8 +110,10 @@ bind those modifiers to any particular key or to each other. Modifier
 definitions are included in a number of structures in the keyboard description
 to define the collection of modifiers that affect or are affected by some other
 entity. A modifier definition is relevant only in the context of some other
-entity such as an indicator map, a control, or a key type. (See sections 8.2.2,
-10.8, and 15.2.) <!-- xref -->
+entity such as an indicator map, a control, or a key type. (See
+<link linkend="XkbIndicatorMapRec">section 8.2.2</link>,
+<link linkend="The_XkbControlsRec_Structure">section 10.8</link>, and
+<link linkend="Key_Types">section 15.2</link>.)
 </para>
 
 <para><programlisting>
@@ -197,7 +199,7 @@ The
 <emphasis>vmods</emphasis>
  members of the server map are the "master" virtual modifier definitions. Xkb
 automatically propagates any changes to these fields to all other fields that
-use virtual modifier mappings (see section 16.4).
+use virtual modifier mappings (see <link linkend="Virtual_Modifier_Mapping">section 16.4</link>).
 </para>
 
 
@@ -219,7 +221,7 @@ For example, if
 
 <para>
 The virtual modifier mapping is normally updated whenever actions are
-automatically applied to symbols (see section 16.4 for details), and few
+automatically applied to symbols (see <link linkend="Virtual_Modifier_Mapping">section 16.4</link> for details), and few
 applications should need to change the virtual modifier mapping explicitly.
 </para>
 
@@ -227,14 +229,14 @@ applications should need to change the virtual modifier mapping explicitly.
 <para>
 Use
 <function>XkbGetMap</function>
-(see section 14.2) to get the virtual modifiers from the server or use  <!-- xref -->
+(see <link linkend="Getting_Map_Components_from_the_Server">section 14.2</link>) to get the virtual modifiers from the server or use  <!-- xref -->
 <function>XkbGetVirtualMods</function>
- (see section 16.4.1) to update a local copy of the virtual modifiers bindings  <!-- xref -->
+ (see <link linkend="Obtaining_Virtual_Modifier_Bindings_from_the_Server">section 16.4.1</link>) to update a local copy of the virtual modifiers bindings  <!-- xref -->
 from the server. To set the binding of a virtual modifier to a real modifier,
 use
 <function>XkbSetMap</function>
  (see
-section 14.3<emphasis> <!-- xref -->
+<link linkend="Changing_Map_Components_in_the_Server">section 14.3</link><emphasis> <!-- xref -->
 )</emphasis>.
 </para>
 

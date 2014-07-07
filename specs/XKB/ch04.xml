@@ -17,7 +17,7 @@ Xkb keyboard status events are reported to all interested clients, regardless
 of which window currently has the keyboard focus and regardless of the grab
 state of the keyboard.<footnote><para>The one exception to this rule is the
 XkbExtensionDeviceNotify event report that is sent when a client attempts to
-use an unsupported feature of an X Input Extension device (see section 21.4).
+use an unsupported feature of an X Input Extension device (see <link linkend="Setting_Xkb_Features_for_Non_KeyClass_Input_Extension_Devices">section 21.4</link>).
 </para></footnote> <!-- xref -->
 </para>
 
@@ -651,7 +651,7 @@ if you have requested them via a call to
  or
 <function>XkbSelectEventDetails</function>.
 Specify the event types in which you are interested in a mask, as described
-in section 4.3.
+in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 </para>
 
 
@@ -788,7 +788,7 @@ type and for the core protocol
 <emphasis>type</emphasis>
  field to determine if the event is an Xkb event (
 <emphasis>type</emphasis>
- equals the Xkb base event code; see section 2.4). If the event is an Xkb
+ equals the Xkb base event code; see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>). If the event is an Xkb
 event, you may then use the
 <emphasis>any.xkb_type</emphasis>
  field to determine the type of Xkb event and thereafter access the

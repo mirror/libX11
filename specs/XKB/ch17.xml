@@ -132,7 +132,7 @@ contained in an
  structure; plus a set of explicit override controls used to prevent particular
 components of type 2 (core-to-Xkb keyboard mapping) transformations from
 automatically occurring. These explicit override controls are maintained in a
-separate data structure discussed in section 16.3. <!-- xref -->
+separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>. <!-- xref -->
 </para>
 
 
@@ -181,7 +181,7 @@ As shown in Figure 17.3, there are four
  [0..3]) in the
 <emphasis>XkbCompatMapRec</emphasis>
  structure, one per possible Xkb group. Each group compatibility map is a
-modifier definition (see section 7.2 for a description of modifier
+modifier definition (see <link linkend="Modifier_Definitions">section 7.2</link> for a description of modifier
 definitions). The
 <emphasis>mask</emphasis>
  component of the definition specifies which real modifiers should be set in
@@ -258,7 +258,7 @@ Xkb keyboard mapping in the server, this automatic regeneration of the Xkb
 keyboard mapping from the core protocol keyboard mapping should not modify any
 components of the Xkb keyboard mapping that were explicitly set by a client.
 The client must set explicit override controls to prevent this from happening
-(see section 16.3). The core-to-Xkb mapping is done as follows:
+(see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>). The core-to-Xkb mapping is done as follows:
 </para>
 
 <orderedlist>
@@ -367,7 +367,7 @@ Apply symbol interpretations to modify key operation. This phase is completely
 skipped if the
 <emphasis>ExplicitInterpret</emphasis>
  override control bit is set in the explicit controls mask for the Xkb key (see
-section 16.3).
+<link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
     </para>
     <orderedlist>
       <listitem>
@@ -407,7 +407,7 @@ Symbol interpretations are used to guide the X server when it modifies the Xkb
 keymap in step 2. An initial set of symbol interpretations is loaded by the
 server when it starts. A client may add new ones using
 <function>XkbSetCompatMap</function>
- (see section 17.4).
+ (see <link linkend="Changing_the_Servers_Compatibility_Map">section 17.4</link>).
 </para>
 
 
@@ -421,7 +421,7 @@ processing may be modified for the particular key involved:
       Virtual modifier map
       Auto repeat
       Key behavior (may be set to <emphasis>XkbKB_Lock</emphasis>)
-      Key action (see section 16.1)
+      Key action (see <link linkend="Key_Actions">section 16.1</link>)
 </literallayout>
 
 <para>
@@ -605,7 +605,7 @@ The
 <emphasis>act</emphasis>
  field specifies a single action to be bound to the symbol position; any key
 event that selects the symbol causes the action to be taken. Valid actions are
-defined in section 16.1.
+defined in <link linkend="Key_Actions">section 16.1</link>.
 </para>
 
 
@@ -666,7 +666,7 @@ If the Xkb keyboard map for the key does not have its
 <emphasis>XkbSI_LockingKey</emphasis>
  is set, the key behavior is set to
 <emphasis>KB_Lock</emphasis>
-; otherwise, it is turned off (see section 16.3).
+; otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
 </para>
 
 
@@ -744,7 +744,7 @@ Use
 server. When another client modifies the compatibility map, you are notified if
 you have selected for
 <emphasis>XkbCompatMapNotify</emphasis>
- events (see section 17.5).
+ events (see <link linkend="Tracking_Changes_to_the_Compatibility_Map">section 17.5</link>).
 <function>XkbGetCompatMap</function>
  is particularly useful when you receive an event of this type, as it allows
 you to update your program’s version of the compatibility map to match the
@@ -1150,7 +1150,7 @@ key in a core keyboard mapping. Use
  and types in
 <emphasis>types_inout</emphasis>
  according to the rules specified in section 12 of the core protocol, then
-chooses canonical key types (canonical key types are defined in section 15.2.1)
+chooses canonical key types (canonical key types are defined in <link linkend="The_Canonical_Key_Types">section 15.2.1</link>)
 for groups 1 and 2 using the rules specified by the Xkb protocol and places
 them in
 <emphasis>xkb_syms_rtrn</emphasis>,
@@ -1266,7 +1266,7 @@ semantics updated, use
 
 <para>
 <function>XkbApplyCompatMapToKey</function>
- essentially performs the operation described in section 17.1.2 to a specific
+ essentially performs the operation described in <link linkend="Core_Keyboard_Mapping_to_Xkb_Keyboard_Mapping_Transformation">section 17.1.2</link> to a specific
 key. This updates the behavior, actions, repeat status, and virtual modifier
 bindings of the key.
 </para>
@@ -1282,7 +1282,7 @@ Xkb compatibility map, then call
 <function>XkbSetCompatMap</function>.
 You may allocate a new compatibility map for this purpose using
 <function>XkbAllocCompatMap</function>
- (see section 17.6). You may also use a compatibility map from another server,
+ (see <link linkend="Allocating_and_Freeing_the_Compatibility_Map">section 17.6</link>). You may also use a compatibility map from another server,
 although you need to adjust the
 <emphasis>device_spec</emphasis>
  field in the
@@ -1525,7 +1525,7 @@ To receive
 <emphasis>XkbCompatMapNotify</emphasis>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see section 4.3) and pass
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <emphasis>XkbCompatMapNotifyMask</emphasis>
  in both
 <emphasis>bits_to_change</emphasis>
@@ -1690,7 +1690,7 @@ allocated. The compatibility map is the
 <emphasis>which</emphasis>
  specifies the compatibility map components to be allocated (see
 <function>XkbGetCompatMap</function>,
-in section 17.2).
+in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <emphasis>which</emphasis>
  is an inclusive OR of the bits shown in Table 17.2.
 </para>
@@ -1796,7 +1796,7 @@ To free an entire compatibility map or selected portions of one, use
 <emphasis>which</emphasis>
  specifies the compatibility map components to be freed (see
 <function>XkbGetCompatMap</function>,
-in section 17.2).
+in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <emphasis>which</emphasis>
  is an inclusive OR of the bits shown in Table 17.2
 </para>

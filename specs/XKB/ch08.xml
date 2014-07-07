@@ -53,7 +53,8 @@ specific indicators, use
 <function>XkbSetNames</function>
  as discussed in <xref linkend="Symbolic_Names" />. Then set the map using
 <function>XkbSetMap</function>
- (see section 14.3) or
+ (see <link linkend="Changing_Map_Components_in_the_Server">section 14.3</link>)
+ or
 <function>XkbSetNamedIndicator</function>
  (below). To retrieve indicator names, use
 <function>XkbGetNames</function>
@@ -187,7 +188,7 @@ using the functions
 
 <para>
 For more information on the effects of explicit changes to indicators and the
-relationship to the indicator map, see section 8.4.1. <!-- xref -->
+relationship to the indicator map, see <link linkend="Effects_of_Explicit_Changes_on_Indicators">section 8.4.1</link>. <!-- xref -->
 </para>
 
 <sect3 id='XkbIndicatorMapRec_flags_field'>
@@ -530,7 +531,7 @@ field specifies what modifiers an indicator watches. The
 <emphasis>mods</emphasis>
  field is an Xkb modifier definition,
 <emphasis>XkbModsRec</emphasis>,
-as described in section 7.2, which can specify both real and virtual  <!-- xref -->
+as described in <link linkend="Modifier_Definitions">section 7.2</link>, which can specify both real and virtual  <!-- xref -->
 modifiers. The
 <emphasis>mods</emphasis>
  field takes effect even if some or all of the virtual indicators specified in
@@ -1012,7 +1013,7 @@ and
 <para>
 To free the indicator maps, use
 <function>XkbFreeIndicatorMaps</function>
- (see section 8.6).
+ (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>).
 </para>
 
 
@@ -1583,11 +1584,11 @@ in <emphasis>map</emphasis>.
 <errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
- (see section 8.5), <emphasis> <!-- xref -->
+ (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>), <emphasis> <!-- xref -->
 XkbIndicatorMapNotify</emphasis>,
 and
 <emphasis>XkbNamesNotify</emphasis>
- events (see section 18.5). <!-- xref -->
+ events (see <link linkend="Tracking_Name_Changes">section 18.5</link>). <!-- xref -->
 </para>
 
 
@@ -1716,7 +1717,7 @@ s can generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
  and
 <emphasis>XkbIndicatorMapNotify</emphasis>
- events (see section 8.5). <!-- xref -->
+ events (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>). <!-- xref -->
 </para>
 
 
@@ -1740,7 +1741,7 @@ To receive
 <emphasis>XkbIndicatorStateNotify</emphasis>
  events, use
 <function>XkbSelectEvents</function>
- (see section 4.3) with both the <emphasis> <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the <emphasis> <!-- xref -->
 bits_to_change </emphasis>
 and
 <emphasis>values_for_bits</emphasis>
@@ -1990,7 +1991,7 @@ If the
 <emphasis>indicators</emphasis>
  field, use
 <emphasis>XkbFreeIndicators</emphasis>
- (see section 8.6). <!-- xref -->
+ (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>). <!-- xref -->
 </para>
 
 

@@ -12,10 +12,10 @@ document that discuss the major Xkb components in detail.
 <title>The XkbDescRec Structure</title>
 
 <para>
-The complete description of an Xkb keyboard is given by an <emphasis>
-XkbDescRec</emphasis>
-. The component structures in the <emphasis>
-XkbDescRec</emphasis>
+The complete description of an Xkb keyboard is given by an
+<emphasis>XkbDescRec</emphasis>.
+The component structures in the
+<emphasis>XkbDescRec</emphasis>
  represent the major Xkb components outlined in Figure 1.1. <!-- xref -->
 </para>
 
@@ -42,27 +42,26 @@ components */
 */
       XkbGeometryPtr                  geom;            /* physical geometry of
 keyboard */
-} <emphasis>
-XkbDescRec</emphasis>
-, *XkbDescPtr;
+}
+<emphasis>XkbDescRec</emphasis>,
+*XkbDescPtr;
 </programlisting></para>
 
 <para>
-The <emphasis>
-display</emphasis>
- field points to an X display structure. The <emphasis>
-flags</emphasis>
- field is private to the library: modifying <emphasis>
-flags</emphasis>
- may yield unpredictable results. The <emphasis>
-device_spec</emphasis>
+The
+<emphasis>display</emphasis>
+ field points to an X display structure. The
+<emphasis>flags</emphasis>
+ field is private to the library: modifying
+<emphasis>flags</emphasis>
+ may yield unpredictable results. The
+<emphasis>device_spec</emphasis>
  field specifies the device identifier of the keyboard input device, or
-<emphasis>
-XkbUseCoreKeyboard</emphasis>
-, which specifies the core keyboard device. The <emphasis>
-min_key_code</emphasis>
- and <emphasis>
-max_key_code</emphasis>
+<emphasis>XkbUseCoreKeyboard</emphasis>,
+which specifies the core keyboard device. The
+<emphasis>min_key_code</emphasis>
+ and
+<emphasis>max_key_code</emphasis>
  fields specify the least and greatest keycode that can be returned by the
 keyboard.
 </para>
@@ -72,9 +71,8 @@ keyboard.
 The other fields specify structure components of the keyboard description and
 are described in detail in other sections of this document. Table 6.1
 identifies the subsequent sections of this document that discuss the individual
-components of the <emphasis>
-XkbDescRec</emphasis>
-.
+components of the
+<emphasis>XkbDescRec</emphasis>.
 </para>
 
 <table frame='topbot'>
@@ -126,8 +124,8 @@ XkbDescRec</emphasis>
 Each structure component has a corresponding mask bit that is used in function
 calls to indicate that the structure should be manipulated in some manner, such
 as allocating it or freeing it. These masks and their relationships to the
-fields in the <emphasis>
-XkbDescRec</emphasis>
+fields in the
+<emphasis>XkbDescRec</emphasis>
  are shown in Table 6.2. <!-- xref -->
 </para>
 
@@ -196,10 +194,9 @@ XkbDescRec</emphasis>
 
 <para>
 To retrieve one or more components of a keyboard device description, use
-<emphasis>
-XkbGetKeyboard</emphasis>
- (see also <emphasis>
-XkbGetKeyboardbyName</emphasis>
+<emphasis>XkbGetKeyboard</emphasis>
+ (see also
+<emphasis>XkbGetKeyboardbyName</emphasis>
 ).
 </para>
 
@@ -207,8 +204,8 @@ XkbGetKeyboardbyName</emphasis>
 <funcsynopsis id="XkbGetKeyboard">
   <funcprototype>
     <funcdef>XkbDescPtr <function>XkbGetKeyboard</function></funcdef>
-<!-- (<emphasis>
-display, which, device_spec</emphasis>
+<!-- (
+<emphasis>display, which, device_spec</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -243,44 +240,41 @@ display, which, device_spec</emphasis>
     </term>
     <listitem>
       <para>
-        device for which to fetch description, or <emphasis>
-        XkbUseCoreKbd</emphasis>
+        device for which to fetch description, or
+<emphasis>XkbUseCoreKbd</emphasis>
       </para>
     </listitem>
   </varlistentry>
 </variablelist>
 
 <para>
-<emphasis>
-XkbGetKeyboard </emphasis>
+<emphasis>XkbGetKeyboard </emphasis>
 allocates and returns a pointer to a keyboard description. It queries the
-server for those components specified in the <emphasis>
-which</emphasis>
- parameter for device <emphasis>
-device_spec</emphasis>
- and copies the results to the <emphasis>
-XkbDescRec</emphasis>
+server for those components specified in the
+<emphasis>which</emphasis>
+ parameter for device
+<emphasis>device_spec</emphasis>
+ and copies the results to the
+<emphasis>XkbDescRec</emphasis>
  it allocated. The remaining fields in the keyboard description are set to
-<emphasis>
-NULL</emphasis>
-. The valid masks for <emphasis>
-which</emphasis>
+<emphasis>NULL</emphasis>.
+The valid masks for
+<emphasis>which</emphasis>
  are those listed in Table 6.2. <!-- xref -->
 </para>
 
 
 <para>
-<emphasis>
-XkbGetKeyboard</emphasis>
- can generate <emphasis>
-BadAlloc</emphasis>
+<emphasis>XkbGetKeyboard</emphasis>
+ can generate
+<emphasis>BadAlloc</emphasis>
  protocol errors.
 </para>
 
 
 <para>
-To free the returned keyboard description, use <emphasis>
-XkbFreeKeyboard</emphasis>
+To free the returned keyboard description, use
+<emphasis>XkbFreeKeyboard</emphasis>
  (see section 6.4). <!-- xref -->
 </para>
 
@@ -302,16 +296,14 @@ tracking changes to the keyboard description.
 
 <para>
 Applications seldom need to directly allocate a keyboard description; calling
-<emphasis>
-XkbGetKeyboard</emphasis>
+<emphasis>XkbGetKeyboard</emphasis>
  usually suffices. In the event you need to create a keyboard description from
-scratch, however, use <emphasis>
-XkbAllocKeyboard</emphasis>
- rather than directly calling <emphasis>
-malloc </emphasis>
-or <emphasis>
-Xmalloc</emphasis>
-.
+scratch, however, use
+<emphasis>XkbAllocKeyboard</emphasis>
+ rather than directly calling
+<emphasis>malloc </emphasis>
+or
+<emphasis>Xmalloc</emphasis>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocKeyboard"><primary><function>XkbAllocKeyboard</function></primary></indexterm>
@@ -324,25 +316,25 @@ Xmalloc</emphasis>
 </funcsynopsis>
 
 <para>
-If <emphasis>
-XkbAllocKeyboard</emphasis>
- fails to allocate the keyboard description, it returns <emphasis>
-NULL</emphasis>
-. Otherwise, it returns a pointer to an empty keyboard description structure.
-The <emphasis>
-device_spec</emphasis>
- field will have been initialized to <emphasis>
-XkbUseCoreKbd</emphasis>
-. You may then either fill in the structure components or use Xkb functions to
+If
+<emphasis>XkbAllocKeyboard</emphasis>
+ fails to allocate the keyboard description, it returns
+<emphasis>NULL</emphasis>.
+Otherwise, it returns a pointer to an empty keyboard description structure.
+The
+<emphasis>device_spec</emphasis>
+ field will have been initialized to
+<emphasis>XkbUseCoreKbd</emphasis>.
+You may then either fill in the structure components or use Xkb functions to
 obtain values for the structure components from a keyboard device.
 </para>
 
 
 <para>
-To destroy either an entire an <emphasis>
-XkbDescRec</emphasis>
- or just some of its members, use <emphasis>
-XkbFreeKeyboard.</emphasis>
+To destroy either an entire an
+<emphasis>XkbDescRec</emphasis>
+ or just some of its members, use
+<emphasis>XkbFreeKeyboard</emphasis>.
 </para>
 
 
@@ -350,8 +342,8 @@ XkbFreeKeyboard.</emphasis>
 <funcsynopsis id="XkbFreeKeyboard">
   <funcprototype>
     <funcdef>void <function>XkbFreeKeyboard</function></funcdef>
-<!-- <emphasis>
-(xkb, which, free_all</emphasis>
+<!--
+<emphasis>(xkb, which, free_all</emphasis>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -393,26 +385,24 @@ XkbFreeKeyboard.</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbFreeKeyboard</emphasis>
- frees the components of <emphasis>
-xkb</emphasis>
- specified by <emphasis>
-which</emphasis>
- and sets the corresponding values to <emphasis>
-NULL</emphasis>
-. If <emphasis>
-free_all</emphasis>
- is <emphasis>
-True</emphasis>
-, <emphasis>
-XkbFreeKeyboard</emphasis>
- frees every non-<emphasis>
-NULL</emphasis>
- component of <emphasis>
-xkb</emphasis>
- and then frees the <emphasis>
-xkb</emphasis>
+<emphasis>XkbFreeKeyboard</emphasis>
+ frees the components of
+<emphasis>xkb</emphasis>
+ specified by
+<emphasis>which</emphasis>
+ and sets the corresponding values to
+<emphasis>NULL</emphasis>.
+If
+<emphasis>free_all</emphasis>
+ is
+<emphasis>True</emphasis>,
+<emphasis>XkbFreeKeyboard</emphasis>
+ frees every non-
+<emphasis>NULL</emphasis>
+ component of
+<emphasis>xkb</emphasis>
+ and then frees the
+<emphasis>xkb</emphasis>
  structure itself.
 </para>
 

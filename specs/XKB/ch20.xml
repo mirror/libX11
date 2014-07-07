@@ -94,11 +94,11 @@ used to refer to either individual components or a keymap.
 
 <para>
 There may be multiple entries for each of the component types. An entry may be
-either <emphasis>
-complete</emphasis>
- or <emphasis>
-partial</emphasis>
-. Partial entries describe only a piece of the corresponding keyboard component
+either
+<emphasis>complete</emphasis>
+ or
+<emphasis>partial</emphasis>.
+Partial entries describe only a piece of the corresponding keyboard component
 and are designed to be combined with other entries of the same type to form a
 complete entry.
 </para>
@@ -108,8 +108,8 @@ For example, a partial symbols map might describe the differences between a
 common ASCII keyboard and some national layout. Such a partial map is not
 useful on its own because it does not include those symbols that are the same
 on both the ASCII and national layouts (such as function keys). On the other
-hand, this partial map can be used to configure <emphasis>
-any</emphasis>
+hand, this partial map can be used to configure
+<emphasis>any</emphasis>
  ASCII keyboard to use a national layout.
 </para>
 
@@ -122,28 +122,28 @@ in which they appear in Table 20.1; later definitions override earlier ones.
 <title>Component Names</title>
 
 <para>
-Component names have the form "<emphasis>
-class(member)</emphasis>
-" where <emphasis>
-class</emphasis>
+Component names have the form "
+<emphasis>class(member)</emphasis>
+" where
+<emphasis>class</emphasis>
  describes a subset of the available components for a particular type and the
-optional <emphasis>
-member</emphasis>
+optional
+<emphasis>member</emphasis>
  identifies a specific component from that subset. For example, the name
 "atlantis(acme)" for a symbols component might specify the symbols used for the
 atlantis national keyboard layout by the vendor "acme." Each class has an
-optional <emphasis>
-default</emphasis>
+optional
+<emphasis>default</emphasis>
  member — references that specify a class but not a member refer to the
 default member of the class, if one exists. Xkb places no constraints on the
 interpretation of the class and member names used in component names.
 </para>
 
 <para>
-The <emphasis>
-class</emphasis>
- and <emphasis>
-member</emphasis>
+The
+<emphasis>class</emphasis>
+ and
+<emphasis>member</emphasis>
  names are both specified using characters from the Latin-1 character set. Xkb
 implementations must accept all alphanumeric characters, minus (‘-’) and
 underscore (‘_’) in class or member names, and must not accept parentheses,
@@ -159,23 +159,19 @@ use of other characters is implementation-dependent.
 You may ask the server for a list of components for one or more component
 types. The request takes the form of a set of patterns, one pattern for each of
 the component types, including a pattern for the complete keyboard description.
-To obtain this list, use <emphasis>
-XkbListComponents</emphasis>
-.
+To obtain this list, use
+<emphasis>XkbListComponents</emphasis>.
 </para>
 
 <indexterm significance="preferred" zone="XkbListComponents"><primary><function>XkbListComponents</function></primary></indexterm>
 <funcsynopsis id="XkbListComponents">
   <funcprototype>
     <funcdef>XkbComponentListPtr <function>XkbListComponents</function></funcdef>
-<!-- (<emphasis>
-dpy</emphasis>
-, <emphasis>
-device_spec</emphasis>
-, <emphasis>
-ptrns</emphasis>
-, <emphasis>
-max_inout</emphasis>
+<!-- (
+<emphasis>dpy</emphasis>,
+<emphasis>device_spec</emphasis>,
+<emphasis>ptrns</emphasis>,
+<emphasis>max_inout</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -228,18 +224,15 @@ max_inout</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbListComponents</emphasis>
+<emphasis>XkbListComponents</emphasis>
  queries the server for a list of component names matching the patterns
-specified in <emphasis>
-ptrns</emphasis>
-. It waits for a reply and returns the matching component names in an <emphasis>
-XkbComponentListRec</emphasis>
+specified in
+<emphasis>ptrns</emphasis>.
+It waits for a reply and returns the matching component names in an
+<emphasis>XkbComponentListRec</emphasis>
  structure. When you are done using the structure, you should free it using
-<emphasis>
-XkbFreeComponentList</emphasis>
-. <emphasis>
-device_spec</emphasis>
+<emphasis>XkbFreeComponentList</emphasis>.
+<emphasis>device_spec</emphasis>
  indicates a particular device in which the caller is interested. A server is
 allowed (but not required) to restrict its reply to portions of the database
 that are relevant for that particular device.
@@ -247,29 +240,28 @@ that are relevant for that particular device.
 
 
 <para>
-<emphasis>
-ptrns</emphasis>
- is a pointer to an <emphasis>
-XkbComponentNamesRec</emphasis>
-, described below. Each of the fields in <emphasis>
-ptrns</emphasis>
+<emphasis>ptrns</emphasis>
+ is a pointer to an
+<emphasis>XkbComponentNamesRec</emphasis>,
+described below. Each of the fields in
+<emphasis>ptrns</emphasis>
  contains a pattern naming the components of interest. Each of the patterns is
-composed of characters from the ISO <emphasis>
-Latin1</emphasis>
+composed of characters from the ISO
+<emphasis>Latin1</emphasis>
  encoding, but can contain only parentheses, the wildcard characters
-‘<emphasis>
-?</emphasis>
-’ and ‘<emphasis>
-*</emphasis>
+‘
+<emphasis>?</emphasis>
+’ and ‘
+<emphasis>*</emphasis>
 ’, and characters permitted in a component class or member name (see section
-20.1). A pattern may be <emphasis>
-NULL</emphasis>
-, in which case no components for that type is returned. Pattern matches with
-component names are case sensitive. The ‘<emphasis>
-?</emphasis>
+20.1). A pattern may be
+<emphasis>NULL</emphasis>,
+in which case no components for that type is returned. Pattern matches with
+component names are case sensitive. The ‘
+<emphasis>?</emphasis>
 ’ wildcard matches any single character, except a left or right parenthesis;
-the ‘<emphasis>
-*</emphasis>
+the ‘
+<emphasis>*</emphasis>
 ’ wildcard matches any number of characters, except a left or right
 parenthesis. If an implementation allows additional characters in a component
 class or member name other than those required by the Xkb extension (see
@@ -286,14 +278,12 @@ from the pattern.
 
 
 <para>
-<emphasis>
-max_inout</emphasis>
+<emphasis>max_inout</emphasis>
  is used to throttle the amount of data passed to and from the server. On
 input, it specifies the maximum number of names to be returned (the total
-number of names in all component categories). Upon return from <emphasis>
-XkbListComponents</emphasis>
-, <emphasis>
-max_inout</emphasis>
+number of names in all component categories). Upon return from
+<emphasis>XkbListComponents</emphasis>,
+<emphasis>max_inout</emphasis>
  contains the number of names that matched the request but were not returned
 because of the limit.
 </para>
@@ -301,16 +291,15 @@ because of the limit.
 
 <para>
 The component name patterns used to describe the request are passed to
-<emphasis>
-XkbListComponents</emphasis>
- using an <emphasis>
-XkbComponentNamesRec</emphasis>
+<emphasis>XkbListComponents</emphasis>
+ using an
+<emphasis>XkbComponentNamesRec</emphasis>
  structure. This structure has no special allocation constraints or
 interrelationships with other structures; allocate and free this structure
-using standard <emphasis>
-malloc</emphasis>
- and <emphasis>
-free</emphasis>
+using standard
+<emphasis>malloc</emphasis>
+ and
+<emphasis>free</emphasis>
  calls or their equivalent:
 </para>
 
@@ -326,10 +315,9 @@ typedef struct _XkbComponentNames {
 </programlisting></para>
 
 <para>
-<emphasis>
-XkbListComponents</emphasis>
- returns a pointer to an <emphasis>
-XkbComponentListRec</emphasis>
+<emphasis>XkbListComponents</emphasis>
+ returns a pointer to an
+<emphasis>XkbComponentListRec</emphasis>
 :
 </para>
 
@@ -358,21 +346,19 @@ typedef struct _XkbComponentName {
 </programlisting></para>
 
 <para>
-Note that the structure used to specify patterns on input is an <emphasis>
-XkbComponentNamesRec</emphasis>
-, and that used to hold the individual component names upon return is an
-<emphasis>
-XkbComponentNameRec</emphasis>
+Note that the structure used to specify patterns on input is an
+<emphasis>XkbComponentNamesRec</emphasis>,
+and that used to hold the individual component names upon return is an
+<emphasis>XkbComponentNameRec</emphasis>
  (no trailing ‘s’ in Name).
 </para>
 
 
 <para>
-When you are done using the structure returned by <emphasis>
-XkbListComponents</emphasis>
-, free it using <emphasis>
-XkbFreeComponentList</emphasis>
-.
+When you are done using the structure returned by
+<emphasis>XkbListComponents</emphasis>,
+free it using
+<emphasis>XkbFreeComponentList</emphasis>.
 </para>
 
 
@@ -406,18 +392,18 @@ XkbFreeComponentList</emphasis>
 <para>
 A set of flags is associated with each component; these flags provide
 additional hints about the component’s use. These hints are designated by bit
-masks in the flags field of the <emphasis>
-XkbComponentNameRec</emphasis>
- structures contained in the <emphasis>
-XkbComponentListRec</emphasis>
- returned from <emphasis>
-XkbListComponents</emphasis>
-. The least significant byte of the flags field has the same meaning for all
+masks in the flags field of the
+<emphasis>XkbComponentNameRec</emphasis>
+ structures contained in the
+<emphasis>XkbComponentListRec</emphasis>
+ returned from
+<emphasis>XkbListComponents</emphasis>.
+The least significant byte of the flags field has the same meaning for all
 types of keyboard components; the interpretation of the most significant byte
 is dependent on the type of component. The flags bits are defined in Table
 20.2. The symbols hints in Table 20.2 apply only to partial symbols components
-(those with <emphasis>
-XkbLC_Partial</emphasis>
+(those with
+<emphasis>XkbLC_Partial</emphasis>
  also set); full symbols components are assumed to specify all of the pieces.
 </para>
 
@@ -427,11 +413,11 @@ The alphanumeric, modifier, keypad or function keys symbols hints should
 describe the primary intent of the component designer and should not be simply
 an exhaustive list of the kinds of keys that are affected. For example,
 national keyboard layouts affect primarily alphanumeric keys, but many affect a
-few modifier keys as well; such mappings should set only the <emphasis>
-XkbLC_AlphanumericKeys</emphasis>
+few modifier keys as well; such mappings should set only the
+<emphasis>XkbLC_AlphanumericKeys</emphasis>
  hint. In general, symbols components should set only one of the four flags
-(<emphasis>
-XkbLC_AlternateGroup</emphasis>
+(
+<emphasis>XkbLC_AlternateGroup</emphasis>
  may be combined with any of the other flags).
 </para>
 
@@ -555,27 +541,21 @@ specific device, in which case the behavior of the device changes accordingly.
 <para>
 To build a new keyboard description from a set of named components, and to
 optionally have the server use the resulting description to replace an active
-one, use <emphasis>
-XkbGetKeyboardByName</emphasis>
-.
+one, use
+<emphasis>XkbGetKeyboardByName</emphasis>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyboardByName"><primary><function>XkbGetKeyboardByName</function></primary></indexterm>
 <funcsynopsis id="XkbGetKeyboardByName">
   <funcprototype>
     <funcdef>XkbDescPtr <function>XkbGetKeyboardByName</function></funcdef>
-<!-- (<emphasis>
-dpy</emphasis>
-, <emphasis>
-device_spec</emphasis>
-, <emphasis>
-names</emphasis>
-, <emphasis>
-want</emphasis>
-, <emphasis>
-need</emphasis>
-, <emphasis>
-load</emphasis>
+<!-- (
+<emphasis>dpy</emphasis>,
+<emphasis>device_spec</emphasis>,
+<emphasis>names</emphasis>,
+<emphasis>want</emphasis>,
+<emphasis>need</emphasis>,
+<emphasis>load</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -650,106 +630,99 @@ load</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-names</emphasis>
+<emphasis>names</emphasis>
  contains a set of expressions describing the keyboard components the server
-should use to build the new keyboard description. <emphasis>
-want</emphasis>
- and <emphasis>
-need</emphasis>
+should use to build the new keyboard description.
+<emphasis>want</emphasis>
+ and
+<emphasis>need</emphasis>
  are bit fields describing the parts of the resulting keyboard description that
-should be present in the returned <emphasis>
-XkbDescRec</emphasis>
-.
+should be present in the returned
+<emphasis>XkbDescRec</emphasis>.
 </para>
 
 
 <para>
-The individual fields in <emphasis>
-names</emphasis>
- are <emphasis>
-component expressions</emphasis>
+The individual fields in
+<emphasis>names</emphasis>
+ are
+<emphasis>component expressions</emphasis>
  composed of keyboard component names (no wildcarding as may be used in
-<emphasis>
-XkbListComponents</emphasis>
+<emphasis>XkbListComponents</emphasis>
 ), the special component name symbol ‘%’, and the special operator
-characters ‘<emphasis>
-+</emphasis>
-’ and ‘<emphasis>
-|</emphasis>
+characters ‘
+<emphasis>+</emphasis>
+’ and ‘
+<emphasis>|</emphasis>
 ’. A component expression is parsed left to right, as follows:
 </para>
 
 <itemizedlist>
 <listitem>
   <para>
-The special component name "<emphasis>
-computed</emphasis>
-" may be used in <emphasis>
-keycodes</emphasis>
+The special component name "
+<emphasis>computed</emphasis>
+" may be used in
+<emphasis>keycodes</emphasis>
  component expressions and refers to a component consisting of a set of
 keycodes computed automatically by the server as needed.
   </para>
 </listitem>
 <listitem>
   <para>
-The special component name "<emphasis>
-canonical</emphasis>
-" may be used in <emphasis>
-types</emphasis>
+The special component name "
+<emphasis>canonical</emphasis>
+" may be used in
+<emphasis>types</emphasis>
  component expressions and refers to a partial component defining the four
-standard key types: <emphasis>
-ALPHABETIC</emphasis>
-, <emphasis>
-ONE_LEVEL</emphasis>
-, <emphasis>
-TWO_LEVEL</emphasis>
-, and <emphasis>
-KEYPAD</emphasis>
-.
-  </para>
+standard key types:
+<emphasis>ALPHABETIC</emphasis>,
+<emphasis>ONE_LEVEL</emphasis>,
+<emphasis>TWO_LEVEL</emphasis>,
+and
+<emphasis>KEYPAD</emphasis>.
+</para>
 </listitem>
 <listitem>
   <para>
-The special component name ‘<emphasis>
-%</emphasis>
-’ refers to the keyboard description for the device specified in <emphasis>
-device_spec</emphasis>
+The special component name ‘
+<emphasis>%</emphasis>
+’ refers to the keyboard description for the device specified in
+<emphasis>device_spec</emphasis>
  or the keymap names component. If a keymap names component is specified that
-does not begin with ‘+’ or ‘|’ and does not contain ‘<emphasis>
-%</emphasis>
-’, then ‘<emphasis>
-%</emphasis>
+does not begin with ‘+’ or ‘|’ and does not contain ‘
+<emphasis>%</emphasis>
+’, then ‘
+<emphasis>%</emphasis>
 ’ refers to the description generated by the keymap names component.
-Otherwise, it refers to the keyboard description for <emphasis>
-device_spec</emphasis>
-.
-  </para>
+Otherwise, it refers to the keyboard description for
+<emphasis>device_spec</emphasis>.
+</para>
 </listitem>
 <listitem>
   <para>
-The ‘<emphasis>
-+</emphasis>
-’ operator specifies that the following component should <emphasis>
-override</emphasis>
+The ‘
+<emphasis>+</emphasis>
+’ operator specifies that the following component should
+<emphasis>override</emphasis>
  the currently assembled description; any definitions that are present in both
 components are taken from the second.
   </para>
 </listitem>
 <listitem>
   <para>
-The ‘<emphasis>
-|</emphasis>
-’ operator specifies that the next specified component should <emphasis>
-augment</emphasis>
+The ‘
+<emphasis>|</emphasis>
+’ operator specifies that the next specified component should
+<emphasis>augment</emphasis>
  the currently assembled description; any definitions that are present in both
 components are taken from the first.
   </para>
 </listitem>
 <listitem>
   <para>
-If the component expression begins with an operator, a leading ‘<emphasis>
-%</emphasis>
+If the component expression begins with an operator, a leading ‘
+<emphasis>%</emphasis>
 ’ is implied.
   </para>
 </listitem>
@@ -762,8 +735,8 @@ entire expression is invalid and is ignored.
 </itemizedlist>
 
 <para>
-For example, if <emphasis>
-names-&gt;symbols</emphasis>
+For example, if
+<emphasis>names-&gt;symbols</emphasis>
  contained the expression "+de", it specifies that the default member of the
 "de" class of symbols should be applied to the current keyboard mapping,
 overriding any existing definitions (it could also be written "+de(default)").
@@ -774,13 +747,13 @@ overriding any existing definitions (it could also be written "+de(default)").
 Here is a slightly more involved example: the expression
 "acme(ascii)+de(basic)|iso9995-3" constructs a German (de) mapping for the
 ASCII keyboard supplied by the "acme" vendor. The new definition begins with
-the symbols for the ASCII keyboard for Acme (<emphasis>
-acme(ascii)</emphasis>
-), overrides them with definitions for the basic German keyboard (<emphasis>
-de(basic)</emphasis>
+the symbols for the ASCII keyboard for Acme (
+<emphasis>acme(ascii)</emphasis>
+), overrides them with definitions for the basic German keyboard (
+<emphasis>de(basic)</emphasis>
 ), and then applies the definitions from the default iso9995-3 keyboard
-(<emphasis>
-iso9995-3</emphasis>
+(
+<emphasis>iso9995-3</emphasis>
 ) to any undefined keys or groups of keys (part three of the iso9995 standard
 defines a common set of bindings for the secondary group, but allows national
 layouts to override those definitions where necessary).
@@ -791,71 +764,66 @@ de, basic, iso9995-3) is not defined by Xkb; only the operations and their
 ordering are.</para></note>
 
 <para>
-Note that the presence of a keymap <emphasis>
-names</emphasis>
- component that does not contain ‘<emphasis>
-%</emphasis>
+Note that the presence of a keymap
+<emphasis>names</emphasis>
+ component that does not contain ‘
+<emphasis>%</emphasis>
 ’ (either explicit or implied by virtue of an expression starting with an
 operator) indicates a description that is independent of the keyboard
-description for the device specified in <emphasis>
-device_spec</emphasis>
-. The same is true of requests in which the keymap names component is empty and
+description for the device specified in
+<emphasis>device_spec</emphasis>.
+The same is true of requests in which the keymap names component is empty and
 all five other names components contain expressions void of references to
-‘<emphasis>
-%</emphasis>
+‘
+<emphasis>%</emphasis>
 ’. Requests of this form allow you to deal with keyboard definitions
 independent of any actual device.
 </para>
 
 
 <para>
-The server parses all non-<emphasis>
-NULL</emphasis>
- fields in <emphasis>
-names</emphasis>
+The server parses all non-
+<emphasis>NULL</emphasis>
+ fields in
+<emphasis>names</emphasis>
  and uses them to build a keyboard description. However, before parsing the
-expressions in <emphasis>
-names</emphasis>
-, the server ORs the bits in <emphasis>
-want</emphasis>
- and <emphasis>
-need</emphasis>
+expressions in
+<emphasis>names</emphasis>,
+the server ORs the bits in
+<emphasis>want</emphasis>
+ and
+<emphasis>need</emphasis>
  together and examines the result in relationship to the expressions in
-<emphasis>
-names</emphasis>
-. Table 20.3 identifies the components that are required for each of the
-possible bits in <emphasis>
-want</emphasis>
- or <emphasis>
-need</emphasis>
-. If a required component has not been specified in the <emphasis>
-names</emphasis>
- structure (the corresponding field is <emphasis>
-NULL</emphasis>
-), the server substitutes the expression "<emphasis>
-%</emphasis>
-", resulting in the component values being taken from <emphasis>
-device_spec</emphasis>
-. In addition, if <emphasis>
-load</emphasis>
- is <emphasis>
-True</emphasis>
-, the server modifies <emphasis>
-names</emphasis>
- if necessary (again using a "<emphasis>
-%</emphasis>
-" entry) to ensure all of the following fields are non-<emphasis>
-NULL</emphasis>
-: <emphasis>
-types</emphasis>
-, <emphasis>
-keycodes</emphasis>
-, <emphasis>
-symbols</emphasis>
-, and <emphasis>
-compat</emphasis>
-.<emphasis>
-</emphasis>
+<emphasis>names</emphasis>.
+Table 20.3 identifies the components that are required for each of the
+possible bits in
+<emphasis>want</emphasis>
+ or
+<emphasis>need</emphasis>.
+If a required component has not been specified in the
+<emphasis>names</emphasis>
+ structure (the corresponding field is
+<emphasis>NULL</emphasis>
+), the server substitutes the expression "
+<emphasis>%</emphasis>
+", resulting in the component values being taken from
+<emphasis>device_spec</emphasis>.
+In addition, if
+<emphasis>load</emphasis>
+ is
+<emphasis>True</emphasis>,
+the server modifies
+<emphasis>names</emphasis>
+ if necessary (again using a "
+<emphasis>%</emphasis>
+" entry) to ensure all of the following fields are non-
+<emphasis>NULL</emphasis>
+:
+<emphasis>types</emphasis>,
+<emphasis>keycodes</emphasis>,
+<emphasis>symbols</emphasis>,
+and
+<emphasis>compat</emphasis>.
 </para>
 
 <table frame='topbot'>
@@ -928,66 +896,62 @@ compat</emphasis>
 </table>
 
 <para>
-<emphasis>
-need</emphasis>
+<emphasis>need</emphasis>
  specifies a set of keyboard components that the server must be able to resolve
-in order for <emphasis>
-XkbGetKeyboardByName</emphasis>
- to succeed; if any of the components specified in <emphasis>
-need</emphasis>
- cannot be successfully resolved, <emphasis>
-XkbGetKeyboardByName</emphasis>
+in order for
+<emphasis>XkbGetKeyboardByName</emphasis>
+ to succeed; if any of the components specified in
+<emphasis>need</emphasis>
+ cannot be successfully resolved,
+<emphasis>XkbGetKeyboardByName</emphasis>
  fails.
 </para>
 
 
 <para>
-<emphasis>
-want</emphasis>
+<emphasis>want</emphasis>
  specifies a set of keyboard components that the server should attempt to
 resolve, but that are not mandatory. If the server is unable to resolve any of
-these components, <emphasis>
-XkbGetKeyboardByName</emphasis>
- still succeeds. Bits specified in <emphasis>
-want</emphasis>
- that are also specified in <emphasis>
-need</emphasis>
- have no effect in the context of <emphasis>
-want</emphasis>
-.
+these components,
+<emphasis>XkbGetKeyboardByName</emphasis>
+ still succeeds. Bits specified in
+<emphasis>want</emphasis>
+ that are also specified in
+<emphasis>need</emphasis>
+ have no effect in the context of
+<emphasis>want</emphasis>.
 </para>
 
 
 <para>
-If <emphasis>
-load</emphasis>
- is <emphasis>
-True</emphasis>
-, the server updates its keyboard description for <emphasis>
-device_spec</emphasis>
+If
+<emphasis>load</emphasis>
+ is
+<emphasis>True</emphasis>,
+the server updates its keyboard description for
+<emphasis>device_spec</emphasis>
  to match the result of the keyboard description just built. If load is
-<emphasis>
-False</emphasis>
-, the server’s description for device <emphasis>
-device_spec</emphasis>
- is not updated. In all cases, the parts specified by <emphasis>
-want</emphasis>
- and <emphasis>
-need</emphasis>
+<emphasis>False</emphasis>,
+the server’s description for device
+<emphasis>device_spec</emphasis>
+ is not updated. In all cases, the parts specified by
+<emphasis>want</emphasis>
+ and
+<emphasis>need</emphasis>
  from the just-built keyboard description are returned.
 </para>
 
 
 <para>
-The <emphasis>
-names</emphasis>
- structure in an <emphasis>
-XkbDescRec</emphasis>
+The
+<emphasis>names</emphasis>
+ structure in an
+<emphasis>XkbDescRec</emphasis>
  keyboard description record (see Chapter 18) contains one field for each of
 the five component types used to build a keyboard description. When a keyboard
 description is built from a set of database components, the corresponding
-fields in this <emphasis>
-names</emphasis>
+fields in this
+<emphasis>names</emphasis>
  structure are set to match the expressions used to build the component.
 </para>
 
@@ -1005,13 +969,13 @@ database of components and returning all or part of it is diagrammed in Figure
 </mediaobject>
 
 <para>
-The information returned to the client in the <emphasis>
-XkbDescRec</emphasis>
+The information returned to the client in the
+<emphasis>XkbDescRec</emphasis>
  is essentially the result of a series of calls to extract information from a
 fictitious device whose description matches the one just built. The calls
 corresponding to each of the mask bits are summarized in Table 20.4, together
-with the <emphasis>
-XkbDescRec</emphasis>
+with the
+<emphasis>XkbDescRec</emphasis>
  components that are filled in.
 </para>
 
@@ -1096,26 +1060,24 @@ XkbGetNames(dpy, XkbKeyNamesMask | XkbKeyAliasesMask, Xkb)
 </table>
 
 <para>
-There is no way to determine which components specified in <emphasis>
-want</emphasis>
- (but not in <emphasis>
-need</emphasis>
+There is no way to determine which components specified in
+<emphasis>want</emphasis>
+ (but not in
+<emphasis>need</emphasis>
 ) were actually fetched, other than breaking the call into successive calls to
-<emphasis>
-XkbGetKeyboardByName</emphasis>
+<emphasis>XkbGetKeyboardByName</emphasis>
  and specifying individual components.
 </para>
 
 
 <para>
-<emphasis>
-XkbGetKeyboardByName</emphasis>
- always sets <emphasis>
-min_key_code</emphasis>
- and <emphasis>
-max_key_code</emphasis>
- in the returned <emphasis>
-XkbDescRec</emphasis>
+<emphasis>XkbGetKeyboardByName</emphasis>
+ always sets
+<emphasis>min_key_code</emphasis>
+ and
+<emphasis>max_key_code</emphasis>
+ in the returned
+<emphasis>XkbDescRec</emphasis>
  structure.
 </para>
 
@@ -1135,8 +1097,8 @@ description.
 <para>
 If you simply want to obtain information about the current keyboard device,
 rather than generating a new keyboard description from elements in the server
-database, use <emphasis>
-XkbGetKeyboard</emphasis>
+database, use
+<emphasis>XkbGetKeyboard</emphasis>
  (see section 6.2).
 </para>
 
@@ -1144,12 +1106,10 @@ XkbGetKeyboard</emphasis>
 <funcsynopsis id="XkbGetKeyboard.20">
   <funcprototype>
     <funcdef>XkbDescPtr <function>XkbGetKeyboard</function></funcdef>
-<!-- (<emphasis>
-dpy</emphasis>
-, <emphasis>
-which</emphasis>
-, <emphasis>
-device_spec</emphasis>
+<!-- (
+<emphasis>dpy</emphasis>,
+<emphasis>which</emphasis>,
+<emphasis>device_spec</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1191,30 +1151,23 @@ device_spec</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbGetKeyboard</emphasis>
+<emphasis>XkbGetKeyboard</emphasis>
  is used to read the current description for one or more components of a
-keyboard device. It calls <emphasis>
-XkbGetKeyboardByName</emphasis>
+keyboard device. It calls
+<emphasis>XkbGetKeyboardByName</emphasis>
  as follows:
 </para>
 
 
 <para>
-<emphasis>
-XkbGetKeyboardByName</emphasis>
-(<emphasis>
-dpy</emphasis>
-, <emphasis>
-device_spec</emphasis>
-, <emphasis>
-NULL</emphasis>
-, <emphasis>
-which</emphasis>
-, <emphasis>
-which</emphasis>
-, <emphasis>
-False</emphasis>
+<emphasis>XkbGetKeyboardByName</emphasis>
+(
+<emphasis>dpy</emphasis>,
+<emphasis>device_spec</emphasis>,
+<emphasis>NULL</emphasis>,
+<emphasis>which</emphasis>,
+<emphasis>which</emphasis>,
+<emphasis>False</emphasis>
 ).
 </para>
 

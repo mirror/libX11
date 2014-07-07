@@ -119,8 +119,8 @@ Figure 1.1 shows the overall structure of the Xkb extension:
 <para>
 The server portion of the Xkb extension encompasses a database of named
 keyboard components, in unspecified format, that may be used to configure a
-keyboard. Internally, the server maintains a <emphasis>
-keyboard description</emphasis>
+keyboard. Internally, the server maintains a
+<emphasis>keyboard description</emphasis>
  that includes the keyboard state and configuration (mapping). By "keyboard" we
 mean the logical keyboard device, which includes not only the physical keys,
 but also potentially a set of up to 32 indicators (usually LEDs) and bells.
@@ -234,8 +234,8 @@ Once a key in a radio group is pressed, it stays logically depressed until
 another key in the group is pressed, at which point the previously depressed
 key is logically released. Consequently, at most one key in a radio group can
 be logically depressed at one time. A radio group is defined by a radio group
-index, an optional name, and by assigning each key in the radio group <emphasis>
-XkbKB_RadioGroup</emphasis>
+index, an optional name, and by assigning each key in the radio group
+<emphasis>XkbKB_RadioGroup</emphasis>
  behavior and the radio group index.
 </para>
 
@@ -305,11 +305,10 @@ configuration.
 <title>Additional Protocol Errors</title>
 
 <para>
-The Xkb extension adds a single protocol error, <emphasis>
-BadKeyboard</emphasis>
-, to the core protocol error set. See section 2.6 for a discussion of the  <!-- xref -->
-<emphasis>
-BadKeyboard</emphasis>
+The Xkb extension adds a single protocol error,
+<emphasis>BadKeyboard</emphasis>,
+to the core protocol error set. See section 2.6 for a discussion of the  <!-- xref -->
+<emphasis>BadKeyboard</emphasis>
  protocol error.
 </para>
 
@@ -353,10 +352,10 @@ Xkb functions that communicate with the X server check to be sure the Xkb
 extension has been properly initialized prior to doing any other operations. If
 the extension has not been properly initialized or the application, library,
 and server versions are incompatible, these functions return an error
-indication as shown in Table 1.1. Because of this test, <emphasis>
-BadAccess</emphasis>
- and <emphasis>
-BadMatch</emphasis>
+indication as shown in Table 1.1. Because of this test,
+<emphasis>BadAccess</emphasis>
+ and
+<emphasis>BadMatch</emphasis>
  (due to incompatible versions) protocol errors should normally not be
 generated.
 </para>

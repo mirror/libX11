@@ -15,17 +15,16 @@ Both bitmasks are initially all zeros.
 
 
 <para>
-To change the values of any of the debug controls, use <emphasis>
-XkbSetDebuggingFlags</emphasis>
-.
+To change the values of any of the debug controls, use
+<emphasis>XkbSetDebuggingFlags</emphasis>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetDebuggingFlags"><primary><function>XkbSetDebuggingFlags</function></primary></indexterm>
 <funcsynopsis id="XkbSetDebuggingFlags">
   <funcprototype>
     <funcdef>Bool <function>XkbSetDebuggingFlags</function></funcdef>
-<!-- (<emphasis>
-display, mask, flags, msg, ctrls_mask, ctrls, ret_flags, ret_ctrls</emphasis>
+<!-- (
+<emphasis>display, mask, flags, msg, ctrls_mask, ctrls, ret_flags, ret_ctrls</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -122,65 +121,64 @@ display, mask, flags, msg, ctrls_mask, ctrls, ret_flags, ret_ctrls</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbSetDebuggingFlags</emphasis>
- modifies the debug output flags as specified by <emphasis>
-mask</emphasis>
- and <emphasis>
-flags</emphasis>
-, modifies the debug controls flags as specified by <emphasis>
-ctrls_mask</emphasis>
- and <emphasis>
-ctrls</emphasis>
-, prints the message <emphasis>
-msg</emphasis>
-, and backfills <emphasis>
-ret_flags</emphasis>
- and <emphasis>
-ret_ctrls</emphasis>
+<emphasis>XkbSetDebuggingFlags</emphasis>
+ modifies the debug output flags as specified by
+<emphasis>mask</emphasis>
+ and
+<emphasis>flags</emphasis>,
+modifies the debug controls flags as specified by
+<emphasis>ctrls_mask</emphasis>
+ and
+<emphasis>ctrls</emphasis>,
+prints the message
+<emphasis>msg</emphasis>,
+and backfills
+<emphasis>ret_flags</emphasis>
+ and
+<emphasis>ret_ctrls</emphasis>
  with the resulting debug output and debug controls flags.
 </para>
 
 
 <para>
-When bits are set in the debug output masks, <emphasis>
-mask</emphasis>
- and <emphasis>
-flags</emphasis>
-, Xkb prints debug information corresponding to each bit at appropriate points
+When bits are set in the debug output masks,
+<emphasis>mask</emphasis>
+ and
+<emphasis>flags</emphasis>,
+Xkb prints debug information corresponding to each bit at appropriate points
 during its processing. The device to which the output is written is
 implementation-dependent, but is normally the same device to which X server
-error messages are directed; thus the bits that can be set in <emphasis>
-mask</emphasis>
- and <emphasis>
-flags</emphasis>
+error messages are directed; thus the bits that can be set in
+<emphasis>mask</emphasis>
+ and
+<emphasis>flags</emphasis>
  is implementation-specific. To turn on a debug output selection, set the bit
-for the output in the <emphasis>
-mask</emphasis>
- parameter and set the corresponding bit in the <emphasis>
-flags</emphasis>
+for the output in the
+<emphasis>mask</emphasis>
+ parameter and set the corresponding bit in the
+<emphasis>flags</emphasis>
  parameter. To turn off event selection for an event, set the bit for the
-output in the <emphasis>
-mask</emphasis>
- parameter and do not set the corresponding bit in the <emphasis>
-flags</emphasis>
+output in the
+<emphasis>mask</emphasis>
+ parameter and do not set the corresponding bit in the
+<emphasis>flags</emphasis>
  parameter.
 </para>
 
 
 <para>
-When bits are set in the debug controls masks, <emphasis>
-ctrls_mask</emphasis>
- and <emphasis>
-ctrls</emphasis>
-, Xkb modifies its behavior according to each controls bit. <emphasis>
-ctrls_mask</emphasis>
- and <emphasis>
-ctrls</emphasis>
- are related in the same way that <emphasis>
-mask</emphasis>
- and <emphasis>
-flags</emphasis>
+When bits are set in the debug controls masks,
+<emphasis>ctrls_mask</emphasis>
+ and
+<emphasis>ctrls</emphasis>,
+Xkb modifies its behavior according to each controls bit.
+<emphasis>ctrls_mask</emphasis>
+ and
+<emphasis>ctrls</emphasis>
+ are related in the same way that
+<emphasis>mask</emphasis>
+ and
+<emphasis>flags</emphasis>
  are. The valid controls bits are defined in Table 22.1.
 </para>
 
@@ -209,31 +207,29 @@ flags</emphasis>
 </table>
 
 <para>
-<emphasis>
-XkbSetDebuggingFlags</emphasis>
- returns <emphasis>
-True</emphasis>
- if successful and <emphasis>
-False</emphasis>
- otherwise. The only protocol error it may generate is <emphasis>
-BadAlloc</emphasis>
-, if for some reason it is unable to allocate storage.
+<emphasis>XkbSetDebuggingFlags</emphasis>
+ returns
+<emphasis>True</emphasis>
+ if successful and
+<emphasis>False</emphasis>
+ otherwise. The only protocol error it may generate is
+<emphasis>BadAlloc</emphasis>,
+if for some reason it is unable to allocate storage.
 </para>
 
 
 <para>
-<emphasis>
-XkbSetDebuggingFlags</emphasis>
+<emphasis>XkbSetDebuggingFlags</emphasis>
  is intended for developer use and may be disabled in production X servers. If
-it is disabled, <emphasis>
-XkbSetDebuggingFlags</emphasis>
+it is disabled,
+<emphasis>XkbSetDebuggingFlags</emphasis>
  has no effect and does not generate any protocol errors.
 </para>
 
 
 <para>
-The message in <emphasis>
-msg</emphasis>
+The message in
+<emphasis>msg</emphasis>
  is written immediately. The device to which it is written is implementation
 dependent but is normally the same device where X server error messages are
 directed.

@@ -35,9 +35,9 @@ Controls affecting event delivery
 </itemizedlist>
 
 <para>
-There are two types of string lookups performed by <emphasis>
-XLookupString</emphasis>
-. The first type involves translating a single keycode into a string; the
+There are two types of string lookups performed by
+<emphasis>XLookupString</emphasis>.
+The first type involves translating a single keycode into a string; the
 controls in the first category affect this type of lookup. The second type
 involves translating a series of keysyms into a string; the controls in the
 second category affect this type of lookup.
@@ -57,9 +57,9 @@ enabled may be missing.
 <title>Controls Affecting Keycode-to-String Translation</title>
 
 <para>
-The first type of string lookups, which are here called <emphasis>
-simple string lookups</emphasis>
-, involves translating a single keycode into a string. Because these simple
+The first type of string lookups, which are here called
+<emphasis>simple string lookups</emphasis>,
+involves translating a single keycode into a string. Because these simple
 lookups involve only a single keycode, all of the information needed to do the
 translation is contained in the keyboard state in a single event. The controls
 affecting simple string lookups are:
@@ -75,14 +75,14 @@ affecting simple string lookups are:
 <title>ForceLatin1Lookup</title>
 
 <para>
-If the <emphasis>
-ForceLatin1Lookup</emphasis>
- control is enabled, <emphasis>
-XLookupString</emphasis>
- only returns strings using the Latin1 character set. If <emphasis>
-ForceLatin1Lookup</emphasis>
- is not enabled, <emphasis>
-XLookupString</emphasis>
+If the
+<emphasis>ForceLatin1Lookup</emphasis>
+ control is enabled,
+<emphasis>XLookupString</emphasis>
+ only returns strings using the Latin1 character set. If
+<emphasis>ForceLatin1Lookup</emphasis>
+ is not enabled,
+<emphasis>XLookupString</emphasis>
  can return characters that are not in the Latin1 set. By default, this control
 is disabled, allowing characters outside of the Latin1 set to be returned.
 </para>
@@ -93,8 +93,8 @@ is disabled, allowing characters outside of the Latin1 set to be returned.
 <title>ConsumeLookupMods</title>
 
 <para>
-Simple string lookups in <emphasis>
-XLookupString</emphasis>
+Simple string lookups in
+<emphasis>XLookupString</emphasis>
  involve two different translation phases. The first phase translates raw
 device keycodes to individual keysyms. The second phase attempts to map the
 resulting keysym into a string of one or more characters. In the first phase,
@@ -104,62 +104,60 @@ level for a key.
 
 
 <para>
-The <emphasis>
-ConsumeLookupMods</emphasis>
- control determines whether or not <emphasis>
-XLookupString</emphasis>
- <emphasis>
-consumes</emphasis>
+The
+<emphasis>ConsumeLookupMods</emphasis>
+ control determines whether or not
+<emphasis>XLookupString</emphasis>
+<emphasis>consumes</emphasis>
  the modifiers it uses during the first phase of processing (mapping a keycode
 to a keysym). When a modifier is consumed, it is effectively removed from the
-working copy of the keyboard state information <emphasis>
-XLookupString</emphasis>
+working copy of the keyboard state information
+<emphasis>XLookupString</emphasis>
  is using and appears to be unset for the remainder of the processing.
 </para>
 
 
 <para>
-If the <emphasis>
-ConsumeLookupMods</emphasis>
- control is enabled, <emphasis>
-XLookupString</emphasis>
+If the
+<emphasis>ConsumeLookupMods</emphasis>
+ control is enabled,
+<emphasis>XLookupString</emphasis>
  does not use the modifiers used to translate the keycode of the event to a
 keysym when it is determining the string associated with a keysym. For example,
 assume the keymap for the ‘A’ key only contains the shift modifier and the
-<emphasis>
-ConsumeLookupMods</emphasis>
- control is enabled. If a user presses the <emphasis>
-Shift</emphasis>
- key and the <emphasis>
-A</emphasis>
- key while the <emphasis>
-Num_Lock</emphasis>
- key is locked, <emphasis>
-XLookupString</emphasis>
- uses the <emphasis>
-Shift</emphasis>
+<emphasis>ConsumeLookupMods</emphasis>
+ control is enabled. If a user presses the
+<emphasis>Shift</emphasis>
+ key and the
+<emphasis>A</emphasis>
+ key while the
+<emphasis>Num_Lock</emphasis>
+ key is locked,
+<emphasis>XLookupString</emphasis>
+ uses the
+<emphasis>Shift</emphasis>
  modifier when mapping the keycode for the ‘a’ key to the keysym for
-‘A’; subsequently, it only uses the <emphasis>
-NumLock</emphasis>
+‘A’; subsequently, it only uses the
+<emphasis>NumLock</emphasis>
  modifier when determining the string associated with the keysym ‘A’.
 </para>
 
 
 <para>
-If the <emphasis>
-ConsumeLookupMods</emphasis>
- control is not enabled, <emphasis>
-XLookupString</emphasis>
+If the
+<emphasis>ConsumeLookupMods</emphasis>
+ control is not enabled,
+<emphasis>XLookupString</emphasis>
  uses all of the event modifiers to determine the string associated with a
-keysym. This behavior mirrors the behavior of <emphasis>
-XLookupString</emphasis>
+keysym. This behavior mirrors the behavior of
+<emphasis>XLookupString</emphasis>
  in the core implementation.
 </para>
 
 
 <para>
-The <emphasis>
-ConsumeLookupMods</emphasis>
+The
+<emphasis>ConsumeLookupMods</emphasis>
  control is unset by default. For more information on modifier consumption,
 refer to Chapter 12.
 </para>
@@ -170,17 +168,17 @@ refer to Chapter 12.
 <title>AlwaysConsumeShiftAndLock</title>
 
 <para>
-The <emphasis>
-AlwaysConsumeShiftAndLock</emphasis>
- control, if enabled, forces <emphasis>
-XLookupString</emphasis>
- to consume the <emphasis>
-Shift</emphasis>
- and <emphasis>
-Lock</emphasis>
+The
+<emphasis>AlwaysConsumeShiftAndLock</emphasis>
+ control, if enabled, forces
+<emphasis>XLookupString</emphasis>
+ to consume the
+<emphasis>Shift</emphasis>
+ and
+<emphasis>Lock</emphasis>
  modifiers when processing all keys, even if the definition for the key type
-does not specify these modifiers. The <emphasis>
-AlwaysConsumeShiftAndLock</emphasis>
+does not specify these modifiers. The
+<emphasis>AlwaysConsumeShiftAndLock</emphasis>
  control is unset by default. See section 15.2 for a discussion of key types.
 </para>
 
@@ -191,15 +189,15 @@ AlwaysConsumeShiftAndLock</emphasis>
 <title>Controls Affecting Compose Processing</title>
 
 <para>
-The second type of string lookup performed by <emphasis>
-XLookupString</emphasis>
+The second type of string lookup performed by
+<emphasis>XLookupString</emphasis>
  involves translating a series of keysyms into a string. Because these lookups
-can involve more than one key event, they require <emphasis>
-XLookupString</emphasis>
+can involve more than one key event, they require
+<emphasis>XLookupString</emphasis>
  to retain some state information between successive calls. The process of
-mapping a series of keysyms to a string is known as <emphasis>
-compose processing</emphasis>
-. The controls affecting compose processing are:
+mapping a series of keysyms to a string is known as
+<emphasis>compose processing</emphasis>.
+The controls affecting compose processing are:
 </para>
 
 <para><programlisting>
@@ -228,28 +226,28 @@ Another possibility is to have the compose processing simply be the result of a 
 The subsequent key events should normally result in a valid composition yielding a
 valid translation to a string. If the subsequent key events do not have a valid
 translation, some decision must be made about what to do with the key events
-that were processed while attempting the compose. The <emphasis>
-ConsumeKeysOnComposeFail</emphasis>
- control allows a client to specify what happens with the key events <emphasis>
-XLookupString</emphasis>
+that were processed while attempting the compose. The
+<emphasis>ConsumeKeysOnComposeFail</emphasis>
+ control allows a client to specify what happens with the key events
+<emphasis>XLookupString</emphasis>
  has been considering when it reaches a dead end in a compose sequence.
 </para>
 
 
 <para>
-If the <emphasis>
-ConsumeKeysOnComposeFail</emphasis>
+If the
+<emphasis>ConsumeKeysOnComposeFail</emphasis>
  control is set, all keys associated with a failed compose sequence should be
-consumed (discarded). If the <emphasis>
-ConsumeKeysOnComposeFail</emphasis>
+consumed (discarded). If the
+<emphasis>ConsumeKeysOnComposeFail</emphasis>
  control is not set, the key events associated with a failed compose sequence
 should be processed as a normal sequence of key events.
 </para>
 
 
 <para>
-The <emphasis>
-ConsumeKeysOnComposeFail</emphasis>
+The
+<emphasis>ConsumeKeysOnComposeFail</emphasis>
  control is disabled by default.
 </para>
 
@@ -259,29 +257,28 @@ ConsumeKeysOnComposeFail</emphasis>
 <title>ComposeLED</title>
 
 <para>
-The <emphasis>
-ComposeLED</emphasis>
+The
+<emphasis>ComposeLED</emphasis>
  control allows a client to specify whether or not an indicator should be set
 and cleared to provide feedback when compose processing is in progress. The
 control does not specify which indicator should be used; the mapping for this
-is up to the individual implementation. If the <emphasis>
-ComposeLED</emphasis>
+is up to the individual implementation. If the
+<emphasis>ComposeLED</emphasis>
  control is enabled, it specifies that an indicator should be set when a
 compose sequence is in progress and cleared when one is not in progress. The
-<emphasis>
-ComposeLED</emphasis>
+<emphasis>ComposeLED</emphasis>
  control is disabled by default.
 </para>
 
 
 <para>
 While the Xkb extension does not specify the type of type of indicator to be
-used when the <emphasis>
-ComposeLED</emphasis>
+used when the
+<emphasis>ComposeLED</emphasis>
  control is implemented, a consistent convention between implementations is to
 everyone’s benefit. If a named indicator is used for this purpose, the
-recommended name is "<emphasis>
-Compose</emphasis>
+recommended name is "
+<emphasis>Compose</emphasis>
 ". Note that some implementations may use an unnamed, custom hardware LED for
 this purpose.
 </para>
@@ -292,33 +289,31 @@ this purpose.
 <title>BeepOnComposeFail</title>
 
 <para>
-The <emphasis>
-BeepOnComposeFail</emphasis>
+The
+<emphasis>BeepOnComposeFail</emphasis>
  control allows a client to specify whether or not a bell should be activated
 to provide feedback when a compose sequence fails. The control does not specify
 the type of bell that should be used; the mapping for this is up to the
-individual implementation. If the <emphasis>
-BeepOnComposeFail</emphasis>
+individual implementation. If the
+<emphasis>BeepOnComposeFail</emphasis>
  control is enabled, it specifies that a bell should be activated when a
-compose sequence fails. The <emphasis>
-BeepOnComposeFail</emphasis>
+compose sequence fails. The
+<emphasis>BeepOnComposeFail</emphasis>
  control is disabled by default. If implemented, the bell should be activated
-using <emphasis>
-XkbBell</emphasis>
- or <emphasis>
-XkbDeviceBell</emphasis>
-.
+using
+<emphasis>XkbBell</emphasis>
+ or
+<emphasis>XkbDeviceBell</emphasis>.
 </para>
 
 
 <para>
 While the Xkb extension does not specify the type of bell to be used when the
-<emphasis>
-BeepOnComposeFail</emphasis>
+<emphasis>BeepOnComposeFail</emphasis>
  control is implemented, a consistent convention between implementations is to
 everyone’s benefit. If a named bell is used for this purpose, the recommended
-name is "<emphasis>
-ComposeFail</emphasis>
+name is "
+<emphasis>ComposeFail</emphasis>
 ".
 </para>
 
@@ -332,16 +327,16 @@ ComposeFail</emphasis>
 <title>IgnoreNewKeyboards</title>
 
 <para>
-When Xkb is initialized, it implicitly forces requests for <emphasis>
-NewKeyboardNotify</emphasis>
+When Xkb is initialized, it implicitly forces requests for
+<emphasis>NewKeyboardNotify</emphasis>
  events. These events may be used by the Xkb library extension internally; they
-are normally translated into core protocol <emphasis>
-MappingNotify</emphasis>
+are normally translated into core protocol
+<emphasis>MappingNotify</emphasis>
  events before being passed to the client. While delivering the event to the
 client is appropriate in most cases, it is not appropriate for some clients
 that maintain per-key data structures. This is because once the server has sent
-a <emphasis>
-NewKeyboardNotify</emphasis>
+a
+<emphasis>NewKeyboardNotify</emphasis>
  event, it is free to send the client events for all keys in the new range and
 that range may be outside of the per-key data structures the client is
 maintaining.
@@ -349,12 +344,12 @@ maintaining.
 
 
 <para>
-The <emphasis>
-IgnoreNewKeyboards</emphasis>
- control, if enabled, prevents Xkb from mapping <emphasis>
-NewKeyboardNotify</emphasis>
- events to core <emphasis>
-MappingNotify</emphasis>
+The
+<emphasis>IgnoreNewKeyboards</emphasis>
+ control, if enabled, prevents Xkb from mapping
+<emphasis>NewKeyboardNotify</emphasis>
+ events to core
+<emphasis>MappingNotify</emphasis>
  events and passing them to the client. The control is initially disabled.
 </para>
 
@@ -431,8 +426,8 @@ implemented, use <emphasis>XkbXlibControlsImplemented</emphasis>.
 <funcsynopsis id="XkbXlibControlsImplemented">
   <funcprototype>
     <funcdef>unsigned int <function>XkbXlibControlsImplemented</function></funcdef>
-<!-- (<emphasis>
-display</emphasis>
+<!-- (
+<emphasis>display</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -452,8 +447,7 @@ display</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbXlibControlsImplemented</emphasis>
+<emphasis>XkbXlibControlsImplemented</emphasis>
  returns a bitmask indicating the controls actually implemented in the Xkb
 library and is composed of an inclusive OR of bits from Table 11.1.
 </para>
@@ -464,17 +458,16 @@ library and is composed of an inclusive OR of bits from Table 11.1.
 <title>Determining the State of the Library Controls</title>
 
 <para>
-To determine the current state of the Library Controls, use <emphasis>
-XkbGetXlibControls</emphasis>
-.
+To determine the current state of the Library Controls, use
+<emphasis>XkbGetXlibControls</emphasis>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetXlibControls"><primary><function>XkbGetXlibControls</function></primary></indexterm>
 <funcsynopsis id="XkbGetXlibControls">
   <funcprototype>
     <funcdef>unsigned int <function>XkbGetXlibControls</function></funcdef>
-<!-- (<emphasis>
-display</emphasis>
+<!-- (
+<emphasis>display</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -494,8 +487,7 @@ display</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbGetXlibControls</emphasis>
+<emphasis>XkbGetXlibControls</emphasis>
  returns the current state of the Library Controls as a bit mask that is an
 inclusive OR of the control masks from Table 11.1 for the controls that are
 enabled. For the optional compose processing controls, the fact that a control
@@ -515,8 +507,8 @@ To change the state of the Library Controls, use
 <funcsynopsis id="XkbSetXlibControls">
   <funcprototype>
     <funcdef>Bool <function>XkbSetXlibControls</function></funcdef>
-<!-- (<emphasis>
-display, bits_to_change, values_for_bits</emphasis>
+<!-- (
+<emphasis>display, bits_to_change, values_for_bits</emphasis>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -558,21 +550,20 @@ display, bits_to_change, values_for_bits</emphasis>
 </variablelist>
 
 <para>
-<emphasis>
-XkbSetXlibControls</emphasis>
- modifies the state of the controls selected by <emphasis>
-bits_to_change</emphasis>
-; only the controls selected by <emphasis>
-bits_to_change</emphasis>
- are modified. If the bit corresponding to a control is on in <emphasis>
-bits_to_change</emphasis>
+<emphasis>XkbSetXlibControls</emphasis>
+ modifies the state of the controls selected by
+<emphasis>bits_to_change</emphasis>
+; only the controls selected by
+<emphasis>bits_to_change</emphasis>
+ are modified. If the bit corresponding to a control is on in
+<emphasis>bits_to_change</emphasis>
  and also on in values_for_bits, the control is enabled. If the bit
-corresponding to a control is on in <emphasis>
-bits_to_change</emphasis>
- but off in <emphasis>
-values_for_bits</emphasis>
-, the control is disabled. <emphasis>
-bits_to_change</emphasis>
+corresponding to a control is on in
+<emphasis>bits_to_change</emphasis>
+ but off in
+<emphasis>values_for_bits</emphasis>,
+the control is disabled.
+<emphasis>bits_to_change</emphasis>
  should be an inclusive OR of bits from Table 11.1.
 </para>
 

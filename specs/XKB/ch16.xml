@@ -193,7 +193,7 @@ to key actions:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyHasActions</emphasis>
+<function>XkbKeyHasActions</function>
  returns
 <emphasis>True</emphasis>
  if the key corresponding to
@@ -239,11 +239,11 @@ to key actions:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyNumActions</emphasis>
+<function>XkbKeyNumActions</function>
  computes the number of actions associated with the key corresponding to
 <emphasis>keycode</emphasis>.
 This should be the same value as the result of
-<emphasis>XkbKeyNumSyms</emphasis>
+<function>XkbKeyNumSyms</function>
  (see section 15.3.3).
 </para>
 
@@ -284,14 +284,14 @@ This should be the same value as the result of
 </variablelist>
 
 <para>
-<emphasis>XkbKeyActionsPtr</emphasis>
+<function>XkbKeyActionsPtr</function>
  returns a pointer to the two-dimensional array of key actions associated with
 the key corresponding to
 <emphasis>keycode</emphasis>.
 Use
-<emphasis>XkbKeyActionsPtr</emphasis>
+<function>XkbKeyActionsPtr</function>
  only if the key actually has some actions associated with it, that is,
-<emphasis>XkbKeyNumActions</emphasis>
+<function>XkbKeyNumActions</function>
 (xkb, keycode) returns something greater than zero.
 </para>
 
@@ -343,7 +343,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbKeyAction</emphasis>
+<function>XkbKeyAction</function>
  returns the key action indexed by
 <emphasis>idx</emphasis>
  in the two-dimensional array of key actions associated with the key
@@ -415,7 +415,7 @@ corresponding to
 </variablelist>
 
 <para>
-<emphasis>XkbKeyActionEntry</emphasis>
+<function>XkbKeyActionEntry</function>
  returns the key action corresponding to group
 <emphasis>grp</emphasis>
  and shift level
@@ -918,7 +918,7 @@ convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbModActionVMods</emphasis>
+<function>XkbModActionVMods</function>
  returns the
 <emphasis>vmods1</emphasis>
  and
@@ -967,7 +967,7 @@ convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbSetModActionVMods</emphasis>
+<function>XkbSetModActionVMods</function>
  sets the
 <emphasis>vmods1</emphasis>
  and
@@ -1220,7 +1220,7 @@ convert between a signed integer value and a signed character:
 </variablelist>
 
 <para>
-<emphasis>XkbSAGroup</emphasis>
+<function>XkbSAGroup</function>
  returns the
 <emphasis>group_XXX</emphasis>
  field of
@@ -1265,7 +1265,7 @@ convert between a signed integer value and a signed character:
 </variablelist>
 
 <para>
-<emphasis>XkbSASetGroup</emphasis>
+<function>XkbSASetGroup</function>
  sets the
 <emphasis>group_XXX</emphasis>
  field of
@@ -1430,7 +1430,7 @@ convert between a signed integer and two signed 16-bit values in
 </variablelist>
 
 <para>
-<emphasis>XkbPtrActionX</emphasis>
+<function>XkbPtrActionX</function>
  returns the
 <emphasis>high_XXX</emphasis>
  and
@@ -1466,7 +1466,7 @@ convert between a signed integer and two signed 16-bit values in
 </variablelist>
 
 <para>
-<emphasis>XkbPtrActionY</emphasis>
+<function>XkbPtrActionY</function>
  returns the
 <emphasis>high_YYY</emphasis>
  and
@@ -1514,7 +1514,7 @@ convert between a signed integer and two signed 16-bit values in
 </variablelist>
 
 <para>
-<emphasis>XkbSetPtrActionX</emphasis>
+<function>XkbSetPtrActionX</function>
  sets the
 <emphasis>high_XXX</emphasis>
  and
@@ -1562,7 +1562,7 @@ convert between a signed integer and two signed 16-bit values in
 </variablelist>
 
 <para>
-<emphasis>XkbSetPtrActionX</emphasis>
+<function>XkbSetPtrActionX</function>
  sets the
 <emphasis>high_YYY</emphasis>
  and
@@ -1931,7 +1931,7 @@ values in
 </variablelist>
 
 <para>
-<emphasis>XkbSAPtrDfltValue</emphasis>
+<function>XkbSAPtrDfltValue</function>
  returns the
 <emphasis>valueXXX</emphasis>
  field of
@@ -1976,7 +1976,7 @@ values in
 </variablelist>
 
 <para>
-<emphasis>XkbSASetPtrDfltValue</emphasis>
+<function>XkbSASetPtrDfltValue</function>
  sets the
 <emphasis>valueXXX</emphasis>
  field of
@@ -2538,7 +2538,7 @@ signed character value for screen numbers in
 </variablelist>
 
 <para>
-<emphasis>XkbSAScreen</emphasis>
+<function>XkbSAScreen</function>
  returns the
 <emphasis>screenXXX</emphasis>
  field of
@@ -2583,7 +2583,7 @@ signed character value for screen numbers in
 </variablelist>
 
 <para>
-<emphasis>XkbSASetScreen</emphasis>
+<function>XkbSASetScreen</function>
  sets the
 <emphasis>screenXXX</emphasis>
  field of
@@ -2799,7 +2799,7 @@ macros, to convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbActionCtrls</emphasis>
+<function>XkbActionCtrls</function>
  returns the
 <emphasis>ctrls</emphasis>
  fields of
@@ -2844,7 +2844,7 @@ macros, to convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbSAActionSetCtrls</emphasis>
+<function>XkbSAActionSetCtrls</function>
  sets the
 <emphasis>ctrls0</emphasis>
  through
@@ -2960,9 +2960,9 @@ The
 To receive
 <emphasis>XkbActionMessage</emphasis>
  events by calling either
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  or
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  (see section 4.3).
 </para>
 
@@ -2971,7 +2971,7 @@ To receive
 To receive
 <emphasis>XkbActionMessage</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  and pass
 <emphasis>XkbActionMessageMask</emphasis>
  in both
@@ -2985,7 +2985,7 @@ To receive
 The
 <emphasis>XkbActionMessage</emphasis>
  event has no event details. However, you can call
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbActionMessage</emphasis>
  as the
@@ -2997,7 +2997,7 @@ The
  and
 <emphasis>values_for_bits</emphasis>.
  This has the same effect as a call to
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 
@@ -3208,7 +3208,7 @@ convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbSARedirectVModsMask</emphasis>
+<function>XkbSARedirectVModsMask</function>
  returns the
 <emphasis>vmods_mask0</emphasis>
  and
@@ -3255,7 +3255,7 @@ convert between the two formats:
 </variablelist>
 
 <para>
-<emphasis>XkbSARedirectSetVModsMask</emphasis>
+<function>XkbSARedirectSetVModsMask</function>
  sets the
 <emphasis>vmods_mask0</emphasis>
  and
@@ -3304,7 +3304,7 @@ provides the following convenience macros:
 </variablelist>
 
 <literallayout>
-     <emphasis>XkbSARedirectVModsMask</emphasis> returns the <emphasis>vmods0</emphasis>
+     <function>XkbSARedirectVModsMask</function> returns the <emphasis>vmods0</emphasis>
      and <emphasis>vmods1</emphasis> fields of <emphasis>act</emphasis>
      converted to an unsigned int.
 </literallayout>
@@ -3344,7 +3344,7 @@ provides the following convenience macros:
   </varlistentry>
 </variablelist>
 <literallayout>
-     <emphasis> XkbSARedirectSetVModsMask</emphasis> sets the <emphasis>vmods0</emphasis>
+     <function>XkbSARedirectSetVModsMask</function> sets the <emphasis>vmods0</emphasis>
      and <emphasis>vmods1</emphasis> of <emphasis>act</emphasis> from <emphasis>v</emphasis>.
 </literallayout>
 
@@ -3688,7 +3688,7 @@ For a dial box with eight dials, any value in the range 0..7 would be correct.
 To update the actions (the
 <emphasis>key_acts</emphasis>
  array) for a subset of the keys in a keyboard description, use
-<emphasis>XkbGetKeyActions</emphasis>.
+<function>XkbGetKeyActions</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyActions"><primary><function>XkbGetKeyActions</function></primary></indexterm>
@@ -3752,7 +3752,7 @@ To update the actions (the
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  sends a request to the server to obtain the actions for
 <emphasis>num</emphasis>
  keys on the keyboard starting with key
@@ -3764,7 +3764,7 @@ It waits for a reply and returns the actions in the
  field of
 <emphasis>xkb</emphasis>.
 If successful,
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  returns
 <emphasis>Success</emphasis>.
 The
@@ -3779,7 +3779,7 @@ If the
  map in the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  allocates and initializes it before obtaining the actions.
 </para>
 
@@ -3787,18 +3787,18 @@ If the
 <para>
 If the server does not have a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  returns
 <emphasis>BadValue</emphasis>.
 If any allocation errors occur,
-<emphasis>XkbGetKeyActions</emphasis>
+<function>XkbGetKeyActions</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -3875,7 +3875,7 @@ The
 
 
 <para>
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  reserves the space needed for the actions and returns a pointer to the
 beginning of the new array that holds the actions. It can change the
 <emphasis>acts</emphasis>,
@@ -3896,7 +3896,7 @@ array.
 If
 <emphasis>needed</emphasis>
  is greater than the current number of keysyms for the key,
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  initializes all new actions in the array to
 <emphasis>NoAction</emphasis>.
 </para>
@@ -3905,17 +3905,17 @@ If
 <para>
 Because the number of actions needed by a key is normally computed as width *
 number of groups, and
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  does not modify either the width or number of groups for the key, a
 discrepancy exists on return from
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  between the space allocated for the actions and the number required. The
 unused entries in the list of actions returned by
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  are not preserved across future calls to any of the map editing functions, so
 you must update the key actions (which updates the width and number of groups
 for the key) before calling another allocator function. A call to
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  updates these.
 </para>
 
@@ -3923,7 +3923,7 @@ for the key) before calling another allocator function. A call to
 <para>
 If any allocation errors occur while resizing the number of actions bound to
 the key,
-<emphasis>XkbResizeKeyActions</emphasis>
+<function>XkbResizeKeyActions</function>
  returns
 <emphasis>NULL</emphasis>.
 </para>
@@ -4133,7 +4133,7 @@ keyboard to implement the behavior.
 To obtain the behaviors (the
 <emphasis>behaviors</emphasis>
  array) for a subset of the keys in a keyboard description from the server, use
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
 :
 </para>
 
@@ -4198,7 +4198,7 @@ To obtain the behaviors (the
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  sends a request to the server to obtain the behaviors for
 <emphasis>num</emphasis>
  keys on the keyboard starting with the key whose keycode is
@@ -4210,7 +4210,7 @@ It waits for a reply and returns the behaviors in the
  field of
 <emphasis>xkb</emphasis>.
 If successful,
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  returns
 <emphasis>Success</emphasis>.
 </para>
@@ -4222,7 +4222,7 @@ If the
  map in the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  allocates and initializes it before obtaining the actions.
 </para>
 
@@ -4230,18 +4230,18 @@ If the
 <para>
 If the server does not have a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  returns
 <emphasis>BadValue</emphasis>.
 If any allocation errors occur,
-<emphasis>XkbGetKeyBehaviors</emphasis>
+<function>XkbGetKeyBehaviors</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -4369,7 +4369,7 @@ match the key.
 To obtain the explicit components (the
 <emphasis>explicit</emphasis>
  array) for a subset of the keys in a keyboard description, use
-<emphasis>XkbGetKeyExplicitComponents</emphasis>.
+<function>XkbGetKeyExplicitComponents</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyExplicitComponents"><primary><function>XkbGetKeyExplicitComponents</function></primary></indexterm>
@@ -4433,7 +4433,7 @@ To obtain the explicit components (the
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  sends a request to the server to obtain the explicit components for
 <emphasis>num</emphasis>
  keys on the keyboard starting with key
@@ -4445,7 +4445,7 @@ It waits for a reply and returns the explicit components in the
  array of
 <emphasis>xkb</emphasis>.
 If successful,
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  returns
 <emphasis>Success</emphasis>.
 The
@@ -4460,7 +4460,7 @@ If the
  map in the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  allocates and initializes it before obtaining the actions.
 </para>
 
@@ -4468,18 +4468,18 @@ If the
 <para>
 If the server does not have a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  returns
 <emphasis>BadMatch</emphasis>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  returns
 <emphasis>BadValue</emphasis>.
 If any allocation errors occur,
-<emphasis>XkbGetKeyExplicitComponents</emphasis>
+<function>XkbGetKeyExplicitComponents</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -4586,7 +4586,7 @@ Virtual Modifier Relationships</H5>
 To obtain a subset of the virtual modifier bindings (the
 <emphasis>vmods</emphasis>
  array) in a keyboard description, use
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
 :
 </para>
 
@@ -4639,7 +4639,7 @@ To obtain a subset of the virtual modifier bindings (the
 </variablelist>
 
 <para>
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  sends a request to the server to obtain the
 <emphasis>vmods</emphasis>
  entries for the virtual modifiers specified in the mask,
@@ -4647,7 +4647,7 @@ To obtain a subset of the virtual modifier bindings (the
 and waits for a reply. See section 7.1 for a description of how to determine
 the virtual modifier mask. For each bit set in
 <emphasis>which</emphasis>,
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  updates the corresponding virtual modifier definition in the
 <emphasis>server-&gt;vmods</emphasis>
  array of
@@ -4656,7 +4656,7 @@ The
 <emphasis>xkb</emphasis>
  parameter must be a pointer to a valid Xkb keyboard description. If
 successful,
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  returns
 <emphasis>Success</emphasis>.
 </para>
@@ -4668,7 +4668,7 @@ If the
  map has not been allocated in the
 <emphasis>xkb</emphasis>
  parameter,
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  allocates and initializes it before obtaining the virtual modifier bindings.
 </para>
 
@@ -4676,11 +4676,11 @@ If the
 <para>
 If the server does not have a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  returns
 <emphasis>BadMatch</emphasis>.
 Any errors in allocation cause
-<emphasis>XkbGetVirtualMods </emphasis>
+<function>XkbGetVirtualMods</function>
 to return
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -4694,7 +4694,7 @@ to return
 To obtain the virtual modifier map (the
 <emphasis>vmodmap</emphasis>
  array) for a subset of the keys in a keyboard description, use
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
 :
 </para>
 
@@ -4771,7 +4771,7 @@ It waits for a reply and returns the virtual modifier mappings in the
  array of
 <emphasis>xkb</emphasis>.
 If successful,
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
  returns
 <emphasis>Success</emphasis>.
 The
@@ -4786,7 +4786,7 @@ If the
  map in the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
  allocates and initializes it before obtaining the virtual modifier mappings.
 </para>
 
@@ -4794,18 +4794,18 @@ If the
 <para>
 If the server does not have a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
  returns
 <emphasis>BadMatch</emphasis>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
  returns
 <emphasis>BadValue</emphasis>.
 If any allocation errors occur,
-<emphasis>XkbGetKeyVirtualModMap</emphasis>
+<function>XkbGetKeyVirtualModMap</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>

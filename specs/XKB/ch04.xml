@@ -26,14 +26,14 @@ use an unsupported feature of an X Input Extension device (see section 21.4).
 The X server reports the events defined by the Xkb extension to your client
 application only if you have requested them. You may request Xkb events by
 calling either
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  or
-<emphasis>XkbSelectEventDetails</emphasis>.
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEventDetails</function>.
+<function>XkbSelectEvents</function>
  requests Xkb events by their event type and causes them to be reported to your
 client application under all circumstances. You can specify a finer granularity
 for event reporting by using
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
 ; in this case events are reported only when the specific detail conditions you
 specify have been met.
 </para>
@@ -54,9 +54,9 @@ event code in the
  field identifies the event as an Xkb extension event, rather than an event
 from another extension or a core X protocol event. You can obtain the base
 event code via a call to
-<emphasis>XkbQueryExtension</emphasis>
+<function>XkbQueryExtension</function>
  or
-<emphasis>XkbOpenDisplay</emphasis>.
+<function>XkbOpenDisplay</function>.
 The second field is the Xkb event type, which contains a value uniquely
 identifying each different Xkb event type. Possible values are defined by
 constants declared in the header file
@@ -359,15 +359,15 @@ same granularity.
 
 <para>
 Xkb provides two functions to select and deselect delivery of Xkb events.
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  allows you to select or deselect delivery of more than one Xkb event type at
 once. Events selected using
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  are delivered to your program under all circumstances that generate the
 events. To restrict delivery of an event to a subset of the conditions under
 which it occurs, use
-<emphasis>XkbSelectEventDetails</emphasis>.
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>.
+<function>XkbSelectEventDetails</function>
  only allows you to change the selection conditions for a single event at a
 time, but it provides a means of fine-tuning the conditions under which the
 event is delivered.
@@ -377,7 +377,7 @@ event is delivered.
 <para>
 To select and / or deselect for delivery of one or more Xkb events and have
 them delivered under all conditions, use
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSelectEvents"><primary><function>XkbSelectEvents</function></primary></indexterm>
@@ -488,12 +488,12 @@ If a bit is not set in the
 All event selection bits are initially zero for clients using the Xkb
 extension. Once you set some bits, they remain set for your client until you
 clear them via another call to
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 
 <para>
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  returns
 <emphasis>False</emphasis>
  if the Xkb extension has not been initilialized and
@@ -505,10 +505,10 @@ clear them via another call to
 <para>
 To select or deselect for a specific Xkb event and optionally place conditions
 on when events of that type are reported to your client, use
-<emphasis>XkbSelectEventDetails</emphasis>.
+<function>XkbSelectEventDetails</function>.
 This allows you to exercise a finer granularity of control over delivery of
 Xkb events with
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 
@@ -583,9 +583,9 @@ Xkb events with
 
 <para>
 While
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  allows multiple events to be selected,
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  changes the selection criteria for a single type of Xkb event. The
 interpretation of the
 <emphasis>bits_to_change</emphasis>
@@ -596,7 +596,7 @@ interpretation of the
 
 
 <para>
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  changes the Xkb event selection mask for the keyboard specified by
 <emphasis>device_spec</emphasis>
  and the Xkb event specified by
@@ -636,7 +636,7 @@ If an invalid event type is specified, a
 
 <para>
 For each type of Xkb event, the legal event details that you can specify in the
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  request are listed in the chapters that describe each event in detail.
 </para>
 
@@ -647,9 +647,9 @@ For each type of Xkb event, the legal event details that you can specify in the
 <para>
 The X server reports the events defined by Xkb to your client application only
 if you have requested them via a call to
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  or
-<emphasis>XkbSelectEventDetails</emphasis>.
+<function>XkbSelectEventDetails</function>.
 Specify the event types in which you are interested in a mask, as described
 in section 4.3.
 </para>
@@ -657,7 +657,7 @@ in section 4.3.
 
 <para>
 Table 4.2 lists the event mask constants that can be specified with the  <!-- xref -->
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  request and the circumstances in which the mask should be specified.
 </para>
 

@@ -364,7 +364,7 @@ description are shown in Table 18.1.
 
 <para>
 To obtain symbolic names from the server, use
-<emphasis>XkbGetNames</emphasis>.
+<function>XkbGetNames</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetNames"><primary><function>XkbGetNames</function></primary></indexterm>
@@ -414,7 +414,7 @@ To obtain symbolic names from the server, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  retrieves symbolic names for the components of the keyboard extension from the
 X server. The
 <emphasis>which</emphasis>
@@ -432,7 +432,7 @@ If the
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  allocates and initializes the
 <emphasis>names</emphasis>
  component of the keyboard description before obtaining the values specified by
@@ -443,7 +443,7 @@ If the
 <emphasis>xkb</emphasis>
  is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  obtains the values specified by
 <emphasis>which</emphasis>
  and copies them into the keyboard description
@@ -458,7 +458,7 @@ If the
 <emphasis>xkb</emphasis>
  parameter is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  does not retrieve type or shift level names, even if
 <emphasis>XkbKeyTypeNamesMask</emphasis>
  or
@@ -469,7 +469,7 @@ If the
 
 
 <para>
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  can return
 <emphasis>Success</emphasis>,
 or
@@ -484,7 +484,7 @@ and
 
 <para>
 To free symbolic names, use
-<emphasis>XkbFreeNames</emphasis>
+<function>XkbFreeNames</function>
  (see section 18.6)
 </para>
 
@@ -496,15 +496,15 @@ To free symbolic names, use
 <para>
 To change the symbolic names in the server, first modify a local copy of the
 keyboard description and then use either
-<emphasis>XkbSetNames</emphasis>,
+<function>XkbSetNames</function>,
  or, to save network traffic, use a
 <emphasis>XkbNameChangesRec</emphasis>
 structure and call
-<emphasis>XkbChangeNames</emphasis>
+<function>XkbChangeNames</function>
  to download the changes to the server.
-<emphasis>XkbSetNames</emphasis>
+<function>XkbSetNames</function>
  and
-<emphasis>XkbChangeNames</emphasis>
+<function>XkbChangeNames</function>
  can generate
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadAtom</emphasis>,
@@ -585,10 +585,10 @@ structure and call
 
 <para>
 Use
-<emphasis>XkbSetNames</emphasis>
+<function>XkbSetNames</function>
  to change many names at the same time. For each bit set in
 <emphasis>which</emphasis>,
-<emphasis>XkbSetNames</emphasis>
+<function>XkbSetNames</function>
  takes the corresponding value (or values in the case of arrays) from the
 keyboard description
 <emphasis>xkb</emphasis>
@@ -610,7 +610,7 @@ The
  and specify a subset of the types for which the corresponding names are to be
 changed. If either or both of these mask bits are set but the specified types
 are illegal,
-<emphasis>XkbSetNames</emphasis>
+<function>XkbSetNames</function>
  returns
 <emphasis>False</emphasis>
  and does not update any of the names specified in
@@ -754,9 +754,9 @@ various kinds of symbolic names, as shown in Table 18.2.
 </table>
 
 <para>
-<emphasis>XkbChangeNames</emphasis>
+<function>XkbChangeNames</function>
  provides a more flexible method for changing symbolic names than
-<emphasis>XkbSetNames</emphasis>
+<function>XkbSetNames</function>
  and requires the use of an
 <emphasis>XkbNameChangesRec</emphasis>
  structure.
@@ -809,14 +809,14 @@ various kinds of symbolic names, as shown in Table 18.2.
 </variablelist>
 
 <para>
-<emphasis>XkbChangeNames</emphasis>
+<function>XkbChangeNames</function>
  copies any names specified by
 <emphasis>changes</emphasis>
  from the keyboard description,
 <emphasis>xkb</emphasis>,
 to the X server specified by
 <emphasis>dpy</emphasis>.
-<emphasis>XkbChangeNames</emphasis>
+<function>XkbChangeNames</function>
  aborts and returns
 <emphasis>False</emphasis>
  if any illegal type names or type shift level names are specified by
@@ -834,7 +834,7 @@ Whenever a symbolic name changes in the server’s keyboard description, the
 server sends a
 <emphasis>XkbNamesNotify</emphasis>
  event to all interested clients. To receive name notify events, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) with
 <emphasis>XkbNamesNotifyMask</emphasis>
  in both the
@@ -847,7 +847,7 @@ server sends a
 
 <para>
 To receive events for only specific names, use
-<emphasis>XkbSelectEventDetails</emphasis>.
+<function>XkbSelectEventDetails</function>.
 Set the
 <emphasis>event_type</emphasis>
  parameter to
@@ -914,7 +914,7 @@ fields in this event are interpreted as the like-named fields in an
 When your application receives a X
 <emphasis>kbNamesNotify</emphasis>
  event, you can note the changed names in a changes structure using
-<emphasis>XkbNoteNameChanges</emphasis>.
+<function>XkbNoteNameChanges</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbNoteNameChanges"><primary><function>XkbNoteNameChanges</function></primary></indexterm>
@@ -970,7 +970,7 @@ The
 <emphasis>wanted</emphasis>
  parameter is the bitwise inclusive OR of the valid names mask bits shown in
 Table 18.1.
-<emphasis>XkbNoteNameChanges</emphasis>
+<function>XkbNoteNameChanges</function>
  copies any changes that are reported in
 <emphasis>new</emphasis>
  and specified in
@@ -983,9 +983,9 @@ Table 18.1.
 <para>
 To update the local copy of the keyboard description with the actual values,
 pass to
-<emphasis>XkbGetNameChanges</emphasis>
+<function>XkbGetNameChanges</function>
  the results of one or more calls to
-<emphasis>XkbNoteNameChanges</emphasis>.
+<function>XkbNoteNameChanges</function>.
 </para>
 
 
@@ -1038,7 +1038,7 @@ pass to
 </variablelist>
 
 <para>
-<emphasis>XkbGetNameChanges</emphasis>
+<function>XkbGetNameChanges</function>
  examines the
 <emphasis>changes</emphasis>
  parameter, retrieves the necessary information from the server, and places the
@@ -1072,7 +1072,7 @@ Do not allocate a names structure directly using
  if your application changes the number of key aliases or radio groups or
 constructs a symbolic names structure without loading the necessary components
 from the X server. Instead use
-<emphasis>XkbAllocNames</emphasis>.
+<function>XkbAllocNames</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocNames"><primary><function>XkbAllocNames</function></primary></indexterm>
@@ -1132,7 +1132,7 @@ from the X server. Instead use
 </variablelist>
 
 <para>
-<emphasis>XkbAllocNames</emphasis>
+<function>XkbAllocNames</function>
  can return
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadMatch</emphasis>,
@@ -1152,7 +1152,7 @@ Do not free symbolic names structures directly using
  or
 <emphasis>XFree</emphasis>.
 Use
-<emphasis>XkbFreeNames</emphasis>
+<function>XkbFreeNames</function>
  instead.
 </para>
 

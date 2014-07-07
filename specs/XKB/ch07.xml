@@ -85,7 +85,7 @@ represents the i-th virtual modifier.
 
 <para>
 To set the name of a virtual modifier, use
-<emphasis>XkbSetNames</emphasis>,
+<function>XkbSetNames</function>,
 using
 <emphasis>XkbVirtualModNamesMask</emphasis>
  in
@@ -93,7 +93,7 @@ using
  and the name in the
 <emphasis>xkb</emphasis>
  argument; to retrieve indicator names, use
-<emphasis>XkbGetNames</emphasis>.
+<function>XkbGetNames</function>.
 These functions are discussed in Chapter 18.
 </para>
 
@@ -226,13 +226,13 @@ applications should need to change the virtual modifier mapping explicitly.
 
 <para>
 Use
-<emphasis>XkbGetMap </emphasis>
+<function>XkbGetMap</function>
 (see section 14.2) to get the virtual modifiers from the server or use  <!-- xref -->
-<emphasis>XkbGetVirtualMods</emphasis>
+<function>XkbGetVirtualMods</function>
  (see section 16.4.1) to update a local copy of the virtual modifiers bindings  <!-- xref -->
 from the server. To set the binding of a virtual modifier to a real modifier,
 use
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  (see
 section 14.3<emphasis> <!-- xref -->
 )</emphasis>.
@@ -241,7 +241,7 @@ section 14.3<emphasis> <!-- xref -->
 
 <para>
 To determine the mapping of virtual modifiers to core X protocol modifiers, use
-<emphasis>XkbVirtualModsToReal</emphasis>.
+<function>XkbVirtualModsToReal</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbVirtualModsToReal"><primary><function>XkbVirtualModsToReal</function></primary></indexterm>
@@ -294,7 +294,7 @@ To determine the mapping of virtual modifiers to core X protocol modifiers, use
 If the keyboard description defined by
 <emphasis>xkb</emphasis>
  includes bindings for virtual modifiers,
-<emphasis>XkbVirtualModsToReal</emphasis>
+<function>XkbVirtualModsToReal</function>
  uses those bindings to determine the set of real modifiers that correspond to
 the set of virtual modifiers specified in
 <emphasis>virtual_mask</emphasis>.
@@ -305,12 +305,12 @@ bit (0 relative) of the mask represents the i-th virtual modifier. If
 <emphasis>mask_rtrn</emphasis>
  is non-
 <emphasis>NULL</emphasis>,
-<emphasis>XkbVirtualModsToReal</emphasis>
+<function>XkbVirtualModsToReal</function>
  backfills it with the resulting real modifier mask. If the keyboard
 description in
 <emphasis>xkb</emphasis>
  does not include virtual modifier bindings,
-<emphasis>XkbVirtualModsToReal</emphasis>
+<function>XkbVirtualModsToReal</function>
  returns
 <emphasis>False</emphasis>
 ; otherwise, it returns

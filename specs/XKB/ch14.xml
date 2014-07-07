@@ -211,14 +211,14 @@ detail in section 16.2. <!-- xref -->
 <para>
 Xkb provides two functions to obtain the keyboard mapping components from the
 server. The first function,
-<emphasis>XkbGetMap</emphasis>,
+<function>XkbGetMap</function>,
 allocates an
 <emphasis>XkbDescRec</emphasis>
  structure, retrieves mapping components from the server, and stores them in
 the
 <emphasis>XkbDescRec</emphasis>
  structure it just allocated. The second function,
-<emphasis>XkbGetUpdatedMap</emphasis>,
+<function>XkbGetUpdatedMap</function>,
 retrieves mapping components from the server and stores them in an
 <emphasis>XkbDescRec</emphasis>
  structure that has previously been allocated.
@@ -230,17 +230,18 @@ To allocate an
 <emphasis>XkbDescRec</emphasis>
  structure and populate it with the server’s keyboard client map and server
 map, use
-<emphasis>XkbGetMap. XkbGetMap </emphasis>
+<function>XkbGetMap</function>.
+<function>XkbGetMap</function>
 is similar to
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  (see section 6.2), but is used only for obtaining the address of an
 <emphasis>XkbDescRec</emphasis>
  structure that is populated with keyboard mapping components. It allows finer
 control over which substructures of the keyboard mapping components are to be
 populated.
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  always returns fully populated components, while
-<emphasis>XkbGetMap</emphasis>
+<function>XkbGetMap</function>
  can be instructed to return a partially populated component.
 </para>
 
@@ -303,7 +304,7 @@ specified in
 
 <para>
 In addition to allocating and obtaining the server map and the client map,
-<emphasis>XkbGetMap</emphasis>
+<function>XkbGetMap</function>
  also sets the
 <emphasis>device_spec</emphasis>,
 the
@@ -315,14 +316,14 @@ and
 
 
 <para>
-<emphasis>XkbGetMap</emphasis>
+<function>XkbGetMap</function>
  is synchronous; it queries the server for the desired information, waits for a
 reply, and then returns. If successful<emphasis>,
 XkbGetMap</emphasis>
  returns a pointer to the
 <emphasis>XkbDescRec</emphasis>
  structure it allocated. If unsuccessful,
-<emphasis>XkbGetMap</emphasis>
+<function>XkbGetMap</function>
  returns
 <emphasis>NULL</emphasis>.
 When unsuccessful, one of the following protocol errors is also generated:
@@ -338,7 +339,7 @@ or
 <emphasis>BadImplementation</emphasis>
  (a compatible version of the Xkb extension is not available in the server). To
 free the returned data, use
-<emphasis>XkbFreeClientMap</emphasis>.
+<function>XkbFreeClientMap</function>.
 </para>
 
 
@@ -380,10 +381,10 @@ information on these functions.
       <para><emphasis>num_types</emphasis></para>
     </entry>
     <entry>
-      <para><emphasis>XkbGetKeyTypes</emphasis></para>
-      <para><emphasis>XkbResizeKeyType</emphasis></para>
-      <para><emphasis>XkbCopyKeyType</emphasis></para>
-      <para><emphasis>XkbCopyKeyTypes</emphasis></para>
+      <para><function>XkbGetKeyTypes</function></para>
+      <para><function>XkbResizeKeyType</function></para>
+      <para><function>XkbCopyKeyType</function></para>
+      <para><function>XkbCopyKeyTypes</function></para>
     </entry>
     <entry>15.2</entry>
   </row>
@@ -398,8 +399,8 @@ information on these functions.
       <para><emphasis>key_sym_map</emphasis></para>
     </entry>
     <entry>
-      <para><emphasis>XkbGetKeySyms</emphasis></para>
-      <para><emphasis>XkbResizeKeySyms</emphasis></para>
+      <para><function>XkbGetKeySyms</function></para>
+      <para><function>XkbResizeKeySyms</function></para>
       <para><emphasis>XkbChangeTypes&#xAD;OfKey</emphasis></para>
     </entry>
     <entry>15.3</entry>
@@ -431,7 +432,7 @@ information on these functions.
       <para><emphasis>size_acts</emphasis></para>
     </entry>
     <entry>
-      <para><emphasis>XkbGetKeyActions</emphasis></para>
+      <para><function>XkbGetKeyActions</function></para>
       <para><emphasis>XkbResizeKey&#xAD;Actions</emphasis></para>
     </entry>
     <entry>16.1</entry>
@@ -449,7 +450,7 @@ information on these functions.
     <entry>(1&lt;&lt;6)</entry>
     <entry>server</entry>
     <entry><emphasis>vmods</emphasis></entry>
-    <entry><emphasis>XkbGetVirtualMods</emphasis></entry>
+    <entry><function>XkbGetVirtualMods</function></entry>
     <entry>16.4</entry>
   </row>
   <row>
@@ -487,7 +488,7 @@ these components and handle the interdependencies.
 
 <para>
 To update the client or server map information in an existing keyboard
-description, use <emphasis>XkbGetUpdatedMap</emphasis>.
+description, use <function>XkbGetUpdatedMap</function>.
 </para>
 
 
@@ -544,9 +545,9 @@ The
 components of the
 <emphasis>xkb</emphasis>
  structure are not already allocated,
-<emphasis>XkbGetUpdatedMap</emphasis>
+<function>XkbGetUpdatedMap</function>
  allocates them.
-<emphasis>XkbGetUpdatedMap</emphasis>
+<function>XkbGetUpdatedMap</function>
  fetches the requested information for the device specified in the
 <emphasis>XkbDescRec</emphasis>
  passed in the
@@ -556,14 +557,14 @@ components of the
 
 
 <para>
-<emphasis>XkbGetUpdatedMap</emphasis>
+<function>XkbGetUpdatedMap</function>
  is synchronous; it queries the server for the desired information, waits for a
 reply, and then returns. If successful<emphasis>,
 XkbGetUpdatedMap</emphasis>
  returns
 <emphasis>Success</emphasis>.
 If unsuccessful,
-<emphasis>XkbGetUpdatedMap</emphasis>
+<function>XkbGetUpdatedMap</function>
  returns one of the following:
 <emphasis>BadAlloc</emphasis>
  (unable to allocate a component in the
@@ -585,11 +586,11 @@ the reply from the server was invalid).
 <para>
 There are two ways to make changes to map components: either change a local
 copy of the keyboard map and call
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  to send the modified map to the server, or, to reduce network traffic, use
 an
 <emphasis>XkbMapChangesRec</emphasis>
- structure and call <emphasis>XkbChangeMap</emphasis>.
+ structure and call <function>XkbChangeMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetMap"><primary><function>XkbSetMap</function></primary></indexterm>
@@ -642,7 +643,7 @@ an
 
 <para>
 Use
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  to send a complete new set of values for entire components (for example, all
 symbols, all actions, and so on) to the server. The
 <emphasis>which</emphasis>
@@ -655,7 +656,7 @@ inclusive OR of the masks listed in Table 14.1. The
 bit set in the
 <emphasis>which</emphasis>
  parameter,
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  takes the corresponding structure values from the
 <emphasis>xkb</emphasis>
  parameter and sends it to the server specified by
@@ -668,12 +669,12 @@ If any components specified by
  are not present in the
 <emphasis>xkb</emphasis>
  parameter,
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  returns
 <emphasis>False</emphasis>.
 Otherwise, it sends the update request to the server and returns
 <emphasis>True</emphasis>.
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  can generate
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadLength</emphasis>,
@@ -866,7 +867,7 @@ server and are always updated by the server whenever it returns the data for an
 To update only partial components of a keyboard description, modify the
 appropriate fields in the server and map components of a local copy of the
 keyboard description, then call
-<emphasis>XkbChangeMap</emphasis>
+<function>XkbChangeMap</function>
  with an
 <emphasis>XkbMapChangesRec</emphasis>
  structure indicating which components have changed.
@@ -921,7 +922,7 @@ keyboard description, then call
 </variablelist>
 
 <para>
-<emphasis>XkbChangeMap</emphasis>
+<function>XkbChangeMap</function>
  copies any components specified by the
 <emphasis>changes</emphasis>
  structure from the keyboard description,
@@ -937,7 +938,7 @@ If any components specified by
  are not present in the
 <emphasis>xkb</emphasis>
  parameter,
-<emphasis>XkbChangeMap</emphasis>
+<function>XkbChangeMap</function>
  returns
 <emphasis>False</emphasis>.
 Otherwise, it sends a request to the server and returns
@@ -946,7 +947,7 @@ Otherwise, it sends a request to the server and returns
 
 
 <para>
-<emphasis>XkbChangeMap</emphasis>
+<function>XkbChangeMap</function>
  can generate
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadLength</emphasis>,
@@ -975,7 +976,7 @@ change. The event detail masks are identical to the masks listed in Table 14.1.
 To receive
 <emphasis>XkbMapNotify</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) and pass
 <emphasis>XkbMapNotifyMask</emphasis>
  in both
@@ -989,7 +990,7 @@ To receive
 To receive
 <emphasis>XkbMapNotify</emphasis>
  events only under certain conditions, use
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbMapNotify</emphasis>
  as the
@@ -1060,7 +1061,7 @@ event are interpreted as the like-named fields in an
 
 <para>
 Calling
-<emphasis>XkbGetMap</emphasis>
+<function>XkbGetMap</function>
  (see section 14.2) should be sufficient for most applications to get client
 and server maps. As a result, most applications do not need to directly
 allocate client and server maps.
@@ -1075,17 +1076,17 @@ components directly using
  or
 <emphasis>Xmalloc</emphasis>.
 Instead, use the Xkb allocators,
-<emphasis>XkbAllocClientMap</emphasis>,
+<function>XkbAllocClientMap</function>,
  and
-<emphasis>XkbAllocServerMap</emphasis>.
+<function>XkbAllocServerMap</function>.
 </para>
 
 
 <para>
 Similarly, use the Xkb destructors,
-<emphasis>XkbFreeClientMap</emphasis>,
+<function>XkbFreeClientMap</function>,
  and
-<emphasis>XkbFreeServerMap</emphasis>
+<function>XkbFreeServerMap</function>
  instead of
 <emphasis>free</emphasis>
  or
@@ -1098,7 +1099,7 @@ Similarly, use the Xkb destructors,
 
 <para>
 To allocate and initialize an empty client map description record, use
-<emphasis>XkbAllocClientMap</emphasis>.
+<function>XkbAllocClientMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocClientMap"><primary><function>XkbAllocClientMap</function></primary></indexterm>
@@ -1148,7 +1149,7 @@ To allocate and initialize an empty client map description record, use
 </variablelist>
 
 <para>
-<emphasis>XkbAllocClientMap</emphasis>
+<function>XkbAllocClientMap</function>
  allocates and initializes an empty client map in the
 <emphasis>map</emphasis>
  field of the keyboard description specified by
@@ -1245,7 +1246,7 @@ of entries necessary for
  masks are set in the
 <emphasis>which</emphasis>
  parameter. If they are not valid,
-<emphasis>XkbAllocClientMap</emphasis>
+<function>XkbAllocClientMap</function>
  returns
 <emphasis>BadValue</emphasis>.
 </para></note>
@@ -1254,7 +1255,7 @@ of entries necessary for
 If the client map of the keyboard description is not
 <emphasis>NULL</emphasis>,
 and any fields are already allocated in the client map,
-<emphasis>XkbAllocClientMap</emphasis>
+<function>XkbAllocClientMap</function>
  does not overwrite the existing values; it simply ignores that part of the
 request. The only exception is the
 <emphasis>types</emphasis>
@@ -1263,7 +1264,7 @@ request. The only exception is the
  is greater than the current
 <emphasis>num_types</emphasis>
  field of the client map,
-<emphasis>XkbAllocClientMap</emphasis>
+<function>XkbAllocClientMap</function>
  resizes the
 <emphasis>types</emphasis>
  array and resets the
@@ -1274,7 +1275,7 @@ request. The only exception is the
 
 <para>
 If
-<emphasis>XkbAllocClientMap</emphasis>
+<function>XkbAllocClientMap</function>
  is successful, it returns
 <emphasis>Success</emphasis>.
 Otherwise, it can return either
@@ -1294,7 +1295,7 @@ or
 To free memory used by the client map member of an
 <emphasis>XkbDescRec</emphasis>
  structure, use
-<emphasis>XkbFreeClientMap</emphasis>.
+<function>XkbFreeClientMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbFreeClientMap"><primary><function>XkbFreeClientMap</function></primary></indexterm>
@@ -1345,7 +1346,7 @@ To free memory used by the client map member of an
 </variablelist>
 
 <para>
-<emphasis>XkbFreeClientMap</emphasis>
+<function>XkbFreeClientMap</function>
  frees the components of client map specified by
 <emphasis>which</emphasis>
  in the
@@ -1367,7 +1368,7 @@ If
 <emphasis>True</emphasis>,
 <emphasis>which</emphasis>
  is ignored;
-<emphasis>XkbFreeClientMap</emphasis>
+<function>XkbFreeClientMap</function>
  frees every non-
 <emphasis>NULL</emphasis>
  structure component in the client map, frees the
@@ -1389,7 +1390,7 @@ If
 
 <para>
 To allocate and initialize an empty server map description record, use
-<emphasis>XkbAllocServerMap</emphasis>.
+<function>XkbAllocServerMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocServerMap"><primary><function>XkbAllocServerMap</function></primary></indexterm>
@@ -1439,7 +1440,7 @@ To allocate and initialize an empty server map description record, use
 </variablelist>
 
 <para>
-<emphasis>XkbAllocServerMap</emphasis>
+<function>XkbAllocServerMap</function>
  allocates and initializes an empty server map in the
 <emphasis>server</emphasis>
  field of the keyboard description specified by
@@ -1534,7 +1535,7 @@ field of the server map.
  fields of the
 <emphasis>xkb</emphasis>
  parameter must be legal values. If they are not valid,
-<emphasis>XkbAllocServerMap</emphasis>
+<function>XkbAllocServerMap</function>
  returns
 <emphasis>BadValue</emphasis>.
 </para></note>
@@ -1543,7 +1544,7 @@ field of the server map.
 If the server map of the keyboard description is not
 <emphasis>NULL</emphasis>
  and any fields are already allocated in the server map,
-<emphasis>XkbAllocServerMap</emphasis>
+<function>XkbAllocServerMap</function>
  does not overwrite the existing values. The only exception is with the
 <emphasis>acts </emphasis>
 array. If the
@@ -1551,7 +1552,7 @@ array. If the
 parameter is greater than the current
 <emphasis>num_acts </emphasis>
 field of the server map,
-<emphasis>XkbAllocServerMap</emphasis>
+<function>XkbAllocServerMap</function>
  resizes the
 <emphasis>acts </emphasis>
 array and resets the
@@ -1562,7 +1563,7 @@ field accordingly.
 
 <para>
 If
-<emphasis>XkbAllocServerMap</emphasis>
+<function>XkbAllocServerMap</function>
  is successful, it returns
 <emphasis>Success</emphasis>.
 Otherwise, it can return either
@@ -1581,7 +1582,7 @@ Otherwise, it can return either
 To free memory used by the server member of an
 <emphasis>XkbDescRec</emphasis>
  structure, use
-<emphasis>XkbFreeServerMap</emphasis>.
+<function>XkbFreeServerMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbFreeServerMap"><primary><function>XkbFreeServerMap</function></primary></indexterm>
@@ -1633,7 +1634,7 @@ To free memory used by the server member of an
 
 <para>
 The
-<emphasis>XkbFreeServerMap</emphasis>
+<function>XkbFreeServerMap</function>
  function frees the specified components of server map in the
 <emphasis>XkbDescRec</emphasis>
  structure specified by the
@@ -1649,7 +1650,7 @@ inclusive OR of the masks listed in Table 14.4. If
 <emphasis>True</emphasis>,
 <emphasis>which</emphasis>
  is ignored and
-<emphasis>XkbFreeServerMap</emphasis>
+<function>XkbFreeServerMap</function>
  frees every non-
 <emphasis>NULL</emphasis>
  structure component in the server map, frees the

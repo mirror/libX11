@@ -16,7 +16,7 @@ Both bitmasks are initially all zeros.
 
 <para>
 To change the values of any of the debug controls, use
-<emphasis>XkbSetDebuggingFlags</emphasis>.
+<function>XkbSetDebuggingFlags</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetDebuggingFlags"><primary><function>XkbSetDebuggingFlags</function></primary></indexterm>
@@ -121,7 +121,7 @@ To change the values of any of the debug controls, use
 </variablelist>
 
 <para>
-<emphasis>XkbSetDebuggingFlags</emphasis>
+<function>XkbSetDebuggingFlags</function>
  modifies the debug output flags as specified by
 <emphasis>mask</emphasis>
  and
@@ -207,7 +207,7 @@ Xkb modifies its behavior according to each controls bit.
 </table>
 
 <para>
-<emphasis>XkbSetDebuggingFlags</emphasis>
+<function>XkbSetDebuggingFlags</function>
  returns
 <emphasis>True</emphasis>
  if successful and
@@ -219,10 +219,10 @@ if for some reason it is unable to allocate storage.
 
 
 <para>
-<emphasis>XkbSetDebuggingFlags</emphasis>
+<function>XkbSetDebuggingFlags</function>
  is intended for developer use and may be disabled in production X servers. If
 it is disabled,
-<emphasis>XkbSetDebuggingFlags</emphasis>
+<function>XkbSetDebuggingFlags</function>
  has no effect and does not generate any protocol errors.
 </para>
 

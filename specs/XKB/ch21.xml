@@ -128,7 +128,7 @@ spec, class, and ID. The constant
  may be used as the device ID to specify the core keyboard indicators for the
 core indicator feedback. The particular device ID corresponding to the core
 keyboard feedback and the core indicator feedback may be obtained by calling
-<emphasis>XkbGetDeviceInfo</emphasis>
+<function>XkbGetDeviceInfo</function>
  and specifying
 <emphasis>XkbUseCoreKbd</emphasis>
  as the
@@ -440,7 +440,7 @@ which, device_spec, ind_class, ind_id) -->
 </variablelist>
 
 <para>
-<emphasis>XkbGetDeviceInfo</emphasis>
+<function>XkbGetDeviceInfo</function>
  returns information about the input device specified by
 <emphasis>device_spec</emphasis>.
 Unlike the
@@ -467,7 +467,7 @@ of one or more of the values from Table 21.1 and causes the returned
 The
 <emphasis>XkbDeviceInfoRec</emphasis>
  returned by
-<emphasis>XkbGetDeviceInfo</emphasis>
+<function>XkbGetDeviceInfo</function>
  always has values for
 <emphasis>name</emphasis>
  (may be a null string, ""),
@@ -585,7 +585,7 @@ the
 <para>
 Xkb provides convenience functions to request subsets of the information
 available via
-<emphasis>XkbGetDeviceInfo</emphasis>.
+<function>XkbGetDeviceInfo</function>.
 These convenience functions mirror some of the mask bits. The functions all
 take an
 <emphasis>XkbDeviceInfoPtr</emphasis>
@@ -681,14 +681,14 @@ XkbGetDeviceButtonActions.
 </variablelist>
 
 <para>
-<emphasis>XkbGetDeviceButtonActions</emphasis>
+<function>XkbGetDeviceButtonActions</function>
  queries the server for the desired button information for the device indicated
 by the
 <emphasis>device_spec</emphasis>
  field of
 <emphasis>device_info</emphasis>
  and waits for a reply. If successful,
-<emphasis>XkbGetDeviceButtonActions</emphasis>
+<function>XkbGetDeviceButtonActions</function>
  backfills the button actions (
 <emphasis>btn_acts</emphasis>
  field of
@@ -822,7 +822,7 @@ nfo, led_class, led_id, which) -->
 </variablelist>
 
 <para>
-<emphasis>XkbGetDeviceLedInfo</emphasis>
+<function>XkbGetDeviceLedInfo</function>
  queries the server for the desired LED information for the feedback specified
 by
 <emphasis>led_class</emphasis>
@@ -833,7 +833,7 @@ by
 -&gt;
 <emphasis>device_info</emphasis>
  and waits for a reply. If successful,
-<emphasis>XkbGetDeviceLedInfo</emphasis>
+<function>XkbGetDeviceLedInfo</function>
  backfills the relevant fields of
 <emphasis>device_info</emphasis>
  as determined by
@@ -926,7 +926,7 @@ the
 <para>
 If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
-<emphasis>XkbGetDeviceLedInfo</emphasis>
+<function>XkbGetDeviceLedInfo</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If allocation errors occur, a BadAlloc status is returned. If the device has
@@ -999,7 +999,7 @@ To obtain an
 </variablelist>
 
 <para>
-<emphasis>XkbAllocDeviceInfo</emphasis>
+<function>XkbAllocDeviceInfo</function>
  allocates space for an
 <emphasis>XkbDeviceInfoRec</emphasis>
  structure and initializes that structure’s
@@ -1064,7 +1064,7 @@ To obtain an
 </variablelist>
 
 <para>
-<emphasis>XkbAllocDeviceLedInfo</emphasis>
+<function>XkbAllocDeviceLedInfo</function>
  allocates space for an
 <emphasis>XkbDeviceLedInfoRec</emphasis>
  and places it in
@@ -1133,7 +1133,7 @@ To initialize an
 </variablelist>
 
 <para>
-<emphasis>XkbAddDeviceLedInfo</emphasis>
+<function>XkbAddDeviceLedInfo</function>
  first checks to see whether an entry matching
 <emphasis>led_class</emphasis>
  and
@@ -1162,7 +1162,7 @@ Otherwise, it checks to be sure there is at least one empty entry in
 
 <para>
 If successful,
-<emphasis>XkbAddDeviceLedInfo</emphasis>
+<function>XkbAddDeviceLedInfo</function>
  returns a pointer to the
 <emphasis>XkbDeviceLedInfoRec</emphasis>
  structure that was initialized. If unable to allocate sufficient storage, or
@@ -1175,7 +1175,7 @@ if
  or
 <emphasis>led_id</emphasis>
  are inappropriate,
-<emphasis>XkbAddDeviceLedInfo</emphasis>
+<function>XkbAddDeviceLedInfo</function>
  returns
 <emphasis>NULL</emphasis>.
 </para>
@@ -1301,7 +1301,7 @@ To free an
 If free_all is
 <emphasis>True</emphasis>,
 the
-<emphasis>XkbFreeDeviceInfo</emphasis>
+<function>XkbFreeDeviceInfo</function>
  frees all components of
 <emphasis>device_info</emphasis>
  and the
@@ -1404,11 +1404,11 @@ receive these events.
 <para>
 To change characteristics of an X Input Extension device in the server, first
 modify a local copy of the device structure and then use either
-<emphasis>XkbSetDeviceInfo</emphasis>,
+<function>XkbSetDeviceInfo</function>,
  or, to save network traffic, use an
 <emphasis>XkbDeviceChangesRec</emphasis>
  structure (see section 21.6) and call
-<emphasis>XkbChangeDeviceInfo</emphasis>
+<function>XkbChangeDeviceInfo</function>
  to download the changes to the server.
 </para>
 
@@ -1465,7 +1465,7 @@ which, device_info) -->
 </variablelist>
 
 <para>
-<emphasis>XkbSetDeviceInfo</emphasis>
+<function>XkbSetDeviceInfo</function>
  sends a request to the server to modify the characteristics of the device
 specified in the
 <emphasis>device_info</emphasis>
@@ -1475,7 +1475,7 @@ set in
  and take their values from the relevant fields in
 <emphasis>device_info</emphasis>
  (see Table 21.1).
-<emphasis>XkbSetDeviceInfo</emphasis>
+<function>XkbSetDeviceInfo</function>
  returns
 <emphasis>True</emphasis>
  if the request was successfully sent to the server. If the X server
@@ -1529,7 +1529,7 @@ s specified in
 -&gt;
 <emphasis>btn_acts</emphasis>.
 If the number of buttons requested to be updated is not valid for the device,
-<emphasis>XkbSetDeviceInfo</emphasis>
+<function>XkbSetDeviceInfo</function>
  returns
 <emphasis>False</emphasis>
  and a
@@ -1581,7 +1581,7 @@ the indicator maps and / or names for all
 modify; if they have invalid values, a
 <emphasis>BadValue</emphasis>
  protocol error results and
-<emphasis>XkbSetDeviceInfo</emphasis>
+<function>XkbSetDeviceInfo</function>
  returns
 <emphasis>False</emphasis>.
 If they have legal values but do not specify a keyboard or indicator class
@@ -1604,7 +1604,7 @@ a
 <para>
 Xkb provides convenience functions to modify subsets of the information
 accessible via
-<emphasis>XkbSetDeviceInfo</emphasis>.
+<function>XkbSetDeviceInfo</function>.
 Only the parts of the structure indicated in the function description are
 modified. These convenience functions are described as follows.
 </para>
@@ -1674,7 +1674,7 @@ device, first_button, num_buttons, actions) -->
 </variablelist>
 
 <para>
-<emphasis>XkbSetDeviceButtonActions</emphasis>
+<function>XkbSetDeviceButtonActions</function>
  assigns actions to the buttons of the device specified in
 device_info-&gt;
 <emphasis>device_spec</emphasis>.
@@ -1692,7 +1692,7 @@ Actions are assigned to
 <para>
 If the server does not support assignment of Xkb actions to extension device
 buttons,
-<emphasis>XkbSetDeviceButtonActions</emphasis>
+<function>XkbSetDeviceButtonActions</function>
  has no effect and returns
 <emphasis>False</emphasis>.
 If the device has no buttons or if
@@ -1706,7 +1706,7 @@ If the device has no buttons or if
 the function has no effect and returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbSetDeviceButtonActions</emphasis>
+<function>XkbSetDeviceButtonActions</function>
  sends a request to the server to change the actions for the specified buttons
 and returns
 <emphasis>True</emphasis>.
@@ -1748,9 +1748,9 @@ To track changes to the status of input extension devices or attempts to use
 unsupported features of a device, select to receive
 <emphasis>XkbExtensionDeviceNotify</emphasis>
  events by calling either
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  or
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  (see section 4.3).
 </para>
 
@@ -1759,7 +1759,7 @@ unsupported features of a device, select to receive
 To receive
 <emphasis>XkbExtensionDeviceNotify</emphasis>
  events under all possible conditions, call
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  and pass
 <emphasis>XkbExtensionDeviceNotifyMask</emphasis>
  in both
@@ -1773,7 +1773,7 @@ To receive
 The
 <emphasis>XkbExtensionDeviceNotify</emphasis>
  event has no event details. However, you can call
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbExtensionDeviceNotify</emphasis>
  as the
@@ -1785,7 +1785,7 @@ The
  and
 <emphasis>values_for_bits</emphasis>.
  This has the same effect as a call to
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 
@@ -1945,7 +1945,7 @@ The
  field of the event in
 <emphasis>new</emphasis>
  indicates the types of changes the event is reporting.
-<emphasis>XkbNoteDeviceChanges</emphasis>
+<function>XkbNoteDeviceChanges</function>
  updates the
 <emphasis>XkbDeviceChangesRec</emphasis>
  specified by
@@ -2030,7 +2030,7 @@ specified in
  have changed. The parameters describing the changes are contained in the other
 fields of
 <emphasis>changes</emphasis>.
-<emphasis>XkbGetDeviceInfoChanges</emphasis>
+<function>XkbGetDeviceInfoChanges</function>
  uses that information to call XkbGetDeviceInfo to obtain the current status of
 those attributes that have changed. It then updates the local description of
 the device in
@@ -2092,7 +2092,7 @@ XkbDeviceChangesRec, use XkbChangeDeviceInfo.
 </variablelist>
 
 <para>
-<emphasis>XkbChangeDeviceInfo</emphasis>
+<function>XkbChangeDeviceInfo</function>
  updates the server’s description of the device specified in
 <emphasis>device_info</emphasis>
 -&gt;

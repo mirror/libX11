@@ -135,7 +135,7 @@ The
  to ensure the array of symbols bound to a key is large enough. Do not modify
 <emphasis>num_levels</emphasis>
  directly to change the number if shift levels for a key type. Instead, use
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  (see section 15.2.3).
 </para>
 
@@ -196,7 +196,7 @@ Any modifiers specified in
  are normally
 <emphasis>consumed</emphasis>
  by
-<emphasis>XkbTranslateKeyCode</emphasis>
+<function>XkbTranslateKeyCode</function>
  (see section 12.1.3). For those rare occasions a modifier
 <emphasis>should</emphasis>
  be considered despite having been used to look up a symbol, key types include
@@ -634,7 +634,7 @@ The description of the KEYPAD key type is stored in the
 <para>
 To set the definitions of the canonical key types in a client map to their
 default values, use
-<emphasis>XkbInitCanonicalKeyTypes</emphasis>.
+<function>XkbInitCanonicalKeyTypes</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbInitCanonicalKeyTypes"><primary><function>XkbInitCanonicalKeyTypes</function></primary></indexterm>
@@ -684,7 +684,7 @@ default values, use
 </variablelist>
 
 <para>
-<emphasis>XkbInitCanonicalKeyTypes</emphasis>
+<function>XkbInitCanonicalKeyTypes</function>
  initializes the first
 <emphasis>XkbNumRequiredTypes</emphasis>
  key types of the keyboard specified by the
@@ -710,20 +710,20 @@ If
  is set in the
 <emphasis>which</emphasis>
  parameter,
-<emphasis>XkbInitCanonicalKeyTypes</emphasis>
+<function>XkbInitCanonicalKeyTypes</function>
  looks up the
 <emphasis>NumLock</emphasis>
  named virtual modifier to determine which virtual modifier to use when
 initializing the KEYPAD key type. If the
 <emphasis>NumLock</emphasis>
  virtual modifier does not exist,
-<emphasis>XkbInitCanonicalKeyTypes</emphasis>
+<function>XkbInitCanonicalKeyTypes</function>
  creates it.
 </para>
 
 
 <para>
-<emphasis>XkbInitCanonicalKeyTypes</emphasis>
+<function>XkbInitCanonicalKeyTypes</function>
  normally returns Success. It returns
 <emphasis>BadAccess</emphasis>
  if the Xkb extension has not been properly initialized, and
@@ -743,7 +743,7 @@ initializing the KEYPAD key type. If the
 <para>
 To obtain the list of available key types in the server’s keyboard mapping,
 use
-<emphasis>XkbGetKeyTypes</emphasis>.
+<function>XkbGetKeyTypes</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyTypes"><primary><function>XkbGetKeyTypes</function></primary></indexterm>
@@ -806,7 +806,7 @@ use
   </varlistentry>
 </variablelist>
 <note><para>
-<emphasis>XkbGetKeyTypes</emphasis>
+<function>XkbGetKeyTypes</function>
  is used to obtain descriptions of the key types themselves, not the key types
 bound to individual keys. To obtain the key types bound to an individual key,
 refer to the
@@ -814,7 +814,7 @@ refer to the
  field of the client map (see section 15.3.1).</para></note>
 
 <para>
-<emphasis>XkbGetKeyTypes</emphasis>
+<function>XkbGetKeyTypes</function>
  queries the server for the desired types, waits for a reply, and returns the
 desired types in the
 <emphasis>xkb-&gt;map-&gt;types</emphasis>.
@@ -823,7 +823,7 @@ If successful, it returns Success.
 
 
 <para>
-<emphasis>XkbGetKeyTypes</emphasis>
+<function>XkbGetKeyTypes</function>
  returns
 <emphasis>BadAccess</emphasis>
  if the Xkb extension has not been properly initialized and
@@ -842,7 +842,7 @@ If successful, it returns Success.
 
 <para>
 To change the number of levels in a key type, use
-<emphasis>XkbResizeKeyType</emphasis>.
+<function>XkbResizeKeyType</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbResizeKeyType"><primary><function>XkbResizeKeyType</function></primary></indexterm>
@@ -919,7 +919,7 @@ To change the number of levels in a key type, use
 </variablelist>
 
 <para>
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  changes the type specified by
 <emphasis>xkb</emphasis>
 -&gt;
@@ -928,15 +928,15 @@ To change the number of levels in a key type, use
 <emphasis>type_ndx</emphasis>
 ], and reallocates the symbols and actions bound to all keys that use the type,
 if necessary.
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  updates only the local copy of the types in
 <emphasis>xkb</emphasis>
 ; to update the server’s copy for the physical device, use
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  or
-<emphasis>XkbChangeMap</emphasis>
+<function>XkbChangeMap</function>
  after calling
-<emphasis>XkbResizeKeyType</emphasis>.
+<function>XkbResizeKeyType</function>.
 </para>
 
 
@@ -947,7 +947,7 @@ The
 can be zero or greater. If
 <emphasis>map_count</emphasis>
  is zero,
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  frees the existing
 <emphasis>map</emphasis>
  and
@@ -998,11 +998,11 @@ If
  is less than 1, or the
 <emphasis>map_count</emphasis>
  is less than zero,
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  returns
 <emphasis>BadValue</emphasis>.
 If
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  encounters any problems with allocation, it returns
 <emphasis>BadAlloc</emphasis>.
 Otherwise, it returns
@@ -1016,9 +1016,9 @@ Otherwise, it returns
 
 <para>
 Use
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  and
-<emphasis>XkbCopyKeyTypes</emphasis>
+<function>XkbCopyKeyTypes</function>
  to copy one or more
 <emphasis>XkbKeyTypeRec</emphasis>
  structures.
@@ -1061,7 +1061,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  copies the key type specified by
 <emphasis>from</emphasis>
  to the key type specified by
@@ -1073,7 +1073,7 @@ Both must point to legal
  and
 <emphasis>into</emphasis>
  point to different places. As a result, overlaps can be fatal.
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  frees any existing
 <emphasis>map</emphasis>,
 <emphasis>preserve</emphasis>,
@@ -1085,11 +1085,11 @@ and
 <emphasis>from</emphasis>
  to
 <emphasis>into</emphasis>,
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 Otherwise,
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  copies
 <emphasis>from</emphasis>
  to
@@ -1148,7 +1148,7 @@ Otherwise,
 </variablelist>
 
 <para>
-<emphasis>XkbCopyKeyTypes</emphasis>
+<function>XkbCopyKeyTypes</function>
  copies
 <emphasis>num_types</emphasis>
 <emphasis>XkbKeyTypeRec</emphasis>
@@ -1163,22 +1163,22 @@ the
  and
 <emphasis>into</emphasis>
  parameters in
-<emphasis>XkbCopyKeyType</emphasis>
+<function>XkbCopyKeyType</function>
  apply to each entry of the
 <emphasis>from</emphasis>
  and
 <emphasis>into</emphasis>
  arrays of
-<emphasis>XkbCopyKeyTypes</emphasis>.
+<function>XkbCopyKeyTypes</function>.
 If any allocation errors occur while copying
 <emphasis>from</emphasis>
  to
 <emphasis>into</emphasis>,
-<emphasis>XkbCopyKeyTypes</emphasis>
+<function>XkbCopyKeyTypes</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 Otherwise,
-<emphasis>XkbCopyKeyTypes</emphasis>
+<function>XkbCopyKeyTypes</function>
  copies
 <emphasis>from</emphasis>
  to
@@ -1339,7 +1339,7 @@ currently four); if a key has fewer than
 </variablelist>
 
 <para>
-<emphasis>XkbKeyTypeIndex</emphasis>
+<function>XkbKeyTypeIndex</function>
  computes an index into the
 <emphasis>types</emphasis>
  vector of the client map in
@@ -1399,7 +1399,7 @@ currently four); if a key has fewer than
 </variablelist>
 
 <para>
-<emphasis>XkbKeyType</emphasis>
+<function>XkbKeyType</function>
  returns a pointer to the key type in the
 <emphasis>types</emphasis>
  vector of the client map in
@@ -1427,14 +1427,14 @@ legal for a key to have zero groups, in which case it also has zero symbols and
 all events from that key yield
 <emphasis>NoSymbol</emphasis>.
 To obtain the number of groups of symbols bound to the key, use
-<emphasis>XkbKeyNumGroups</emphasis>.
+<function>XkbKeyNumGroups</function>.
 To change the number of groups bound to a key, use
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  (see section 15.3.6). To obtain a mask that determines the treatment of
 out-of-range groups, use
-<emphasis>XkbKeyGroupInfo</emphasis>
+<function>XkbKeyGroupInfo</function>
  and
-<emphasis>XkbOutOfRangeGroupInfo</emphasis>.
+<function>XkbOutOfRangeGroupInfo</function>.
 </para>
 
 
@@ -1542,7 +1542,7 @@ Xkb provides the following macros to access group information:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyNumGroups</emphasis>
+<function>XkbKeyNumGroups</function>
  returns the number of groups of symbols bound to the key corresponding to
 <emphasis>keycode</emphasis>.
 </para>
@@ -1584,7 +1584,7 @@ Xkb provides the following macros to access group information:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyGroupInfo</emphasis>
+<function>XkbKeyGroupInfo</function>
  returns the
 <emphasis>group_info</emphasis>
  field from the
@@ -1619,7 +1619,7 @@ Xkb provides the following macros to access group information:
 </variablelist>
 
 <para>
-<emphasis>XkbOutOfRangeGroupInfo</emphasis>
+<function>XkbOutOfRangeGroupInfo</function>
  returns only the out-of-range processing information from the
 <emphasis>group_info</emphasis>
  field of an
@@ -1653,7 +1653,7 @@ Xkb provides the following macros to access group information:
 </variablelist>
 
 <para>
-<emphasis>XkbOutOfRangeGroupNumber</emphasis>
+<function>XkbOutOfRangeGroupNumber</function>
  returns the out-of-range group number, represented as a group index, from the
 <emphasis>group_info</emphasis>
  field of an
@@ -1755,7 +1755,7 @@ of symbols bound to the key:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyGroupsWidth</emphasis>
+<function>XkbKeyGroupsWidth</function>
  computes the maximum width associated with the key corresponding to
 <emphasis>keycode</emphasis>.
 </para>
@@ -1808,7 +1808,7 @@ of symbols bound to the key:
 </variablelist>
 
 <para>
-<emphasis>XkbKeyGroupWidth</emphasis>
+<function>XkbKeyGroupWidth</function>
  computes the width of the type associated with the group
 <emphasis>grp</emphasis>
  for the key corresponding to
@@ -1852,7 +1852,7 @@ of symbols bound to the key:
 </variablelist>
 
 <para>
-<emphasis>XkbKeySymsOffset</emphasis>
+<function>XkbKeySymsOffset</function>
  returns the offset of the two-dimensional array of keysyms for the key
 corresponding to
 <emphasis>keycode</emphasis>.
@@ -1895,7 +1895,7 @@ corresponding to
 </variablelist>
 
 <para>
-<emphasis>XkbKeyNumSyms</emphasis>
+<function>XkbKeyNumSyms</function>
  returns the total number of keysyms for the key corresponding to
 <emphasis>keycode</emphasis>.
 </para>
@@ -1937,7 +1937,7 @@ corresponding to
 </variablelist>
 
 <para>
-<emphasis>XkbKeySymsPtr</emphasis>
+<function>XkbKeySymsPtr</function>
  returns the pointer to the two-dimensional array of keysyms for the key
 corresponding to
 <emphasis>keycode</emphasis>.
@@ -2002,7 +2002,7 @@ corresponding to
 </variablelist>
 
 <para>
-<emphasis>XkbKeySymEntry</emphasis>
+<function>XkbKeySymEntry</function>
  returns the
 <emphasis>keysym</emphasis>
  corresponding to shift level
@@ -2020,7 +2020,7 @@ corresponding to
 
 <para>
 To obtain the symbols for a subset of the keys in a keyboard description, use
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
 :
 </para>
 
@@ -2085,7 +2085,7 @@ To obtain the symbols for a subset of the keys in a keyboard description, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  sends a request to the server to obtain the set of keysyms bound to
 <emphasis>num</emphasis>
  keys starting with the key whose keycode is
@@ -2095,7 +2095,7 @@ It waits for a reply and returns the keysyms in the
  field of
 <emphasis>xkb</emphasis>.
 If successful,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  returns
 <emphasis>Success</emphasis>.
 The
@@ -2110,7 +2110,7 @@ If the client
  in the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  allocates and initializes it before obtaining the symbols.
 </para>
 
@@ -2118,18 +2118,18 @@ If the client
 <para>
 If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If
 <emphasis>num</emphasis>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  returns
 <emphasis>BadValue</emphasis>.
 If any allocation errors occur,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -2141,7 +2141,7 @@ If any allocation errors occur,
 
 <para>
 To change the number of groups and the types bound to a key, use
-<emphasis>XkbChangeTypesOfKey</emphasis>.
+<function>XkbChangeTypesOfKey</function>.
 </para>
 
 
@@ -2230,7 +2230,7 @@ To change the number of groups and the types bound to a key, use
 </variablelist>
 
 <para>
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  reallocates the symbols and actions bound to the key, if necessary, and
 initializes any new symbols or actions to
 <emphasis>NoSymbol</emphasis>
@@ -2240,7 +2240,7 @@ as appropriate. If the
 <emphasis>p_changes</emphasis>
  parameter is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  adds the
 <emphasis>XkbKeySymsMask</emphasis>
  to the
@@ -2258,7 +2258,7 @@ as appropriate. If the
  that was changed. See section 14.3.1 for more information on the
 <emphasis>XkbMapChangesPtr</emphasis>
  structure. If successful,
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  returns
 <emphasis>Success</emphasis>.
 </para>
@@ -2351,7 +2351,7 @@ groups:
 
 <para>
 If the Xkb extension has not been properly initialized,
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If the
@@ -2359,7 +2359,7 @@ If the
  parameter it not valid (that is, it is
 <emphasis>NULL</emphasis>
  or it does not contain a valid client map),
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  returns
 <emphasis>Bad</emphasis>
 Match. If the
@@ -2371,12 +2371,12 @@ Match. If the
 or the
 <emphasis>groups</emphasis>
  mask does not contain any of the valid group mask bits,
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  returns
 <emphasis>BadValue</emphasis>.
 If it is necessary to resize the key symbols or key actions arrays and any
 allocation errors occur,
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>
@@ -2388,7 +2388,7 @@ allocation errors occur,
 
 <para>
 To change the number of symbols bound to a key, use
-<emphasis>XkbResizeKeySyms</emphasis>.
+<function>XkbResizeKeySyms</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbResizeKeySyms"><primary><function>XkbResizeKeySyms</function></primary></indexterm>
@@ -2440,7 +2440,7 @@ To change the number of symbols bound to a key, use
 </variablelist>
 
 <para>
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  reserves the space needed for
 <emphasis>needed</emphasis>
  keysyms and returns a pointer to the beginning of the new array that holds the
@@ -2460,7 +2460,7 @@ and
  if it is necessary to reallocate the
 <emphasis>syms</emphasis>
  array.
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  does not modify either the width or number of groups associated with the key.
 </para>
 
@@ -2469,7 +2469,7 @@ and
 If
 <emphasis>needed</emphasis>
  is greater than the current number of keysyms for the key,
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  initializes all new keysyms in the array to
 <emphasis>NoSymbol</emphasis>.
 </para>
@@ -2478,17 +2478,17 @@ If
 <para>
 Because the number of symbols needed by a key is normally computed as width *
 number of groups, and
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  does not modify either the width or number of groups for the key, a
 discrepancy exists upon return from
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  between the space allocated for the keysyms and the number required. The
 unused entries in the list of symbols returned by
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  are not preserved across future calls to any of the map editing functions, so
 you must update the key symbol mapping (which updates the width and number of
 groups for the key) before calling another allocator function. A call to
-<emphasis>XkbChangeTypesOfKey</emphasis>
+<function>XkbChangeTypesOfKey</function>
  will update the mapping.
 </para>
 
@@ -2496,7 +2496,7 @@ groups for the key) before calling another allocator function. A call to
 <para>
 If any allocation errors occur while resizing the number of symbols bound to
 the key,
-<emphasis>XkbResizeKeySyms</emphasis>
+<function>XkbResizeKeySyms</function>
  returns
 <emphasis>NULL</emphasis>.
 </para>
@@ -2547,7 +2547,7 @@ Chapter 16).
 <para>
 To update the modifier map for one or more of the keys in a keyboard
 description, use
-<emphasis>XkbGetKeyModifierMap</emphasis>.
+<function>XkbGetKeyModifierMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyModifierMap"><primary><function>XkbGetKeyModifierMap</function></primary></indexterm>
@@ -2611,7 +2611,7 @@ description, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyModifierMap</emphasis>
+<function>XkbGetKeyModifierMap</function>
  sends a request to the server for the modifier mappings for
 <emphasis>num</emphasis>
  keys starting with the key whose keycode is
@@ -2629,7 +2629,7 @@ It waits for a reply and places the results in the
 If the map component of the
 <emphasis>xkb</emphasis>
  parameter has not been allocated,
-<emphasis>XkbGetKeyModifierMap</emphasis>
+<function>XkbGetKeyModifierMap</function>
  allocates and initializes it.
 </para>
 
@@ -2637,11 +2637,11 @@ If the map component of the
 <para>
 If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
-<emphasis>XkbGetKeySyms</emphasis>
+<function>XkbGetKeySyms</function>
  returns
 <emphasis>BadAccess</emphasis>.
 If any allocation errors occur while obtaining the modifier map,
-<emphasis>XkbGetKeyModifierMap</emphasis>
+<function>XkbGetKeyModifierMap</function>
  returns
 <emphasis>BadAlloc</emphasis>.
 </para>

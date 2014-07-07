@@ -301,9 +301,9 @@ compose sequence fails. The
 <emphasis>BeepOnComposeFail</emphasis>
  control is disabled by default. If implemented, the bell should be activated
 using
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  or
-<emphasis>XkbDeviceBell</emphasis>.
+<function>XkbDeviceBell</function>.
 </para>
 
 
@@ -419,7 +419,7 @@ defined in Table 11.1. <!-- xref -->
 
 <para>
 To determine which Library Controls are actually
-implemented, use <emphasis>XkbXlibControlsImplemented</emphasis>.
+implemented, use <function>XkbXlibControlsImplemented</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbXlibControlsImplemented"><primary><function>XkbXlibControlsImplemented</function></primary></indexterm>
@@ -447,7 +447,7 @@ implemented, use <emphasis>XkbXlibControlsImplemented</emphasis>.
 </variablelist>
 
 <para>
-<emphasis>XkbXlibControlsImplemented</emphasis>
+<function>XkbXlibControlsImplemented</function>
  returns a bitmask indicating the controls actually implemented in the Xkb
 library and is composed of an inclusive OR of bits from Table 11.1.
 </para>
@@ -459,7 +459,7 @@ library and is composed of an inclusive OR of bits from Table 11.1.
 
 <para>
 To determine the current state of the Library Controls, use
-<emphasis>XkbGetXlibControls</emphasis>.
+<function>XkbGetXlibControls</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetXlibControls"><primary><function>XkbGetXlibControls</function></primary></indexterm>
@@ -487,7 +487,7 @@ To determine the current state of the Library Controls, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetXlibControls</emphasis>
+<function>XkbGetXlibControls</function>
  returns the current state of the Library Controls as a bit mask that is an
 inclusive OR of the control masks from Table 11.1 for the controls that are
 enabled. For the optional compose processing controls, the fact that a control
@@ -500,7 +500,7 @@ is enabled does not imply that it is actually implemented.
 
 <para>
 To change the state of the Library Controls, use
-<emphasis>XkbSetXlibControls</emphasis>.
+<function>XkbSetXlibControls</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetXlibControls"><primary><function>XkbSetXlibControls</function></primary></indexterm>
@@ -550,7 +550,7 @@ To change the state of the Library Controls, use
 </variablelist>
 
 <para>
-<emphasis>XkbSetXlibControls</emphasis>
+<function>XkbSetXlibControls</function>
  modifies the state of the controls selected by
 <emphasis>bits_to_change</emphasis>
 ; only the controls selected by

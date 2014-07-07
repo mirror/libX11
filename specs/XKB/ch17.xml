@@ -45,7 +45,7 @@ the server receives a core protocol
 <emphasis>SetModifierMapping</emphasis>
  request, it updates its core keyboard mapping, then uses the compatibility map
 to update its Xkb keyboard mapping. When the server receives an
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
  request, it updates those portions of its Xkb keyboard mapping specified by
 the request, then uses its compatibility map to update the corresponding parts
 of its core keyboard map. Consequently, the server’s Xkb keyboard map and
@@ -107,7 +107,7 @@ maintained by the server.
     <para>
 After Xkb protocol requests received by the server to change the keyboard
 mapping (
-<emphasis>XkbSetMap</emphasis>
+<function>XkbSetMap</function>
 ) have been applied to the server’s Xkb keyboard map, the results are
 transformed to achieve an approximately equivalent change to the core keyboard
 mapping maintained by the server.
@@ -406,7 +406,7 @@ using
 Symbol interpretations are used to guide the X server when it modifies the Xkb
 keymap in step 2. An initial set of symbol interpretations is loaded by the
 server when it starts. A client may add new ones using
-<emphasis>XkbSetCompatMap</emphasis>
+<function>XkbSetCompatMap</function>
  (see section 17.4).
 </para>
 
@@ -739,13 +739,13 @@ modifier mapping.
 
 <para>
 Use
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  to fetch any combination of the current compatibility map components from the
 server. When another client modifies the compatibility map, you are notified if
 you have selected for
 <emphasis>XkbCompatMapNotify</emphasis>
  events (see section 17.5).
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  is particularly useful when you receive an event of this type, as it allows
 you to update your program’s version of the compatibility map to match the
 modified version now in the server. If your program is dealing with multiple
@@ -803,7 +803,7 @@ explicit override components of the server state.</para></note>
 </variablelist>
 
 <para>
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  fetches the components of the compatibility map specified in
 <emphasis>which</emphasis>
  from the server specified by
@@ -855,21 +855,21 @@ Valid values for
 If no compatibility map structure is allocated in
 <emphasis>xkb</emphasis>
  upon entry,
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  allocates one. If one already exists, its contents are overwritten with the
 returned results.
 </para>
 
 
 <para>
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  fetches compatibility map information for the device specified by the
 <emphasis>device_spec</emphasis>
  field of
 <emphasis>xkb</emphasis>.
 Unless you have specifically modified this field, it is the default keyboard
 device.
-<emphasis>XkbGetCompatMap</emphasis>
+<function>XkbGetCompatMap</function>
  returns
 <emphasis>Success</emphasis>
  if successful,
@@ -907,7 +907,7 @@ for example), a data file, or some other source.
 <para>
 To update a local Xkb keyboard map to reflect the mapping expressed by a core
 format mapping by calling the function
-<emphasis>XkbUpdateMapFromCore</emphasis>.
+<function>XkbUpdateMapFromCore</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbUpdateMapFromCore"><primary><function>XkbUpdateMapFromCore</function></primary></indexterm>
@@ -995,7 +995,7 @@ format mapping by calling the function
 </variablelist>
 
 <para>
-<emphasis>XkbUpdateMapFromCore</emphasis>
+<function>XkbUpdateMapFromCore</function>
  interprets input argument information representing a keyboard map in core
 format to update the Xkb keyboard description passed in
 <emphasis>xkb</emphasis>.
@@ -1007,7 +1007,7 @@ keys with keycodes in the range
  +
 <emphasis>num_keys</emphasis>
  - 1. If
-<emphasis>XkbUpdateMapFromCore</emphasis>
+<function>XkbUpdateMapFromCore</function>
  is being called in response to a
 <emphasis>MappingNotify</emphasis>
 
@@ -1041,13 +1041,13 @@ the next
 <para>
 In addition to modifying the Xkb keyboard mapping in
 <emphasis>xkb</emphasis>,
-<emphasis>XkbUpdateMapFromCore</emphasis>
+<function>XkbUpdateMapFromCore</function>
  backfills the changes structure whose address is passed in
 <emphasis>changes</emphasis>
  to indicate the modifications that were made. You may then use
 <emphasis>changes</emphasis>
  in subsequent calls such as
-<emphasis>XkbSetMap</emphasis>,
+<function>XkbSetMap</function>,
 to propagate the local modifications to a server.
 </para>
 
@@ -1056,7 +1056,7 @@ to propagate the local modifications to a server.
 When dealing with core keyboard mappings or descriptions, it is sometimes
 necessary to determine the Xkb key types appropriate for the symbols bound to a
 key in a core keyboard mapping. Use
-<emphasis>XkbKeyTypesForCoreSymbols</emphasis>
+<function>XkbKeyTypesForCoreSymbols</function>
  for this purpose:
 </para>
 
@@ -1144,7 +1144,7 @@ key in a core keyboard mapping. Use
 </variablelist>
 
 <para>
-<emphasis>XkbKeyTypesForCoreSymbols</emphasis>
+<function>XkbKeyTypesForCoreSymbols</function>
  expands the symbols in
 <emphasis>core_syms</emphasis>
  and types in
@@ -1165,7 +1165,7 @@ A core keymap is a two-dimensional array of keysyms. It has
  columns and
 <emphasis>max_key_code</emphasis>
  rows.
-<emphasis>XkbKeyTypesForCoreSymbols</emphasis>
+<function>XkbKeyTypesForCoreSymbols</function>
  takes a single row from a core keymap, determines the number of groups
 associated with it, the type of each group, and the symbols bound to each
 group. The return value is the number of groups,
@@ -1212,7 +1212,7 @@ If the groups mapping does not change, but the symbols assigned to an Xkb
 keyboard compatibility map do change, the semantics of the key may be modified.
 To apply the new compatibility mapping to an individual key to get its
 semantics updated, use
-<emphasis>XkbApplyCompatMapToKey</emphasis>.
+<function>XkbApplyCompatMapToKey</function>.
 </para>
 
 
@@ -1265,7 +1265,7 @@ semantics updated, use
 </variablelist>
 
 <para>
-<emphasis>XkbApplyCompatMapToKey</emphasis>
+<function>XkbApplyCompatMapToKey</function>
  essentially performs the operation described in section 17.1.2 to a specific
 key. This updates the behavior, actions, repeat status, and virtual modifier
 bindings of the key.
@@ -1279,9 +1279,9 @@ bindings of the key.
 <para>
 To modify the server’s compatibility map, first modify a local copy of the
 Xkb compatibility map, then call
-<emphasis>XkbSetCompatMap</emphasis>.
+<function>XkbSetCompatMap</function>.
 You may allocate a new compatibility map for this purpose using
-<emphasis>XkbAllocCompatMap</emphasis>
+<function>XkbAllocCompatMap</function>
  (see section 17.6). You may also use a compatibility map from another server,
 although you need to adjust the
 <emphasis>device_spec</emphasis>
@@ -1353,7 +1353,7 @@ the vector of
 </variablelist>
 
 <para>
-<emphasis>XkbSetCompatMap</emphasis>
+<function>XkbSetCompatMap</function>
  copies compatibility map information from the keyboard description in
 <emphasis>xkb</emphasis>
  to the server specified in
@@ -1386,7 +1386,7 @@ current device semantics, state, or core keyboard map. One reason for not
 applying the compatibility map immediately would be if one server was being
 configured to match another on a piecemeal basis; the map should not be applied
 until everything is updated. To force an update at a later time, use
-<emphasis>XkbSetCompatMap</emphasis>
+<function>XkbSetCompatMap</function>
  specifying
 <emphasis>which</emphasis>
  as zero and
@@ -1397,7 +1397,7 @@ until everything is updated. To force an update at a later time, use
 
 
 <para>
-<emphasis>XkbSetCompatMap</emphasis>
+<function>XkbSetCompatMap</function>
  returns
 <emphasis>True</emphasis>
  if successful and
@@ -1411,7 +1411,7 @@ the request subsequently via protocol errors.
 To add a symbol interpretation to the list of symbol interpretations in an
 <emphasis>XkbCompatRec</emphasis>,
 use
-<emphasis>XkbAddSymInterpret</emphasis>.
+<function>XkbAddSymInterpret</function>.
 </para>
 
 
@@ -1473,7 +1473,7 @@ use
 </variablelist>
 
 <para>
-<emphasis>XkbAddSymInterpret</emphasis>
+<function>XkbAddSymInterpret</function>
  adds
 <emphasis>si</emphasis>
  to the list of symbol interpretations in
@@ -1491,7 +1491,7 @@ it reports the parts of the keyboard that were affected (unless
  is
 <emphasis>True</emphasis>,
 not much changes).
-<emphasis>XkbAddSymInterpret</emphasis>
+<function>XkbAddSymInterpret</function>
  returns a pointer to the actual new symbol interpretation in the list or
 <emphasis>NULL</emphasis>
  if it failed.
@@ -1524,7 +1524,7 @@ changes to the compatibility map, you should select for
 To receive
 <emphasis>XkbCompatMapNotify</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) and pass
 <emphasis>XkbCompatMapNotifyMask</emphasis>
  in both
@@ -1538,7 +1538,7 @@ To receive
 To receive
 <emphasis>XkbCompatMapNotify</emphasis>
  events only under certain conditions, use
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbCompatMapNotify</emphasis>
  as the
@@ -1589,7 +1589,7 @@ typedef struct {
  is the number of group compatibility maps that have changed. If you are
 maintaining a corresponding copy of the compatibility map, or get a fresh copy
 from the server using
-<emphasis>XkbGetCompatMap</emphasis>,
+<function>XkbGetCompatMap</function>,
 <emphasis>changed_groups</emphasis>
  references
 <emphasis>groups</emphasis>
@@ -1610,7 +1610,7 @@ from the server using
  is the total number of valid symbol interpretations. If you are maintaining a
 corresponding copy of the compatibility map, or get a fresh copy from the
 server using
-<emphasis>XkbGetCompatMap</emphasis>,
+<function>XkbGetCompatMap</function>,
 <emphasis>first_si</emphasis>,
 <emphasis>num_si</emphasis>,
 and
@@ -1628,7 +1628,7 @@ and
 <para>
 If you are modifying the compatibility map, you need to allocate a new
 compatibility map if you do not already have one available. To do so, use
-<emphasis>XkbAllocCompatMap</emphasis>.
+<function>XkbAllocCompatMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocCompatMap"><primary><function>XkbAllocCompatMap</function></primary></indexterm>
@@ -1689,7 +1689,7 @@ allocated. The compatibility map is the
 <para>
 <emphasis>which</emphasis>
  specifies the compatibility map components to be allocated (see
-<emphasis>XkbGetCompatMap</emphasis>,
+<function>XkbGetCompatMap</function>,
 in section 17.2).
 <emphasis>which</emphasis>
  is an inclusive OR of the bits shown in Table 17.2.
@@ -1713,7 +1713,7 @@ Note that symbol interpretations in a compatibility map (the
  structures) are also allocated using this same function. To ensure that there
 is sufficient space in the symbol interpretation vector for entries to be
 added, use
-<emphasis>XkbAllocCompatMap</emphasis>
+<function>XkbAllocCompatMap</function>
  specifying
 <emphasis>which</emphasis>
  as
@@ -1724,7 +1724,7 @@ added, use
 
 
 <para>
-<emphasis>XkbAllocCompatMap</emphasis>
+<function>XkbAllocCompatMap</function>
  returns
 <emphasis>Success</emphasis>
  if successful,
@@ -1741,7 +1741,7 @@ or
 
 <para>
 To free an entire compatibility map or selected portions of one, use
-<emphasis>XkbFreeCompatMap</emphasis>.
+<function>XkbFreeCompatMap</function>.
 </para>
 
 
@@ -1795,7 +1795,7 @@ To free an entire compatibility map or selected portions of one, use
 <para>
 <emphasis>which</emphasis>
  specifies the compatibility map components to be freed (see
-<emphasis>XkbGetCompatMap</emphasis>,
+<function>XkbGetCompatMap</function>,
 in section 17.2).
 <emphasis>which</emphasis>
  is an inclusive OR of the bits shown in Table 17.2

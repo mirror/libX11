@@ -194,7 +194,7 @@ fields in the
 
 <para>
 To retrieve one or more components of a keyboard device description, use
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  (see also
 <emphasis>XkbGetKeyboardbyName</emphasis>
 ).
@@ -248,7 +248,7 @@ To retrieve one or more components of a keyboard device description, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyboard </emphasis>
+<function>XkbGetKeyboard</function>
 allocates and returns a pointer to a keyboard description. It queries the
 server for those components specified in the
 <emphasis>which</emphasis>
@@ -265,7 +265,7 @@ The valid masks for
 
 
 <para>
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  can generate
 <emphasis>BadAlloc</emphasis>
  protocol errors.
@@ -274,7 +274,7 @@ The valid masks for
 
 <para>
 To free the returned keyboard description, use
-<emphasis>XkbFreeKeyboard</emphasis>
+<function>XkbFreeKeyboard</function>
  (see section 6.4). <!-- xref -->
 </para>
 
@@ -296,10 +296,10 @@ tracking changes to the keyboard description.
 
 <para>
 Applications seldom need to directly allocate a keyboard description; calling
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  usually suffices. In the event you need to create a keyboard description from
 scratch, however, use
-<emphasis>XkbAllocKeyboard</emphasis>
+<function>XkbAllocKeyboard</function>
  rather than directly calling
 <emphasis>malloc </emphasis>
 or
@@ -317,7 +317,7 @@ or
 
 <para>
 If
-<emphasis>XkbAllocKeyboard</emphasis>
+<function>XkbAllocKeyboard</function>
  fails to allocate the keyboard description, it returns
 <emphasis>NULL</emphasis>.
 Otherwise, it returns a pointer to an empty keyboard description structure.
@@ -334,7 +334,7 @@ obtain values for the structure components from a keyboard device.
 To destroy either an entire an
 <emphasis>XkbDescRec</emphasis>
  or just some of its members, use
-<emphasis>XkbFreeKeyboard</emphasis>.
+<function>XkbFreeKeyboard</function>.
 </para>
 
 
@@ -385,7 +385,7 @@ To destroy either an entire an
 </variablelist>
 
 <para>
-<emphasis>XkbFreeKeyboard</emphasis>
+<function>XkbFreeKeyboard</function>
  frees the components of
 <emphasis>xkb</emphasis>
  specified by
@@ -396,7 +396,7 @@ If
 <emphasis>free_all</emphasis>
  is
 <emphasis>True</emphasis>,
-<emphasis>XkbFreeKeyboard</emphasis>
+<function>XkbFreeKeyboard</function>
  frees every non-
 <emphasis>NULL</emphasis>
  component of

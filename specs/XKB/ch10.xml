@@ -228,7 +228,7 @@ or off are defined in Table 10.7. <!-- xref -->
 
 <para>
 Use
-<emphasis>XkbChangeEnabledControls</emphasis>
+<function>XkbChangeEnabledControls</function>
  to manipulate the
 <emphasis>EnabledControls</emphasis>
  control.
@@ -310,7 +310,7 @@ of mask bits in Table 10.7, using only those masks with "ok" in the
 <para>
 If the X server does not support a compatible version of Xkb or the Xkb
 extension has not been properly initialized,
-<emphasis>XkbChangeEnabledControls</emphasis>
+<function>XkbChangeEnabledControls</function>
  returns
 <emphasis>False</emphasis>
 ; otherwise, it sends the request to the X server and returns
@@ -378,7 +378,7 @@ bell will be turned back on when the client exits.
 
 <para>
 To get the current values of the auto-reset controls, use
-<emphasis>XkbGetAutoResetControls</emphasis>.
+<function>XkbGetAutoResetControls</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetAutoResetControls"><primary><function>XkbGetAutoResetControls</function></primary></indexterm>
@@ -430,7 +430,7 @@ To get the current values of the auto-reset controls, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetAutoResetControls</emphasis>
+<function>XkbGetAutoResetControls</function>
  backfills
 <emphasis>auto_ctrls</emphasis>
  and
@@ -449,7 +449,7 @@ To get the current values of the auto-reset controls, use
 To change the current values of the
 <emphasis>AutoReset</emphasis>
  control attributes, use
-<emphasis>XkbSetAutoResetControls</emphasis>.
+<function>XkbSetAutoResetControls</function>.
 </para>
 
 
@@ -579,7 +579,7 @@ XkbStickyKeysMask);
 </programlisting></para>
 
 <para>
-<emphasis>XkbSetAutoResetControls</emphasis>
+<function>XkbSetAutoResetControls</function>
  backfills
 <emphasis>auto_ctrls</emphasis>
  and
@@ -699,7 +699,7 @@ operates does not automatically enable the control as a whole; see section 10.1.
 To get the current attributes of the
 <emphasis>RepeatKeys</emphasis>
  control for a keyboard device, use
-<emphasis>XkbGetAutoRepeatRate</emphasis>.
+<function>XkbGetAutoRepeatRate</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetAutoRepeatRate"><primary><function>XkbGetAutoRepeatRate</function></primary></indexterm>
@@ -760,7 +760,7 @@ To get the current attributes of the
 </variablelist>
 
 <para>
-<emphasis>XkbGetAutoRepeatRate</emphasis>
+<function>XkbGetAutoRepeatRate</function>
  queries the server for the current values of the
 <emphasis>RepeatControls</emphasis>
  control attributes, backfills
@@ -770,7 +770,7 @@ To get the current attributes of the
  with them, and returns
 <emphasis>True</emphasis>.
 If a compatible version of the Xkb extension is not available in the server
-<emphasis>XkbGetAutoRepeatRate</emphasis>
+<function>XkbGetAutoRepeatRate</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -778,7 +778,7 @@ If a compatible version of the Xkb extension is not available in the server
 
 <para>
 To set the attributes of the RepeatKeys control for a keyboard device, use
-<emphasis>XkbSetAutoRepeatRate</emphasis>.
+<function>XkbSetAutoRepeatRate</function>.
 </para>
 
 
@@ -840,7 +840,7 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
 </variablelist>
 
 <para>
-<emphasis>XkbSetAutoRepeatRate</emphasis>
+<function>XkbSetAutoRepeatRate</function>
  sends a request to the X server to configure the
 <emphasis>AutoRepeat</emphasis>
  control attributes to the values specified in
@@ -851,7 +851,7 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
 
 
 <para>
-<emphasis>XkbSetAutoRepeatRate</emphasis>
+<function>XkbSetAutoRepeatRate</function>
  does not wait for a reply; it normally returns
 <emphasis>True</emphasis>.
 Specifying a zero value for either
@@ -862,7 +862,7 @@ Specifying a zero value for either
 <emphasis>BadValue</emphasis>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server,
-<emphasis>XkbSetAutoRepeatRate</emphasis>
+<function>XkbSetAutoRepeatRate</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -922,9 +922,9 @@ unlike the other controls in this chapter, is not contained in the
  control. Instead, query and set
 <emphasis>DetectableAutorepeat</emphasis>
  using
-<emphasis>XkbGetDetectableAutorepeat</emphasis>
+<function>XkbGetDetectableAutorepeat</function>
  and
-<emphasis>XkbSetDetectableAutorepeat</emphasis>.
+<function>XkbSetDetectableAutorepeat</function>.
 </para>
 
 
@@ -943,7 +943,7 @@ involving
 To determine whether or not the server supports
 <emphasis>DetectableAutorepeat</emphasis>,
 use
-<emphasis>XkbGetDetectableAutorepeat</emphasis>.
+<function>XkbGetDetectableAutorepeat</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetDetectableAutorepeat"><primary><function>XkbGetDetectableAutorepeat</function></primary></indexterm>
@@ -984,7 +984,7 @@ use
 </variablelist>
 
 <para>
-<emphasis>XkbGetDetectableAutorepeat</emphasis>
+<function>XkbGetDetectableAutorepeat</function>
  queries the server for the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  and waits for a reply. If
@@ -998,7 +998,7 @@ it backfills supported_rtrn with
 and
 <emphasis>False</emphasis>
  otherwise.
-<emphasis>XkbGetDetectableAutorepeat</emphasis>
+<function>XkbGetDetectableAutorepeat</function>
  returns the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  for the requesting client:
@@ -1015,7 +1015,7 @@ and
 To set
 <emphasis>DetectableAutorepeat</emphasis>,
 use
-<emphasis>XkbSetDetectableAutorepeat</emphasis>.
+<function>XkbSetDetectableAutorepeat</function>.
 This request affects all keyboard activity for the requesting client only;
 other clients still see the expected nondetectable auto-repeat behavior, unless
 they have requested otherwise.
@@ -1072,7 +1072,7 @@ they have requested otherwise.
 </variablelist>
 
 <para>
-<emphasis>XkbSetDetectableAutorepeat</emphasis>
+<function>XkbSetDetectableAutorepeat</function>
  sends a request to the server to set
 <emphasis>DetectableAutorepeat</emphasis>
  on for the current client if
@@ -1087,7 +1087,7 @@ and off it
 <emphasis>supported_rtrn</emphasis>
  is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbSetDetectableAutorepeat</emphasis>
+<function>XkbSetDetectableAutorepeat</function>
  backfills
 <emphasis>supported_rtrn</emphasis>
  with
@@ -1097,7 +1097,7 @@ and off it
 and
 <emphasis>False</emphasis>
  if it does not.
-<emphasis>XkbSetDetectableAutorepeat</emphasis>
+<function>XkbSetDetectableAutorepeat</function>
  returns the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  for the requesting client:
@@ -1212,9 +1212,9 @@ The
  that specifies the core button number to be used by mouse keys actions that do
 not explicitly specify a button. There is no convenience function for getting
 or setting the attribute; instead use
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  and
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  (see sections 10.9 and 10.10). <!-- xref -->
 </para>
 
@@ -1288,9 +1288,9 @@ speed</entry>
 There are no convenience functions to query or change the attributes of the
 <emphasis>MouseKeysAccel</emphasis>
  control; instead use
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  and
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  (see sections 10.9 and 10.10). <!-- xref -->
 </para>
 
@@ -1591,7 +1591,7 @@ When a timeout as specified by
 
 <para>
 Use
-<emphasis>XkbGetAccessXTimeout</emphasis>
+<function>XkbGetAccessXTimeout</function>
  to query the current
 <emphasis>AccessXTimeout</emphasis>
  options for a keyboard device.
@@ -1693,7 +1693,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbGetAccessXTimeout</emphasis>
+<function>XkbGetAccessXTimeout</function>
  sends a request to the X server to obtain the current values for the
 <emphasis>AccessXTimeout</emphasis>
  attributes, waits for a reply, and backfills the values into the appropriate
@@ -1707,12 +1707,12 @@ The parameters
 which is a field in the
 <emphasis>XkbControlsRec</emphasis>
  structure (see section 10.8).  <!-- xref -->
-<emphasis>XkbGetAccessXTimeout </emphasis>
+<function>XkbGetAccessXTimeout</function>
 returns
 <emphasis>True</emphasis>
  if successful; if a compatible version of the Xkb extension is not available
 in the server,
-<emphasis>XkbGetAccessXTimeout</emphasis>
+<function>XkbGetAccessXTimeout</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -1722,7 +1722,7 @@ in the server,
 To configure the
 <emphasis>AccessXTimeout</emphasis>
  options for a keyboard device, use
-<emphasis>XkbSetAccessXTimeout</emphasis>.
+<function>XkbSetAccessXTimeout</function>.
 </para>
 
 
@@ -1845,14 +1845,14 @@ for the
 
 
 <para>
-<emphasis>XkbSetAccessXTimeout</emphasis>
+<function>XkbSetAccessXTimeout</function>
  sends a request to configure the
 <emphasis>AccessXTimeout</emphasis>
  control to the server.
 It does not wait for a reply, and normally returns
 <emphasis>True</emphasis>.
 If a compatible version of the Xkb extension is not available in the server,
-<emphasis>XkbSetAccessXTimeout</emphasis>
+<function>XkbSetAccessXTimeout</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -1881,7 +1881,7 @@ on or off by modifying the following bits in the
  field of an
 <emphasis>XkbControlsRec</emphasis>
  structure and using
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  (see section 10.10): <!-- xref -->
 </para>
 
@@ -2107,7 +2107,7 @@ the
 To receive
 <emphasis>XkbAccessXNotify</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) and pass <emphasis> <!-- xref -->
 XkbAccesXNotifyMask</emphasis>
  in both
@@ -2121,7 +2121,7 @@ XkbAccesXNotifyMask</emphasis>
 To receive
 <emphasis>XkbStateNotify</emphasis>
  events only under certain conditions, use
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbAccessXNotify</emphasis>
  as the
@@ -2255,7 +2255,7 @@ sending an appropriate
 To get the
 <emphasis>SlowKeys</emphasis>
  acceptance delay for a keyboard device, use
-<emphasis>XkbGetSlowKeysDelay</emphasis>.
+<function>XkbGetSlowKeysDelay</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetSlowKeysDelay"><primary><function>XkbGetSlowKeysDelay</function></primary></indexterm>
@@ -2307,7 +2307,7 @@ To get the
 </variablelist>
 
 <para>
-<emphasis>XkbGetSlowKeysDelay </emphasis>
+<function>XkbGetSlowKeysDelay</function>
 requests the attributes of the
 <emphasis>SlowKeys</emphasis>
  control from the server, waits for a reply and backfills
@@ -2315,12 +2315,12 @@ requests the attributes of the
 with the
 <emphasis>SlowKeys</emphasis>
  delay attribute.
-<emphasis>XkbGetSlowKeysDelay </emphasis>
+<function>XkbGetSlowKeysDelay</function>
 returns
 <emphasis>True</emphasis>
  if successful; if a compatible version of the Xkb extension is not available
 in the server,
-<emphasis>XkbGetSlowKeysDelay</emphasis>
+<function>XkbGetSlowKeysDelay</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -2330,7 +2330,7 @@ in the server,
 To set the
 <emphasis>SlowKeys</emphasis>
  acceptance delay for a keyboard device, use
-<emphasis>XkbSetSlowKeysDelay</emphasis>.
+<function>XkbSetSlowKeysDelay</function>.
 </para>
 
 
@@ -2383,7 +2383,7 @@ To set the
 </variablelist>
 
 <para>
-<emphasis>XkbSetSlowKeysDelay</emphasis>
+<function>XkbSetSlowKeysDelay</function>
  sends a request to configure the
 <emphasis>SlowKeys</emphasis>
  control to the server.
@@ -2399,7 +2399,7 @@ parameter causes
 <emphasis>BadValue</emphasis>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server
-<emphasis>XkbSetSlowKeysDelay</emphasis>
+<function>XkbSetSlowKeysDelay</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -2434,7 +2434,7 @@ interested clients by sending an appropriate
 
 <para>
 Use
-<emphasis>XkbGetBounceKeysDelay</emphasis>
+<function>XkbGetBounceKeysDelay</function>
  to query the current
 <emphasis>BounceKeys</emphasis>
  delay for a keyboard device.
@@ -2489,7 +2489,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbGetBounceKeysDelay </emphasis>
+<function>XkbGetBounceKeysDelay</function>
 requests the attributes of the
 <emphasis>BounceKeys</emphasis>
  control from the server, waits for a reply, and backfills
@@ -2497,12 +2497,12 @@ requests the attributes of the
 with the
 <emphasis>BounceKeys</emphasis>
  delay attribute.
-<emphasis>XkbGetBounceKeysDelay </emphasis>
+<function>XkbGetBounceKeysDelay</function>
 returns
 <emphasis>True</emphasis>
  if successful; if a compatible version of the Xkb extension is not available
 in the server
-<emphasis>XkbGetSlowKeysDelay</emphasis>
+<function>XkbGetSlowKeysDelay</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -2512,7 +2512,7 @@ in the server
 To set the
 <emphasis>BounceKeys</emphasis>
  delay for a keyboard device, use
-<emphasis>XkbSetBounceKeysDelay</emphasis>.
+<function>XkbSetBounceKeysDelay</function>.
 </para>
 
 
@@ -2565,7 +2565,7 @@ To set the
 </variablelist>
 
 <para>
-<emphasis>XkbSetBounceKeysDelay</emphasis>
+<function>XkbSetBounceKeysDelay</function>
  sends a request to configure the
 <emphasis>BounceKeys</emphasis>
  control to the server.
@@ -2576,12 +2576,12 @@ Specifying a value of
 for the
 <emphasis>delay </emphasis>
 parameter causes
-<emphasis>XkbSetBounceKeysDelay</emphasis>
+<function>XkbSetBounceKeysDelay</function>
  to generate a
 <emphasis>BadValue</emphasis>
  protocol error. If a compatible version of the Xkb extension is not available
 in the server,
-<emphasis>XkbSetBounceKeysDelay</emphasis>
+<function>XkbSetBounceKeysDelay</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -2725,7 +2725,7 @@ specifies whether or not
 
 <para>
 Use
-<emphasis>XkbGetStickyKeysOptions</emphasis>
+<function>XkbGetStickyKeysOptions</function>
  to query the current
 <emphasis>StickyKeys</emphasis>
  attributes for a keyboard device.
@@ -2780,7 +2780,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbGetStickyKeysOptions </emphasis>
+<function>XkbGetStickyKeysOptions</function>
 requests the attributes of the
 <emphasis>StickyKeys</emphasis>
  control from the server, waits for a reply, and backfills
@@ -2800,12 +2800,12 @@ with a mask indicating whether the individual
 </para>
 
 <para>
-<emphasis>XkbGetStickyKeysOptions </emphasis>
+<function>XkbGetStickyKeysOptions</function>
 returns
 <emphasis>True</emphasis>
  if successful; if a compatible version of the Xkb extension is not available
 in the server
-<emphasis>XkbGetStickyKeysOptions</emphasis>
+<function>XkbGetStickyKeysOptions</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -2815,7 +2815,7 @@ in the server
 To set the
 <emphasis>StickyKeys</emphasis>
  attributes for a keyboard device, use
-<emphasis>XkbSetStickyKeysOptions</emphasis>.
+<function>XkbSetStickyKeysOptions</function>.
 </para>
 
 
@@ -2878,7 +2878,7 @@ To set the
 </variablelist>
 
 <para>
-<emphasis>XkbSetStickyKeysOptions</emphasis>
+<function>XkbSetStickyKeysOptions</function>
  sends a request to configure the
 <emphasis>StickyKeys</emphasis>
  control to the server.
@@ -2900,7 +2900,7 @@ The valid bits to use for both the
 
 <para>
  If a compatible version of the Xkb extension is not available in the server,
-<emphasis>XkbSetStickyKeysOptions</emphasis>
+<function>XkbSetStickyKeysOptions</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -3010,9 +3010,9 @@ There are no convenience functions for manipulating the
  field in the
 <emphasis>XkbControlsRec</emphasis>
  structure, then use
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  and
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  (see section 10.9 and section 10.10) to query and change this control. <!-- xref -->
 </para>
 
@@ -3052,19 +3052,19 @@ Manipulate the
  field in the
 <emphasis>XkbControlsRec</emphasis>
  structure, then use
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  and
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  (see sections 10.9 and 10.10) to query and change this control. Alternatively,  <!-- xref -->
 use
-<emphasis>XkbSetIgnoreLockMods</emphasis>.
+<function>XkbSetIgnoreLockMods</function>.
 </para>
 
 
 <para>
 To set the modifiers that, if locked, are not to be reported in matching events
 to passive grabs, use
-<emphasis>XkbSetIgnoreLockMods</emphasis>.
+<function>XkbSetIgnoreLockMods</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetIgnoreLockMods"><primary><function>XkbSetIgnoreLockMods</function></primary></indexterm>
@@ -3148,7 +3148,7 @@ virtual_values</emphasis>
 </variablelist>
 
 <para>
-<emphasis>XkbSetIgnoreLockMods</emphasis>
+<function>XkbSetIgnoreLockMods</function>
  sends a request to the server to change the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control.
@@ -3204,7 +3204,7 @@ See section 7.1 for a discussion of virtual modifier masks to use in <emphasis> 
 affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
-<emphasis>XkbSetIgnoreLockMods</emphasis>
+<function>XkbSetIgnoreLockMods</function>
  does not wait for a reply from the server. It returns
 <emphasis>True</emphasis>
  if the request was sent, and
@@ -3262,18 +3262,18 @@ Manipulate the
  field in the
 <emphasis>XkbControlsRec</emphasis>
  structure, using
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  and
-<emphasis>XkbGetControls</emphasis>
- (see sections10.9 and 10.10). Alternatively, use <emphasis> <!-- xref -->
-XkbSetServerInternalMods</emphasis>.
+<function>XkbGetControls</function>
+ (see sections10.9 and 10.10). Alternatively, use
+<function>XkbSetServerInternalMods</function>.
 </para>
 
 
 <para>
 To set the modifiers that are consumed by the server before events are
 delivered to the client, use
-<emphasis>XkbSetServerInternalMods</emphasis>.
+<function>XkbSetServerInternalMods</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetServerInternalMods"><primary><function>XkbSetServerInternalMods</function></primary></indexterm>
@@ -3357,7 +3357,7 @@ virtual_values</emphasis>
 </variablelist>
 
 <para>
-<emphasis>XkbSetServerInternalMods</emphasis>
+<function>XkbSetServerInternalMods</function>
  sends a request to the server to change the internal modifiers consumed by the
 server.
 <emphasis>affect_real</emphasis>
@@ -3402,7 +3402,7 @@ See section 7.1 for a discussion of virtual modifier masks to use in <emphasis> 
 affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
-<emphasis>XkbSetServerInternalMods</emphasis>
+<function>XkbSetServerInternalMods</function>
  does not wait for a reply from the server. It returns
 <emphasis>True</emphasis>
  if the request was sent and
@@ -3423,9 +3423,9 @@ them, however, have no convenience functions. The
 <emphasis>XkbControlsRec</emphasis>
  structure allows the manipulation of one or more of the controls in a single
 operation and to track changes to any of them in conjunction with the
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  and
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  functions. This is the only way to manipulate those controls that have no
 convenience functions.
 </para>
@@ -4277,13 +4277,13 @@ The
  and vice versa. It is provided for convenience and to reduce protocol traffic.
 For example, to obtain the individual repeat key behavior as well as the repeat
 delay and rate, use
-<emphasis>XkbGetControls</emphasis>.
+<function>XkbGetControls</function>.
 If the
 <emphasis>per_key_repeat</emphasis>
  were not in this structure, you would have to call both
 <emphasis>XGetKeyboardControl</emphasis>
  and
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  to get this information. The bits correspond to keycodes. The first seven keys
 (keycodes 1-7) are indicated in
 <emphasis>per_key_repeat</emphasis>
@@ -4301,7 +4301,7 @@ indicates that the key is a repeating key.
 
 <para>
 Use
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  to find the current state of Xkb server controls.
 </para>
 
@@ -4351,7 +4351,7 @@ Use
 </variablelist>
 
 <para>
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  queries the server for the requested control information, waits for a reply,
 and then copies the server’s values for the requested information into the
 <emphasis>ctrls</emphasis>
@@ -4374,7 +4374,7 @@ If
 <emphasis>ctrls </emphasis>
 is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  allocates and initializes it before obtaining the values specified by
 <emphasis>which</emphasis>.
 If
@@ -4383,7 +4383,7 @@ If
 <emphasis>ctrls</emphasis>
  is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  modifies only those portions of
 <emphasis>xkb</emphasis>
 -&gt;
@@ -4394,7 +4394,7 @@ If
 
 
 <para>
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  returns
 <emphasis>Success</emphasis>
  if successful; otherwise, it returns
@@ -4416,7 +4416,7 @@ If
 To free the
 <emphasis>ctrls</emphasis>
  member of a keyboard description, use
-<emphasis>XkbFreeControls</emphasis>
+<function>XkbFreeControls</function>
  (see section 10.12)
 </para>
 
@@ -4427,7 +4427,7 @@ The
  field in the
 <emphasis>ctrls</emphasis>
  structure is always filled in by
-<emphasis>XkbGetControls</emphasis>,
+<function>XkbGetControls</function>,
 regardless of which bits are selected by
 <emphasis>which</emphasis>.
 </para>
@@ -4440,11 +4440,11 @@ regardless of which bits are selected by
 <para>
 There are two ways to make changes to controls: either change a local copy
 keyboard description and call
-<emphasis>XkbSetControls</emphasis>,
+<function>XkbSetControls</function>,
 or, to reduce network traffic, use an
 <emphasis>XkbControlsChangesRec</emphasis>
  structure and call
-<emphasis>XkbChangeControls</emphasis>.
+<function>XkbChangeControls</function>.
 </para>
 
 
@@ -4452,7 +4452,7 @@ or, to reduce network traffic, use an
 To change the state of one or more controls, first modify the
 <emphasis>ctrls</emphasis>
  structure in a local copy of the keyboard description and then use
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  to copy those changes to the X server.
 </para>
 
@@ -4505,7 +4505,7 @@ To change the state of one or more controls, first modify the
 For each bit that is set in the
 <emphasis>which</emphasis>
  parameter,
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  sends the corresponding values from the
 <emphasis>xkb</emphasis>
 -&gt;
@@ -4527,7 +4527,7 @@ If
 <emphasis>NULL</emphasis>,
 the server does not support a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  returns
 <emphasis>False</emphasis>.
 Otherwise, it sends the request to the X server and returns
@@ -4569,11 +4569,11 @@ boolean controls, you must set
 others, then specify the
 <emphasis>XkbControlsEnabledMask</emphasis>
  in a call to
-<emphasis>XkbSetControls</emphasis>.
+<function>XkbSetControls</function>.
 Because this is somewhat awkward if all you want to do is enable and disable
 controls, and not modify any of their attributes, a convenience function is
 also provided for this purpose (
-<emphasis>XkbChangeEnabledControls</emphasis>,
+<function>XkbChangeEnabledControls</function>,
 section 10.1.1). <!-- xref -->
 </para>
 
@@ -4632,7 +4632,7 @@ XkbControlsRec Data Fields" column in Table 10.6 have been modified. The
 If you have an Xkb description with controls that have been modified and an
 <emphasis>XkbControlsChangesRec</emphasis>
  that describes the changes that have been made, the
-<emphasis>XkbChangeControls</emphasis>
+<function>XkbChangeControls</function>
  function provides a flexible method for updating the controls in a server to
 match those in the changed keyboard description.
 </para>
@@ -4684,7 +4684,7 @@ match those in the changed keyboard description.
 </variablelist>
 
 <para>
-<emphasis>XkbChangeControls</emphasis>
+<function>XkbChangeControls</function>
  copies any controls fields specified by
 <emphasis>changes</emphasis>
  from the keyboard description controls structure,
@@ -4708,7 +4708,7 @@ description, the server sends an
  event to all interested clients.To receive
 <emphasis>XkbControlsNotify</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) and pass
 <emphasis>XkbControlsNotifyMask</emphasis>
  in both
@@ -4722,7 +4722,7 @@ description, the server sends an
 To receive
 <emphasis>XkbControlsNotify</emphasis>
  events only under certain conditions, use
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbControlsNotify</emphasis>
  as the
@@ -4841,7 +4841,7 @@ the
 When a client receives an
 <emphasis>XkbControlsNotify</emphasis>
  event, it can note the changes in a changes structure using
-<emphasis>XkbNoteControlsChanges</emphasis>.
+<function>XkbNoteControlsChanges</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbNoteControlsChanges"><primary><function>XkbNoteControlsChanges</function></primary></indexterm>
@@ -4899,7 +4899,7 @@ The
 specified in Table 10.7 with "ok" in the
 <emphasis>changed_ctrls</emphasis>
  column.
-<emphasis>XkbNoteControlsChanges</emphasis>
+<function>XkbNoteControlsChanges</function>
  copies any changes reported in
 <emphasis>new</emphasis>
  and specified in
@@ -4911,10 +4911,10 @@ specified in Table 10.7 with "ok" in the
 
 <para>
 Use
-<emphasis>XkbGetControlsChanges</emphasis>
+<function>XkbGetControlsChanges</function>
  to update a local copy of a keyboard description with the changes previously
 noted by one or more calls to
-<emphasis>XkbNoteControlsChanges</emphasis>.
+<function>XkbNoteControlsChanges</function>.
 </para>
 
 
@@ -4967,7 +4967,7 @@ noted by one or more calls to
 </variablelist>
 
 <para>
-<emphasis>XkbGetControlsChanges</emphasis>
+<function>XkbGetControlsChanges</function>
  examines the
 <emphasis>changes</emphasis>
  parameter, queries the server for the necessary information, and copies the
@@ -4981,17 +4981,17 @@ results into the
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetControlsChanges</emphasis>
+<function>XkbGetControlsChanges</function>
  allocates and initializes it. To free the
 <emphasis>ctrls</emphasis>
  field, use
-<emphasis>XkbFreeControls</emphasis>
+<function>XkbFreeControls</function>
  (see section 10.12). <!-- xref -->
 </para>
 
 
 <para>
-<emphasis>XkbGetControlsChanges</emphasis>
+<function>XkbGetControlsChanges</function>
  returns
 <emphasis>Success</emphasis>
  if successful and can generate
@@ -5011,13 +5011,13 @@ results into the
 The need to allocate an
 <emphasis>XkbControlsRec</emphasis>
  structure seldom arises; Xkb creates one when an application calls
-<emphasis>XkbGetControls</emphasis>
+<function>XkbGetControls</function>
  or a related function. For those situations where there is not an
 <emphasis>XkbControlsRec</emphasis>
  structure allocated in the
 <emphasis>XkbDescRec</emphasis>,
 allocate one by calling
-<emphasis>XkbAllocControls</emphasis>.
+<function>XkbAllocControls</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocControls"><primary><function>XkbAllocControls</function></primary></indexterm>
@@ -5056,7 +5056,7 @@ allocate one by calling
 </variablelist>
 
 <para>
-<emphasis>XkbAllocControls</emphasis>
+<function>XkbAllocControls</function>
  allocates the
 <emphasis>ctrls</emphasis>
  field of the
@@ -5067,14 +5067,14 @@ If the
 <emphasis>ctrls</emphasis>
  field is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbAllocControls</emphasis>
+<function>XkbAllocControls</function>
  simply returns
 <emphasis>Success</emphasis>.
 If
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbAllocControls</emphasis>
+<function>XkbAllocControls</function>
  reports a
 <emphasis>BadMatch</emphasis>
  error. If the
@@ -5153,7 +5153,7 @@ structure, use
 </variablelist>
 
 <para>
-<emphasis>XkbFreeControls</emphasis>
+<function>XkbFreeControls</function>
  frees the specified components of the
 <emphasis>ctrls</emphasis>
  field in the
@@ -5176,7 +5176,7 @@ If
 <emphasis>free_all</emphasis>
  is
 <emphasis>True</emphasis>,
-<emphasis>XkbFreeControls</emphasis>
+<function>XkbFreeControls</function>
  frees every non-
 <emphasis>NULL</emphasis>
  structure component in the controls, frees the
@@ -5206,7 +5206,7 @@ of the XKB Protocol specification for more details.
 To get the current values of the
 <emphasis>per-client</emphasis>
  controls, use
-<emphasis>XkbGetPerClientControls</emphasis>.
+<function>XkbGetPerClientControls</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetPerClientControls"><primary><function>XkbGetPerClientControls</function></primary></indexterm>
@@ -5246,7 +5246,7 @@ To get the current values of the
 </variablelist>
 
 <para>
-<emphasis>XkbGetPerClientControls</emphasis>
+<function>XkbGetPerClientControls</function>
  backfills
 <emphasis>ctrls</emphasis>
  with the
@@ -5263,7 +5263,7 @@ control attributes for this particular client. It returns
 To change the current values of the
 <emphasis>per-client</emphasis>
  control attributes, use
-<emphasis>XkbSetPerClientControls</emphasis>.
+<function>XkbSetPerClientControls</function>.
 </para>
 
 

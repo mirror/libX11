@@ -50,13 +50,13 @@ Xkb provides the capability of symbolically naming indicators. Xkb itself
 doesn’t use these symbolic names for anything; they are there only to help
 make the keyboard description comprehensible to humans. To set the names of
 specific indicators, use
-<emphasis>XkbSetNames</emphasis>
- as discussed in Chapter 18. Then set the map using <emphasis> <!-- xref -->
-XkbSetMap</emphasis>
- (see section 14.3) or <emphasis> <!-- xref -->
-XkbSetNamedIndicator</emphasis>
+<function>XkbSetNames</function>
+ as discussed in Chapter 18. Then set the map using
+<function>XkbSetMap</function>
+ (see section 14.3) or
+<function>XkbSetNamedIndicator</function>
  (below). To retrieve indicator names, use
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  (Chapter 18). <!-- xref -->
 </para>
 
@@ -120,7 +120,7 @@ Because
  describes a physical characteristic of the keyboard, you cannot directly
 change it under program control. However, if a client program loads a
 completely new keyboard description via
-<emphasis>XkbGetKeyboardByName</emphasis>,
+<function>XkbGetKeyboardByName</function>,
 or if a new keyboard is attached and the X implementation notices,
 <emphasis>phys_indicators</emphasis>
  changes if the indicators for the new keyboard are different.
@@ -177,7 +177,7 @@ indicator
   <para>
 The effect (if any) of attempts to explicitly change the state of the indicator
 using the functions
-<emphasis>XkbSetControls</emphasis>
+<function>XkbSetControls</function>
  or
 <emphasis>XChangeKeyboardControl</emphasis>
 
@@ -253,9 +253,9 @@ If
 <emphasis>XkbIM_NoExplicit</emphasis>
  is not, and if you call a function which updates the server’s image of the
 indicator map (such as
-<emphasis>XkbSetIndicatorMap</emphasis>
+<function>XkbSetIndicatorMap</function>
  or
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
 ), Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map, as described in the remainder of this section. If you
 attempt to explicitly change the value of an indicator for which
@@ -548,7 +548,7 @@ applications need to do so, but if you find it necessary, you can either read
 the indicator map back from the server after you update it (the server
 automatically updates the mask field whenever any of the real or virtual
 modifiers are changed in the modifier definition) or you can use
-<emphasis>XkbVirtualModsToReal</emphasis>
+<function>XkbVirtualModsToReal</function>
  to determine the proper contents for the mask field, assuming that the
 <emphasis>XkbDescRec</emphasis>
  contains the virtual modifier definitions.
@@ -847,7 +847,7 @@ a mask of indicator bits, as well as the indicator’s index into the
 Because the state of the indicators is relatively volatile, the keyboard
 description does not hold the current state of the indicators. To obtain the
 current state of the keyboard indicators, use
-<emphasis>XkbGetIndicatorState</emphasis>.
+<function>XkbGetIndicatorState</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetIndicatorState"><primary><function>XkbGetIndicatorState</function></primary></indexterm>
@@ -899,7 +899,7 @@ current state of the keyboard indicators, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetIndicatorState</emphasis>
+<function>XkbGetIndicatorState</function>
  queries the
 <emphasis>display</emphasis>
  for the state of the indicators on the device specified by the
@@ -908,7 +908,7 @@ For each indicator that is "turned on" on the device, the associated bit is
 set in
 <emphasis>state_return</emphasis>.
 If a compatible version of the Xkb extension is not available in the server,
-<emphasis>XkbGetIndicatorState</emphasis>
+<function>XkbGetIndicatorState</function>
  returns a
 <emphasis>BadMatch</emphasis>
  error. Otherwise, it sends the request to the X server, places the state of
@@ -917,7 +917,7 @@ the indicators into
  and returns
 <emphasis>Success</emphasis>.
 Thus the value reported by
-<emphasis>XkbGetIndicatorState</emphasis>
+<function>XkbGetIndicatorState</function>
  is identical to the value reported by the core protocol.
 </para>
 
@@ -929,7 +929,7 @@ Thus the value reported by
 <para>
 To get the map for one or more indicators, using a mask to specify the
 indicators, use
-<emphasis>XkbGetIndicatorMap</emphasis>.
+<function>XkbGetIndicatorMap</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetIndicatorMap"><primary><function>XkbGetIndicatorMap</function></primary></indexterm>
@@ -981,7 +981,7 @@ indicators, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetIndicatorMap</emphasis>
+<function>XkbGetIndicatorMap</function>
  obtains the maps from the server for only those indicators specified by the
 <emphasis>which</emphasis>
  mask and copies the values into the keyboard description specified by
@@ -992,13 +992,13 @@ If the
 <emphasis>desc</emphasis>
  parameter is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetIndicatorMap</emphasis>
+<function>XkbGetIndicatorMap</function>
  allocates and initializes it.
 </para>
 
 
 <para>
-<emphasis>XkbGetIndicatorMap</emphasis>
+<function>XkbGetIndicatorMap</function>
  can generate
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadLength</emphasis>,
@@ -1011,7 +1011,7 @@ and
 
 <para>
 To free the indicator maps, use
-<emphasis>XkbFreeIndicatorMaps</emphasis>
+<function>XkbFreeIndicatorMaps</function>
  (see section 8.6).
 </para>
 
@@ -1022,7 +1022,7 @@ To free the indicator maps, use
 
 <para>
 Xkb also allows applications to refer to indicators by name. Use
-<emphasis>XkbGetNames</emphasis>
+<function>XkbGetNames</function>
  to get the indicator names (see Chapter 18). Using names eliminates the need
 for hard-coding bitmask values for particular keyboards. For example, instead
 of using vendor-specific constants such as
@@ -1030,13 +1030,13 @@ of using vendor-specific constants such as
  mask on Digital workstations or
 <emphasis>XLED_SCROLL_LOCK</emphasis>
  on Sun workstations, you can instead use
-<emphasis>XkbGetNamedIndicator</emphasis>
+<function>XkbGetNamedIndicator</function>
  to look up information on the indicator named "Scroll Lock."
 </para>
 
 <para>
 Use
-<emphasis>XkbGetNamedIndicator</emphasis>
+<function>XkbGetNamedIndicator</function>
  to look up the indicator map and other information for an indicator by name.
 </para>
 
@@ -1142,12 +1142,12 @@ If the device specified by
 <emphasis>device_spec</emphasis>
  has an indicator named
 <emphasis>name</emphasis>,
-<emphasis>XkbGetNamedIndicator</emphasis>
+<function>XkbGetNamedIndicator</function>
  returns
 <emphasis>True</emphasis>
  and populates the rest of the parameters with information about the indicator.
 Otherwise,
-<emphasis>XkbGetNamedIndicator</emphasis>
+<function>XkbGetNamedIndicator</function>
  returns
 <emphasis>False</emphasis>.
 </para>
@@ -1188,7 +1188,7 @@ Each of the "
 
 
 <para>
-<emphasis>XkbGetNamedIndicator</emphasis>
+<function>XkbGetNamedIndicator</function>
  can generate
 <emphasis>BadAtom</emphasis>
  and
@@ -1216,13 +1216,13 @@ so you can change it using a mask or a name.
 <para>
 There are two ways to make changes to indicator maps and state: either change a
 local copy of the indicator maps and use
-<emphasis>XkbSetIndicatorMap</emphasis>
+<function>XkbSetIndicatorMap</function>
  or
-<emphasis>XkbSetNamedIndicator</emphasis>,
+<function>XkbSetNamedIndicator</function>,
 or, to reduce network traffic, use an
 <emphasis>XkbIndicatorChangesRec</emphasis>
  structure and use
-<emphasis>XkbChangeIndicators</emphasis>.
+<function>XkbChangeIndicators</function>.
 </para>
 
 
@@ -1244,9 +1244,9 @@ If
 <emphasis>XkbIM_NoExplicit</emphasis>
  is not, and if you call a function that updates the server’s image of the
 indicator map (such as
-<emphasis>XkbSetIndicatorMap</emphasis>
+<function>XkbSetIndicatorMap</function>
  or
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
 ), Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map. If you attempt to explicitly change the value of an
 indicator for which
@@ -1329,7 +1329,7 @@ Xkb to disable all of the boolean controls specified in
 <para>
 To update the maps for one or more indicators, first modify a local copy of the
 keyboard description, then use
-<emphasis>XkbSetIndicatorMap</emphasis>
+<function>XkbSetIndicatorMap</function>
  to download the changes to the server:
 </para>
 
@@ -1386,7 +1386,7 @@ For each
 bit set in the
 <emphasis>which </emphasis>
 parameter,
-<emphasis>XkbSetIndicatorMap</emphasis>
+<function>XkbSetIndicatorMap</function>
  sends the corresponding indicator map from the
 <emphasis>desc</emphasis>
  parameter to the server.
@@ -1398,7 +1398,7 @@ parameter,
 <title>Changing Indicator Maps by Name</title>
 
 <para>
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
  can do several related things:
 </para>
 
@@ -1523,7 +1523,7 @@ Set the indicator map for the indicator
 
 <para>
 If a compatible version of the Xkb extension is not available in the server,
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
  returns
 <emphasis>False</emphasis>.
 Otherwise, it sends a request to the X server to change the indicator
@@ -1543,7 +1543,7 @@ and the optional parameter,
 <emphasis>state</emphasis>,
 is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
  tells the server to change the state of the named indicator to the value
 specified by
 <emphasis>state</emphasis>.
@@ -1570,13 +1570,13 @@ If the optional parameter,
 <emphasis>map</emphasis>,
 is not
 <emphasis>NULL</emphasis>,
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
  tells the server to change the indicator’s map to the values specified
 in <emphasis>map</emphasis>.
 </para>
 
 <para>
-<emphasis>XkbSetNamedIndicator</emphasis>
+<function>XkbSetNamedIndicator</function>
  can generate
 <emphasis>BadAtom</emphasis>
  and
@@ -1599,7 +1599,7 @@ and
 The
 <emphasis>XkbIndicatorChangesRec</emphasis>
  identifies small modifications to the indicator map. Use it with the function
-<emphasis>XkbChangeIndicators</emphasis>
+<function>XkbChangeIndicators</function>
  to reduce the amount of traffic sent to the server.
 </para>
 
@@ -1623,7 +1623,7 @@ The
 <para>
 To change indicator maps or state without passing the entire keyboard
 description, use
-<emphasis>XkbChangeIndicators</emphasis>.
+<function>XkbChangeIndicators</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbChangeIndicators"><primary><function>XkbChangeIndicators</function></primary></indexterm>
@@ -1686,7 +1686,7 @@ description, use
 </variablelist>
 
 <para>
-<emphasis>XkbChangeIndicators</emphasis>
+<function>XkbChangeIndicators</function>
  copies any maps specified by
 <emphasis>changes</emphasis>
  from the keyboard description,
@@ -1697,7 +1697,7 @@ If any bits are set in the
 <emphasis>state_changes</emphasis>
  field of
 <emphasis>changes</emphasis>,
-<emphasis>XkbChangeIndicators</emphasis>
+<function>XkbChangeIndicators</function>
  also sets the state of those indicators to the values specified in the
 <emphasis>state</emphasis>
  mask. A 1 bit in
@@ -1739,7 +1739,7 @@ changes, the server sends
 To receive
 <emphasis>XkbIndicatorStateNotify</emphasis>
  events, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) with both the <emphasis> <!-- xref -->
 bits_to_change </emphasis>
 and
@@ -1749,7 +1749,7 @@ and
 To receive
 <emphasis>XkbIndicatorMapNotify</emphasis>
  events, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  with
 <emphasis>XkbIndicatorMapNotifyMask</emphasis>.
 </para>
@@ -1757,7 +1757,7 @@ To receive
 
 <para>
 To receive events for only specific indicators, use
-<emphasis>XkbSelectEventDetails</emphasis>.
+<function>XkbSelectEventDetails</function>.
 Set the
 <emphasis>event_type</emphasis>
  parameter
@@ -1828,7 +1828,7 @@ When your client application receives either a
  event or
 <emphasis>XkbIndicatorMapNotify</emphasis>
  event, you can note the changes in a changes structure by calling
-<emphasis>XkbNoteIndicatorChanges</emphasis>.
+<function>XkbNoteIndicatorChanges</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbNoteIndicatorChanges"><primary><function>XkbNoteIndicatorChanges</function></primary></indexterm>
@@ -1886,7 +1886,7 @@ The
 <emphasis>XkbIndicatorMapMask</emphasis>
  and
 <emphasis>XkbIndicatorStateMask</emphasis>.
-<emphasis>XkbNoteIndicatorChanges</emphasis>
+<function>XkbNoteIndicatorChanges</function>
  copies any changes reported in
 <emphasis>new</emphasis>
  and specified in
@@ -1899,9 +1899,9 @@ The
 <para>
 To update a local copy of the keyboard description with the actual values, pass
 the results of one or more calls to
-<emphasis>XkbNoteIndicatorChanges</emphasis>
+<function>XkbNoteIndicatorChanges</function>
  to
-<emphasis>XkbGetIndicatorChanges</emphasis>:
+<function>XkbGetIndicatorChanges</function>:
 </para>
 
 
@@ -1966,7 +1966,7 @@ the results of one or more calls to
 </variablelist>
 
 <para>
-<emphasis>XkbGetIndicatorChanges</emphasis>
+<function>XkbGetIndicatorChanges</function>
  examines the
 <emphasis>changes</emphasis>
  parameter, pulls over the necessary information from the server, and copies
@@ -1976,7 +1976,7 @@ the results into the
 <emphasis>state_changes</emphasis>
  field of
 <emphasis>changes</emphasis>,
-<emphasis>XkbGetIndicatorChanges</emphasis>
+<function>XkbGetIndicatorChanges</function>
  also places the state of those indicators in
 <emphasis>state</emphasis>.
 If the
@@ -1985,7 +1985,7 @@ If the
 <emphasis>xkb</emphasis>
  is
 <emphasis>NULL</emphasis>,
-<emphasis>XkbGetIndicatorChanges</emphasis>
+<function>XkbGetIndicatorChanges</function>
  allocates and initializes it. To free the
 <emphasis>indicators</emphasis>
  field, use
@@ -1995,7 +1995,7 @@ If the
 
 
 <para>
-<emphasis>XkbGetIndicatorChanges</emphasis>
+<function>XkbGetIndicatorChanges</function>
  can generate
 <emphasis>BadAlloc</emphasis>,
 <emphasis>BadImplementation</emphasis>,
@@ -2014,7 +2014,7 @@ Most applications do not need to directly allocate the
 <emphasis>indicators</emphasis>
  member of the keyboard description record (the keyboard description record is
 described in Chapter 6). If the need arises, however, use
-<emphasis>XkbAllocIndicatorMaps</emphasis>.
+<function>XkbAllocIndicatorMaps</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocIndicatorMaps"><primary><function>XkbAllocIndicatorMaps</function></primary></indexterm>
@@ -2045,17 +2045,17 @@ described in Chapter 6). If the need arises, however, use
 The
 <emphasis>xkb</emphasis>
  parameter must point to a valid keyboard description. If it doesn’t,
-<emphasis>XkbAllocIndicatorMaps</emphasis>
+<function>XkbAllocIndicatorMaps</function>
  returns a
 <emphasis>BadMatch</emphasis>
  error. Otherwise,
-<emphasis>XkbAllocIndicatorMaps</emphasis>
+<function>XkbAllocIndicatorMaps</function>
  allocates and initializes the
 <emphasis>indicators</emphasis>
  member of the keyboard description record and returns
 <emphasis>Success</emphasis>.
 If
-<emphasis>XkbAllocIndicatorMaps</emphasis>
+<function>XkbAllocIndicatorMaps</function>
  was unable to allocate the indicators record, it reports a Bad
 <emphasis>Alloc</emphasis>
  error.
@@ -2067,7 +2067,7 @@ To free memory used by the
  member of an
 <emphasis>XkbDescRec</emphasis>
  structure, use
-<emphasis>XkbFreeIndicatorMaps</emphasis>.
+<function>XkbFreeIndicatorMaps</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbFreeIndicatorMaps"><primary><function>XkbFreeIndicatorMaps</function></primary></indexterm>
@@ -2099,7 +2099,7 @@ If the <emphasis>indicators</emphasis>
  member of the keyboard description record
 pointed to by <emphasis>xkb</emphasis>
 is not <emphasis>NULL</emphasis>,
-<emphasis>XkbFreeIndicatorMaps</emphasis>
+<function>XkbFreeIndicatorMaps</function>
 frees the memory associated with
 the <emphasis>indicators</emphasis>
 member of <emphasis>xkb</emphasis>.

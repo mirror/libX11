@@ -74,7 +74,7 @@ interdependencies. As a general rule, if there is a helper function or macro to
 edit the data structure, use it. For example, increasing the width of a type
 requires you to resize every key that uses that type. This is complicated and
 ugly, which is why there’s an
-<emphasis>XkbResizeKeyType</emphasis>
+<function>XkbResizeKeyType</function>
  function.
 </para>
 

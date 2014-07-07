@@ -403,7 +403,7 @@ To lock and unlock any of the eight real keyboard modifiers, use
 </variablelist>
 
 <para>
-<emphasis>XkbLockModifiers</emphasis>
+<function>XkbLockModifiers</function>
  sends a request to the server to lock the real modifiers selected by both
 <emphasis>affect</emphasis>
  and
@@ -412,7 +412,7 @@ To lock and unlock any of the eight real keyboard modifiers, use
 <emphasis>affect</emphasis>
  but not selected by
 <emphasis>values</emphasis>.
-<emphasis>XkbLockModifiers</emphasis>
+<function>XkbLockModifiers</function>
  does not wait for a reply from the server. It returns
 <emphasis>True</emphasis>
  if the request was sent, and
@@ -485,7 +485,7 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 </variablelist>
 
 <para>
-<emphasis>XkbLatchModifiers</emphasis>
+<function>XkbLatchModifiers</function>
  sends a request to the server to latch the real modifiers selected by both
 <emphasis>affect</emphasis>
  and
@@ -494,7 +494,7 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 <emphasis>affect</emphasis>
  but not selected by
 <emphasis>values</emphasis>.
-<emphasis>XkbLatchModifiers</emphasis>
+<function>XkbLatchModifiers</function>
  does not wait for a reply from the server. It returns
 <emphasis>True</emphasis>
  if the request was sent, and
@@ -544,7 +544,7 @@ Reference the keysym group indices with these symbolic constants:
 
 <para>
 To lock the keysym group, use
-<emphasis>XkbLockGroup</emphasis>.
+<function>XkbLockGroup</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbLockGroup"><primary><function>XkbLockGroup</function></primary></indexterm>
@@ -594,7 +594,7 @@ To lock the keysym group, use
 </variablelist>
 
 <para>
-<emphasis>XkbLockGroup</emphasis>
+<function>XkbLockGroup</function>
  sends a request to the server to lock the specified
 <emphasis>group </emphasis>
 and does not wait for a reply. It returns
@@ -607,7 +607,7 @@ and does not wait for a reply. It returns
 
 <para>
 To latch the keysym group, use
-<emphasis>XkbLatchGroup</emphasis>.
+<function>XkbLatchGroup</function>.
 </para>
 
 
@@ -658,7 +658,7 @@ To latch the keysym group, use
 </variablelist>
 
 <para>
-<emphasis>XkbLatchGroup</emphasis>
+<function>XkbLatchGroup</function>
  sends a request to the server to latch the specified group and does not wait for a reply. It returns
 <emphasis>True</emphasis>
  if the request was sent and
@@ -701,7 +701,7 @@ typedef struct {
 
 <para>
 To obtain the keyboard state, use
-<emphasis>XkbGetState</emphasis>.
+<function>XkbGetState</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetState"><primary><function>XkbGetState</function></primary></indexterm>
@@ -754,7 +754,7 @@ To obtain the keyboard state, use
 
 <para>
 The
-<emphasis>XkbGetState </emphasis>
+<function>XkbGetState</function>
 function queries the server for the current keyboard state, waits for a reply, and then backfills
 <emphasis>state_return</emphasis>
  with the results.
@@ -864,9 +864,9 @@ There are many different types of Xkb state changes. Xkb defines an event detail
 To track changes in the keyboard state for a particular device, select to receive
 <emphasis>XkbStateNotify</emphasis>
  events by calling either
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  or
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  (see section 4.3). <!-- xref -->
 </para>
 
@@ -875,7 +875,7 @@ To track changes in the keyboard state for a particular device, select to receiv
 To receive
 <emphasis>XkbStateNotify</emphasis>
  events under all possible conditions, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  and pass
 <emphasis>XkbStateNotifyMask</emphasis>
  in both
@@ -889,7 +889,7 @@ To receive
 To receive
 <emphasis>XkbStateNotify</emphasis>
  events only under certain conditions, use
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbStateNotify</emphasis>
  as the

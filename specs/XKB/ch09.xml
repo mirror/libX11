@@ -72,9 +72,9 @@ You can, however, override the
 spite of the setting of the
 <emphasis>AudibleBell</emphasis>
  control —
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  or
-<emphasis>XkbForceBell</emphasis>
+<function>XkbForceBell</function>
  (see section 9.3.3). In this case the server does not generate a bell event. <!-- xref -->
 </para>
 
@@ -213,7 +213,7 @@ sound.
 You can control the audible bells feature by passing the
 <emphasis>XkbAudibleBellMask</emphasis>
  to
-<emphasis>XkbChangeEnabledControls</emphasis>
+<function>XkbChangeEnabledControls</function>
  (see section 10.1.1). If you set <emphasis> <!-- xref -->
 XkbAudibleBellMask</emphasis>
  on, the server rings the system bell when a bell event occurs. This is the
@@ -221,9 +221,9 @@ default. If you set
 <emphasis>XkbAudibleBellMask</emphasis>
  off and a bell event occurs, the server does not ring the system bell unless
 you call
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  or
-<emphasis>XkbForceBell</emphasis>
+<function>XkbForceBell</function>
  (see section 9.3.3). <!-- xref -->
 </para>
 
@@ -340,7 +340,7 @@ XkbBellNotifyEvent</emphasis>
 
 <para>
 To ring the bell on an X input extension device or the default keyboard, use
-<emphasis>XkbDeviceBell</emphasis>.
+<function>XkbDeviceBell</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbDeviceBell"><primary><function>XkbDeviceBell</function></primary></indexterm>
@@ -460,11 +460,11 @@ See the X input extension documentation for more information on
 
 <para>
 If a compatible keyboard extension is not present in the X server,
-<emphasis>XkbDeviceBell</emphasis>
+<function>XkbDeviceBell</function>
  immediately returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbDeviceBell </emphasis>
+<function>XkbDeviceBell</function>
 rings the bell as specified for the display and keyboard device and returns
 <emphasis>True</emphasis>.
 If you have disabled the audible bell, the server does not ring the system
@@ -475,14 +475,14 @@ bell, although it does generate a
 
 <para>
 You can call
-<emphasis>XkbDeviceBell</emphasis>
+<function>XkbDeviceBell</function>
  without first initializing the keyboard extension.
 </para>
 
 <para>
 As a convenience function, Xkb provides a function to ring the bell on the
 default keyboard:
-<emphasis>XkbBell</emphasis>.
+<function>XkbBell</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbBell"><primary><function>XkbBell</function></primary></indexterm>
@@ -544,7 +544,7 @@ default keyboard:
 
 <para>
 If a compatible keyboard extension isn’t present in the X server,
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  calls
 <emphasis>XBell </emphasis>
 with the specified
@@ -554,9 +554,9 @@ with the specified
 and returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbBell </emphasis>
+<function>XkbBell</function>
 calls
-<emphasis>XkbDeviceBell</emphasis>
+<function>XkbDeviceBell</function>
  with the specified
 <emphasis>display, window, percent</emphasis>,
 and
@@ -586,7 +586,7 @@ bell, although it does generate a
 
 <para>
 You can call
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  without first initializing the keyboard extension.
 </para>
 
@@ -612,7 +612,7 @@ running.
 <para>
 To cause a bell event for an X input extension device or for the keyboard,
 without ringing the corresponding bell, use
-<emphasis>XkbDeviceBellEvent</emphasis>.
+<function>XkbDeviceBellEvent</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbDeviceBellEvent"><primary><function>XkbDeviceBellEvent</function></primary></indexterm>
@@ -707,11 +707,11 @@ without ringing the corresponding bell, use
 
 <para>
 If a compatible keyboard extension isn’t present in the X server,
-<emphasis>XkbDeviceBellEvent</emphasis>
+<function>XkbDeviceBellEvent</function>
  immediately returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbDeviceBellEvent</emphasis>
+<function>XkbDeviceBellEvent</function>
  causes an
 <emphasis>XkbBellNotify</emphasis>
  event to be sent to all interested clients and returns
@@ -725,13 +725,13 @@ Set
 
 <para>
 In addition,
-<emphasis>XkbDeviceBellEvent</emphasis>
+<function>XkbDeviceBellEvent</function>
  may generate
 <emphasis>Atom</emphasis>
  protocol errors as well as
 <emphasis>XkbBellNotify</emphasis>
  events. You can call
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  without first initializing the keyboard extension.
 </para>
 
@@ -739,7 +739,7 @@ In addition,
 <para>
 As a convenience function, Xkb provides a function to cause a bell event for
 the keyboard without ringing the bell:
-<emphasis>XkbBellEvent</emphasis>.
+<function>XkbBellEvent</function>.
 </para>
 
 
@@ -802,13 +802,13 @@ the keyboard without ringing the bell:
 
 <para>
 If a compatible keyboard extension isn’t present in the X server,
-<emphasis>XkbBellEvent</emphasis>
+<function>XkbBellEvent</function>
  immediately returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbBellEvent </emphasis>
+<function>XkbBellEvent</function>
 calls
-<emphasis>XkbDeviceBellEvent</emphasis>
+<function>XkbDeviceBellEvent</function>
  with the specified
 <emphasis>display, window, percent</emphasis>,
 and
@@ -826,12 +826,12 @@ and a
 of
 <emphasis>XkbDfltXIId</emphasis>,
  and returns what
-<emphasis>XkbDeviceBellEvent</emphasis>
+<function>XkbDeviceBellEvent</function>
  returns.
 </para>
 
 <para>
-<emphasis>XkbBellEvent</emphasis>
+<function>XkbBellEvent</function>
 generates a <emphasis>XkbBellNotify</emphasis>
 event.
 </para>
@@ -839,7 +839,7 @@ event.
 
 <para>
 You can call
-<emphasis>XkbBellEvent</emphasis>
+<function>XkbBellEvent</function>
 without first initializing the keyboard extension.
 </para>
 
@@ -849,7 +849,7 @@ without first initializing the keyboard extension.
 
 <para>
 To ring the bell on any keyboard, overriding user preference settings for
-audible bells, use <emphasis>XkbForceDeviceBell</emphasis>.
+audible bells, use <function>XkbForceDeviceBell</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbForceDeviceBell"><primary><function>XkbForceDeviceBell</function></primary></indexterm>
@@ -933,11 +933,11 @@ audible bells, use <emphasis>XkbForceDeviceBell</emphasis>.
 
 <para>
 If a compatible keyboard extension isn’t present in the X server,
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  immediately returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbForceDeviceBell </emphasis>
+<function>XkbForceDeviceBell</function>
 rings the bell as specified for the display and keyboard device and returns
 <emphasis>True</emphasis>.
 Set
@@ -947,7 +947,7 @@ Set
 There is no
 <emphasis>name</emphasis>
  parameter because
-<emphasis>XkbForceDeviceBell </emphasis>
+<function>XkbForceDeviceBell</function>
 does not cause an
 <emphasis>XkbBellNotify</emphasis>
  event.
@@ -955,14 +955,14 @@ does not cause an
 
 <para>
 You can call
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  without first initializing the keyboard extension.
 </para>
 
 <para>
 To ring the bell on the default keyboard, overriding user preference settings
 for audible bells, use
-<emphasis>XkbForceBell</emphasis>.
+<function>XkbForceBell</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbForceBell"><primary><function>XkbForceBell</function></primary></indexterm>
@@ -1001,7 +1001,7 @@ for audible bells, use
 
 <para>
 If a compatible keyboard extension isn’t present in the X server,
-<emphasis>XkbForceBell</emphasis>
+<function>XkbForceBell</function>
  calls
 <emphasis>XBell </emphasis>
 with the specified
@@ -1011,9 +1011,9 @@ with the specified
  and returns
 <emphasis>False</emphasis>.
 Otherwise,
-<emphasis>XkbForceBell </emphasis>
+<function>XkbForceBell</function>
 calls
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  with the specified
 <emphasis>display </emphasis>
 and
@@ -1033,12 +1033,12 @@ and
  =
 <emphasis>NULL</emphasis>,
 and returns what
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  returns.
 </para>
 
 <para>
-<emphasis>XkbForceBell </emphasis>
+<function>XkbForceBell</function>
 does not cause an
 <emphasis>XkbBellNotify</emphasis>
  event.
@@ -1046,7 +1046,7 @@ does not cause an
 
 <para>
 You can call
-<emphasis>XkbBell</emphasis>
+<function>XkbBell</function>
  without first initializing the keyboard extension.
 </para>
 
@@ -1059,9 +1059,9 @@ You can call
 Xkb generates
 <emphasis>XkbBellNotify</emphasis>
  events for all bells except for those resulting from calls to
-<emphasis>XkbForceDeviceBell</emphasis>
+<function>XkbForceDeviceBell</function>
  and
-<emphasis>XkbForceBell</emphasis>.
+<function>XkbForceBell</function>.
 To receive
 <emphasis>XkbBellNotify</emphasis>
  events under all possible conditions, pass
@@ -1071,7 +1071,7 @@ To receive
 and
 <emphasis>values_for_bits</emphasis>
  parameters to
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3). <!-- xref -->
 </para>
 
@@ -1080,7 +1080,7 @@ The
 <emphasis>XkbBellNotify</emphasis>
  event has no event details. It is either selected or it is not. However, you
 can call
-<emphasis>XkbSelectEventDetails</emphasis>
+<function>XkbSelectEventDetails</function>
  using
 <emphasis>XkbBellNotify</emphasis>
  as the
@@ -1092,7 +1092,7 @@ can call
  and
 <emphasis>values_for_bits</emphasis>.
  This has the same effect as a call to
-<emphasis>XkbSelectEvents</emphasis>.
+<function>XkbSelectEvents</function>.
 </para>
 
 <para>

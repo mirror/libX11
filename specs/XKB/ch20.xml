@@ -160,7 +160,7 @@ You may ask the server for a list of components for one or more component
 types. The request takes the form of a set of patterns, one pattern for each of
 the component types, including a pattern for the complete keyboard description.
 To obtain this list, use
-<emphasis>XkbListComponents</emphasis>.
+<function>XkbListComponents</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbListComponents"><primary><function>XkbListComponents</function></primary></indexterm>
@@ -224,14 +224,14 @@ To obtain this list, use
 </variablelist>
 
 <para>
-<emphasis>XkbListComponents</emphasis>
+<function>XkbListComponents</function>
  queries the server for a list of component names matching the patterns
 specified in
 <emphasis>ptrns</emphasis>.
 It waits for a reply and returns the matching component names in an
 <emphasis>XkbComponentListRec</emphasis>
  structure. When you are done using the structure, you should free it using
-<emphasis>XkbFreeComponentList</emphasis>.
+<function>XkbFreeComponentList</function>.
 <emphasis>device_spec</emphasis>
  indicates a particular device in which the caller is interested. A server is
 allowed (but not required) to restrict its reply to portions of the database
@@ -282,7 +282,7 @@ from the pattern.
  is used to throttle the amount of data passed to and from the server. On
 input, it specifies the maximum number of names to be returned (the total
 number of names in all component categories). Upon return from
-<emphasis>XkbListComponents</emphasis>,
+<function>XkbListComponents</function>,
 <emphasis>max_inout</emphasis>
  contains the number of names that matched the request but were not returned
 because of the limit.
@@ -291,7 +291,7 @@ because of the limit.
 
 <para>
 The component name patterns used to describe the request are passed to
-<emphasis>XkbListComponents</emphasis>
+<function>XkbListComponents</function>
  using an
 <emphasis>XkbComponentNamesRec</emphasis>
  structure. This structure has no special allocation constraints or
@@ -315,7 +315,7 @@ typedef struct _XkbComponentNames {
 </programlisting></para>
 
 <para>
-<emphasis>XkbListComponents</emphasis>
+<function>XkbListComponents</function>
  returns a pointer to an
 <emphasis>XkbComponentListRec</emphasis>
 :
@@ -356,9 +356,9 @@ and that used to hold the individual component names upon return is an
 
 <para>
 When you are done using the structure returned by
-<emphasis>XkbListComponents</emphasis>,
+<function>XkbListComponents</function>,
 free it using
-<emphasis>XkbFreeComponentList</emphasis>.
+<function>XkbFreeComponentList</function>.
 </para>
 
 
@@ -397,7 +397,7 @@ masks in the flags field of the
  structures contained in the
 <emphasis>XkbComponentListRec</emphasis>
  returned from
-<emphasis>XkbListComponents</emphasis>.
+<function>XkbListComponents</function>.
 The least significant byte of the flags field has the same meaning for all
 types of keyboard components; the interpretation of the most significant byte
 is dependent on the type of component. The flags bits are defined in Table
@@ -542,7 +542,7 @@ specific device, in which case the behavior of the device changes accordingly.
 To build a new keyboard description from a set of named components, and to
 optionally have the server use the resulting description to replace an active
 one, use
-<emphasis>XkbGetKeyboardByName</emphasis>.
+<function>XkbGetKeyboardByName</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyboardByName"><primary><function>XkbGetKeyboardByName</function></primary></indexterm>
@@ -648,7 +648,7 @@ The individual fields in
  are
 <emphasis>component expressions</emphasis>
  composed of keyboard component names (no wildcarding as may be used in
-<emphasis>XkbListComponents</emphasis>
+<function>XkbListComponents</function>
 ), the special component name symbol ‘%’, and the special operator
 characters ‘
 <emphasis>+</emphasis>
@@ -899,11 +899,11 @@ and
 <emphasis>need</emphasis>
  specifies a set of keyboard components that the server must be able to resolve
 in order for
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  to succeed; if any of the components specified in
 <emphasis>need</emphasis>
  cannot be successfully resolved,
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  fails.
 </para>
 
@@ -913,7 +913,7 @@ in order for
  specifies a set of keyboard components that the server should attempt to
 resolve, but that are not mandatory. If the server is unable to resolve any of
 these components,
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  still succeeds. Bits specified in
 <emphasis>want</emphasis>
  that are also specified in
@@ -1065,13 +1065,13 @@ There is no way to determine which components specified in
  (but not in
 <emphasis>need</emphasis>
 ) were actually fetched, other than breaking the call into successive calls to
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  and specifying individual components.
 </para>
 
 
 <para>
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  always sets
 <emphasis>min_key_code</emphasis>
  and
@@ -1083,11 +1083,11 @@ There is no way to determine which components specified in
 
 
 <para>
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
 is synchronous; it sends the request to the server to build a new keyboard
 description and waits for the reply. If successful, the return value is
 non-<emphasis>NULL</emphasis>.
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
 generates a <emphasis>BadMatch</emphasis>
 protocol error if errors are encountered when building the keyboard
 description.
@@ -1098,7 +1098,7 @@ description.
 If you simply want to obtain information about the current keyboard device,
 rather than generating a new keyboard description from elements in the server
 database, use
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  (see section 6.2).
 </para>
 
@@ -1151,16 +1151,16 @@ database, use
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyboard</emphasis>
+<function>XkbGetKeyboard</function>
  is used to read the current description for one or more components of a
 keyboard device. It calls
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  as follows:
 </para>
 
 
 <para>
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
 (
 <emphasis>dpy</emphasis>,
 <emphasis>device_spec</emphasis>,

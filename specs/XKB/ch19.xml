@@ -43,7 +43,7 @@ Xkb provides an
 keycodes. The server can generate an
 <emphasis>XkbNewKeyboardNotify</emphasis>
  event when it detects a new keyboard or in response to an
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  request that loads a new keyboard description. Selecting for
 <emphasis>XkbNewKeyboardNotify</emphasis>
  events allows Xkb-aware clients to be notified whenever a keyboard change
@@ -186,7 +186,7 @@ typedef struct _XkbNewKeyboardNotify {
 
 <para>
 To receive name notify events, use
-<emphasis>XkbSelectEvents</emphasis>
+<function>XkbSelectEvents</function>
  (see section 4.3) with
 <emphasis>XkbNewKeyboardNotifyMask</emphasis>
  in both the
@@ -194,7 +194,7 @@ To receive name notify events, use
  and
 <emphasis>values_for_bits</emphasis>
  parameters. To receive events for only specific names, use
-<emphasis>XkbSelectEventDetails</emphasis>.
+<function>XkbSelectEventDetails</function>.
 Set the
 <emphasis>event_type</emphasis>
  parameter to
@@ -304,7 +304,7 @@ In this case,
 
 <para>
 If the keyboard change is the result of an
-<emphasis>XkbGetKeyboardByName</emphasis>
+<function>XkbGetKeyboardByName</function>
  function call, which generates an
 <emphasis>X_kbGetKbdByName</emphasis>
  request,

@@ -1588,8 +1588,8 @@ in <emphasis>map</emphasis>.
 <errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
- (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>), <emphasis>
-XkbIndicatorMapNotify</emphasis>,
+ (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>),
+<emphasis>XkbIndicatorMapNotify</emphasis>,
 and
 <emphasis>XkbNamesNotify</emphasis>
  events (see <link linkend="Tracking_Name_Changes">section 18.5</link>).
@@ -1745,8 +1745,8 @@ To receive
 <emphasis>XkbIndicatorStateNotify</emphasis>
  events, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the <emphasis>
-bits_to_change </emphasis>
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the
+<emphasis>bits_to_change </emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  parameters containing

@@ -2113,8 +2113,8 @@ To receive
 <emphasis>XkbAccessXNotify</emphasis>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass <emphasis>
-XkbAccesXNotifyMask</emphasis>
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
+<emphasis>XkbAccesXNotifyMask</emphasis>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -2219,8 +2219,8 @@ locking, or unlocking of modifiers using
 <symbol>KeyRelease</symbol>
  events, though the auto-repeat can be detected using
 <emphasis>DetectableAutorepeat</emphasis>
- (see <link linkend="The_DetectableAutorepeat_Control">section 10.3.3</link>). Finally, <emphasis>
-MouseKeys</emphasis>
+ (see <link linkend="The_DetectableAutorepeat_Control">section 10.3.3</link>). Finally,
+<emphasis>MouseKeys</emphasis>
  generates pointer events identical to those of the core pointer device.
 </para>
 
@@ -3205,8 +3205,8 @@ be added and removed from the server’s
  are removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control.
-See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in <emphasis>
-affect_virtual</emphasis>
+See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in
+<emphasis>affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
 <function>XkbSetIgnoreLockMods</function>
@@ -3404,8 +3404,8 @@ selected by both
  but not by
 <emphasis>virtual_values</emphasis>
  are removed from the server’s internal modifiers control.
-See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in <emphasis>
-affect_virtual</emphasis>
+See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in
+<emphasis>affect_virtual</emphasis>
  and
 <emphasis>virtual_values</emphasis>.
 <function>XkbSetServerInternalMods</function>
@@ -3994,8 +3994,8 @@ using only those masks with "ok" in the
 <emphasis>repeat_interval</emphasis>
  are attributes of the
 <emphasis>RepeatKeys</emphasis>
- control (see <link linkend="The_RepeatKeys_Control">section 10.3.2</link>). <emphasis>
-repeat_delay</emphasis>
+ control (see <link linkend="The_RepeatKeys_Control">section 10.3.2</link>).
+<emphasis>repeat_delay</emphasis>
  is the initial delay before a key begins repeating, in milliseconds;
 <emphasis>repeat_interval</emphasis>
  is the delay between subsequent key events, in milliseconds.
@@ -4010,8 +4010,8 @@ repeat_delay</emphasis>
 <emphasis>slow_keys_delay</emphasis>
  is an attribute of the
 <emphasis>SlowKeys</emphasis>
- control (see <link linkend="The_SlowKeys_Control">section 10.6.6</link>). Its value specifies the <emphasis>
-SlowKeys</emphasis>
+ control (see <link linkend="The_SlowKeys_Control">section 10.6.6</link>). Its value specifies the
+<emphasis>SlowKeys</emphasis>
  acceptance delay period in milliseconds before a key press is accepted by the
 server.
 </para>
@@ -4025,8 +4025,8 @@ server.
 <emphasis>debounce_delay</emphasis>
  is an attribute of the
 <emphasis>BounceKeys</emphasis>
- control (see <link linkend="The_BounceKeys_Control">section 10.6.7</link>). Its value specifies the <emphasis>
-BounceKeys</emphasis>
+ control (see <link linkend="The_BounceKeys_Control">section 10.6.7</link>). Its value specifies the
+<emphasis>BounceKeys</emphasis>
  delay period in milliseconds for which the key is disabled after having been
 pressed before another press of the same key is accepted by the server.
 </para>
@@ -4059,10 +4059,10 @@ The
 <emphasis>ax_options</emphasis>
  field contains attributes used to configure two different controls, the
 <emphasis>StickyKeys</emphasis>
- control (see <link linkend="The_StickyKeys_Control">section 10.6.8</link>) and the <emphasis>
-AccessXFeedback</emphasis>
- control (see <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>). The <emphasis>
-ax_options</emphasis>
+ control (see <link linkend="The_StickyKeys_Control">section 10.6.8</link>) and the
+<emphasis>AccessXFeedback</emphasis>
+ control (see <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>). The
+<emphasis>ax_options</emphasis>
  field is a bitmask and may include any combination of the bits defined in
 <link linkend="table10.9">Table 10.9</link>.
 </para>

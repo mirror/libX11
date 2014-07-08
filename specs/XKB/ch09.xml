@@ -85,8 +85,8 @@ or repeating, Xkb can provide feedback for the controls by using special beep
 codes. The
 <emphasis>AccessXFeedback</emphasis>
  control is used to configure the specific types of operations that generate
-feedback. See <link linkend="The_AccessXFeedback_Control">section 10.6.3</link> for a discussion on <emphasis>
-AccessXFeedback</emphasis>
+feedback. See <link linkend="The_AccessXFeedback_Control">section 10.6.3</link> for a discussion on
+<emphasis>AccessXFeedback</emphasis>
  control.
 </para>
 
@@ -204,8 +204,8 @@ bell. This is useful if you need to use an audio server instead of the system
 beep. For example, when an audio client starts, it could disable the audible
 bell (the system bell) and then listen for
 <emphasis>XkbBellNotify</emphasis>
- events (see <link linkend="Detecting_Bells">section 9.4</link>). When it receives a <emphasis>
-XkbBellNotify</emphasis>
+ events (see <link linkend="Detecting_Bells">section 9.4</link>). When it receives a
+<emphasis>XkbBellNotify</emphasis>
  event, the audio client could then send a request to an audio server to play a
 sound.
 </para>
@@ -216,8 +216,8 @@ You can control the audible bells feature by passing the
 <emphasis>XkbAudibleBellMask</emphasis>
  to
 <function>XkbChangeEnabledControls</function>
- (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). If you set <emphasis>
-XkbAudibleBellMask</emphasis>
+ (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). If you set
+<emphasis>XkbAudibleBellMask</emphasis>
  on, the server rings the system bell when a bell event occurs. This is the
 default. If you set
 <emphasis>XkbAudibleBellMask</emphasis>

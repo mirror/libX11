@@ -2,15 +2,17 @@
 <title>Keyboard State</title>
 
 <para>
-Keyboard state encompasses all of the transitory information necessary to map a physical key press or release to an appropriate event. The Xkb keyboard state consists of primitive components and additional derived components that are maintained for efficiency reasons. Figure 5.1 shows the components of Xkb keyboard state and their relationships.
+Keyboard state encompasses all of the transitory information necessary to map a physical key press or release to an appropriate event. The Xkb keyboard state consists of primitive components and additional derived components that are maintained for efficiency reasons. <link linkend="figure5.1">Figure 5.1</link> shows the components of Xkb keyboard state and their relationships.
 </para>
 
-<mediaobject>
-<!-- <title>Keyboard State Description</title> -->
- <imageobject> <imagedata format="SVG" fileref="XKBlib-2.svg"/>
- </imageobject>
-<caption>Xkb State</caption>
-</mediaobject>
+<figure id='figure5.1'>
+  <title>Xkb State</title>
+  <mediaobject>
+  <!-- <title>Keyboard State Description</title> -->
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-2.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 <sect1 id='Keyboard_State_Description'>

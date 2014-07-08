@@ -10,14 +10,16 @@ to the Xkb server map.
 
 
 <para>
-Figure 16.1 shows the relationships between elements in the server map:
+<link linkend="figure16.1">Figure 16.1</link> shows the relationships between elements in the server map:
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-16.svg"/>
- </imageobject>
-<caption>Server Map Relationships</caption>
- </mediaobject>
+<figure id='figure16.1'>
+  <title>Server Map Relationships</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-16.svg"/>
+   </imageobject>
+   </mediaobject>
+</figure>
 
 
 <!--
@@ -4577,14 +4579,16 @@ use virtual modifier mappings.
 
 <para>
 The overall relationship of fields dealing with virtual modifiers in an Xkb
-keyboard description are shown in Figure 16.2.
+keyboard description are shown in <link linkend="figure16.2">Figure 16.2</link>.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-17.svg"/>
- </imageobject>
-<caption>Virtual Modifier Relationships</caption>
-</mediaobject>
+<figure id='figure16.2'>
+  <title>Virtual Modifier Relationships</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-17.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 

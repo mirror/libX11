@@ -28,14 +28,16 @@ rectangular area, but the entire rectangle may not be in alignment with the
 rest of the keyboard, and instead, it is rotated from horizontal by 30
 <emphasis>o</emphasis>.
 Rotation for a geometry object is specified in 1/10 o increments about its
-origin. An example of a keyboard with rotated sections is shown in Figure 13.1.
+origin. An example of a keyboard with rotated sections is shown in <link linkend="figure13.1">Figure 13.1</link>.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-7.svg"/>
- </imageobject>
-<caption>Rotated Keyboard Sections</caption>
-</mediaobject>
+<figure id='figure13.1'>
+  <title>Rotated Keyboard Sections</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-7.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 <!-- <H5 CLASS="Figure">
@@ -223,18 +225,20 @@ The keyboard is subdivided into named
 listed in the
 <emphasis>XkbGeometryRec</emphasis>
  top-level keyboard geometry description. A section is composed of keys that
-are physically together and logically related. Figure 13.2 shows a keyboard
+are physically together and logically related. <link linkend="figure13.2">Figure 13.2</link> shows a keyboard
 that is divided into four sections. A
 <emphasis>doodad</emphasis>
  describes some visible aspect of the keyboard that is not a key and is not a
 section.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-8.svg"/>
- </imageobject>
-<caption>Keyboard with Four Sections</caption>
-</mediaobject>
+<figure id='figure13.2'>
+  <title>Keyboard with Four Sections</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-8.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 <!--
 <H5 CLASS="Figure">
@@ -388,18 +392,20 @@ A list of
 A row is a list of horizontally or vertically adjacent keys. Horizontal rows
 parallel the (prerotation) top of the section, and vertical rows parallel the
 (prerotation) left of the section. All keys in a horizontal row share a common
-top coordinate; all keys in a vertical row share a left coordinate. Figure 13.3
-shows the alpha section from the keyboard shown in Figure 13.2, divided into
+top coordinate; all keys in a vertical row share a left coordinate. <link linkend="figure13.3">Figure 13.3</link>
+shows the alpha section from the keyboard shown in <link linkend="figure13.2">Figure 13.2</link>, divided into
 rows. Rows and keys are defined below.
   </para>
 </listitem>
 </itemizedlist>
 
-<mediaobject>
-  <imageobject> <imagedata format="SVG" fileref="XKBlib-9.svg"/>
-  </imageobject>
-  <caption>Rows in a Section</caption>
-</mediaobject>
+<figure id='figure13.3'>
+  <title>Rows in a Section</title>
+  <mediaobject>
+    <imageobject> <imagedata format="SVG" fileref="XKBlib-9.svg"/>
+    </imageobject>
+  </mediaobject>
+</figure>
 
 
 
@@ -689,11 +695,13 @@ pointer into the array.
 <MAP NAME="XKBlib-10">
 </MAP>
 -->
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-10.svg"/>
- </imageobject>
-<caption>Xkb Geometry Data Structures</caption>
-</mediaobject>
+<figure id='figure13.4'>
+  <title>Xkb Geometry Data Structures</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-10.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 <!--
 <H5 CLASS="Figure">
@@ -703,11 +711,13 @@ Xkb Geometry Data Structures</H5>
 <MAP NAME="XKBlib-11">
 </MAP>
 -->
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-11.svg"/>
- </imageobject>
-<caption>Xkb Geometry Data Structures (Doodads)</caption>
-</mediaobject>
+<figure id='figure13.5'>
+  <title>Xkb Geometry Data Structures (Doodads)</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-11.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 <!--
 <H5 CLASS="Figure">
@@ -718,11 +728,13 @@ Xkb Geometry Data Structures (Doodads)</H5>
 <MAP NAME="XKBlib-12">
 </MAP>
 -->
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-12.svg"/>
- </imageobject>
-<caption>Xkb Geometry Data Structures (Overlays)</caption>
-</mediaobject>
+<figure id='figure13.6'>
+  <title>Xkb Geometry Data Structures (Overlays)</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-12.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 <!--
 <H5 CLASS="Figure">
@@ -1211,11 +1223,13 @@ of a number of points. The bounding box of a shape is a rectangle that contains
 all the outlines of that shape.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-13.svg"/>
- </imageobject>
-<caption>Key Surface, Shape Outlines, and Bounding Box</caption>
- </mediaobject>
+<figure id='figure13.7'>
+  <title>Key Surface, Shape Outlines, and Bounding Box</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-13.svg"/>
+   </imageobject>
+   </mediaobject>
+</figure>
 
 
 <!--

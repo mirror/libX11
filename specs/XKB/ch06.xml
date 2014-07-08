@@ -16,7 +16,7 @@ The complete description of an Xkb keyboard is given by an
 <emphasis>XkbDescRec</emphasis>.
 The component structures in the
 <emphasis>XkbDescRec</emphasis>
- represent the major Xkb components outlined in Figure 1.1. <!-- xref -->
+ represent the major Xkb components outlined in <link linkend="figure1.1">Figure 1.1</link>.
 </para>
 
 <para><programlisting>

@@ -92,11 +92,13 @@ For example, consider the following key (the gray characters indicate symbols
 that are implied or expected but are not actually engraved on the key):
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-14.svg"/>
- </imageobject>
-<caption>Shift Levels and Groups</caption>
- </mediaobject>
+<figure id='figure14.1'>
+  <title>Shift Levels and Groups</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-14.svg"/>
+   </imageobject>
+   </mediaobject>
+</figure>
 
 
 <!--
@@ -121,7 +123,7 @@ and the symbol for shift level two is
 
 <para>
 The standard interpretation rules for the core X keymap only allow clients to
-access keys such as the one shown in Figure 14.1. That is, clients using the
+access keys such as the one shown in <link linkend="figure14.1">Figure 14.1</link>. That is, clients using the
 standard interpretation rules can only access one of four keysyms for any given
 <symbol>KeyPress</symbol>
  event — two different symbols in two different groups.

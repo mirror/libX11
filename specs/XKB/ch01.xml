@@ -105,15 +105,17 @@ server and Xlib versions must be at least X11 R6.
 
 
 <para>
-Figure 1.1 shows the overall structure of the Xkb extension:
+<link linkend="figure1.1">Figure 1.1</link> shows the overall structure of the Xkb extension:
 </para>
 
-<mediaobject>
-  <imageobject>
-    <imagedata format="SVG" fileref="XKBlib-1.svg"/>
-  </imageobject>
-  <caption>Overall Xkb Structure</caption>
-</mediaobject>
+<figure id='figure1.1'>
+  <title>Overall Xkb Structure</title>
+  <mediaobject>
+    <imageobject>
+      <imagedata format="SVG" fileref="XKBlib-1.svg"/>
+    </imageobject>
+  </mediaobject>
+</figure>
 
 
 <para>
@@ -131,7 +133,7 @@ but also potentially a set of up to 32 indicators (usually LEDs) and bells.
 The keyboard description is a composite of several different data structures,
 each of which may be manipulated separately. When manipulating the server
 components, the design allows partial components to be transmitted between the
-server and a client. The individual components are shown in Figure 1.1.
+server and a client. The individual components are shown in <link linkend="figure1.1">Figure 1.1</link>.
 </para>
 
 <variablelist>

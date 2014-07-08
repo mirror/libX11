@@ -1457,14 +1457,17 @@ The legal values for
 
 
 <para>
-A distance vs. time graph of the pointer motion is shown in Figure 10.1. <!-- xref -->
+A distance vs. time graph of the pointer motion is shown in
+<link linkend="figure10.1">Figure 10.1</link>.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-6.svg"/>
- </imageobject>
-<caption>MouseKeys Acceleration</caption>
- </mediaobject>
+<figure id='figure10.1'>
+  <title>MouseKeys Acceleration</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-6.svg"/>
+   </imageobject>
+   </mediaobject>
+</figure>
 
 <!--
 <H5 CLASS="Figure">

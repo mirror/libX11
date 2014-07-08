@@ -10,14 +10,16 @@ bound to a key and the rules to be used to interpret those symbols.
 
 
 <para>
-Figure 15.1 shows the relationships between elements in the client map:
+<link linkend="figure15.1">Figure 15.1</link> shows the relationships between elements in the client map:
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-15.svg"/>
- </imageobject>
-<caption>Xkb Client Map</caption>
- </mediaobject>
+<figure id='figure15.1'>
+  <title>Xkb Client Map</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-15.svg"/>
+   </imageobject>
+   </mediaobject>
+</figure>
 
 
 <!--

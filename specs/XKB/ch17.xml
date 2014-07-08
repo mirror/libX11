@@ -2,7 +2,7 @@
 <title>The Xkb Compatibility Map</title>
 
 <para>
-As shown in Figure 17.1, the X server is normally dealing with more than one
+As shown in <link linkend="figure17.1">Figure 17.1</link>, the X server is normally dealing with more than one
 client, each of which may be receiving events from the keyboard, and each of
 which may issue requests to modify the keyboard in some manner. Each client may
 be either Xkb-unaware, Xkb-capable, or Xkb-aware. The server itself may be
@@ -15,11 +15,13 @@ Consequently, for some situations, conversions must be made between Xkb state /
 keyboard mappings and core protocol state / keyboard mappings, and vice versa.
 </para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-18.svg"/>
- </imageobject>
- <caption>Server Interaction with Types of Clients</caption>
-</mediaobject>
+<figure id='figure17.1'>
+  <title>Server Interaction with Types of Clients</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-18.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 
@@ -50,17 +52,19 @@ to update its Xkb keyboard mapping. When the server receives an
 the request, then uses its compatibility map to update the corresponding parts
 of its core keyboard map. Consequently, the server’s Xkb keyboard map and
 also its core keyboard map may contain components that were set directly and
-others that were computed. Figure 17.2 illustrates these relationships.
+others that were computed. <link linkend="figure17.2">Figure 17.2</link> illustrates these relationships.
 </para>
 
 <note><para>The core keyboard map is contained only in the server, not in any
 client-side data structures.</para></note>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-19.svg"/>
- </imageobject>
- <caption>Server Derivation of State and Keyboard Mapping Components</caption>
-</mediaobject>
+<figure id='figure17.2'>
+  <title>Server Derivation of State and Keyboard Mapping Components</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-19.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 
@@ -157,11 +161,13 @@ typedef struct _XkbCompatMapRec {
 } <emphasis>XkbCompatMapRec</emphasis>, *XkbCompatMapPtr;
 </programlisting></para>
 
-<mediaobject>
- <imageobject> <imagedata format="SVG" fileref="XKBlib-20.svg"/>
- </imageobject>
- <caption>Xkb Compatibility Data Structures</caption>
-</mediaobject>
+<figure id='figure17.3'>
+  <title>Xkb Compatibility Data Structures</title>
+  <mediaobject>
+   <imageobject> <imagedata format="SVG" fileref="XKBlib-20.svg"/>
+   </imageobject>
+  </mediaobject>
+</figure>
 
 
 <para>
@@ -174,7 +180,7 @@ transformations are made.
 <title>Xkb State to Core Protocol State Transformation</title>
 
 <para>
-As shown in Figure 17.3, there are four
+As shown in <link linkend="figure17.3">Figure 17.3</link>, there are four
 <emphasis>group compatibility maps</emphasis>
  (contained in
 <emphasis>groups</emphasis>
@@ -396,7 +402,7 @@ using
 <emphasis>sym_interpret</emphasis>
  field of an
 <emphasis>XkbCompatMapRec</emphasis>
- (see Figure 17.3).
+ (see <link linkend="figure17.3">Figure 17.3</link>).
 </para>
 
 <sect3 id='Symbol_Interpretations__the_XkbSymInterpretRec_Structure'>

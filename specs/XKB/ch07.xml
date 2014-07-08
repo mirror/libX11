@@ -169,7 +169,7 @@ The binding of virtual modifiers to real modifiers is defined by the
  structure. Each entry contains the real modifier bits that are bound to the
 virtual modifier corresponding to the entry. The overall relationship of fields
 dealing with virtual modifiers in the server keyboard description are shown in
-Figure 16.2. <!-- xref -->
+<link linkend="figure16.2">Figure 16.2</link>.
 </para>
 
 

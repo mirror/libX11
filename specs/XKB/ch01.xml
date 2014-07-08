@@ -308,9 +308,9 @@ configuration.
 
 <para>
 The Xkb extension adds a single protocol error,
-<emphasis>BadKeyboard</emphasis>,
+<errorname>BadKeyboard</errorname>,
 to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6</link> for a discussion of the
-<emphasis>BadKeyboard</emphasis>
+<errorname>BadKeyboard</errorname>
  protocol error.
 </para>
 
@@ -387,7 +387,7 @@ generated.
   </row>
   <row>
     <entry>Status</entry>
-    <entry>BadAccess</entry>
+    <entry><errorname>BadAccess</errorname></entry>
   </row>
 </tbody>
 </tgroup>

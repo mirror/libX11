@@ -2364,8 +2364,8 @@ If the
  or it does not contain a valid client map),
 <function>XkbChangeTypesOfKey</function>
  returns
-<emphasis>Bad</emphasis>
-Match. If the
+<errorname>BadMatch</errorname>.
+If the
 <emphasis>key</emphasis>
  is not a valid keycode,
 <emphasis>n_groups</emphasis>

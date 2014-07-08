@@ -144,8 +144,7 @@ keyboard feedback and the core indicator feedback may be obtained by calling
 If the server does not allow Xkb access to input extension
 <emphasis>KeyClass</emphasis>
  devices, attempts to use Xkb requests with those devices fail with a
-Bad
-<emphasis>Keyboard</emphasis>
+<errorname>BadKeyboard</errorname>
  error. Attempts to access non-
 <emphasis>KeyClass</emphasis>
  input extension devices via XkbGetDeviceInfo and XkbSetDeviceInfo fail
@@ -737,15 +736,16 @@ If allocation errors occur, a
 <emphasis>device_info</emphasis>
 -&gt;
 <emphasis>device_spec</emphasis>
-) is invalid, a BadKeyboard status is returned. If the device has no buttons, a
-Bad
-<emphasis>Match</emphasis>
+) is invalid, a
+<errorname>BadKeyboard</errorname>
+ status is returned. If the device has no buttons, a
+<errorname>BadMatch</errorname>
  status is returned. If
 <emphasis>first_button</emphasis>
  and
 <emphasis>num_buttons</emphasis>
- specify illegal buttons, a Bad
-<emphasis>Value</emphasis>
+ specify illegal buttons, a
+<errorname>BadValue</errorname>
  status is returned.
 </para>
 
@@ -932,16 +932,19 @@ extension has not been properly initialized,
 <function>XkbGetDeviceLedInfo</function>
  returns
 <errorname>BadAccess</errorname>.
-If allocation errors occur, a BadAlloc status is returned. If the device has
-no indicators, a BadMatch error is returned. If
+If allocation errors occur, a
+<errorname>BadAlloc</errorname>
+status is returned. If the device has no indicators, a
+<errorname>BadMatch</errorname>
+error is returned. If
 <emphasis>ledClass</emphasis>
  or
 <emphasis>ledID</emphasis>
- have illegal values, a Bad
-<emphasis>Value</emphasis>
+ have illegal values, a
+<errorname>BadValue</errorname>
  error is returned. If they have legal values but do not specify a feedback
-that contains LEDs and is associated with the specified device, a Bad
-<emphasis>Match</emphasis>
+that contains LEDs and is associated with the specified device, a
+<errorname>BadMatch</errorname>
  error is returned.
 </para>
 
@@ -1242,8 +1245,9 @@ To allocate additional space for button actions in an
 <emphasis>btn_acts</emphasis>
  is set to
 <emphasis>NULL</emphasis>.
-If device_info is invalid or new_total is greater than 255, BadValue is
-returned. If a memory allocation failure occurs, a
+If device_info is invalid or new_total is greater than 255,
+<errorname>BadValue</errorname>
+ is returned. If a memory allocation failure occurs, a
 <errorname>BadAlloc</errorname>
  is returned.
 </para>
@@ -1723,7 +1727,8 @@ If the actual request sent to the server involved illegal button numbers, a
  protocol error is generated. If an invalid device identifier is specified in
 device_info-&gt;
 <emphasis>device_spec</emphasis>,
-a BadKeyboard protocol error results. If the actual device specified in
+a <errorname>BadKeyboard</errorname>
+ protocol error results. If the actual device specified in
 <emphasis>device_info</emphasis>
 -&gt;
 <emphasis>device_spec</emphasis>

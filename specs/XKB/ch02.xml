@@ -458,7 +458,7 @@ The possible values for
 <itemizedlist>
 <listitem>
   <para>
-<emphasis>XkbOD_BadLibraryVersion</emphasis>
+<errorname>XkbOD_BadLibraryVersion</errorname>
  indicates
 <function>XkbLibraryVersion</function>
 returned
@@ -467,25 +467,25 @@ returned
 </listitem>
 <listitem>
   <para>
-<emphasis>XkbOD_ConnectionRefused</emphasis>
+<errorname>XkbOD_ConnectionRefused</errorname>
  indicates the display could not be opened.
   </para>
 </listitem>
 <listitem>
   <para>
-<emphasis>XkbOD_BadServerVersion</emphasis>
+<errorname>XkbOD_BadServerVersion</errorname>
  indicates the library and the server have incompatible extension versions.
   </para>
 </listitem>
 <listitem>
   <para>
-<emphasis>XkbOD_NonXkbServer</emphasis>
+<errorname>XkbOD_NonXkbServer</errorname>
  indicates the extension is not present in the X server.
   </para>
 </listitem>
 <listitem>
   <para>
-<emphasis>XkbOD_Success</emphasis>
+<errorname>XkbOD_Success</errorname>
  indicates that the function succeeded.
   </para>
 </listitem>
@@ -562,9 +562,9 @@ use Xkb on a connection for which it is disabled.
 <para>
 Many of the Xkb extension library functions described in this document can
 cause the X server to report an error, referred to in this document as a
-<emphasis>BadXxx</emphasis>
+<errorname>Bad<replaceable>Xxx</replaceable></errorname>
  protocol error, where
-<emphasis>Xxx</emphasis>
+<replaceable>Xxx</replaceable>
  is some name. These errors are fielded in the normal manner, by the default
 Xlib error handler or one replacing it. Note that X protocol errors are not
 necessarily reported immediately because of the buffering of X protocol
@@ -590,7 +590,7 @@ lists the protocol errors that can be generated, and their causes.
 </thead>
 <tbody>
   <row>
-    <entry>BadAccess</entry>
+    <entry><errorname>BadAccess</errorname></entry>
     <entry>
 <para>
 The Xkb extension has not been properly initialized
@@ -598,7 +598,7 @@ The Xkb extension has not been properly initialized
     </entry>
   </row>
   <row>
-    <entry>BadKeyboard</entry>
+    <entry><errorname>BadKeyboard</errorname></entry>
     <entry>
 <para>
 The device specified was not a valid core or input extension device
@@ -606,7 +606,7 @@ The device specified was not a valid core or input extension device
     </entry>
   </row>
   <row>
-    <entry>BadImplementation</entry>
+    <entry><errorname>BadImplementation</errorname></entry>
     <entry>
 <para>
 Invalid reply from server
@@ -614,7 +614,7 @@ Invalid reply from server
     </entry>
   </row>
   <row>
-    <entry>BadAlloc</entry>
+    <entry><errorname>BadAlloc</errorname></entry>
     <entry>
 <para>
 Unable to allocate storage
@@ -622,7 +622,7 @@ Unable to allocate storage
     </entry>
   </row>
   <row>
-    <entry>BadMatch</entry>
+    <entry><errorname>BadMatch</errorname></entry>
     <entry>
 <para>
 A compatible version of Xkb was not available in the server or an argument has
@@ -631,7 +631,7 @@ correct type and range, but is otherwise invalid
     </entry>
   </row>
   <row>
-    <entry>BadValue</entry>
+    <entry><errorname>BadValue</errorname></entry>
     <entry>
 <para>
 An argument is out of range
@@ -639,7 +639,7 @@ An argument is out of range
     </entry>
   </row>
   <row>
-    <entry>BadAtom</entry>
+    <entry><errorname>BadAtom</errorname></entry>
     <entry>
 <para>
 A name is neither a valid Atom or
@@ -648,7 +648,7 @@ A name is neither a valid Atom or
     </entry>
   </row>
   <row>
-    <entry>BadDevice</entry>
+    <entry><errorname>BadDevice</errorname></entry>
     <entry>
 <para>
 Device, Feedback Class, or Feedback ID invalid
@@ -661,13 +661,13 @@ Device, Feedback Class, or Feedback ID invalid
 
 <para>
 The Xkb extension adds a single protocol error,
-<emphasis>BadKeyboard</emphasis>,
+<errorname>BadKeyboard</errorname>,
 to the core protocol error set. This error code will be reported as the
 <emphasis>error_rtrn</emphasis>
  when
 <function>XkbQueryExtension</function>
  is called. When a
-<emphasis>BadKeyboard</emphasis>
+<errorname>BadKeyboard</errorname>
  error is reported in an
 <structname>XErrorEvent</structname>,
 additional information is reported in the
@@ -681,7 +681,7 @@ the table.
 </para>
 
 <table id='table2.2' frame='topbot'>
-<title>BadKeyboard Protocol Error resource_id Values</title>
+<title><errorname>BadKeyboard</errorname> Protocol Error resource_id Values</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
 <colspec colname='c1' colwidth='2.0*'/>
@@ -698,7 +698,7 @@ the table.
 </thead>
 <tbody>
   <row>
-    <entry>XkbErr_BadDevice</entry>
+    <entry><errorname>XkbErr_BadDevice</errorname></entry>
     <entry>0xff</entry>
     <entry>
 <para>
@@ -708,7 +708,7 @@ device not found
     <entry>device ID</entry>
   </row>
   <row>
-    <entry>XkbErr_BadClass</entry>
+    <entry><errorname>XkbErr_BadClass</errorname></entry>
     <entry>0xfe</entry>
     <entry>
 <para>
@@ -718,7 +718,7 @@ device found, but it is of the wrong class
     <entry>class ID</entry>
   </row>
   <row>
-    <entry>XkbErr_BadId</entry>
+    <entry><errorname>XkbErr_BadId</errorname></entry>
     <entry>0xfd</entry>
     <entry>
 <para>

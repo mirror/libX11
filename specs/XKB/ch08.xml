@@ -2061,8 +2061,8 @@ The
 <symbol>Success</symbol>.
 If
 <function>XkbAllocIndicatorMaps</function>
- was unable to allocate the indicators record, it reports a Bad
-<emphasis>Alloc</emphasis>
+ was unable to allocate the indicators record, it reports a
+<errorname>BadAlloc</errorname>
  error.
 </para>
 

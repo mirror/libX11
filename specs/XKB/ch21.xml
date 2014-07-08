@@ -171,7 +171,7 @@ typedef struct {
                                         device has its own state */
       unsigned short  supported;     /* bits indicating supported capabilities */
       unsigned short  unsupported;   /* bits indicating unsupported capabilities */
-      unsigned short  num_btns;      /* number of entries in <emphasis> btn_acts</emphasis> */
+      unsigned short  num_btns;      /* number of entries in <emphasis>btn_acts</emphasis> */
       XkbAction *     btn_acts;      /* button actions */
       unsigned short  sz_leds;       /* total number of entries in LEDs vector */
       unsigned short  num_leds;      /* number of valid entries in LEDs vector */
@@ -190,7 +190,7 @@ typedef struct {
       unsigned int     maps_present;      /* bits for which LEDs have maps in
                                              <emphasis>maps</emphasis> */
       unsigned int     names_present;     /* bits for which LEDs are in
-                                             <emphasis> names</emphasis> */
+                                             <emphasis>names</emphasis> */
       unsigned int     state;            /* 1 bit =&gt; corresponding LED is on */
       Atom             names[XkbNumIndicators];  /* names for LEDs */
       XkbIndicatorMapRec  maps;          /* indicator maps for each LED */

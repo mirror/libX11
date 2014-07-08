@@ -370,7 +370,7 @@ cue might want to turn off the
 <emphasis>AudibleBell</emphasis>
  control to prevent the server from also generating a sound and avoid
 cacophony. If the client were to exit without resetting the
-<emphasis>AudibleBell </emphasis>
+<emphasis>AudibleBell</emphasis>
 control, the user would be left without any feedback at all. Setting
 <emphasis>AudibleBell</emphasis>
  in both the auto-reset mask and auto-reset values guarantees that the audible
@@ -516,33 +516,31 @@ To change the current values of the
 </variablelist>
 
 <para>
-<emphasis>XkbSetAutoResetControls changes the auto-reset status and associated auto-reset
-values for the controls selected by </emphasis>
-<emphasis>changes</emphasis>
-<emphasis>.
-For any control selected by </emphasis>
-<emphasis>changes</emphasis>
-<emphasis>,
-if the corresponding bit is set in </emphasis>
-<emphasis>auto_ctrls</emphasis>
-<emphasis>,
+<function>XkbSetAutoResetControls</function>
+changes the auto-reset status and associated auto-reset
+values for the controls selected by
+<parameter>changes</parameter>.
+For any control selected by
+<parameter>changes</parameter>,
+if the corresponding bit is set in
+<parameter>auto_ctrls</parameter>,
 the control is configured to auto-reset when the client exits. If the
-corresponding bit in </emphasis>
-<emphasis>auto_values</emphasis>
-<emphasis>is on, the control is turned on when the client exits; if zero, the control is
-turned off when the client exits</emphasis>.
+corresponding bit in
+<parameter>auto_values</parameter>
+is on, the control is turned on when the client exits;
+if zero, the control is turned off when the client exits.
  For any control selected by
-<emphasis>changes</emphasis>,
+<parameter>changes</parameter>,
 if the corresponding bit is not set in
-<emphasis>auto_ctrls</emphasis>,
+<parameter>auto_ctrls</parameter>,
 the control is configured to not reset when the client exits. For example:
 </para>
 
 
 <para>
-<emphasis>To leave the auto-reset controls for </emphasis>
+To leave the auto-reset controls for
 <emphasis>StickyKeys</emphasis>
-<emphasis>the way they are:</emphasis>
+the way they are:
 </para>
 
 <para><programlisting>
@@ -550,9 +548,9 @@ ok = XkbSetAutoResetControls(dpy, 0, 0, 0);
 </programlisting></para>
 
 <para>
-<emphasis>To change the auto-reset controls so that </emphasis>
+To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
-<emphasis>are unaffected when the client exits:</emphasis>
+are unaffected when the client exits:
 </para>
 
 <para><programlisting>
@@ -560,9 +558,9 @@ ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, 0, 0);
 </programlisting></para>
 
 <para>
-<emphasis>To change the auto-reset controls so that </emphasis>
+To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
-<emphasis>are turned off when the client exits:</emphasis>
+are turned off when the client exits:
 </para>
 
 <para><programlisting>
@@ -570,9 +568,9 @@ ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, XkbStickyKeysMask, 0);
 </programlisting></para>
 
 <para>
-<emphasis>To change the auto-reset controls so that </emphasis>
+To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
-<emphasis>are turned on when the client exits:</emphasis>
+are turned on when the client exits:
 </para>
 
 <para><programlisting>
@@ -1417,7 +1415,7 @@ Where
  is the relative motion specified by the
 <emphasis>XkbSA_MovePtr</emphasis>
  action,
-<emphasis>mk_max_speed </emphasis>
+<emphasis>mk_max_speed</emphasis>
 and
 <emphasis>mk_time_to_max</emphasis>
  are parameters to the
@@ -2023,8 +2021,8 @@ typedef struct {
       Bool            send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *       display;         /* server connection where event generated */
       Time            time;            /* server time when event generated */
-      int             xkb_type;        /* <emphasis> XkbAccessXNotify</emphasis> */
-      int             device;          /* Xkb device ID, will not be <emphasis> XkbUseCoreKbd</emphasis> */
+      int             xkb_type;        /* <emphasis>XkbAccessXNotify</emphasis> */
+      int             device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       int             detail;          /* XkbAXN_* */
       KeyCode         keycode;         /* key of event */
       int             slowKeysDelay;   /* current SlowKeys delay */
@@ -2577,7 +2575,7 @@ To set the
 It does not wait for a reply and normally returns
 <symbol>True</symbol>.
 Specifying a value of
-<emphasis>zero </emphasis>
+<emphasis>zero</emphasis>
 for the
 <emphasis>delay </emphasis>
 parameter causes
@@ -2927,7 +2925,7 @@ and consumed in the server. These are:
      <emphasis>GroupsWrap</emphasis>
      <emphasis>IgnoreGroupLock</emphasis>
      <emphasis>IgnoreLockMods</emphasis>
-     <emphasis>InternalMods </emphasis>
+     <emphasis>InternalMods</emphasis>
 </programlisting>
 </para>
 
@@ -3471,8 +3469,8 @@ typedef struct {
       unsigned short       ax_timeout;        /* seconds until Access X disabled */
       unsigned short       axt_opts_mask;     /* 1 bit =&gt; options to reset on Access X timeout */
       unsigned short       axt_opts_values;   /* 1 bit =&gt; turn option on, 0=&gt; off */
-      unsigned int         axt_ctrls_mask;    /* which bits in <emphasis> enabled_ctrls</emphasis> to modify */
-      unsigned int         axt_ctrls_values;  /* values for new bits in <emphasis> enabled_ctrls</emphasis> */
+      unsigned int         axt_ctrls_mask;    /* which bits in <emphasis>enabled_ctrls</emphasis> to modify */
+      unsigned int         axt_ctrls_values;  /* values for new bits in <emphasis>enabled_ctrls</emphasis> */
       unsigned char        per_key_repeat[XkbPerKeyBitArraySize];           /* per key auto repeat */
 } <emphasis>XkbControlsRec</emphasis>, *XkbControlsPtr;
 </programlisting>
@@ -3848,9 +3846,9 @@ The individual fields of the
 <title>mk_dflt_btn</title>
 
 <para>
-<emphasis>mk_dflt_btn is an attribute of the </emphasis>
+<emphasis>mk_dflt_btn</emphasis> is an attribute of the
 <emphasis>MouseKeys</emphasis>
-<emphasis>control</emphasis>
+control
  (see <link linkend="Controls_for_Using_the_Mouse_from_the_Keyboard">section 10.5</link>). It
  specifies the mouse button number to use for keyboard simulated mouse button
 operations. Its value should be one of the core symbols
@@ -4381,7 +4379,7 @@ and then copies the server’s values for the requested information into the
 If
 <emphasis>xkb</emphasis>
 -&gt;
-<emphasis>ctrls </emphasis>
+<emphasis>ctrls</emphasis>
 is
 <emphasis>NULL</emphasis>,
 <function>XkbGetControls</function>
@@ -4761,8 +4759,8 @@ typedef struct {
       Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <emphasis> XkbCompatMapNotify</emphasis> */
-      int            device;          /* Xkb device ID, will not be <emphasis> XkbUseCoreKbd</emphasis> */
+      int            xkb_type;        /* <emphasis>XkbCompatMapNotify</emphasis> */
+      int            device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       unsigned int   changed_ctrls;   /* bits indicating which controls data have changed*/
       unsigned int   enabled_ctrls;   /* controls currently enabled in server */
       unsigned int   enabled_ctrl_changes;  /* bits indicating enabled/disabled controls */
@@ -4810,7 +4808,7 @@ If the change was caused by a request from a client, the
  and
 <emphasis>event_type</emphasis>
  fields are set to
-<emphasis>zero </emphasis>
+<emphasis>zero</emphasis>
 and the
 <emphasis>req_major</emphasis>
  and
@@ -5116,7 +5114,7 @@ associated with them, which is currently of little practical value in this call.
 To free memory used by the
 <emphasis>ctrls</emphasis>
  member of an
-<emphasis>XkbDescRec </emphasis>
+<emphasis>XkbDescRec</emphasis>
 structure, use
 <emphasis>XkbFreeControls:</emphasis>
 </para>
@@ -5273,7 +5271,7 @@ To get the current values of the
  backfills
 <emphasis>ctrls</emphasis>
  with the
-<emphasis>per-client </emphasis>
+<emphasis>per-client</emphasis>
 control attributes for this particular client. It returns
 <symbol>True</symbol>
  if successful, and
@@ -5338,15 +5336,16 @@ To change the current values of the
 </variablelist>
 
 <para>
-<emphasis>XkbSetPerClientControls changes the per-client values for the controls selected
-by </emphasis>
-<emphasis>change to the corresponding value in value. Legal values for change and value
+<function>XkbSetPerClientControls</function>
+changes the per-client values for the controls selected by
+<parameter>change</parameter> to the corresponding value in
+<parameter>value</parameter>. Legal values for
+<parameter>change</parameter> and <parameter>value</parameter>
 are: XkbPCF_GrabsUseXKBStateMask, XkbPCF_LookupStateWhenGrabbed, and
 XkbPCF_SendEventUsesXKBState. More than one control may be changed at one time
 by OR-ing the values together. XkbSetPerClientControls backfills value with the
-</emphasis>
-<emphasis>per-client </emphasis>
-<emphasis>control attributes for this particular client</emphasis>.
+<emphasis>per-client</emphasis>
+control attributes for this particular client.
 It returns
 <symbol>True</symbol>
  if successful, and

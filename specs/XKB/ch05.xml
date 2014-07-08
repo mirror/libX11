@@ -219,7 +219,7 @@ The
 </para>
 
 <literallayout>
-   ((base | latched | locked) &amp; ~<emphasis> server_internal_modifiers</emphasis>)
+   ((base | latched | locked) &amp; ~<emphasis>server_internal_modifiers</emphasis>)
 </literallayout>
 
 <para>
@@ -227,7 +227,7 @@ Otherwise the lookup modifiers are computed as:
 </para>
 
 <literallayout>
-(((base | latched | (locked &amp; ~<emphasis> ignore_locks</emphasis>)) &amp; ~<emphasis> server_internal_modifiers</emphasis>)
+(((base | latched | (locked &amp; ~<emphasis>ignore_locks</emphasis>)) &amp; ~<emphasis>server_internal_modifiers</emphasis>)
 </literallayout>
 
 <para>
@@ -265,7 +265,7 @@ If the server’s
 
 <para>
 The final three components of Xkb state are applicable to clients that are not linked with an Xlib containing the X keyboard extension library and therefore are not aware of the keyboard extension (
-<emphasis>Xkb-unaware </emphasis>
+<emphasis>Xkb-unaware</emphasis>
 clients):
 </para>
 
@@ -774,7 +774,7 @@ All group values are expressed as group indices in the range [0..3]. Modifiers a
 
 <para>
 The Xkb extension reports
-<emphasis>XkbStateNotify </emphasis>
+<emphasis>XkbStateNotify</emphasis>
 events to clients wanting notification whenever the Xkb state changes. The changes reported include changes to any aspect of the keyboard state: when a modifier is set or unset, when the current group changes, or when a pointer button is pressed or released. As with all Xkb events,
 <emphasis>XkbStateNotify</emphasis>
  events are reported to all interested clients without regard to the current keyboard input focus or grab state.
@@ -919,8 +919,8 @@ typedef struct {
       Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <emphasis> XkbStateNotify</emphasis> */
-      int            device;          /* Xkb device ID, will not be <emphasis> XkbUseCoreKbd</emphasis> */
+      int            xkb_type;        /* <emphasis>XkbStateNotify</emphasis> */
+      int            device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       unsigned int   changed;         /* bits indicating what has changed */
       int            group;           /* group index of effective group */
       int            base_group;      /* group index of base group */
@@ -937,8 +937,8 @@ typedef struct {
       unsigned char  compat_lookup_mods;                  /* mods used for compatibility look up */
       int            ptr_buttons;     /* core pointer buttons */
       KeyCode        keycode;         /* keycode causing event, 0 if programmatic */
-      char           event_type;      /* core event if <emphasis> req_major</emphasis> or
-                                         <emphasis> req_minor</emphasis> non zero */
+      char           event_type;      /* core event if <emphasis>req_major</emphasis> or
+                                         <emphasis>req_minor</emphasis> non zero */
       char           req_major;       /* major request code if program trigger, else 0 */
       char           req_minor;       /* minor request code if program trigger, else 0 */
 } <emphasis>XkbStateNotifyEvent</emphasis>

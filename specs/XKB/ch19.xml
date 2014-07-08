@@ -200,7 +200,7 @@ Set the
  parameter to
 <emphasis>XkbNewKeyboardNotify</emphasis>,
 and set both the
-<emphasis>bits_to_change </emphasis>
+<emphasis>bits_to_change</emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  detail parameter to a mask composed of a bitwise OR of masks in

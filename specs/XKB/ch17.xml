@@ -648,7 +648,7 @@ field potentially specify additional behavior modifications:
 #define      XkbSI_AutoRepeat    (1&lt;&lt;0)
                                  /* key repeats if sym is in position G1L1 */
 #define      XkbSI_LockingKey    (1&lt;&lt;1)
-                                 /* set <emphasis> KB_Lock</emphasis>
+                                 /* set <emphasis>KB_Lock</emphasis>
                                     behavior if sym is in psn G1L1 */
 </programlisting></para>
 
@@ -1018,9 +1018,8 @@ keys with keycodes in the range
 <function>XkbUpdateMapFromCore</function>
  is being called in response to a
 <symbol>MappingNotify</symbol>
-
-event<emphasis>,
-first_key</emphasis>
+event,
+<emphasis>first_key</emphasis>
  and
 <emphasis>num_keys</emphasis>
  are reported in the
@@ -1191,8 +1190,8 @@ size).
 control associated with each of the four possible groups for each Xkb key,
 <emphasis>ExplicitKeyType1</emphasis>
  through
-<emphasis>ExplicitKeyType4</emphasis>
-<emphasis>; protected </emphasis>
+<emphasis>ExplicitKeyType4</emphasis>;
+<emphasis>protected</emphasis>
 is an inclusive OR of these controls.
 <emphasis>map_width</emphasis>
  is the width of the core keymap and is not dependent on any Xkb definitions.

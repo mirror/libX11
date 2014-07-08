@@ -69,9 +69,9 @@ typedef struct _XkbNamesRec {
       XkbKeyAliasPtr     key_aliases;  /* real/alias symbolic name pairs array */
       Atom *    radio_groups;      /* radio group name array */
       Atom      phys_symbols;      /* identifies the symbols engraved on the keyboard */
-      unsigned char      num_keys; /* number of keys in the <emphasis> keys</emphasis> array */
+      unsigned char      num_keys; /* number of keys in the <emphasis>keys</emphasis> array */
       unsigned char      num_key_aliases;  /* number of keys in the
-                                              <emphasis> key_aliases</emphasis> array */
+                                              <emphasis>key_aliases</emphasis> array */
       unsigned short     num_rg;      /* number of radio groups */
 } <emphasis>XkbNamesRec</emphasis>,*XkbNamesPtr;      /*
 </programlisting></para>
@@ -855,7 +855,7 @@ Set the
  parameter to
 <emphasis>XkbNamesNotify</emphasis>,
 and set both the
-<emphasis>bits_to_change </emphasis>
+<emphasis>bits_to_change</emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  detail parameter to a mask composed of a bitwise OR of masks in

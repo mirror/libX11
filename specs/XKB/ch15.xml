@@ -32,7 +32,7 @@ Xkb Client Map</H5>
 
 <para>
 The
-<emphasis>map </emphasis>
+<emphasis>map</emphasis>
 field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb client map, which is of type
 <emphasis>XkbClientMapRec</emphasis>
@@ -41,7 +41,7 @@ to the Xkb client map, which is of type
 
 <para><programlisting>
 typedef struct {                        /* Client Map */
-      unsigned char      size_types;    /* # occupied entries in <emphasis> types</emphasis> */
+      unsigned char      size_types;    /* # occupied entries in <emphasis>types</emphasis> */
       unsigned char      num_types;     /* # entries in <emphasis>types</emphasis> */
       XkbKeyTypePtr      types;         /* vector of key types used by this keymap */
       unsigned short     size_syms;     /* length of the <emphasis>syms</emphasis> array */
@@ -82,7 +82,7 @@ typedef struct {                       /* Key Type */
       unsigned char     num_levels;    /* total # shift levels, do not
                                           modify directly */
       unsigned char     map_count;     /* # entries in <emphasis>map</emphasis>,
-                                          <emphasis> preserve</emphasis>
+                                          <emphasis>preserve</emphasis>
                                           (if non-<emphasis> NULL</emphasis>) */
       XkbKTMapEntryPtr  map;           /* vector of modifiers for each
                                           shift level */
@@ -97,7 +97,7 @@ typedef struct {                       /* Key Type */
 typedef struct {                   /* Modifiers for a key type */
       Bool            active;      /* <symbol>True</symbol> =&gt; entry
                                       active when determining shift level */
-      unsigned char   level;       /* shift level if modifiers match <emphasis> mods</emphasis> */
+      unsigned char   level;       /* shift level if modifiers match <emphasis>mods</emphasis> */
       XkbModsRec      mods;        /* mods needed for this level to be
                                       selected */
 } <emphasis>XkbKTMapEntryRec</emphasis>,*XkbKTMapEntryPtr;
@@ -173,7 +173,7 @@ this
 the
 <emphasis>level</emphasis>
  field of the
-<emphasis>map </emphasis>
+<emphasis>map</emphasis>
 entry specifies the shift level to use when the current modifier combination
 matches the combination specified in the
 <emphasis>mods</emphasis>
@@ -1264,7 +1264,7 @@ typedef struct {                                   /* map to keysyms for a singl
       unsigned char     kt_index[XkbNumKbdGroups]; /* key type index for each group */
       unsigned char     group_info;                /* # of groups and out of range group handling */
       unsigned char     width;                     /* max # of shift levels for key */
-      unsigned short    offset;                    /* index to keysym table in <emphasis> syms</emphasis> array */
+      unsigned short    offset;                    /* index to keysym table in <emphasis>syms</emphasis> array */
 } <emphasis>XkbSymMapRec</emphasis>, *XkbSymMapPtr;
 </programlisting></para>
 
@@ -1677,7 +1677,7 @@ of a key type. The
 <emphasis>key_sym_map</emphasis>
  entry for a key contains the width of the widest type associated with the key.
 The
-<emphasis>width </emphasis>
+<emphasis>width</emphasis>
 field cannot be explicitly changed; it is updated automatically whenever the
 symbols or set of types bound to a key are changed.
 </para>

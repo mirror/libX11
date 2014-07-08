@@ -236,8 +236,7 @@ from the server. To set the binding of a virtual modifier to a real modifier,
 use
 <function>XkbSetMap</function>
  (see
-<link linkend="Changing_Map_Components_in_the_Server">section 14.3</link>
-<emphasis>)</emphasis>.
+<link linkend="Changing_Map_Components_in_the_Server">section 14.3</link>).
 </para>
 
 
@@ -374,12 +373,12 @@ following names are suggested:
 </para>
 
 <literallayout class='monospaced'>
-<emphasis>NumLock
-     ScrollLock
-     Alt
-     Meta
-     AltGr
-     LevelThree</emphasis>
+     <emphasis>NumLock</emphasis>
+     <emphasis>ScrollLock</emphasis>
+     <emphasis>Alt</emphasis>
+     <emphasis>Meta</emphasis>
+     <emphasis>AltGr</emphasis>
+     <emphasis>LevelThree</emphasis>
 </literallayout>
 
 </sect1>

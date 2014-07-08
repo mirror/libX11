@@ -540,7 +540,7 @@ of rotation of the doodad about its origin.
 <listitem>
   <para>
 A
-<emphasis>logo doodad </emphasis>
+<emphasis>logo doodad</emphasis>
 is a catch-all, which describes some other visible element of the keyboard. A
 logo doodad is essentially an outline doodad with an additional symbolic name
 that describes the element to be drawn. If a keyboard display program
@@ -743,8 +743,8 @@ Xkb Geometry Data Structures (Overlays)</H5>
 <para><programlisting>
 typedef struct _XkbGeometry {              /* top-level keyboard geometry structure */
       Atom                name;            /* keyboard name */
-      unsigned short      width_mm;        /* keyboard width in <emphasis> mm</emphasis> /<emphasis> 10</emphasis> */
-      unsigned short      height_mm;       /* keyboard height in <emphasis> mm</emphasis> /<emphasis> 10</emphasis> */
+      unsigned short      width_mm;        /* keyboard width in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
+      unsigned short      height_mm;       /* keyboard height in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
       char *              label_font;      /* font for key labels */
       XkbColorPtr         label_color;     /* color for key labels - pointer into colors array */
       XkbColorPtr         base_color;      /* color for basic keyboard - pointer into colors array */
@@ -1029,7 +1029,7 @@ typedef struct _XkbShapeDoodad {
 <para><programlisting>
 typedef struct _XkbTextDoodad {
       Atom            name;         /* doodad name */
-      unsigned char   type;         /* <emphasis> XkbTextDoodad</emphasis> */
+      unsigned char   type;         /* <emphasis>XkbTextDoodad</emphasis> */
       unsigned char   priority;     /* drawing priority,
                                        0=&gt;highest, 255=&gt;lowest */
       short           top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1060,7 +1060,7 @@ typedef struct _XkbIndicatorDoodad {
 <para><programlisting>
 typedef struct _XkbLogoDoodad {
       Atom               name;        /* doodad name */
-      unsigned char      type;        /* <emphasis> XkbLogoDoodad</emphasis> */
+      unsigned char      type;        /* <emphasis>XkbLogoDoodad</emphasis> */
       unsigned char      priority;    /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
       short              top;         /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short              left;        /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1560,7 +1560,7 @@ to look up the alternate name, which it returns.
 <para>
 Xkb provides functions to add a single new element to the top-level keyboard
 geometry. In each case the
-<emphasis>num_ </emphasis>
+<emphasis>num_</emphasis>
 <emphasis>*</emphasis>
  fields of the corresponding structure is incremented by 1. These functions do
 not change

@@ -568,11 +568,11 @@ a
  of
 <emphasis>XkbUseCoreKbd</emphasis>,
 a
-<emphasis>bell_class </emphasis>
+<emphasis>bell_class</emphasis>
 of
 <emphasis>XkbDfltXIClass</emphasis>,
 and a
-<emphasis>bell_id </emphasis>
+<emphasis>bell_id</emphasis>
 of
 <emphasis>XkbDfltXIId</emphasis>,
  and returns
@@ -820,11 +820,11 @@ a
  of
 <emphasis>XkbUseCoreKbd</emphasis>,
 a
-<emphasis>bell_class </emphasis>
+<emphasis>bell_class</emphasis>
 of
 <emphasis>XkbDfltXIClass</emphasis>,
 and a
-<emphasis>bell_id </emphasis>
+<emphasis>bell_id</emphasis>
 of
 <emphasis>XkbDfltXIId</emphasis>,
  and returns what
@@ -1023,10 +1023,10 @@ and
 <emphasis>device_spec</emphasis>
  =
 <emphasis>XkbUseCoreKbd</emphasis>,
-<emphasis>bell_class </emphasis>
+<emphasis>bell_class</emphasis>
 =
 <emphasis>XkbDfltXIClass</emphasis>,
-<emphasis>bell_id </emphasis>
+<emphasis>bell_id</emphasis>
 =
 <emphasis>XkbDfltXIId</emphasis>,
 <emphasis>window</emphasis>
@@ -1069,7 +1069,7 @@ To receive
  events under all possible conditions, pass
 <emphasis>XkbBellNotifyMask</emphasis>
  in both the
-<emphasis>bits_to_change </emphasis>
+<emphasis>bits_to_change</emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  parameters to
@@ -1110,8 +1110,8 @@ typedef struct _XkbBellNotify {
       Bool            send_event;  /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *       display;     /* server connection where event generated */
       Time            time;        /* server time when event generated */
-      int             xkb_type;    /* <emphasis> XkbBellNotify</emphasis> */
-      unsigned int    device;      /* Xkb device ID, will not be <emphasis> XkbUseCoreKbd</emphasis> */
+      int             xkb_type;    /* <emphasis>XkbBellNotify</emphasis> */
+      unsigned int    device;      /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       int             percent;     /* requested volume as % of max */
       int             pitch;       /* requested pitch in Hz */
       int             duration;    /* requested duration in microseconds */

@@ -296,10 +296,8 @@ If a compatible version of Xkb is present,
 extension in
 <emphasis>opcode_rtrn</emphasis>,
 the base event code in
-<emphasis>event_rtrn</emphasis>
-<emphasis>,
-the base error code</emphasis>
- in
+<emphasis>event_rtrn</emphasis>,
+the base error code in
 <emphasis>error_rtrn</emphasis>,
 and the major and minor version numbers of the extension in
 <emphasis>major_in_out</emphasis>

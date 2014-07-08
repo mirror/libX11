@@ -23,7 +23,7 @@ ability to determine what bits in the
 method for a client to determine what bit to set in the
 <emphasis>led_mask</emphasis>
  field to turn on the
-<emphasis>Scroll Lock </emphasis>
+<emphasis>Scroll Lock</emphasis>
 LED or whether the keyboard even has a
 <emphasis>Scroll Lock</emphasis>
  LED.
@@ -333,7 +333,7 @@ corresponding indicator. The
 
 <para>
 The
-<emphasis>groups </emphasis>
+<emphasis>groups</emphasis>
 field specifies what keyboard groups an indicator watches and is the bitwise
 inclusive OR of the following valid values:
 </para>
@@ -527,7 +527,7 @@ specified in the
 
 <para>
 The
-<emphasis>mods </emphasis>
+<emphasis>mods</emphasis>
 field specifies what modifiers an indicator watches. The
 <emphasis>mods</emphasis>
  field is an Xkb modifier definition,
@@ -1746,7 +1746,7 @@ To receive
  events, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the
-<emphasis>bits_to_change </emphasis>
+<emphasis>bits_to_change</emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  parameters containing
@@ -1770,7 +1770,7 @@ Set the
  or
 <emphasis>XkbIndicatorMapNotify</emphasis>,
 and set both the
-<emphasis>bits_to_change </emphasis>
+<emphasis>bits_to_change</emphasis>
 and
 <emphasis>values_for_bits</emphasis>
  detail parameters to a mask where each bit specifies one indicator, turning on
@@ -1790,7 +1790,7 @@ typedef struct _XkbIndicatorNotify {
       Display *      display;     /* server connection where event generated */
       Time           time;        /* server time when event generated */
       int            xkb_type;    /* specifies state or map notify */
-      int            device;      /* Xkb device ID, will not be <emphasis> XkbUseCoreKbd</emphasis> */
+      int            device;      /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       unsigned int   changed;     /* mask of indicators with new state or map */
       unsigned int   state;       /* current state of all indicators */
 } <emphasis>XkbIndicatorNotifyEvent</emphasis>;

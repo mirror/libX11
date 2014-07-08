@@ -302,7 +302,7 @@ Applications seldom need to directly allocate a keyboard description; calling
 scratch, however, use
 <function>XkbAllocKeyboard</function>
  rather than directly calling
-<emphasis>malloc </emphasis>
+<emphasis>malloc</emphasis>
 or
 <emphasis>Xmalloc</emphasis>.
 </para>

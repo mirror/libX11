@@ -321,8 +321,8 @@ and
 <para>
 <function>XkbGetMap</function>
  is synchronous; it queries the server for the desired information, waits for a
-reply, and then returns. If successful<emphasis>,
-XkbGetMap</emphasis>
+reply, and then returns. If successful,
+<function>XkbGetMap</function>
  returns a pointer to the
 <emphasis>XkbDescRec</emphasis>
  structure it allocated. If unsuccessful,
@@ -564,8 +564,8 @@ If the needed components of the
 <para>
 <function>XkbGetUpdatedMap</function>
  is synchronous; it queries the server for the desired information, waits for a
-reply, and then returns. If successful<emphasis>,
-XkbGetUpdatedMap</emphasis>
+reply, and then returns. If successful,
+<function>XkbGetUpdatedMap</function>
  returns
 <symbol>Success</symbol>.
 If unsuccessful,
@@ -734,7 +734,7 @@ typedef struct _XkbMapChanges {
                                                  entries changed */
       KeyCode           first_key_explicit;   /* first key whose <emphasis>explicit</emphasis>
                                                  entry changed */
-      unsigned char     num_key_explicit;     /* # <emphasis> explicit</emphasis>
+      unsigned char     num_key_explicit;     /* # <emphasis>explicit</emphasis>
                                                  entries changed */
       KeyCode           first_modmap_key;     /* first key whose <emphasis>modmap</emphasis>
                                                  entry changed */
@@ -742,7 +742,7 @@ typedef struct _XkbMapChanges {
                                                  entries changed */
       KeyCode           first_vmodmap_key;    /* first key whose <emphasis>vmodmap</emphasis>
                                                  changed */
-      unsigned char     num_vmodmap_keys;     /* # <emphasis> vmodmap</emphasis>
+      unsigned char     num_vmodmap_keys;     /* # <emphasis>vmodmap</emphasis>
                                                  entries changed */
       unsigned char     pad1;                 /* reserved */
       unsigned short    vmods;                /* mask indicating which <emphasis>vmods</emphasis>
@@ -1026,27 +1026,27 @@ typedef struct {
       Bool           send_event;   /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */
-      int            xkb_type;     /* <emphasis> XkbMapNotify</emphasis> */
+      int            xkb_type;     /* <emphasis>XkbMapNotify</emphasis> */
       int            device;       /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
       unsigned int   changed;      /* identifies valid fields in rest of event */
       unsigned int   resized;      /* reserved */
-      int            first_type;   /* index of first key <emphasis> type</emphasis> modified */
+      int            first_type;   /* index of first key <emphasis>type</emphasis> modified */
       int            num_types     /* # types modified */
       KeyCode        min_key_code; /* minimum keycode for device */
       KeyCode        max_key_code; /* maximum keycode for device */
       KeyCode        first_key_sym; /* first key whose <emphasis>key_sym_map</emphasis> changed */
-      KeyCode        first_key_act; /* first key whose <emphasis> key_acts</emphasis> entry changed */
-      KeyCode        first_key_behavior; /* first key whose <emphasis> behaviors</emphasis> changed */
-      KeyCode        first_key_explicit; /* first key whose <emphasis> explicit </emphasis> entry changed */
-      KeyCode        first_modmap_key;   /* first key whose <emphasis> modmap</emphasis> entry changed */
-      KeyCode        first_vmodmap_key;  /* # <emphasis> modmap</emphasis> entries changed */
+      KeyCode        first_key_act; /* first key whose <emphasis>key_acts</emphasis> entry changed */
+      KeyCode        first_key_behavior; /* first key whose <emphasis>behaviors</emphasis> changed */
+      KeyCode        first_key_explicit; /* first key whose <emphasis>explicit</emphasis> entry changed */
+      KeyCode        first_modmap_key;   /* first key whose <emphasis>modmap</emphasis> entry changed */
+      KeyCode        first_vmodmap_key;  /* # <emphasis>modmap</emphasis> entries changed */
       int            num_key_syms;       /* # <emphasis>key_sym_map</emphasis> entries changed */
-      int            num_key_acts;       /* # <emphasis> key_acts</emphasis> entries changed */
-      int            num_key_behaviors;  /* # <emphasis> behaviors</emphasis> entries changed */
-      int            num_key_explicit;   /* # <emphasis> explicit</emphasis> entries changed */
-      int            num_modmap_keys;    /* # <emphasis> modmap</emphasis> entries changed */
-      int            num_vmodmap_keys;   /* # <emphasis> vmodmap</emphasis> entries changed */
-      unsigned in      t      vmods;     /* mask indicating which <emphasis> vmods</emphasis> changed */
+      int            num_key_acts;       /* # <emphasis>key_acts</emphasis> entries changed */
+      int            num_key_behaviors;  /* # <emphasis>behaviors</emphasis> entries changed */
+      int            num_key_explicit;   /* # <emphasis>explicit</emphasis> entries changed */
+      int            num_modmap_keys;    /* # <emphasis>modmap</emphasis> entries changed */
+      int            num_vmodmap_keys;   /* # <emphasis>vmodmap</emphasis> entries changed */
+      unsigned in      t      vmods;     /* mask indicating which <emphasis>vmods</emphasis> changed */
 } <emphasis>XkbMapNotifyEvent</emphasis>;
 </programlisting></para>
 
@@ -1486,7 +1486,7 @@ The
  fields of the
 <emphasis>xkb</emphasis>
  parameter are used to allocate the
-<emphasis>explicit </emphasis>
+<emphasis>explicit</emphasis>
 field of the server map.
     </entry>
   </row>
@@ -1500,7 +1500,7 @@ The
  fields of the
 <emphasis>xkb</emphasis>
  parameter are used to allocate the
-<emphasis>key_acts </emphasis>
+<emphasis>key_acts</emphasis>
 field of the server map. The
 <emphasis>count_acts</emphasis>
  parameter is used to allocate the
@@ -1518,7 +1518,7 @@ The
  fields of the
 <emphasis>xkb</emphasis>
  parameter are used to allocate the
-<emphasis>behaviors </emphasis>
+<emphasis>behaviors</emphasis>
 field of the server map.
     </entry>
   </row>
@@ -1532,7 +1532,7 @@ The
  fields of the
 <emphasis>xkb </emphasis>
 parameter are used to allocate the
-<emphasis>vmodmap </emphasis>
+<emphasis>vmodmap</emphasis>
 field of the server map.
     </entry>
   </row>
@@ -1558,17 +1558,17 @@ If the server map of the keyboard description is not
  and any fields are already allocated in the server map,
 <function>XkbAllocServerMap</function>
  does not overwrite the existing values. The only exception is with the
-<emphasis>acts </emphasis>
+<emphasis>acts</emphasis>
 array. If the
 <emphasis>count_acts </emphasis>
 parameter is greater than the current
-<emphasis>num_acts </emphasis>
+<emphasis>num_acts</emphasis>
 field of the server map,
 <function>XkbAllocServerMap</function>
  resizes the
-<emphasis>acts </emphasis>
+<emphasis>acts</emphasis>
 array and resets the
-<emphasis>num_acts </emphasis>
+<emphasis>num_acts</emphasis>
 field accordingly.
 </para>
 

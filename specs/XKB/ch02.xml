@@ -308,7 +308,7 @@ and the major and minor version numbers of the extension in
 The major opcode is reported in the
 <emphasis>req_major</emphasis>
  fields of some Xkb events. For a discussion of the base event code, see
-<link linkend="Xkb_Event_Types">section 4.1</link>. <!-- xref -->
+<link linkend="Xkb_Event_Types">section 4.1</link>.
 </para>
 
 <para>

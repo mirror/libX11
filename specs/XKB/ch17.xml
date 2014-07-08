@@ -136,7 +136,7 @@ contained in an
  structure; plus a set of explicit override controls used to prevent particular
 components of type 2 (core-to-Xkb keyboard mapping) transformations from
 automatically occurring. These explicit override controls are maintained in a
-separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>. <!-- xref -->
+separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>.
 </para>
 
 

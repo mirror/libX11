@@ -194,14 +194,14 @@ type and specifies the modifier combinations necessary to access each level.
 For example, Xkb allows key types where the
 <symbol>Control</symbol>
  modifier can be used to access the shift level two of a key. Key types are in
-the client map component and are described in detail in <link linkend="Key_Types">section 15.2</link>. <!-- xref -->
+the client map component and are described in detail in <link linkend="Key_Types">section 15.2</link>.
 </para>
 
 
 <para>
 Xkb provides precise specification of the behavior of a key using key
 behaviors. Key behaviors are in the server map component and are described in
-detail in <link linkend="Key_Behavior">section 16.2</link>. <!-- xref -->
+detail in <link linkend="Key_Behavior">section 16.2</link>.
 </para>
 
 

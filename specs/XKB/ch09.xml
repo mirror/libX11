@@ -16,7 +16,7 @@ opposed to any other audible sound generated elsewhere in the system.
 <para>
 You can ask to receive
 <emphasis>XkbBellNotify</emphasis>
- events (see <link linkend="Detecting_Bells">section 9.4</link>) when any client rings any one of the following: <!-- xref -->
+ events (see <link linkend="Detecting_Bells">section 9.4</link>) when any client rings any one of the following:
 </para>
 
 <itemizedlist>
@@ -75,7 +75,7 @@ spite of the setting of the
 <function>XkbForceDeviceBell</function>
  or
 <function>XkbForceBell</function>
- (see <link linkend="Forcing_a_Server_Generated_Bell">section 9.3.3</link>). In this case the server does not generate a bell event. <!-- xref -->
+ (see <link linkend="Forcing_a_Server_Generated_Bell">section 9.3.3</link>). In this case the server does not generate a bell event.
 </para>
 
 
@@ -85,7 +85,7 @@ or repeating, Xkb can provide feedback for the controls by using special beep
 codes. The
 <emphasis>AccessXFeedback</emphasis>
  control is used to configure the specific types of operations that generate
-feedback. See <link linkend="The_AccessXFeedback_Control">section 10.6.3</link> for a discussion on <emphasis> <!-- xref -->
+feedback. See <link linkend="The_AccessXFeedback_Control">section 10.6.3</link> for a discussion on <emphasis>
 AccessXFeedback</emphasis>
  control.
 </para>
@@ -204,7 +204,7 @@ bell. This is useful if you need to use an audio server instead of the system
 beep. For example, when an audio client starts, it could disable the audible
 bell (the system bell) and then listen for
 <emphasis>XkbBellNotify</emphasis>
- events (see <link linkend="Detecting_Bells">section 9.4</link>). When it receives a <emphasis> <!-- xref -->
+ events (see <link linkend="Detecting_Bells">section 9.4</link>). When it receives a <emphasis>
 XkbBellNotify</emphasis>
  event, the audio client could then send a request to an audio server to play a
 sound.
@@ -216,7 +216,7 @@ You can control the audible bells feature by passing the
 <emphasis>XkbAudibleBellMask</emphasis>
  to
 <function>XkbChangeEnabledControls</function>
- (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). If you set <emphasis> <!-- xref -->
+ (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). If you set <emphasis>
 XkbAudibleBellMask</emphasis>
  on, the server rings the system bell when a bell event occurs. This is the
 default. If you set
@@ -226,12 +226,12 @@ you call
 <function>XkbForceDeviceBell</function>
  or
 <function>XkbForceBell</function>
- (see <link linkend="Forcing_a_Server_Generated_Bell">section 9.3.3</link>). <!-- xref -->
+ (see <link linkend="Forcing_a_Server_Generated_Bell">section 9.3.3</link>).
 </para>
 
 <para>
 Audible bells are also part of the per-client auto-reset controls. For more
-information on auto-reset controls, see <link linkend="The_AutoReset_Control">section 10.1.2</link>. <!-- xref -->
+information on auto-reset controls, see <link linkend="The_AutoReset_Control">section 10.1.2</link>.
 </para>
 
 </sect1>
@@ -1074,7 +1074,7 @@ and
 <emphasis>values_for_bits</emphasis>
  parameters to
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>). <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 <para>

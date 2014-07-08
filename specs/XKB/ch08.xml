@@ -58,7 +58,7 @@ specific indicators, use
 <function>XkbSetNamedIndicator</function>
  (below). To retrieve indicator names, use
 <function>XkbGetNames</function>
- (<xref linkend="Symbolic_Names" />). <!-- xref -->
+ (<xref linkend="Symbolic_Names" />).
 </para>
 
 
@@ -81,7 +81,7 @@ to inquire about and control most indicator properties and behaviors.
 <para>
 The description for all the Xkb indicators is held in the
 <emphasis>indicators</emphasis>
- field of the complete keyboard description (see <xref linkend="Complete_Keyboard_Description" />), which is defined  <!-- xref -->
+ field of the complete keyboard description (see <xref linkend="Complete_Keyboard_Description" />), which is defined
 as follows:
 </para>
 
@@ -188,7 +188,7 @@ using the functions
 
 <para>
 For more information on the effects of explicit changes to indicators and the
-relationship to the indicator map, see <link linkend="Effects_of_Explicit_Changes_on_Indicators">section 8.4.1</link>. <!-- xref -->
+relationship to the indicator map, see <link linkend="Effects_of_Explicit_Changes_on_Indicators">section 8.4.1</link>.
 </para>
 
 <sect3 id='XkbIndicatorMapRec_flags_field'>
@@ -532,7 +532,7 @@ field specifies what modifiers an indicator watches. The
 <emphasis>mods</emphasis>
  field is an Xkb modifier definition,
 <emphasis>XkbModsRec</emphasis>,
-as described in <link linkend="Modifier_Definitions">section 7.2</link>, which can specify both real and virtual  <!-- xref -->
+as described in <link linkend="Modifier_Definitions">section 7.2</link>, which can specify both real and virtual
 modifiers. The
 <emphasis>mods</emphasis>
  field takes effect even if some or all of the virtual indicators specified in
@@ -574,7 +574,7 @@ Remember that the
 <emphasis>mask</emphasis>
  field is comprised of all of the real modifiers specified in the definition
 plus any real modifiers that are bound to the virtual modifiers specified in
-the definition. (See <xref linkend="Keyboard_State" /> for more information on the keyboard state and  <!-- xref -->
+the definition. (See <xref linkend="Keyboard_State" /> for more information on the keyboard state and
 <xref linkend="Virtual_Modifiers" /> for more information on virtual modifiers.) Use a bitwise inclusive
 OR of the following values to compose a value for
 <emphasis>which_mods</emphasis>:
@@ -707,7 +707,7 @@ The effect on the keyboard modifiers of
  is set (the indicator drives the keyboard) is shown in
 <link linkend="table8.5">Table 8.5</link>. The "New
 State" column refers to the new state to which you set the indicator.
-</para> <!-- xref -->
+</para>
 
 <table id='table8.5' frame='topbot'>
 <title>XkbIndicatorMapRec which_mods and mods, Indicator Drives Keyboard</title>
@@ -797,7 +797,7 @@ The
 <emphasis>ctrls</emphasis>
  field specifies what controls (see <xref linkend="Keyboard_Controls" />) the indicator watches and is
 composed using the bitwise inclusive OR of the following values:
-</para> <!-- xref -->
+</para>
 
 <para><programlisting>
 #define XkbRepeatKeysMask           (1L &lt;&lt; 0)
@@ -1588,11 +1588,11 @@ in <emphasis>map</emphasis>.
 <errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
- (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>), <emphasis> <!-- xref -->
+ (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>), <emphasis>
 XkbIndicatorMapNotify</emphasis>,
 and
 <emphasis>XkbNamesNotify</emphasis>
- events (see <link linkend="Tracking_Name_Changes">section 18.5</link>). <!-- xref -->
+ events (see <link linkend="Tracking_Name_Changes">section 18.5</link>).
 </para>
 
 
@@ -1721,7 +1721,7 @@ s can generate
 <emphasis>XkbIndicatorStateNotify</emphasis>
  and
 <emphasis>XkbIndicatorMapNotify</emphasis>
- events (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>). <!-- xref -->
+ events (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>).
 </para>
 
 
@@ -1745,7 +1745,7 @@ To receive
 <emphasis>XkbIndicatorStateNotify</emphasis>
  events, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the <emphasis> <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the <emphasis>
 bits_to_change </emphasis>
 and
 <emphasis>values_for_bits</emphasis>
@@ -1995,7 +1995,7 @@ If the
 <emphasis>indicators</emphasis>
  field, use
 <emphasis>XkbFreeIndicators</emphasis>
- (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>). <!-- xref -->
+ (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>).
 </para>
 
 

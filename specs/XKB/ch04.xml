@@ -18,7 +18,7 @@ of which window currently has the keyboard focus and regardless of the grab
 state of the keyboard.<footnote><para>The one exception to this rule is the
 XkbExtensionDeviceNotify event report that is sent when a client attempts to
 use an unsupported feature of an X Input Extension device (see <link linkend="Setting_Xkb_Features_for_Non_KeyClass_Input_Extension_Devices">section 21.4</link>).
-</para></footnote> <!-- xref -->
+</para></footnote>
 </para>
 
 

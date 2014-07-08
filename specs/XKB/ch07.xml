@@ -229,14 +229,14 @@ applications should need to change the virtual modifier mapping explicitly.
 <para>
 Use
 <function>XkbGetMap</function>
-(see <link linkend="Getting_Map_Components_from_the_Server">section 14.2</link>) to get the virtual modifiers from the server or use  <!-- xref -->
+(see <link linkend="Getting_Map_Components_from_the_Server">section 14.2</link>) to get the virtual modifiers from the server or use
 <function>XkbGetVirtualMods</function>
- (see <link linkend="Obtaining_Virtual_Modifier_Bindings_from_the_Server">section 16.4.1</link>) to update a local copy of the virtual modifiers bindings  <!-- xref -->
+ (see <link linkend="Obtaining_Virtual_Modifier_Bindings_from_the_Server">section 16.4.1</link>) to update a local copy of the virtual modifiers bindings
 from the server. To set the binding of a virtual modifier to a real modifier,
 use
 <function>XkbSetMap</function>
  (see
-<link linkend="Changing_Map_Components_in_the_Server">section 14.3</link><emphasis> <!-- xref -->
+<link linkend="Changing_Map_Components_in_the_Server">section 14.3</link><emphasis>
 )</emphasis>.
 </para>
 

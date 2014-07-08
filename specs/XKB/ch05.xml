@@ -168,7 +168,7 @@ The global locked or effective group changes. In this case, the changed group is
 <emphasis>groups_wrap</emphasis>
  field of the
 <emphasis>XkbControlsRec</emphasis>
- structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>). <!-- xref -->
+ structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
   </para></listitem>
   <listitem><para>
 
@@ -871,7 +871,7 @@ To track changes in the keyboard state for a particular device, select to receiv
 <function>XkbSelectEvents</function>
  or
 <function>XkbSelectEventDetails</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>). <!-- xref -->
+ (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 

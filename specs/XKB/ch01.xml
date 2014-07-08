@@ -309,7 +309,7 @@ configuration.
 <para>
 The Xkb extension adds a single protocol error,
 <emphasis>BadKeyboard</emphasis>,
-to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6</link> for a discussion of the  <!-- xref -->
+to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6</link> for a discussion of the
 <emphasis>BadKeyboard</emphasis>
  protocol error.
 </para>

@@ -294,7 +294,8 @@ populated.
 <para>
 The
 <emphasis>which</emphasis>
- mask is a bitwise inclusive OR of the masks defined in Table 14.1. Only those
+ mask is a bitwise inclusive OR of the masks defined in
+<link linkend="table14.1">Table 14.1</link>. Only those
 portions of the keyboard server map and the keyboard client maps that are
 specified in
 <emphasis>which</emphasis>
@@ -346,11 +347,12 @@ free the returned data, use
 <para>
 Xkb also provides convenience functions to get partial component definitions
 from the server. These functions are specified in the "convenience functions"
-column in Table 14.1. Refer to the sections listed in the table for more
+column in <link linkend="table14.1">Table 14.1</link>.
+Refer to the sections listed in the table for more
 information on these functions.
 </para>
 
-<table frame='topbot'>
+<table id='table14.1' frame='topbot'>
 <title>Xkb Mapping Component Masks and Convenience Functions</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='6' align='left' colsep='0' rowsep='0'>
@@ -541,8 +543,9 @@ description, use <function>XkbGetUpdatedMap</function>.
 <para>
 The
 <emphasis>which</emphasis>
- parameter is a bitwise inclusive OR of the masks in Table 14.1. If the needed
-components of the
+ parameter is a bitwise inclusive OR of the masks in
+<link linkend="table14.1">Table 14.1</link>.
+If the needed components of the
 <emphasis>xkb</emphasis>
  structure are not already allocated,
 <function>XkbGetUpdatedMap</function>
@@ -648,7 +651,8 @@ Use
 symbols, all actions, and so on) to the server. The
 <emphasis>which</emphasis>
  parameter specifies the components to be sent to the server, and is a bitwise
-inclusive OR of the masks listed in Table 14.1. The
+inclusive OR of the masks listed in
+<link linkend="table14.1">Table 14.1</link>. The
 <emphasis>xkb</emphasis>
  parameter is a pointer to an
 <emphasis>XkbDescRec</emphasis>
@@ -687,7 +691,8 @@ and
 <para>
 Key types, symbol maps, and actions are all interrelated; changes in one
 require changes in the others. Xkb provides functions to make it easier to edit
-these components and handle the interdependencies. Table 14.1 lists these
+these components and handle the interdependencies.
+<link linkend="table14.1">Table 14.1</link> lists these
 helper functions and provides a pointer to where they are defined.
 </para>
 
@@ -748,12 +753,14 @@ The
 <emphasis>changed</emphasis>
  field identifies the map components that have changed in an
 <emphasis>XkbDescRec</emphasis>
- structure and may contain any of the bits in Table 14.1, which are also shown
-in Table 14.2. Every 1 bit in
+ structure and may contain any of the bits in
+<link linkend="table14.1">Table 14.1</link>, which are also shown
+in <link linkend="table14.2">Table 14.2</link>. Every 1 bit in
 <emphasis>changed</emphasis>
  also identifies which other fields in the
 <emphasis>XkbMapChangesRec</emphasis>
- structure contain valid values, as indicated in Table 14.2. The
+ structure contain valid values, as indicated in
+<link linkend="table14.2">Table 14.2</link>. The
 <emphasis>min_key_code</emphasis>
  and
 <emphasis>max_key_code</emphasis>
@@ -762,7 +769,7 @@ server and are always updated by the server whenever it returns the data for an
 <emphasis>XkbMapChangesRec</emphasis>.
 </para>
 
-<table frame='topbot'>
+<table id='table14.2' frame='topbot'>
 <title>XkbMapChangesRec Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -968,7 +975,8 @@ The Xkb extension reports
  events to clients wanting notification whenever a map component of the Xkb
 description for a device changes. There are many different types of Xkb
 keyboard map changes. Xkb uses an event detail mask to identify each type of
-change. The event detail masks are identical to the masks listed in Table 14.1.
+change. The event detail masks are identical to the masks listed in
+<link linkend="table14.1">Table 14.1</link>.
 </para>
 
 
@@ -999,7 +1007,7 @@ To receive
 <emphasis>bits_to_change</emphasis>
  and
 <emphasis>values_for_bits</emphasis>
- using mask bits from Table 14.1.
+ using mask bits from <link linkend="table14.1">Table 14.1</link>.
 </para>
 
 
@@ -1044,7 +1052,8 @@ typedef struct {
 The
 <emphasis>changed</emphasis>
  field specifies the map components that have changed and is the bitwise
-inclusive OR of the mask bits defined in Table 14.1. The other fields in this
+inclusive OR of the mask bits defined in
+<link linkend="table14.1">Table 14.1</link>. The other fields in this
 event are interpreted as the like-named fields in an
 <emphasis>XkbMapChangesRec</emphasis>
  (see <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link>). The
@@ -1158,10 +1167,10 @@ The
 <emphasis>which</emphasis>
  parameter specifies the particular components of the client map structure to
 allocate and is a mask composed by a bitwise inclusive OR of one or more of the
-masks shown in Table 14.3.
+masks shown in <link linkend="table14.3">Table 14.3</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table14.3' frame='topbot'>
 <title>XkbAllocClientMap Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1357,7 +1366,8 @@ To free memory used by the client map member of an
 <emphasis>NULL</emphasis>.
 The
 <emphasis>which</emphasis>
- parameter specifies a combination of the client map masks shown in Table 14.3.
+ parameter specifies a combination of the client map masks shown in
+<link linkend="table14.3">Table 14.3</link>.
 </para>
 
 
@@ -1448,10 +1458,10 @@ To allocate and initialize an empty server map description record, use
 The
 <emphasis>which</emphasis>
  parameter specifies the particular components of the server map structure to
-allocate, as specified in Table 14.4.
+allocate, as specified in <link linkend="table14.4">Table 14.4</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table14.4' frame='topbot'>
 <title>XkbAllocServerMap Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1644,7 +1654,8 @@ The
 The
 <emphasis>which</emphasis>
  parameter specifies a combination of the server map masks and is a bitwise
-inclusive OR of the masks listed in Table 14.4. If
+inclusive OR of the masks listed in
+<link linkend="table14.4">Table 14.4</link>. If
 <emphasis>free_all</emphasis>
  is
 <symbol>True</symbol>,

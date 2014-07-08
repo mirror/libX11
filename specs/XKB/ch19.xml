@@ -203,10 +203,11 @@ and set both the
 <emphasis>bits_to_change </emphasis>
 and
 <emphasis>values_for_bits</emphasis>
- detail parameter to a mask composed of a bitwise OR of masks in Table 19.1.
+ detail parameter to a mask composed of a bitwise OR of masks in
+<link linkend="table19.1">Table 19.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table19.1' frame='topbot'>
 <title>XkbNewKeyboardNotifyEvent Details</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>

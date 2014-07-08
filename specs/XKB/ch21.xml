@@ -216,14 +216,15 @@ the state of the core keyboard is used. The
  and
 <emphasis>unsupported</emphasis>
  fields are masks where each bit indicates a capability. The meaning of the
-mask bits is listed in Table 21.1, together with the fields in the
+mask bits is listed in <link linkend="table21.1">Table 21.1</link>,
+together with the fields in the
 <emphasis>XkbDeviceInfoRec</emphasis>
  structure that are associated with the capability represented by each bit. The
 same bits are used to indicate the specific information desired in many of the
 functions described subsequently in this section.
 </para>
 
-<table frame='topbot'>
+<table id='table21.1' frame='topbot'>
 <title>XkbDeviceInfoRec Mask Bits</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -457,7 +458,8 @@ The
 <emphasis>which </emphasis>
 parameter
 is a mask specifying optional information to be returned. It is an inclusive OR
-of one or more of the values from Table 21.1 and causes the returned
+of one or more of the values from <link linkend="table21.1">Table 21.1</link>
+and causes the returned
 <emphasis>XkbDeviceInfoRec</emphasis>
  to contain values for the corresponding fields specified in the table.
 </para>
@@ -486,7 +488,8 @@ Other fields are filled in as specified by
 <para>
 Upon return, the
 <emphasis>supported</emphasis>
- field will be set to the inclusive OR of zero or more bits from Table 21.1;
+ field will be set to the inclusive OR of zero or more bits from
+<link linkend="table21.1">Table 21.1</link>;
 each bit set indicates an optional Xkb extension device feature supported by
 the server implementation, and a client may modify the associated behavior.
 </para>
@@ -1312,7 +1315,8 @@ the
 <symbol>False</symbol>,
 the value of which determines which subcomponents are freed.
 <emphasis>which </emphasis>
-is an inclusive OR of one or more of the values from Table 21.1. If which
+is an inclusive OR of one or more of the values from
+<link linkend="table21.1">Table 21.1</link>. If which
 contains XkbXI_ButtonActionsMask, all button actions associated with
 <emphasis>device_info</emphasis>
  are freed,
@@ -1474,7 +1478,7 @@ set in
 <emphasis>which</emphasis>
  and take their values from the relevant fields in
 <emphasis>device_info</emphasis>
- (see Table 21.1).
+ (see <link linkend="table21.1">Table 21.1</link>).
 <function>XkbSetDeviceInfo</function>
  returns
 <symbol>True</symbol>
@@ -1939,7 +1943,7 @@ To note device changes reported in an
 The wanted field specifies the changes that should be noted in
 <emphasis>old</emphasis>,
 and is composed of the bitwise inclusive OR of one or more of the masks from
-Table 21.1.
+<link linkend="table21.1">Table 21.1</link>.
 The
 <emphasis>reason</emphasis>
  field of the event in

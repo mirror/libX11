@@ -464,12 +464,13 @@ modifiers match the criteria specified by
 
 <para>
 <emphasis>match</emphasis>
-must be one of the values shown in Table 17.1 and specifies how the real
+must be one of the values shown in
+<link linkend="table17.1">Table 17.1</link> and specifies how the real
 modifiers specified in <emphasis>mods</emphasis>
 are to be interpreted.
 </para>
 
-<table frame='topbot'>
+<table id='table17.1' frame='topbot'>
 <title>Symbol Interpretation Match Criteria</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -814,10 +815,11 @@ explicit override components of the server state.</para></note>
 <emphasis>xkb</emphasis>.
 Valid values for
 <emphasis>which</emphasis>
- are an inclusive OR of the values shown in Table 17.2.
+ are an inclusive OR of the values shown in
+<link linkend="table17.2">Table 17.2</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table17.2' frame='topbot'>
 <title>Compatibility Map Component Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -1366,7 +1368,7 @@ Unless you have specifically modified this field, it is the default keyboard
 device.
 <emphasis>which</emphasis>
  specifies the compatibility map components to be set, and is an inclusive OR
-of the bits shown in Table 17.2.
+of the bits shown in <link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
@@ -1547,7 +1549,7 @@ To receive
 <emphasis>bits_to_change</emphasis>
  and
 <emphasis>values_for_bits</emphasis>
- using mask bits from Table 17.2.
+ using mask bits from <link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
@@ -1692,7 +1694,8 @@ allocated. The compatibility map is the
 <function>XkbGetCompatMap</function>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <emphasis>which</emphasis>
- is an inclusive OR of the bits shown in Table 17.2.
+ is an inclusive OR of the bits shown in
+<link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
@@ -1798,7 +1801,8 @@ To free an entire compatibility map or selected portions of one, use
 <function>XkbGetCompatMap</function>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <emphasis>which</emphasis>
- is an inclusive OR of the bits shown in Table 17.2
+ is an inclusive OR of the bits shown in
+<link linkend="table17.2">Table 17.2</link>
 </para>
 
 

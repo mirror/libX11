@@ -362,10 +362,10 @@ The
 <para>
 The Library Controls are manipulated using functions that deal with bitmasks to
 indicate which controls to manipulate. The controls are identified by the masks
-defined in Table 11.1. <!-- xref -->
+defined in <link linkend="table11.1">Table 11.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table11.1' frame='topbot'>
 <title>Library Control Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -449,7 +449,8 @@ implemented, use <function>XkbXlibControlsImplemented</function>.
 <para>
 <function>XkbXlibControlsImplemented</function>
  returns a bitmask indicating the controls actually implemented in the Xkb
-library and is composed of an inclusive OR of bits from Table 11.1.
+library and is composed of an inclusive OR of bits from
+<link linkend="table11.1">Table 11.1</link>.
 </para>
 
 
@@ -489,7 +490,8 @@ To determine the current state of the Library Controls, use
 <para>
 <function>XkbGetXlibControls</function>
  returns the current state of the Library Controls as a bit mask that is an
-inclusive OR of the control masks from Table 11.1 for the controls that are
+inclusive OR of the control masks from
+<link linkend="table11.1">Table 11.1</link> for the controls that are
 enabled. For the optional compose processing controls, the fact that a control
 is enabled does not imply that it is actually implemented.
 </para>
@@ -564,7 +566,8 @@ corresponding to a control is on in
 <emphasis>values_for_bits</emphasis>,
 the control is disabled.
 <emphasis>bits_to_change</emphasis>
- should be an inclusive OR of bits from Table 11.1.
+ should be an inclusive OR of bits from
+<link linkend="table11.1">Table 11.1</link>.
 </para>
 
 </sect2>

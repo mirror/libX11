@@ -53,10 +53,11 @@ function to manipulate one control individually, you do not use an
 
 
 <para>
-The Xkb controls are grouped as shown in Table 10.1. <!-- xref -->
+The Xkb controls are grouped as shown in
+<link linkend="table10.1">Table 10.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table10.1' frame='topbot'>
 <title>Xkb Keyboard Controls</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -222,7 +223,7 @@ control is enabled, and when turned off, disabled. It corresponds to the
  field of an
 <emphasis>XkbControlsRec</emphasis>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The bits describing which controls are turned on
-or off are defined in Table 10.7. <!-- xref -->
+or off are defined in <link linkend="table10.7">Table 10.7</link>.
 </para>
 
 
@@ -301,7 +302,8 @@ The
 <emphasis>values</emphasis>
  mask specifies the new state for those controls. Valid values for both of
 these masks are composed of a bitwise inclusive OR of bits taken from the set
-of mask bits in Table 10.7, using only those masks with "ok" in the
+of mask bits in <link linkend="table10.7">Table 10.7</link>,
+using only those masks with "ok" in the
 <emphasis>enabled_ctrls</emphasis>
  column.
 </para>
@@ -1245,7 +1247,7 @@ mouse-pointer key yields one mouse event. When
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). <!-- xref -->
 </para>
 
-<table frame='topbot'>
+<table id='table10.2' frame='topbot'>
 <title>MouseKeysAccel Fields</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1885,7 +1887,7 @@ on or off by modifying the following bits in the
  (see <link linkend="Changing_Controls">section 10.10</link>): <!-- xref -->
 </para>
 
-<table frame='topbot'>
+<table id='table10.3' frame='topbot'>
 <title>AccessXFeedback Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -2031,10 +2033,10 @@ typedef struct {
 The
 <emphasis>detail</emphasis>
  field describes what AccessX event just occurred and can be any of the values
-in Table 10.4. <!-- xref -->
+in <link linkend="table10.4">Table 10.4</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table10.4' frame='topbot'>
 <title>AccessXNotify Events</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2130,10 +2132,10 @@ To receive
 <emphasis>bits_to_change</emphasis>
  and
 <emphasis>values_for_bits</emphasis>
- using mask bits from Table 10.5. <!-- xref -->
+ using mask bits from <link linkend="table10.5">Table 10.5</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table10.5' frame='topbot'>
 <title>AccessXNotify Event Details</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -3476,8 +3478,9 @@ typedef struct {
 <para>
 The general-purpose functions that work with the
 <emphasis>XkbControlsRec</emphasis>
- structure use a mask to specify which controls are to be manipulated. Table
-10.6 lists these controls, the masks used to select them in the general
+ structure use a mask to specify which controls are to be manipulated.
+<link linkend="table10.6">Table 10.6</link>
+lists these controls, the masks used to select them in the general
 function calls (
 <emphasis>which</emphasis>
  parameter), and the data fields in the
@@ -3487,7 +3490,7 @@ bit used to turn boolean controls on and off and the section where each control
 is described in more detail.
 </para>
 
-<table frame='topbot'>
+<table id='table10.6' frame='topbot'>
 <title>Xkb Controls</title>
 <?dbfo keep-together="auto" ?>
 <tgroup cols='5' align='left' colsep='0' rowsep='0'>
@@ -3670,7 +3673,8 @@ is described in more detail.
 </table>
 
 <para>
-Table 10.7 shows the actual values for the individual mask bits used to select  <!-- xref -->
+<link linkend="table10.7">Table 10.7</link>
+shows the actual values for the individual mask bits used to select
 controls for modification and to enable and disable the control. Note that the
 same mask bit is used to specify general modifications to the parameters used
 to configure the control (
@@ -3682,7 +3686,7 @@ configurable attributes; and for controls that are not boolean controls and
 therefore cannot be enabled or disabled.
 </para>
 
-<table frame='topbot'>
+<table id='table10.7' frame='topbot'>
 <title>Controls Mask Bits</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -3878,10 +3882,10 @@ computed automatically by the server whenever the keyboard mapping changes.
  control (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>). It specifies the handling of illegal groups on a  <!-- xref -->
 global basis. Valid values for
 <emphasis>groups_wrap</emphasis>
- are shown in Table 10.8.
+ are shown in <link linkend="table10.8">Table 10.8</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table10.8' frame='topbot'>
 <title>GroupsWrap options (groups_wrap field)</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -3970,7 +3974,8 @@ modifier bits:
  control (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). It contains one bit per boolean control. Each  <!-- xref -->
 bit determines whether the corresponding control is enabled or disabled; a one
 bit means the control is enabled. The mask bits used to enable these controls
-are listed in Table 10.7, using only those masks with "ok" in the
+are listed in <link linkend="table10.7">Table 10.7</link>,
+using only those masks with "ok" in the
 <emphasis>enabled_ctrls</emphasis>
  column.
 </para>
@@ -4056,10 +4061,10 @@ AccessXFeedback</emphasis>
  control (see <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>). The <emphasis> <!-- xref -->
 ax_options</emphasis>
  field is a bitmask and may include any combination of the bits defined in
-Table 10.9.  <!-- xref -->
+<link linkend="table10.9">Table 10.9</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table10.9' frame='topbot'>
 <title>Access X Enable/Disable Bits (ax_options field)</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -4174,8 +4179,9 @@ The
  macro is useful for determining whether a particular AccessX option is enabled
 or not. It accepts a pointer to an
 <emphasis>XkbControlsRec</emphasis>
- structure and a valid mask bit from Table 10.9. If the specified mask bit in
-the
+ structure and a valid mask bit from
+<link linkend="table10.9">Table 10.9</link>.
+ If the specified mask bit in the
 <emphasis>ax_options</emphasis>
  field of the controls structure is set, the macro returns the mask bit.
 Otherwise, it returns zero. Thus,
@@ -4361,7 +4367,8 @@ and then copies the server’s values for the requested information into the
 <emphasis>which</emphasis>
  parameter are copied. Valid values for
 <emphasis>which</emphasis>
- are any combination of the masks listed in Table 10.7 that have "ok" in the
+ are any combination of the masks listed in
+<link linkend="table10.7">Table 10.7</link> that have "ok" in the
 <emphasis>which</emphasis>
  column.
 </para>
@@ -4512,7 +4519,8 @@ For each bit that is set in the
 <emphasis>ctrls</emphasis>
  field to the server. Valid values for
 <emphasis>which</emphasis>
- are any combination of the masks listed in Table 10.7 that have "ok" in the
+ are any combination of the masks listed in
+<link linkend="table10.7">Table 10.7</link> that have "ok" in the
 <emphasis>which</emphasis>
  column.
 </para>
@@ -4615,10 +4623,12 @@ structure have been modified. In this context, modified means
 that is, if a value is set to the same value it previously contained, it has
 still been modified, and is noted as changed. Valid values for
 <emphasis>changed_ctrls</emphasis>
- are any combination of the masks listed in Table 10.7 that have "ok" in the
+ are any combination of the masks listed in
+<link linkend="table10.7">Table 10.7</link> that have "ok" in the
 <emphasis>changed_ctrls</emphasis>
- column. Setting a bit implies the corresponding data fields from the "Relevant
-XkbControlsRec Data Fields" column in Table 10.6 have been modified. The
+ column. Setting a bit implies the corresponding data fields from the
+"Relevant XkbControlsRec Data Fields" column in
+<link linkend="table10.6">Table 10.6</link> have been modified. The
 <emphasis>enabled_ctrls_changes</emphasis>
  field specifies which bits in the
 <emphasis>enabled_ctrls</emphasis>
@@ -4731,7 +4741,7 @@ To receive
 <emphasis>bits_to_change</emphasis>
  and
 <emphasis>values_for_bits</emphasis>
- using mask bits from Table 10.7. <!-- xref -->
+ using mask bits from <link linkend="table10.7">Table 10.7</link>.
 </para>
 
 
@@ -4765,7 +4775,8 @@ typedef struct {
 The
 <emphasis>changed_ctrls</emphasis>
  field specifies the controls components that have changed and consists of bits
-taken from the masks defined in Table 10.7 with "ok" in the
+taken from the masks defined in
+<link linkend="table10.7">Table 10.7</link> with "ok" in the
 <emphasis>changed_ctrls</emphasis>
  column.
 </para>
@@ -4779,7 +4790,8 @@ the
 <emphasis>enabled_ctrls</emphasis>
  field changed), they are flagged in the
 <emphasis>enabled_ctrl_changes</emphasis>
- field. The valid bits for these fields are the masks listed in Table 10.7 with
+ field. The valid bits for these fields are the masks listed in
+<link linkend="table10.7">Table 10.7</link> with
 "ok" in the
 <emphasis>enabled_ctrls</emphasis>
  column. The
@@ -4896,7 +4908,7 @@ When a client receives an
 The
 <emphasis>wanted</emphasis>
  parameter is a bitwise inclusive OR of bits taken from the set of masks
-specified in Table 10.7 with "ok" in the
+specified in <link linkend="table10.7">Table 10.7</link> with "ok" in the
 <emphasis>changed_ctrls</emphasis>
  column.
 <function>XkbNoteControlsChanges</function>
@@ -5091,7 +5103,8 @@ The
  mask specifies the individual fields of the
 <emphasis>ctrls</emphasis>
  structure to be allocated and can contain any of the valid masks defined in
-Table 10.7. Because none of the currently existing controls have any structures
+<link linkend="table10.7">Table 10.7</link>.
+Because none of the currently existing controls have any structures
 associated with them, which is currently of little practical value in this call.
 </para>
 
@@ -5166,8 +5179,8 @@ The
 <emphasis>which</emphasis>
  mask specifies the fields of
 <emphasis>ctrls</emphasis>
- to be freed and can contain any of the controls components specified in Table
-10.7.
+ to be freed and can contain any of the controls components specified in
+<link linkend="table10.7">Table 10.7</link>.
 </para>
 
 

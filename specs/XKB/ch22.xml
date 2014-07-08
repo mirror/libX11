@@ -179,10 +179,11 @@ Xkb modifies its behavior according to each controls bit.
 <emphasis>mask</emphasis>
  and
 <emphasis>flags</emphasis>
- are. The valid controls bits are defined in Table 22.1.
+ are. The valid controls bits are defined in
+<link linkend="table22.1">Table 22.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table22.1' frame='topbot'>
 <title>Debug Control Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>

@@ -303,7 +303,7 @@ The functions in this section that change the use of modifiers use a mask in the
 It is a bitwise inclusive OR of the legal modifier masks:
 </para>
 
-<table frame='none'>
+<table id='table5.1' frame='none'>
 <title>Real Modifier Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='1' align='left' colsep='0' rowsep='0'>
@@ -511,7 +511,7 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 Reference the keysym group indices with these symbolic constants:
 </para>
 
-<table frame='topbot'>
+<table id='table5.2' frame='topbot'>
 <title>Symbolic Group Names</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -780,10 +780,12 @@ events to clients wanting notification whenever the Xkb state changes. The chang
 
 
 <para>
-There are many different types of Xkb state changes. Xkb defines an event detail mask corresponding to each type of change. The event detail masks are listed in Table 5.3.
+There are many different types of Xkb state changes. Xkb defines an event
+detail mask corresponding to each type of change. The event detail masks are
+listed in <link linkend="table5.3">Table 5.3</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table5.3' frame='topbot'>
 <title>XkbStateNotify Event Detail Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -898,7 +900,7 @@ To receive
 <emphasis>bits_to_change</emphasis>
  and
 <emphasis>values_for_bits</emphasis>
- using mask bits from Table 5.3. <!-- xref -->
+ using mask bits from <link linkend="table5.3">Table 5.3</link>.
 </para>
 
 
@@ -949,8 +951,8 @@ When you receive an
  field indicates which elements of keyboard state have changed.
 This will be the bitwise inclusive OR of one or more of the
 <emphasis>XkbStateNotify</emphasis>
- event detail masks shown in Table 5.3. All fields reported in  <!-- xref -->
-the event are valid, but only those indicated in
+ event detail masks shown in <link linkend="table5.3">Table 5.3</link>.
+ All fields reported in the event are valid, but only those indicated in
 <emphasis>changed</emphasis>
  have changed values.
 </para>

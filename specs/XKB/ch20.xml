@@ -5,11 +5,11 @@
 The X server maintains a database of keyboard components, identified by
 component type. The database contains all the information necessary to build a
 complete keyboard description for a particular device, as well as to assemble
-partial descriptions. Table 20.1 identifies the component types and the type of
-information they contain.
+partial descriptions. <link linkend="table20.1">Table 20.1</link>
+identifies the component types and the type of information they contain.
 </para>
 
-<table frame='topbot'>
+<table id='table20.1' frame='topbot'>
 <title>Server Database Keyboard Components</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -115,7 +115,8 @@ hand, this partial map can be used to configure
 
 <para>
 When a keyboard description is built, the components are processed in the order
-in which they appear in Table 20.1; later definitions override earlier ones.
+in which they appear in <link linkend="table20.1">Table 20.1</link>;
+later definitions override earlier ones.
 </para>
 
 <sect1 id='Component_Names'>
@@ -400,8 +401,10 @@ masks in the flags field of the
 <function>XkbListComponents</function>.
 The least significant byte of the flags field has the same meaning for all
 types of keyboard components; the interpretation of the most significant byte
-is dependent on the type of component. The flags bits are defined in Table
-20.2. The symbols hints in Table 20.2 apply only to partial symbols components
+is dependent on the type of component. The flags bits are defined in
+<link linkend="table20.2">Table 20.2</link>.
+The symbols hints in <link linkend="table20.2">Table 20.2</link>
+apply only to partial symbols components
 (those with
 <emphasis>XkbLC_Partial</emphasis>
  also set); full symbols components are assumed to specify all of the pieces.
@@ -421,7 +424,7 @@ few modifier keys as well; such mappings should set only the
  may be combined with any of the other flags).
 </para>
 
-<table frame='topbot'>
+<table id='table20.2' frame='topbot'>
 <title>XkbComponentNameRec Flags Bits</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -795,7 +798,8 @@ the server ORs the bits in
 <emphasis>need</emphasis>
  together and examines the result in relationship to the expressions in
 <emphasis>names</emphasis>.
-Table 20.3 identifies the components that are required for each of the
+<link linkend="table20.3">Table 20.3</link>
+identifies the components that are required for each of the
 possible bits in
 <emphasis>want</emphasis>
  or
@@ -826,7 +830,7 @@ and
 <emphasis>compat</emphasis>.
 </para>
 
-<table frame='topbot'>
+<table id='table20.3' frame='topbot'>
 <title>Want and Need Mask Bits and Required Names Components</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -973,13 +977,13 @@ The information returned to the client in the
 <emphasis>XkbDescRec</emphasis>
  is essentially the result of a series of calls to extract information from a
 fictitious device whose description matches the one just built. The calls
-corresponding to each of the mask bits are summarized in Table 20.4, together
-with the
+corresponding to each of the mask bits are summarized in
+<link linkend="table20.4">Table 20.4</link>, together with the
 <emphasis>XkbDescRec</emphasis>
  components that are filled in.
 </para>
 
-<table frame='topbot'>
+<table id='table20.4' frame='topbot'>
 <title>XkbDescRec Components Returned for Values of Want &amp; Needs</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>

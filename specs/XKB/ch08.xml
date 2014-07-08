@@ -200,10 +200,10 @@ The
  field specifies the conditions under which the indicator can be changed and
 the effects of changing the indicator. The valid values for
 <emphasis>flags</emphasis>
- and their effects are shown in Table 8.1. <!-- xref -->
+ and their effects are shown in <link linkend="table8.1">Table 8.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table8.1' frame='topbot'>
 <title>XkbIndicatorMapRec flags Field</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -354,10 +354,10 @@ If
 <emphasis>which_groups</emphasis>
  and
 <emphasis>groups</emphasis>
- is shown in Table 8.2. <!-- xref -->
+ is shown in <link linkend="table8.2">Table 8.2</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table8.2' frame='topbot'>
 <title>XkbIndicatorMapRec which_groups and groups, Keyboard Drives
 Indicator</title>
 <?dbfo keep-together="always" ?>
@@ -432,11 +432,12 @@ The effect of
 <emphasis>groups</emphasis>
  when you change an indicator for which
 <emphasis>XkbIM_LEDDrivesKB</emphasis>
- is set (the indicator drives the keyboard) is shown in Table 8.3. The "New
+ is set (the indicator drives the keyboard) is shown in
+<link linkend="table8.3">Table 8.3</link>. The "New
 State" column refers to the new state to which you set the indicator.
 </para>
 
-<table frame='topbot'>
+<table id='table8.3' frame='topbot'>
 <title>XkbIndicatorMapRec which_groups and groups, Indicator Drives
 Keyboard</title>
 <?dbfo keep-together="always" ?>
@@ -598,10 +599,10 @@ If
 <emphasis>which_mods</emphasis>
  and
 <emphasis>mods</emphasis>
- is shown in Table 8.4 <!-- xref -->
+ is shown in <link linkend="table8.4">Table 8.4</link>
 </para>
 
-<table frame='topbot'>
+<table id='table8.4' frame='topbot'>
 <title>XkbIndicatorMapRec which_mods and mods, Keyboard Drives Indicator</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -703,11 +704,12 @@ The effect on the keyboard modifiers of
 <emphasis>mods</emphasis>
  when you change an indicator for which
 <emphasis>XkbIM_LEDDrivesKB</emphasis>
- is set (the indicator drives the keyboard) is shown in Table 8.5. The "New
+ is set (the indicator drives the keyboard) is shown in
+<link linkend="table8.5">Table 8.5</link>. The "New
 State" column refers to the new state to which you set the indicator.
 </para> <!-- xref -->
 
-<table frame='topbot'>
+<table id='table8.5' frame='topbot'>
 <title>XkbIndicatorMapRec which_mods and mods, Indicator Drives Keyboard</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -1232,7 +1234,9 @@ or, to reduce network traffic, use an
 
 <para>
 This section discusses the effects of explicitly changing indicators depending
-upon different settings in the indicator map. See Tables 8.3 and Table 8.5 for
+upon different settings in the indicator map. See
+<link linkend="table8.3">Table 8.3</link> and
+<link linkend="table8.5">Table 8.5</link> for
 information on the effects of the indicator map fields when explicit changes
 are made.
 </para>

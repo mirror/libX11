@@ -65,14 +65,15 @@ constants declared in the header file
 
 
 <para>
-Table 4.1 lists the categories of events defined by Xkb and their associated
+<link linkend="table4.1">Table 4.1</link>
+lists the categories of events defined by Xkb and their associated
 event types, as defined in
 <filename class="headerfile">Xkb.h</filename>.
 Each event is described in more detail in the section referenced for that
 event.
 </para>
 
-<table frame='topbot'>
+<table id='table4.1' frame='topbot'>
 <title>Xkb Event Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -307,7 +308,8 @@ and
 milliseconds. The
 <emphasis>xkb_type</emphasis>
  field contains the minor extension event code, which is the extension event
-type, and is one of the values listed in Table 4.1. The
+type, and is one of the values listed in
+<link linkend="table4.1">Table 4.1</link>. The
 <emphasis>device</emphasis>
  field contains the keyboard device identifier associated with the event. This
 is never
@@ -461,7 +463,8 @@ in the
  parameter and do not set the corresponding bit in the
 <emphasis>values_for_bits</emphasis>
  parameter. The valid values for both of these parameters are an inclusive
-bitwise OR of the masks shown in Table 4.2. There is no interface to return
+bitwise OR of the masks shown in <link linkend="table4.2">Table 4.2</link>.
+There is no interface to return
 your client’s current event selection mask. Clients cannot set other
 clients’ event selection masks.
 </para>
@@ -656,12 +659,13 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 
 
 <para>
-Table 4.2 lists the event mask constants that can be specified with the  <!-- xref -->
+<link linkend="table4.2">Table 4.2</link>
+ lists the event mask constants that can be specified with the
 <function>XkbSelectEvents</function>
  request and the circumstances in which the mask should be specified.
 </para>
 
-<table frame='topbot'>
+<table id='table4.2' frame='topbot'>
 <title>XkbSelectEvents Mask Constants</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>

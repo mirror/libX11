@@ -550,10 +550,10 @@ specify the interpretation of logo names.
 <para>
 The structures these doodads are stored in and the values of the
 <emphasis>type</emphasis>
- fields are shown in Table 13.1.
+ fields are shown in <link linkend="table13.1">Table 13.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table13.1' frame='topbot'>
 <title>Doodad Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -955,7 +955,8 @@ The doodad arrays in the
 <emphasis>XkbGeometryRec</emphasis>
  and the
 <emphasis>XkbSectionRec</emphasis>
- may contain any of the doodad structures and types shown in Table 13.1.
+ may contain any of the doodad structures and types shown in
+<link linkend="table13.1">Table 13.1</link>.
 </para>
 
 

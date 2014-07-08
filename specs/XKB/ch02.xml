@@ -574,10 +574,11 @@ requests in Xlib and the server.
 </para>
 
 <para>
-Table 2.1 lists the protocol errors that can be generated, and their causes. <!-- xref -->
+<link linkend="table2.1">Table 2.1</link>
+lists the protocol errors that can be generated, and their causes.
 </para>
 
-<table frame='topbot'>
+<table id='table2.1' frame='topbot'>
 <title>Xkb Protocol Errors</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -675,12 +676,13 @@ additional information is reported in the
 <emphasis>resource_id</emphasis>
  field. The most significant byte of the
 <emphasis>resource_id</emphasis>
- is a further refinement of the error cause, as defined in Table 2.2. The least
+ is a further refinement of the error cause, as defined in
+<link linkend="table2.2">Table 2.2</link>. The least
 significant byte will contain the device, class, or feedback ID as indicated in
 the table.
 </para>
 
-<table frame='topbot'>
+<table id='table2.2' frame='topbot'>
 <title>BadKeyboard Protocol Error resource_id Values</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>

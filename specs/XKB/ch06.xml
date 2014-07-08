@@ -69,13 +69,14 @@ keyboard.
 
 <para>
 The other fields specify structure components of the keyboard description and
-are described in detail in other sections of this document. Table 6.1
+are described in detail in other sections of this document.
+<link linkend="table6.1">Table 6.1</link>
 identifies the subsequent sections of this document that discuss the individual
 components of the
 <emphasis>XkbDescRec</emphasis>.
 </para>
 
-<table frame='topbot'>
+<table id='table6.1' frame='topbot'>
 <title>XkbDescRec Component References</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -126,10 +127,10 @@ calls to indicate that the structure should be manipulated in some manner, such
 as allocating it or freeing it. These masks and their relationships to the
 fields in the
 <emphasis>XkbDescRec</emphasis>
- are shown in Table 6.2. <!-- xref -->
+ are shown in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table6.2' frame='topbot'>
 <title>Mask Bits for XkbDescRec</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>
@@ -260,7 +261,7 @@ server for those components specified in the
 <emphasis>NULL</emphasis>.
 The valid masks for
 <emphasis>which</emphasis>
- are those listed in Table 6.2. <!-- xref -->
+ are those listed in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
 

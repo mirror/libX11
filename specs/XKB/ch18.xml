@@ -231,10 +231,10 @@ and
 Xkb provides several functions that work with symbolic names. Each of these
 functions uses a mask to specify individual fields of the structures described
 above. These masks and their relationships to the fields in a keyboard
-description are shown in Table 18.1.
+description are shown in <link linkend="table18.1">Table 18.1</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table18.1' frame='topbot'>
 <title>Symbolic Names Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -421,7 +421,7 @@ X server. The
  parameter specifies the name components to be updated in the
 <emphasis>xkb</emphasis>
  parameter, and is the bitwise inclusive OR of the valid names mask bits
-defined in Table 18.1.
+defined in <link linkend="table18.1">Table 18.1</link>.
 </para>
 
 
@@ -670,12 +670,14 @@ typedef struct _XkbNameChanges {
 The
 <emphasis>changed</emphasis>
  field specifies the name components that have changed and is the bitwise
-inclusive OR of the valid names mask bits defined in Table 18.1. The rest of
+inclusive OR of the valid names mask bits defined in
+<link linkend="table18.1">Table 18.1</link>. The rest of
 the fields in the structure specify the ranges that have changed for the
-various kinds of symbolic names, as shown in Table 18.2.
+various kinds of symbolic names, as shown in
+<link linkend="table18.2">Table 18.2</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table18.2' frame='topbot'>
 <title>XkbNameChanges Fields</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -856,7 +858,8 @@ and set both the
 <emphasis>bits_to_change </emphasis>
 and
 <emphasis>values_for_bits</emphasis>
- detail parameter to a mask composed of a bitwise OR of masks in Table 18.1.
+ detail parameter to a mask composed of a bitwise OR of masks in
+<link linkend="table18.1">Table 18.1</link>.
 </para>
 
 
@@ -904,7 +907,8 @@ that have changed */
 The
 <emphasis>changed</emphasis>
  field specifies the name components that have changed and is the bitwise
-inclusive OR of the valid names mask bits defined in Table 18.1. The other
+inclusive OR of the valid names mask bits defined in
+<link linkend="table18.1">Table 18.1</link>. The other
 fields in this event are interpreted as the like-named fields in an
 <emphasis>XkbNameChangesRec</emphasis> , as previously defined.
 </para>
@@ -969,7 +973,7 @@ When your application receives a X
 The
 <emphasis>wanted</emphasis>
  parameter is the bitwise inclusive OR of the valid names mask bits shown in
-Table 18.1.
+<link linkend="table18.1">Table 18.1</link>.
 <function>XkbNoteNameChanges</function>
  copies any changes that are reported in
 <emphasis>new</emphasis>
@@ -1142,7 +1146,7 @@ from the X server. Instead use
 The
 <emphasis>which</emphasis>
  parameter is the bitwise inclusive OR of the valid names mask bits defined in
-Table 18.1.
+<link linkend="table18.1">Table 18.1</link>.
 </para>
 
 
@@ -1207,7 +1211,7 @@ Use
 The
 <emphasis>which</emphasis>
  parameter is the bitwise inclusive OR of the valid names mask bits defined in
-Table 18.1.
+<link linkend="table18.1">Table 18.1</link>.
 </para>
 </sect1>
 </chapter>

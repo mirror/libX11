@@ -233,7 +233,7 @@ keyboard mappings in the server database is not specified by the Xkb extension,
 although this format is one possible example):
 </para>
 
-<table frame='topbot'>
+<table id='table15.1' frame='topbot'>
 <title>Example Key Type</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1469,11 +1469,12 @@ Out-of-range groups for individual keys are mapped to a legal group using the
 same options as are used for the overall keyboard group. The particular type of
 mapping used is controlled by the bits set in the
 <emphasis>group_info</emphasis>
- flag, as shown in Table 15.2. See <link linkend="The_GroupsWrap_Control">section 10.7.1</link> for more details on the
-normalization methods in this table.
+ flag, as shown in <link linkend="table15.2">Table 15.2</link>.
+ See <link linkend="The_GroupsWrap_Control">section 10.7.1</link>
+ for more details on the normalization methods in this table.
 </para>
 
-<table frame='topbot'>
+<table id='table15.2' frame='topbot'>
 <title>group_info Range Normalization</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2316,7 +2317,7 @@ For convenience, Xkb provides the following constants to use as indices to the
 groups:
 </para>
 
-<table frame='topbot'>
+<table id='table15.3' frame='topbot'>
 <title>Group Index Constants</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>

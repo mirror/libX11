@@ -352,7 +352,8 @@ Xkb functions that communicate with the X server check to be sure the Xkb
 extension has been properly initialized prior to doing any other operations. If
 the extension has not been properly initialized or the application, library,
 and server versions are incompatible, these functions return an error
-indication as shown in Table 1.1. Because of this test,
+indication as shown in <link linkend="table1.1">Table 1.1</link>.
+Because of this test,
 <errorname>BadAccess</errorname>
  and
 <errorname>BadMatch</errorname>
@@ -360,7 +361,7 @@ indication as shown in Table 1.1. Because of this test,
 generated.
 </para>
 
-<table frame='topbot'>
+<table id='table1.1' frame='topbot'>
 <!-- <caption>Function Error Returns Due to Extension Problems</caption> -->
 <title>Function Error Returns Due to Extension Problems</title>
 <?dbfo keep-together="always" ?>
@@ -397,7 +398,8 @@ applications may never actually need to communicate with the server; they
 simply use the Xkb library capabilities. The functions that do not communicate
 with the server return either a pointer to a structure, a Bool, or a Status.
 These functions check that the application has queried the Xkb library version
-and return the values shown in Table 1.1 if it has not.
+and return the values shown in <link linkend="table1.1">Table 1.1</link>
+if it has not.
 </para>
 </sect2>
 </sect1>

@@ -492,10 +492,11 @@ the
 <emphasis>type</emphasis>
  field. The valid values for the
 <emphasis>type</emphasis>
- field, and the data structures associated with them are shown in Table 16.1:
+ field, and the data structures associated with them are shown in
+<link linkend="table16.1">Table 16.1</link>:
 </para>
 
-<table frame='topbot'>
+<table id='table16.1' frame='topbot'>
 <title>Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='4' align='left' colsep='0' rowsep='0'>
@@ -642,7 +643,8 @@ In the following description, the term
  means the real modifier bits associated with this action. Depending on the
 value of
 <emphasis>flags</emphasis>
- (see Table 16.3), these are designated either in the
+ (see <link linkend="table16.3">Table 16.3</link>),
+ these are designated either in the
 <emphasis>mask</emphasis>
  field of the
 <emphasis>XkbModAction</emphasis>
@@ -660,10 +662,11 @@ is being used. In the latter case, this is the client
 <para>
 The
 <emphasis>type</emphasis>
- field can have any of the values shown in Table 16.2.
+ field can have any of the values shown in
+<link linkend="table16.2">Table 16.2</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.2' frame='topbot'>
 <title>Modifier Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -778,12 +781,13 @@ key press occurred, a key release unlocks them.
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.3. A general meaning is given in the table, but the exact meaning depends on
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.3">Table 16.3</link>.
+ A general meaning is given in the table, but the exact meaning depends on
 the action <emphasis>type</emphasis>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.3' frame='topbot'>
 <title>Modifier Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1012,7 +1016,7 @@ The
  field can have any of the following values:
 </para>
 
-<table frame='topbot'>
+<table id='table16.4' frame='topbot'>
 <title>Group Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1139,13 +1143,14 @@ A key release has no effect.
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.5. A general meaning is given in the table, but the exact meaning depends on
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.5">Table 16.5</link>.
+ A general meaning is given in the table, but the exact meaning depends on
 the action
 <emphasis>type</emphasis>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.5' frame='topbot'>
 <title>Group Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1345,10 +1350,11 @@ The
 <para>
 The
 <emphasis>flags</emphasis>
- field is a bitwise inclusive OR of the masks shown in Table 16.6.
+ field is a bitwise inclusive OR of the masks shown in
+<link linkend="table16.6">Table 16.6</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.6' frame='topbot'>
 <title>Pointer Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1609,10 +1615,11 @@ If the
 <para>
 The
 <emphasis>type</emphasis>
- field can have any one of the values shown in Table 16.7.
+ field can have any one of the values shown in
+<link linkend="table16.7">Table 16.7</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.7' frame='topbot'>
 <title>Pointer Button Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1738,14 +1745,15 @@ a button, the key release is ignored and has no effect.
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.8. A general meaning is given in the table, but the exact meaning depends on
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.8">Table 16.8</link>.
+ A general meaning is given in the table, but the exact meaning depends on
 the action
 <emphasis>type</emphasis>.
 :
 </para>
 
-<table frame='topbot'>
+<table id='table16.8' frame='topbot'>
 <title>Pointer Button Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -1844,11 +1852,12 @@ The
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the values shown in Table
-16.9 (currently there is only one value defined).
+ field is composed of the bitwise inclusive OR of the values shown in
+<link linkend="table16.9">Table 16.9</link>
+ (currently there is only one value defined).
 </para>
 
-<table frame='topbot'>
+<table id='table16.9' frame='topbot'>
 <title>Pointer Default Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2076,11 +2085,11 @@ If the
  field, the action is used to change the group state. The remaining valid bits
 of the
 <emphasis>flags</emphasis>
- field are composed of a bitwise inclusive OR using the masks shown in Table
-16.10.
+ field are composed of a bitwise inclusive OR using the masks shown in
+<link linkend="table16.10">Table 16.10</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.10' frame='topbot'>
 <title>ISO Action Flags when XkbSA_ISODfltIsGroup is Set</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2187,11 +2196,11 @@ If the
  field, the action is used to change the modifier state and the remaining valid
 bits of the
 <emphasis>flags</emphasis>
- field are composed of a bitwise inclusive OR using the masks shown in Table
-16.11.
+ field are composed of a bitwise inclusive OR using the masks shown in
+<link linkend="table16.11">Table 16.11</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.11' frame='topbot'>
 <title>ISO Action Flags when XkbSA_ISODfltIsGroup is Not Set</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2342,11 +2351,11 @@ the two formats as shown in <link linkend="Actions_for_Changing_Modifiers_State"
 <para>
 The
 <emphasis>affect</emphasis>
- field is composed of a bitwise inclusive OR using the masks shown in Table
-16.11.
+ field is composed of a bitwise inclusive OR using the masks shown in
+<link linkend="table16.11">Table 16.11</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.12' frame='topbot'>
 <title>ISO Action Affect Field Values</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2461,11 +2470,11 @@ The
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.13.
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.13">Table 16.13</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.13' frame='topbot'>
 <title>Switch Screen Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2623,10 +2632,11 @@ typedef struct _XkbCtrlsAction {
 <para>
 The
 <emphasis>type</emphasis>
- field can have any one of the values shown in Table 16.14.
+ field can have any one of the values shown in
+<link linkend="table16.14">Table 16.14</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.14' frame='topbot'>
 <title>Controls Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2708,11 +2718,11 @@ This action can cause
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.15.
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.15">Table 16.15</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.15' frame='topbot'>
 <title>Control Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -2892,11 +2902,11 @@ The
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.16.
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.16">Table 16.16</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.16' frame='topbot'>
 <title>Message Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -3379,10 +3389,11 @@ typedef struct _XkbDeviceBtnAction {
 <para>
 The
 <emphasis>type</emphasis>
- field can have any one of the values shown in Table 16.17.
+ field can have any one of the values shown in
+<link linkend="table16.17">Table 16.17</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.17' frame='topbot'>
 <title>Device Button Action Types</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -3492,11 +3503,11 @@ the key release is ignored and has no effect.
 <para>
 The
 <emphasis>flags</emphasis>
- field is composed of the bitwise inclusive OR of the masks shown in Table
-16.18.
+ field is composed of the bitwise inclusive OR of the masks shown in
+<link linkend="table16.18">Table 16.18</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.18' frame='topbot'>
 <title>Device Button Action Flags</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -3575,7 +3586,8 @@ The low four bits of
 <emphasis>v2_what</emphasis>
  specify the corresponding scale value (denoted
 <emphasis>val&lt;n&gt;Scale</emphasis>
- in Table 16.17), if needed. The high four bits of
+ in <link linkend="table16.17">Table 16.17</link>), if needed.
+ The high four bits of
 <emphasis>v1_what</emphasis>
  and
 <emphasis>v2_what</emphasis>
@@ -3583,12 +3595,13 @@ The low four bits of
 <emphasis>v1_what</emphasis>
  and
 <emphasis>v2_what</emphasis>
- can have the values shown in Table 16.17; the use of
+ can have the values shown in <link linkend="table16.17">Table 16.17</link>;
+ the use of
 <emphasis>val&lt;n&gt;Scale</emphasis>
  is shown in that table also.
 </para>
 
-<table frame='topbot'>
+<table id='table16.19' frame='topbot'>
 <title>Device Valuator v&lt;n&gt;_what High Bits Values</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -3652,7 +3665,7 @@ absolute valuators. For relative valuators, only
 <emphasis>XkbSA_SetValRelative</emphasis>
  is permitted. Part of the input extension description of a device is the range
 of legal values for all absolute valuators, whence the maximum and minimum
-legal values shown in Table 16.17.
+legal values shown in <link linkend="table16.17">Table 16.17</link>.
 </para>
 
 
@@ -4020,10 +4033,11 @@ The
 <emphasis>data</emphasis>
  field depends on the
 <emphasis>type</emphasis>.
-Xkb supports the key behaviors shown in Table 16.20.
+Xkb supports the key behaviors shown in
+<link linkend="table16.20">Table 16.20</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.20' frame='topbot'>
 <title>Key Behaviors</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='2' align='left' colsep='0' rowsep='0'>
@@ -4274,10 +4288,10 @@ The explicit components masks are held in the
 <emphasis>explicit</emphasis>
  field of the server map, which is an array indexed by keycode. Each entry in
 this array is a mask that is a bitwise inclusive OR of the values shown in
-Table 16.21.
+<link linkend="table16.21">Table 16.21</link>.
 </para>
 
-<table frame='topbot'>
+<table id='table16.21' frame='topbot'>
 <title>Explicit Component Masks</title>
 <?dbfo keep-together="always" ?>
 <tgroup cols='3' align='left' colsep='0' rowsep='0'>

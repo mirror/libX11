@@ -5213,8 +5213,15 @@ and sets
 
 <para>
 You can configure the boolean per-client controls which affect the state
-reported in button and key events. See <link linkend="Effects_of_Xkb_on_Event_State">section 12.1.1</link>, 12.3, 12.5, and 16.3.11  <!-- xref -->
-of the XKB Protocol specification for more details.
+reported in button and key events. See
+<olink targetdoc='xkbproto' targetptr='Setting_a_Passive_Grab_for_an_XKB_State'>section 12.1.1</olink>,
+<olink targetdoc='xkbproto' targetptr='Effects_of_XKB_on_Core_Protocol_Events'>12.3</olink>,
+<olink targetdoc='xkbproto' targetptr='Sending_Events_to_Clients'>12.5</olink>,
+and
+<olink targetdoc='xkbproto' targetptr='Querying_and_Changing_Per_Client_Flags'>16.3.11</olink>
+of the
+<olink targetdoc='xkbproto' targetptr='xkbproto'><citetitle>XKB Protocol specification</citetitle></olink>
+for more details.
 </para>
 
 

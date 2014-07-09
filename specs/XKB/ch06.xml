@@ -197,7 +197,7 @@ fields in the
 To retrieve one or more components of a keyboard device description, use
 <function>XkbGetKeyboard</function>
  (see also
-<emphasis>XkbGetKeyboardbyName</emphasis>
+<function>XkbGetKeyboardByName</function>
 ).
 </para>
 
@@ -302,9 +302,9 @@ Applications seldom need to directly allocate a keyboard description; calling
 scratch, however, use
 <function>XkbAllocKeyboard</function>
  rather than directly calling
-<emphasis>malloc</emphasis>
+<function>malloc</function>
 or
-<emphasis>Xmalloc</emphasis>.
+<function>Xmalloc</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocKeyboard"><primary><function>XkbAllocKeyboard</function></primary></indexterm>

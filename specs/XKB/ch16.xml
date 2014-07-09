@@ -3825,7 +3825,7 @@ If any allocation errors occur,
 
 <para>
 To change the number of actions bound to a key, use
-<emphasis>XkbResizeKeyAction</emphasis>.
+<function>XkbResizeKeyActions</function>.
 </para>
 
 <indexterm significance="preferred" zone="XkbResizeKeyActions"><primary><function>XkbResizeKeyActions</function></primary></indexterm>
@@ -4777,7 +4777,7 @@ To obtain the virtual modifier map (the
 </variablelist>
 
 <para>
-<emphasis>XkbGetKeyVirutalModmap</emphasis>
+<function>XkbGetKeyVirtualModmap</function>
 sends a request to the server to obtain the virtual modifier mappings for
 <parameter>num</parameter>
  keys on the keyboard starting with key

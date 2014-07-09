@@ -405,7 +405,7 @@ information on these functions.
     <entry>
       <para><function>XkbGetKeySyms</function></para>
       <para><function>XkbResizeKeySyms</function></para>
-      <para><emphasis>XkbChangeTypes&#xAD;OfKey</emphasis></para>
+      <para><function>XkbChangeTypes&#xAD;OfKey</function></para>
     </entry>
     <entry>15.3</entry>
   </row>
@@ -414,7 +414,7 @@ information on these functions.
     <entry>(1&lt;&lt;2)</entry>
     <entry>client</entry>
     <entry><structfield>modmap</structfield></entry>
-    <entry><emphasis>XkbGetKeyModifier&#xAD;Map</emphasis></entry>
+    <entry><function>XkbGetKeyModifier&#xAD;Map</function></entry>
     <entry>15.4</entry>
   </row>
   <row>
@@ -422,7 +422,7 @@ information on these functions.
     <entry>(1&lt;&lt;3)</entry>
     <entry>server</entry>
     <entry><structfield>explicit</structfield></entry>
-    <entry><emphasis>XkbGetKeyExplicit&#xAD;Components</emphasis></entry>
+    <entry><function>XkbGetKeyExplicit&#xAD;Components</function></entry>
     <entry>16.3</entry>
   </row>
   <row>
@@ -437,7 +437,7 @@ information on these functions.
     </entry>
     <entry>
       <para><function>XkbGetKeyActions</function></para>
-      <para><emphasis>XkbResizeKey&#xAD;Actions</emphasis></para>
+      <para><function>XkbResizeKey&#xAD;Actions</function></para>
     </entry>
     <entry>16.1</entry>
   </row>
@@ -446,7 +446,7 @@ information on these functions.
     <entry>(1&lt;&lt;5)</entry>
     <entry>server</entry>
     <entry><structfield>behaviors</structfield></entry>
-    <entry><emphasis>XkbGetKey&#xAD;Behaviors</emphasis></entry>
+    <entry><function>XkbGetKey&#xAD;Behaviors</function></entry>
     <entry>16.2</entry>
   </row>
   <row>
@@ -462,7 +462,7 @@ information on these functions.
     <entry>(1&lt;&lt;7)</entry>
     <entry>server</entry>
     <entry><structfield>vmodmap</structfield></entry>
-    <entry><emphasis>XkbGetVirtualMod&#xAD;Map</emphasis></entry>
+    <entry><function>XkbGetVirtualMod&#xAD;Map</function></entry>
     <entry>16.4</entry>
   </row>
 </tbody>
@@ -1083,9 +1083,9 @@ allocate client and server maps.
 If you change the number of key types or construct map components without
 loading the necessary components from the X server, do not allocate any map
 components directly using
-<emphasis>malloc</emphasis>
+<function>malloc</function>
  or
-<emphasis>Xmalloc</emphasis>.
+<function>Xmalloc</function>.
 Instead, use the Xkb allocators,
 <function>XkbAllocClientMap</function>,
  and
@@ -1099,9 +1099,9 @@ Similarly, use the Xkb destructors,
  and
 <function>XkbFreeServerMap</function>
  instead of
-<emphasis>free</emphasis>
+<function>free</function>
  or
-<emphasis>Xfree</emphasis>.
+<function>Xfree</function>.
 </para>
 
 

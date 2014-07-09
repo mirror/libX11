@@ -1228,13 +1228,13 @@ To allocate additional space for button actions in an
 </variablelist>
 
 <para>
-<emphasis>XkbResizeDeviceButton</emphasis>
+<function>XkbResizeDeviceButtonActions</function>
  reallocates space, if necessary, to make sure there is room for a total of
 <parameter>new_total</parameter>
  button actions in the
 <parameter>device_info</parameter>
  structure. Any new entries allocated are zeroed. If successful,
-<emphasis>XkbResizeDeviceButton</emphasis>
+<function>XkbResizeDeviceButtonActions</function>
  returns Success. If new_total is zero, all button actions are deleted,
 <parameter>device_info</parameter>
 -&gt;

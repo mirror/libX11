@@ -2622,7 +2622,7 @@ description, use
 It waits for a reply and places the results in the
 <parameter>xkb</parameter>
 -&gt;map-&gt;modmap array. If successful,
-<emphasis>XkbGetKeyModifier</emphasis>
+<function>XkbGetKeyModifierMap</function>
  returns
 <symbol>Success</symbol>.
 </para>

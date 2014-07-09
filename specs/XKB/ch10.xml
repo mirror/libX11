@@ -2398,7 +2398,7 @@ Specifying a value of
  for the
 <parameter>delay</parameter>
 parameter causes
-<emphasis>XkbSetSlowKeys</emphasis>
+<function>XkbSetSlowKeysDelay</function>
  to generate a
 <errorname>BadValue</errorname>
  protocol error. If a compatible version of the Xkb extension is not available
@@ -5118,7 +5118,7 @@ To free memory used by the
  member of an
 <structname>XkbDescRec</structname>
 structure, use
-<emphasis>XkbFreeControls:</emphasis>
+<function>XkbFreeControls</function>:
 </para>
 
 

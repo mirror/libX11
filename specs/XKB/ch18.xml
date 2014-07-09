@@ -1053,7 +1053,7 @@ results into the
 
 
 <para>
-<emphasis>XkbGetNamesChanges</emphasis>
+<function>XkbGetNameChanges</function>
  can generate
 <errorname>BadAlloc</errorname>,
 <errorname>BadImplementation</errorname>,
@@ -1070,9 +1070,9 @@ results into the
 <para>
 Most applications do not need to directly allocate symbolic names structures.
 Do not allocate a names structure directly using
-<emphasis>malloc</emphasis>
+<function>malloc</function>
  or
-<emphasis>Xmalloc</emphasis>
+<function>Xmalloc</function>
  if your application changes the number of key aliases or radio groups or
 constructs a symbolic names structure without loading the necessary components
 from the X server. Instead use
@@ -1152,7 +1152,7 @@ The
 
 <para>
 Do not free symbolic names structures directly using
-<emphasis>free</emphasis>
+<function>free</function>
  or
 <function>XFree</function>.
 Use

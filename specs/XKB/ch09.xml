@@ -454,9 +454,9 @@ Note that
 
 <para>
 To determine the current feedback settings of an extension input device, use
-<emphasis>XGetFeedbackControl</emphasis>.
+<function>XGetFeedbackControl</function>.
 See the X input extension documentation for more information on
-<emphasis>XGetFeedbackControl</emphasis>
+<function>XGetFeedbackControl</function>
  and related data structures.
 </para>
 

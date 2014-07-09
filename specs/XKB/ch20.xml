@@ -294,9 +294,9 @@ The component name patterns used to describe the request are passed to
  structure. This structure has no special allocation constraints or
 interrelationships with other structures; allocate and free this structure
 using standard
-<emphasis>malloc</emphasis>
+<function>malloc</function>
  and
-<emphasis>free</emphasis>
+<function>free</function>
  calls or their equivalent:
 </para>
 

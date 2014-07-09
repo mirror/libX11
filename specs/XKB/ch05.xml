@@ -344,7 +344,7 @@ It is a bitwise inclusive OR of the legal modifier masks:
 
 <para>
 To lock and unlock any of the eight real keyboard modifiers, use
-<emphasis>XkbLockModifiers:</emphasis>
+<function>XkbLockModifiers</function>:
 </para>
 
 <indexterm significance="preferred" zone="XkbLockModifiers"><primary><function>XkbLockModifiers</function></primary></indexterm>
@@ -425,7 +425,7 @@ To lock and unlock any of the eight real keyboard modifiers, use
 
 <para>
 To latch and unlatch any of the eight real keyboard modifiers, use
-<emphasis>XkbLatchModifiers:</emphasis>
+<function>XkbLatchModifiers</function>:
 </para>
 
 

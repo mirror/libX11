@@ -482,7 +482,7 @@ The
 Use
 <function>XkbLookupKeyBinding</function>
  to find the string bound to a key by
-<emphasis>XRebindKeySym</emphasis>.
+<function>XRebindKeysym</function>.
 <function>XkbLookupKeyBinding</function>
  is the equivalent of the core
 <function>XLookupString</function>

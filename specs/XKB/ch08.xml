@@ -834,7 +834,7 @@ implementation, uses a mask to specify the indicators. The second method, which
 is more suitable for applications concerned with interoperability, uses
 indicator names. The correspondence between the indicator name and the bit
 position in masks is as follows: one of the parameters returned from
-<emphasis>XkbGetNamedIndicators</emphasis>
+<function>XkbGetNamedIndicator</function>
  is an index that is the bit position to use in any function call that requires
 a mask of indicator bits, as well as the indicator’s index into the
 <structname>XkbIndicatorRec</structname>
@@ -1711,8 +1711,8 @@ If any bits are set in the
 
 
 <para>
-<emphasis>XkbChangeIndicator</emphasis>
-s can generate
+<function>XkbChangeIndicators</function>
+ can generate
 <errorname>BadAtom</errorname>
  and
 <errorname>BadImplementation</errorname>
@@ -1993,7 +1993,7 @@ If the
  allocates and initializes it. To free the
 <structfield>indicators</structfield>
  field, use
-<emphasis>XkbFreeIndicators</emphasis>
+<function>XkbFreeIndicatorMaps</function>
  (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>).
 </para>
 

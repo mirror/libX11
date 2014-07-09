@@ -101,7 +101,7 @@ Call the allocator function with some arbitrary size, as a hint.
   <listitem>
     <para>
 For those arrays that have an
-<emphasis>Xkb...Add...</emphasis>
+<function>Xkb...Add...</function>
  function, call it each time you want to add new data to the array. The
 function expands the array if necessary.
     </para>
@@ -206,16 +206,16 @@ keyboard description has changed, you can determine the set of changes by
 passing the event to an Xkb function that "notes" event information in the
 corresponding changes data structure. These "note changes" functions are
 defined for all major Xkb components, and their names have the form
-<emphasis>XkbNote{Component}Changes</emphasis>,
+<function>XkbNote<replaceable>{Component}</replaceable>Changes</function>,
 where
-<emphasis>Component</emphasis>
+<replaceable>Component</replaceable>
  is the name of a major Xkb component such as
-<emphasis>Map</emphasis>
+<literal>Map</literal>
  or
-<emphasis>Names</emphasis>.
+<literal>Names</literal>.
 When you want to copy these changes from the server into a local copy of the
 keyboard description, use the corresponding
-<emphasis>XkbGet{Component}Changes</emphasis>
+<function>XkbGet<replaceable>{Component}</replaceable>Changes</function>
  function,
 passing it the changes structure. The function then retrieves only the changed
 structures from the server and copies the modified pieces into the local
@@ -228,18 +228,18 @@ keyboard description.
 
 <para>
 For the same reasons you should not directly use
-<emphasis>malloc</emphasis>
+<function>malloc</function>
  to allocate Xkb data structures, you should not free Xkb data structures or
 components directly using
-<emphasis>free</emphasis>
+<function>free</function>
  or
-<emphasis>Xfree</emphasis>.
+<function>Xfree</function>.
 Xkb provides functions to free the various data structures and their
 components. Always use the free functions supplied by Xkb. There is no
 guarantee that any particular field can be safely freed by
-<emphasis>free</emphasis>
+<function>free</function>
  or
-<emphasis>Xfree</emphasis>.
+<function>Xfree</function>.
 </para>
 </sect1>
 </chapter>

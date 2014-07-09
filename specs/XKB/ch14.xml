@@ -82,7 +82,7 @@ in the same way for all keys. For example, the
 <symbol>Shift</symbol>
  modifier selects shift level 2 on most keys, but for keypad keys the modifier
 bound to
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  (that is, the
 <emphasis>NumLock</emphasis>
  virtual modifier) also selects shift level 2.</para></note>
@@ -109,13 +109,13 @@ Shift Levels and Groups</H5>
 <para>
 This key has two groups, indicated by the columns, and each group has two shift
 levels. For the first group (Group1), the symbol shift level one is
-<emphasis>a</emphasis>,
+<keysym>a</keysym>,
 and the symbol for shift level two is
-<emphasis>A</emphasis>.
+<keysym>A</keysym>.
 For the second group, the symbol for shift level one is
-<emphasis>æ</emphasis>,
+<keysym>æ</keysym>,
 and the symbol for shift level two is
-<emphasis>Æ</emphasis>.
+<keysym>Æ</keysym>.
 </para>
 
 <sect2 id='Core_Implementation'>
@@ -136,14 +136,14 @@ In general, the
  modifier, the
 <symbol>Lock</symbol>
  modifier, and the modifier bound to the
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  key are used to change between shift level 1 and shift level 2. To switch
 between groups, the core implementation uses the modifier bound to the
-<emphasis>Mode_switch</emphasis>
+<keysym>Mode_switch</keysym>
  key. When the
-<emphasis>Mode_switch</emphasis>
+<keysym>Mode_switch</keysym>
  modifier is set, the keyboard is logically in Group 2. When the
-<emphasis>Mode_switch</emphasis>
+<keysym>Mode_switch</keysym>
  modifier is not set, the keyboard is logically in Group 1.
 </para>
 
@@ -153,7 +153,7 @@ The core implementation does not clearly specify the behavior of keys. For
 example, the locking behavior of the
 <emphasis>CapsLock</emphasis>
  and
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  keys depends on the vendor.
 </para>
 

@@ -1222,7 +1222,7 @@ or setting the attribute; instead use
 <emphasis>MouseKeys</emphasis>
  can also be turned on and off by pressing the key combination necessary to
 produce an
-<emphasis>XK_Pointer_EnableKeys</emphasis>
+<keysym>XK_Pointer_EnableKeys</keysym>
  keysym. The de facto default standard for this is
 <emphasis>Shift+Alt+NumLock</emphasis>,
 but this may vary depending on the keymap.</para></note>

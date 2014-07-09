@@ -15,8 +15,8 @@ The core X protocol specifies the ways that the
 <symbol>Control</symbol>, and
 <symbol>Lock</symbol>
 modifiers and the modifiers bound to the
-<emphasis>Mode_switch</emphasis> or
-<emphasis>Num_Lock</emphasis>
+<keysym>Mode_switch</keysym> or
+<keysym>Num_Lock</keysym>
 keysyms interact to generate keysyms and characters. The core protocol also
 allows users to specify that a key affects one or more modifiers. This behavior
 is simple and fairly flexible, but it has a number of limitations that make it

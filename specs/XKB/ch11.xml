@@ -131,7 +131,7 @@ assume the keymap for the ‘A’ key only contains the shift modifier and the
  key and the
 <emphasis>A</emphasis>
  key while the
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  key is locked,
 <function>XLookupString</function>
  uses the

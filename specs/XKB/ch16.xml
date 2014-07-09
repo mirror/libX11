@@ -2013,11 +2013,11 @@ Operated by itself, the
 <emphasis>XkbISOAction</emphasis>
  is just a caps lock. Operated simultaneously with another modifier key, it
 transforms the other key into a locking key. For example, press
-<emphasis>ISO_Lock</emphasis>,
+<keysym>ISO_Lock</keysym>,
 press and release
-<emphasis>Control_L</emphasis>,
+<keysym>Control_L</keysym>,
 release
-<emphasis>ISO_Lock</emphasis>
+<keysym>ISO_Lock</keysym>
  ends up locking the
 <symbol>Control</symbol>
  modifier.

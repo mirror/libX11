@@ -5,7 +5,7 @@
 The core protocol specifies that certain keysyms, when bound to modifiers,
 affect the rules of keycode to keysym interpretation for all keys; for example,
 when the
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  keysym is bound to some modifier, that modifier is used to select between
 shifted and unshifted state for the numeric keypad keys. The core protocol does
 not provide a convenient way to determine the mapping of modifier bits (in
@@ -14,9 +14,9 @@ particular
  through
 <symbol>Mod5</symbol>
 ) to keysyms such as
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  and
-<emphasis>Mode_switch</emphasis>.
+<keysym>Mode_switch</keysym>.
 Using the core protocol only, a client application must retrieve and search
 the modifier map to determine the keycodes bound to each modifier, and then
 retrieve and search the keyboard mapping to determine the keysyms bound to the
@@ -48,7 +48,7 @@ Each virtual modifier can be bound to any set of the real modifiers
 The separation of function from physical modifier bindings makes it easier to
 specify more clearly the intent of a binding. X servers do not all assign
 modifiers the same way — for example,
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  might be bound to
 <symbol>Mod2</symbol>
  for one vendor and to
@@ -207,11 +207,11 @@ use virtual modifier mappings (see <link linkend="Virtual_Modifier_Mapping">sect
 For example, if
 <symbol>Mod3</symbol>
  is bound to the
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  key by the core protocol modifier mapping, and the
 <emphasis>NumLock</emphasis>
  virtual modifier is bound to they
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  key by the virtual modifier mapping,
 <symbol>Mod3</symbol>
  is added to the set of modifiers associated with
@@ -415,7 +415,7 @@ A virtual modifier definition for this example would have:
 
 <para>
 Continuing the example, if the keyboard has a
-<emphasis>Num_Lock</emphasis>
+<keysym>Num_Lock</keysym>
  keysym bound to the key with keycode 14, and the
 <emphasis>NumLock</emphasis>
  virtual modifier is bound to this key,

@@ -737,13 +737,13 @@ indicated ID
 <title>Display and Device Specifications in Function Calls</title>
 <para>
 Where a connection to the server is passed as an argument (Display*) and an
-<emphasis>XkbDescPtr</emphasis>
+<type>XkbDescPtr</type>
  is also passed as an argument, the Display* argument must match the
 <emphasis>dpy</emphasis>
  field of the
 <structname>XkbDescRec</structname>
  pointed to by the
-<emphasis>XkbDescPtr</emphasis>
+<type>XkbDescPtr</type>
  argument, or else the
 <emphasis>dpy</emphasis>
  field of the
@@ -793,14 +793,14 @@ its device identifier.
 
 <para>
 Where an Xkb device identifier is passed as an argument and an
-<emphasis>XkbDescPtr</emphasis>
+<type>XkbDescPtr</type>
  is also passed as an argument, if either the argument or the
 <structname>XkbDescRec</structname>
 <emphasis>device_spec</emphasis>
  field is
 <symbol>XkbUseCoreKbd</symbol>,
 and if the function returns successfully, the
-<emphasis>XkbDescPtr</emphasis>
+<type>XkbDescPtr</type>
 <emphasis>device_spec</emphasis>
  field will have been converted from
 <symbol>XkbUseCoreKbd</symbol>
@@ -809,7 +809,7 @@ and if the function returns successfully, the
  field remains unchanged. Subsequently, the device id argument must match the
 <emphasis>device_spec</emphasis>
  field of the
-<emphasis>XkbDescPtr</emphasis>
+<type>XkbDescPtr</type>
  argument. If they don’t match, a
 <errorname>BadMatch</errorname>
  error is returned (either in the return value or a backfilled

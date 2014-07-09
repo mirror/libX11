@@ -2259,7 +2259,7 @@ as appropriate. If the
  to include the
 <parameter>key</parameter>
  that was changed. See <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link> for more information on the
-<emphasis>XkbMapChangesPtr</emphasis>
+<type>XkbMapChangesPtr</type>
  structure. If successful,
 <function>XkbChangeTypesOfKey</function>
  returns

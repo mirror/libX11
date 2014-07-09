@@ -590,7 +590,7 @@ available via
 <function>XkbGetDeviceInfo</function>.
 These convenience functions mirror some of the mask bits. The functions all
 take an
-<emphasis>XkbDeviceInfoPtr</emphasis>
+<type>XkbDeviceInfoPtr</type>
  as an input argument and operate on the X Input Extension device specified by
 the
 <parameter>device_spec</parameter>

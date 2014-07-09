@@ -588,7 +588,7 @@ being held down.
 <parameter>state</parameter>.
 <parameter>buf</parameter>
  is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  terminated unless there’s an overflow. If the string returned is larger than
 <parameter>nbytes</parameter>,
 a count of bytes that does not fit into the buffer is returned in extra_rtrn.

@@ -3086,9 +3086,9 @@ keyboard focus. However, the
 The
 <emphasis>message</emphasis>
  field is set to the message specified in the action and is guaranteed to be
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 -terminated; the Xkb extension forces a
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  into
 <emphasis>message</emphasis>
 [
@@ -3940,7 +3940,7 @@ If any allocation errors occur while resizing the number of actions bound to
 the key,
 <function>XkbResizeKeyActions</function>
  returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 <note><para>A change to the number of actions bound to a key should be

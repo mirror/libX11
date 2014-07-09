@@ -407,7 +407,7 @@ the X keyboard extension. In all cases, upon return
  and
 <parameter>minor_in_out</parameter>
  are not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbOpenDisplay</function>
  first calls
 <function>XkbLibraryVersion</function>
@@ -424,7 +424,7 @@ If the library is incompatible,
 <parameter>minor_in_out</parameter>
  with the major and minor extension versions of the library being used and
 returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If the library is compatible,
 <function>XkbOpenDisplay</function>
 next calls
@@ -432,7 +432,7 @@ next calls
  with the
 <parameter>display_name</parameter>.
 If this fails, the function returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If successful,
 <function>XkbOpenDisplay</function>
 calls
@@ -446,7 +446,7 @@ If the server extension version is not compatible with the library extension
 version or if the server extension is not present,
 <function>XkbOpenDisplay</function>
 closes the display and returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 When successful, the function returns the display connection.
 </para>
 
@@ -749,11 +749,11 @@ Where a connection to the server is passed as an argument (Display*) and an
  field of the
 <emphasis>XkbDescRec</emphasis>
  must be
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If they don’t match or the
 <emphasis>dpy</emphasis>
  field is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 a
 <errorname>BadMatch</errorname>
  error is returned (either in the return value or a backfilled

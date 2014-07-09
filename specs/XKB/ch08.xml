@@ -994,7 +994,7 @@ If the
  field of the
 <parameter>desc</parameter>
  parameter is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetIndicatorMap</function>
  allocates and initializes it.
 </para>
@@ -1183,7 +1183,7 @@ indicator is mapped to a physical LED, the
 Each of the "
 <emphasis>_rtrn</emphasis>
 " arguments is optional; you can pass
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  for any unneeded "
 <emphasis>_rtrn</emphasis>
 " arguments.
@@ -1547,7 +1547,7 @@ If
 and the optional parameter,
 <parameter>state</parameter>,
 is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbSetNamedIndicator</function>
  tells the server to change the state of the named indicator to the value
 specified by
@@ -1574,7 +1574,7 @@ the name specified by
 If the optional parameter,
 <parameter>map</parameter>,
 is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbSetNamedIndicator</function>
  tells the server to change the indicator’s map to the values specified
 in <parameter>map</parameter>.
@@ -1989,7 +1989,7 @@ If the
  field of
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetIndicatorChanges</function>
  allocates and initializes it. To free the
 <emphasis>indicators</emphasis>
@@ -2103,7 +2103,7 @@ To free memory used by the
 If the <emphasis>indicators</emphasis>
  member of the keyboard description record
 pointed to by <parameter>xkb</parameter>
-is not <emphasis>NULL</emphasis>,
+is not <symbol>NULL</symbol>,
 <function>XkbFreeIndicatorMaps</function>
 frees the memory associated with
 the <emphasis>indicators</emphasis>

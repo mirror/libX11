@@ -305,7 +305,7 @@ The
 bit (0 relative) of the mask represents the i-th virtual modifier. If
 <parameter>mask_rtrn</parameter>
  is non-
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbVirtualModsToReal</function>
  backfills it with the resulting real modifier mask. If the keyboard
 description in

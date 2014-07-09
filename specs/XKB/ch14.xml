@@ -328,7 +328,7 @@ reply, and then returns. If successful,
  structure it allocated. If unsuccessful,
 <function>XkbGetMap</function>
  returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 When unsuccessful, one of the following protocol errors is also generated:
 <errorname>BadAlloc</errorname>
  (unable to allocate the
@@ -1264,7 +1264,7 @@ of entries necessary for
 
 <para>
 If the client map of the keyboard description is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 and any fields are already allocated in the client map,
 <function>XkbAllocClientMap</function>
  does not overwrite the existing values; it simply ignores that part of the
@@ -1365,7 +1365,7 @@ To free memory used by the client map member of an
  structure specified by the
 <parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 The
 <parameter>which</parameter>
  parameter specifies a combination of the client map masks shown in
@@ -1382,7 +1382,7 @@ If
  is ignored;
 <function>XkbFreeClientMap</function>
  frees every non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  structure component in the client map, frees the
 <emphasis>XkbClientMapRec</emphasis>
  structure referenced by the
@@ -1392,7 +1392,7 @@ If
  parameter, and sets the
 <emphasis>map</emphasis>
  member to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 
@@ -1554,7 +1554,7 @@ field of the server map.
 
 <para>
 If the server map of the keyboard description is not
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  and any fields are already allocated in the server map,
 <function>XkbAllocServerMap</function>
  does not overwrite the existing values. The only exception is with the
@@ -1652,7 +1652,7 @@ The
  structure specified by the
 <parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 The
 <parameter>which</parameter>
  parameter specifies a combination of the server map masks and is a bitwise
@@ -1665,7 +1665,7 @@ inclusive OR of the masks listed in
  is ignored and
 <function>XkbFreeServerMap</function>
  frees every non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  structure component in the server map, frees the
 <emphasis>XkbServerMapRec</emphasis>
  structure referenced by the
@@ -1675,7 +1675,7 @@ inclusive OR of the masks listed in
  parameter, and sets the
 <emphasis>server</emphasis>
  member to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 </sect2>

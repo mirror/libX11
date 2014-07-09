@@ -437,7 +437,7 @@ structure specifies a symbol interpretation:
 
 <para><programlisting>
 typedef struct {
-      KeySym          sym;          /* keysym of interest or <emphasis>NULL</emphasis> */
+      KeySym          sym;          /* keysym of interest or <symbol>NULL</symbol> */
       unsigned char   flags;        /* <emphasis>XkbSI_AutoRepeat, XkbSI_LockingKey</emphasis> */
       unsigned char   match;        /* specifies how mods is interpreted */
       unsigned char   mods;         /* modifier bits, correspond to eight real modifiers */
@@ -450,7 +450,7 @@ typedef struct {
 If
 <emphasis>sym</emphasis>
  is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 it limits the symbol interpretation to keys on which that particular keysym
 is selected by the modifiers matching the criteria specified by
 <emphasis>mods</emphasis>
@@ -459,7 +459,7 @@ is selected by the modifiers matching the criteria specified by
 If
 <emphasis>sym</emphasis>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 the interpretation may be applied to any symbol selected on a key when the
 modifiers match the criteria specified by
 <emphasis>mods</emphasis>
@@ -890,7 +890,7 @@ work space,
  field of the
 <parameter>xkb</parameter>
  argument is non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  and does not match the
 <parameter>display</parameter>
  argument, and
@@ -1162,7 +1162,7 @@ for groups 1 and 2 using the rules specified by the Xkb protocol and places
 them in
 <parameter>xkb_syms_rtrn</parameter>,
 which will be non-
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 
@@ -1492,7 +1492,7 @@ If
 it (re)applies the compatibility map to all of the keys on the keyboard. If
 <parameter>changes</parameter>
  is non-
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 it reports the parts of the keyboard that were affected (unless
 <parameter>updateMap</parameter>
  is
@@ -1500,7 +1500,7 @@ it reports the parts of the keyboard that were affected (unless
 not much changes).
 <function>XkbAddSymInterpret</function>
  returns a pointer to the actual new symbol interpretation in the list or
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if it failed.
 </para>
 
@@ -1740,7 +1740,7 @@ added, use
  if
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 or
 <errorname>BadAlloc</errorname>
  if errors are encountered when attempting to allocate storage.
@@ -1821,7 +1821,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
 <symbol>True</symbol>,
 <parameter>which</parameter>
  is ignored, all non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  compatibility map components are freed, and the
 <emphasis>compat</emphasis>
  field in the
@@ -1829,7 +1829,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
  referenced by
 <parameter>xkb</parameter>
  is set to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 </sect1>

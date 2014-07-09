@@ -431,7 +431,7 @@ If the
  field of the keyboard description
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetNames</function>
  allocates and initializes the
 <emphasis>names</emphasis>
@@ -442,7 +442,7 @@ If the
  field of
 <parameter>xkb</parameter>
  is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetNames</function>
  obtains the values specified by
 <parameter>which</parameter>
@@ -457,7 +457,7 @@ If the
  component of the
 <parameter>xkb</parameter>
  parameter is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetNames</function>
  does not retrieve type or shift level names, even if
 <emphasis>XkbKeyTypeNamesMask</emphasis>

@@ -990,7 +990,7 @@ use
  and waits for a reply. If
 <parameter>supported_rtrn</parameter>
  is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 it backfills supported_rtrn with
 <symbol>True</symbol>
  if the server supports
@@ -1086,7 +1086,7 @@ and off it
 ; it then waits for a reply. If
 <parameter>supported_rtrn</parameter>
  is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbSetDetectableAutorepeat</function>
  backfills
 <parameter>supported_rtrn</parameter>
@@ -4381,7 +4381,7 @@ If
 -&gt;
 <emphasis>ctrls</emphasis>
 is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetControls</function>
  allocates and initializes it before obtaining the values specified by
 <parameter>which</parameter>.
@@ -4390,7 +4390,7 @@ If
 -&gt;
 <emphasis>ctrls</emphasis>
  is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetControls</function>
  modifies only those portions of
 <parameter>xkb</parameter>
@@ -4412,7 +4412,7 @@ If
  if
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or
 <parameter>which</parameter>
  is empty, or
@@ -4533,7 +4533,7 @@ If
 -&gt;
 <emphasis>ctrls</emphasis>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 the server does not support a compatible version of Xkb, or the Xkb extension
 has not been properly initialized,
 <function>XkbSetControls</function>
@@ -4993,7 +4993,7 @@ results into the
  field of
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbGetControlsChanges</function>
  allocates and initializes it. To free the
 <emphasis>ctrls</emphasis>
@@ -5079,14 +5079,14 @@ allocate one by calling
 If the
 <emphasis>ctrls</emphasis>
  field is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbAllocControls</function>
  simply returns
 <symbol>Success</symbol>.
 If
 <parameter>xkb</parameter>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbAllocControls</function>
  reports a
 <errorname>BadMatch</errorname>
@@ -5173,7 +5173,7 @@ structure, use
  field in the
 <parameter>xkb</parameter>
  keyboard description and sets the corresponding structure component values to
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or
 <emphasis>zero</emphasis>.
 The
@@ -5192,7 +5192,7 @@ If
 <symbol>True</symbol>,
 <function>XkbFreeControls</function>
  frees every non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  structure component in the controls, frees the
 <emphasis>XkbControlsRec</emphasis>
  structure referenced by the
@@ -5202,7 +5202,7 @@ If
 and sets
 <emphasis>ctrls</emphasis>
  to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 </sect1>

@@ -277,7 +277,7 @@ A list of one or more outlines (described below).
   <para>
 Optional pointers to a primary and an approximation outline (described below).
 If either of these pointers is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 the default primary/approximation outline is the first one in the list of
 outlines for the shape.
   </para>
@@ -339,7 +339,7 @@ shape’s list of outlines. If the
  field of the
 <emphasis>XkbShapeRec</emphasis>
  structure is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 it points to the primary outline. A rectangular
 <emphasis>approximation</emphasis>
  must be included for nonrectangular keys as one of the outlines associated
@@ -846,7 +846,7 @@ If
  and/or
 <emphasis>primary</emphasis>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 the default value is used. The default primary outline is the first element
 in the outlines array, as is the default approximating outline.
 </para>
@@ -1289,11 +1289,11 @@ shape. The top surface is defined to be the approximating outline if the
  field of
 <parameter>shape</parameter>
  is not
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If
 <emphasis>approx</emphasis>
  is
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 the top surface is defined as the last outline in the
 <parameter>shape</parameter>
 ’s array of outlines.
@@ -1303,7 +1303,7 @@ the top surface is defined as the last outline in the
  if
 <parameter>shape</parameter>
  is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or if there are no outlines for the shape; otherwise, it returns
 <symbol>True</symbol>.
 </para>
@@ -1360,7 +1360,7 @@ those outlines.
  if
 <parameter>shape</parameter>
  is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or if there are no outlines for the shape; otherwise, it returns
 <symbol>True</symbol>.
 </para>
@@ -1428,7 +1428,7 @@ and updates the bounding box of the row if necessary.
  returns
 <symbol>False</symbol>
  if any of the arguments is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 ; otherwise, it returns
 <symbol>True</symbol>.
 </para>
@@ -1485,7 +1485,7 @@ that section. To update the bounding box of a section, use
  returns
 <symbol>False</symbol>
  if any of the arguments is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 ; otherwise, it returns
 <symbol>True</symbol>.
 </para>
@@ -1644,7 +1644,7 @@ To add one property to an existing keyboard geometry description, use
  to the keyboard geometry specified by geom.
 <function>XkbAddGeomProperty</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the property. To allocate space for an arbitrary number of properties, use the
 XkbAllocGeomProps function.
@@ -1710,7 +1710,7 @@ To add one key alias to an existing keyboard geometry description, use
 it with the key whose real name is real.
 <function>XkbAddGeomKeyAlias</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the alias. To allocate space for an arbitrary number of aliases, use the
 XkbAllocGeomKeyAliases function.
@@ -1791,7 +1791,7 @@ A color
 using their indices in this global list or pointers to colors in this list.
 <function>XkbAddGeomColor</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the color. To allocate space for an arbitrary number of colors to a geometry,
 use the
@@ -1850,7 +1850,7 @@ An outline consists of an arbitrary number of points.
  points for it. The new outline is allocated and zeroed.
 <function>XkbAddGeomOutline</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space. To
 allocate space for an arbitrary number of outlines to a shape, use
 XkbAllocGeomOutlines.
@@ -1924,7 +1924,7 @@ an arbitrary number of outlines.
  already exists in the geometry, a pointer to the existing shape is returned.
 <function>XkbAddGeomShape</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space. To
 allocate space for an arbitrary number of geometry shapes, use
 <function>XkbAllocGeomShapes</function>.
@@ -1969,7 +1969,7 @@ Keys are grouped into rows.
 The key is allocated and zeroed.
 <function>XkbAddGeomKey</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if
 <parameter>row</parameter>
  is empty or if it was not able to allocate space for the key. To allocate
@@ -2074,7 +2074,7 @@ If a section with name
 returned.
 <function>XkbAddGeomSection</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the section. To allocate space for an arbitrary number of sections to a
 geometry, use XkbAllocGeomSections.
@@ -2134,7 +2134,7 @@ The newly created row contains space for the number of keys specified in
 They are allocated and zeroed, but otherwise uninitialized.
 <function>XkbAddGeomRow</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the row. To allocate space for an arbitrary number of rows to a section, use
 the XkbAllocGeomRows function.
@@ -2205,25 +2205,25 @@ section.
  adds a doodad with name specified by name to the geometry
 <parameter>geom</parameter>
  if section is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or to the section of the geometry specified by section if
 <parameter>section</parameter>
  is not
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 <function>XkbAddGeomDoodad</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the doodad. If there is already a doodad with the name
 <parameter>name</parameter>
  in the doodad array for the geometry (if
 <parameter>section</parameter>
  is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 ) or the section (if
 <parameter>section</parameter>
  is non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 ), a pointer to that doodad is returned. To allocate space for an arbitrary
 number of doodads to a section, use the XkbAllocGeomSectionDoodads function. To
 allocate space for an arbitrary number of doodads to a keyboard geometry, use
@@ -2296,7 +2296,7 @@ overlay with name
 returned.
 <function>XkbAddGeomOverlay</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the overlay. To allocate space for an arbitrary number of overlays to a
 section, use the XkbAllocGeomOverlay function.
@@ -2368,11 +2368,11 @@ The new row contains space for
  specifies a row that doesn’t exist on the underlying section,
 <function>XkbAddGeomOverlayRow</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  and doesn’t change the overlay.
 <function>XkbAddGeomOverlayRow</function>
  returns
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  if any of the parameters is empty or if it was not able to allocate space for
 the overlay.
 </para>
@@ -2442,7 +2442,7 @@ If there is no key named
  in the row of the underlying section,
 <function>XkbAddGeomOverlayKey</function>
  returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 

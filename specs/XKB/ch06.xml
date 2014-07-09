@@ -258,7 +258,7 @@ server for those components specified in the
  and copies the results to the
 <emphasis>XkbDescRec</emphasis>
  it allocated. The remaining fields in the keyboard description are set to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 The valid masks for
 <parameter>which</parameter>
  are those listed in <link linkend="table6.2">Table 6.2</link>.
@@ -320,7 +320,7 @@ or
 If
 <function>XkbAllocKeyboard</function>
  fails to allocate the keyboard description, it returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 Otherwise, it returns a pointer to an empty keyboard description structure.
 The
 <emphasis>device_spec</emphasis>
@@ -392,14 +392,14 @@ To destroy either an entire an
  specified by
 <parameter>which</parameter>
  and sets the corresponding values to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If
 <parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
 <function>XkbFreeKeyboard</function>
  frees every non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  component of
 <parameter>xkb</parameter>
  and then frees the

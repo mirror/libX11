@@ -83,7 +83,7 @@ typedef struct {                       /* Key Type */
                                           modify directly */
       unsigned char     map_count;     /* # entries in <emphasis>map</emphasis>,
                                           <emphasis>preserve</emphasis>
-                                          (if non-<emphasis> NULL</emphasis>) */
+                                          (if non-<symbol>NULL</symbol>) */
       XkbKTMapEntryPtr  map;           /* vector of modifiers for each
                                           shift level */
       XkbModsPtr        preserve;      /* mods to preserve for corresponding
@@ -207,7 +207,7 @@ an optional
  field. If a
 <emphasis>preserve</emphasis>
  member of a key type is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 it represents a list of modifiers where each entry corresponds directly to
 one of the key type’s
 <emphasis>map</emphasis>.
@@ -364,7 +364,7 @@ Because the
  modifier is to be preserved for further event processing, the
 <emphasis>preserve</emphasis>
  list is not
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  and parallels the
 <emphasis>map</emphasis>
  list. All
@@ -955,7 +955,7 @@ can be zero or greater. If
  and
 <emphasis>preserve</emphasis>
  entries for the type if they exist and sets them to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 
@@ -979,7 +979,7 @@ the
 the
 <emphasis>preserve</emphasis>
  field is freed if necessary and set to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 
@@ -2242,7 +2242,7 @@ initializes any new symbols or actions to
 as appropriate. If the
 <parameter>p_changes</parameter>
  parameter is not
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <function>XkbChangeTypesOfKey</function>
  adds the
 <emphasis>XkbKeySymsMask</emphasis>
@@ -2360,7 +2360,7 @@ If the Xkb extension has not been properly initialized,
 If the
 <parameter>xkb</parameter>
  parameter it not valid (that is, it is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  or it does not contain a valid client map),
 <function>XkbChangeTypesOfKey</function>
  returns
@@ -2501,7 +2501,7 @@ If any allocation errors occur while resizing the number of symbols bound to
 the key,
 <function>XkbResizeKeySyms</function>
  returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 <note><para>A change to the number of symbols bound to a key should be

@@ -429,7 +429,7 @@ To ring the bell on an X input extension device or the default keyboard, use
     </term>
     <listitem>
       <para>
-        a name for the bell, or <emphasis>NULL</emphasis>
+        a name for the bell, or <symbol>NULL</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -538,7 +538,7 @@ default keyboard:
     </term>
     <listitem>
       <para>
-        a bell name, or <emphasis>NULL</emphasis>
+        a bell name, or <symbol>NULL</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -701,7 +701,7 @@ without ringing the corresponding bell, use
     </term>
     <listitem>
       <para>
-        a bell name, or <emphasis>NULL</emphasis>
+        a bell name, or <symbol>NULL</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -796,7 +796,7 @@ the keyboard without ringing the bell:
     </term>
     <listitem>
       <para>
-        a bell name, or <emphasis>NULL</emphasis>
+        a bell name, or <symbol>NULL</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1033,7 +1033,7 @@ and
  = None, and
 <emphasis>name</emphasis>
  =
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 and returns what
 <function>XkbForceDeviceBell</function>
  returns.

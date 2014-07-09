@@ -1183,7 +1183,7 @@ if
  are inappropriate,
 <function>XkbAddDeviceLedInfo</function>
  returns
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 </para>
 
 
@@ -1244,7 +1244,7 @@ To allocate additional space for button actions in an
 -&gt;
 <emphasis>btn_acts</emphasis>
  is set to
-<emphasis>NULL</emphasis>.
+<symbol>NULL</symbol>.
 If device_info is invalid or new_total is greater than 255,
 <errorname>BadValue</errorname>
  is returned. If a memory allocation failure occurs, a
@@ -1328,7 +1328,7 @@ contains XkbXI_ButtonActionsMask, all button actions associated with
 -&gt;
 <emphasis>btn_acts</emphasis>
  is set to
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>
 -&gt;
@@ -1342,7 +1342,7 @@ and
 -&gt;
 <emphasis>leds</emphasis>
  is set to
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>
 -&gt;

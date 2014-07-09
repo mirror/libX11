@@ -256,7 +256,7 @@ composed of characters from the ISO
 <emphasis>*</emphasis>
 ’, and characters permitted in a component class or member name
 (see <link linkend="Component_Names">section 20.1</link>). A pattern may be
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 in which case no components for that type is returned. Pattern matches with
 component names are case sensitive. The ‘
 <emphasis>?</emphasis>
@@ -786,7 +786,7 @@ independent of any actual device.
 
 <para>
 The server parses all non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
  fields in
 <parameter>names</parameter>
  and uses them to build a keyboard description. However, before parsing the
@@ -807,7 +807,7 @@ possible bits in
 If a required component has not been specified in the
 <parameter>names</parameter>
  structure (the corresponding field is
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 ), the server substitutes the expression "
 <emphasis>%</emphasis>
 ", resulting in the component values being taken from
@@ -821,7 +821,7 @@ the server modifies
  if necessary (again using a "
 <emphasis>%</emphasis>
 " entry) to ensure all of the following fields are non-
-<emphasis>NULL</emphasis>
+<symbol>NULL</symbol>
 :
 <emphasis>types</emphasis>,
 <emphasis>keycodes</emphasis>,
@@ -1092,7 +1092,7 @@ There is no way to determine which components specified in
 <function>XkbGetKeyboardByName</function>
 is synchronous; it sends the request to the server to build a new keyboard
 description and waits for the reply. If successful, the return value is
-non-<emphasis>NULL</emphasis>.
+non-<symbol>NULL</symbol>.
 <function>XkbGetKeyboardByName</function>
 generates a <errorname>BadMatch</errorname>
 protocol error if errors are encountered when building the keyboard
@@ -1170,7 +1170,7 @@ keyboard device. It calls
 (
 <parameter>dpy</parameter>,
 <parameter>device_spec</parameter>,
-<emphasis>NULL</emphasis>,
+<symbol>NULL</symbol>,
 <parameter>which</parameter>,
 <parameter>which</parameter>,
 <symbol>False</symbol>

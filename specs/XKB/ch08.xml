@@ -858,9 +858,9 @@ current state of the keyboard indicators, use
   <funcprototype>
     <funcdef>Status <function>XkbGetIndicatorState</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>state_return</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>state_return</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -904,19 +904,19 @@ current state of the keyboard indicators, use
 <para>
 <function>XkbGetIndicatorState</function>
  queries the
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  for the state of the indicators on the device specified by the
-<emphasis>device_spec</emphasis>.
+<parameter>device_spec</parameter>.
 For each indicator that is "turned on" on the device, the associated bit is
 set in
-<emphasis>state_return</emphasis>.
+<parameter>state_return</parameter>.
 If a compatible version of the Xkb extension is not available in the server,
 <function>XkbGetIndicatorState</function>
  returns a
 <errorname>BadMatch</errorname>
  error. Otherwise, it sends the request to the X server, places the state of
 the indicators into
-<emphasis>state_return</emphasis>,
+<parameter>state_return</parameter>,
  and returns
 <symbol>Success</symbol>.
 Thus the value reported by
@@ -940,9 +940,9 @@ indicators, use
   <funcprototype>
     <funcdef>Status <function>XkbGetIndicatorMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>which</emphasis>,
-<emphasis>desc</emphasis>
+<parameter>dpy</parameter>,
+<parameter>which</parameter>,
+<parameter>desc</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -986,13 +986,13 @@ indicators, use
 <para>
 <function>XkbGetIndicatorMap</function>
  obtains the maps from the server for only those indicators specified by the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  mask and copies the values into the keyboard description specified by
-<emphasis>desc</emphasis>.
+<parameter>desc</parameter>.
 If the
 <emphasis>indicators</emphasis>
  field of the
-<emphasis>desc</emphasis>
+<parameter>desc</parameter>
  parameter is
 <emphasis>NULL</emphasis>,
 <function>XkbGetIndicatorMap</function>
@@ -1048,13 +1048,13 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbGetNamedIndicator</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>dev_spec</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>ndx_rtrn</emphasis>,
-<emphasis>state_rtrn</emphasis>,
-<emphasis>map_rtrn</emphasis>,
-<emphasis>real_rtrn</emphasis>
+<parameter>dpy</parameter>,
+<parameter>dev_spec</parameter>,
+<parameter>name</parameter>,
+<parameter>ndx_rtrn</parameter>,
+<parameter>state_rtrn</parameter>,
+<parameter>map_rtrn</parameter>,
+<parameter>real_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1142,9 +1142,9 @@ Use
 
 <para>
 If the device specified by
-<emphasis>device_spec</emphasis>
+<parameter>device_spec</parameter>
  has an indicator named
-<emphasis>name</emphasis>,
+<parameter>name</parameter>,
 <function>XkbGetNamedIndicator</function>
  returns
 <symbol>True</symbol>
@@ -1158,22 +1158,22 @@ Otherwise,
 
 <para>
 The
-<emphasis>ndx_rtrn</emphasis>
+<parameter>ndx_rtrn</parameter>
  field returns the zero-based index of the named indicator. This index is the
 bit position to use in any function call that requires a mask of indicator
 bits, as well as the indicator’s index into the
 <emphasis>XkbIndicatorRec</emphasis>
  array of indicator maps.
-<emphasis>state_rtrn</emphasis>
+<parameter>state_rtrn</parameter>
  returns the current state of the named indicator (
 <symbol>True</symbol>
  = on,
 <symbol>False</symbol>
  = off).
-<emphasis>map_rtrn</emphasis>
+<parameter>map_rtrn</parameter>
  returns the indicator map for the named indicator. In addition, if the
 indicator is mapped to a physical LED, the
-<emphasis>real_rtrn</emphasis>
+<parameter>real_rtrn</parameter>
  parameter is set to
 <symbol>True</symbol>.
 </para>
@@ -1343,9 +1343,9 @@ keyboard description, then use
   <funcprototype>
     <funcdef>Bool <function>XkbSetIndicatorMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>which</emphasis>,
-<emphasis>desc</emphasis>
+<parameter>dpy</parameter>,
+<parameter>which</parameter>,
+<parameter>desc</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1389,11 +1389,11 @@ keyboard description, then use
 <para>
 For each
 bit set in the
-<emphasis>which </emphasis>
+<parameter>which</parameter>
 parameter,
 <function>XkbSetIndicatorMap</function>
  sends the corresponding indicator map from the
-<emphasis>desc</emphasis>
+<parameter>desc</parameter>
  parameter to the server.
 </para>
 
@@ -1435,12 +1435,12 @@ Set the indicator map for the indicator
   <funcprototype>
     <funcdef>Bool<function>XkbSetNamedIndicator</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>change_state, state</emphasis>,
-<emphasis>create_new</emphasis>,
-<emphasis>map</emphasis>
+<parameter>dpy</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>name</parameter>,
+<parameter>change_state, state</parameter>,
+<parameter>create_new</parameter>,
+<parameter>map</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1533,7 +1533,7 @@ If a compatible version of the Xkb extension is not available in the server,
 <symbol>False</symbol>.
 Otherwise, it sends a request to the X server to change the indicator
 specified by
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  and returns
 <symbol>True</symbol>.
 </para>
@@ -1541,43 +1541,43 @@ specified by
 
 <para>
 If
-<emphasis>change_state</emphasis>
+<parameter>change_state</parameter>
  is
 <symbol>True</symbol>,
 and the optional parameter,
-<emphasis>state</emphasis>,
+<parameter>state</parameter>,
 is not
 <emphasis>NULL</emphasis>,
 <function>XkbSetNamedIndicator</function>
  tells the server to change the state of the named indicator to the value
 specified by
-<emphasis>state</emphasis>.
+<parameter>state</parameter>.
 </para>
 
 
 <para>
 If an indicator with the name specified by
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  does not already exist, the
-<emphasis>create_new</emphasis>
+<parameter>create_new</parameter>
  parameter tells the server whether it should create a new named indicator. If
-<emphasis>create_new</emphasis>
+<parameter>create_new</parameter>
  is
 <symbol>True</symbol>,
 the server finds the first indicator that doesn’t have a name and gives it
 the name specified by
-<emphasis>name</emphasis>.
+<parameter>name</parameter>.
 </para>
 
 
 <para>
 If the optional parameter,
-<emphasis>map</emphasis>,
+<parameter>map</parameter>,
 is not
 <emphasis>NULL</emphasis>,
 <function>XkbSetNamedIndicator</function>
  tells the server to change the indicator’s map to the values specified
-in <emphasis>map</emphasis>.
+in <parameter>map</parameter>.
 </para>
 
 <para>
@@ -1636,7 +1636,7 @@ description, use
   <funcprototype>
     <funcdef>Bool <function>XkbChangeIndicators</function></funcdef>
 <!-- (
-<emphasis>dpy, xkb, changes, state</emphasis>
+<parameter>dpy, xkb, changes, state</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1693,20 +1693,20 @@ description, use
 <para>
 <function>XkbChangeIndicators</function>
  copies any maps specified by
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  from the keyboard description,
-<emphasis>xkb</emphasis>,
+<parameter>xkb</parameter>,
 to the server specified by
-<emphasis>dpy</emphasis>.
+<parameter>dpy</parameter>.
 If any bits are set in the
 <emphasis>state_changes</emphasis>
  field of
-<emphasis>changes</emphasis>,
+<parameter>changes</parameter>,
 <function>XkbChangeIndicators</function>
  also sets the state of those indicators to the values specified in the
-<emphasis>state</emphasis>
+<parameter>state</parameter>
  mask. A 1 bit in
-<emphasis>state</emphasis>
+<parameter>state</parameter>
  turns the corresponding indicator on, a 0 bit turns it off.
 </para>
 
@@ -1820,7 +1820,7 @@ have changed. If the event is of type
 <emphasis>XkbIndicatorStateNotify</emphasis>,
 <emphasis>changed</emphasis>
  reports the indicators that have changed state.
-<emphasis>state</emphasis>
+<parameter>state</parameter>
  is a mask that specifies the current state of all indicators, whether they
 have changed or not, for both
 <emphasis>XkbIndicatorStateNotify</emphasis>
@@ -1841,9 +1841,9 @@ When your client application receives either a
   <funcprototype>
     <funcdef>void <function>XkbNoteIndicatorChanges</function></funcdef>
 <!-- (
-<emphasis>old</emphasis>,
-<emphasis>new</emphasis>,
-<emphasis>wanted</emphasis>
+<parameter>old</parameter>,
+<parameter>new</parameter>,
+<parameter>wanted</parameter>
 ) -->
 
     <paramdef>XkbIndicatorChangesPtr <parameter>old</parameter></paramdef>
@@ -1886,18 +1886,18 @@ When your client application receives either a
 
 <para>
 The
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  parameter is the bitwise inclusive OR of
 <emphasis>XkbIndicatorMapMask</emphasis>
  and
 <emphasis>XkbIndicatorStateMask</emphasis>.
 <function>XkbNoteIndicatorChanges</function>
  copies any changes reported in
-<emphasis>new</emphasis>
+<parameter>new</parameter>
  and specified in
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  into the changes record specified by
-<emphasis>old</emphasis>.
+<parameter>old</parameter>.
 </para>
 
 
@@ -1915,10 +1915,10 @@ the results of one or more calls to
   <funcprototype>
     <funcdef>Status <function>XkbGetIndicatorChanges</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>,
-<emphasis>changes</emphasis>,
-<emphasis>state</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>,
+<parameter>changes</parameter>,
+<parameter>state</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1973,21 +1973,21 @@ the results of one or more calls to
 <para>
 <function>XkbGetIndicatorChanges</function>
  examines the
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  parameter, pulls over the necessary information from the server, and copies
 the results into the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  keyboard description. If any bits are set in the
 <emphasis>state_changes</emphasis>
  field of
-<emphasis>changes</emphasis>,
+<parameter>changes</parameter>,
 <function>XkbGetIndicatorChanges</function>
  also places the state of those indicators in
-<emphasis>state</emphasis>.
+<parameter>state</parameter>.
 If the
 <emphasis>indicators</emphasis>
  field of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>,
 <function>XkbGetIndicatorChanges</function>
@@ -2027,7 +2027,7 @@ described in <xref linkend="Complete_Keyboard_Description" />). If the need aris
   <funcprototype>
     <funcdef>Status <function>XkbAllocIndicatorMaps</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -2048,7 +2048,7 @@ described in <xref linkend="Complete_Keyboard_Description" />). If the need aris
 
 <para>
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must point to a valid keyboard description. If it doesn’t,
 <function>XkbAllocIndicatorMaps</function>
  returns a
@@ -2080,7 +2080,7 @@ To free memory used by the
   <funcprototype>
     <funcdef>void <function>XkbFreeIndicatorMaps</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -2102,12 +2102,12 @@ To free memory used by the
 <para>
 If the <emphasis>indicators</emphasis>
  member of the keyboard description record
-pointed to by <emphasis>xkb</emphasis>
+pointed to by <parameter>xkb</parameter>
 is not <emphasis>NULL</emphasis>,
 <function>XkbFreeIndicatorMaps</function>
 frees the memory associated with
 the <emphasis>indicators</emphasis>
-member of <emphasis>xkb</emphasis>.
+member of <parameter>xkb</parameter>.
 </para>
 
 </sect1>

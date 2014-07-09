@@ -372,7 +372,7 @@ To obtain symbolic names from the server, use
   <funcprototype>
     <funcdef>Status <function>XkbGetNames</function></funcdef>
 <!-- (
-<emphasis>dpy, which, Xkb</emphasis>
+<parameter>dpy, which, Xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -417,9 +417,9 @@ To obtain symbolic names from the server, use
 <function>XkbGetNames</function>
  retrieves symbolic names for the components of the keyboard extension from the
 X server. The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies the name components to be updated in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter, and is the bitwise inclusive OR of the valid names mask bits
 defined in <link linkend="table18.1">Table 18.1</link>.
 </para>
@@ -429,23 +429,23 @@ defined in <link linkend="table18.1">Table 18.1</link>.
 If the
 <emphasis>names</emphasis>
  field of the keyboard description
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>,
 <function>XkbGetNames</function>
  allocates and initializes the
 <emphasis>names</emphasis>
  component of the keyboard description before obtaining the values specified by
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 If the
 <emphasis>names</emphasis>
  field of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is not
 <emphasis>NULL</emphasis>,
 <function>XkbGetNames</function>
  obtains the values specified by
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  and copies them into the keyboard description
 <emphasis>Xkb</emphasis>.
 </para>
@@ -455,7 +455,7 @@ If the
 If the
 <emphasis>map</emphasis>
  component of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter is
 <emphasis>NULL</emphasis>,
 <function>XkbGetNames</function>
@@ -464,7 +464,7 @@ If the
  or
 <emphasis>XkbKTLevelNamesMask</emphasis>
  are set in
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 </para>
 
 
@@ -520,7 +520,7 @@ structure and call
   <funcprototype>
     <funcdef>Bool <function>XkbSetNames</function></funcdef>
 <!-- (
-<emphasis>dpy, which, first_type, num_types, xkb</emphasis>
+<parameter>dpy, which, first_type, num_types, xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -587,26 +587,26 @@ structure and call
 Use
 <function>XkbSetNames</function>
  to change many names at the same time. For each bit set in
-<emphasis>which</emphasis>,
+<parameter>which</parameter>,
 <function>XkbSetNames</function>
  takes the corresponding value (or values in the case of arrays) from the
 keyboard description
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  and sends it to the server.
 </para>
 
 
 <para>
 The
-<emphasis>first_type</emphasis>
+<parameter>first_type</parameter>
  and
-<emphasis>num_types</emphasis>
+<parameter>num_types</parameter>
  arguments are used only if
 <emphasis>XkbKeyTypeNamesMask</emphasis>
  or
 <emphasis>XkbKTLevelNamesMask</emphasis>
  is set in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  and specify a subset of the types for which the corresponding names are to be
 changed. If either or both of these mask bits are set but the specified types
 are illegal,
@@ -614,13 +614,13 @@ are illegal,
  returns
 <symbol>False</symbol>
  and does not update any of the names specified in
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 The specified types are illegal if
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  does not include a map component or if
-<emphasis>first_type</emphasis>
+<parameter>first_type</parameter>
  and
-<emphasis>num_types</emphasis>
+<parameter>num_types</parameter>
  specify types that are not defined in the keyboard description.
 </para>
 
@@ -769,7 +769,7 @@ various kinds of symbolic names, as shown in
   <funcprototype>
     <funcdef>Bool <function>XkbChangeNames</function></funcdef>
 <!-- (
-<emphasis>dpy, xkb, changes</emphasis>
+<parameter>dpy, xkb, changes</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -813,16 +813,16 @@ various kinds of symbolic names, as shown in
 <para>
 <function>XkbChangeNames</function>
  copies any names specified by
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  from the keyboard description,
-<emphasis>xkb</emphasis>,
+<parameter>xkb</parameter>,
 to the X server specified by
-<emphasis>dpy</emphasis>.
+<parameter>dpy</parameter>.
 <function>XkbChangeNames</function>
  aborts and returns
 <symbol>False</symbol>
  if any illegal type names or type shift level names are specified by
-<emphasis>changes</emphasis>.
+<parameter>changes</parameter>.
 </para>
 
 </sect3>
@@ -926,9 +926,9 @@ When your application receives a X
   <funcprototype>
     <funcdef>void <function>XkbNoteNameChanges</function></funcdef>
 <!-- (
-<emphasis>old</emphasis>,
-<emphasis>new</emphasis>,
-<emphasis>wanted</emphasis>
+<parameter>old</parameter>,
+<parameter>new</parameter>,
+<parameter>wanted</parameter>
 ) -->
 
     <paramdef>XkbNameChangesPtr <parameter>old</parameter></paramdef>
@@ -971,16 +971,16 @@ When your application receives a X
 
 <para>
 The
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  parameter is the bitwise inclusive OR of the valid names mask bits shown in
 <link linkend="table18.1">Table 18.1</link>.
 <function>XkbNoteNameChanges</function>
  copies any changes that are reported in
-<emphasis>new</emphasis>
+<parameter>new</parameter>
  and specified in
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  into the changes record specified by
-<emphasis>old</emphasis>.
+<parameter>old</parameter>.
 </para>
 
 
@@ -998,9 +998,9 @@ pass to
   <funcprototype>
     <funcdef>Status <function>XkbGetNameChanges</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>,
-<emphasis>changes</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>,
+<parameter>changes</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1044,10 +1044,10 @@ pass to
 <para>
 <function>XkbGetNameChanges</function>
  examines the
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  parameter, retrieves the necessary information from the server, and places the
 results into the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  keyboard description.
 </para>
 
@@ -1084,7 +1084,7 @@ from the X server. Instead use
   <funcprototype>
     <funcdef>Status <function>XkbAllocNames</function></funcdef>
 <!-- (
-<emphasis>xkb, which, num_rg, num_key_aliases)</emphasis> -->
+<parameter>xkb, which, num_rg, num_key_aliases)</parameter> -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
     <paramdef>unsigned int <parameter>which</parameter></paramdef>
@@ -1144,7 +1144,7 @@ from the X server. Instead use
 <errorname>BadValue</errorname>
  errors.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter is the bitwise inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>.
 </para>
@@ -1166,7 +1166,7 @@ Use
   <funcprototype>
     <funcdef>void <function>XkbFreeNames</function></funcdef>
 <!-- (
-<emphasis>xkb, which, free_map)</emphasis> -->
+<parameter>xkb, which, free_map)</parameter> -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
     <paramdef>unsigned int <parameter>which</parameter></paramdef>
@@ -1209,7 +1209,7 @@ Use
 
 <para>
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter is the bitwise inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>.
 </para>

@@ -252,7 +252,7 @@ populated.
   <funcprototype>
     <funcdef>XkbDescPtr <function>XkbGetMap</function></funcdef>
 <!-- (
-<emphasis>display, which, device_spec</emphasis>
+<parameter>display, which, device_spec</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -295,12 +295,12 @@ populated.
 
 <para>
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  mask is a bitwise inclusive OR of the masks defined in
 <link linkend="table14.1">Table 14.1</link>. Only those
 portions of the keyboard server map and the keyboard client maps that are
 specified in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are allocated and populated.
 </para>
 
@@ -309,7 +309,7 @@ specified in
 In addition to allocating and obtaining the server map and the client map,
 <function>XkbGetMap</function>
  also sets the
-<emphasis>device_spec</emphasis>,
+<parameter>device_spec</parameter>,
 the
 <emphasis>min_key_code</emphasis>,
 and
@@ -336,7 +336,7 @@ When unsuccessful, one of the following protocol errors is also generated:
  structure),
 <errorname>BadValue</errorname>
  (some mask bits in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are undefined),
 or
 <errorname>BadImplementation</errorname>
@@ -501,7 +501,7 @@ description, use <function>XkbGetUpdatedMap</function>.
   <funcprototype>
     <funcdef>Status <function>XkbGetUpdatedMap</function></funcdef>
 <!-- (
-<emphasis>display, which, xkb</emphasis>
+<parameter>display, which, xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -544,11 +544,11 @@ description, use <function>XkbGetUpdatedMap</function>.
 
 <para>
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter is a bitwise inclusive OR of the masks in
 <link linkend="table14.1">Table 14.1</link>.
 If the needed components of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  structure are not already allocated,
 <function>XkbGetUpdatedMap</function>
  allocates them.
@@ -556,7 +556,7 @@ If the needed components of the
  fetches the requested information for the device specified in the
 <emphasis>XkbDescRec</emphasis>
  passed in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter.
 </para>
 
@@ -577,7 +577,7 @@ If unsuccessful,
  structure),
 <errorname>BadValue</errorname>
  (some mask bits in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are undefined),
 <errorname>BadImplementation</errorname>
  (a compatible version of the Xkb extension is not available in the server or
@@ -603,9 +603,9 @@ an
   <funcprototype>
     <funcdef>Bool <function>XkbSetMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>which</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>which</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -651,29 +651,29 @@ Use
 <function>XkbSetMap</function>
  to send a complete new set of values for entire components (for example, all
 symbols, all actions, and so on) to the server. The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies the components to be sent to the server, and is a bitwise
 inclusive OR of the masks listed in
 <link linkend="table14.1">Table 14.1</link>. The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter is a pointer to an
 <emphasis>XkbDescRec</emphasis>
  structure and contains the information to be copied to the server. For each
 bit set in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter,
 <function>XkbSetMap</function>
  takes the corresponding structure values from the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter and sends it to the server specified by
-<emphasis>dpy</emphasis>.
+<parameter>dpy</parameter>.
 </para>
 
 <para>
 If any components specified by
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are not present in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter,
 <function>XkbSetMap</function>
  returns
@@ -887,9 +887,9 @@ keyboard description, then call
   <funcprototype>
     <funcdef>Bool <function>XkbChangeMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>,
-<emphasis>changes</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>,
+<parameter>changes</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -933,19 +933,19 @@ keyboard description, then call
 <para>
 <function>XkbChangeMap</function>
  copies any components specified by the
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  structure from the keyboard description,
-<emphasis>xkb</emphasis>,
+<parameter>xkb</parameter>,
 to the X server specified by
-<emphasis>dpy</emphasis>.
+<parameter>dpy</parameter>.
 </para>
 
 
 <para>
 If any components specified by
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  are not present in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter,
 <function>XkbChangeMap</function>
  returns
@@ -1118,7 +1118,7 @@ To allocate and initialize an empty client map description record, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocClientMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, type_count</emphasis>
+<parameter>xkb, which, type_count</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1164,9 +1164,9 @@ To allocate and initialize an empty client map description record, use
  allocates and initializes an empty client map in the
 <emphasis>map</emphasis>
  field of the keyboard description specified by
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies the particular components of the client map structure to
 allocate and is a mask composed by a bitwise inclusive OR of one or more of the
 masks shown in <link linkend="table14.3">Table 14.3</link>.
@@ -1189,11 +1189,11 @@ masks shown in <link linkend="table14.3">Table 14.3</link>.
     <entry>XkbKeyTypesMask</entry>
     <entry>
 The
-<emphasis>type_count </emphasis>
+<parameter>type_count</parameter>
 field specifies the number of entries to preallocate for the
 <emphasis>types</emphasis>
  field of the client map. If the
-<emphasis>type_count </emphasis>
+<parameter>type_count</parameter>
 field is less than
 <emphasis>XkbNumRequiredTypes</emphasis>
  (see <link linkend="The_Canonical_Key_Types">section 15.2.1</link>), returns
@@ -1208,7 +1208,7 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter are used to allocate the
 <emphasis>syms</emphasis>
  and
@@ -1229,7 +1229,7 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter are used to allocate the
 <emphasis>modmap</emphasis>
  field of the client map. The field is allocated to contain the maximum number
@@ -1249,13 +1249,13 @@ of entries necessary for
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be legal values if the
 <emphasis>XkbKeySymsMask</emphasis>
  or
 <emphasis>XkbModifierMapMask</emphasis>
  masks are set in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter. If they are not valid,
 <function>XkbAllocClientMap</function>
  returns
@@ -1271,7 +1271,7 @@ and any fields are already allocated in the client map,
 request. The only exception is the
 <emphasis>types</emphasis>
  array. If
-<emphasis>type_count</emphasis>
+<parameter>type_count</parameter>
  is greater than the current
 <emphasis>num_types</emphasis>
  field of the client map,
@@ -1314,7 +1314,7 @@ To free memory used by the client map member of an
   <funcprototype>
     <funcdef>void <function>XkbFreeClientMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, free_all</emphasis>
+<parameter>xkb, which, free_all</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1359,15 +1359,15 @@ To free memory used by the client map member of an
 <para>
 <function>XkbFreeClientMap</function>
  frees the components of client map specified by
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  in the
 <emphasis>XkbDescRec</emphasis>
  structure specified by the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
 <emphasis>NULL</emphasis>.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies a combination of the client map masks shown in
 <link linkend="table14.3">Table 14.3</link>.
 </para>
@@ -1375,10 +1375,10 @@ The
 
 <para>
 If
-<emphasis>free_all</emphasis>
+<parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is ignored;
 <function>XkbFreeClientMap</function>
  frees every non-
@@ -1388,7 +1388,7 @@ If
  structure referenced by the
 <emphasis>map</emphasis>
  member of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter, and sets the
 <emphasis>map</emphasis>
  member to
@@ -1410,7 +1410,7 @@ To allocate and initialize an empty server map description record, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocServerMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, count_acts</emphasis>
+<parameter>xkb, which, count_acts</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1456,9 +1456,9 @@ To allocate and initialize an empty server map description record, use
  allocates and initializes an empty server map in the
 <emphasis>server</emphasis>
  field of the keyboard description specified by
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies the particular components of the server map structure to
 allocate, as specified in <link linkend="table14.4">Table 14.4</link>.
 </para>
@@ -1484,7 +1484,7 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter are used to allocate the
 <emphasis>explicit</emphasis>
 field of the server map.
@@ -1498,11 +1498,11 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter are used to allocate the
 <emphasis>key_acts</emphasis>
 field of the server map. The
-<emphasis>count_acts</emphasis>
+<parameter>count_acts</parameter>
  parameter is used to allocate the
 <emphasis>acts</emphasis>
  field of the server map.
@@ -1516,7 +1516,7 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter are used to allocate the
 <emphasis>behaviors</emphasis>
 field of the server map.
@@ -1530,7 +1530,7 @@ The
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb </emphasis>
+<parameter>xkb</parameter>
 parameter are used to allocate the
 <emphasis>vmodmap</emphasis>
 field of the server map.
@@ -1545,7 +1545,7 @@ field of the server map.
  and
 <emphasis>max_key_code</emphasis>
  fields of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be legal values. If they are not valid,
 <function>XkbAllocServerMap</function>
  returns
@@ -1560,7 +1560,7 @@ If the server map of the keyboard description is not
  does not overwrite the existing values. The only exception is with the
 <emphasis>acts</emphasis>
 array. If the
-<emphasis>count_acts </emphasis>
+<parameter>count_acts</parameter>
 parameter is greater than the current
 <emphasis>num_acts</emphasis>
 field of the server map,
@@ -1602,7 +1602,7 @@ To free memory used by the server member of an
   <funcprototype>
     <funcdef>void <function>XkbFreeServerMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, free_all</emphasis>
+<parameter>xkb, which, free_all</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1650,18 +1650,18 @@ The
  function frees the specified components of server map in the
 <emphasis>XkbDescRec</emphasis>
  structure specified by the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
 <emphasis>NULL</emphasis>.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies a combination of the server map masks and is a bitwise
 inclusive OR of the masks listed in
 <link linkend="table14.4">Table 14.4</link>. If
-<emphasis>free_all</emphasis>
+<parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is ignored and
 <function>XkbFreeServerMap</function>
  frees every non-
@@ -1671,7 +1671,7 @@ inclusive OR of the masks listed in
  structure referenced by the
 <emphasis>server</emphasis>
  member of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter, and sets the
 <emphasis>server</emphasis>
  member to

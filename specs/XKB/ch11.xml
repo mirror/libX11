@@ -427,7 +427,7 @@ implemented, use <function>XkbXlibControlsImplemented</function>.
   <funcprototype>
     <funcdef>unsigned int <function>XkbXlibControlsImplemented</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>
+<parameter>display</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -468,7 +468,7 @@ To determine the current state of the Library Controls, use
   <funcprototype>
     <funcdef>unsigned int <function>XkbGetXlibControls</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>
+<parameter>display</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -510,7 +510,7 @@ To change the state of the Library Controls, use
   <funcprototype>
     <funcdef>Bool <function>XkbSetXlibControls</function></funcdef>
 <!-- (
-<emphasis>display, bits_to_change, values_for_bits</emphasis>
+<parameter>display, bits_to_change, values_for_bits</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -554,18 +554,18 @@ To change the state of the Library Controls, use
 <para>
 <function>XkbSetXlibControls</function>
  modifies the state of the controls selected by
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 ; only the controls selected by
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  are modified. If the bit corresponding to a control is on in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and also on in values_for_bits, the control is enabled. If the bit
 corresponding to a control is on in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  but off in
-<emphasis>values_for_bits</emphasis>,
+<parameter>values_for_bits</parameter>,
 the control is disabled.
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  should be an inclusive OR of bits from
 <link linkend="table11.1">Table 11.1</link>.
 </para>

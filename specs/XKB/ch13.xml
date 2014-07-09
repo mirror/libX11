@@ -1097,8 +1097,8 @@ To load a keyboard geometry if you already have the keyboard description, use
   <funcprototype>
     <funcdef>Status <function>XkbGetGeometry</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1155,9 +1155,9 @@ description from this database by name, use
   <funcprototype>
     <funcdef>Status <function>XkbGetNamedGeometry</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>,
-<emphasis>name</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>,
+<parameter>name</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -1203,7 +1203,7 @@ description from this database by name, use
  can return
 <errorname>BadName</errorname>
  if the
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  cannot be found.
 </para>
 
@@ -1247,8 +1247,8 @@ To determine the bounding box of the top surface of a shape, use
   <funcprototype>
     <funcdef>Bool <function>XkbComputeShapeTop</function></funcdef>
 <!-- (
-<emphasis>shape</emphasis>,
-<emphasis>bounds_rtrn</emphasis>
+<parameter>shape</parameter>,
+<parameter>bounds_rtrn</parameter>
 ) -->
 
     <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
@@ -1287,7 +1287,7 @@ of a rectangle that contains the outline that describes the top surface of the
 shape. The top surface is defined to be the approximating outline if the
 <emphasis>approx</emphasis>
  field of
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
  is not
 <emphasis>NULL</emphasis>.
 If
@@ -1295,13 +1295,13 @@ If
  is
 <emphasis>NULL</emphasis>,
 the top surface is defined as the last outline in the
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
 ’s array of outlines.
 <function>XkbComputeShapeTop</function>
  returns
 <symbol>False</symbol>
  if
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
  is
 <emphasis>NULL</emphasis>
  or if there are no outlines for the shape; otherwise, it returns
@@ -1325,7 +1325,7 @@ shape, use <function>XkbComputeShapeBounds</function>.
   <funcprototype>
     <funcdef>Bool <function>XkbComputeShapeBounds</function></funcdef>
 <!-- (
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
 ) -->
 
     <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
@@ -1349,7 +1349,7 @@ shape, use <function>XkbComputeShapeBounds</function>.
  updates the
 <emphasis>BoundsRec</emphasis>
  contained in the
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
  by examining all the outlines of the shape and setting the
 <emphasis>BoundsRec</emphasis>
  to the minimum x and minimum y, and maximum x and maximum y values found in
@@ -1358,7 +1358,7 @@ those outlines.
  returns
 <symbol>False</symbol>
  if
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
  is
 <emphasis>NULL</emphasis>
  or if there are no outlines for the shape; otherwise, it returns
@@ -1376,9 +1376,9 @@ To update the bounding box of a row, use <function>XkbComputeRowBounds</function
   <funcprototype>
     <funcdef>Bool <function>XkbComputeRowBounds</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>section</emphasis>,
-<emphasis>row</emphasis>
+<parameter>geom</parameter>,
+<parameter>section</parameter>,
+<parameter>row</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1422,7 +1422,7 @@ To update the bounding box of a row, use <function>XkbComputeRowBounds</function
 <para>
 <function>XkbComputeRowBounds</function>
  checks the bounds of all keys in the
-<emphasis>row </emphasis>
+<parameter>row</parameter>
 and updates the bounding box of the row if necessary.
 <function>XkbComputeRowBounds</function>
  returns
@@ -1445,8 +1445,8 @@ that section. To update the bounding box of a section, use
   <funcprototype>
     <funcdef>Bool <function>XkbComputeSectionBounds</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>section</emphasis>
+<parameter>geom</parameter>,
+<parameter>section</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1479,7 +1479,7 @@ that section. To update the bounding box of a section, use
 <para>
 <function>XkbComputeSectionBounds</function>
  examines all the rows of the
-<emphasis>section</emphasis>
+<parameter>section</parameter>
  and updates the bounding box of that section so that it contains all rows.
 <function>XkbComputeSectionBounds</function>
  returns
@@ -1502,9 +1502,9 @@ by using the primary name for a key that is part of an overlay, use
   <funcprototype>
     <funcdef>char *<function>XkbFindOverlayForKey</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>section</emphasis>,
-<emphasis>under</emphasis>
+<parameter>geom</parameter>,
+<parameter>section</parameter>,
+<parameter>under</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1548,7 +1548,7 @@ by using the primary name for a key that is part of an overlay, use
 <para>
 <function>XkbFindOverlayForKey</function>
  uses the primary name of the key,
-<emphasis>under</emphasis>,
+<parameter>under</parameter>,
 to look up the alternate name, which it returns.
 </para>
 
@@ -1592,9 +1592,9 @@ To add one property to an existing keyboard geometry description, use
   <funcprototype>
     <funcdef>XkbPropertyPtr <function>XkbAddGeomProperty</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>value</emphasis>
+<parameter>geom</parameter>,
+<parameter>name</parameter>,
+<parameter>value</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1638,9 +1638,9 @@ To add one property to an existing keyboard geometry description, use
 <para>
 <function>XkbAddGeomProperty</function>
  adds one property with the specified
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  and
-<emphasis>value</emphasis>
+<parameter>value</parameter>
  to the keyboard geometry specified by geom.
 <function>XkbAddGeomProperty</function>
  returns
@@ -1662,8 +1662,8 @@ To add one key alias to an existing keyboard geometry description, use
   <funcprototype>
     <funcdef>XkbKeyAliasPtr <function>XkbAddGeomKeyAlias</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>alias, real</emphasis>
+<parameter>geom</parameter>,
+<parameter>alias, real</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1728,9 +1728,9 @@ To add one color name to an existing keyboard geometry description, use
   <funcprototype>
     <funcdef>XkbColorPtr <function>XkbAddGeomColor</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>spec</emphasis>,
-<emphasis>pixel</emphasis>
+<parameter>geom</parameter>,
+<parameter>spec</parameter>,
+<parameter>pixel</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1776,9 +1776,9 @@ To add one color name to an existing keyboard geometry description, use
  adds the specified color
 <emphasis>name</emphasis>
  and
-<emphasis>pixel</emphasis>
+<parameter>pixel</parameter>
  to the specified geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 The top-level geometry description includes a list of up to
 <emphasis>MaxColors</emphasis>
  (32)
@@ -1786,7 +1786,7 @@ The top-level geometry description includes a list of up to
 A color
 <emphasis>name</emphasis>
  is a string whose interpretation is not specified by Xkb and neither is the
-<emphasis>pixel</emphasis>
+<parameter>pixel</parameter>
  value’s interpretation. All other geometry data structures refer to colors
 using their indices in this global list or pointers to colors in this list.
 <function>XkbAddGeomColor</function>
@@ -1809,8 +1809,8 @@ To add one outline to an existing shape, use
   <funcprototype>
     <funcdef>XkbOutlinePtr <function>XkbAddGeomOutline</function></funcdef>
 <!-- (
-<emphasis>shape</emphasis>,
-<emphasis>sz_points</emphasis>
+<parameter>shape</parameter>,
+<parameter>sz_points</parameter>
 ) -->
 
     <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
@@ -1844,9 +1844,9 @@ To add one outline to an existing shape, use
 An outline consists of an arbitrary number of points.
 <function>XkbAddGeomOutline</function>
  adds an outline to the specified
-<emphasis>shape</emphasis>
+<parameter>shape</parameter>
  by reserving
-<emphasis>sz_points</emphasis>
+<parameter>sz_points</parameter>
  points for it. The new outline is allocated and zeroed.
 <function>XkbAddGeomOutline</function>
  returns
@@ -1868,9 +1868,9 @@ To add a shape to a keyboard geometry, use
   <funcprototype>
     <funcdef>XkbShapePtr <function>XkbAddGeomShape</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>sz_outlines</emphasis>
+<parameter>geom</parameter>,
+<parameter>name</parameter>,
+<parameter>sz_outlines</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -1916,11 +1916,11 @@ A geometry contains an arbitrary number of shapes, each of which is made up of
 an arbitrary number of outlines.
 <function>XkbAddGeomShape</function>
  adds a shape to a geometry
-<emphasis>geom</emphasis>
+<parameter>geom</parameter>
  by allocating space for
-<emphasis>sz_outlines</emphasis>
+<parameter>sz_outlines</parameter>
  outlines for it and giving it the name specified by name. If a shape with name
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  already exists in the geometry, a pointer to the existing shape is returned.
 <function>XkbAddGeomShape</function>
  returns
@@ -1942,7 +1942,7 @@ To add one key at the end of an existing row of keys, use
   <funcprototype>
     <funcdef>XkbKeyPtr <function>XkbAddGeomKey</function></funcdef>
 <!-- (
-<emphasis>row</emphasis>
+<parameter>row</parameter>
 ) -->
 
     <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
@@ -1965,13 +1965,13 @@ To add one key at the end of an existing row of keys, use
 Keys are grouped into rows.
 <function>XkbAddGeomKey</function>
  adds one key to the end of the specified
-<emphasis>row</emphasis>.
+<parameter>row</parameter>.
 The key is allocated and zeroed.
 <function>XkbAddGeomKey</function>
  returns
 <emphasis>NULL</emphasis>
  if
-<emphasis>row</emphasis>
+<parameter>row</parameter>
  is empty or if it was not able to allocate space for the key. To allocate
 space for an arbitrary number of keys to a row, use XkbAllocGeomKeys.
 </para>
@@ -1988,11 +1988,11 @@ To add one section to an existing keyboard geometry, use
   <funcprototype>
     <funcdef>XkbSectionPtr <function>XkbAddGeomSection</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>sz_rows</emphasis>,
-<emphasis>sz_doodads</emphasis>,
-<emphasis>sz_overlays</emphasis>
+<parameter>geom</parameter>,
+<parameter>name</parameter>,
+<parameter>sz_rows</parameter>,
+<parameter>sz_doodads</parameter>,
+<parameter>sz_overlays</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2059,17 +2059,17 @@ To add one section to an existing keyboard geometry, use
 A keyboard geometry contains an arbitrary number of sections.
 <function>XkbAddGeomSection</function>
  adds one section to an existing keyboard geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 The new section contains space for the number of rows, doodads, and overlays
 specified by
-<emphasis>sz_rows</emphasis>,
-<emphasis>sz_doodads</emphasis>,
+<parameter>sz_rows</parameter>,
+<parameter>sz_doodads</parameter>,
 and
-<emphasis>sz_overlays</emphasis>.
+<parameter>sz_overlays</parameter>.
 The new section is allocated and zeroed and given the name specified by
-<emphasis>name</emphasis>.
+<parameter>name</parameter>.
 If a section with name
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  already exists in the geometry, a pointer to the existing section is
 returned.
 <function>XkbAddGeomSection</function>
@@ -2092,8 +2092,8 @@ To add a row to a section, use
   <funcprototype>
     <funcdef>XkbRowPtr <function>XkbAddGeomRow</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>sz_keys</emphasis>
+<parameter>section</parameter>,
+<parameter>sz_keys</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -2128,9 +2128,9 @@ One of the components of a keyboard geometry section is one or more rows of
 keys.
 <function>XkbAddGeomRow</function>
  adds one row to the specified
-<emphasis>section</emphasis>.
+<parameter>section</parameter>.
 The newly created row contains space for the number of keys specified in
-<emphasis>sz_keys</emphasis>.
+<parameter>sz_keys</parameter>.
 They are allocated and zeroed, but otherwise uninitialized.
 <function>XkbAddGeomRow</function>
  returns
@@ -2153,9 +2153,9 @@ geometry, use
   <funcprototype>
     <funcdef>XkbDoodadPtr <function>XkbAddGeomDoodad</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>section</emphasis>,
-<emphasis>name</emphasis>
+<parameter>geom</parameter>,
+<parameter>section</parameter>,
+<parameter>name</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2203,11 +2203,11 @@ A
 section.
 <function>XkbAddGeomDoodad</function>
  adds a doodad with name specified by name to the geometry
-<emphasis>geom</emphasis>
+<parameter>geom</parameter>
  if section is
 <emphasis>NULL</emphasis>
  or to the section of the geometry specified by section if
-<emphasis>section</emphasis>
+<parameter>section</parameter>
  is not
 <emphasis>NULL</emphasis>.
 <function>XkbAddGeomDoodad</function>
@@ -2215,13 +2215,13 @@ section.
 <emphasis>NULL</emphasis>
  if any of the parameters is empty or if it was not able to allocate space for
 the doodad. If there is already a doodad with the name
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  in the doodad array for the geometry (if
-<emphasis>section</emphasis>
+<parameter>section</parameter>
  is
 <emphasis>NULL</emphasis>
 ) or the section (if
-<emphasis>section</emphasis>
+<parameter>section</parameter>
  is non-
 <emphasis>NULL</emphasis>
 ), a pointer to that doodad is returned. To allocate space for an arbitrary
@@ -2242,9 +2242,9 @@ To add one overlay to a section, use
   <funcprototype>
     <funcdef>XkbOverlayPtr <function>XkbAddGeomOverlay</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>name</emphasis>,
-<emphasis>sz_rows</emphasis>
+<parameter>section</parameter>,
+<parameter>name</parameter>,
+<parameter>sz_rows</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -2288,10 +2288,10 @@ To add one overlay to a section, use
 <para>
 <function>XkbAddGeomOverlay</function>
  adds an overlay with the specified name to the specified
-<emphasis>section</emphasis>.
+<parameter>section</parameter>.
 The new overlay is created with space allocated for sz_rows rows. If an
 overlay with name
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  already exists in the section, a pointer to the existing overlay is
 returned.
 <function>XkbAddGeomOverlay</function>
@@ -2314,8 +2314,8 @@ To add a row to an existing overlay, use
   <funcprototype>
     <funcdef>XkbOverlayRowPtr <function>XkbAddGeomOverlayRow</function></funcdef>
 <!-- (
-<emphasis>overlay</emphasis>,
-<emphasis>row_under, sz_keys</emphasis>
+<parameter>overlay</parameter>,
+<parameter>row_under, sz_keys</parameter>
 ) -->
 
     <paramdef>XkbOverlayPtr <parameter>overlay</parameter></paramdef>
@@ -2360,11 +2360,11 @@ To add a row to an existing overlay, use
 <para>
 <function>XkbAddGeomOverlayRow</function>
  adds one row to the
-<emphasis>overlay</emphasis>.
+<parameter>overlay</parameter>.
 The new row contains space for
-<emphasis>sz_keys</emphasis>
+<parameter>sz_keys</parameter>
  keys. If
-<emphasis>row_under</emphasis>
+<parameter>row_under</parameter>
  specifies a row that doesn’t exist on the underlying section,
 <function>XkbAddGeomOverlayRow</function>
  returns
@@ -2389,8 +2389,8 @@ To add a key to an existing overlay row, use
   <funcprototype>
     <funcdef>XkbOverlayKeyPtr <function>XkbAddGeomOverlayKey</function></funcdef>
 <!-- (
-<emphasis>overlay</emphasis>,
-<emphasis>row, under</emphasis>
+<parameter>overlay</parameter>,
+<parameter>row, under</parameter>
 ) -->
 
     <paramdef>XkbOverlayPtr <parameter>overlay</parameter></paramdef>
@@ -2434,11 +2434,11 @@ To add a key to an existing overlay row, use
 <para>
 <function>XkbAddGeomOverlayKey</function>
  adds one key to the
-<emphasis>row</emphasis>
+<parameter>row</parameter>
  in the
-<emphasis>overlay</emphasis>.
+<parameter>overlay</parameter>.
 If there is no key named
-<emphasis>under</emphasis>
+<parameter>under</parameter>
  in the row of the underlying section,
 <function>XkbAddGeomOverlayKey</function>
  returns
@@ -2487,8 +2487,8 @@ XkbAllocGeomOutlines.
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomOutlines</function></funcdef>
 <!-- (
-<emphasis>shape</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>shape</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
@@ -2521,9 +2521,9 @@ XkbAllocGeomOutlines.
 <para>
 <function>XkbAllocGeomOutlines</function>
  allocates space for
-<emphasis>num_needed</emphasis>
+<parameter>num_needed</parameter>
  outlines in the specified
-<emphasis>shape</emphasis>.
+<parameter>shape</parameter>.
 The outlines are not initialized.
 </para>
 
@@ -2539,10 +2539,10 @@ To free geometry outlines, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomOutlines</function></funcdef>
 <!-- (
-<emphasis>shape</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>shape</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbShapePtr <parameter>shape</parameter></paramdef>
@@ -2613,8 +2613,8 @@ XkbAllocGeomKeys.
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomKeys</function></funcdef>
 <!-- (
-<emphasis>row</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>row</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
@@ -2662,10 +2662,10 @@ To free geometry keys, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomKeys</function></funcdef>
 <!-- (
-<emphasis>row</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>row</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
@@ -2736,8 +2736,8 @@ To allocate geometry properties, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomProps</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2771,7 +2771,7 @@ To allocate geometry properties, use
 <function>XkbAllocGeomProps</function>
  allocates space for num_needed properties and adds them to the specified
 geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 No initialization of the properties is done. A geometry property associates
 an arbitrary string with an equally arbitrary name. Geometry properties can be
 used to provide hints to programs that display images of keyboards, but they
@@ -2791,10 +2791,10 @@ To free geometry properties, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomProperties</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2865,8 +2865,8 @@ To allocate geometry key aliases, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomKeyAliases</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2900,7 +2900,7 @@ To allocate geometry key aliases, use
 <function>XkbAllocGeomKeyAliases</function>
  allocates space for num_needed key aliases and adds them to the specified
 geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 A key alias is a pair of strings that associates an alternate name for a key
 with the real name for that key.
 </para>
@@ -2917,10 +2917,10 @@ To free geometry key aliases, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomKeyAliases</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -2976,10 +2976,10 @@ To free geometry key aliases, use
 If free_all is
 <symbol>True</symbol>,
 all aliases in the top level of the specified geometry
-<emphasis>geom</emphasis>
+<parameter>geom</parameter>
  are freed regardless of the value of first or count. Otherwise, count aliases
 in
-<emphasis>geom</emphasis>
+<parameter>geom</parameter>
  are freed beginning with the one specified by first.
 </para>
 
@@ -2995,8 +2995,8 @@ To allocate geometry colors, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomColors</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3029,7 +3029,7 @@ To allocate geometry colors, use
 <para>
 <function>XkbAllocGeomColors</function>
  allocates space for num_needed colors and adds them to the specified geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 A color name is a string whose interpretation is not specified by Xkb. All
 other geometry data structures refer to colors using their indices in this
 global list or pointers to colors in this list.
@@ -3047,10 +3047,10 @@ To free geometry colors, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomColors</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3121,8 +3121,8 @@ To allocate points in an outline, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomPoints</function></funcdef>
 <!-- (
-<emphasis>outline</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>outline</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbOutlinePtr <parameter>outline</parameter></paramdef>
@@ -3155,9 +3155,9 @@ To allocate points in an outline, use
 <para>
 <function>XkbAllocGeomPoints</function>
  allocates space for
-<emphasis>num_needed</emphasis>
+<parameter>num_needed</parameter>
  points in the specified
-<emphasis>outline</emphasis>.
+<parameter>outline</parameter>.
 The points are not initialized.
 </para>
 
@@ -3173,10 +3173,10 @@ To free points in a outline, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomPoints</function></funcdef>
 <!-- (
-<emphasis>outline</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>outline</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbOutlinePtr <parameter>outline</parameter></paramdef>
@@ -3248,8 +3248,8 @@ To allocate space for an arbitrary number of geometry shapes, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomShapes</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3282,9 +3282,9 @@ To allocate space for an arbitrary number of geometry shapes, use
 <para>
 <function>XkbAllocGeomShapes</function>
  allocates space for
-<emphasis>num_needed</emphasis>
+<parameter>num_needed</parameter>
  shapes in the specified geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 The shapes are not initialized.
 </para>
 
@@ -3300,10 +3300,10 @@ To free geometry shapes, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomShapes</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>f ree_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>f ree_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3375,8 +3375,8 @@ To allocate geometry sections, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomSections</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3424,10 +3424,10 @@ To free geometry sections, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomSections</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -3499,8 +3499,8 @@ To allocate rows in a section, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomRows</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>section</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -3548,10 +3548,10 @@ To free rows in a section, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomRows</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>section</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -3623,8 +3623,8 @@ To allocate overlays in a section, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomOverlays</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>section</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -3672,10 +3672,10 @@ To free rows in an section, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomOverlays</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>section</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -3747,8 +3747,8 @@ To allocate rows in a overlay, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomOverlayRows</function></funcdef>
 <!-- (
-<emphasis>overlay</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>overlay</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>overlay</parameter></paramdef>
@@ -3796,10 +3796,10 @@ To free rows in an overlay, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomOverlayRows</function></funcdef>
 <!-- (
-<emphasis>overlay</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>overlay</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>overlay</parameter></paramdef>
@@ -3871,8 +3871,8 @@ To allocate keys in an overlay row, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomOverlayKeys</function></funcdef>
 <!-- (
-<emphasis>row</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>row</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
@@ -3920,10 +3920,10 @@ To free keys in an overlay row, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomOverlayKeys</function></funcdef>
 <!-- (
-<emphasis>row</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>row</parameter>,
+<parameter>first</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
@@ -3995,8 +3995,8 @@ To allocate doodads that are global to a keyboard geometry, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomDoodads</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>geom</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>
@@ -4029,7 +4029,7 @@ To allocate doodads that are global to a keyboard geometry, use
 <para>
 <function>XkbAllocGeomDoodads</function>
  allocates num_needed doodads and adds them to the specified geometry
-<emphasis>geom</emphasis>.
+<parameter>geom</parameter>.
 No initialization of the doodads is done.
 </para>
 
@@ -4045,8 +4045,8 @@ To allocate doodads that are specific to a section, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeomSectionDoodads</function></funcdef>
 <!-- (
-<emphasis>section</emphasis>,
-<emphasis>num_needed</emphasis>
+<parameter>section</parameter>,
+<parameter>num_needed</parameter>
 ) -->
 
     <paramdef>XkbSectionPtr <parameter>section</parameter></paramdef>
@@ -4079,7 +4079,7 @@ To allocate doodads that are specific to a section, use
 <para>
 <function>XkbAllocGeomSectionDoodads</function>
  allocates num_needed doodads and adds them to the specified
-<emphasis>section</emphasis>.
+<parameter>section</parameter>.
 No initialization of the doodads is done.
 </para>
 
@@ -4095,9 +4095,9 @@ To free geometry doodads, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeomDoodads</function></funcdef>
 <!-- (
-<emphasis>doodads</emphasis>,
-<emphasis>count</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>doodads</parameter>,
+<parameter>count</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbDoodadPtr <parameter>doodads</parameter></paramdef>
@@ -4140,7 +4140,7 @@ To free geometry doodads, use
 
 <para>
 If
-<emphasis>free_all</emphasis>
+<parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
 all doodads in the array are freed, regardless of the value of count.
@@ -4159,8 +4159,8 @@ To allocate an entire geometry, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocGeometry</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>sizes</emphasis>
+<parameter>xkb</parameter>,
+<parameter>sizes</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -4212,9 +4212,9 @@ To free an entire geometry, use
   <funcprototype>
     <funcdef>void <function>XkbFreeGeometry</function></funcdef>
 <!-- (
-<emphasis>geom</emphasis>,
-<emphasis>which</emphasis>,
-<emphasis>free_all</emphasis>
+<parameter>geom</parameter>,
+<parameter>which</parameter>,
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>

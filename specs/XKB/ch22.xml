@@ -24,7 +24,7 @@ To change the values of any of the debug controls, use
   <funcprototype>
     <funcdef>Bool <function>XkbSetDebuggingFlags</function></funcdef>
 <!-- (
-<emphasis>display, mask, flags, msg, ctrls_mask, ctrls, ret_flags, ret_ctrls</emphasis>
+<parameter>display, mask, flags, msg, ctrls_mask, ctrls, ret_flags, ret_ctrls</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -123,62 +123,62 @@ To change the values of any of the debug controls, use
 <para>
 <function>XkbSetDebuggingFlags</function>
  modifies the debug output flags as specified by
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  and
-<emphasis>flags</emphasis>,
+<parameter>flags</parameter>,
 modifies the debug controls flags as specified by
-<emphasis>ctrls_mask</emphasis>
+<parameter>ctrls_mask</parameter>
  and
-<emphasis>ctrls</emphasis>,
+<parameter>ctrls</parameter>,
 prints the message
-<emphasis>msg</emphasis>,
+<parameter>msg</parameter>,
 and backfills
-<emphasis>ret_flags</emphasis>
+<parameter>ret_flags</parameter>
  and
-<emphasis>ret_ctrls</emphasis>
+<parameter>ret_ctrls</parameter>
  with the resulting debug output and debug controls flags.
 </para>
 
 
 <para>
 When bits are set in the debug output masks,
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  and
-<emphasis>flags</emphasis>,
+<parameter>flags</parameter>,
 Xkb prints debug information corresponding to each bit at appropriate points
 during its processing. The device to which the output is written is
 implementation-dependent, but is normally the same device to which X server
 error messages are directed; thus the bits that can be set in
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  and
-<emphasis>flags</emphasis>
+<parameter>flags</parameter>
  is implementation-specific. To turn on a debug output selection, set the bit
 for the output in the
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  parameter and set the corresponding bit in the
-<emphasis>flags</emphasis>
+<parameter>flags</parameter>
  parameter. To turn off event selection for an event, set the bit for the
 output in the
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  parameter and do not set the corresponding bit in the
-<emphasis>flags</emphasis>
+<parameter>flags</parameter>
  parameter.
 </para>
 
 
 <para>
 When bits are set in the debug controls masks,
-<emphasis>ctrls_mask</emphasis>
+<parameter>ctrls_mask</parameter>
  and
-<emphasis>ctrls</emphasis>,
+<parameter>ctrls</parameter>,
 Xkb modifies its behavior according to each controls bit.
-<emphasis>ctrls_mask</emphasis>
+<parameter>ctrls_mask</parameter>
  and
-<emphasis>ctrls</emphasis>
+<parameter>ctrls</parameter>
  are related in the same way that
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  and
-<emphasis>flags</emphasis>
+<parameter>flags</parameter>
  are. The valid controls bits are defined in
 <link linkend="table22.1">Table 22.1</link>.
 </para>
@@ -230,7 +230,7 @@ it is disabled,
 
 <para>
 The message in
-<emphasis>msg</emphasis>
+<parameter>msg</parameter>
  is written immediately. The device to which it is written is implementation
 dependent but is normally the same device where X server error messages are
 directed.

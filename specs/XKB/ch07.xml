@@ -89,9 +89,9 @@ To set the name of a virtual modifier, use
 using
 <emphasis>XkbVirtualModNamesMask</emphasis>
  in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  and the name in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  argument; to retrieve indicator names, use
 <function>XkbGetNames</function>.
 These functions are discussed in <xref linkend="Symbolic_Names" />.
@@ -250,7 +250,7 @@ To determine the mapping of virtual modifiers to core X protocol modifiers, use
   <funcprototype>
     <funcdef>Bool <function>XkbVirtualModsToReal</function></funcdef>
 <!-- (
-<emphasis>xkb, virtual_mask, mask_rtrn</emphasis>
+<parameter>xkb, virtual_mask, mask_rtrn</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -293,23 +293,23 @@ To determine the mapping of virtual modifiers to core X protocol modifiers, use
 
 <para>
 If the keyboard description defined by
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  includes bindings for virtual modifiers,
 <function>XkbVirtualModsToReal</function>
  uses those bindings to determine the set of real modifiers that correspond to
 the set of virtual modifiers specified in
-<emphasis>virtual_mask</emphasis>.
+<parameter>virtual_mask</parameter>.
 The
-<emphasis>virtual_mask</emphasis>
+<parameter>virtual_mask</parameter>
  parameter is a mask specifying the virtual modifiers to translate; the i-th
 bit (0 relative) of the mask represents the i-th virtual modifier. If
-<emphasis>mask_rtrn</emphasis>
+<parameter>mask_rtrn</parameter>
  is non-
 <emphasis>NULL</emphasis>,
 <function>XkbVirtualModsToReal</function>
  backfills it with the resulting real modifier mask. If the keyboard
 description in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  does not include virtual modifier bindings,
 <function>XkbVirtualModsToReal</function>
  returns
@@ -319,7 +319,7 @@ description in
 </para>
 
 <note><para>It is possible for a local (client-side) keyboard description (the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter) to not contain any virtual modifier information (simply because the
 client has not requested it) while the server’s corresponding definition may
 contain virtual modifier information. </para></note>

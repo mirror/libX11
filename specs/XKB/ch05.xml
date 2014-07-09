@@ -352,7 +352,7 @@ To lock and unlock any of the eight real keyboard modifiers, use
   <funcprototype>
     <funcdef>Bool <function>XkbLockModifiers</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, affect, values</emphasis>
+<parameter>display, device_spec, affect, values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -407,13 +407,13 @@ To lock and unlock any of the eight real keyboard modifiers, use
 <para>
 <function>XkbLockModifiers</function>
  sends a request to the server to lock the real modifiers selected by both
-<emphasis>affect</emphasis>
+<parameter>affect</parameter>
  and
-<emphasis>values</emphasis>
+<parameter>values</parameter>
  and to unlock the real modifiers selected by
-<emphasis>affect</emphasis>
+<parameter>affect</parameter>
  but not selected by
-<emphasis>values</emphasis>.
+<parameter>values</parameter>.
 <function>XkbLockModifiers</function>
  does not wait for a reply from the server. It returns
 <symbol>True</symbol>
@@ -434,7 +434,7 @@ To latch and unlatch any of the eight real keyboard modifiers, use
   <funcprototype>
     <funcdef>Bool <function>XkbLatchModifiers</function></funcdef>
 <!-- (d
-<emphasis>isplay, device_spec, affect, values</emphasis>
+<parameter>isplay, device_spec, affect, values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -489,13 +489,13 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 <para>
 <function>XkbLatchModifiers</function>
  sends a request to the server to latch the real modifiers selected by both
-<emphasis>affect</emphasis>
+<parameter>affect</parameter>
  and
-<emphasis>values</emphasis>
+<parameter>values</parameter>
  and to unlatch the real modifiers selected by
-<emphasis>affect</emphasis>
+<parameter>affect</parameter>
  but not selected by
-<emphasis>values</emphasis>.
+<parameter>values</parameter>.
 <function>XkbLatchModifiers</function>
  does not wait for a reply from the server. It returns
 <symbol>True</symbol>
@@ -554,7 +554,7 @@ To lock the keysym group, use
   <funcprototype>
     <funcdef>Bool <function>XkbLockGroup</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, group</emphasis>
+<parameter>display, device_spec, group</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -598,7 +598,7 @@ To lock the keysym group, use
 <para>
 <function>XkbLockGroup</function>
  sends a request to the server to lock the specified
-<emphasis>group </emphasis>
+<parameter>group</parameter>
 and does not wait for a reply. It returns
 <symbol>True</symbol>
  if the request was sent and
@@ -618,7 +618,7 @@ To latch the keysym group, use
   <funcprototype>
     <funcdef>Bool <function>XkbLatchGroup</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, group</emphasis>
+<parameter>display, device_spec, group</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -711,9 +711,9 @@ To obtain the keyboard state, use
   <funcprototype>
     <funcdef>Status <function>XkbGetState</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>state_return</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>state_return</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -758,7 +758,7 @@ To obtain the keyboard state, use
 The
 <function>XkbGetState</function>
 function queries the server for the current keyboard state, waits for a reply, and then backfills
-<emphasis>state_return</emphasis>
+<parameter>state_return</parameter>
  with the results.
 </para>
 

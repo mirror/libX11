@@ -96,8 +96,8 @@ To determine the compatibility of a library at runtime, call
   <funcprototype>
     <funcdef>Bool <function>XkbLibraryVersion</function></funcdef>
 <!-- (
-<emphasis>lib_major_in_out</emphasis>,
-<emphasis>lib_minor_in_out</emphasis>
+<parameter>lib_major_in_out</parameter>,
+<parameter>lib_minor_in_out</parameter>
 ) -->
 
     <paramdef>int *<parameter>lib_major_in_out</parameter></paramdef>
@@ -131,19 +131,19 @@ To determine the compatibility of a library at runtime, call
 Pass the symbolic value
 <emphasis>XkbMajorVersion</emphasis>
  in
-<emphasis>lib_major_in_out</emphasis>
+<parameter>lib_major_in_out</parameter>
  and
 <emphasis>XkbMinorVersion</emphasis>
  in
-<emphasis>lib_minor_in_out</emphasis>.
+<parameter>lib_minor_in_out</parameter>.
 These arguments represent the version of the library used at compile time.
 The
 <function>XkbLibraryVersion</function>
 function backfills the major and minor version numbers of the library used at
 run time in
-<emphasis>lib_major_in_out</emphasis>
+<parameter>lib_major_in_out</parameter>
  and
-<emphasis>lib_minor_in_out</emphasis>.
+<parameter>lib_minor_in_out</parameter>.
 If the versions of the compile time and run time libraries are compatible,
 <function>XkbLibraryVersion</function>
 returns
@@ -203,7 +203,7 @@ and initializes the extension when it is present.
   <funcprototype>
     <funcdef>Bool <function>XkbQueryExtension</function></funcdef>
 <!-- (
-<emphasis>dpy, opcode_rtrn, event_rtrn, error_rtrn, major_in_out, minor_in_out</emphasis>
+<parameter>dpy, opcode_rtrn, event_rtrn, error_rtrn, major_in_out, minor_in_out</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -294,15 +294,15 @@ If a compatible version of Xkb is present,
 <function>XkbQueryExtension</function>
  initializes the extension. It backfills the major opcode for the keyboard
 extension in
-<emphasis>opcode_rtrn</emphasis>,
+<parameter>opcode_rtrn</parameter>,
 the base event code in
-<emphasis>event_rtrn</emphasis>,
+<parameter>event_rtrn</parameter>,
 the base error code in
-<emphasis>error_rtrn</emphasis>,
+<parameter>error_rtrn</parameter>,
 and the major and minor version numbers of the extension in
-<emphasis>major_in_out</emphasis>
+<parameter>major_in_out</parameter>
  and
-<emphasis>minor_in_out</emphasis>.
+<parameter>minor_in_out</parameter>.
 The major opcode is reported in the
 <emphasis>req_major</emphasis>
  fields of some Xkb events. For a discussion of the base event code, see
@@ -322,8 +322,8 @@ server, and initialize the extension for use.
   <funcprototype>
     <funcdef>Display *<function>XkbOpenDisplay</function></funcdef>
 <!-- (
-<emphasis>display_name, event_rtrn, error_rtrn, major_in_out, minor_in_out,
-reason_rtrn)</emphasis> -->
+<parameter>display_name, event_rtrn, error_rtrn, major_in_out, minor_in_out,
+reason_rtrn)</parameter> -->
 
     <paramdef>char *<parameter>display_name</parameter></paramdef>
     <paramdef>int *<parameter>event_rtrn</parameter></paramdef>
@@ -401,11 +401,11 @@ reason_rtrn)</emphasis> -->
 <function>XkbOpenDisplay</function>
 is a convenience function that opens an X display connection and initializes
 the X keyboard extension. In all cases, upon return
-<emphasis>reason_rtrn</emphasis>
+<parameter>reason_rtrn</parameter>
  contains a status value indicating success or the type of failure. If
-<emphasis>major_in_out</emphasis>
+<parameter>major_in_out</parameter>
  and
-<emphasis>minor_in_out</emphasis>
+<parameter>minor_in_out</parameter>
  are not
 <emphasis>NULL</emphasis>,
 <function>XkbOpenDisplay</function>
@@ -413,15 +413,15 @@ the X keyboard extension. In all cases, upon return
 <function>XkbLibraryVersion</function>
  to determine whether the client library is compatible, passing it the values
 pointed to by
-<emphasis>major_in_out</emphasis>
+<parameter>major_in_out</parameter>
  and
-<emphasis>minor_in_out</emphasis>.
+<parameter>minor_in_out</parameter>.
 If the library is incompatible,
 <function>XkbOpenDisplay</function>
  backfills
-<emphasis>major_in_out</emphasis>
+<parameter>major_in_out</parameter>
  and
-<emphasis>minor_in_out</emphasis>
+<parameter>minor_in_out</parameter>
  with the major and minor extension versions of the library being used and
 returns
 <emphasis>NULL</emphasis>.
@@ -430,7 +430,7 @@ If the library is compatible,
 next calls
 <function>XOpenDisplay</function>
  with the
-<emphasis>display_name</emphasis>.
+<parameter>display_name</parameter>.
 If this fails, the function returns
 <emphasis>NULL</emphasis>.
 If successful,
@@ -439,9 +439,9 @@ calls
 <function>XkbQueryExtension</function>
  and
 backfills the major and minor Xkb server extension version numbers in
-<emphasis>major_in_out</emphasis>
+<parameter>major_in_out</parameter>
  and
-<emphasis>minor_in_out</emphasis>.
+<parameter>minor_in_out</parameter>.
 If the server extension version is not compatible with the library extension
 version or if the server extension is not present,
 <function>XkbOpenDisplay</function>
@@ -452,7 +452,7 @@ When successful, the function returns the display connection.
 
 <para>
 The possible values for
-<emphasis>reason_rtrn</emphasis> are:
+<parameter>reason_rtrn</parameter> are:
 </para>
 
 <itemizedlist>
@@ -518,7 +518,7 @@ disable use of the extension once a connection is established.
   <funcprototype>
     <funcdef>Bool <function>XkbIgnoreExtension</function></funcdef>
 <!-- (
-<emphasis>ignore</emphasis>
+<parameter>ignore</parameter>
 ) -->
 
     <paramdef>Bool <parameter>ignore</parameter></paramdef>

@@ -644,7 +644,7 @@ default values, use
   <funcprototype>
     <funcdef>Status <function>XkbInitCanonicalKeyTypes</function></funcdef>
 <!-- (
-<emphasis>xkb, which, keypadVMod</emphasis>
+<parameter>xkb, which, keypadVMod</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -690,9 +690,9 @@ default values, use
  initializes the first
 <emphasis>XkbNumRequiredTypes</emphasis>
  key types of the keyboard specified by the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter to their default values. The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter specifies what canonical key types to initialize and is a bitwise
 inclusive OR of the following masks:
 <emphasis>XkbOneLevelMask</emphasis>,
@@ -701,7 +701,7 @@ inclusive OR of the following masks:
 and
 <emphasis>XkbKeypadMask</emphasis>.
 Only those canonical types specified by the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  mask are initialized.
 </para>
 
@@ -710,7 +710,7 @@ Only those canonical types specified by the
 If
 <emphasis>XkbKeypadMask</emphasis>
  is set in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter,
 <function>XkbInitCanonicalKeyTypes</function>
  looks up the
@@ -731,7 +731,7 @@ initializing the KEYPAD key type. If the
  if the Xkb extension has not been properly initialized, and
 <errorname>BadAccess</errorname>
  if the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter is not valid.
 </para>
 
@@ -753,10 +753,10 @@ use
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyTypes</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -831,9 +831,9 @@ If successful, it returns Success.
  if the Xkb extension has not been properly initialized and
 <errorname>BadValue</errorname>
  if the combination of
-<emphasis>first</emphasis>
+<parameter>first</parameter>
  and
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  results in numbers out of valid range.
 </para>
 
@@ -852,11 +852,11 @@ To change the number of levels in a key type, use
   <funcprototype>
     <funcdef>Status <function>XkbResizeKeyType</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>type_ndx</emphasis>,
-<emphasis>map_count</emphasis>,
-<emphasis>want_preserve</emphasis>,
-<emphasis>new_num_lvls</emphasis>
+<parameter>xkb</parameter>,
+<parameter>type_ndx</parameter>,
+<parameter>map_count</parameter>,
+<parameter>want_preserve</parameter>,
+<parameter>new_num_lvls</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -923,16 +923,16 @@ To change the number of levels in a key type, use
 <para>
 <function>XkbResizeKeyType</function>
  changes the type specified by
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>map-&gt;types</emphasis>
 [
-<emphasis>type_ndx</emphasis>
+<parameter>type_ndx</parameter>
 ], and reallocates the symbols and actions bound to all keys that use the type,
 if necessary.
 <function>XkbResizeKeyType</function>
  updates only the local copy of the types in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 ; to update the server’s copy for the physical device, use
 <function>XkbSetMap</function>
  or
@@ -944,10 +944,10 @@ if necessary.
 
 <para>
 The
-<emphasis>map_count</emphasis>
+<parameter>map_count</parameter>
  parameter specifies the total number of map entries needed for the type, and
 can be zero or greater. If
-<emphasis>map_count</emphasis>
+<parameter>map_count</parameter>
  is zero,
 <function>XkbResizeKeyType</function>
  frees the existing
@@ -961,19 +961,19 @@ can be zero or greater. If
 
 <para>
 The
-<emphasis>want_preserve</emphasis>
+<parameter>want_preserve</parameter>
  parameter specifies whether a
 <emphasis>preserve</emphasis>
  list for the key should be created. If
-<emphasis>want_preserve</emphasis>
+<parameter>want_preserve</parameter>
  is
 <symbol>True</symbol>,
 the
 <emphasis>preserve</emphasis>
  list with
-<emphasis>map_count</emphasis>
+<parameter>map_count</parameter>
  entries is allocated or reallocated if it already exists. Otherwise, if
-<emphasis>want_preserve</emphasis>
+<parameter>want_preserve</parameter>
  is
 <symbol>False</symbol>,
 the
@@ -985,7 +985,7 @@ the
 
 <para>
 The
-<emphasis>new_num_lvls</emphasis>
+<parameter>new_num_lvls</parameter>
  parameter specifies the new maximum number of shift levels for the type and is
 used to calculate and resize the symbols and actions bound to all keys that use
 the type.
@@ -994,11 +994,11 @@ the type.
 
 <para>
 If
-<emphasis>type_ndx</emphasis>
+<parameter>type_ndx</parameter>
  does not specify a legal type,
-<emphasis>new_num_lvls</emphasis>
+<parameter>new_num_lvls</parameter>
  is less than 1, or the
-<emphasis>map_count</emphasis>
+<parameter>map_count</parameter>
  is less than zero,
 <function>XkbResizeKeyType</function>
  returns
@@ -1031,8 +1031,8 @@ Use
   <funcprototype>
     <funcdef>Status <function>XkbCopyKeyType</function></funcdef>
 <!-- (
-<emphasis>from</emphasis>,
-<emphasis>into</emphasis>
+<parameter>from</parameter>,
+<parameter>into</parameter>
 ) -->
 
     <paramdef>XkbKeyTypePtr <parameter>from</parameter></paramdef>
@@ -1065,15 +1065,15 @@ Use
 <para>
 <function>XkbCopyKeyType</function>
  copies the key type specified by
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  to the key type specified by
-<emphasis>into</emphasis>.
+<parameter>into</parameter>.
 Both must point to legal
 <emphasis>XkbKeyTypeRec</emphasis>
  structures. Xkb assumes
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  and
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  point to different places. As a result, overlaps can be fatal.
 <function>XkbCopyKeyType</function>
  frees any existing
@@ -1082,20 +1082,20 @@ Both must point to legal
 and
 <emphasis>level_names</emphasis>
  in
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  prior to copying. If any allocation errors occur while copying
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  to
-<emphasis>into</emphasis>,
+<parameter>into</parameter>,
 <function>XkbCopyKeyType</function>
  returns
 <errorname>BadAlloc</errorname>.
 Otherwise,
 <function>XkbCopyKeyType</function>
  copies
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  to
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  and returns
 <symbol>Success</symbol>.
 </para>
@@ -1106,9 +1106,9 @@ Otherwise,
   <funcprototype>
     <funcdef>Status <function>XkbCopyKeyTypes</function></funcdef>
 <!-- (
-<emphasis>from</emphasis>,
-<emphasis>into</emphasis>,
-<emphasis>num_types</emphasis>
+<parameter>from</parameter>,
+<parameter>into</parameter>,
+<parameter>num_types</parameter>
 ) -->
 
     <paramdef>XkbKeyTypePtr <parameter>from</parameter></paramdef>
@@ -1152,39 +1152,39 @@ Otherwise,
 <para>
 <function>XkbCopyKeyTypes</function>
  copies
-<emphasis>num_types</emphasis>
+<parameter>num_types</parameter>
 <emphasis>XkbKeyTypeRec</emphasis>
  structures from the array specified by
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  into the array specified by
-<emphasis>into</emphasis>.
+<parameter>into</parameter>.
 It is intended for copying between, rather than within, keyboard
 descriptions, so it doesn’t check for overlaps. The same rules that apply to
 the
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  and
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  parameters in
 <function>XkbCopyKeyType</function>
  apply to each entry of the
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  and
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  arrays of
 <function>XkbCopyKeyTypes</function>.
 If any allocation errors occur while copying
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  to
-<emphasis>into</emphasis>,
+<parameter>into</parameter>,
 <function>XkbCopyKeyTypes</function>
  returns
 <errorname>BadAlloc</errorname>.
 Otherwise,
 <function>XkbCopyKeyTypes</function>
  copies
-<emphasis>from</emphasis>
+<parameter>from</parameter>
  to
-<emphasis>into</emphasis>
+<parameter>into</parameter>
  and returns
 <symbol>Success</symbol>.
 </para>
@@ -1299,7 +1299,7 @@ currently four); if a key has fewer than
   <funcprototype>
     <funcdef>int <function>XkbKeyTypeIndex</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, group</emphasis>
+<parameter>xkb, keycode, group</parameter>
 )                              /* macro*/ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1345,11 +1345,11 @@ currently four); if a key has fewer than
  computes an index into the
 <emphasis>types</emphasis>
  vector of the client map in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  from the given
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
  and
-<emphasis>group</emphasis>
+<parameter>group</parameter>
  index.
 </para>
 
@@ -1359,7 +1359,7 @@ currently four); if a key has fewer than
   <funcprototype>
     <funcdef>XkbKeyTypePtr <function>XkbKeyType</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, group</emphasis>
+<parameter>xkb, keycode, group</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1405,11 +1405,11 @@ currently four); if a key has fewer than
  returns a pointer to the key type in the
 <emphasis>types</emphasis>
  vector of the client map in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  corresponding to the given
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
  and
-<emphasis>group</emphasis>
+<parameter>group</parameter>
  index.
 </para>
 
@@ -1514,7 +1514,7 @@ Xkb provides the following macros to access group information:
   <funcprototype>
     <funcdef>int <function>XkbKeyNumGroups</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1547,7 +1547,7 @@ Xkb provides the following macros to access group information:
 <para>
 <function>XkbKeyNumGroups</function>
  returns the number of groups of symbols bound to the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1556,7 +1556,7 @@ Xkb provides the following macros to access group information:
   <funcprototype>
     <funcdef>unsigned char <function>XkbKeyGroupInfo</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /*macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1593,7 +1593,7 @@ Xkb provides the following macros to access group information:
  field from the
 <emphasis>XkbSymMapRec</emphasis>
  structure associated with the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1602,7 +1602,7 @@ Xkb provides the following macros to access group information:
   <funcprototype>
     <funcdef>unsigned char <function>XkbOutOfRangeGroupInfo</function></funcdef>
 <!-- (
-<emphasis>grp_inf</emphasis>
+<parameter>grp_inf</parameter>
 )                              /* macro */ -->
 
     <paramdef>unsigned char <parameter>grp_inf</parameter></paramdef>
@@ -1636,7 +1636,7 @@ Xkb provides the following macros to access group information:
   <funcprototype>
     <funcdef>unsigned char <function>XkbOutOfRangeGroupNumber</function></funcdef>
 <!-- (
-<emphasis>grp_inf</emphasis>
+<parameter>grp_inf</parameter>
 )                              /* macro */ -->
 
     <paramdef>unsigned char <parameter>grp_inf</parameter></paramdef>
@@ -1727,7 +1727,7 @@ of symbols bound to the key:
   <funcprototype>
     <funcdef>int <function>XkbKeyGroupsWidth</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1760,7 +1760,7 @@ of symbols bound to the key:
 <para>
 <function>XkbKeyGroupsWidth</function>
  computes the maximum width associated with the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1769,7 +1769,7 @@ of symbols bound to the key:
   <funcprototype>
     <funcdef>int <function>XkbKeyGroupWidth</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, grp</emphasis>
+<parameter>xkb, keycode, grp</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1813,9 +1813,9 @@ of symbols bound to the key:
 <para>
 <function>XkbKeyGroupWidth</function>
  computes the width of the type associated with the group
-<emphasis>grp</emphasis>
+<parameter>grp</parameter>
  for the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1824,7 +1824,7 @@ of symbols bound to the key:
   <funcprototype>
     <funcdef>int <function>XkbKeySymsOffset</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1858,7 +1858,7 @@ of symbols bound to the key:
 <function>XkbKeySymsOffset</function>
  returns the offset of the two-dimensional array of keysyms for the key
 corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1867,7 +1867,7 @@ corresponding to
   <funcprototype>
     <funcdef>int <function>XkbKeyNumSyms</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1900,7 +1900,7 @@ corresponding to
 <para>
 <function>XkbKeyNumSyms</function>
  returns the total number of keysyms for the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1909,7 +1909,7 @@ corresponding to
   <funcprototype>
     <funcdef>KeySym *<function>XkbKeySymsPtr</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1943,7 +1943,7 @@ corresponding to
 <function>XkbKeySymsPtr</function>
  returns the pointer to the two-dimensional array of keysyms for the key
 corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -1952,7 +1952,7 @@ corresponding to
   <funcprototype>
     <funcdef>KeySym <function>XkbKeySymEntry</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, shift, grp</emphasis>
+<parameter>xkb, keycode, shift, grp</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -2009,11 +2009,11 @@ corresponding to
  returns the
 <emphasis>keysym</emphasis>
  corresponding to shift level
-<emphasis>shift</emphasis>
+<parameter>shift</parameter>
  and group
-<emphasis>grp</emphasis>
+<parameter>grp</parameter>
  from the two-dimensional array of keysyms for the key corresponding to
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
 </para>
 
 
@@ -2032,10 +2032,10 @@ To obtain the symbols for a subset of the keys in a keyboard description, use
   <funcprototype>
     <funcdef>Status <function>XkbGetKeySyms</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -2090,19 +2090,19 @@ To obtain the symbols for a subset of the keys in a keyboard description, use
 <para>
 <function>XkbGetKeySyms</function>
  sends a request to the server to obtain the set of keysyms bound to
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys starting with the key whose keycode is
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and returns the keysyms in the
 <emphasis>map.syms</emphasis>
  field of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If successful,
 <function>XkbGetKeySyms</function>
  returns
 <symbol>Success</symbol>.
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be a pointer to a valid Xkb keyboard description.
 </para>
 
@@ -2111,7 +2111,7 @@ The
 If the client
 <emphasis>map</emphasis>
  in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeySyms</function>
  allocates and initializes it before obtaining the symbols.
@@ -2125,7 +2125,7 @@ extension has not been properly initialized,
  returns
 <errorname>BadAccess</errorname>.
 If
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeySyms</function>
@@ -2153,12 +2153,12 @@ To change the number of groups and the types bound to a key, use
   <funcprototype>
     <funcdef>Status <function>XkbChangeTypesOfKey</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>key</emphasis>,
-<emphasis>n_groups</emphasis>,
-<emphasis>groups</emphasis>,
-<emphasis>new_types_in</emphasis>,
-<emphasis>p_changes</emphasis>
+<parameter>xkb</parameter>,
+<parameter>key</parameter>,
+<parameter>n_groups</parameter>,
+<parameter>groups</parameter>,
+<parameter>new_types_in</parameter>,
+<parameter>p_changes</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -2240,7 +2240,7 @@ initializes any new symbols or actions to
  or
 <emphasis>NoAction</emphasis>,
 as appropriate. If the
-<emphasis>p_changes</emphasis>
+<parameter>p_changes</parameter>
  parameter is not
 <emphasis>NULL</emphasis>,
 <function>XkbChangeTypesOfKey</function>
@@ -2249,15 +2249,15 @@ as appropriate. If the
  to the
 <emphasis>changes</emphasis>
  field of
-<emphasis>p_changes</emphasis>
+<parameter>p_changes</parameter>
  and modifies the
 <emphasis>first_key_sym</emphasis>
  and
 <emphasis>num_key_syms</emphasis>
  fields of
-<emphasis>p_changes</emphasis>
+<parameter>p_changes</parameter>
  to include the
-<emphasis>key</emphasis>
+<parameter>key</parameter>
  that was changed. See <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link> for more information on the
 <emphasis>XkbMapChangesPtr</emphasis>
  structure. If successful,
@@ -2269,9 +2269,9 @@ as appropriate. If the
 
 <para>
 The
-<emphasis>n_groups</emphasis>
+<parameter>n_groups</parameter>
  parameter specifies the new number of groups for the key. The
-<emphasis>groups</emphasis>
+<parameter>groups</parameter>
  parameter is a mask specifying the groups for which new types are supplied and
 is a bitwise inclusive OR of the following masks:
 <emphasis>XkbGroup1Mask</emphasis>,
@@ -2284,26 +2284,26 @@ and
 
 <para>
 The
-<emphasis>new_types_in</emphasis>
+<parameter>new_types_in</parameter>
  parameter is an integer array of length
-<emphasis>n_groups</emphasis>.
+<parameter>n_groups</parameter>.
 Each entry represents the type to use for the associated group and is an
 index into
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>map-&gt;types</emphasis>.
 The
-<emphasis>new_types_in</emphasis>
+<parameter>new_types_in</parameter>
  array is indexed by group index; if
-<emphasis>n_groups</emphasis>
+<parameter>n_groups</parameter>
  is four and
-<emphasis>groups</emphasis>
+<parameter>groups</parameter>
  only has
 <emphasis>Group1Mask</emphasis>
  and
 <emphasis>Group3Mask</emphasis>
  set,
-<emphasis>new_types_in</emphasis>
+<parameter>new_types_in</parameter>
  looks like this:
 </para>
 
@@ -2358,7 +2358,7 @@ If the Xkb extension has not been properly initialized,
  returns
 <errorname>BadAccess</errorname>.
 If the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter it not valid (that is, it is
 <emphasis>NULL</emphasis>
  or it does not contain a valid client map),
@@ -2366,13 +2366,13 @@ If the
  returns
 <errorname>BadMatch</errorname>.
 If the
-<emphasis>key</emphasis>
+<parameter>key</parameter>
  is not a valid keycode,
-<emphasis>n_groups</emphasis>
+<parameter>n_groups</parameter>
  is greater than
 <emphasis>XkbNumKbdGroups</emphasis>,
 or the
-<emphasis>groups</emphasis>
+<parameter>groups</parameter>
  mask does not contain any of the valid group mask bits,
 <function>XkbChangeTypesOfKey</function>
  returns
@@ -2399,9 +2399,9 @@ To change the number of symbols bound to a key, use
   <funcprototype>
     <funcdef>KeySym *<function>XkbResizeKeySyms</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>key</emphasis>,
-<emphasis>needed</emphasis>
+<parameter>xkb</parameter>,
+<parameter>key</parameter>,
+<parameter>needed</parameter>
 ) -->
 
     <paramdef>XkbDescRec *<parameter>xkb</parameter></paramdef>
@@ -2445,7 +2445,7 @@ To change the number of symbols bound to a key, use
 <para>
 <function>XkbResizeKeySyms</function>
  reserves the space needed for
-<emphasis>needed</emphasis>
+<parameter>needed</parameter>
  keysyms and returns a pointer to the beginning of the new array that holds the
 keysyms. It adjusts the
 <emphasis>offset</emphasis>
@@ -2457,7 +2457,7 @@ keysyms. It adjusts the
 and
 <emphasis>size_syms</emphasis>
  fields of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -
 <emphasis>&gt;map</emphasis>
  if it is necessary to reallocate the
@@ -2470,7 +2470,7 @@ and
 
 <para>
 If
-<emphasis>needed</emphasis>
+<parameter>needed</parameter>
  is greater than the current number of keysyms for the key,
 <function>XkbResizeKeySyms</function>
  initializes all new keysyms in the array to
@@ -2558,10 +2558,10 @@ description, use
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyModifierMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -2616,11 +2616,11 @@ description, use
 <para>
 <function>XkbGetKeyModifierMap</function>
  sends a request to the server for the modifier mappings for
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys starting with the key whose keycode is
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and places the results in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;map-&gt;modmap array. If successful,
 <emphasis>XkbGetKeyModifier</emphasis>
  returns
@@ -2630,7 +2630,7 @@ It waits for a reply and places the results in the
 
 <para>
 If the map component of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeyModifierMap</function>
  allocates and initializes it.

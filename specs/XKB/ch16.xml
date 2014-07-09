@@ -164,7 +164,7 @@ to key actions:
   <funcprototype>
     <funcdef>Bool <function>XkbKeyHasActions</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -199,7 +199,7 @@ to key actions:
  returns
 <symbol>True</symbol>
  if the key corresponding to
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
  has any actions associated with it; otherwise, it returns
 <symbol>False</symbol>.
 </para>
@@ -210,7 +210,7 @@ to key actions:
   <funcprototype>
     <funcdef>int <function>XkbKeyNumActions</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -243,7 +243,7 @@ to key actions:
 <para>
 <function>XkbKeyNumActions</function>
  computes the number of actions associated with the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 This should be the same value as the result of
 <function>XkbKeyNumSyms</function>
  (see <link linkend="Key_Width">section 15.3.3</link>).
@@ -255,7 +255,7 @@ This should be the same value as the result of
   <funcprototype>
     <funcdef>XkbKeyActionPtr <function>XkbKeyActionsPtr</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode</emphasis>
+<parameter>xkb, keycode</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -289,7 +289,7 @@ This should be the same value as the result of
 <function>XkbKeyActionsPtr</function>
  returns a pointer to the two-dimensional array of key actions associated with
 the key corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 Use
 <function>XkbKeyActionsPtr</function>
  only if the key actually has some actions associated with it, that is,
@@ -303,7 +303,7 @@ Use
   <funcprototype>
     <funcdef>XkbAction <function>XkbKeyAction</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, idx</emphasis>
+<parameter>xkb, keycode, idx</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -347,11 +347,11 @@ Use
 <para>
 <function>XkbKeyAction</function>
  returns the key action indexed by
-<emphasis>idx</emphasis>
+<parameter>idx</parameter>
  in the two-dimensional array of key actions associated with the key
 corresponding to
-<emphasis>keycode</emphasis>.
-<emphasis>idx</emphasis>
+<parameter>keycode</parameter>.
+<parameter>idx</parameter>
  may be computed from the group and shift level of interest as follows:
 </para>
 
@@ -364,7 +364,7 @@ corresponding to
   <funcprototype>
     <funcdef>XkbAction <function>XkbKeyActionEntry</function></funcdef>
 <!-- (
-<emphasis>xkb, keycode, shift, grp</emphasis>
+<parameter>xkb, keycode, shift, grp</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -419,12 +419,12 @@ corresponding to
 <para>
 <function>XkbKeyActionEntry</function>
  returns the key action corresponding to group
-<emphasis>grp</emphasis>
+<parameter>grp</parameter>
  and shift level
 <emphasis>lvl</emphasis>
  from the two-dimensional table of key actions associated with the key
 corresponding to
-<emphasis>keycode</emphasis>.
+<parameter>keycode</parameter>.
 </para>
 
 
@@ -656,7 +656,7 @@ is being used. In the latter case, this is the client
 -&gt;
 <emphasis>modmap</emphasis>
 [
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
 ] field.
 </para>
 
@@ -868,7 +868,7 @@ and the modifiers bound to the key (client
 -&gt;
 <emphasis>modmap</emphasis>
 [
-<emphasis>keycode</emphasis>
+<parameter>keycode</parameter>
 ]) are used instead.
 </para>
 
@@ -904,7 +904,7 @@ convert between the two formats:
   <funcprototype>
     <funcdef>unsigned short <function>XkbModActionVMods</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbAction <parameter>act</parameter></paramdef>
@@ -930,7 +930,7 @@ convert between the two formats:
  and
 <emphasis>vmods2</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to the
 <emphasis>vmods</emphasis>
  format of an Xkb modifier description.
@@ -942,7 +942,7 @@ convert between the two formats:
   <funcprototype>
     <funcdef>void <function>XkbSetModActionVMods</function></funcdef>
 <!-- (
-<emphasis>act, vmods</emphasis>
+<parameter>act, vmods</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbAction <parameter>act</parameter></paramdef>
@@ -979,9 +979,9 @@ convert between the two formats:
  and
 <emphasis>vmods2</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  using the
-<emphasis>vmods</emphasis>
+<parameter>vmods</parameter>
  format of an Xkb modifier description.
 </para>
 
@@ -1207,7 +1207,7 @@ convert between a signed integer value and a signed character:
   <funcprototype>
     <funcdef>int <function>XkbSAGroup</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbAction <parameter>act</parameter></paramdef>
@@ -1231,7 +1231,7 @@ convert between a signed integer value and a signed character:
  returns the
 <emphasis>group_XXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to a signed int.
 </para>
 
@@ -1241,7 +1241,7 @@ convert between a signed integer value and a signed character:
   <funcprototype>
     <funcdef>void <function>XkbSASetGroup</function></funcdef>
 <!-- (
-<emphasis>act, grp</emphasis>
+<parameter>act, grp</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbAction <parameter>act</parameter></paramdef>
@@ -1276,9 +1276,9 @@ convert between a signed integer value and a signed character:
  sets the
 <emphasis>group_XXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from the group index
-<emphasis>grp</emphasis>.
+<parameter>grp</parameter>.
 </para>
 
 <note><para>Despite the fact that the first parameter of these two macros is of
@@ -1418,7 +1418,7 @@ convert between a signed integer and two signed 16-bit values in
   <funcprototype>
     <funcdef>int <function>XkbPtrActionX</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbPtrAction <parameter>act</parameter></paramdef>
@@ -1444,7 +1444,7 @@ convert between a signed integer and two signed 16-bit values in
  and
 <emphasis>low_XXX</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to a signed int.
 </para>
 
@@ -1454,7 +1454,7 @@ convert between a signed integer and two signed 16-bit values in
   <funcprototype>
     <funcdef>int <function>XkbPtrActionY</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbPtrAction <parameter>act</parameter></paramdef>
@@ -1480,7 +1480,7 @@ convert between a signed integer and two signed 16-bit values in
  and
 <emphasis>low_YYY</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to a signed int.
 </para>
 
@@ -1490,8 +1490,8 @@ convert between a signed integer and two signed 16-bit values in
   <funcprototype>
     <funcdef>void <function>XkbSetPtrActionX</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>,
-<emphasis>x</emphasis>
+<parameter>act</parameter>,
+<parameter>x</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbPtrAction <parameter>act</parameter></paramdef>
@@ -1528,9 +1528,9 @@ convert between a signed integer and two signed 16-bit values in
  and
 <emphasis>low_XXX</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from the signed integer value
-<emphasis>x</emphasis>.
+<parameter>x</parameter>.
 </para>
 
 
@@ -1539,7 +1539,7 @@ convert between a signed integer and two signed 16-bit values in
   <funcprototype>
     <funcdef>void <function>XkbSetPtrActionY</function></funcdef>
 <!-- (
-<emphasis>act, y</emphasis>
+<parameter>act, y</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbPtrAction <parameter>act</parameter></paramdef>
@@ -1576,9 +1576,9 @@ convert between a signed integer and two signed 16-bit values in
  and
 <emphasis>low_YYY</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from the signed integer value
-<emphasis>y</emphasis>.
+<parameter>y</parameter>.
 </para>
 
 
@@ -1922,7 +1922,7 @@ values in
   <funcprototype>
     <funcdef>int <function>XkbSAPtrDfltValue</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbAction <parameter>act</parameter></paramdef>
@@ -1946,7 +1946,7 @@ values in
  returns the
 <emphasis>valueXXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to a signed int.
 </para>
 
@@ -1956,7 +1956,7 @@ values in
   <funcprototype>
     <funcdef>void <function>XkbSASetPtrDfltValue</function></funcdef>
 <!-- (
-<emphasis>act, val</emphasis>
+<parameter>act, val</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbPtrDfltAction <parameter>act</parameter></paramdef>
@@ -1991,9 +1991,9 @@ values in
  sets the
 <emphasis>valueXXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from
-<emphasis>val</emphasis>.
+<parameter>val</parameter>.
 </para>
 
 
@@ -2529,7 +2529,7 @@ signed character value for screen numbers in
   <funcprototype>
     <funcdef>int <function>XkbSAScreen</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                        /* macro */ -->
 
     <paramdef>XkbSwitchScreenAction <parameter>act</parameter></paramdef>
@@ -2553,7 +2553,7 @@ signed character value for screen numbers in
  returns the
 <emphasis>screenXXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to a signed int.
 </para>
 
@@ -2563,7 +2563,7 @@ signed character value for screen numbers in
   <funcprototype>
     <funcdef>void <function>XkbSASetScreen</function></funcdef>
 <!-- (
-<emphasis>act, s</emphasis>
+<parameter>act, s</parameter>
 )                        /* macro */ -->
 
     <paramdef>XkbSwitchScreenAction <parameter>act</parameter></paramdef>
@@ -2598,9 +2598,9 @@ signed character value for screen numbers in
  sets the
 <emphasis>screenXXX</emphasis>
  field of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from
-<emphasis>s</emphasis>.
+<parameter>s</parameter>.
 </para>
 
 
@@ -2791,7 +2791,7 @@ macros, to convert between the two formats:
   <funcprototype>
     <funcdef>unsigned int <function>XkbActionCtrls</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                        /* macro */ -->
 
     <paramdef>XkbCtrlsAction <parameter>act</parameter></paramdef>
@@ -2815,7 +2815,7 @@ macros, to convert between the two formats:
  returns the
 <emphasis>ctrls</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to an unsigned int.
 </para>
 
@@ -2825,7 +2825,7 @@ macros, to convert between the two formats:
   <funcprototype>
     <funcdef>void <function>XkbSAActionSetCtrls</function></funcdef>
 <!-- (
-<emphasis>act, ctrls</emphasis>
+<parameter>act, ctrls</parameter>
 )                        /* macro */ -->
 
     <paramdef>XkbCtrlsAction <parameter>act</parameter></paramdef>
@@ -2862,9 +2862,9 @@ macros, to convert between the two formats:
  through
 <emphasis>ctrls3</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from
-<emphasis>ctrls</emphasis>.
+<parameter>ctrls</parameter>.
 </para>
 
 
@@ -3200,7 +3200,7 @@ convert between the two formats:
   <funcprototype>
     <funcdef>unsigned int <function>XkbSARedirectVModsMask</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbRedirectKeyAction <parameter>act</parameter></paramdef>
@@ -3226,7 +3226,7 @@ convert between the two formats:
  and
 <emphasis>vmods_mask1</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  converted to an unsigned int.
 </para>
 
@@ -3236,7 +3236,7 @@ convert between the two formats:
   <funcprototype>
     <funcdef>void <function>XkbSARedirectSetVModsMask</function></funcdef>
 <!-- (
-<emphasis>act, vm</emphasis>
+<parameter>act, vm</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbRedirectKeyAction <parameter>act</parameter></paramdef>
@@ -3273,9 +3273,9 @@ convert between the two formats:
  and
 <emphasis>vmods_mask1</emphasis>
  fields of
-<emphasis>act</emphasis>
+<parameter>act</parameter>
  from
-<emphasis>vm</emphasis>.
+<parameter>vm</parameter>.
 </para>
 
 
@@ -3296,7 +3296,7 @@ provides the following convenience macros:
   <funcprototype>
     <funcdef>unsigned int <function>XkbSARedirectVMods</function></funcdef>
 <!-- (
-<emphasis>act</emphasis>
+<parameter>act</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbRedirectKeyAction <parameter>act</parameter></paramdef>
@@ -3317,7 +3317,7 @@ provides the following convenience macros:
 
 <literallayout>
      <function>XkbSARedirectVModsMask</function> returns the <emphasis>vmods0</emphasis>
-     and <emphasis>vmods1</emphasis> fields of <emphasis>act</emphasis>
+     and <emphasis>vmods1</emphasis> fields of <parameter>act</parameter>
      converted to an unsigned int.
 </literallayout>
 
@@ -3326,7 +3326,7 @@ provides the following convenience macros:
   <funcprototype>
     <funcdef>void <function>XkbSARedirectSetVMods</function></funcdef>
 <!-- (
-<emphasis>act, vm</emphasis>
+<parameter>act, vm</parameter>
 )                              /* macro */ -->
 
     <paramdef>XkbRedirectKeyAction <parameter>act</parameter></paramdef>
@@ -3357,7 +3357,7 @@ provides the following convenience macros:
 </variablelist>
 <literallayout>
      <function>XkbSARedirectSetVModsMask</function> sets the <emphasis>vmods0</emphasis>
-     and <emphasis>vmods1</emphasis> of <emphasis>act</emphasis> from <emphasis>v</emphasis>.
+     and <emphasis>vmods1</emphasis> of <parameter>act</parameter> from <parameter>v</parameter>.
 </literallayout>
 
 </sect2>
@@ -3711,10 +3711,10 @@ To update the actions (the
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyActions</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -3769,21 +3769,21 @@ To update the actions (the
 <para>
 <function>XkbGetKeyActions</function>
  sends a request to the server to obtain the actions for
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys on the keyboard starting with key
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and returns the actions in the
 <emphasis>server</emphasis>
 -&gt;
 <emphasis>key_acts</emphasis>
  field of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If successful,
 <function>XkbGetKeyActions</function>
  returns
 <symbol>Success</symbol>.
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be a pointer to a valid Xkb keyboard description.
 </para>
 
@@ -3792,7 +3792,7 @@ The
 If the
 <emphasis>server</emphasis>
  map in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeyActions</function>
  allocates and initializes it before obtaining the actions.
@@ -3806,7 +3806,7 @@ has not been properly initialized,
  returns
 <errorname>BadAccess</errorname>.
 If
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeyActions</function>
@@ -3833,9 +3833,9 @@ To change the number of actions bound to a key, use
   <funcprototype>
     <funcdef>XkbAction *<function>XkbResizeKeyActions</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>key</emphasis>,
-<emphasis>needed</emphasis>
+<parameter>xkb</parameter>,
+<parameter>key</parameter>,
+<parameter>needed</parameter>
 ) -->
 
     <paramdef>XkbDescRec *<parameter>xkb</parameter></paramdef>
@@ -3878,13 +3878,13 @@ To change the number of actions bound to a key, use
 
 <para>
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter points to the keyboard description containing the
-<emphasis>key</emphasis>
+<parameter>key</parameter>
  whose number of actions is to be changed. The
-<emphasis>key</emphasis>
+<parameter>key</parameter>
  parameter is the keycode of the key to change, and
-<emphasis>needed</emphasis>
+<parameter>needed</parameter>
  specifies the new number of actions required for the key.
 </para>
 
@@ -3898,7 +3898,7 @@ beginning of the new array that holds the actions. It can change the
 and
 <emphasis>size_acts</emphasis>
  fields of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>server</emphasis>
  if it is necessary to reallocate the
@@ -3909,7 +3909,7 @@ array.
 
 <para>
 If
-<emphasis>needed</emphasis>
+<parameter>needed</parameter>
  is greater than the current number of keysyms for the key,
 <function>XkbResizeKeyActions</function>
  initializes all new actions in the array to
@@ -4158,10 +4158,10 @@ To obtain the behaviors (the
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyBehaviors</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4216,15 +4216,15 @@ To obtain the behaviors (the
 <para>
 <function>XkbGetKeyBehaviors</function>
  sends a request to the server to obtain the behaviors for
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys on the keyboard starting with the key whose keycode is
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and returns the behaviors in the
 <emphasis>server</emphasis>
 -&gt;
 <emphasis>behaviors</emphasis>
  field of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If successful,
 <function>XkbGetKeyBehaviors</function>
  returns
@@ -4236,7 +4236,7 @@ If successful,
 If the
 <emphasis>server</emphasis>
  map in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeyBehaviors</function>
  allocates and initializes it before obtaining the actions.
@@ -4250,7 +4250,7 @@ has not been properly initialized,
  returns
 <errorname>BadAccess</errorname>.
 If
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeyBehaviors</function>
@@ -4393,10 +4393,10 @@ To obtain the explicit components (the
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyExplicitComponents</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4451,21 +4451,21 @@ To obtain the explicit components (the
 <para>
 <function>XkbGetKeyExplicitComponents</function>
  sends a request to the server to obtain the explicit components for
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys on the keyboard starting with key
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and returns the explicit components in the
 <emphasis>server</emphasis>
 -&gt;
 <emphasis>explicit</emphasis>
  array of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If successful,
 <function>XkbGetKeyExplicitComponents</function>
  returns
 <symbol>Success</symbol>.
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be a pointer to a valid Xkb keyboard description.
 </para>
 
@@ -4474,7 +4474,7 @@ The
 If the
 <emphasis>server</emphasis>
  map in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeyExplicitComponents</function>
  allocates and initializes it before obtaining the actions.
@@ -4488,7 +4488,7 @@ has not been properly initialized,
  returns
 <errorname>BadMatch</errorname>.
 If
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeyExplicitComponents</function>
@@ -4613,9 +4613,9 @@ To obtain a subset of the virtual modifier bindings (the
   <funcprototype>
     <funcdef>Status <function>XkbGetVirtualMods</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>which</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>which</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4661,17 +4661,17 @@ To obtain a subset of the virtual modifier bindings (the
  sends a request to the server to obtain the
 <emphasis>vmods</emphasis>
  entries for the virtual modifiers specified in the mask,
-<emphasis>which</emphasis>,
+<parameter>which</parameter>,
 and waits for a reply. See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a description of how to determine
 the virtual modifier mask. For each bit set in
-<emphasis>which</emphasis>,
+<parameter>which</parameter>,
 <function>XkbGetVirtualMods</function>
  updates the corresponding virtual modifier definition in the
 <emphasis>server-&gt;vmods</emphasis>
  array of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be a pointer to a valid Xkb keyboard description. If
 successful,
 <function>XkbGetVirtualMods</function>
@@ -4684,7 +4684,7 @@ successful,
 If the
 <emphasis>server</emphasis>
  map has not been allocated in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter,
 <function>XkbGetVirtualMods</function>
  allocates and initializes it before obtaining the virtual modifier bindings.
@@ -4721,10 +4721,10 @@ To obtain the virtual modifier map (the
   <funcprototype>
     <funcdef>Status <function>XkbGetKeyVirtualModMap</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>first</emphasis>,
-<emphasis>num</emphasis>,
-<emphasis>xkb</emphasis>
+<parameter>dpy</parameter>,
+<parameter>first</parameter>,
+<parameter>num</parameter>,
+<parameter>xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4779,21 +4779,21 @@ To obtain the virtual modifier map (the
 <para>
 <emphasis>XkbGetKeyVirutalModmap</emphasis>
 sends a request to the server to obtain the virtual modifier mappings for
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  keys on the keyboard starting with key
-<emphasis>first</emphasis>.
+<parameter>first</parameter>.
 It waits for a reply and returns the virtual modifier mappings in the
 <emphasis>server</emphasis>
 -&gt;
 <emphasis>vmodmap</emphasis>
  array of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If successful,
 <function>XkbGetKeyVirtualModMap</function>
  returns
 <symbol>Success</symbol>.
 The
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter must be a pointer to a valid Xkb keyboard description
 </para>
 
@@ -4802,7 +4802,7 @@ The
 If the
 <emphasis>server</emphasis>
  map in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter has not been allocated,
 <function>XkbGetKeyVirtualModMap</function>
  allocates and initializes it before obtaining the virtual modifier mappings.
@@ -4816,7 +4816,7 @@ has not been properly initialized,
  returns
 <errorname>BadMatch</errorname>.
 If
-<emphasis>num</emphasis>
+<parameter>num</parameter>
  is less than 1 or greater than
 <emphasis>XkbMaxKeyCount</emphasis>,
 <function>XkbGetKeyVirtualModMap</function>

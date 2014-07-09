@@ -350,7 +350,7 @@ To ring the bell on an X input extension device or the default keyboard, use
   <funcprototype>
     <funcdef>Bool <function>XkbDeviceBell</function></funcdef>
 <!-- (
-<emphasis>display, window, device_id, bell_class, bell_id, percent, name</emphasis>
+<parameter>display, window, device_id, bell_class, bell_id, percent, name</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -437,18 +437,18 @@ To ring the bell on an X input extension device or the default keyboard, use
 
 <para>
 Set
-<emphasis>percent</emphasis>
+<parameter>percent</parameter>
  to be the volume relative to the base volume for the keyboard as described for
 <function>XBell</function>.
 </para>
 
 <para>
 Note that
-<emphasis>bell_class</emphasis>
+<parameter>bell_class</parameter>
  and
-<emphasis>bell_id</emphasis>
+<parameter>bell_id</parameter>
  indicate the bell to physically ring.
-<emphasis>name</emphasis>
+<parameter>name</parameter>
  is simply an arbitrary moniker for the client application’s use.
 </para>
 
@@ -492,7 +492,7 @@ default keyboard:
   <funcprototype>
     <funcdef>Bool <function>XkbBell</function></funcdef>
 <!-- (
-<emphasis>display, window, percent, name</emphasis>
+<parameter>display, window, percent, name</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -550,9 +550,9 @@ If a compatible keyboard extension isn’t present in the X server,
  calls
 <function>XBell</function>
 with the specified
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  and
-<emphasis>percent</emphasis>,
+<parameter>percent</parameter>,
 and returns
 <symbol>False</symbol>.
 Otherwise,
@@ -562,7 +562,7 @@ calls
  with the specified
 <emphasis>display, window, percent</emphasis>,
 and
-<emphasis>name</emphasis>,
+<parameter>name</parameter>,
 a
 <emphasis>device_spec</emphasis>
  of
@@ -622,7 +622,7 @@ without ringing the corresponding bell, use
   <funcprototype>
     <funcdef>Bool <function>XkbDeviceBellEvent</function></funcdef>
 <!-- (
-<emphasis>display, window, device_spec, bell_class, bell_id, percent, name</emphasis>
+<parameter>display, window, device_spec, bell_class, bell_id, percent, name</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -719,7 +719,7 @@ Otherwise,
  event to be sent to all interested clients and returns
 <symbol>True</symbol>.
 Set
-<emphasis>percent</emphasis>
+<parameter>percent</parameter>
  to be the volume relative to the base volume for the keyboard as described for
 <function>XBell</function>.
 </para>
@@ -750,7 +750,7 @@ the keyboard without ringing the bell:
   <funcprototype>
     <funcdef>Bool <function>XkbBellEvent</function></funcdef>
 <!-- (
-<emphasis>display, window, percent, name</emphasis>
+<parameter>display, window, percent, name</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -814,7 +814,7 @@ calls
  with the specified
 <emphasis>display, window, percent</emphasis>,
 and
-<emphasis>name</emphasis>,
+<parameter>name</parameter>,
 a
 <emphasis>device_spec</emphasis>
  of
@@ -859,7 +859,7 @@ audible bells, use <function>XkbForceDeviceBell</function>.
   <funcprototype>
     <funcdef>Bool <function>XkbForceDeviceBell</function></funcdef>
 <!-- (
-<emphasis>display, window, device_spec, bell_class, bell_id, percent</emphasis>
+<parameter>display, window, device_spec, bell_class, bell_id, percent</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -943,7 +943,7 @@ Otherwise,
 rings the bell as specified for the display and keyboard device and returns
 <symbol>True</symbol>.
 Set
-<emphasis>percent</emphasis>
+<parameter>percent</parameter>
  to be the volume relative to the base volume for the keyboard as described for
 <function>XBell</function>.
 There is no
@@ -972,7 +972,7 @@ for audible bells, use
   <funcprototype>
     <funcdef>Bool <function>XkbForceBell</function></funcdef>
 <!-- (
-<emphasis>display, percent)</emphasis> -->
+<parameter>display, percent)</parameter> -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
     <paramdef>int <parameter>percent</parameter></paramdef>
@@ -1007,9 +1007,9 @@ If a compatible keyboard extension isn’t present in the X server,
  calls
 <function>XBell</function>
 with the specified
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  and
-<emphasis>percent</emphasis>
+<parameter>percent</parameter>
  and returns
 <symbol>False</symbol>.
 Otherwise,
@@ -1017,9 +1017,9 @@ Otherwise,
 calls
 <function>XkbForceDeviceBell</function>
  with the specified
-<emphasis>display </emphasis>
+<parameter>display</parameter>
 and
-<emphasis>percent</emphasis>,
+<parameter>percent</parameter>,
 <emphasis>device_spec</emphasis>
  =
 <emphasis>XkbUseCoreKbd</emphasis>,

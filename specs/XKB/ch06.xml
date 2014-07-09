@@ -49,13 +49,13 @@ keyboard */
 
 <para>
 The
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  field points to an X display structure. The
 <emphasis>flags</emphasis>
  field is private to the library: modifying
 <emphasis>flags</emphasis>
  may yield unpredictable results. The
-<emphasis>device_spec</emphasis>
+<parameter>device_spec</parameter>
  field specifies the device identifier of the keyboard input device, or
 <emphasis>XkbUseCoreKeyboard</emphasis>,
 which specifies the core keyboard device. The
@@ -206,7 +206,7 @@ To retrieve one or more components of a keyboard device description, use
   <funcprototype>
     <funcdef>XkbDescPtr <function>XkbGetKeyboard</function></funcdef>
 <!-- (
-<emphasis>display, which, device_spec</emphasis>
+<parameter>display, which, device_spec</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -252,15 +252,15 @@ To retrieve one or more components of a keyboard device description, use
 <function>XkbGetKeyboard</function>
 allocates and returns a pointer to a keyboard description. It queries the
 server for those components specified in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter for device
-<emphasis>device_spec</emphasis>
+<parameter>device_spec</parameter>
  and copies the results to the
 <emphasis>XkbDescRec</emphasis>
  it allocated. The remaining fields in the keyboard description are set to
 <emphasis>NULL</emphasis>.
 The valid masks for
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are those listed in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
@@ -344,7 +344,7 @@ To destroy either an entire an
   <funcprototype>
     <funcdef>void <function>XkbFreeKeyboard</function></funcdef>
 <!--
-<emphasis>(xkb, which, free_all</emphasis>
+<parameter>(xkb, which, free_all</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -388,22 +388,22 @@ To destroy either an entire an
 <para>
 <function>XkbFreeKeyboard</function>
  frees the components of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  specified by
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  and sets the corresponding values to
 <emphasis>NULL</emphasis>.
 If
-<emphasis>free_all</emphasis>
+<parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
 <function>XkbFreeKeyboard</function>
  frees every non-
 <emphasis>NULL</emphasis>
  component of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  and then frees the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  structure itself.
 </para>
 

@@ -238,7 +238,7 @@ level, use <function>XkbKeycodeToKeysym</function>.
   <funcprototype>
     <funcdef>KeySym <function>XkbKeycodeToKeysym</function></funcdef>
 <!-- (
-<emphasis>dpy, kc, group, level</emphasis>
+<parameter>dpy, kc, group, level</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -294,11 +294,11 @@ level, use <function>XkbKeycodeToKeysym</function>.
 <function>XkbKeycodeToKeysym</function>
  returns the keysym bound to a particular group and shift level for a
 particular key on the core keyboard. If
-<emphasis>kc</emphasis>
+<parameter>kc</parameter>
  is not a legal keycode for the core keyboard, or if
-<emphasis>group</emphasis>
+<parameter>group</parameter>
  or
-<emphasis>level</emphasis>
+<parameter>level</parameter>
  are out of range for the specified key,
 <function>XkbKeycodeToKeysym</function>
  returns
@@ -318,8 +318,8 @@ use
   <funcprototype>
     <funcdef>unsigned int <function>XkbKeysymToModifiers</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>ks</emphasis>
+<parameter>dpy</parameter>,
+<parameter>ks</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -352,10 +352,10 @@ use
 <para>
 <function>XkbKeysymToModifiers</function>
  finds the set of modifiers currently bound to the keysym
-<emphasis>ks</emphasis>
+<parameter>ks</parameter>
  on the core keyboard. The value returned is the mask of modifiers bound to the
 keysym
-<emphasis>ks</emphasis>.
+<parameter>ks</parameter>.
 If no modifiers are bound to the keysym,
 <function>XkbKeysymToModifiers</function>
  returns zero; otherwise, it returns the inclusive OR of zero or more of the
@@ -384,11 +384,11 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbLookupKeySym</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>key</emphasis>,
-<emphasis>state</emphasis>,
-<emphasis>mods_rtrn</emphasis>,
-<emphasis>sym_rtrn</emphasis>
+<parameter>dpy</parameter>,
+<parameter>key</parameter>,
+<parameter>state</parameter>,
+<parameter>mods_rtrn</parameter>,
+<parameter>sym_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -456,16 +456,16 @@ Use
  is the equivalent of the core
 <symbol>XLookupKeySym</symbol>
  function. For the core keyboard, given a keycode
-<emphasis>key</emphasis>
+<parameter>key</parameter>
  and an Xkb state
-<emphasis>state</emphasis>,
+<parameter>state</parameter>,
 <function>XkbLookupKeySym</function>
  returns the symbol associated with the key  in
-<emphasis>sym_rtrn</emphasis>
+<parameter>sym_rtrn</parameter>
  and the list of modifiers that should still be applied in
-<emphasis>mods_rtrn</emphasis>.
+<parameter>mods_rtrn</parameter>.
 The
-<emphasis>state</emphasis>
+<parameter>state</parameter>
  parameter is the state from a
 <symbol>KeyPress</symbol>
  or
@@ -495,12 +495,12 @@ Use
   <funcprototype>
     <funcdef>int <function>XkbLookupKeyBinding</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>sym</emphasis>,
-<emphasis>state</emphasis>,
-<emphasis>buf</emphasis>,
-<emphasis>nbytes</emphasis>,
-<emphasis>extra_rtrn</emphasis>
+<parameter>dpy</parameter>,
+<parameter>sym</parameter>,
+<parameter>state</parameter>,
+<parameter>buf</parameter>,
+<parameter>nbytes</parameter>,
+<parameter>extra_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -581,20 +581,20 @@ returned when the key is pressed and a specified list of modifiers are also
 being held down.
 <function>XkbLookupKeyBinding</function>
  returns in
-<emphasis>buf</emphasis>
+<parameter>buf</parameter>
  the string associated with the keysym
-<emphasis>sym</emphasis>
+<parameter>sym</parameter>
  and modifier state
-<emphasis>state</emphasis>.
-<emphasis>buf</emphasis>
+<parameter>state</parameter>.
+<parameter>buf</parameter>
  is
 <emphasis>NULL</emphasis>
  terminated unless there’s an overflow. If the string returned is larger than
-<emphasis>nbytes</emphasis>,
+<parameter>nbytes</parameter>,
 a count of bytes that does not fit into the buffer is returned in extra_rtrn.
 <function>XkbTranslateKeySym</function>
  returns the number of bytes that it placed into
-<emphasis>buf</emphasis>.
+<parameter>buf</parameter>.
 </para>
 
 
@@ -610,12 +610,12 @@ state, use
   <funcprototype>
     <funcdef>int <function>XkbTranslateKeySym</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>sym_inout</emphasis>,
-<emphasis>mods</emphasis>,
-<emphasis>buf</emphasis>,
-<emphasis>nbytes</emphasis>,
-<emphasis>extra_rtrn</emphasis>
+<parameter>dpy</parameter>,
+<parameter>sym_inout</parameter>,
+<parameter>mods</parameter>,
+<parameter>buf</parameter>,
+<parameter>nbytes</parameter>,
+<parameter>extra_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -692,22 +692,22 @@ state, use
 <para>
 <function>XkbTranslateKeySym</function>
  applies the transformations specified in
-<emphasis>mods</emphasis>
+<parameter>mods</parameter>
  to the symbol specified by
-<emphasis>sym_inout</emphasis>.
+<parameter>sym_inout</parameter>.
 It returns in
-<emphasis>buf</emphasis>
+<parameter>buf</parameter>
  the string, if any, associated with the keysym for the current locale. If the
 transformations in
-<emphasis>mods</emphasis>
+<parameter>mods</parameter>
  changes the keysym,
-<emphasis>sym_inout</emphasis>
+<parameter>sym_inout</parameter>
  is updated accordingly. If the string returned is larger than
-<emphasis>nbytes</emphasis>,
+<parameter>nbytes</parameter>,
 a count of bytes that does not fit into the buffer is returned in extra_rtrn.
 <function>XkbTranslateKeySym</function>
  returns the number of bytes it placed into
-<emphasis>buf</emphasis>.
+<parameter>buf</parameter>.
 </para>
 
 
@@ -722,7 +722,7 @@ To update the keyboard description that is internal to the X library, use
   <funcprototype>
     <funcdef>Status <function>XkbRefreshKeyboardMapping</function></funcdef>
 <!-- (
-<emphasis>event)</emphasis> -->
+<parameter>event)</parameter> -->
 
     <paramdef>XkbMapNotifyEvent *<parameter>event</parameter></paramdef>
   </funcprototype>
@@ -782,7 +782,7 @@ To translate a keycode to a key symbol and modifiers, use
   <funcprototype>
     <funcdef>Booll <function>XkbTranslateKeyCode</function></funcdef>
 <!-- (
-<emphasis>xkb, key, mods, mods_rtrn, keysym_rtrn)</emphasis> -->
+<parameter>xkb, key, mods, mods_rtrn, keysym_rtrn)</parameter> -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
     <paramdef>KeyCode <parameter>key</parameter></paramdef>
@@ -845,9 +845,9 @@ To translate a keycode to a key symbol and modifiers, use
 </variablelist>
 
 <para>
-<emphasis>mods_rtrn</emphasis>
+<parameter>mods_rtrn</parameter>
  is backfilled with the modifiers consumed by the translation process.
-<emphasis>mods</emphasis>
+<parameter>mods</parameter>
  is a bitwise inclusive OR of the legal modifier masks:
 <symbol>ShiftMask</symbol>,
 <symbol>LockMask</symbol>,

@@ -768,7 +768,7 @@ explicit override components of the server state.</para></note>
   <funcprototype>
     <funcdef>Status <function>XkbGetCompatMap</function></funcdef>
 <!-- (
-<emphasis>display, which, xkb</emphasis>
+<parameter>display, which, xkb</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -812,15 +812,15 @@ explicit override components of the server state.</para></note>
 <para>
 <function>XkbGetCompatMap</function>
  fetches the components of the compatibility map specified in
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  from the server specified by
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  and places them in the
 <emphasis>compat</emphasis>
  structure of the keyboard description
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 Valid values for
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are an inclusive OR of the values shown in
 <link linkend="table17.2">Table 17.2</link>.
 </para>
@@ -861,7 +861,7 @@ Valid values for
 
 <para>
 If no compatibility map structure is allocated in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  upon entry,
 <function>XkbGetCompatMap</function>
  allocates one. If one already exists, its contents are overwritten with the
@@ -874,7 +874,7 @@ returned results.
  fetches compatibility map information for the device specified by the
 <emphasis>device_spec</emphasis>
  field of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
 device.
 <function>XkbGetCompatMap</function>
@@ -888,11 +888,11 @@ work space,
  if the
 <emphasis>dpy</emphasis>
  field of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  argument is non-
 <emphasis>NULL</emphasis>
  and does not match the
-<emphasis>display</emphasis>
+<parameter>display</parameter>
  argument, and
 <errorname>BadLength</errorname>
  under certain conditions caused by server or Xkb implementation errors.
@@ -923,12 +923,12 @@ format mapping by calling the function
   <funcprototype>
     <funcdef>Bool <function>XkbUpdateMapFromCore</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>first_key</emphasis>,
-<emphasis>num_keys</emphasis>,
-<emphasis>map_width</emphasis>,
-<emphasis>core_keysyms</emphasis>,
-<emphasis>changes</emphasis>
+<parameter>xkb</parameter>,
+<parameter>first_key</parameter>,
+<parameter>num_keys</parameter>,
+<parameter>map_width</parameter>,
+<parameter>core_keysyms</parameter>,
+<parameter>changes</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1006,53 +1006,53 @@ format mapping by calling the function
 <function>XkbUpdateMapFromCore</function>
  interprets input argument information representing a keyboard map in core
 format to update the Xkb keyboard description passed in
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 Only a portion of the Xkb map is updated — the portion corresponding to
 keys with keycodes in the range
-<emphasis>first_key</emphasis>
+<parameter>first_key</parameter>
  through
-<emphasis>first_key</emphasis>
+<parameter>first_key</parameter>
  +
-<emphasis>num_keys</emphasis>
+<parameter>num_keys</parameter>
  - 1. If
 <function>XkbUpdateMapFromCore</function>
  is being called in response to a
 <symbol>MappingNotify</symbol>
 event,
-<emphasis>first_key</emphasis>
+<parameter>first_key</parameter>
  and
-<emphasis>num_keys</emphasis>
+<parameter>num_keys</parameter>
  are reported in the
 <symbol>MappingNotify</symbol>
  event.
-<emphasis>core_keysyms</emphasis>
+<parameter>core_keysyms</parameter>
  contains the keysyms corresponding to the keycode range being updated, in core
 keyboard description order.
-<emphasis>map_width</emphasis>
+<parameter>map_width</parameter>
  is the number of keysyms per key in
-<emphasis>core_keysyms</emphasis>.
+<parameter>core_keysyms</parameter>.
 Thus, the first
-<emphasis>map_width</emphasis>
+<parameter>map_width</parameter>
  entries in
-<emphasis>core_keysyms</emphasis>
+<parameter>core_keysyms</parameter>
  are for the key with keycode
-<emphasis>first_key</emphasis>,
+<parameter>first_key</parameter>,
 the next
-<emphasis>map_width</emphasis>
+<parameter>map_width</parameter>
  entries are for key
-<emphasis>first_key</emphasis>
+<parameter>first_key</parameter>
  + 1, and so on.
 </para>
 
 
 <para>
 In addition to modifying the Xkb keyboard mapping in
-<emphasis>xkb</emphasis>,
+<parameter>xkb</parameter>,
 <function>XkbUpdateMapFromCore</function>
  backfills the changes structure whose address is passed in
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  to indicate the modifications that were made. You may then use
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  in subsequent calls such as
 <function>XkbSetMap</function>,
 to propagate the local modifications to a server.
@@ -1073,9 +1073,9 @@ key in a core keyboard mapping. Use
   <funcprototype>
     <funcdef>int <function>XkbKeyTypesForCoreSymbols</function></funcdef>
 <!-- (
-<emphasis>map_width</emphasis>,
-<emphasis>core_syms</emphasis>,
-<emphasis>protected, types_inout, xkb_syms_rtrn</emphasis>
+<parameter>map_width</parameter>,
+<parameter>core_syms</parameter>,
+<parameter>protected, types_inout, xkb_syms_rtrn</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1153,14 +1153,14 @@ key in a core keyboard mapping. Use
 <para>
 <function>XkbKeyTypesForCoreSymbols</function>
  expands the symbols in
-<emphasis>core_syms</emphasis>
+<parameter>core_syms</parameter>
  and types in
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  according to the rules specified in section 12 of the core protocol, then
 chooses canonical key types (canonical key types are defined in <link linkend="The_Canonical_Key_Types">section 15.2.1</link>)
 for groups 1 and 2 using the rules specified by the Xkb protocol and places
 them in
-<emphasis>xkb_syms_rtrn</emphasis>,
+<parameter>xkb_syms_rtrn</parameter>,
 which will be non-
 <emphasis>NULL</emphasis>.
 </para>
@@ -1168,7 +1168,7 @@ which will be non-
 
 <para>
 A core keymap is a two-dimensional array of keysyms. It has
-<emphasis>map_width</emphasis>
+<parameter>map_width</parameter>
  columns and
 <emphasis>max_key_code</emphasis>
  rows.
@@ -1176,28 +1176,28 @@ A core keymap is a two-dimensional array of keysyms. It has
  takes a single row from a core keymap, determines the number of groups
 associated with it, the type of each group, and the symbols bound to each
 group. The return value is the number of groups,
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  has the types for each group, and
-<emphasis>xkb_syms_rtrn</emphasis>
+<parameter>xkb_syms_rtrn</parameter>
  has the symbols in Xkb order (that is, groups are contiguous, regardless of
 size).
 </para>
 
 
 <para>
-<emphasis>protected</emphasis>
+<parameter>protected</parameter>
  contains the explicitly protected key types. There is one  explicit override
 control associated with each of the four possible groups for each Xkb key,
 <emphasis>ExplicitKeyType1</emphasis>
  through
 <emphasis>ExplicitKeyType4</emphasis>;
-<emphasis>protected</emphasis>
+<parameter>protected</parameter>
 is an inclusive OR of these controls.
-<emphasis>map_width</emphasis>
+<parameter>map_width</parameter>
  is the width of the core keymap and is not dependent on any Xkb definitions.
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  is an array of four type indices. On input,
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  contains the indices of any types already assigned to the key, in case they
 are explicitly protected from change.
 </para>
@@ -1205,11 +1205,11 @@ are explicitly protected from change.
 
 <para>
 Upon return,
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  contains any automatically selected (that is, canonical) types plus any
 protected types. Canonical types are assigned to all four groups if there are
 enough symbols to do so. The four entries in
-<emphasis>types_inout</emphasis>
+<parameter>types_inout</parameter>
  correspond to the four groups for the key in question.
 </para>
 
@@ -1228,9 +1228,9 @@ semantics updated, use
   <funcprototype>
     <funcdef>Bool <function>XkbApplyCompatMapToKey</function></funcdef>
 <!-- (
-<emphasis>xkb</emphasis>,
-<emphasis>key</emphasis>,
-<emphasis>changes</emphasis>
+<parameter>xkb</parameter>,
+<parameter>key</parameter>,
+<parameter>changes</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1307,7 +1307,7 @@ the vector of
   <funcprototype>
     <funcdef>Bool <function>XkbSetCompatMap</function></funcdef>
 <!-- (
-<emphasis>display, which, xkb, update_actions</emphasis>
+<parameter>display, which, xkb, update_actions</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -1362,16 +1362,16 @@ the vector of
 <para>
 <function>XkbSetCompatMap</function>
  copies compatibility map information from the keyboard description in
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  to the server specified in
-<emphasis>display</emphasis>
+<parameter>display</parameter>
 ’s compatibility map for the device specified by the
 <emphasis>device_spec</emphasis>
  field of
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
 device.
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  specifies the compatibility map components to be set, and is an inclusive OR
 of the bits shown in <link linkend="table17.2">Table 17.2</link>.
 </para>
@@ -1379,13 +1379,13 @@ of the bits shown in <link linkend="table17.2">Table 17.2</link>.
 
 <para>
 After updating its compatibility map for the specified device, if
-<emphasis>update_actions</emphasis>
+<parameter>update_actions</parameter>
  is
 <symbol>True</symbol>,
  the server applies the new compatibility map to its entire keyboard for the
 device to generate a new set of key semantics, compatibility state, and a new
 core keyboard map. If
-<emphasis>update_actions</emphasis>
+<parameter>update_actions</parameter>
  is
 <symbol>False</symbol>,
 the new compatibility map is not used to generate any modifications to the
@@ -1395,9 +1395,9 @@ configured to match another on a piecemeal basis; the map should not be applied
 until everything is updated. To force an update at a later time, use
 <function>XkbSetCompatMap</function>
  specifying
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  as zero and
-<emphasis>update_actions</emphasis>
+<parameter>update_actions</parameter>
  as
 <symbol>True</symbol>.
 </para>
@@ -1427,7 +1427,7 @@ use
   <funcprototype>
     <funcdef>XkbSymInterpretPtr <function>XkbAddSymInterpret</function></funcdef>
 <!-- (
-<emphasis>xkb, si, updateMap, changes</emphasis>
+<parameter>xkb, si, updateMap, changes</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1482,19 +1482,19 @@ use
 <para>
 <function>XkbAddSymInterpret</function>
  adds
-<emphasis>si</emphasis>
+<parameter>si</parameter>
  to the list of symbol interpretations in
-<emphasis>xkb</emphasis>.
+<parameter>xkb</parameter>.
 If
-<emphasis>updateMap</emphasis>
+<parameter>updateMap</parameter>
  is
 <symbol>True</symbol>,
 it (re)applies the compatibility map to all of the keys on the keyboard. If
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  is non-
 <emphasis>NULL</emphasis>,
 it reports the parts of the keyboard that were affected (unless
-<emphasis>updateMap</emphasis>
+<parameter>updateMap</parameter>
  is
 <symbol>True</symbol>,
 not much changes).
@@ -1643,7 +1643,7 @@ compatibility map if you do not already have one available. To do so, use
   <funcprototype>
     <funcdef>Status <function>XkbAllocCompatMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, num_si</emphasis>
+<parameter>xkb, which, num_si</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1685,7 +1685,7 @@ compatibility map if you do not already have one available. To do so, use
 </variablelist>
 
 <para>
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  specifies the keyboard description for which compatibility maps are to be
 allocated. The compatibility map is the
 <emphasis>compat</emphasis>
@@ -1694,18 +1694,18 @@ allocated. The compatibility map is the
 
 
 <para>
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  specifies the compatibility map components to be allocated (see
 <function>XkbGetCompatMap</function>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is an inclusive OR of the bits shown in
 <link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
 <para>
-<emphasis>num_si</emphasis>
+<parameter>num_si</parameter>
  specifies the total number of entries to allocate in the symbol interpretation
 vector (
 <emphasis>xkb.compat.sym_interpret</emphasis>
@@ -1723,11 +1723,11 @@ is sufficient space in the symbol interpretation vector for entries to be
 added, use
 <function>XkbAllocCompatMap</function>
  specifying
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  as
 <emphasis>XkbSymInterpretMask</emphasis>
  and the number of free symbol interpretations needed in
-<emphasis>num_si</emphasis>.
+<parameter>num_si</parameter>.
 </para>
 
 
@@ -1738,7 +1738,7 @@ added, use
  if successful,
 <errorname>BadMatch</errorname>
  if
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>,
 or
@@ -1758,7 +1758,7 @@ To free an entire compatibility map or selected portions of one, use
   <funcprototype>
     <funcdef>void <function>XkbFreeCompatMap</function></funcdef>
 <!-- (
-<emphasis>xkb, which, free_map</emphasis>
+<parameter>xkb, which, free_map</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -1801,25 +1801,25 @@ To free an entire compatibility map or selected portions of one, use
 </variablelist>
 
 <para>
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  specifies the compatibility map components to be freed (see
 <function>XkbGetCompatMap</function>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is an inclusive OR of the bits shown in
 <link linkend="table17.2">Table 17.2</link>
 </para>
 
 
 <para>
-<emphasis>free_map</emphasis>
+<parameter>free_map</parameter>
  indicates whether the
 <emphasis>XkbCompatMap</emphasis>
  structure itself should be freed. If
-<emphasis>free_map</emphasis>
+<parameter>free_map</parameter>
  is
 <symbol>True</symbol>,
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is ignored, all non-
 <emphasis>NULL</emphasis>
  compatibility map components are freed, and the
@@ -1827,7 +1827,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
  field in the
 <emphasis>XkbDescRec</emphasis>
  referenced by
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is set to
 <emphasis>NULL</emphasis>.
 </para>

@@ -387,7 +387,7 @@ them delivered under all conditions, use
   <funcprototype>
     <funcdef>Bool <function>XkbSelectEvents</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, bits_to_change, values_for_bits</emphasis>
+<parameter>display, device_spec, bits_to_change, values_for_bits</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -441,27 +441,27 @@ them delivered under all conditions, use
 
 <para>
 This request changes the Xkb event selection mask for the keyboard specified by
-<emphasis>device_spec</emphasis>.
+<parameter>device_spec</parameter>.
 </para>
 
 
 <para>
 Each Xkb event that can be selected is represented by a bit in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  masks. Only the event selection bits specified by the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter are affected; any unspecified bits are left unchanged. To turn on
 event selection for an event, set the bit for the event in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter and set the corresponding bit in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter. To turn off event selection for an event, set the bit for the event
 in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter and do not set the corresponding bit in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter. The valid values for both of these parameters are an inclusive
 bitwise OR of the masks shown in <link linkend="table4.2">Table 4.2</link>.
 There is no interface to return
@@ -472,15 +472,15 @@ clients’ event selection masks.
 
 <para>
 If a bit is not set in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter, but the corresponding bit is set in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter, a
 <errorname>BadMatch</errorname>
  protocol error results. If an undefined bit is set in either the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  or the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter, a
 <errorname>BadValue</errorname>
  protocol error results.
@@ -520,8 +520,8 @@ Xkb events with
   <funcprototype>
     <funcdef>Bool <function>XkbSelectEventDetails</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, event_type, bits_to_change</emphasis>,
-<emphasis>values_for_bits</emphasis>
+<parameter>display, device_spec, event_type, bits_to_change</parameter>,
+<parameter>values_for_bits</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -591,9 +591,9 @@ While
 <function>XkbSelectEventDetails</function>
  changes the selection criteria for a single type of Xkb event. The
 interpretation of the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  masks depends on the event type in question.
 </para>
 
@@ -601,19 +601,19 @@ interpretation of the
 <para>
 <function>XkbSelectEventDetails</function>
  changes the Xkb event selection mask for the keyboard specified by
-<emphasis>device_spec</emphasis>
+<parameter>device_spec</parameter>
  and the Xkb event specified by
-<emphasis>event_type</emphasis>.
+<parameter>event_type</parameter>.
 To turn on event selection for an event detail, set the bit for the detail in
 the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter and set the corresponding bit in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter. To turn off event detail selection for a detail, set the bit for
 the detail in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter and do not set the corresponding bit in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter.
 </para>
 
@@ -622,15 +622,15 @@ the detail in the
 If an invalid event type is specified, a
 <errorname>BadValue</errorname>
  protocol error results. If a bit is not set in the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  parameter, but the corresponding bit is set in the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter, a
 <errorname>BadMatch</errorname>
  protocol error results. If an undefined bit is set in either the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  or the
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameter, a
 <errorname>BadValue</errorname>
  protocol error results.

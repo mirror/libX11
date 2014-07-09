@@ -240,10 +240,10 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbChangeEnabledControls</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>mask</emphasis>,
-<emphasis>values</emphasis>
+<parameter>dpy</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>mask</parameter>,
+<parameter>values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -297,9 +297,9 @@ Use
 
 <para>
 The
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  parameter specifies the boolean controls to be enabled or disabled, and the
-<emphasis>values</emphasis>
+<parameter>values</parameter>
  mask specifies the new state for those controls. Valid values for both of
 these masks are composed of a bitwise inclusive OR of bits taken from the set
 of mask bits in <link linkend="table10.7">Table 10.7</link>,
@@ -388,9 +388,9 @@ To get the current values of the auto-reset controls, use
   <funcprototype>
     <funcdef>Bool <function>XkbGetAutoResetControls</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>auto_ctrls</emphasis>,
-<emphasis>auto_values</emphasis>
+<parameter>dpy</parameter>,
+<parameter>auto_ctrls</parameter>,
+<parameter>auto_values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -434,9 +434,9 @@ To get the current values of the auto-reset controls, use
 <para>
 <function>XkbGetAutoResetControls</function>
  backfills
-<emphasis>auto_ctrls</emphasis>
+<parameter>auto_ctrls</parameter>
  and
-<emphasis>auto_values</emphasis>
+<parameter>auto_values</parameter>
  with the
 <emphasis>AutoReset</emphasis>
  control attributes for this particular client. It returns
@@ -460,10 +460,10 @@ To change the current values of the
   <funcprototype>
     <funcdef>Bool <function>XkbSetAutoResetControls</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>changes</emphasis>,
-<emphasis>auto_ctrls</emphasis>,
-<emphasis>auto_values</emphasis>
+<parameter>dpy</parameter>,
+<parameter>changes</parameter>,
+<parameter>auto_ctrls</parameter>,
+<parameter>auto_values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -581,12 +581,12 @@ XkbStickyKeysMask);
 <para>
 <function>XkbSetAutoResetControls</function>
  backfills
-<emphasis>auto_ctrls</emphasis>
+<parameter>auto_ctrls</parameter>
  and
-<emphasis>auto_values</emphasis>
+<parameter>auto_values</parameter>
  with the auto-reset controls for this particular client. Note that all of the
 bits are valid in the returned values, not just the ones selected in the
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  mask.
 </para>
 
@@ -707,7 +707,7 @@ To get the current attributes of the
   <funcprototype>
     <funcdef>Bool <function>XkbGetAutoRepeatRate</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, timeout_rtrn, interval_rtrn</emphasis>
+<parameter>display, device_spec, timeout_rtrn, interval_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -764,9 +764,9 @@ To get the current attributes of the
  queries the server for the current values of the
 <emphasis>RepeatControls</emphasis>
  control attributes, backfills
-<emphasis>timeout_rtrn</emphasis>
+<parameter>timeout_rtrn</parameter>
  and
-<emphasis>interval_rtrn</emphasis>
+<parameter>interval_rtrn</parameter>
  with them, and returns
 <symbol>True</symbol>.
 If a compatible version of the Xkb extension is not available in the server
@@ -787,7 +787,7 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
   <funcprototype>
     <funcdef>Bool <function>XkbSetAutoRepeatRate</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, timeout, interval</emphasis>
+<parameter>display, device_spec, timeout, interval</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -844,9 +844,9 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
  sends a request to the X server to configure the
 <emphasis>AutoRepeat</emphasis>
  control attributes to the values specified in
-<emphasis>timeout</emphasis>
+<parameter>timeout</parameter>
  and
-<emphasis>interval</emphasis>.
+<parameter>interval</parameter>.
 </para>
 
 
@@ -855,9 +855,9 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
  does not wait for a reply; it normally returns
 <symbol>True</symbol>.
 Specifying a zero value for either
-<emphasis>timeout</emphasis>
+<parameter>timeout</parameter>
  or
-<emphasis>interval</emphasis>
+<parameter>interval</parameter>
  causes the server to generate a
 <errorname>BadValue</errorname>
  protocol error. If a compatible version of the Xkb extension is not available
@@ -951,7 +951,7 @@ use
   <funcprototype>
     <funcdef>Bool <function>XkbGetDetectableAutorepeat</function></funcdef>
 <!-- (
-<emphasis>display, supported_rtrn</emphasis>
+<parameter>display, supported_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -988,7 +988,7 @@ use
  queries the server for the current state of
 <emphasis>DetectableAutorepeat</emphasis>
  and waits for a reply. If
-<emphasis>supported_rtrn</emphasis>
+<parameter>supported_rtrn</parameter>
  is not
 <emphasis>NULL</emphasis>,
 it backfills supported_rtrn with
@@ -1027,7 +1027,7 @@ they have requested otherwise.
   <funcprototype>
     <funcdef>Bool <function>XkbSetDetectableAutorepeat</function></funcdef>
 <!-- (
-<emphasis>display, detectable, supported_rtrn</emphasis>
+<parameter>display, detectable, supported_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -1076,20 +1076,20 @@ they have requested otherwise.
  sends a request to the server to set
 <emphasis>DetectableAutorepeat</emphasis>
  on for the current client if
-<emphasis>detectable</emphasis>
+<parameter>detectable</parameter>
  is
 <symbol>True</symbol>,
 and off it
-<emphasis>detectable</emphasis>
+<parameter>detectable</parameter>
  is
 <symbol>False</symbol>
 ; it then waits for a reply. If
-<emphasis>supported_rtrn</emphasis>
+<parameter>supported_rtrn</parameter>
  is not
 <emphasis>NULL</emphasis>,
 <function>XkbSetDetectableAutorepeat</function>
  backfills
-<emphasis>supported_rtrn</emphasis>
+<parameter>supported_rtrn</parameter>
  with
 <symbol>True</symbol>
  if the server supports
@@ -1605,12 +1605,12 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbGetAccessXTimeout</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>timeout_rtrn</emphasis>,
-<emphasis>ctrls_mask_rtrn</emphasis>,
-<emphasis>ctrls_values_rtrn</emphasis>,
-<emphasis>options_mask_rtrn, options_values_rtrn</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>timeout_rtrn</parameter>,
+<parameter>ctrls_mask_rtrn</parameter>,
+<parameter>ctrls_values_rtrn</parameter>,
+<parameter>options_mask_rtrn, options_values_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -1702,9 +1702,9 @@ Use
  attributes, waits for a reply, and backfills the values into the appropriate
 arguments.
 The parameters
-<emphasis>opts_mask_rtrn</emphasis>
+<parameter>opts_mask_rtrn</parameter>
  and
-<emphasis>opts_values_rtrn</emphasis>
+<parameter>opts_values_rtrn</parameter>
  are backfilled with the options to modify and the values for
 <emphasis>ax_options</emphasis>,
 which is a field in the
@@ -1734,9 +1734,9 @@ To configure the
   <funcprototype>
     <funcdef>Bool <function>XkbSetAccessXTimeout</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec, timeout, ctrls_mask, ctrls_values, opts_mask,
-opts_values</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec, timeout, ctrls_mask, ctrls_values, opts_mask,
+opts_values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -1822,22 +1822,22 @@ opts_values</emphasis>
 </variablelist>
 
 <para>
-<emphasis>timeout</emphasis>
+<parameter>timeout</parameter>
  specifies the number of seconds the keyboard must be idle before the controls
 are modified.
-<emphasis>ctrls_mask</emphasis>
+<parameter>ctrls_mask</parameter>
  specifies what controls are to be enabled or disabled, and
-<emphasis>ctrls_values</emphasis>
+<parameter>ctrls_values</parameter>
  specifies whether those controls are to be enabled or disabled. The bit values
 correspond to those for enabling and disabling boolean controls
 (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). The
-<emphasis>opts_mask</emphasis>
+<parameter>opts_mask</parameter>
  field specifies which attributes of the
 <emphasis>AccessXKeys</emphasis>
  and
 <emphasis>AccessXFeedback</emphasis>
  controls are to be changed, and
-<emphasis>opts_values</emphasis>
+<parameter>opts_values</parameter>
  specifies the new values for those options. The bit values correspond to those
 for the
 <emphasis>ax_options</emphasis>
@@ -2266,9 +2266,9 @@ To get the
   <funcprototype>
     <funcdef>Bool <function>XkbGetSlowKeysDelay</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>delay_rtrn</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>delay_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2314,7 +2314,7 @@ To get the
 requests the attributes of the
 <emphasis>SlowKeys</emphasis>
  control from the server, waits for a reply and backfills
-<emphasis>delay_rtrn </emphasis>
+<parameter>delay_rtrn</parameter>
 with the
 <emphasis>SlowKeys</emphasis>
  delay attribute.
@@ -2342,9 +2342,9 @@ To set the
   <funcprototype>
     <funcdef>Bool <function>XkbSetSlowKeysDelay</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>delay</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>delay</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2395,7 +2395,7 @@ It does not wait for a reply, and normally returns
 Specifying a value of
 <emphasis>0</emphasis>
  for the
-<emphasis>delay </emphasis>
+<parameter>delay</parameter>
 parameter causes
 <emphasis>XkbSetSlowKeys</emphasis>
  to generate a
@@ -2448,9 +2448,9 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbGetBounceKeysDelay</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>delay_rtrn</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>delay_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2496,7 +2496,7 @@ Use
 requests the attributes of the
 <emphasis>BounceKeys</emphasis>
  control from the server, waits for a reply, and backfills
-<emphasis>delay_rtrn </emphasis>
+<parameter>delay_rtrn</parameter>
 with the
 <emphasis>BounceKeys</emphasis>
  delay attribute.
@@ -2524,9 +2524,9 @@ To set the
   <funcprototype>
     <funcdef>Bool <function>XkbSetBounceKeysDelay</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>delay</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>delay</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2577,7 +2577,7 @@ It does not wait for a reply and normally returns
 Specifying a value of
 <emphasis>zero</emphasis>
 for the
-<emphasis>delay </emphasis>
+<parameter>delay</parameter>
 parameter causes
 <function>XkbSetBounceKeysDelay</function>
  to generate a
@@ -2739,9 +2739,9 @@ Use
   <funcprototype>
     <funcdef>Bool <function>XkbGetStickyKeysOptions</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec</emphasis>,
-<emphasis>options_rtrn</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec</parameter>,
+<parameter>options_rtrn</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2787,11 +2787,11 @@ Use
 requests the attributes of the
 <emphasis>StickyKeys</emphasis>
  control from the server, waits for a reply, and backfills
-<emphasis>options_rtrn </emphasis>
+<parameter>options_rtrn</parameter>
 with a mask indicating whether the individual
 <emphasis>StickyKeys</emphasis>
  options are on or off. Valid bits in
-<emphasis>options_rtrn</emphasis>
+<parameter>options_rtrn</parameter>
  are:
 </para>
 
@@ -2827,8 +2827,8 @@ To set the
   <funcprototype>
     <funcdef>Bool <function>XkbSetStickyKeysOptions</function></funcdef>
 <!-- (
-<emphasis>display</emphasis>,
-<emphasis>device_spec, mask, values</emphasis>
+<parameter>display</parameter>,
+<parameter>device_spec, mask, values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -2888,9 +2888,9 @@ To set the
 It does not wait for a reply and normally returns
 <symbol>True</symbol>.
 The valid bits to use for both the
-<emphasis>mask</emphasis>
+<parameter>mask</parameter>
  and
-<emphasis>values</emphasis>
+<parameter>values</parameter>
  parameters are:
 </para>
 
@@ -3075,8 +3075,8 @@ to passive grabs, use
   <funcprototype>
     <funcdef>Bool <function>XkbSetIgnoreLockMods</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, affect_real, real_values, affect_virtual,
-virtual_values</emphasis>
+<parameter>display, device_spec, affect_real, real_values, affect_virtual,
+virtual_values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -3155,28 +3155,28 @@ virtual_values</emphasis>
  sends a request to the server to change the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control.
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are masks of real modifier bits indicating which real modifiers are to be
 added and removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control. Modifiers selected by both
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are added to the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control; those selected by
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  but not by
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control. Valid values for
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  consist of any combination of the eight core modifier bits:
 <symbol>ShiftMask</symbol>,
 <symbol>LockMask</symbol>,
@@ -3184,29 +3184,29 @@ added and removed from the server’s
 <symbol>Mod1Mask</symbol>
  -
 <symbol>Mod5Mask</symbol>.
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are masks of virtual modifier bits indicating which virtual modifiers are to
 be added and removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control. Modifiers selected by both
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are added to the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control; those selected by
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  but not by
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are removed from the server’s
 <emphasis>IgnoreLockMods</emphasis>
  control.
 See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>.
+<parameter>virtual_values</parameter>.
 <function>XkbSetIgnoreLockMods</function>
  does not wait for a reply from the server. It returns
 <symbol>True</symbol>
@@ -3285,8 +3285,8 @@ delivered to the client, use
   <funcprototype>
     <funcdef>Bool <function>XkbSetServerInternalMods</function></funcdef>
 <!-- (
-<emphasis>display, device_spec, affect_real, real_values, affect_virtual,
-virtual_values</emphasis>
+<parameter>display, device_spec, affect_real, real_values, affect_virtual,
+virtual_values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
@@ -3364,23 +3364,23 @@ virtual_values</emphasis>
 <function>XkbSetServerInternalMods</function>
  sends a request to the server to change the internal modifiers consumed by the
 server.
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are masks of real modifier bits indicating which real modifiers are to be
 added and removed from the server’s internal modifiers control. Modifiers
 selected by both
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are added to the server’s internal modifiers control; those selected by
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  but not by
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  are removed from the server’s internal modifiers mask. Valid values for
-<emphasis>affect_real</emphasis>
+<parameter>affect_real</parameter>
  and
-<emphasis>real_values</emphasis>
+<parameter>real_values</parameter>
  consist of any combination of the eight core modifier bits:
 <symbol>ShiftMask</symbol>,
 <symbol>LockMask</symbol>,
@@ -3388,24 +3388,24 @@ selected by both
 <symbol>Mod1Mask</symbol>
  -
 <symbol>Mod5Mask</symbol>.
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are masks of virtual modifier bits indicating which virtual modifiers are to
 be added and removed from the server’s internal modifiers control. Modifiers
 selected by both
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are added to the server’s internal modifiers control; those selected by
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  but not by
-<emphasis>virtual_values</emphasis>
+<parameter>virtual_values</parameter>
  are removed from the server’s internal modifiers control.
 See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a discussion of virtual modifier masks to use in
-<emphasis>affect_virtual</emphasis>
+<parameter>affect_virtual</parameter>
  and
-<emphasis>virtual_values</emphasis>.
+<parameter>virtual_values</parameter>.
 <function>XkbSetServerInternalMods</function>
  does not wait for a reply from the server. It returns
 <symbol>True</symbol>
@@ -4317,7 +4317,7 @@ Use
   <funcprototype>
     <funcdef>Status <function>XkbGetControls</function></funcdef>
 <!-- (
-<emphasis>display, which, xkb)</emphasis> -->
+<parameter>display, which, xkb)</parameter> -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
     <paramdef>unsigned long <parameter>which</parameter></paramdef>
@@ -4363,41 +4363,41 @@ Use
 and then copies the server’s values for the requested information into the
 <emphasis>ctrls</emphasis>
  structure of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  argument. Only those components specified by the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter are copied. Valid values for
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are any combination of the masks listed in
 <link linkend="table10.7">Table 10.7</link> that have "ok" in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  column.
 </para>
 
 
 <para>
 If
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
 is
 <emphasis>NULL</emphasis>,
 <function>XkbGetControls</function>
  allocates and initializes it before obtaining the values specified by
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 If
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
  is not
 <emphasis>NULL</emphasis>,
 <function>XkbGetControls</function>
  modifies only those portions of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
  corresponding to the values specified by
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 </para>
 
 
@@ -4410,11 +4410,11 @@ If
  if it cannot obtain sufficient storage,
 <errorname>BadMatch</errorname>
  if
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>
  or
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  is empty, or
 <errorname>BadImplementation</errorname>.
 </para>
@@ -4437,7 +4437,7 @@ The
  structure is always filled in by
 <function>XkbGetControls</function>,
 regardless of which bits are selected by
-<emphasis>which</emphasis>.
+<parameter>which</parameter>.
 </para>
 
 
@@ -4469,7 +4469,7 @@ To change the state of one or more controls, first modify the
   <funcprototype>
     <funcdef>Bool <function>XkbSetControls</function></funcdef>
 <!-- (
-<emphasis>display, which, xkb)</emphasis> -->
+<parameter>display, which, xkb)</parameter> -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>
     <paramdef>unsigned long <parameter>which</parameter></paramdef>
@@ -4511,25 +4511,25 @@ To change the state of one or more controls, first modify the
 
 <para>
 For each bit that is set in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  parameter,
 <function>XkbSetControls</function>
  sends the corresponding values from the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
  field to the server. Valid values for
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  are any combination of the masks listed in
 <link linkend="table10.7">Table 10.7</link> that have "ok" in the
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  column.
 </para>
 
 
 <para>
 If
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
  is
@@ -4653,7 +4653,7 @@ match those in the changed keyboard description.
   <funcprototype>
     <funcdef>Bool <function>XkbChangeControls</function></funcdef>
 <!-- (
-<emphasis>dpy, xkb, changes</emphasis>
+<parameter>dpy, xkb, changes</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4697,13 +4697,13 @@ match those in the changed keyboard description.
 <para>
 <function>XkbChangeControls</function>
  copies any controls fields specified by
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  from the keyboard description controls structure,
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>,
 to the server specified by
-<emphasis>dpy</emphasis>.
+<parameter>dpy</parameter>.
 </para>
 
 
@@ -4862,9 +4862,9 @@ When a client receives an
   <funcprototype>
     <funcdef>void <function>XkbNoteControlsChanges</function></funcdef>
 <!-- (
-<emphasis>changes</emphasis>,
-<emphasis>new</emphasis>,
-<emphasis>wanted</emphasis>
+<parameter>changes</parameter>,
+<parameter>new</parameter>,
+<parameter>wanted</parameter>
 ) -->
 
     <paramdef>XkbControlsChangesPtr <parameter>changes</parameter></paramdef>
@@ -4907,16 +4907,16 @@ When a client receives an
 
 <para>
 The
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  parameter is a bitwise inclusive OR of bits taken from the set of masks
 specified in <link linkend="table10.7">Table 10.7</link> with "ok" in the
 <emphasis>changed_ctrls</emphasis>
  column.
 <function>XkbNoteControlsChanges</function>
  copies any changes reported in
-<emphasis>new</emphasis>
+<parameter>new</parameter>
  and specified in
-<emphasis>wanted</emphasis>
+<parameter>wanted</parameter>
  into the changes record specified by
 <emphasis>old</emphasis>.
 </para>
@@ -4936,9 +4936,9 @@ noted by one or more calls to
   <funcprototype>
     <funcdef>Status <function>XkbGetControlsChanges</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>xkb</emphasis>,
-<emphasis>changes</emphasis>
+<parameter>dpy</parameter>,
+<parameter>xkb</parameter>,
+<parameter>changes</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -4982,16 +4982,16 @@ noted by one or more calls to
 <para>
 <function>XkbGetControlsChanges</function>
  examines the
-<emphasis>changes</emphasis>
+<parameter>changes</parameter>
  parameter, queries the server for the necessary information, and copies the
 results into the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
 -&gt;
 <emphasis>ctrls</emphasis>
  keyboard description. If the
 <emphasis>ctrls</emphasis>
  field of
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>,
 <function>XkbGetControlsChanges</function>
@@ -5038,7 +5038,7 @@ allocate one by calling
   <funcprototype>
     <funcdef>Status <function>XkbAllocControls</function></funcdef>
 <!-- (
-<emphasis>xkb, which</emphasis>
+<parameter>xkb, which</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -5073,7 +5073,7 @@ allocate one by calling
  allocates the
 <emphasis>ctrls</emphasis>
  field of the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  parameter, initializes all fields to zero, and returns
 <symbol>Success</symbol>.
 If the
@@ -5084,7 +5084,7 @@ If the
  simply returns
 <symbol>Success</symbol>.
 If
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  is
 <emphasis>NULL</emphasis>,
 <function>XkbAllocControls</function>
@@ -5100,7 +5100,7 @@ If
 
 <para>
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  mask specifies the individual fields of the
 <emphasis>ctrls</emphasis>
  structure to be allocated and can contain any of the valid masks defined in
@@ -5125,7 +5125,7 @@ structure, use
   <funcprototype>
     <funcdef>void <function>XkbFreeControls</function></funcdef>
 <!-- (
-<emphasis>xkb, which, free_all</emphasis>
+<parameter>xkb, which, free_all</parameter>
 ) -->
 
     <paramdef>XkbDescPtr <parameter>xkb</parameter></paramdef>
@@ -5171,13 +5171,13 @@ structure, use
  frees the specified components of the
 <emphasis>ctrls</emphasis>
  field in the
-<emphasis>xkb</emphasis>
+<parameter>xkb</parameter>
  keyboard description and sets the corresponding structure component values to
 <emphasis>NULL</emphasis>
  or
 <emphasis>zero</emphasis>.
 The
-<emphasis>which</emphasis>
+<parameter>which</parameter>
  mask specifies the fields of
 <emphasis>ctrls</emphasis>
  to be freed and can contain any of the controls components specified in
@@ -5187,7 +5187,7 @@ The
 
 <para>
 If
-<emphasis>free_all</emphasis>
+<parameter>free_all</parameter>
  is
 <symbol>True</symbol>,
 <function>XkbFreeControls</function>
@@ -5198,7 +5198,7 @@ If
  structure referenced by the
 <emphasis>ctrls</emphasis>
  member of
-<emphasis>xkb</emphasis>,
+<parameter>xkb</parameter>,
 and sets
 <emphasis>ctrls</emphasis>
  to
@@ -5235,8 +5235,8 @@ To get the current values of the
   <funcprototype>
     <funcdef>Bool <function>XkbGetPerClientControls</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>ctrls</emphasis>
+<parameter>dpy</parameter>,
+<parameter>ctrls</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>
@@ -5269,7 +5269,7 @@ To get the current values of the
 <para>
 <function>XkbGetPerClientControls</function>
  backfills
-<emphasis>ctrls</emphasis>
+<parameter>ctrls</parameter>
  with the
 <emphasis>per-client</emphasis>
 control attributes for this particular client. It returns
@@ -5293,8 +5293,8 @@ To change the current values of the
   <funcprototype>
     <funcdef>Bool <function>XkbSetPerClientControls</function></funcdef>
 <!-- (
-<emphasis>dpy</emphasis>,
-<emphasis>ctrls</emphasis>
+<parameter>dpy</parameter>,
+<parameter>ctrls</parameter>
 ) -->
 
     <paramdef>Display *<parameter>dpy</parameter></paramdef>

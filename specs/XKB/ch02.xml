@@ -129,11 +129,11 @@ To determine the compatibility of a library at runtime, call
 
 <para>
 Pass the symbolic value
-<emphasis>XkbMajorVersion</emphasis>
+<symbol>XkbMajorVersion</symbol>
  in
 <parameter>lib_major_in_out</parameter>
  and
-<emphasis>XkbMinorVersion</emphasis>
+<symbol>XkbMinorVersion</symbol>
  in
 <parameter>lib_minor_in_out</parameter>.
 These arguments represent the version of the library used at compile time.
@@ -784,9 +784,9 @@ involve both a server connection (Display *
 The device identifier can specify any X input extension device with a
 <emphasis>KeyClass</emphasis>
  component, or it can specify the constant,
-<emphasis>XkbUseCoreKbd</emphasis>.
+<symbol>XkbUseCoreKbd</symbol>.
 The use of
-<emphasis>XkbUseCoreKbd</emphasis>
+<symbol>XkbUseCoreKbd</symbol>
  allows applications to indicate the core keyboard without having to determine
 its device identifier.
 </para>
@@ -798,12 +798,12 @@ Where an Xkb device identifier is passed as an argument and an
 <emphasis>XkbDescRec</emphasis>
 <emphasis>device_spec</emphasis>
  field is
-<emphasis>XkbUseCoreKbd</emphasis>,
+<symbol>XkbUseCoreKbd</symbol>,
 and if the function returns successfully, the
 <emphasis>XkbDescPtr</emphasis>
 <emphasis>device_spec</emphasis>
  field will have been converted from
-<emphasis>XkbUseCoreKbd</emphasis>
+<symbol>XkbUseCoreKbd</symbol>
  to a real Xkb device ID. If the function does not complete successfully, the
 <emphasis>device_spec</emphasis>
  field remains unchanged. Subsequently, the device id argument must match the
@@ -823,8 +823,8 @@ to use for the keyboard, that ID is the input extension identifier for the
 device if the server supports the X Input Extension. If the server does not
 support the input extension, the meaning of the identifier is undefined — the
 only guarantee is that when you use
-<emphasis>XkbUseCoreKbd</emphasis>,
-<emphasis>XkbUseCoreKbd</emphasis>
+<symbol>XkbUseCoreKbd</symbol>,
+<symbol>XkbUseCoreKbd</symbol>
  will work and the identifier returned by the server will refer to the core
 keyboard device.
 </para>

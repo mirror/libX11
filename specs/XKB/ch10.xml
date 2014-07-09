@@ -337,7 +337,7 @@ configure their behavior. For example, the
  fields to describe the timing behavior of keys that repeat. The
 <emphasis>RepeatControl</emphasis>
  behavior is turned on or off depending on the value of the
-<emphasis>XkbRepeatKeysMask</emphasis>
+<symbol>XkbRepeatKeysMask</symbol>
  bit, but you must use other means, as described in this chapter, to configure
 its behavior in detail.
 </para>
@@ -733,7 +733,7 @@ To get the current attributes of the
     </term>
     <listitem>
       <para>
-        desired device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        desired device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -813,7 +813,7 @@ To set the attributes of the RepeatKeys control for a keyboard device, use
     </term>
     <listitem>
       <para>
-        device to configure, or <emphasis>XkbUseCoreKbd</emphasis>
+        device to configure, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1153,9 +1153,9 @@ the
 <para>
 To specify the overlay to which a key belongs and the alternate keycode it
 should generate when that overlay is enabled, assign it either the
-<emphasis>XkbKB_Overlay1</emphasis>
+<symbol>XkbKB_Overlay1</symbol>
  or
-<emphasis>XkbKB_Overlay2</emphasis>
+<symbol>XkbKB_Overlay2</symbol>
  key behaviors, as described in <link linkend="Key_Behavior">section 16.2</link>.
 </para>
 
@@ -1239,7 +1239,7 @@ changes as a key is held down. If the control is disabled, pressing a
 mouse-pointer key yields one mouse event. When
 <emphasis>MouseKeysAccel</emphasis>
  is enabled, mouse movement is defined by an initial distance specified in the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action and the following fields in the
 <emphasis>XkbControlsRec</emphasis>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
@@ -1299,7 +1299,7 @@ There are no convenience functions to query or change the attributes of the
 The effects of the attributes of the
 <emphasis>MouseKeysAccel</emphasis>
  control depend on whether the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action (see <link linkend="Key_Actions">section 16.1</link>) specifies relative or absolute pointer motion.
 </para>
 
@@ -1308,11 +1308,11 @@ The effects of the attributes of the
 
 <para>
 If an
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action specifies an absolute position for one of the coordinates but still
 allows acceleration, all repeated events contain any absolute coordinates
 specified in the action. For example, if the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action specifies an absolute position for the X direction, but a relative
 motion for the Y direction, the pointer accelerates in the Y direction, but
 stays at the same X position.
@@ -1325,7 +1325,7 @@ stays at the same X position.
 
 <para>
 If the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action specifies relative motion, the initial event always moves the cursor
 the distance specified in the action. After
 <emphasis>mk_delay</emphasis>
@@ -1350,7 +1350,7 @@ the action by
 
 <para>
 For example, if the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action specifies a relative motion in the X direction of 5,
 <emphasis>mk_delay</emphasis>
 =160,
@@ -1413,7 +1413,7 @@ accelerated according to the formula:
 Where
 <emphasis>action_delta</emphasis>
  is the relative motion specified by the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action,
 <emphasis>mk_max_speed</emphasis>
 and
@@ -1555,7 +1555,7 @@ When the
 <para>
 Some of these key sequences optionally generate audible feedback of the change
 in state, as described in <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>, or
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events, described in <link linkend="Tracking_Changes_to_Keyboard_Controls">section 10.11</link>.
 </para>
 
@@ -1585,9 +1585,9 @@ controls and to change the value of the
 When a timeout as specified by
 <emphasis>AccessXTimeout</emphasis>
  occurs and a control is consequently modified, Xkb generates an
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  event. For more information on
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events, refer to <link linkend="Tracking_Changes_to_Keyboard_Controls">section 10.11</link>.
 </para>
 
@@ -1639,7 +1639,7 @@ Use
     </term>
     <listitem>
       <para>
-        device to query, or <emphasis>XkbUseCoreKbd</emphasis>
+        device to query, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1765,7 +1765,7 @@ opts_values</parameter>
     </term>
     <listitem>
       <para>
-        device to configure, or <emphasis>XkbUseCoreKbd</emphasis>
+        device to configure, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1988,7 +1988,7 @@ beeps instead of falling and rising tones; for example, they can generate a
 high-pitched beep followed by a low-pitched beep instead of a continuous
 falling tone. Other implementations can only ring the bell with one fixed
 pitch. In these cases, use the
-<emphasis>XkbAX_DumbBellFBMask</emphasis>
+<symbol>XkbAX_DumbBellFBMask</symbol>
  bit of
 <emphasis>ax_options</emphasis>
  to indicate that the bell can only ring with a fixed pitch.
@@ -1997,7 +1997,7 @@ pitch. In these cases, use the
 
 <para>
 When any of the above feedbacks occur, Xkb may generate a
-<emphasis>XkbBellNotify</emphasis>
+<symbol>XkbBellNotify</symbol>
  event (see <link linkend="Detecting_Bells">section 9.4</link>).
 </para>
 
@@ -2008,9 +2008,9 @@ When any of the above feedbacks occur, Xkb may generate a
 
 <para>
 The server can generate
-<emphasis>XkbAccessXNotify</emphasis>
+<symbol>XkbAccessXNotify</symbol>
  events for some of the global keyboard controls. The structure for the
-<emphasis>XkbAccessXNotify</emphasis>
+<symbol>XkbAccessXNotify</symbol>
  event type is as follows:
 </para>
 
@@ -2021,8 +2021,8 @@ typedef struct {
       Bool            send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *       display;         /* server connection where event generated */
       Time            time;            /* server time when event generated */
-      int             xkb_type;        /* <emphasis>XkbAccessXNotify</emphasis> */
-      int             device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int             xkb_type;        /* <symbol>XkbAccessXNotify</symbol> */
+      int             device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       int             detail;          /* XkbAXN_* */
       KeyCode         keycode;         /* key of event */
       int             slowKeysDelay;   /* current SlowKeys delay */
@@ -2108,7 +2108,7 @@ the
 
 <para>
 To receive
-<emphasis>XkbAccessXNotify</emphasis>
+<symbol>XkbAccessXNotify</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
@@ -2122,11 +2122,11 @@ To receive
 
 <para>
 To receive
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbAccessXNotify</emphasis>
+<symbol>XkbAccessXNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying the desired state changes in
@@ -2210,7 +2210,7 @@ and
 locking, or unlocking of modifiers using
 <emphasis>StickyKeys</emphasis>
  generates
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events as described in <link linkend="Tracking_Keyboard_State">section 5.4</link>. Repeating keys generate normal
 <symbol>KeyPress</symbol>
  and
@@ -2293,7 +2293,7 @@ To get the
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -2369,7 +2369,7 @@ To set the
     </term>
     <listitem>
       <para>
-        device to configure, or <emphasis>XkbUseCoreKbd</emphasis>
+        device to configure, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -2475,7 +2475,7 @@ Use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -2551,7 +2551,7 @@ To set the
     </term>
     <listitem>
       <para>
-        device to configure, or <emphasis>XkbUseCoreKbd</emphasis>
+        device to configure, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -2766,7 +2766,7 @@ Use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -2797,8 +2797,8 @@ with a mask indicating whether the individual
 
 <para>
 <programlisting>
-     <emphasis>XkbAX_TwoKeysMask</emphasis>
-     <emphasis>XkbAX_LatchToLockMask</emphasis>
+     <symbol>XkbAX_TwoKeysMask</symbol>
+     <symbol>XkbAX_LatchToLockMask</symbol>
 </programlisting>
 </para>
 
@@ -2896,8 +2896,8 @@ The valid bits to use for both the
 
 <para>
 <programlisting>
-     <emphasis>XkbAX_TwoKeysMask</emphasis>
-     <emphasis>XkbAX_LatchToLockMask</emphasis>
+     <symbol>XkbAX_TwoKeysMask</symbol>
+     <symbol>XkbAX_LatchToLockMask</symbol>
 </programlisting>
 </para>
 
@@ -3104,7 +3104,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -3314,7 +3314,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        ‘device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        ‘device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -3919,7 +3919,7 @@ global basis. Valid values for
 When
 <emphasis>groups_wrap</emphasis>
  is set to
-<emphasis>XkbRedirectIntoRange</emphasis>,
+<symbol>XkbRedirectIntoRange</symbol>,
 its four low-order bits specify the index of the group to use.
 </para>
 
@@ -4152,9 +4152,9 @@ The
 <para>
 The fields pertaining to each control are relevant only when the control is
 enabled (
-<emphasis>XkbAccessXFeedbackMask</emphasis>
+<symbol>XkbAccessXFeedbackMask</symbol>
  or
-<emphasis>XkbStickyKeysMask</emphasis>
+<symbol>XkbStickyKeysMask</symbol>
  bit is turned on in the
 <emphasis>enabled_cntrls</emphasis>
  field).
@@ -4170,13 +4170,13 @@ Xkb provides a set of convenience macros for working with the
 </para>
 
 <para><programlisting>
-#define      <emphasis>XkbAX_NeedOption</emphasis>
+#define      <symbol>XkbAX_NeedOption</symbol>
 (c,w)      ((c)-&gt;ax_options&amp;(w))
 </programlisting></para>
 
 <para>
 The
-<emphasis>XkbAX_NeedOption</emphasis>
+<symbol>XkbAX_NeedOption</symbol>
  macro is useful for determining whether a particular AccessX option is enabled
 or not. It accepts a pointer to an
 <emphasis>XkbControlsRec</emphasis>
@@ -4197,17 +4197,17 @@ XkbAX_NeedOption(ctlrec, XkbAX_LatchToLockMask)
 <para>
 is nonzero if the latch to lock transition for latching keys is enabled, and
 zero if it is disabled. Note that
-<emphasis>XkbAX_NeedOption</emphasis>
+<symbol>XkbAX_NeedOption</symbol>
  only determines whether or not the particular capability is configured to
 operate; the
-<emphasis>XkbAccessXFeedbackMask</emphasis>
+<symbol>XkbAccessXFeedbackMask</symbol>
  bit must also be turned on in
 <emphasis>enabled_ctrls</emphasis>
  for the capability to actually be functioning.
 </para>
 
 <para><programlisting>
-#define      <emphasis>XkbAX_AnyFeedback</emphasis>
+#define      <symbol>XkbAX_AnyFeedback</symbol>
 (c)      ((c)-&gt;enabled_ctrls&amp;XkbAccessXFeedbackMask)
 </programlisting></para>
 
@@ -4221,18 +4221,18 @@ The
  control is enabled or not. If the
 <emphasis>AccessXFeedback</emphasis>
  control is enabled, the macro returns
-<emphasis>XkbAccessXFeedbackMask</emphasis>.
+<symbol>XkbAccessXFeedbackMask</symbol>.
 Otherwise, it returns zero.
 </para>
 
 <para><programlisting>
-#define      <emphasis>XkbAX_NeedFeedback</emphasis>
+#define      <symbol>XkbAX_NeedFeedback</symbol>
 (c,w)      (XkbAX_AnyFeedback(c)&amp;&amp;XkbAX_NeedOption(c,w))
 </programlisting></para>
 
 <para>
 The
-<emphasis>XkbAX_NeedFeedback</emphasis>
+<symbol>XkbAX_NeedFeedback</symbol>
  macro is useful for determining if both the
 <emphasis>AccessXFeedback</emphasis>
  control and a particular AccessX feedback option are enabled. The macro
@@ -4576,7 +4576,7 @@ boolean controls, you must set
 <emphasis>enabled_ctrls</emphasis>
  to the appropriate bits to enable only the controls you want and disable all
 others, then specify the
-<emphasis>XkbControlsEnabledMask</emphasis>
+<symbol>XkbControlsEnabledMask</symbol>
  in a call to
 <function>XkbSetControls</function>.
 Because this is somewhat awkward if all you want to do is enable and disable
@@ -4715,13 +4715,13 @@ to the server specified by
 <para>
 Whenever a field in the controls structure changes in the server’s keyboard
 description, the server sends an
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  event to all interested clients.To receive
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
-<emphasis>XkbControlsNotifyMask</emphasis>
+<symbol>XkbControlsNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -4731,11 +4731,11 @@ description, the server sends an
 
 <para>
 To receive
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying the desired state changes in
@@ -4748,7 +4748,7 @@ To receive
 
 <para>
 The structure for the
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  event is defined as follows:
 </para>
 
@@ -4759,8 +4759,8 @@ typedef struct {
       Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <emphasis>XkbCompatMapNotify</emphasis> */
-      int            device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int            xkb_type;        /* <symbol>XkbCompatMapNotify</symbol> */
+      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed_ctrls;   /* bits indicating which controls data have changed*/
       unsigned int   enabled_ctrls;   /* controls currently enabled in server */
       unsigned int   enabled_ctrl_changes;  /* bits indicating enabled/disabled controls */
@@ -4852,7 +4852,7 @@ the
 
 <para>
 When a client receives an
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  event, it can note the changes in a changes structure using
 <function>XkbNoteControlsChanges</function>.
 </para>

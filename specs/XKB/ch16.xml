@@ -516,9 +516,9 @@ the
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_NoAction</emphasis></entry>
+    <entry><symbol>XkbSA_NoAction</symbol></entry>
     <entry>
-<emphasis>XkbSA_NoAction</emphasis>
+<symbol>XkbSA_NoAction</symbol>
  means the server does not perform an action for the key; this action does not
 have an associated data structure.
     </entry>
@@ -527,9 +527,9 @@ have an associated data structure.
   </row>
   <row>
     <entry>
-<para><emphasis>XkbSA_SetMods</emphasis></para>
-<para><emphasis>XkbSA_LatchMods</emphasis></para>
-<para><emphasis>XkbSA_LockMods</emphasis></para>
+<para><symbol>XkbSA_SetMods</symbol></para>
+<para><symbol>XkbSA_LatchMods</symbol></para>
+<para><symbol>XkbSA_LockMods</symbol></para>
     </entry>
     <entry><para><emphasis>XkbModAction</emphasis></para></entry>
     <entry>mods</entry>
@@ -537,16 +537,16 @@ have an associated data structure.
   </row>
   <row>
     <entry>
-<para><emphasis>XkbSA_SetGroup</emphasis></para>
-<para><emphasis>XkbSA_LatchGroup</emphasis></para>
-<para><emphasis>XkbSA_LockGroup</emphasis></para>
+<para><symbol>XkbSA_SetGroup</symbol></para>
+<para><symbol>XkbSA_LatchGroup</symbol></para>
+<para><symbol>XkbSA_LockGroup</symbol></para>
     </entry>
     <entry><emphasis>XkbGroupAction</emphasis></entry>
     <entry>group</entry>
     <entry>16.1.4</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_MovePtr</emphasis></entry>
+    <entry><symbol>XkbSA_MovePtr</symbol></entry>
     <entry><emphasis>XkbPtrAction</emphasis></entry>
     <entry>ptr</entry>
     <entry>16.1.5</entry>
@@ -554,53 +554,53 @@ have an associated data structure.
   <row>
     <entry>
 <para><emphasis>XKbSA_PtrBtn</emphasis></para>
-<para><emphasis>XkbSA_LockPtrBtn</emphasis></para>
+<para><symbol>XkbSA_LockPtrBtn</symbol></para>
     </entry>
     <entry><emphasis>XkbPtrBtnAction</emphasis></entry><entry>btn</entry>
     <entry>16.1.6</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetPtrDflt</emphasis></entry>
+    <entry><symbol>XkbSA_SetPtrDflt</symbol></entry>
     <entry><emphasis>XkbPtrDfltAction</emphasis></entry>
     <entry>dflt</entry>
     <entry>16.1.7</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISOLock</emphasis></entry>
+    <entry><symbol>XkbSA_ISOLock</symbol></entry>
     <entry><emphasis>XkbISOAction</emphasis></entry>
     <entry>iso</entry>
     <entry>16.1.8</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SwitchScreen</emphasis></entry>
+    <entry><symbol>XkbSA_SwitchScreen</symbol></entry>
     <entry><emphasis>XkbSwitchScreenAction</emphasis></entry>
     <entry>screen</entry>
     <entry>16.1.9</entry>
   </row>
   <row>
     <entry>
-<para><emphasis>XkbSA_SetControls</emphasis></para>
-<para><emphasis>XkbSA_LockControls</emphasis></para>
+<para><symbol>XkbSA_SetControls</symbol></para>
+<para><symbol>XkbSA_LockControls</symbol></para>
     </entry>
     <entry><emphasis>XkbCtrlsAction</emphasis></entry>
     <entry>ctrls</entry>
     <entry>16.1.10</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ActionMessage</emphasis></entry>
+    <entry><symbol>XkbSA_ActionMessage</symbol></entry>
     <entry><emphasis>XkbMessgeAction</emphasis></entry>
     <entry>msg</entry>
     <entry>16.1.11</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_RedirectKey</emphasis></entry>
+    <entry><symbol>XkbSA_RedirectKey</symbol></entry>
     <entry><emphasis>XkbRedirectKeyAction</emphasis></entry>
     <entry>redirect</entry>
     <entry>16.1.12</entry>
   </row>
   <row>
     <entry>
-<para><emphasis>XkbSA_DeviceBtn</emphasis></para>
+<para><symbol>XkbSA_DeviceBtn</symbol></para>
 <para><emphasis>XKbSA_LockDeviceBtn</emphasis></para>
     </entry>
     <entry><emphasis>XkbDeviceBtnAction</emphasis></entry>
@@ -608,7 +608,7 @@ have an associated data structure.
     <entry>16.1.13</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_DeviceValuator</emphasis></entry>
+    <entry><symbol>XkbSA_DeviceValuator</symbol></entry>
     <entry><emphasis>XkbDeviceValuatorAction</emphasis></entry>
     <entry>devval</entry>
     <entry>16.1.14</entry>
@@ -682,7 +682,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_SetMods</emphasis></entry>
+    <entry><symbol>XkbSA_SetMods</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
@@ -699,7 +699,7 @@ provided no other key affecting the same modifiers is logically down.
   <listitem>
     <para>
 If no other keys are physically depressed when this key is released, and
-<emphasis>XkbSA_ClearLocks</emphasis>
+<symbol>XkbSA_ClearLocks</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, the key release unlocks any action modifiers.
@@ -709,13 +709,13 @@ If no other keys are physically depressed when this key is released, and
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LatchMods</emphasis></entry>
+    <entry><symbol>XkbSA_LatchMods</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 Key press and key release events have the same effect as for
-<emphasis>XkbSA_SetMods</emphasis>
+<symbol>XkbSA_SetMods</symbol>
 ; if no keys are physically depressed when this key is released, key release
 events have the following additional effects:
     </para>
@@ -723,14 +723,14 @@ events have the following additional effects:
   <listitem>
     <para>
 Modifiers unlocked due to
-<emphasis>XkbSA_ClearLocks</emphasis>
+<symbol>XkbSA_ClearLocks</symbol>
  have no further effect.
     </para>
   </listitem>
   <listitem>
     <para>
 If
-<emphasis>XkbSA_LatchToLock</emphasis>
+<symbol>XkbSA_LatchToLock</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, a key release locks and then unlatches any remaining action modifiers
@@ -740,9 +740,9 @@ that are already latched.
   <listitem>
     <para>
 A key release latches any action modifiers not used by the
-<emphasis>XkbSA_ClearLocks</emphasis>
+<symbol>XkbSA_ClearLocks</symbol>
  and
-<emphasis>XkbSA_LatchToLock</emphasis>
+<symbol>XkbSA_LatchToLock</symbol>
  flags.
     </para>
   </listitem>
@@ -750,13 +750,13 @@ A key release latches any action modifiers not used by the
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockMods</emphasis></entry>
+    <entry><symbol>XkbSA_LockMods</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 A key press sets the base state of any action modifiers. If
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, a key press also sets the locked state of any action modifiers.
@@ -766,7 +766,7 @@ A key press sets the base state of any action modifiers. If
     <para>
 A key release clears any action modifiers in the keyboard’s base modifiers,
 provided no other key that affects the same modifiers is down. If
-<emphasis>XkbSA_LockNoUnlock</emphasis>
+<symbol>XkbSA_LockNoUnlock</symbol>
  is not set in the
 <emphasis>flags</emphasis>
  field, and any of the action modifiers were locked before the corresponding
@@ -803,7 +803,7 @@ the action <emphasis>type</emphasis>.
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_UseModMapMods</emphasis></entry>
+    <entry><symbol>XkbSA_UseModMapMods</symbol></entry>
     <entry>
 If set, the action modifiers are determined by the modifiers bound by the
 modifier mapping of the key. Otherwise, the action modifiers are set to the
@@ -817,33 +817,33 @@ and
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ClearLocks</emphasis></entry>
+    <entry><symbol>XkbSA_ClearLocks</symbol></entry>
     <entry>
 If set and no keys are physically depressed when this key transition
 occurs, the server unlocks any action modifiers.
    </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LatchToLock</emphasis></entry>
+    <entry><symbol>XkbSA_LatchToLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LatchMods</emphasis>,
+<symbol>XkbSA_LatchMods</symbol>,
 the server locks the action modifiers if they are already latched.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoLock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockMods</emphasis>,
+<symbol>XkbSA_LockMods</symbol>,
 the server only unlocks the action modifiers.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoUnlock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoUnlock</symbol></entry>
     <entry>
 If set, and the action is
-<emphasis>XkbSA_LockMods</emphasis>,
+<symbol>XkbSA_LockMods</symbol>,
 the server only locks the action modifiers.
     </entry>
   </row>
@@ -853,7 +853,7 @@ the server only locks the action modifiers.
 
 <para>
 If
-<emphasis>XkbSA_UseModMapMods</emphasis>
+<symbol>XkbSA_UseModMapMods</symbol>
  is not set in the
 <emphasis>flags</emphasis>
  field, the
@@ -1032,13 +1032,13 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_SetGroup</emphasis></entry>
+    <entry><symbol>XkbSA_SetGroup</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_GroupAbsolute</emphasis>
+<symbol>XkbSA_GroupAbsolute</symbol>
  bit is set in the
 <emphasis>flags</emphasis>
  field, key press events change the base keyboard group to the group specified
@@ -1056,7 +1056,7 @@ keyboard group is brought back into range depending on the value of the
   <listitem>
     <para>
 If a key with an
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action (see <link linkend="Actions_for_Locking_Modifiers_and_Group">section 16.1.8</link>) is pressed while this key is down, the key release
 of this key has no effect. Otherwise, the key release cancels the effects of
 the key press.
@@ -1065,7 +1065,7 @@ the key press.
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_ClearLocks</emphasis>
+<symbol>XkbSA_ClearLocks</symbol>
  bit is set in the flags field, and no keys are physically depressed when this
 key is released, the key release also sets the locked keyboard group to
 <emphasis>Group1</emphasis>.
@@ -1075,13 +1075,13 @@ key is released, the key release also sets the locked keyboard group to
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LatchGroup</emphasis></entry>
+    <entry><symbol>XkbSA_LatchGroup</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 Key press and key release events have the same effect as for
-<emphasis>XkbSA_SetGroup</emphasis>
+<symbol>XkbSA_SetGroup</symbol>
 ; if no keys are physically depressed when this key is released, key release
 events have the following additional effects.
     </para>
@@ -1089,7 +1089,7 @@ events have the following additional effects.
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_LatchToLock</emphasis>
+<symbol>XkbSA_LatchToLock</symbol>
  bit is set in the
 <emphasis>flags</emphasis>
  field and the latched keyboard group index is nonzero, the key release adds
@@ -1109,13 +1109,13 @@ Otherwise, the key press adds the key press delta to the latched keyboard group.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockGroup</emphasis></entry>
+    <entry><symbol>XkbSA_LockGroup</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_GroupAbsolute</emphasis>
+<symbol>XkbSA_GroupAbsolute</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, key press events set the locked keyboard group to the group specified
@@ -1166,7 +1166,7 @@ the action
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_ClearLocks</emphasis></entry>
+    <entry><symbol>XkbSA_ClearLocks</symbol></entry>
     <entry>
 If set and no keys are physically depressed when this key transition occurs,
 the server sets the locked keyboard group to
@@ -1175,7 +1175,7 @@ the server sets the locked keyboard group to
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LatchToLock</emphasis></entry>
+    <entry><symbol>XkbSA_LatchToLock</symbol></entry>
     <entry>
 If set, and the action type is
 <emphasis>SA_LatchGroup</emphasis>,
@@ -1183,7 +1183,7 @@ the server locks the action group if it is already latched.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_GroupAbsolute</emphasis></entry>
+    <entry><symbol>XkbSA_GroupAbsolute</symbol></entry>
     <entry>
 If set, the
 <emphasis>group_XXX</emphasis>
@@ -1301,7 +1301,7 @@ Actions associated with the
 
 <para><programlisting>
 typedef struct _XkbPtrAction {
-      unsigned char      type;      /* <emphasis>XkbSA_MovePtr</emphasis> */
+      unsigned char      type;      /* <symbol>XkbSA_MovePtr</symbol> */
       unsigned char      flags;     /* determines type of pointer motion */
       unsigned char      high_XXX;  /* x coordinate, high bits*/
       unsigned char      low_XXX;   /* y coordinate, low bits */
@@ -1318,14 +1318,14 @@ If the
  and
 <symbol>KeyRelease</symbol>
  events are treated as though the action is
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
 </para>
 
 <para>
 If the
 <emphasis>MouseKeys</emphasis>
  control is enabled, a server action of type
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  instructs the server to generate core pointer
 <symbol>MotionNotify</symbol>
  events rather than the usual
@@ -1334,7 +1334,7 @@ If the
 <symbol>KeyRelease</symbol>
  event disables any mouse keys timers that were created as a result of handling
 the
-<emphasis>XkbSA_MovePtr</emphasis>
+<symbol>XkbSA_MovePtr</symbol>
  action.
 </para>
 
@@ -1345,7 +1345,7 @@ The
  field of the
 <emphasis>XkbPtrAction</emphasis>
  structure is always
-<emphasis>XkbSA_MovePtr</emphasis>.
+<symbol>XkbSA_MovePtr</symbol>.
 </para>
 
 
@@ -1370,7 +1370,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_NoAcceleration</emphasis></entry>
+    <entry><symbol>XkbSA_NoAcceleration</symbol></entry>
     <entry>
 If not set, and the
 <emphasis>MouseKeysAccel</emphasis>
@@ -1381,14 +1381,14 @@ cursor moves.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_MoveAbsoluteX</emphasis></entry>
+    <entry><symbol>XkbSA_MoveAbsoluteX</symbol></entry>
     <entry>If set, the X portion of the structure specifies the new pointer X
 coordinate. Otherwise, the X portion is added to the current pointer X
 coordinate to determine the new pointer X coordinate.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_MoveAbsoluteY</emphasis></entry>
+    <entry><symbol>XkbSA_MoveAbsoluteY</symbol></entry>
     <entry>
 If set, the Y portion of the structure specifies the new
 pointer Y coordinate. Otherwise, the Y portion is added
@@ -1610,7 +1610,7 @@ If the
  and
 <symbol>KeyRelease</symbol>
  events are treated as though the action is
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
 </para>
 
 
@@ -1635,13 +1635,13 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_PtrBtn</emphasis></entry>
+    <entry><symbol>XkbSA_PtrBtn</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 If
-<emphasis>XkbSA_UseDfltButton</emphasis>
+<symbol>XkbSA_UseDfltButton</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, the event is generated for the pointer button specified by the
@@ -1702,7 +1702,7 @@ a key release generates a core pointer
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockPtrBtn</emphasis></entry>
+    <entry><symbol>XkbSA_LockPtrBtn</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
@@ -1717,7 +1717,7 @@ or
  event instead of a
 <symbol>KeyPress</symbol>
  event and locks the button. If the button is already locked or if
-<emphasis>XkbSA_LockNoUnlock</emphasis>
+<symbol>XkbSA_LockNoUnlock</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, a key press is ignored and has no effect.
@@ -1726,7 +1726,7 @@ or
   <listitem>
     <para>
 If the corresponding key press was ignored, and if
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  is not set in the
 <emphasis>flags</emphasis>
  field, a key release generates a
@@ -1769,7 +1769,7 @@ the action
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_UseDfltButton</emphasis></entry>
+    <entry><symbol>XkbSA_UseDfltButton</symbol></entry>
     <entry>
 If set, the action uses the pointer button specified by the
 <emphasis>mk_dflt_btn</emphasis>
@@ -1782,18 +1782,18 @@ field.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoLock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockPtrBtn</emphasis>,
+<symbol>XkbSA_LockPtrBtn</symbol>,
 the server only unlocks the pointer button.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoUnlock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoUnlock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockPtrBtn</emphasis>,
+<symbol>XkbSA_LockPtrBtn</symbol>,
 the server only locks the pointer button.
     </entry>
   </row>
@@ -1817,9 +1817,9 @@ Actions associated with the
 
 <para><programlisting>
 typedef struct _XkbPtrDfltAction {
-      unsigned char   type;      /* <emphasis>XkbSA_SetPtrDflt</emphasis> */
+      unsigned char   type;      /* <symbol>XkbSA_SetPtrDflt</symbol> */
       unsigned char   flags;     /* controls the pointer button number */
-      unsigned char   affect;    /* <emphasis>XkbSA_AffectDfltBtn</emphasis> */
+      unsigned char   affect;    /* <symbol>XkbSA_AffectDfltBtn</symbol> */
       char            valueXXX;  /* new default button member */
 } <emphasis>XkbPtrDfltAction</emphasis>;
 </programlisting></para>
@@ -1832,7 +1832,7 @@ If the
  and
 <symbol>KeyRelease</symbol>
  events are treated as though the action is
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
 Otherwise, this action changes the
 <emphasis>mk_dflt_btn</emphasis>
  attribute of the
@@ -1847,7 +1847,7 @@ The
  field of the
 <emphasis>XkbPtrDfltAction</emphasis>
  structure should always be
-<emphasis>XkbSA_SetPtrDflt</emphasis>.
+<symbol>XkbSA_SetPtrDflt</symbol>.
 </para>
 
 
@@ -1873,7 +1873,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_DfltBtnAbsolute</emphasis></entry>
+    <entry><symbol>XkbSA_DfltBtnAbsolute</symbol></entry>
     <entry>
 If set, the
 <emphasis>value</emphasis>
@@ -1892,7 +1892,7 @@ The
  field specifies what changes as a result of this action. The only valid value
 for the
 <emphasis>affect</emphasis>
- field is <emphasis>XkbSA_AffectDfltBtn</emphasis>.
+ field is <symbol>XkbSA_AffectDfltBtn</symbol>.
 </para>
 
 <para>
@@ -1903,7 +1903,7 @@ The
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). If
-<emphasis>XkbSA_DfltBtnAbsolute</emphasis>
+<symbol>XkbSA_DfltBtnAbsolute</symbol>
  is set in
 <emphasis>flags</emphasis>,
 <emphasis>valueXXX</emphasis>
@@ -2039,15 +2039,15 @@ The default behavior is to convert:
 The
 <emphasis>affects</emphasis>
  field allows you to turn those effects on or off individually. Set
-<emphasis>XkbSA_ISONoAffectMods</emphasis>
+<symbol>XkbSA_ISONoAffectMods</symbol>
  to disable the first,
-<emphasis>XkbSA_ISONoAffectGroup</emphasis>
+<symbol>XkbSA_ISONoAffectGroup</symbol>
  to disable the second, and so forth.
 </para>
 
 <para><programlisting>
 typedef struct _XkbISOAction {
-      unsigned char   type;        /* <emphasis>XkbSA_ISOLock</emphasis> */
+      unsigned char   type;        /* <symbol>XkbSA_ISOLock</symbol> */
       unsigned char   flags;       /* controls changes to group or modifier state */
       unsigned char   mask;        /* same as <emphasis>mask</emphasis> field of a modifier description */
       unsigned char   real_mods;   /* same as <emphasis>real_mods</emphasis> field of a modifier description */
@@ -2064,7 +2064,7 @@ The
  field of the
 <emphasis>XkbISOAction</emphasis>
  structure should always be
-<emphasis>XkbSA_ISOLock</emphasis>.
+<symbol>XkbSA_ISOLock</symbol>.
 </para>
 
 
@@ -2072,7 +2072,7 @@ The
 The interpretation of the
 <emphasis>flags</emphasis>
  field depends on whether the
-<emphasis>XkbSA_ISODfltIsGroup</emphasis>
+<symbol>XkbSA_ISODfltIsGroup</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field or not.
@@ -2081,7 +2081,7 @@ The interpretation of the
 
 <para>
 If the
-<emphasis>XkbSA_ISODfltIsGroup</emphasis>
+<symbol>XkbSA_ISODfltIsGroup</symbol>
  is set in the
 <emphasis>flags</emphasis>
  field, the action is used to change the group state. The remaining valid bits
@@ -2105,7 +2105,7 @@ of the
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_ISODfltIsGroup</emphasis></entry>
+    <entry><symbol>XkbSA_ISODfltIsGroup</symbol></entry>
     <entry>
       <para>
 If set, the action is used to change the base group state. Must be set for the
@@ -2115,7 +2115,7 @@ remaining bits in this table to carry their interpretations.
 A key press sets the base group as specified by the
 <emphasis>group_XXX</emphasis>
  field and the
-<emphasis>XkbSA_GroupAbsolute</emphasis>
+<symbol>XkbSA_GroupAbsolute</symbol>
  bit of the
 <emphasis>flags</emphasis>
  field (see section Note). If no other actions are transformed by the
@@ -2126,7 +2126,7 @@ set by the key press.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_GroupAbsolute</emphasis></entry>
+    <entry><symbol>XkbSA_GroupAbsolute</symbol></entry>
     <entry>
 If set, the
 <emphasis>group_XXX</emphasis>
@@ -2135,54 +2135,54 @@ delta to be added to the current group to determine the new group number.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectMods</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectMods</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetMods</emphasis>
+<symbol>XkbSA_SetMods</symbol>
  or
-<emphasis>XkbSA_LatchMods</emphasis>
+<symbol>XkbSA_LatchMods</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
 <emphasis>XkbSA_LockMod</emphasis>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectGroup</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectGroup</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetGroup</emphasis>
+<symbol>XkbSA_SetGroup</symbol>
  or
-<emphasis>XkbSA_LatchGroup</emphasis>
+<symbol>XkbSA_LatchGroup</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockGroup</emphasis>
+<symbol>XkbSA_LockGroup</symbol>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectPtr</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectPtr</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_PtrBtn</emphasis>
+<symbol>XkbSA_PtrBtn</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockPtrBtn</emphasis>
+<symbol>XkbSA_LockPtrBtn</symbol>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectCtrls</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectCtrls</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetControls</emphasis>
+<symbol>XkbSA_SetControls</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockControls</emphasis>
+<symbol>XkbSA_LockControls</symbol>
  actions instead.
     </entry>
   </row>
@@ -2192,7 +2192,7 @@ If not set, any
 
 <para>
 If the
-<emphasis>XkbSA_ISODfltIsGroup</emphasis>
+<symbol>XkbSA_ISODfltIsGroup</symbol>
  is not set in the
 <emphasis>flags</emphasis>
  field, the action is used to change the modifier state and the remaining valid
@@ -2216,7 +2216,7 @@ bits of the
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_ISODfltIsGroup</emphasis> </entry>
+    <entry><symbol>XkbSA_ISODfltIsGroup</symbol> </entry>
     <entry>
       <para>
 If not set, action is used to change the base modifier state. Must not be set
@@ -2238,7 +2238,7 @@ clears the base modifiers set by the key press.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_UseModMapMods</emphasis></entry>
+    <entry><symbol>XkbSA_UseModMapMods</symbol></entry>
     <entry>
 If set, the action modifiers are determined by the modifiers bound by the
 modifier mapping of the key. Otherwise, the action modifiers are set to the
@@ -2252,62 +2252,62 @@ and
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoLock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoLock</symbol></entry>
     <entry>If set, the server only unlocks the action modifiers.</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoUnlock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoUnlock</symbol></entry>
     <entry>If set, the server only locks the action modifiers. </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectMods</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectMods</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetMods</emphasis>
+<symbol>XkbSA_SetMods</symbol>
  or
-<emphasis>XkbSA_LatchMods</emphasis>
+<symbol>XkbSA_LatchMods</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
 <emphasis>XkbSA_LockMod</emphasis>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectGroup</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectGroup</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetGroup</emphasis>
+<symbol>XkbSA_SetGroup</symbol>
  or
-<emphasis>XkbSA_LatchGroup</emphasis>
+<symbol>XkbSA_LatchGroup</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockGroup</emphasis>
+<symbol>XkbSA_LockGroup</symbol>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectPtr</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectPtr</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_PtrBtn</emphasis>
+<symbol>XkbSA_PtrBtn</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockPtrBtn</emphasis>
+<symbol>XkbSA_LockPtrBtn</symbol>
  actions instead.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectCtrls</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectCtrls</symbol></entry>
     <entry>
 If not set, any
-<emphasis>XkbSA_SetControls</emphasis>
+<symbol>XkbSA_SetControls</symbol>
  actions that occur simultaneously with the
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockControls</emphasis>
+<symbol>XkbSA_LockControls</symbol>
  actions instead.
     </entry>
   </row>
@@ -2374,7 +2374,7 @@ The
     <entry><emphasis>XkbSA_ISODNoAffectMods</emphasis></entry>
     <entry>
 If
-<emphasis>XkbSA_ISONoAffectMods</emphasis>
+<symbol>XkbSA_ISONoAffectMods</symbol>
  is not set, any
 <emphasis>SA_SetMods</emphasis>
  or
@@ -2387,10 +2387,10 @@ If
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectGroup</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectGroup</symbol></entry>
     <entry>
 If
-<emphasis>XkbSA_ISONoAffectGroup</emphasis>
+<symbol>XkbSA_ISONoAffectGroup</symbol>
  is not set, any
 <emphasis>SA_SetGroup</emphasis>
  or
@@ -2403,10 +2403,10 @@ If
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectPtr</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectPtr</symbol></entry>
     <entry>
 If
-<emphasis>XkbSA_ISONoAffectPtr</emphasis>
+<symbol>XkbSA_ISONoAffectPtr</symbol>
  is not set, any
 <emphasis>SA_PtrBtn</emphasis>
  actions occurring simultaneously with the
@@ -2417,10 +2417,10 @@ If
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_ISONoAffectCtrls</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectCtrls</symbol></entry>
     <entry>
 If
-<emphasis>XkbSA_ISONoAffectCtrls</emphasis>
+<symbol>XkbSA_ISONoAffectCtrls</symbol>
  is not set, any
 <emphasis>SA_SetControls</emphasis>
  actions occurring simultaneously with the
@@ -2447,13 +2447,13 @@ Actions associated with the
 <note><para>This action is optional. Servers are free to ignore the action or
 any of its flags if they do not support the requested behavior. If the action
 is ignored, it behaves like
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
 Otherwise, key press and key release events do not generate an event.
 </para></note>
 
 <para><programlisting>
 typedef struct _XkbSwitchScreenAction {
-      unsigned char   type;        /* <emphasis>XkbSA_SwitchScreen</emphasis> */
+      unsigned char   type;        /* <symbol>XkbSA_SwitchScreen</symbol> */
       unsigned char   flags;       /* controls screen switching */
       char            screenXXX;   /* screen number or delta */
 } <emphasis>XkbSwitchScreenAction</emphasis>;
@@ -2465,7 +2465,7 @@ The
  field of the
 <emphasis>XkbSwitchScreenAction</emphasis>
  structure should always be
-<emphasis>XkbSA_SwitchScreen</emphasis>.
+<symbol>XkbSA_SwitchScreen</symbol>.
 </para>
 
 
@@ -2490,7 +2490,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_SwitchAbsolute</emphasis></entry>
+    <entry><symbol>XkbSA_SwitchAbsolute</symbol></entry>
     <entry>
 If set, the
 <emphasis>screenXXX</emphasis>
@@ -2499,7 +2499,7 @@ offset from the current screen to the new screen.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SwitchApplication</emphasis></entry>
+    <entry><symbol>XkbSA_SwitchApplication</symbol></entry>
     <entry>
 If not set, the action should switch to another screen on the same
 server. Otherwise, it should switch to another X server or application that
@@ -2515,7 +2515,7 @@ The
 <emphasis>screenXXX</emphasis>
  field is a signed character value that represents either the relative or
 absolute screen index, depending on the state of the
-<emphasis>XkbSA_SwitchAbsolute</emphasis>
+<symbol>XkbSA_SwitchAbsolute</symbol>
  bit in the
 <emphasis>flags</emphasis>
  field. Xkb provides the following macros to convert between the integer and
@@ -2616,8 +2616,8 @@ Actions associated with the
 
 <para><programlisting>
 typedef struct _XkbCtrlsAction {
-      unsigned char     type;        /* <emphasis>XkbSA_SetControls</emphasis>,
-                                        <emphasis>XkbSA_LockControls</emphasis> */
+      unsigned char     type;        /* <symbol>XkbSA_SetControls</symbol>,
+                                        <symbol>XkbSA_LockControls</symbol> */
       unsigned char     flags;       /* with <emphasis>type</emphasis>,
                                         controls enabling and disabling of controls */
       unsigned char     ctrls3;      /* <emphasis>ctrls0</emphasis> through
@@ -2652,7 +2652,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_SetControls</emphasis></entry>
+    <entry><symbol>XkbSA_SetControls</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
@@ -2670,7 +2670,7 @@ A key release disables any controls enabled by the key press.
   <listitem>
     <para>
 This action can cause
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>).
     </para>
   </listitem>
@@ -2678,13 +2678,13 @@ This action can cause
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockControls</emphasis></entry>
+    <entry><symbol>XkbSA_LockControls</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  bit is not set in the
 <emphasis>flags</emphasis>
  field, a key press enables any controls specified in the
@@ -2695,7 +2695,7 @@ If the
   <listitem>
     <para>
 If the
-<emphasis>XkbSA_LockNoUnlock</emphasis>
+<symbol>XkbSA_LockNoUnlock</symbol>
  bit is not set in the
 <emphasis>flags</emphasis>
  field, a key release disables any controls specified in the
@@ -2706,7 +2706,7 @@ If the
   <listitem>
     <para>
 This action can cause
-<emphasis>XkbControlsNotify</emphasis>
+<symbol>XkbControlsNotify</symbol>
  events (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>).
     </para>
   </listitem>
@@ -2738,18 +2738,18 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_LockNoLock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockControls</emphasis>,
+<symbol>XkbSA_LockControls</symbol>,
 the server only disables controls.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoUnlock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoUnlock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockControls</emphasis>,
+<symbol>XkbSA_LockControls</symbol>,
 the server only enables controls.
     </entry>
   </row>
@@ -2759,15 +2759,15 @@ the server only enables controls.
 
 <para>
 The
-<emphasis>XkbSA_SetControls</emphasis>
+<symbol>XkbSA_SetControls</symbol>
  action implements a key that enables a boolean control when pressed and
 disables it when released. The
-<emphasis>XkbSA_LockControls</emphasis>
+<symbol>XkbSA_LockControls</symbol>
  action is used to implement a key that toggles the state of a boolean control
 each time it is pressed and released. The
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  and
-<emphasis>XkbSA_LockNoUnlock</emphasis>
+<symbol>XkbSA_LockNoUnlock</symbol>
  flags allow modifying the toggling behavior to only unlock or only lock the
 boolean control.
 </para>
@@ -2876,7 +2876,7 @@ macros, to convert between the two formats:
 Actions associated with the
 <emphasis>XkbMessageAction</emphasis>
  structure generate
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  events:
 </para>
 
@@ -2885,7 +2885,7 @@ Actions associated with the
 </programlisting></para>
 <para><programlisting>
 typedef struct _XkbMessageAction {
-      unsigned char   type;             /* <emphasis>XkbSA_ActionMessage</emphasis> */
+      unsigned char   type;             /* <symbol>XkbSA_ActionMessage</symbol> */
       unsigned char   flags;            /* controls event generation via key presses and releases */
       unsigned char   message[XkbActionMessageLength];    /* message */
 } <emphasis>XkbMessageAction</emphasis>;
@@ -2897,7 +2897,7 @@ The
  field of the
 <emphasis>XkbMessageAction</emphasis>
  structure should always be
-<emphasis>XkbSA_ActionMessage</emphasis>.
+<symbol>XkbSA_ActionMessage</symbol>.
 </para>
 
 
@@ -2922,34 +2922,34 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_MessageOnPress</emphasis></entry>
+    <entry><symbol>XkbSA_MessageOnPress</symbol></entry>
     <entry>
 If set, key press events generate an
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  event that reports the keycode, event type, and contents of the
 <emphasis>message</emphasis>
  field.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_MessageOnRelease</emphasis></entry>
+    <entry><symbol>XkbSA_MessageOnRelease</symbol></entry>
     <entry>
 If set, key release events generate an
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  event that reports the keycode, event type, and contents of the
 <emphasis>message</emphasis>
  field.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_MessageGenKeyEvent</emphasis></entry>
+    <entry><symbol>XkbSA_MessageGenKeyEvent</symbol></entry>
     <entry>
 If set, key press and key release events generate
 <symbol>KeyPress</symbol>
  and
 <symbol>KeyRelease</symbol>
  events, regardless of whether they generate
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  events.
     </entry>
   </row>
@@ -2961,7 +2961,7 @@ If set, key press and key release events generate
 The
 <emphasis>message</emphasis>
  field is an array of
-<emphasis>XkbActionMessageLength</emphasis>
+<symbol>XkbActionMessageLength</symbol>
  unsigned characters and may be set to anything the keymap designer wishes.
 </para>
 
@@ -2970,7 +2970,7 @@ The
 
 <para>
 To receive
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  events by calling either
 <function>XkbSelectEvents</function>
  or
@@ -2981,11 +2981,11 @@ To receive
 
 <para>
 To receive
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  and pass
-<emphasis>XkbActionMessageMask</emphasis>
+<symbol>XkbActionMessageMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -2995,11 +2995,11 @@ To receive
 
 <para>
 The
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  event has no event details. However, you can call
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying
@@ -3015,7 +3015,7 @@ The
 
 <para>
 The structure for the
-<emphasis>XkbActionMessage</emphasis>
+<symbol>XkbActionMessage</symbol>
  event is defined as follows:
 </para>
 
@@ -3026,8 +3026,8 @@ typedef struct _XkbActionMessage {
       Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <emphasis>XkbActionMessage</emphasis> */
-      int            device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int            xkb_type;        /* <symbol>XkbActionMessage</symbol> */
+      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       KeyCode        keycode;         /* keycode of key triggering event */
       Bool           press;           /* <symbol>True</symbol> =&gt; key press,
                                          <symbol>False</symbol> =&gt; release */
@@ -3092,7 +3092,7 @@ The
  into
 <emphasis>message</emphasis>
 [
-<emphasis>XkbActionMessageLength</emphasis>
+<symbol>XkbActionMessageLength</symbol>
 ].
 </para>
 
@@ -3115,7 +3115,7 @@ released:
 
 <para><programlisting>
 typedef struct      _XkbRedirectKeyAction {
-      unsigned char      type;          /* <emphasis>XkbSA_RedirectKey</emphasis> */
+      unsigned char      type;          /* <symbol>XkbSA_RedirectKey</symbol> */
       unsigned char      new_key;       /* keycode to be put in event */
       unsigned char      mods_mask;     /* mask of real mods to be reset */
       unsigned char      mods;          /* mask of real mods to take values from */
@@ -3132,7 +3132,7 @@ The
  field for the
 <emphasis>XkbRedirectKeyAction</emphasis>
  structure should always be
-<emphasis>XkbSA_RedirectKey</emphasis>.
+<symbol>XkbSA_RedirectKey</symbol>.
 </para>
 
 
@@ -3173,7 +3173,7 @@ previously.
 
 <para>
 The
-<emphasis>XkbSA_RedirectKey</emphasis>
+<symbol>XkbSA_RedirectKey</symbol>
  action normally redirects to another key on the same device as the key that
 caused the event, unless that device does not belong to the input extension
 <emphasis>KeyClass</emphasis>,
@@ -3409,7 +3409,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_DeviceBtn</emphasis></entry>
+    <entry><symbol>XkbSA_DeviceBtn</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
@@ -3417,7 +3417,7 @@ The
 If the button specified by this action is logically down, the key press and
 corresponding release are ignored and have no effect. If the device or button
 specified by this action are illegal, this action behaves like
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
     </para>
   </listitem>
   <listitem>
@@ -3455,19 +3455,19 @@ If
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockDeviceBtn</emphasis></entry>
+    <entry><symbol>XkbSA_LockDeviceBtn</symbol></entry>
     <entry>
 <itemizedlist>
   <listitem>
     <para>
 If the device or button specified by this action are illegal, this action
-behaves like <emphasis>XkbSA_NoAction</emphasis>.
+behaves like <symbol>XkbSA_NoAction</symbol>.
     </para>
   </listitem>
   <listitem>
     <para>
 Otherwise, if the specified button is not locked and the
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  bit is not set in the
 <emphasis>flags</emphasis>
  field, a key press generates an input extension
@@ -3475,7 +3475,7 @@ Otherwise, if the specified button is not locked and the
  event instead of a
 <symbol>KeyPress</symbol>
  event and locks the button. If the button is already locked or if
-<emphasis>XkbSA_LockNoLock</emphasis>
+<symbol>XkbSA_LockNoLock</symbol>
  bit is set in the
 <emphasis>flags</emphasis>
  field, the key press is ignored and has no effect.
@@ -3484,7 +3484,7 @@ Otherwise, if the specified button is not locked and the
   <listitem>
     <para>
 If the corresponding key press was ignored, and if the
-<emphasis>XkbSA_LockNoUnlock</emphasis>
+<symbol>XkbSA_LockNoUnlock</symbol>
  bit is not set in the
 <emphasis>flags</emphasis>
  field, a key release generates an input extension
@@ -3523,18 +3523,18 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_LockNoLock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockDeviceBtn</emphasis>,
+<symbol>XkbSA_LockDeviceBtn</symbol>,
 the server only unlocks the button.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_LockNoUnlock</emphasis></entry>
+    <entry><symbol>XkbSA_LockNoUnlock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>XkbSA_LockDeviceBtn</emphasis>,
+<symbol>XkbSA_LockDeviceBtn</symbol>,
 the server only locks the button.
     </entry>
   </row>
@@ -3558,7 +3558,7 @@ valuators.
 
 <para><programlisting>
 typedef struct _XkbDeviceValuatorAction {
-      unsigned char    type;        /*<emphasis>XkbSA_DeviceValuator</emphasis> */
+      unsigned char    type;        /*<symbol>XkbSA_DeviceValuator</symbol> */
       unsigned char    device;      /* device ID */
       unsigned char    v1_what;     /* determines how valuator is to behave for valuator 1 */
       unsigned char    v1_ndx;      /* specifies a real valuator */
@@ -3577,7 +3577,7 @@ If
  nor
 <emphasis>v2_ndx</emphasis>
  specifies a legal valuator, this action behaves like
-<emphasis>XkbSA_NoAction</emphasis>.
+<symbol>XkbSA_NoAction</symbol>.
 </para>
 
 
@@ -3617,29 +3617,29 @@ The low four bits of
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_IgnoreVal</emphasis></entry>
+    <entry><symbol>XkbSA_IgnoreVal</symbol></entry>
     <entry>No action</entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetValMin</emphasis></entry>
+    <entry><symbol>XkbSA_SetValMin</symbol></entry>
     <entry>
 <emphasis>v&lt;n&gt;_value</emphasis> is set to its minimum legal value.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetValCenter</emphasis></entry>
+    <entry><symbol>XkbSA_SetValCenter</symbol></entry>
     <entry>
 <emphasis>v&lt;n&gt;_value</emphasis>is centered (to (max-min)/2).
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetValMax</emphasis></entry>
+    <entry><symbol>XkbSA_SetValMax</symbol></entry>
     <entry>
 <emphasis>v&lt;n&gt;_value</emphasis> is set to its maximum legal value.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetValRelative</emphasis></entry>
+    <entry><symbol>XkbSA_SetValRelative</symbol></entry>
     <entry>
 <emphasis>v&lt;n&gt;_value</emphasis> * (2
 <emphasis>val&lt;n&gt;Scale</emphasis>) is added to
@@ -3647,7 +3647,7 @@ The low four bits of
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSA_SetValAbsolute</emphasis></entry>
+    <entry><symbol>XkbSA_SetValAbsolute</symbol></entry>
     <entry>
 <emphasis>v&lt;n&gt;_value</emphasis>
  is set to (2 <emphasis>val&lt;n&gt;Scale</emphasis>).
@@ -3659,12 +3659,12 @@ The low four bits of
 
 <para>
 Illegal values for
-<emphasis>XkbSA_SetValRelative</emphasis>
+<symbol>XkbSA_SetValRelative</symbol>
  or
-<emphasis>XkbSA_SetValAbsolute</emphasis>
+<symbol>XkbSA_SetValAbsolute</symbol>
  are clamped into range. Note that all of these possibilities are legal for
 absolute valuators. For relative valuators, only
-<emphasis>XkbSA_SetValRelative</emphasis>
+<symbol>XkbSA_SetValRelative</symbol>
  is permitted. Part of the input extension description of a device is the range
 of legal values for all absolute valuators, whence the maximum and minimum
 legal values shown in <link linkend="table16.17">Table 16.17</link>.
@@ -3808,7 +3808,7 @@ has not been properly initialized,
 If
 <parameter>num</parameter>
  is less than 1 or greater than
-<emphasis>XkbMaxKeyCount</emphasis>,
+<symbol>XkbMaxKeyCount</symbol>,
 <function>XkbGetKeyActions</function>
  returns
 <errorname>BadValue</errorname>.
@@ -3968,7 +3968,7 @@ pressed again.
 
 <para>
 Keys that belong to the same radio group have the
-<emphasis>XkbKB_RadioGroup</emphasis>
+<symbol>XkbKB_RadioGroup</symbol>
  type in the
 <emphasis>type</emphasis>
  field and the radio group index specified in the
@@ -3984,11 +3984,11 @@ Keys that belong to the same radio group have the
  structure. A radio group key when pressed stays logically down until another
 key in the radio group is pressed, when the first key becomes logically up and
 the new key becomes logically down. Setting the
-<emphasis>XkbKB_RGAllowNone</emphasis>
+<symbol>XkbKB_RGAllowNone</symbol>
  bit in the behavior for all of the keys of the radio group means that pressing
 the logically down member of the radio group causes it to logically release, in
 which case none of the keys of the radio group would be logically down. If
-<emphasis>XkbKB_RGAllowNone</emphasis>
+<symbol>XkbKB_RGAllowNone</symbol>
  is not set, there is no way to release the logically down member of the group.
 </para>
 
@@ -4023,7 +4023,7 @@ The
 <para><programlisting>
 typedef struct _XkbBehavior {
       unsigned char  type;                  /* behavior type + optional
-                                               <emphasis>XkbKB_Permanent</emphasis> bit */
+                                               <symbol>XkbKB_Permanent</symbol> bit */
       unsigned char  data;
 } <emphasis>XkbBehavior</emphasis>;
 </programlisting></para>
@@ -4053,7 +4053,7 @@ Xkb supports the key behaviors shown in
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbKB_Default</emphasis></entry>
+    <entry><symbol>XkbKB_Default</symbol></entry>
     <entry>
 Press and release events are processed normally. The
 <emphasis>data</emphasis>
@@ -4061,7 +4061,7 @@ Press and release events are processed normally. The
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKB_Lock</emphasis></entry>
+    <entry><symbol>XkbKB_Lock</symbol></entry>
     <entry>
 If a key is logically up (that is, the corresponding bit of the core key map is
 cleared) when it is pressed, the key press is processed normally and the
@@ -4073,7 +4073,7 @@ The
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKB_RadioGroup</emphasis></entry>
+    <entry><symbol>XkbKB_RadioGroup</symbol></entry>
     <entry>
       <para>
 If another member of the radio group is logically down (all members of the
@@ -4098,7 +4098,7 @@ All other key release events are ignored.
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKB_Overlay1</emphasis></entry>
+    <entry><symbol>XkbKB_Overlay1</symbol></entry>
     <entry>
 If the
 <emphasis>Overlay1</emphasis>
@@ -4111,7 +4111,7 @@ came from
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKB_Overlay2</emphasis></entry>
+    <entry><symbol>XkbKB_Overlay2</symbol></entry>
     <entry>
 If the
 <emphasis>Overlay2</emphasis>
@@ -4129,11 +4129,11 @@ came from
 
 <para>
 Xkb also provides the mask,
-<emphasis>XkbKB_Permanent</emphasis>
+<symbol>XkbKB_Permanent</symbol>
  to specify whether the key behavior type should be simulated by Xkb or whether
 the key behavior describes an unalterable physical, electrical, or software
 aspect of the keyboard. If the
-<emphasis>XkbKB_Permanent</emphasis>
+<symbol>XkbKB_Permanent</symbol>
  bit is not set in the
 <emphasis>type</emphasis>
  field, Xkb simulates the behavior in software. Otherwise, Xkb relies upon the
@@ -4252,7 +4252,7 @@ has not been properly initialized,
 If
 <parameter>num</parameter>
  is less than 1 or greater than
-<emphasis>XkbMaxKeyCount</emphasis>,
+<symbol>XkbMaxKeyCount</symbol>,
 <function>XkbGetKeyBehaviors</function>
  returns
 <errorname>BadValue</errorname>.
@@ -4359,9 +4359,9 @@ specified in a symbol interpretation.</entry>
     <entry>(1&lt;&lt;6)</entry>
     <entry>
 Automatic assignment of the
-<emphasis>XkbKB_Lock</emphasis>
+<symbol>XkbKB_Lock</symbol>
  behavior to the key, if the
-<emphasis>XkbSI_LockingKey</emphasis>
+<symbol>XkbSI_LockingKey</symbol>
  flag is set in a symbol interpretation.
     </entry>
   </row>
@@ -4490,7 +4490,7 @@ has not been properly initialized,
 If
 <parameter>num</parameter>
  is less than 1 or greater than
-<emphasis>XkbMaxKeyCount</emphasis>,
+<symbol>XkbMaxKeyCount</symbol>,
 <function>XkbGetKeyExplicitComponents</function>
  returns
 <errorname>BadValue</errorname>.
@@ -4510,7 +4510,7 @@ If any allocation errors occur,
 The
 <emphasis>vmods</emphasis>
  member of the server map is a fixed-length array containing
-<emphasis>XkbNumVirtualMods</emphasis>
+<symbol>XkbNumVirtualMods</symbol>
  entries. Each entry corresponds to a virtual modifier and provides the binding
 of the virtual modifier to the real modifier bits. Each entry in the
 <emphasis>vmods</emphasis>
@@ -4818,7 +4818,7 @@ has not been properly initialized,
 If
 <parameter>num</parameter>
  is less than 1 or greater than
-<emphasis>XkbMaxKeyCount</emphasis>,
+<symbol>XkbMaxKeyCount</symbol>,
 <function>XkbGetKeyVirtualModMap</function>
  returns
 <errorname>BadValue</errorname>.

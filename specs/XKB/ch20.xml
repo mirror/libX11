@@ -198,7 +198,7 @@ To obtain this list, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -406,7 +406,7 @@ is dependent on the type of component. The flags bits are defined in
 The symbols hints in <link linkend="table20.2">Table 20.2</link>
 apply only to partial symbols components
 (those with
-<emphasis>XkbLC_Partial</emphasis>
+<symbol>XkbLC_Partial</symbol>
  also set); full symbols components are assumed to specify all of the pieces.
 </para>
 
@@ -417,10 +417,10 @@ describe the primary intent of the component designer and should not be simply
 an exhaustive list of the kinds of keys that are affected. For example,
 national keyboard layouts affect primarily alphanumeric keys, but many affect a
 few modifier keys as well; such mappings should set only the
-<emphasis>XkbLC_AlphanumericKeys</emphasis>
+<symbol>XkbLC_AlphanumericKeys</symbol>
  hint. In general, symbols components should set only one of the four flags
 (
-<emphasis>XkbLC_AlternateGroup</emphasis>
+<symbol>XkbLC_AlternateGroup</symbol>
  may be combined with any of the other flags).
 </para>
 
@@ -443,19 +443,19 @@ few modifier keys as well; such mappings should set only the
 <tbody>
 <row>
     <entry>All Components</entry>
-    <entry><para><emphasis>XkbLC_Hidden</emphasis></para></entry>
+    <entry><para><symbol>XkbLC_Hidden</symbol></para></entry>
     <entry>Do not present to user</entry>
     <entry>(1L&lt;&lt;0)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_Default</emphasis></entry>
+    <entry><symbol>XkbLC_Default</symbol></entry>
     <entry>Default member of class</entry>
     <entry>(1L&lt;&lt;1)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_Partial</emphasis></entry>
+    <entry><symbol>XkbLC_Partial</symbol></entry>
     <entry>Partial component</entry>
     <entry>(1L&lt;&lt;2)</entry>
 </row>
@@ -485,31 +485,31 @@ few modifier keys as well; such mappings should set only the
 </row>
 <row>
     <entry>Symbols</entry>
-    <entry><emphasis>XkbLC_AlphanumericKeys</emphasis></entry>
+    <entry><symbol>XkbLC_AlphanumericKeys</symbol></entry>
     <entry>Bindings primarily for alphanumeric keyboard section</entry>
     <entry>(1L&lt;&lt;8)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_ModifierKeys</emphasis></entry>
+    <entry><symbol>XkbLC_ModifierKeys</symbol></entry>
     <entry>Bindings primarily for modifier keys</entry>
     <entry>(1L&lt;&lt;9)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_KeypadKeys</emphasis></entry>
+    <entry><symbol>XkbLC_KeypadKeys</symbol></entry>
     <entry>Bindings primarily for numeric keypad keys</entry>
     <entry>(1L&lt;&lt;10)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_FunctionKeys</emphasis></entry>
+    <entry><symbol>XkbLC_FunctionKeys</symbol></entry>
     <entry>Bindings primarily for function keys</entry>
     <entry>(1L&lt;&lt;11)</entry>
 </row>
 <row>
     <entry></entry>
-    <entry><emphasis>XkbLC_AlternateGroup</emphasis></entry>
+    <entry><symbol>XkbLC_AlternateGroup</symbol></entry>
     <entry>Bindings for an alternate group</entry>
     <entry>(1L&lt;&lt;12)</entry>
 </row>
@@ -586,7 +586,7 @@ one, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>

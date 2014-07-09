@@ -460,9 +460,9 @@ If the
 <symbol>NULL</symbol>,
 <function>XkbGetNames</function>
  does not retrieve type or shift level names, even if
-<emphasis>XkbKeyTypeNamesMask</emphasis>
+<symbol>XkbKeyTypeNamesMask</symbol>
  or
-<emphasis>XkbKTLevelNamesMask</emphasis>
+<symbol>XkbKTLevelNamesMask</symbol>
  are set in
 <parameter>which</parameter>.
 </para>
@@ -602,9 +602,9 @@ The
  and
 <parameter>num_types</parameter>
  arguments are used only if
-<emphasis>XkbKeyTypeNamesMask</emphasis>
+<symbol>XkbKeyTypeNamesMask</symbol>
  or
-<emphasis>XkbKTLevelNamesMask</emphasis>
+<symbol>XkbKTLevelNamesMask</symbol>
  is set in
 <parameter>which</parameter>
  and specify a subset of the types for which the corresponding names are to be
@@ -834,11 +834,11 @@ to the X server specified by
 <para>
 Whenever a symbolic name changes in the server’s keyboard description, the
 server sends a
-<emphasis>XkbNamesNotify</emphasis>
+<symbol>XkbNamesNotify</symbol>
  event to all interested clients. To receive name notify events, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
-<emphasis>XkbNamesNotifyMask</emphasis>
+<symbol>XkbNamesNotifyMask</symbol>
  in both the
 <emphasis>bits_to_change</emphasis>
  and
@@ -853,7 +853,7 @@ To receive events for only specific names, use
 Set the
 <emphasis>event_type</emphasis>
  parameter to
-<emphasis>XkbNamesNotify</emphasis>,
+<symbol>XkbNamesNotify</symbol>,
 and set both the
 <emphasis>bits_to_change</emphasis>
 and
@@ -865,7 +865,7 @@ and
 
 <para>
 The structure for the
-<emphasis>XkbNamesNotify</emphasis>
+<symbol>XkbNamesNotify</symbol>
  event is defined as follows:
 </para>
 
@@ -879,9 +879,9 @@ typedef struct {
       Display *      display;         /* server connection where event
                                          generated */
       Time      time;                 /* server time when event generated */
-      int      xkb_type;              /* <emphasis>XkbNamesNotify</emphasis> */
+      int      xkb_type;              /* <symbol>XkbNamesNotify</symbol> */
       int      device;                /* Xkb device ID, will not be
-                                         <emphasis>XkbUseCoreKbd</emphasis> */
+                                         <symbol>XkbUseCoreKbd</symbol> */
       unsigned int      changed;      /* mask of name components
 that have changed */
       int      first_type;            /* first key type with a new name */

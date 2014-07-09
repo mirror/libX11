@@ -130,7 +130,7 @@ core indicator feedback. The particular device ID corresponding to the core
 keyboard feedback and the core indicator feedback may be obtained by calling
 <function>XkbGetDeviceInfo</function>
  and specifying
-<emphasis>XkbUseCoreKbd</emphasis>
+<symbol>XkbUseCoreKbd</symbol>
  as the
 <parameter>device_spec</parameter>
 ; the values will be returned in
@@ -413,7 +413,7 @@ which, device_spec, ind_class, ind_id) -->
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -521,7 +521,7 @@ XListInputDevices request.
 
 <para>
 If any of the
-<emphasis>XkbXI_IndicatorsMask</emphasis>
+<symbol>XkbXI_IndicatorsMask</symbol>
  bits are set in
 <parameter>which</parameter>,
 the
@@ -554,7 +554,7 @@ The
  are always filled in. If
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>,
+<symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
 <emphasis>names_present</emphasis>
  and
@@ -569,13 +569,13 @@ the
 If
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorStateMask</emphasis>,
+<symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
 <emphasis>state</emphasis>
  field is updated. If
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorMapsMask</emphasis>,
+<symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
 <emphasis>maps_present</emphasis>
  and
@@ -846,10 +846,10 @@ by
 Valid values for
 <parameter>which</parameter>
  are the inclusive OR of any of
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>,
-<emphasis>XkbXI_IndicatorMapsMask</emphasis>,
+<symbol>XkbXI_IndicatorNamesMask</symbol>,
+<symbol>XkbXI_IndicatorMapsMask</symbol>,
 and
-<emphasis>XkbXI_IndicatorStateMask</emphasis>.
+<symbol>XkbXI_IndicatorStateMask</symbol>.
 </para>
 
 
@@ -895,7 +895,7 @@ The
 If
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>,
+<symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
 <emphasis>names_present</emphasis>
  and
@@ -911,13 +911,13 @@ the
  are updated, if
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorStateMask</emphasis>,
+<symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
 <emphasis>state</emphasis>
  field is updated, and if
 <parameter>which</parameter>
  contains
-<emphasis>XkbXI_IndicatorMapsMask</emphasis>,
+<symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
 <emphasis>maps_present</emphasis>
  and
@@ -1389,7 +1389,7 @@ Xkb implementations are required to support key actions for the buttons of the
 core pointer device, but support for actions on extension devices is optional.
 Implementations that do not support button actions for extension devices must
 not set the
-<emphasis>XkbXI_ButtonActionsMask</emphasis>
+<symbol>XkbXI_ButtonActionsMask</symbol>
  bit in the
 <emphasis>supported</emphasis>
  field of an
@@ -1403,7 +1403,7 @@ If a client attempts to modify valid characteristics of a device using an
 implementation that does not support modification of those characteristics, no
 protocol error is generated. Instead, the server reports a failure for the
 request; it also sends an
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  event to the client that issued the request if the client has selected to
 receive these events.
 </para>
@@ -1498,9 +1498,9 @@ The
 <parameter>which</parameter>
  parameter specifies which aspects of the device should be changed and is a
 bitmask composed of an inclusive OR or one or more of the following bits:
-<emphasis>XkbXI_ButtonActionsMask</emphasis>,
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>,
-<emphasis>XkbXI_IndicatorMapsMask</emphasis>.
+<symbol>XkbXI_ButtonActionsMask</symbol>,
+<symbol>XkbXI_IndicatorNamesMask</symbol>,
+<symbol>XkbXI_IndicatorMapsMask</symbol>.
 If the features requested to be manipulated in
 <parameter>which</parameter>
  are valid for the device, but the server does not support assignment of one or
@@ -1523,11 +1523,11 @@ a
 
 <para>
 If the
-<emphasis>XkbXI_ButtonActionsMask</emphasis>
+<symbol>XkbXI_ButtonActionsMask</symbol>
  bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
 extension allows applications to assign key actions to buttons on input
 extension devices other than the core keyboard device. If the
-<emphasis>XkbXI_ButtonActionsMask</emphasis>
+<symbol>XkbXI_ButtonActionsMask</symbol>
  is set in
 <parameter>which</parameter>,
 the actions for all buttons specified in device_info are set to the
@@ -1550,7 +1550,7 @@ If the number of buttons requested to be updated is not valid for the device,
 If the
 <emphasis>XkbXI_IndicatorMaps</emphasis>
  and / or
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>
+<symbol>XkbXI_IndicatorNamesMask</symbol>
  bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
 extension allows applications to assign maps and / or names to the indicators
 of nonkeyboard extension devices. If supported, maps and / or names can be
@@ -1561,9 +1561,9 @@ keyboard feedback or part of an indicator feedback.
 
 <para>
 If the
-<emphasis>XkbXI_IndicatorMapsMask</emphasis>
+<symbol>XkbXI_IndicatorMapsMask</symbol>
  and / or
-<emphasis>XkbXI_IndicatorNamesMask</emphasis>
+<symbol>XkbXI_IndicatorNamesMask</symbol>
  flag is set in
 <parameter>which</parameter>,
 the indicator maps and / or names for all
@@ -1744,7 +1744,7 @@ a <errorname>BadKeyboard</errorname>
 
 <para>
 The Xkb extension generates
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  events when the status of an input extension device changes or when an attempt
 is made to use an Xkb feature that is not supported by a particular device.
 </para>
@@ -1755,7 +1755,7 @@ delivered only to the client requesting the event.</para></note>
 <para>
 To track changes to the status of input extension devices or attempts to use
 unsupported features of a device, select to receive
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  events by calling either
 <function>XkbSelectEvents</function>
  or
@@ -1766,11 +1766,11 @@ unsupported features of a device, select to receive
 
 <para>
 To receive
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  events under all possible conditions, call
 <function>XkbSelectEvents</function>
  and pass
-<emphasis>XkbExtensionDeviceNotifyMask</emphasis>
+<symbol>XkbExtensionDeviceNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -1780,11 +1780,11 @@ To receive
 
 <para>
 The
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  event has no event details. However, you can call
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying
@@ -1800,7 +1800,7 @@ The
 
 <para>
 The structure for
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  events is:
 </para>
 
@@ -1814,7 +1814,7 @@ typedef struct {
       Time     time;           /* server time when event generated */
       int      xkb_type;  /* <emphasis>XkbExtensionDeviceNotifyEvent</emphasis> */
       int      device;         /* Xkb device ID, will not be
-                                  <emphasis>XkbUseCoreKbd</emphasis> */
+                                  <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   reason;   /* reason for the event */
       unsigned int   supported;  /* mask of supported features */
       unsigned int   unsupported;  /* unsupported features this client
@@ -1830,7 +1830,7 @@ typedef struct {
 
 <para>
 The
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  event has fields enabling it to report changes in the state (on/off) of all of
 the buttons for a device, but only for one LED feedback associated with a
 device. You will get multiple events when more than one LED feedback changes
@@ -1894,7 +1894,7 @@ server.
 
 <para>
 To note device changes reported in an
-<emphasis>XkbExtensionDeviceNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  event, use XkbNoteDeviceChanges.
 </para>
 

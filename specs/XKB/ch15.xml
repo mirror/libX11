@@ -398,24 +398,24 @@ level-one symbols.
 
 <para>
 Xkb allows up to
-<emphasis>XkbMaxKeyTypes</emphasis>
+<symbol>XkbMaxKeyTypes</symbol>
  (255) key types to be defined, but requires at least
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  (4) predefined types to be in a key map. These predefined key types are
 referred to as the canonical key types and describe the types of keys available
 on most keyboards. The definitions for the canonical key types are held in the
 first
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  entries of the
 <emphasis>types</emphasis>
  field of the client map and are indexed using the following constants:
 </para>
 
 <para><programlisting>
-     <emphasis>XkbOneLevelIndex</emphasis>
-     <emphasis>XkbTwoLevelIndex</emphasis>
-     <emphasis>XkbAlphabeticIndex</emphasis>
-     <emphasis>XkbKeypadIndex</emphasis>
+     <symbol>XkbOneLevelIndex</symbol>
+     <symbol>XkbTwoLevelIndex</symbol>
+     <symbol>XkbAlphabeticIndex</symbol>
+     <symbol>XkbKeypadIndex</symbol>
 </programlisting></para>
 
 <sect3 id='ONE_LEVEL'>
@@ -440,7 +440,7 @@ type "ONE_LEVEL" {
 The description of the ONE_LEVEL key type is stored in the
 <emphasis>types</emphasis>
 [
-<emphasis>XkbOneLevelIndex</emphasis>
+<symbol>XkbOneLevelIndex</symbol>
 ] entry of the client key map.
 </para>
 
@@ -473,7 +473,7 @@ type "TWO_LEVEL" {
 The description of the TWO_LEVEL key type is stored in the
 <emphasis>types</emphasis>
 [
-<emphasis>XkbTwoLevelIndex</emphasis>
+<symbol>XkbTwoLevelIndex</symbol>
 ] entry of the client key map.
 </para>
 
@@ -550,7 +550,7 @@ type "ALPHABETIC" {
 The description of the ALPHABETIC key type is stored in the
 <emphasis>types</emphasis>
 [
-<emphasis>XkbAlphabeticIndex</emphasis>
+<symbol>XkbAlphabeticIndex</symbol>
 ] entry of the client key map.
 </para>
 
@@ -624,7 +624,7 @@ type "KEYPAD" {
 The description of the KEYPAD key type is stored in the
 <emphasis>types</emphasis>
 [
-<emphasis>XkbKeypadIndex</emphasis>
+<symbol>XkbKeypadIndex</symbol>
 ] entry of the client key map.
 </para>
 
@@ -688,18 +688,18 @@ default values, use
 <para>
 <function>XkbInitCanonicalKeyTypes</function>
  initializes the first
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  key types of the keyboard specified by the
 <parameter>xkb</parameter>
  parameter to their default values. The
 <parameter>which</parameter>
  parameter specifies what canonical key types to initialize and is a bitwise
 inclusive OR of the following masks:
-<emphasis>XkbOneLevelMask</emphasis>,
-<emphasis>XkbTwoLevelMask</emphasis>,
-<emphasis>XkbAlphabeticMask</emphasis>,
+<symbol>XkbOneLevelMask</symbol>,
+<symbol>XkbTwoLevelMask</symbol>,
+<symbol>XkbAlphabeticMask</symbol>,
 and
-<emphasis>XkbKeypadMask</emphasis>.
+<symbol>XkbKeypadMask</symbol>.
 Only those canonical types specified by the
 <parameter>which</parameter>
  mask are initialized.
@@ -708,7 +708,7 @@ Only those canonical types specified by the
 
 <para>
 If
-<emphasis>XkbKeypadMask</emphasis>
+<symbol>XkbKeypadMask</symbol>
  is set in the
 <parameter>which</parameter>
  parameter,
@@ -1289,9 +1289,9 @@ the key types:
 
 <note><para>The array of key types is of fixed width and is large enough to
 hold key types for the maximum legal number of groups (
-<emphasis>XkbNumKbdGroups</emphasis>,
+<symbol>XkbNumKbdGroups</symbol>,
 currently four); if a key has fewer than
-<emphasis>XkbNumKbdGroups</emphasis>
+<symbol>XkbNumKbdGroups</symbol>
  groups, the extra key types are reported but ignored.</para></note>
 
 <indexterm significance="preferred" zone="XkbKeyTypeIndex"><primary><function>XkbKeyTypeIndex</function></primary></indexterm>
@@ -2127,7 +2127,7 @@ extension has not been properly initialized,
 If
 <parameter>num</parameter>
  is less than 1 or greater than
-<emphasis>XkbMaxKeyCount</emphasis>,
+<symbol>XkbMaxKeyCount</symbol>,
 <function>XkbGetKeySyms</function>
  returns
 <errorname>BadValue</errorname>.
@@ -2245,7 +2245,7 @@ as appropriate. If the
 <symbol>NULL</symbol>,
 <function>XkbChangeTypesOfKey</function>
  adds the
-<emphasis>XkbKeySymsMask</emphasis>
+<symbol>XkbKeySymsMask</symbol>
  to the
 <emphasis>changes</emphasis>
  field of
@@ -2274,11 +2274,11 @@ The
 <parameter>groups</parameter>
  parameter is a mask specifying the groups for which new types are supplied and
 is a bitwise inclusive OR of the following masks:
-<emphasis>XkbGroup1Mask</emphasis>,
-<emphasis>XkbGroup2Mask</emphasis>,
-<emphasis>XkbGroup3Mask</emphasis>,
+<symbol>XkbGroup1Mask</symbol>,
+<symbol>XkbGroup2Mask</symbol>,
+<symbol>XkbGroup3Mask</symbol>,
 and
-<emphasis>XkbGroup4Mask</emphasis>.
+<symbol>XkbGroup4Mask</symbol>.
 </para>
 
 
@@ -2370,7 +2370,7 @@ If the
  is not a valid keycode,
 <parameter>n_groups</parameter>
  is greater than
-<emphasis>XkbNumKbdGroups</emphasis>,
+<symbol>XkbNumKbdGroups</symbol>,
 or the
 <parameter>groups</parameter>
  mask does not contain any of the valid group mask bits,

@@ -87,7 +87,7 @@ represents the i-th virtual modifier.
 To set the name of a virtual modifier, use
 <function>XkbSetNames</function>,
 using
-<emphasis>XkbVirtualModNamesMask</emphasis>
+<symbol>XkbVirtualModNamesMask</symbol>
  in
 <parameter>which</parameter>
  and the name in the

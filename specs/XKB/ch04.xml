@@ -92,7 +92,7 @@ event.
 <tbody>
 <row>
   <entry>
-    <para><emphasis>XkbNewKeyboardNotify</emphasis></para>
+    <para><symbol>XkbNewKeyboardNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard geometry; keycode range change</para>
@@ -107,7 +107,7 @@ event.
 <row>
   <entry>
     <para>
-    <emphasis>XkbMapNotify</emphasis>
+    <symbol>XkbMapNotify</symbol>
     </para>
   </entry>
   <entry>
@@ -122,7 +122,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbStateNotify</emphasis></para>
+    <para><symbol>XkbStateNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard state change</para>
@@ -136,7 +136,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbControlsNotify</emphasis></para>
+    <para><symbol>XkbControlsNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard controls state change</para>
@@ -150,7 +150,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbIndicatorStateNotify</emphasis></para>
+    <para><symbol>XkbIndicatorStateNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard indicators state change</para>
@@ -164,7 +164,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbIndicatorMapNotify</emphasis></para>
+    <para><symbol>XkbIndicatorMapNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard indicators map change</para>
@@ -178,7 +178,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbNamesNotify</emphasis></para>
+    <para><symbol>XkbNamesNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard name change</para>
@@ -192,7 +192,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbCompatMapNotify</emphasis></para>
+    <para><symbol>XkbCompatMapNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard compatibility map change</para>
@@ -206,7 +206,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbBellNotify</emphasis></para>
+    <para><symbol>XkbBellNotify</symbol></para>
   </entry>
   <entry>
     <para>Keyboard bell generated</para>
@@ -220,7 +220,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbActionMessage</emphasis></para>
+    <para><symbol>XkbActionMessage</symbol></para>
   </entry>
   <entry>
     <para>Keyboard action message</para>
@@ -234,7 +234,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbAccessXNotify</emphasis></para>
+    <para><symbol>XkbAccessXNotify</symbol></para>
   </entry>
   <entry>
     <para>AccessX state change</para>
@@ -248,7 +248,7 @@ event.
 </row>
 <row>
   <entry>
-    <para><emphasis>XkbExtensionDeviceNotify</emphasis></para>
+    <para><symbol>XkbExtensionDeviceNotify</symbol></para>
   </entry>
   <entry>
     <para>Extension device change</para>
@@ -288,7 +288,7 @@ generated */
       Time               time;        /* server time when event generated */
       int                xkb_type;    /* Xkb minor event code */
       unsigned int       device;      /* Xkb device ID, will not be
-                                         <emphasis>XkbUseCoreKbd</emphasis> */
+                                         <symbol>XkbUseCoreKbd</symbol> */
 } <emphasis>XkbAnyEvent</emphasis>
 ;
 </programlisting></para>
@@ -313,11 +313,11 @@ type, and is one of the values listed in
 <emphasis>device</emphasis>
  field contains the keyboard device identifier associated with the event. This
 is never
-<emphasis>XkbUseCoreKbd</emphasis>,
+<symbol>XkbUseCoreKbd</symbol>,
 even if the request that generated the event specified a device of
-<emphasis>XkbUseCoreKbd</emphasis>.
+<symbol>XkbUseCoreKbd</symbol>.
 If the request that generated the event specified
-<emphasis>XkbUseCoreKbd</emphasis>,
+<symbol>XkbUseCoreKbd</symbol>,
 <emphasis>device</emphasis>
  contains a value assigned by the server to specify the core keyboard. If the
 request that generated the event specified an X input extension device,
@@ -413,7 +413,7 @@ them delivered under all conditions, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -548,7 +548,7 @@ Xkb events with
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -682,91 +682,91 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 <tbody>
   <row>
     <entry>
-<emphasis>XkbNewKeyboardNotifyMask</emphasis>
+<symbol>XkbNewKeyboardNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;0)</entry>
     <entry>Keyboard geometry change</entry>
   </row>
   <row>
     <entry>
-      <emphasis>XkbMapNotifyMask</emphasis>
+      <symbol>XkbMapNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;1)</entry>
     <entry>Keyboard mapping change</entry>
   </row>
   <row>
     <entry>
-<para><emphasis>XkbStateNotifyMask</emphasis></para>
+<para><symbol>XkbStateNotifyMask</symbol></para>
     </entry>
     <entry>(1L&lt;&lt;2)</entry>
     <entry><para>Keyboard state change</para></entry>
   </row>
   <row>
     <entry>
-<para><emphasis>XkbControlsNotifyMask</emphasis></para>
+<para><symbol>XkbControlsNotifyMask</symbol></para>
     </entry>
     <entry>(1L&lt;&lt;3)</entry>
     <entry>Keyboard control change</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbIndicatorStateNotifyMask</emphasis>
+<symbol>XkbIndicatorStateNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;4)</entry>
     <entry>Keyboard indicator state change</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbIndicatorMapNotifyMask</emphasis>
+<symbol>XkbIndicatorMapNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;5)</entry>
     <entry>Keyboard indicator map change</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbNamesNotifyMask</emphasis>
+<symbol>XkbNamesNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;6)</entry>
     <entry>Keyboard name change</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbCompatMapNotifyMask</emphasis>
+<symbol>XkbCompatMapNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;7)</entry>
     <entry>Keyboard compat map change</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbBellNotifyMask</emphasis>
+<symbol>XkbBellNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;8)</entry>
     <entry>Bell</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbActionMessageMask</emphasis>
+<symbol>XkbActionMessageMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;9)</entry>
     <entry>Action message</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbAccessXNotifyMask</emphasis>
+<symbol>XkbAccessXNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;10)</entry>
     <entry>AccessX features</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbExtensionDeviceNotifyMask</emphasis>
+<symbol>XkbExtensionDeviceNotifyMask</symbol>
     </entry>
     <entry>(1L&lt;&lt;11)</entry>
     <entry>Extension device</entry>
   </row>
   <row>
     <entry>
-<emphasis>XkbAllEventsMask</emphasis>
+<symbol>XkbAllEventsMask</symbol>
     </entry>
     <entry>(0xFFF)</entry>
     <entry>All Xkb events</entry>

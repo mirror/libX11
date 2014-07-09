@@ -242,16 +242,16 @@ state of the keyboard to change.</entry>
 
 <para>
 Note that if
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  is not set, by default the indicator follows the keyboard state.
 </para>
 
 
 <para>
 If
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set and
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  is not, and if you call a function which updates the server’s image of the
 indicator map (such as
 <function>XkbSetIndicatorMap</function>
@@ -260,9 +260,9 @@ indicator map (such as
 ), Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map, as described in the remainder of this section. If you
 attempt to explicitly change the value of an indicator for which
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is absent or for which
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  is present, keyboard state or controls are unaffected.
 </para>
 
@@ -274,7 +274,7 @@ For example, a keyboard designer may want to make the
 <emphasis>Scroll Lock</emphasis>
  LED to be controlled by client applications. To do so, the keyboard designer
 could set the
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  flag for the
 <emphasis>CapsLock</emphasis>
 
@@ -289,16 +289,16 @@ the server to automatically change the
 modifier state whenever a client application changes the
 <emphasis>CapsLock</emphasis>
  LED. To do so, the keyboard designer would not set the
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  flag, but would instead set the
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  flag.
 </para>
 
 <para>
 The remaining fields in the indicator map specify the conditions under which
 Xkb automatically turns an indicator on or off (only if
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  is not set). If these conditions match the keyboard state, Xkb turns the
 indicator on. If the conditions do not match, Xkb turns the indicator off.
 </para>
@@ -349,7 +349,7 @@ inclusive OR of the following valid values:
 
 <para>
 If
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the effect of
 <emphasis>which_groups</emphasis>
  and
@@ -431,7 +431,7 @@ The effect of
  and
 <emphasis>groups</emphasis>
  when you change an indicator for which
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
 <link linkend="table8.3">Table 8.3</link>. The "New
 State" column refers to the new state to which you set the indicator.
@@ -561,7 +561,7 @@ modifiers are changed in the modifier definition) or you can use
  specifies what criteria Xkb uses to determine a match with the corresponding
 <emphasis>mods</emphasis>
  field by specifying one or more components of the Xkb keyboard state. If
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the indicator is lit whenever
 any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -594,7 +594,7 @@ OR of the following values to compose a value for
 
 <para>
 If
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the effect of
 <emphasis>which_mods</emphasis>
  and
@@ -703,7 +703,7 @@ The effect on the keyboard modifiers of
  and
 <emphasis>mods</emphasis>
  when you change an indicator for which
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
 <link linkend="table8.5">Table 8.5</link>. The "New
 State" column refers to the new state to which you set the indicator.
@@ -885,7 +885,7 @@ current state of the keyboard indicators, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1083,7 +1083,7 @@ Use
     </term>
     <listitem>
       <para>
-        keyboard device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        keyboard device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1244,9 +1244,9 @@ are made.
 
 <para>
 If
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set and
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  is not, and if you call a function that updates the server’s image of the
 indicator map (such as
 <function>XkbSetIndicatorMap</function>
@@ -1255,18 +1255,18 @@ indicator map (such as
 ), Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map. If you attempt to explicitly change the value of an
 indicator for which
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is absent or for which
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  is present, keyboard state or controls are unaffected.
 </para>
 
 
 <para>
 If neither
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  nor
-<emphasis>XkbIM_NoExplicit</emphasis>
+<symbol>XkbIM_NoExplicit</symbol>
  is set in an indicator map, Xkb honors any request to change the state of the
 indicator, but the new state might be immediately superseded by automatic
 changes to the indicator state if the keyboard state or controls change.
@@ -1282,9 +1282,9 @@ controls simultaneously.
 
 <para>
 If you change an indicator for which both the
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  and
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  flags are specified, Xkb applies the keyboard changes specified in the other
 indicator map fields and changes the indicator to reflect the state that was
 explicitly requested. The indicator remains in the new state until it is
@@ -1294,9 +1294,9 @@ explicitly changed again.
 
 <para>
 If the
-<emphasis>XkbIM_NoAutomatic</emphasis>
+<symbol>XkbIM_NoAutomatic</symbol>
  flag is not set and
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set, Xkb applies the changes specified in the other indicator map fields
 and sets the state of the indicator to the values specified by the indicator
 map. Note that it is possible in this case for the indicator to end up in a
@@ -1304,7 +1304,7 @@ different state than the one that was explicitly requested. For example, Xkb
 does not extinguish an indicator with
 <emphasis>which_mods</emphasis>
  of
-<emphasis>XkbIM_UseBase</emphasis>
+<symbol>XkbIM_UseBase</symbol>
  and
 <emphasis>mods</emphasis>
  of
@@ -1318,7 +1318,7 @@ the
 
 <para>
 If you explicitly light an indicator for which
-<emphasis>XkbIM_LEDDrivesKB</emphasis>
+<symbol>XkbIM_LEDDrivesKB</symbol>
  is set, Xkb enables all of the boolean controls specified in the
 <emphasis>ctrls</emphasis>
  field of its indicator map. Explicitly extinguishing such an indicator causes
@@ -1469,7 +1469,7 @@ Set the indicator map for the indicator
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -1587,11 +1587,11 @@ in <parameter>map</parameter>.
  and
 <errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>),
-<emphasis>XkbIndicatorMapNotify</emphasis>,
+<symbol>XkbIndicatorMapNotify</symbol>,
 and
-<emphasis>XkbNamesNotify</emphasis>
+<symbol>XkbNamesNotify</symbol>
  events (see <link linkend="Tracking_Name_Changes">section 18.5</link>).
 </para>
 
@@ -1718,9 +1718,9 @@ s can generate
  and
 <errorname>BadImplementation</errorname>
  errors. In addition, it can also generate
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  and
-<emphasis>XkbIndicatorMapNotify</emphasis>
+<symbol>XkbIndicatorMapNotify</symbol>
  events (see <link linkend="Tracking_Changes_to_Indicator_State_or_Map">section 8.5</link>).
 </para>
 
@@ -1732,17 +1732,17 @@ s can generate
 
 <para>
 Whenever an indicator changes state, the server sends
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  events to all interested clients. Similarly, whenever an indicator’s map
 changes, the server sends
-<emphasis>XkbIndicatorMapNotify</emphasis>
+<symbol>XkbIndicatorMapNotify</symbol>
  events to all interested clients.
 </para>
 
 
 <para>
 To receive
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  events, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the
@@ -1750,13 +1750,13 @@ To receive
 and
 <emphasis>values_for_bits</emphasis>
  parameters containing
-<emphasis>XkbIndicatorStateNotifyMask</emphasis>.
+<symbol>XkbIndicatorStateNotifyMask</symbol>.
 To receive
-<emphasis>XkbIndicatorMapNotify</emphasis>
+<symbol>XkbIndicatorMapNotify</symbol>
  events, use
 <function>XkbSelectEvents</function>
  with
-<emphasis>XkbIndicatorMapNotifyMask</emphasis>.
+<symbol>XkbIndicatorMapNotifyMask</symbol>.
 </para>
 
 
@@ -1768,7 +1768,7 @@ Set the
  parameter
 <emphasis>to XkbIndicatorStateNotify</emphasis>
  or
-<emphasis>XkbIndicatorMapNotify</emphasis>,
+<symbol>XkbIndicatorMapNotify</symbol>,
 and set both the
 <emphasis>bits_to_change</emphasis>
 and
@@ -1790,7 +1790,7 @@ typedef struct _XkbIndicatorNotify {
       Display *      display;     /* server connection where event generated */
       Time           time;        /* server time when event generated */
       int            xkb_type;    /* specifies state or map notify */
-      int            device;      /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int            device;      /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed;     /* mask of indicators with new state or map */
       unsigned int   state;       /* current state of all indicators */
 } <emphasis>XkbIndicatorNotifyEvent</emphasis>;
@@ -1799,9 +1799,9 @@ typedef struct _XkbIndicatorNotify {
 <para>
 <emphasis>xkb_type</emphasis>
  is either
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  or
-<emphasis>XkbIndicatorMapNotify</emphasis>,
+<symbol>XkbIndicatorMapNotify</symbol>,
 depending on whether the event is a
 <emphasis>kbIndicatorStateNotify</emphasis>
  event or
@@ -1814,24 +1814,24 @@ The
 <emphasis>changed</emphasis>
  parameter is a mask that is the bitwise inclusive OR of the indicators that
 have changed. If the event is of type
-<emphasis>XkbIndicatorMapNotify</emphasis>,
+<symbol>XkbIndicatorMapNotify</symbol>,
 <emphasis>changed</emphasis>
  reports the maps that changed. If the event is of type
-<emphasis>XkbIndicatorStateNotify</emphasis>,
+<symbol>XkbIndicatorStateNotify</symbol>,
 <emphasis>changed</emphasis>
  reports the indicators that have changed state.
 <parameter>state</parameter>
  is a mask that specifies the current state of all indicators, whether they
 have changed or not, for both
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  and <emphasis>IndicatorMapNotify</emphasis> events.
 </para>
 
 <para>
 When your client application receives either a
-<emphasis>XkbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  event or
-<emphasis>XkbIndicatorMapNotify</emphasis>
+<symbol>XkbIndicatorMapNotify</symbol>
  event, you can note the changes in a changes structure by calling
 <function>XkbNoteIndicatorChanges</function>.
 </para>
@@ -1888,7 +1888,7 @@ When your client application receives either a
 The
 <parameter>wanted</parameter>
  parameter is the bitwise inclusive OR of
-<emphasis>XkbIndicatorMapMask</emphasis>
+<symbol>XkbIndicatorMapMask</symbol>
  and
 <emphasis>XkbIndicatorStateMask</emphasis>.
 <function>XkbNoteIndicatorChanges</function>

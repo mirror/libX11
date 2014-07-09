@@ -38,14 +38,14 @@ for the client.
 
 <para>
 Xkb provides an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event that reports a change in keyboard geometry and/or the range of supported
 keycodes. The server can generate an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event when it detects a new keyboard or in response to an
 <function>XkbGetKeyboardByName</function>
  request that loads a new keyboard description. Selecting for
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events allows Xkb-aware clients to be notified whenever a keyboard change
 occurs that may affect the keymap.
 </para>
@@ -53,11 +53,11 @@ occurs that may affect the keymap.
 
 <para>
 When a client requests
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events, the server compares the range of keycodes for the current keyboard to
 the range of keycodes that are valid for the client. If they are not the same,
 the server immediately sends the client an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event. Even if the "new" keyboard is not new to the server, it is new to this
 particular client.
 </para>
@@ -65,14 +65,14 @@ particular client.
 
 <para>
 When the server sends an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event to a client to inform it of a new keycode range, it resets the stored
 range of legal keycodes for the client to the keycode range reported in the
 event; it does not reset this range for the client if it does not sent an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event to a client. Because Xkb-unaware clients and Xkb-aware clients that do
 not request
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events are never sent these events, the server’s notion of the legal keycode
 range never changes, and these clients never receive events from keys that fall
 outside of their notion of the legal keycode range.
@@ -81,9 +81,9 @@ outside of their notion of the legal keycode range.
 
 <para>
 Clients that have not selected to receive
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events do, however, receive the
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event when a keyboard change occurs. Clients that have not selected to receive
 this event also receive numerous other events detailing the individual changes
 that occur when a keyboard change occurs.
@@ -96,15 +96,15 @@ Clients wishing to track changes in
  and
 <emphasis>max_key_code</emphasis>
  must watch for both
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  and
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events, because a simple mapping change causes an
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  event and may change the range of valid keycodes, but does not cause an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event. If a client does not select for
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events, the server restricts the range of keycodes reported to the client.
 </para>
 
@@ -159,7 +159,7 @@ Xkb events are discarded, and no Xkb requests have their keycode range clamped.
 
 <para>
 The structure for the
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event is defined as follows:
 </para>
 
@@ -171,7 +171,7 @@ typedef struct _XkbNewKeyboardNotify {
                                       =&gt; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */
-      int            xkb_type;  /* <emphasis>XkbNewKeyboardNotify</emphasis> */
+      int            xkb_type;  /* <symbol>XkbNewKeyboardNotify</symbol> */
       int            device;       /* device ID of new keyboard */
       int            old_device;   /* device ID of old keyboard */
       int            min_key_code; /* min keycode of new keyboard */
@@ -188,7 +188,7 @@ typedef struct _XkbNewKeyboardNotify {
 To receive name notify events, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
-<emphasis>XkbNewKeyboardNotifyMask</emphasis>
+<symbol>XkbNewKeyboardNotifyMask</symbol>
  in both the
 <emphasis>bits_to_change</emphasis>
  and
@@ -198,7 +198,7 @@ To receive name notify events, use
 Set the
 <emphasis>event_type</emphasis>
  parameter to
-<emphasis>XkbNewKeyboardNotify</emphasis>,
+<symbol>XkbNewKeyboardNotify</symbol>,
 and set both the
 <emphasis>bits_to_change</emphasis>
 and
@@ -223,12 +223,12 @@ and
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbNKN_KeycodesMask</emphasis></entry>
+    <entry><symbol>XkbNKN_KeycodesMask</symbol></entry>
     <entry>(1L&lt;&lt;0)</entry>
     <entry>Notification of keycode range changes wanted</entry>
   </row>
   <row>
-    <entry><emphasis>XkbNKN_GeometryMask</emphasis></entry>
+    <entry><symbol>XkbNKN_GeometryMask</symbol></entry>
     <entry>(1L&lt;&lt;1)</entry>
     <entry>Notification of geometry changes wanted</entry>
   </row>
@@ -307,13 +307,13 @@ In this case,
 If the keyboard change is the result of an
 <function>XkbGetKeyboardByName</function>
  function call, which generates an
-<emphasis>X_kbGetKbdByName</emphasis>
+<symbol>X_kbGetKbdByName</symbol>
  request,
 <emphasis>req_major</emphasis>
  contains the Xkb extension base event code (see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>), and
 <emphasis>req_minor</emphasis>
  contains the event code for the Xkb extension request
-<emphasis>X_kbGetKbdByName</emphasis>.
+<symbol>X_kbGetKbdByName</symbol>.
 <emphasis>device</emphasis>
  contains the device identifier for the new device, but nothing definitive can
 be said for

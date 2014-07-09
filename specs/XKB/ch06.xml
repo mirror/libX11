@@ -242,7 +242,7 @@ To retrieve one or more components of a keyboard device description, use
     <listitem>
       <para>
         device for which to fetch description, or
-<emphasis>XkbUseCoreKbd</emphasis>
+<symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -325,7 +325,7 @@ Otherwise, it returns a pointer to an empty keyboard description structure.
 The
 <emphasis>device_spec</emphasis>
  field will have been initialized to
-<emphasis>XkbUseCoreKbd</emphasis>.
+<symbol>XkbUseCoreKbd</symbol>.
 You may then either fill in the structure components or use Xkb functions to
 obtain values for the structure components from a keyboard device.
 </para>

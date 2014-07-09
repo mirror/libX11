@@ -581,7 +581,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>XkbIndicatorDoodadRec</emphasis>
 </entry>
     <entry>
-<emphasis>XkbIndicatorDoodad</emphasis>
+<symbol>XkbIndicatorDoodad</symbol>
 </entry>
   </row>
   <row>
@@ -592,7 +592,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>XkbShapeDoodadRec</emphasis>
 </entry>
     <entry>
-<emphasis>XkbOutlineDoodad</emphasis>
+<symbol>XkbOutlineDoodad</symbol>
 </entry>
   </row>
   <row>
@@ -603,7 +603,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>XkbShapeDoodadRec</emphasis>
 </entry>
     <entry>
-<emphasis>XkbSolidDoodad</emphasis>
+<symbol>XkbSolidDoodad</symbol>
 </entry>
   </row>
   <row>
@@ -614,7 +614,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>XkbTextDoodadRec</emphasis>
 </entry>
     <entry>
-<emphasis>XkbTextDoodad</emphasis>
+<symbol>XkbTextDoodad</symbol>
 </entry>
   </row>
   <row>
@@ -625,7 +625,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>XkbLogoDoodadRec</emphasis>
 </entry>
     <entry>
-<emphasis>XkbLogoDoodad</emphasis>
+<symbol>XkbLogoDoodad</symbol>
 </entry>
   </row>
 </tbody>
@@ -1013,8 +1013,8 @@ relative to the keyboard’s origin if the doodad is in the
 <para><programlisting>
 typedef struct _XkbShapeDoodad {
       Atom       name;                /* doodad name */
-      unsigned char      type;        /* <emphasis>XkbOutlineDoodad</emphasis>
-                                         or <emphasis>XkbSolidDoodad</emphasis> */
+      unsigned char      type;        /* <symbol>XkbOutlineDoodad</symbol>
+                                         or <symbol>XkbSolidDoodad</symbol> */
       unsigned char      priority;    /* drawing priority,
                                          0=&gt;highest, 255=&gt;lowest */
       short      top;                 /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1028,7 +1028,7 @@ typedef struct _XkbShapeDoodad {
 <para><programlisting>
 typedef struct _XkbTextDoodad {
       Atom            name;         /* doodad name */
-      unsigned char   type;         /* <emphasis>XkbTextDoodad</emphasis> */
+      unsigned char   type;         /* <symbol>XkbTextDoodad</symbol> */
       unsigned char   priority;     /* drawing priority,
                                        0=&gt;highest, 255=&gt;lowest */
       short           top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1045,7 +1045,7 @@ typedef struct _XkbTextDoodad {
 <para><programlisting>
 typedef struct _XkbIndicatorDoodad {
       Atom           name;          /* doodad name */
-      unsigned char  type;          /* <emphasis>XkbIndicatorDoodad</emphasis> */
+      unsigned char  type;          /* <symbol>XkbIndicatorDoodad</symbol> */
       unsigned char  priority;      /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
       short          top;           /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short          left;          /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1059,7 +1059,7 @@ typedef struct _XkbIndicatorDoodad {
 <para><programlisting>
 typedef struct _XkbLogoDoodad {
       Atom               name;        /* doodad name */
-      unsigned char      type;        /* <emphasis>XkbLogoDoodad</emphasis> */
+      unsigned char      type;        /* <symbol>XkbLogoDoodad</symbol> */
       unsigned char      priority;    /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
       short              top;         /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short              left;        /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */

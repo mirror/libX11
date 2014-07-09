@@ -426,7 +426,7 @@ processing may be modified for the particular key involved:
 <literallayout>
       Virtual modifier map
       Auto repeat
-      Key behavior (may be set to <emphasis>XkbKB_Lock</emphasis>)
+      Key behavior (may be set to <symbol>XkbKB_Lock</symbol>)
       Key action (see <link linkend="Key_Actions">section 16.1</link>)
 </literallayout>
 
@@ -492,7 +492,7 @@ are to be interpreted.
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSI_NoneOf</emphasis></entry>
+    <entry><symbol>XkbSI_NoneOf</symbol></entry>
     <entry>(0)</entry>
     <entry>
 None of the bits that are on in <emphasis>mods</emphasis>
@@ -500,7 +500,7 @@ None of the bits that are on in <emphasis>mods</emphasis>
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSI_AnyOfOrNone</emphasis></entry>
+    <entry><symbol>XkbSI_AnyOfOrNone</symbol></entry>
     <entry>(1)</entry>
     <entry>
 Zero or more of the bits that are on in
@@ -509,7 +509,7 @@ Zero or more of the bits that are on in
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSI_AnyOf</emphasis></entry>
+    <entry><symbol>XkbSI_AnyOf</symbol></entry>
     <entry>(2)</entry>
     <entry>
 One or more of the bits that are on in
@@ -518,7 +518,7 @@ One or more of the bits that are on in
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSI_AllOf</emphasis></entry>
+    <entry><symbol>XkbSI_AllOf</symbol></entry>
     <entry>(3)</entry>
     <entry>
 All of the bits that are on in
@@ -527,7 +527,7 @@ All of the bits that are on in
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbSI_Exactly</emphasis></entry>
+    <entry><symbol>XkbSI_Exactly</symbol></entry>
     <entry>(4)</entry>
     <entry>
 All of the bits that are on in
@@ -543,7 +543,7 @@ All of the bits that are on in
 In addition to the above bits,
 <emphasis>match</emphasis>
  may contain the
-<emphasis>XkbSI_LevelOneOnly</emphasis>
+<symbol>XkbSI_LevelOneOnly</symbol>
  bit, in which case the modifier match criteria specified by
 <emphasis>mods</emphasis>
  and
@@ -579,11 +579,11 @@ interpretation where:
   </row>
   <row>
     <entry><emphasis>flags</emphasis> =</entry>
-    <entry><emphasis>XkbSI_AutoRepeat</emphasis></entry>
+    <entry><symbol>XkbSI_AutoRepeat</symbol></entry>
   </row>
   <row>
     <entry><emphasis>match</emphasis> =</entry>
-    <entry><emphasis>XkbSI_AnyOfOrNone</emphasis></entry>
+    <entry><symbol>XkbSI_AnyOfOrNone</symbol></entry>
   </row>
   <row>
     <entry><emphasis>mods</emphasis> =</entry>
@@ -591,7 +591,7 @@ interpretation where:
   </row>
   <row>
     <entry><emphasis>virtual_mod</emphasis> =</entry>
-    <entry><emphasis>XkbNoModifier</emphasis></entry>
+    <entry><symbol>XkbNoModifier</symbol></entry>
   </row>
   <row>
 
@@ -620,9 +620,9 @@ defined in <link linkend="Key_Actions">section 16.1</link>.
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitVModMap</emphasis>
  control set, the
-<emphasis>XkbSI_LevelOneOnly</emphasis>
+<symbol>XkbSI_LevelOneOnly</symbol>
  bit and symbol position are examined. If the
-<emphasis>XkbSI_LevelOneOnly</emphasis>
+<symbol>XkbSI_LevelOneOnly</symbol>
  bit is not set in
 <emphasis>match</emphasis>
  or the symbol is in position G1L1, the
@@ -630,7 +630,7 @@ If the Xkb keyboard map for the key does not have its
  field is examined. If
 <emphasis>virtual_mod</emphasis>
  is not
-<emphasis>XkbNoModifier</emphasis>,
+<symbol>XkbNoModifier</symbol>,
 <emphasis>virtual_mod</emphasis>
  specifies a single virtual modifier to be added to the virtual modifier map
 for the key.
@@ -656,9 +656,9 @@ field potentially specify additional behavior modifications:
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitAutoRepeat</emphasis>
  control set, its auto repeat behavior is set based on the value of the
-<emphasis>XkbSI_AutoRepeat</emphasis>
+<symbol>XkbSI_AutoRepeat</symbol>
  bit. If the
-<emphasis>XkbSI_AutoRepeat</emphasis>
+<symbol>XkbSI_AutoRepeat</symbol>
  bit is set, the auto-repeat behavior of the key is turned on; otherwise, it is
 turned off.
 </para>
@@ -668,9 +668,9 @@ turned off.
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitBehavior</emphasis>
  control set, its locking behavior is set based on the value of the
-<emphasis>XkbSI_LockingKey</emphasis>
+<symbol>XkbSI_LockingKey</symbol>
  bit. If
-<emphasis>XkbSI_LockingKey</emphasis>
+<symbol>XkbSI_LockingKey</symbol>
  is set, the key behavior is set to
 <emphasis>KB_Lock</emphasis>
 ; otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
@@ -730,10 +730,10 @@ component of the keyboard group, all of the modifiers in the
 <emphasis>mask</emphasis>
  field of all of the group compatibility maps are added to the modifier mapping
 as well. While an
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action can theoretically affect any modifier, if the Xkb mapping for a key
 specifies an
-<emphasis>XkbSA_ISOLock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action, only the modifiers or group that are set by default are added to the
 modifier mapping.
 </para>
@@ -750,7 +750,7 @@ Use
  to fetch any combination of the current compatibility map components from the
 server. When another client modifies the compatibility map, you are notified if
 you have selected for
-<emphasis>XkbCompatMapNotify</emphasis>
+<symbol>XkbCompatMapNotify</symbol>
  events (see <link linkend="Tracking_Changes_to_the_Compatibility_Map">section 17.5</link>).
 <function>XkbGetCompatMap</function>
  is particularly useful when you receive an event of this type, as it allows
@@ -841,17 +841,17 @@ Valid values for
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSymInterpMask</emphasis></entry>
+    <entry><symbol>XkbSymInterpMask</symbol></entry>
     <entry>(1&lt;&lt;0)</entry>
     <entry>Symbol interpretations</entry>
   </row>
   <row>
-    <entry><emphasis>XkbGroupCompatMask</emphasis></entry>
+    <entry><symbol>XkbGroupCompatMask</symbol></entry>
     <entry>(1&lt;&lt;1)</entry>
     <entry>Group maps</entry>
   </row>
   <row>
-    <entry><emphasis>XkbAllCompatMask</emphasis></entry>
+    <entry><symbol>XkbAllCompatMask</symbol></entry>
     <entry>(0x3)</entry>
     <entry>All compatibility map components</entry>
   </row>
@@ -1514,9 +1514,9 @@ The server automatically generates
 <symbol>MappingNotify</symbol>
  events when the keyboard mapping changes. If you wish to be notified of
 changes to the compatibility map, you should select for
-<emphasis>XkbCompatMapNotify</emphasis>
+<symbol>XkbCompatMapNotify</symbol>
  events. If you select for
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events, you no longer receive the automatically generated
 <symbol>MappingNotify</symbol>
  events. If you subsequently deselect
@@ -1529,11 +1529,11 @@ changes to the compatibility map, you should select for
 
 <para>
 To receive
-<emphasis>XkbCompatMapNotify</emphasis>
+<symbol>XkbCompatMapNotify</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
-<emphasis>XkbCompatMapNotifyMask</emphasis>
+<symbol>XkbCompatMapNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -1543,11 +1543,11 @@ To receive
 
 <para>
 To receive
-<emphasis>XkbCompatMapNotify</emphasis>
+<symbol>XkbCompatMapNotify</symbol>
  events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbCompatMapNotify</emphasis>
+<symbol>XkbCompatMapNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying the desired map changes in
@@ -1578,9 +1578,9 @@ typedef struct {
                                        synthetically generated */
       Display *      display;       /* server connection where event generated */
       Time           time;          /* server time when event generated */
-      int            xkb_type;      /* <emphasis>XkbCompatMapNotify</emphasis> */
+      int            xkb_type;      /* <symbol>XkbCompatMapNotify</symbol> */
       int            device;        /* Xkb device ID, will not be
-                                       <emphasis>XkbUseCoreKbd</emphasis> */
+                                       <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed_groups;/* number of group maps changed */
       int            first_si;      /* index to 1st changed symbol
                                        interpretation */

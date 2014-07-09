@@ -287,7 +287,7 @@ populated.
     </term>
     <listitem>
       <para>
-        device_id, or <emphasis>XkbUseCoreKbd</emphasis>
+        device_id, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -376,7 +376,7 @@ information on these functions.
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbKeyTypesMask</emphasis></entry>
+    <entry><symbol>XkbKeyTypesMask</symbol></entry>
     <entry>(1&lt;&lt;0)</entry>
     <entry>client</entry>
     <entry>
@@ -393,7 +393,7 @@ information on these functions.
     <entry>15.2</entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeySymsMask</emphasis></entry>
+    <entry><symbol>XkbKeySymsMask</symbol></entry>
     <entry>(1&lt;&lt;1)</entry>
     <entry>client</entry>
     <entry>
@@ -410,7 +410,7 @@ information on these functions.
     <entry>15.3</entry>
   </row>
   <row>
-    <entry><emphasis>XkbModifierMapMask</emphasis></entry>
+    <entry><symbol>XkbModifierMapMask</symbol></entry>
     <entry>(1&lt;&lt;2)</entry>
     <entry>client</entry>
     <entry><emphasis>modmap</emphasis></entry>
@@ -418,7 +418,7 @@ information on these functions.
     <entry>15.4</entry>
   </row>
   <row>
-    <entry><emphasis>XkbExplicitComponentsMask</emphasis></entry>
+    <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>(1&lt;&lt;3)</entry>
     <entry>server</entry>
     <entry><emphasis>explicit</emphasis></entry>
@@ -426,7 +426,7 @@ information on these functions.
     <entry>16.3</entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeyActionsMask</emphasis></entry>
+    <entry><symbol>XkbKeyActionsMask</symbol></entry>
     <entry>(1&lt;&lt;4)</entry>
     <entry>server</entry>
     <entry>
@@ -442,7 +442,7 @@ information on these functions.
     <entry>16.1</entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeyBehaviorsMask</emphasis></entry>
+    <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>(1&lt;&lt;5)</entry>
     <entry>server</entry>
     <entry><emphasis>behaviors</emphasis></entry>
@@ -450,7 +450,7 @@ information on these functions.
     <entry>16.2</entry>
   </row>
   <row>
-    <entry><emphasis>XkbVirtualModsMask</emphasis></entry>
+    <entry><symbol>XkbVirtualModsMask</symbol></entry>
     <entry>(1&lt;&lt;6)</entry>
     <entry>server</entry>
     <entry><emphasis>vmods</emphasis></entry>
@@ -458,7 +458,7 @@ information on these functions.
     <entry>16.4</entry>
   </row>
   <row>
-    <entry><emphasis>XkbVirtualModMapMask</emphasis></entry>
+    <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>(1&lt;&lt;7)</entry>
     <entry>server</entry>
     <entry><emphasis>vmodmap</emphasis></entry>
@@ -787,7 +787,7 @@ server and are always updated by the server whenever it returns the data for an
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbKeyTypesMask</emphasis></entry>
+    <entry><symbol>XkbKeyTypesMask</symbol></entry>
     <entry>
 <para>first_type</para>,
 <para>num_types</para>
@@ -798,7 +798,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeySymsMask</emphasis></entry>
+    <entry><symbol>XkbKeySymsMask</symbol></entry>
     <entry>
 <para>first_key_sym</para>,
 <para>num_key_syms</para>
@@ -809,7 +809,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbModifierMapMask</emphasis></entry>
+    <entry><symbol>XkbModifierMapMask</symbol></entry>
     <entry>
 <para>first_modmap_key</para>,
 <para>num_modmap_keys</para>
@@ -820,7 +820,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbExplicitComponentsMask</emphasis></entry>
+    <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>
 <para>first_key_explicit</para>,
 <para>num_key_explicit</para>
@@ -831,7 +831,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeyActionsMask</emphasis></entry>
+    <entry><symbol>XkbKeyActionsMask</symbol></entry>
     <entry>
 <para>first_key_act,</para>
 <para>num_key_acts</para>
@@ -842,7 +842,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbKeyBehaviorsMask</emphasis></entry>
+    <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>
 <para>first_key_behavior,</para>
 <para>num_key_behaviors</para>
@@ -858,7 +858,7 @@ server and are always updated by the server whenever it returns the data for an
     <entry>server-&gt;vmods[*]</entry>
   </row>
   <row>
-    <entry><emphasis>XkbVirtualModMapMask</emphasis></entry>
+    <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>
 <para>first_vmodmap_key,</para>
 <para>num_vmodmap_keys</para>
@@ -973,7 +973,7 @@ and
 
 <para>
 The Xkb extension reports
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events to clients wanting notification whenever a map component of the Xkb
 description for a device changes. There are many different types of Xkb
 keyboard map changes. Xkb uses an event detail mask to identify each type of
@@ -984,11 +984,11 @@ change. The event detail masks are identical to the masks listed in
 
 <para>
 To receive
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
-<emphasis>XkbMapNotifyMask</emphasis>
+<symbol>XkbMapNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -998,11 +998,11 @@ To receive
 
 <para>
 To receive
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying the desired map changes in
@@ -1015,7 +1015,7 @@ To receive
 
 <para>
 The structure for
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events is:
 </para>
 
@@ -1026,8 +1026,8 @@ typedef struct {
       Bool           send_event;   /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */
-      int            xkb_type;     /* <emphasis>XkbMapNotify</emphasis> */
-      int            device;       /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int            xkb_type;     /* <symbol>XkbMapNotify</symbol> */
+      int            device;       /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed;      /* identifies valid fields in rest of event */
       unsigned int   resized;      /* reserved */
       int            first_type;   /* index of first key <emphasis>type</emphasis> modified */
@@ -1195,7 +1195,7 @@ field specifies the number of entries to preallocate for the
  field of the client map. If the
 <parameter>type_count</parameter>
 field is less than
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  (see <link linkend="The_Canonical_Key_Types">section 15.2.1</link>), returns
 <errorname>BadValue</errorname>.
 </entry>
@@ -1251,9 +1251,9 @@ of entries necessary for
  fields of the
 <parameter>xkb</parameter>
  parameter must be legal values if the
-<emphasis>XkbKeySymsMask</emphasis>
+<symbol>XkbKeySymsMask</symbol>
  or
-<emphasis>XkbModifierMapMask</emphasis>
+<symbol>XkbModifierMapMask</symbol>
  masks are set in the
 <parameter>which</parameter>
  parameter. If they are not valid,

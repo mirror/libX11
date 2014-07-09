@@ -85,7 +85,7 @@ upon client program exit.
 The canonical key types are predefined key types that describe the types of
 keys available on most keyboards. The definitions for the canonical key types
 are held in the first
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  entries of the
 <emphasis>types</emphasis>
  field of the client map and are indexed using the following constants:
@@ -93,22 +93,22 @@ are held in the first
     <itemizedlist>
       <listitem>
         <para>
-<emphasis>XkbOneLevelIndex</emphasis>
+<symbol>XkbOneLevelIndex</symbol>
         </para>
       </listitem>
       <listitem>
         <para>
-<emphasis>XkbTwoLevelIndex</emphasis>
+<symbol>XkbTwoLevelIndex</symbol>
         </para>
       </listitem>
       <listitem>
         <para>
-<emphasis>XkbAlphabeticIndex</emphasis>
+<symbol>XkbAlphabeticIndex</symbol>
         </para>
       </listitem>
       <listitem>
         <para>
-<emphasis>XkbKeypadIndex</emphasis>
+<symbol>XkbKeypadIndex</symbol>
         </para>
       </listitem>
   </itemizedlist>
@@ -557,9 +557,9 @@ types are defined using the
  and
 <emphasis>XkbKTMapEntryRec</emphasis>
  structures. Xkb allows up to
-<emphasis>XkbMaxKeyTypes</emphasis>
+<symbol>XkbMaxKeyTypes</symbol>
  (255) key types to be defined, but requires at least
-<emphasis>XkbNumRequiredTypes</emphasis>
+<symbol>XkbNumRequiredTypes</symbol>
  (4) predefined types to be in a key map.
     </para>
   </glossdef>

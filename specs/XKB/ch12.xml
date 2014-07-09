@@ -58,9 +58,9 @@ a
 
 <para>
 The X Keyboard Extension uses
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  and
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events to track changes to the keyboard mapping. When an Xkb-aware client
 receives either event, it should call
 <function>XkbRefreshKeyboardMapping</function>
@@ -68,14 +68,14 @@ receives either event, it should call
 duplicate events, the X server does not send core protocol
 <symbol>MappingNotify</symbol>
  events to a client that has selected for
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events.
 </para>
 
 
 <para>
 The implicit support for Xkb selects for
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  events. This means that clients that do not explicitly use Xkb but that are
 using a version of the X library that has implicit support for Xkb do not
 receive
@@ -93,18 +93,18 @@ explicitly selected for the Xkb version of the event.
 An Xkb-capable X server does not send events from keys that fall outside the
 legal range of keycodes expected by that client. Once the server sends a client
 an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event, it reports events from all keys because it assumes that any client that
 has receieved an
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  event expects key events from the new range of keycodes. The implicit support
 for Xkb asks for
-<emphasis>XkbNewKeyboardNotify</emphasis>
+<symbol>XkbNewKeyboardNotify</symbol>
  events, so the range of keycodes reported to the client might vary without the
 client’s knowledge. Most clients don’t really care about the range of legal
 keycodes, but some clients maintain information about each key and might have
 problems with events that come from unexpected keys. Such clients can set the
-<emphasis>XkbLC_IgnoreNewKeyboards</emphasis>
+<symbol>XkbLC_IgnoreNewKeyboards</symbol>
  library control (see <link linkend="IgnoreNewKeyboards">section 11.3.1</link>) to prevent the implicit support from
 requesting notification of changes to the legal range of keycodes.
 </para>
@@ -200,7 +200,7 @@ reflect changes reported via
  events. When Xkb is missing or disabled, this function reloads the entire
 modifier map or keyboard mapping. When Xkb is present, the implicit Xkb support
 keeps track of the changed components reported by each
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  event and updates only those pieces of the keyboard description that have
 changed. If the implicit support has not noted any keyboard mapping changes,
 <function>XRefreshKeyboardMapping</function>
@@ -748,7 +748,7 @@ To update the keyboard description that is internal to the X library, use
 information to this client. A client usually invokes
 <function>XkbRefreshKeyboardMapping</function>
  after receiving an
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  event.
 <function>XkbRefreshKeyboardMapping</function>
  returns
@@ -761,7 +761,7 @@ information to this client. A client usually invokes
 
 <para>
 The
-<emphasis>XkbMapNotify</emphasis>
+<symbol>XkbMapNotify</symbol>
  event can be generated when some client calls
 <function>XkbSetMap</function>,
 <function>XkbChangeMap</function>,

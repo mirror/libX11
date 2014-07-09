@@ -378,7 +378,7 @@ To lock and unlock any of the eight real keyboard modifiers, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -460,7 +460,7 @@ To latch and unlatch any of the eight real keyboard modifiers, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -579,7 +579,7 @@ To lock the keysym group, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -643,7 +643,7 @@ To latch the keysym group, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -738,7 +738,7 @@ To obtain the keyboard state, use
     </term>
     <listitem>
       <para>
-        device ID, or <emphasis>XkbUseCoreKbd</emphasis>
+        device ID, or <symbol>XkbUseCoreKbd</symbol>
       </para>
     </listitem>
   </varlistentry>
@@ -774,9 +774,9 @@ All group values are expressed as group indices in the range [0..3]. Modifiers a
 
 <para>
 The Xkb extension reports
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
 events to clients wanting notification whenever the Xkb state changes. The changes reported include changes to any aspect of the keyboard state: when a modifier is set or unset, when the current group changes, or when a pointer button is pressed or released. As with all Xkb events,
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events are reported to all interested clients without regard to the current keyboard input focus or grab state.
 </para>
 
@@ -866,7 +866,7 @@ listed in <link linkend="table5.3">Table 5.3</link>.
 
 <para>
 To track changes in the keyboard state for a particular device, select to receive
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events by calling either
 <function>XkbSelectEvents</function>
  or
@@ -877,11 +877,11 @@ To track changes in the keyboard state for a particular device, select to receiv
 
 <para>
 To receive
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  and pass
-<emphasis>XkbStateNotifyMask</emphasis>
+<symbol>XkbStateNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -891,11 +891,11 @@ To receive
 
 <para>
 To receive
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
  using
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  as the
 <emphasis>event_type</emphasis>
  and specifying the desired state changes in
@@ -908,7 +908,7 @@ To receive
 
 <para>
 The structure for
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  events is:
 </para>
 
@@ -919,8 +919,8 @@ typedef struct {
       Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <emphasis>XkbStateNotify</emphasis> */
-      int            device;          /* Xkb device ID, will not be <emphasis>XkbUseCoreKbd</emphasis> */
+      int            xkb_type;        /* <symbol>XkbStateNotify</symbol> */
+      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed;         /* bits indicating what has changed */
       int            group;           /* group index of effective group */
       int            base_group;      /* group index of base group */
@@ -947,12 +947,12 @@ typedef struct {
 
 <para>
 When you receive an
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  event, the
 <emphasis>changed</emphasis>
  field indicates which elements of keyboard state have changed.
 This will be the bitwise inclusive OR of one or more of the
-<emphasis>XkbStateNotify</emphasis>
+<symbol>XkbStateNotify</symbol>
  event detail masks shown in <link linkend="table5.3">Table 5.3</link>.
  All fields reported in the event are valid, but only those indicated in
 <emphasis>changed</emphasis>

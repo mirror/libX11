@@ -237,7 +237,7 @@ another key in the group is pressed, at which point the previously depressed
 key is logically released. Consequently, at most one key in a radio group can
 be logically depressed at one time. A radio group is defined by a radio group
 index, an optional name, and by assigning each key in the radio group
-<emphasis>XkbKB_RadioGroup</emphasis>
+<symbol>XkbKB_RadioGroup</symbol>
  behavior and the radio group index.
 </para>
 

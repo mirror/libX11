@@ -21,7 +21,7 @@ be automatically set to an on or off condition when a client program exits. The
 remaining controls, known as the
 <emphasis>Non-Boolean Controls</emphasis>,
 are always active. The
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure describes the current state of most of the global controls and the
 attributes effecting the behavior of each of these Xkb features. This chapter
 describes the Xkb controls and how to manipulate them.
@@ -33,7 +33,7 @@ There are two possible components for each of the Boolean Controls: attributes
 describing how the control should work, and a state describing whether the
 behavior as a whole is enabled or disabled. The attributes and state for most
 of these controls are held in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
 </para>
 
@@ -41,13 +41,13 @@ of these controls are held in the
 <para>
 You can manipulate the Xkb controls individually, via convenience functions, or
 as a whole. To treat them as a group, modify an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure to describe all of the changes to be made, and then pass that
 structure and appropriate flags to an Xkb library function, or use a
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  (see <link linkend="The_XkbControlsChangesRec_Structure">section 10.10.1</link>) to reduce network traffic. When using a convenience
 function to manipulate one control individually, you do not use an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure directly.
 </para>
 
@@ -194,7 +194,7 @@ The Xkb controls are grouped as shown in
 <para>
 The individual categories and controls are described first, together with
 functions for manipulating them. A description of the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and the general functions for dealing with all of the controls at
 once follow at the end of the chapter.
 </para>
@@ -221,7 +221,7 @@ The
 control is enabled, and when turned off, disabled. It corresponds to the
 <emphasis>enabled_ctrls</emphasis>
  field of an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The bits describing which controls are turned on
 or off are defined in <link linkend="table10.7">Table 10.7</link>.
 </para>
@@ -660,7 +660,7 @@ control. The
  control settings are carried in the
 <emphasis>per_key_repeat</emphasis>
  field of an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, discussed in <link linkend="The_XkbControlsRec_Structure">section 10.8</link>.
 </para>
 
@@ -916,7 +916,7 @@ Xkb generates
 <para>
 <emphasis>DetectableAutorepeat</emphasis>,
 unlike the other controls in this chapter, is not contained in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, nor can it be enabled or disabled via the
 <emphasis>EnabledControls</emphasis>
  control. Instead, query and set
@@ -1241,7 +1241,7 @@ mouse-pointer key yields one mouse event. When
  is enabled, mouse movement is defined by an initial distance specified in the
 <symbol>XkbSA_MovePtr</symbol>
  action and the following fields in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
 </para>
 
@@ -1708,7 +1708,7 @@ The parameters
  are backfilled with the options to modify and the values for
 <emphasis>ax_options</emphasis>,
 which is a field in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
 <function>XkbGetAccessXTimeout</function>
 returns
@@ -1842,7 +1842,7 @@ correspond to those for enabling and disabling boolean controls
 for the
 <emphasis>ax_options</emphasis>
  field of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
 </para>
 
@@ -1882,7 +1882,7 @@ other boolean controls are (see <link linkend="Controls_that_Enable_and_Disable_
 on or off by modifying the following bits in the
 <emphasis>ax_options</emphasis>
  field of an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and using
 <function>XkbSetControls</function>
  (see <link linkend="Changing_Controls">section 10.10</link>):
@@ -2707,7 +2707,7 @@ The
  control has two options that can be accessed via the
 <emphasis>ax_options</emphasis>
  of an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The first option,
 <emphasis>TwoKeys</emphasis>,
 specifies whether
@@ -3011,7 +3011,7 @@ There are no convenience functions for manipulating the
  control via the
 <emphasis>groups_wrap</emphasis>
  field in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, then use
 <function>XkbSetControls</function>
  and
@@ -3053,7 +3053,7 @@ Manipulate the
  control via the
 <emphasis>ignore_lock</emphasis>
  field in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, then use
 <function>XkbSetControls</function>
  and
@@ -3263,7 +3263,7 @@ Manipulate the
  control via the
 <emphasis>internal</emphasis>
  field in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, using
 <function>XkbSetControls</function>
  and
@@ -3424,7 +3424,7 @@ See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a di
 Many of the individual controls described in sections 10.1 through 10.7 may be
 manipulated via convenience functions discussed in those sections. Some of
 them, however, have no convenience functions. The
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure allows the manipulation of one or more of the controls in a single
 operation and to track changes to any of them in conjunction with the
 <function>XkbGetControls</function>
@@ -3437,7 +3437,7 @@ convenience functions.
 
 <para>
 The
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure is defined as follows:
 </para>
 
@@ -3472,20 +3472,20 @@ typedef struct {
       unsigned int         axt_ctrls_mask;    /* which bits in <emphasis>enabled_ctrls</emphasis> to modify */
       unsigned int         axt_ctrls_values;  /* values for new bits in <emphasis>enabled_ctrls</emphasis> */
       unsigned char        per_key_repeat[XkbPerKeyBitArraySize];           /* per key auto repeat */
-} <emphasis>XkbControlsRec</emphasis>, *XkbControlsPtr;
+} <structname>XkbControlsRec</structname>, *XkbControlsPtr;
 </programlisting>
 </para>
 
 <para>
 The general-purpose functions that work with the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure use a mask to specify which controls are to be manipulated.
 <link linkend="table10.6">Table 10.6</link>
 lists these controls, the masks used to select them in the general
 function calls (
 <emphasis>which</emphasis>
  parameter), and the data fields in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure that comprise each of the individual controls. Also listed are the
 bit used to turn boolean controls on and off and the section where each control
 is described in more detail.
@@ -3836,7 +3836,7 @@ therefore cannot be enabled or disabled.
 
 <para>
 The individual fields of the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure are defined as follows.
 </para>
 
@@ -3865,7 +3865,7 @@ operations. Its value should be one of the core symbols
 <para>
 <emphasis>num_groups</emphasis>
  is not a part of any control, but is reported in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure whenever any of its components are fetched from the server. It
 reports the number of groups the particular keyboard configuration uses and is
 computed automatically by the server whenever the keyboard mapping changes.
@@ -4165,7 +4165,7 @@ enabled (
 Xkb provides a set of convenience macros for working with the
 <emphasis>ax_options</emphasis>
  field of an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure:
 </para>
 
@@ -4179,7 +4179,7 @@ The
 <symbol>XkbAX_NeedOption</symbol>
  macro is useful for determining whether a particular AccessX option is enabled
 or not. It accepts a pointer to an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and a valid mask bit from
 <link linkend="table10.9">Table 10.9</link>.
  If the specified mask bit in the
@@ -4215,7 +4215,7 @@ operate; the
 The
 <emphasis>XkbAX_AnyFeeback</emphasis>
  macro accepts a pointer to an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and tells whether the
 <emphasis>AccessXFeedback</emphasis>
  control is enabled or not. If the
@@ -4237,7 +4237,7 @@ The
 <emphasis>AccessXFeedback</emphasis>
  control and a particular AccessX feedback option are enabled. The macro
 accepts a pointer to an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and a feedback option from the table above. If both the
 <emphasis>AccessXFeedback</emphasis>
  control and the specified feedback option are enabled, the macro returns
@@ -4450,7 +4450,7 @@ There are two ways to make changes to controls: either change a local copy
 keyboard description and call
 <function>XkbSetControls</function>,
 or, to reduce network traffic, use an
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  structure and call
 <function>XkbChangeControls</function>.
 </para>
@@ -4546,7 +4546,7 @@ Otherwise, it sends the request to the X server and returns
 
 <para>
 Note that changes to attributes of controls in the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure are apparent only when the associated control is enabled, although
 the corresponding values are still updated in the X server. For example, the
 <emphasis>repeat_delay</emphasis>
@@ -4592,17 +4592,17 @@ also provided for this purpose (
 
 <para>
 The
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  structure allows applications to track modifications to an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure and thereby reduce the amount of traffic sent to the server. The
 same
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  structure may be used in several successive modifications to the same
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure, then subsequently used to cause all of the changes, and only the
 changes, to be propagated to the server. The
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  structure is defined as follows:
 </para>
 
@@ -4612,7 +4612,7 @@ typedef struct _XkbControlsChanges {
       unsigned int enabled_ctrls_changes;  /* bits indicating enabled/disabled controls */
       Bool         num_groups_changed;     /* <symbol>True</symbol> if
                                               number of keyboard groups changed */
-} <emphasis>XkbControlsChangesRec</emphasis>,*XkbControlsChangesPtr;
+} <structname>XkbControlsChangesRec</structname>,*XkbControlsChangesPtr;
 </programlisting></para>
 
 <para>
@@ -4641,7 +4641,7 @@ still been modified, and is noted as changed. Valid values for
 
 <para>
 If you have an Xkb description with controls that have been modified and an
-<emphasis>XkbControlsChangesRec</emphasis>
+<structname>XkbControlsChangesRec</structname>
  that describes the changes that have been made, the
 <function>XkbChangeControls</function>
  function provides a flexible method for updating the controls in a server to
@@ -5022,13 +5022,13 @@ results into the
 
 <para>
 The need to allocate an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure seldom arises; Xkb creates one when an application calls
 <function>XkbGetControls</function>
  or a related function. For those situations where there is not an
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure allocated in the
-<emphasis>XkbDescRec</emphasis>,
+<structname>XkbDescRec</structname>,
 allocate one by calling
 <function>XkbAllocControls</function>.
 </para>
@@ -5114,7 +5114,7 @@ associated with them, which is currently of little practical value in this call.
 To free memory used by the
 <emphasis>ctrls</emphasis>
  member of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
 structure, use
 <emphasis>XkbFreeControls:</emphasis>
 </para>
@@ -5194,7 +5194,7 @@ If
  frees every non-
 <symbol>NULL</symbol>
  structure component in the controls, frees the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure referenced by the
 <emphasis>ctrls</emphasis>
  member of

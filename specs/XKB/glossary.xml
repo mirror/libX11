@@ -235,7 +235,7 @@ legal for the keyboard as a whole, but not for the key in question, the group
  is normalized using the algorithm specified by the
 <emphasis>group_info</emphasis>
  member of the key symbol map (
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
 ).
     </para>
   </glossdef>
@@ -425,7 +425,7 @@ indicator map is the collection of these attributes for each indicator and is
 held in the
 <emphasis>maps</emphasis>
  array, which is an array of
-<emphasis>XkbIndicatorRec</emphasis>
+<structname>XkbIndicatorRec</structname>
  structures.
     </para>
   </glossdef>
@@ -541,7 +541,7 @@ exactly one behavior.
     <para>
 A key symbol map describes the symbols bound to a key and the rules to be used
 to interpret those symbols. It is an array of
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structures indexed by keycode.
     </para>
   </glossdef>
@@ -553,9 +553,9 @@ to interpret those symbols. It is an array of
 Key types are used to determine the shift level of a key given the current
 state of the keyboard. There is one key type for each group for a key. Key
 types are defined using the
-<emphasis>XkbKeyTypeRec</emphasis>
+<structname>XkbKeyTypeRec</structname>
  and
-<emphasis>XkbKTMapEntryRec</emphasis>
+<structname>XkbKTMapEntryRec</structname>
  structures. Xkb allows up to
 <symbol>XkbMaxKeyTypes</symbol>
  (255) key types to be defined, but requires at least
@@ -621,7 +621,7 @@ key type.
 Keyboard geometry describes the physical appearance of the keyboard, including
 the shape, location, and color of all keyboard keys or other visible keyboard
 components such as indicators and is stored in a
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  structure. The information contained in a keyboard geometry is sufficient to
 allow a client program to draw an accurate two-dimensional image of the
 keyboard.
@@ -634,7 +634,7 @@ keyboard.
     <para>
 The keyboard geometry name describes the physical location, size, and shape of
 the various keys on the keyboard and is part of the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  structure.
     </para>
   </glossdef>
@@ -665,7 +665,7 @@ the device.
     <para>
 The keycode name describes the range and meaning of the keycodes returned by
 the keyboard and is part of the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  structure.
     </para>
   </glossdef>
@@ -770,7 +770,7 @@ may be, for example, a shift key or a control key.
   <glossdef>
     <para>
 An Xkb modifier definition, held in an
-<emphasis>XkbModsRec</emphasis>,
+<structname>XkbModsRec</structname>,
 consists of a set of real modifiers, a set of virtual modifiers, and an
 effective mask. The mask is the union of the real modifiers and the set of real
 modifiers to which the virtual modifiers map; the mask cannot be explicitly
@@ -803,7 +803,7 @@ polygon, used in the geometry specification for a keyboard.
   <glossdef>
     <para>
 The physical indicator mask is a field in the
-<emphasis>XkbIndicatorRec</emphasis>
+<structname>XkbIndicatorRec</structname>
  that indicates which indicators are bound to physical LEDs on the keyboard; if
 a bit is set in
 <emphasis>phys_indicators</emphasis>,

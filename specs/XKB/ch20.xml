@@ -230,7 +230,7 @@ To obtain this list, use
 specified in
 <parameter>ptrns</parameter>.
 It waits for a reply and returns the matching component names in an
-<emphasis>XkbComponentListRec</emphasis>
+<structname>XkbComponentListRec</structname>
  structure. When you are done using the structure, you should free it using
 <function>XkbFreeComponentList</function>.
 <parameter>device_spec</parameter>
@@ -243,7 +243,7 @@ that are relevant for that particular device.
 <para>
 <parameter>ptrns</parameter>
  is a pointer to an
-<emphasis>XkbComponentNamesRec</emphasis>,
+<structname>XkbComponentNamesRec</structname>,
 described below. Each of the fields in
 <parameter>ptrns</parameter>
  contains a pattern naming the components of interest. Each of the patterns is
@@ -294,7 +294,7 @@ because of the limit.
 The component name patterns used to describe the request are passed to
 <function>XkbListComponents</function>
  using an
-<emphasis>XkbComponentNamesRec</emphasis>
+<structname>XkbComponentNamesRec</structname>
  structure. This structure has no special allocation constraints or
 interrelationships with other structures; allocate and free this structure
 using standard
@@ -312,13 +312,13 @@ typedef struct _XkbComponentNames {
       char *       compat;    /* compatibility map names */
       char *       symbols;   /* symbol names */
       char *       geometry;  /* geometry names */
-} <emphasis>XkbComponentNamesRec</emphasis>, *XkbComponentNamesPtr;
+} <structname>XkbComponentNamesRec</structname>, *XkbComponentNamesPtr;
 </programlisting></para>
 
 <para>
 <function>XkbListComponents</function>
  returns a pointer to an
-<emphasis>XkbComponentListRec</emphasis>
+<structname>XkbComponentListRec</structname>
 :
 </para>
 
@@ -336,21 +336,21 @@ typedef struct _XkbComponentList {
       XkbComponentNamePtr  compat;          /* compatibility map names */
       XkbComponentNamePtr  symbols;         /* symbol names */
       XkbComponentNamePtr  geometry;        /* geometry names */
-} <emphasis>XkbComponentListRec</emphasis>, *XkbComponentListPtr;
+} <structname>XkbComponentListRec</structname>, *XkbComponentListPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbComponentName {
       unsigned short         flags;     /* hints regarding component name */
       char *                 name;      /* name of component */
-} <emphasis>XkbComponentNameRec</emphasis>, *XkbComponentNamePtr;
+} <structname>XkbComponentNameRec</structname>, *XkbComponentNamePtr;
 </programlisting></para>
 
 <para>
 Note that the structure used to specify patterns on input is an
-<emphasis>XkbComponentNamesRec</emphasis>,
+<structname>XkbComponentNamesRec</structname>,
 and that used to hold the individual component names upon return is an
-<emphasis>XkbComponentNameRec</emphasis>
+<structname>XkbComponentNameRec</structname>
  (no trailing ‘s’ in Name).
 </para>
 
@@ -379,7 +379,7 @@ free it using
     </term>
     <listitem>
       <para>
-        pointer to <emphasis>XkbComponentListRec</emphasis> to free
+        pointer to <structname>XkbComponentListRec</structname> to free
       </para>
     </listitem>
   </varlistentry>
@@ -394,9 +394,9 @@ free it using
 A set of flags is associated with each component; these flags provide
 additional hints about the component’s use. These hints are designated by bit
 masks in the flags field of the
-<emphasis>XkbComponentNameRec</emphasis>
+<structname>XkbComponentNameRec</structname>
  structures contained in the
-<emphasis>XkbComponentListRec</emphasis>
+<structname>XkbComponentListRec</structname>
  returned from
 <function>XkbListComponents</function>.
 The least significant byte of the flags field has the same meaning for all
@@ -641,7 +641,7 @@ should use to build the new keyboard description.
 <parameter>need</parameter>
  are bit fields describing the parts of the resulting keyboard description that
 should be present in the returned
-<emphasis>XkbDescRec</emphasis>.
+<structname>XkbDescRec</structname>.
 </para>
 
 
@@ -950,7 +950,7 @@ the server’s description for device
 The
 <parameter>names</parameter>
  structure in an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  keyboard description record (see <xref linkend="Symbolic_Names" />) contains one field for each of
 the five component types used to build a keyboard description. When a keyboard
 description is built from a set of database components, the corresponding
@@ -976,12 +976,12 @@ database of components and returning all or part of it is diagrammed in Figure
 
 <para>
 The information returned to the client in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  is essentially the result of a series of calls to extract information from a
 fictitious device whose description matches the one just built. The calls
 corresponding to each of the mask bits are summarized in
 <link linkend="table20.4">Table 20.4</link>, together with the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  components that are filled in.
 </para>
 
@@ -1083,7 +1083,7 @@ There is no way to determine which components specified in
  and
 <emphasis>max_key_code</emphasis>
  in the returned
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure.
 </para>
 
@@ -1140,7 +1140,7 @@ database, use
     </term>
     <listitem>
       <para>
-        mask of components of <emphasis>XkbDescRec</emphasis> of interest
+        mask of components of <structname>XkbDescRec</structname> of interest
       </para>
     </listitem>
   </varlistentry>

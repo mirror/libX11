@@ -68,9 +68,9 @@ specific indicators, use
 
 <para>
 Use the indicator description record,
-<emphasis>XkbIndicatorRec</emphasis>,
+<structname>XkbIndicatorRec</structname>,
 and its indicator map,
-<emphasis>XkbIndicatorMapRec</emphasis>,
+<structname>XkbIndicatorMapRec</structname>,
 to inquire about and control most indicator properties and behaviors.
 </para>
 
@@ -92,7 +92,7 @@ as follows:
 typedef struct {
       unsigned long                   phys_indicators;        /* LEDs existence */
       XkbIndicatorMapRec              maps[XkbNumIndicators]; /* indicator maps */
-} <emphasis>XkbIndicatorRec</emphasis>,*XkbIndicatorPtr;
+} <structname>XkbIndicatorRec</structname>,*XkbIndicatorPtr;
 </programlisting></para>
 
 <para>
@@ -138,7 +138,7 @@ explicitly set its state and whether it tracks the keyboard state. The
 attributes of each indicator are held in the
 <emphasis>maps</emphasis>
  array, which is an array of
-<emphasis>XkbIndicatorRec</emphasis>
+<structname>XkbIndicatorRec</structname>
  structures:
 </para>
 
@@ -150,7 +150,7 @@ typedef struct {
       unsigned char    which_mods;    /* match criteria for modifiers */
       XkbModsRec       mods;          /* which modifiers the indicator watches */
       unsigned int     ctrls;         /* which controls the indicator watches */
-} <emphasis>XkbIndicatorMapRec</emphasis>, *XkbIndicatorMapPtr;
+} <structname>XkbIndicatorMapRec</structname>, *XkbIndicatorMapPtr;
 </programlisting></para>
 
 <para>
@@ -531,7 +531,7 @@ The
 field specifies what modifiers an indicator watches. The
 <emphasis>mods</emphasis>
  field is an Xkb modifier definition,
-<emphasis>XkbModsRec</emphasis>,
+<structname>XkbModsRec</structname>,
 as described in <link linkend="Modifier_Definitions">section 7.2</link>, which can specify both real and virtual
 modifiers. The
 <emphasis>mods</emphasis>
@@ -552,7 +552,7 @@ automatically updates the mask field whenever any of the real or virtual
 modifiers are changed in the modifier definition) or you can use
 <function>XkbVirtualModsToReal</function>
  to determine the proper contents for the mask field, assuming that the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  contains the virtual modifier definitions.
 </para>
 
@@ -838,7 +838,7 @@ position in masks is as follows: one of the parameters returned from
 <emphasis>XkbGetNamedIndicators</emphasis>
  is an index that is the bit position to use in any function call that requires
 a mask of indicator bits, as well as the indicator’s index into the
-<emphasis>XkbIndicatorRec</emphasis>
+<structname>XkbIndicatorRec</structname>
  array of indicator maps.
 </para>
 
@@ -1162,7 +1162,7 @@ The
  field returns the zero-based index of the named indicator. This index is the
 bit position to use in any function call that requires a mask of indicator
 bits, as well as the indicator’s index into the
-<emphasis>XkbIndicatorRec</emphasis>
+<structname>XkbIndicatorRec</structname>
  array of indicator maps.
 <parameter>state_rtrn</parameter>
  returns the current state of the named indicator (
@@ -1223,7 +1223,7 @@ local copy of the indicator maps and use
  or
 <function>XkbSetNamedIndicator</function>,
 or, to reduce network traffic, use an
-<emphasis>XkbIndicatorChangesRec</emphasis>
+<structname>XkbIndicatorChangesRec</structname>
  structure and use
 <function>XkbChangeIndicators</function>.
 </para>
@@ -1602,7 +1602,7 @@ and
 
 <para>
 The
-<emphasis>XkbIndicatorChangesRec</emphasis>
+<structname>XkbIndicatorChangesRec</structname>
  identifies small modifications to the indicator map. Use it with the function
 <function>XkbChangeIndicators</function>
  to reduce the amount of traffic sent to the server.
@@ -1613,7 +1613,7 @@ typedef struct _XkbIndicatorChanges {
       unsigned int             state_changes;
       unsigned int             map_changes;
 }
-<emphasis>XkbIndicatorChangesRec</emphasis>,*XkbIndicatorChangesPtr;
+<structname>XkbIndicatorChangesRec</structname>,*XkbIndicatorChangesPtr;
 </programlisting></para>
 
 <para>
@@ -2070,7 +2070,7 @@ If
 To free memory used by the
 <emphasis>indicators</emphasis>
  member of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure, use
 <function>XkbFreeIndicatorMaps</function>.
 </para>

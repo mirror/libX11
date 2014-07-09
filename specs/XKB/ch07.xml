@@ -69,7 +69,7 @@ Virtual modifiers are named by converting their string name to an X
  and storing the Atom in the
 <emphasis>names.vmods</emphasis>
  array in an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>). The position of a name Atom in the
 <emphasis>names.vmods</emphasis>
  array defines the bit position used to represent the virtual modifier and also
@@ -123,7 +123,7 @@ real modifiers */
       unsigned char            real_mods;            /* real modifier bits */
       unsigned short             vmods;            /* virtual modifier bits */
 }
-<emphasis>XkbModsRec</emphasis>,
+<structname>XkbModsRec</structname>,
 *XkbModsPtr;
 </programlisting></para>
 
@@ -165,7 +165,7 @@ for the keyboard mapping of interest.
 The binding of virtual modifiers to real modifiers is defined by the
 <emphasis>server.vmods</emphasis>
  array in an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure. Each entry contains the real modifier bits that are bound to the
 virtual modifier corresponding to the entry. The overall relationship of fields
 dealing with virtual modifiers in the server keyboard description are shown in

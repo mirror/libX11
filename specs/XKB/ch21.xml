@@ -157,7 +157,7 @@ silently if Xkb access to those devices is not supported by the X server.
 <para>
 Information about X Input Extension devices is transferred between a client
 program and the Xkb extension in an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure:
 </para>
 
@@ -177,7 +177,7 @@ typedef struct {
       unsigned short  dflt_kbd_fb;   /* input extension ID of default (core kbd) indicator */
       unsigned short  dflt_led_fb;   /* input extension ID of default indicator feedback */
       XkbDeviceLedInfoPtr  leds;     /* LED descriptions */
-} <emphasis>XkbDeviceInfoRec</emphasis>, *XkbDeviceInfoPtr;
+} <structname>XkbDeviceInfoRec</structname>, *XkbDeviceInfoPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -193,7 +193,7 @@ typedef struct {
       unsigned int     state;            /* 1 bit =&gt; corresponding LED is on */
       Atom             names[XkbNumIndicators];  /* names for LEDs */
       XkbIndicatorMapRec  maps;          /* indicator maps for each LED */
-} <emphasis>XkbDeviceLedInfoRec</emphasis>, *XkbDeviceLedInfoPtr;
+} <structname>XkbDeviceLedInfoRec</structname>, *XkbDeviceLedInfoPtr;
 </programlisting></para>
 
 <para>
@@ -217,7 +217,7 @@ the state of the core keyboard is used. The
  fields are masks where each bit indicates a capability. The meaning of the
 mask bits is listed in <link linkend="table21.1">Table 21.1</link>,
 together with the fields in the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure that are associated with the capability represented by each bit. The
 same bits are used to indicate the specific information desired in many of the
 functions described subsequently in this section.
@@ -354,7 +354,7 @@ and
 <emphasis>unsupported</emphasis>
  fields are always filled in when a valid reply is returned from the server
 involving an
-<emphasis>XkbDeviceInfoRec</emphasis>.
+<structname>XkbDeviceInfoRec</structname>.
 All of the other fields are modified only if the particular function asks for
 them.
 </para>
@@ -459,14 +459,14 @@ parameter
 is a mask specifying optional information to be returned. It is an inclusive OR
 of one or more of the values from <link linkend="table21.1">Table 21.1</link>
 and causes the returned
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  to contain values for the corresponding fields specified in the table.
 </para>
 
 
 <para>
 The
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  returned by
 <function>XkbGetDeviceInfo</function>
  always has values for
@@ -500,7 +500,7 @@ If the
  bit is set in
 <parameter>which</parameter>,
 the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  returned will have the button actions (
 <emphasis>btn_acts</emphasis>
  field) filled in for all buttons.
@@ -525,7 +525,7 @@ If any of the
  bits are set in
 <parameter>which</parameter>,
 the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  returned will have filled in the portions of the
 <emphasis>leds</emphasis>
  structure corresponding to the indicator feedback identified by
@@ -535,7 +535,7 @@ the
 The
 <emphasis>leds</emphasis>
  vector of the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  is allocated if necessary and
 <emphasis>sz_leds</emphasis>
  and
@@ -956,7 +956,7 @@ Structure</title>
 
 <para>
 To obtain an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure, use XkbGetDeviceInfo or XkbAllocDeviceInfo.
 </para>
 
@@ -1007,7 +1007,7 @@ To obtain an
 <para>
 <function>XkbAllocDeviceInfo</function>
  allocates space for an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure and initializes that structure’s
 <parameter>device_spec</parameter>
  field with the device ID specified by device_spec. If
@@ -1016,14 +1016,14 @@ To obtain an
 <parameter>n_buttons</parameter>
 <emphasis>XkbActions</emphasis>
  are linked into the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure and initialized to zero. If sz_leds is nonzero,
 <parameter>sz_leds</parameter>
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structures are also allocated and linked into the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure. If you request
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structures be allocated using this request, you must initialize them
 explicitly.
 </para>
@@ -1031,7 +1031,7 @@ explicitly.
 
 <para>
 To obtain an
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structure, use XkbAllocDeviceLedInfo.
 </para>
 
@@ -1072,16 +1072,16 @@ To obtain an
 <para>
 <function>XkbAllocDeviceLedInfo</function>
  allocates space for an
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  and places it in
 <parameter>device_info</parameter>.
 If num_needed is nonzero,
 <parameter>num_needed</parameter>
-<emphasis>XkbIndicatorMapRec</emphasis>
+<structname>XkbIndicatorMapRec</structname>
  structures are also allocated and linked into the
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structure. If you request
-<emphasis>XkbIndicatorMapRec</emphasis>
+<structname>XkbIndicatorMapRec</structname>
  structures be allocated using this request, you must initialize them
 explicitly. All other fields are initialized to zero.
 </para>
@@ -1089,7 +1089,7 @@ explicitly. All other fields are initialized to zero.
 
 <para>
 To initialize an
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structure, use XkbAddDeviceLedInfo.
 </para>
 
@@ -1170,12 +1170,12 @@ Otherwise, it checks to be sure there is at least one empty entry in
 If successful,
 <function>XkbAddDeviceLedInfo</function>
  returns a pointer to the
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structure that was initialized. If unable to allocate sufficient storage, or
 if
 <parameter>device_info</parameter>
  points to an invalid
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure, or if
 <parameter>led_class</parameter>
  or
@@ -1189,7 +1189,7 @@ if
 
 <para>
 To allocate additional space for button actions in an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure, use XkbResizeDeviceButtonActions.
 </para>
 
@@ -1255,7 +1255,7 @@ If device_info is invalid or new_total is greater than 255,
 
 <para>
 To free an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure, use XkbFreeDeviceInfo.
 </para>
 
@@ -1278,7 +1278,7 @@ To free an
     </term>
     <listitem>
       <para>
-        pointer to <emphasis>XkbDeviceInfoRec</emphasis> in which to free items
+        pointer to <structname>XkbDeviceInfoRec</structname> in which to free items
       </para>
     </listitem>
   </varlistentry>
@@ -1312,7 +1312,7 @@ the
  frees all components of
 <parameter>device_info</parameter>
  and the
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure pointed to by
 <parameter>device_info</parameter>
  itself. If free_all is
@@ -1334,7 +1334,7 @@ and
 -&gt;
 <emphasis>num_btns</emphasis>
  is set to zero. If which contains all bits in XkbXI_IndicatorsMask, all
-<emphasis>XkbDeviceLedInfoRec</emphasis>
+<structname>XkbDeviceLedInfoRec</structname>
  structures associated with
 <parameter>device_info</parameter>
  are freed,
@@ -1393,7 +1393,7 @@ not set the
  bit in the
 <emphasis>supported</emphasis>
  field of an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure.
 </para>
 
@@ -1414,7 +1414,7 @@ To change characteristics of an X Input Extension device in the server, first
 modify a local copy of the device structure and then use either
 <function>XkbSetDeviceInfo</function>,
  or, to save network traffic, use an
-<emphasis>XkbDeviceChangesRec</emphasis>
+<structname>XkbDeviceChangesRec</structname>
  structure (see <link linkend="Tracking_Changes_to_Extension_Devices">section 21.6</link>) and call
 <function>XkbChangeDeviceInfo</function>
  to download the changes to the server.
@@ -1846,7 +1846,7 @@ state or configuration.
 Changes to an Xkb extension device may be tracked by listening to
 <emphasis>XkbDeviceExtensionNotify</emphasis>
  events and accumulating the changes in an
-<emphasis>XkbDeviceChangesRec</emphasis>
+<structname>XkbDeviceChangesRec</structname>
  structure. The changes noted in the structure may then be used in subsequent
 operations to update either a server configuration or a local copy of an Xkb
 extension device configuration. The changes structure is defined as follows:
@@ -1859,7 +1859,7 @@ typedef struct _XkbDeviceChanges {
                                     if any */
       unsigned short  num_btns;  /* number of buttons that have changed */
       XkbDeviceLedChangesRec leds;
-} <emphasis>XkbDeviceChangesRec</emphasis>,*XkbDeviceChangesPtr;
+} <structname>XkbDeviceChangesRec</structname>,*XkbDeviceChangesPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -1870,13 +1870,13 @@ typedef struct _XkbDeviceLedChanges {
       unsigned int    maps;      /* bits indicating which maps have changed */
       struct _XkbDeviceLedChanges *next; /* link to indicator change record
                                             for next set */
-} <emphasis>XkbDeviceLedChangesRec</emphasis>,*XkbDeviceLedChangesPtr;
+} <structname>XkbDeviceLedChangesRec</structname>,*XkbDeviceLedChangesPtr;
 </programlisting></para>
 
 <para>
 A local description of the configuration and state of a device may be kept in
 an
-<emphasis>XkbDeviceInfoRec</emphasis>
+<structname>XkbDeviceInfoRec</structname>
  structure. The actual state or configuration of the device may change because
 of XkbSetDeviceInfo and XkbSetButtonActions requests made by clients or by user
 interaction with the device. The X server sends an XkbExtensionDeviceNotify
@@ -1956,7 +1956,7 @@ The
  indicates the types of changes the event is reporting.
 <function>XkbNoteDeviceChanges</function>
  updates the
-<emphasis>XkbDeviceChangesRec</emphasis>
+<structname>XkbDeviceChangesRec</structname>
  specified by
 <parameter>old</parameter>
  with the changes that are both specified in
@@ -1971,7 +1971,7 @@ The
 <para>
 To update a local copy of the state and configuration of an X input extension
 device with the changes previously noted in an
-<emphasis>XkbDeviceChangesRec</emphasis>
+<structname>XkbDeviceChangesRec</structname>
  structure, use XkbGetDeviceInfoChanges.
 </para>
 

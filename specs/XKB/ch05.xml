@@ -167,7 +167,7 @@ There are two circumstances under which groups are normalized:
 The global locked or effective group changes. In this case, the changed group is normalized into range according to the settings of the
 <emphasis>groups_wrap</emphasis>
  field of the
-<emphasis>XkbControlsRec</emphasis>
+<structname>XkbControlsRec</structname>
  structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
   </para></listitem>
   <listitem><para>
@@ -175,7 +175,7 @@ The global locked or effective group changes. In this case, the changed group is
 The Xkb library is interpreting an event with an effective group that is legal for the keyboard as a whole, but not for the key in question. In this case, the group to use for this event only is determined using the
 <emphasis>group_info</emphasis>
  field of the key symbol mapping (
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
 ) for the event key.
   </para></listitem>
 </orderedlist>
@@ -676,7 +676,7 @@ To latch the keysym group, use
 
 <para>
 Xkb keyboard state may be represented in an
-<emphasis>XkbStateRec</emphasis>
+<structname>XkbStateRec</structname>
  structure:
 </para>
 
@@ -697,7 +697,7 @@ typedef struct {
       unsigned char            compat_lookup_mods;   /* mods used for compatibility lookup */
       unsigned short            ptr_buttons;         /* 1 bit =&gt; corresponding pointer btn is down */
 }
-<emphasis>XkbStateRec</emphasis>,
+<structname>XkbStateRec</structname>,
 *XkbStatePtr;
 </programlisting></para>
 

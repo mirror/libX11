@@ -741,13 +741,13 @@ Where a connection to the server is passed as an argument (Display*) and an
  is also passed as an argument, the Display* argument must match the
 <emphasis>dpy</emphasis>
  field of the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  pointed to by the
 <emphasis>XkbDescPtr</emphasis>
  argument, or else the
 <emphasis>dpy</emphasis>
  field of the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  must be
 <symbol>NULL</symbol>.
 If they don’t match or the
@@ -761,7 +761,7 @@ a
  variable). Upon successful return, the
 <emphasis>dpy</emphasis>
  field of the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  always contains the Display* value passed in.
 </para>
 
@@ -776,7 +776,7 @@ involve both a server connection (Display *
 ). In some cases, the device identifier is implicit and is taken as the
 <emphasis>device_spec</emphasis>
  field of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure passed as an argument.
 </para>
 
@@ -795,7 +795,7 @@ its device identifier.
 Where an Xkb device identifier is passed as an argument and an
 <emphasis>XkbDescPtr</emphasis>
  is also passed as an argument, if either the argument or the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
 <emphasis>device_spec</emphasis>
  field is
 <symbol>XkbUseCoreKbd</symbol>,

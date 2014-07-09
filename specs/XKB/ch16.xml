@@ -30,7 +30,7 @@ Server Map Relationships</H5>
 <para>
 The Xkb server map contains the information the server needs to interpret key
 events and is of type
-<emphasis>XkbServerMapRec</emphasis>
+<structname>XkbServerMapRec</structname>
 :
 </para>
 
@@ -48,7 +48,7 @@ typedef struct {                         /* Server Map */
       unsigned char *    explicit;       /* explicit overrides of core remapping, 1 per key */
       unsigned char      vmods[XkbNumVirtualMods];  /* real mods bound to virtual mods */
       unsigned short *   vmodmap;        /* virtual mods bound to key, 1 per keycode*/
-} <emphasis>XkbServerMapRec</emphasis>, *XkbServerMapPtr;
+} <structname>XkbServerMapRec</structname>, *XkbServerMapPtr;
 </programlisting></para>
 
 <para>
@@ -120,7 +120,7 @@ the entry represents an index into the
  field of the server map, much as the
 <emphasis>offset</emphasis>
  field of a
-<emphasis>KeySymMapRec</emphasis>
+<structname>KeySymMapRec</structname>
  structure is an index into the
 <emphasis>syms</emphasis>
  field of the client map.
@@ -3976,11 +3976,11 @@ Keys that belong to the same radio group have the
  field in the
 <emphasis>XkbBehavior</emphasis>
  structure. If the radio group has a name in the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  structure, the radio group index is the index into the
 <emphasis>radio_group</emphasis>
  array in the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  structure. A radio group key when pressed stays logically down until another
 key in the radio group is pressed, when the first key becomes logically up and
 the new key becomes logically down. Setting the

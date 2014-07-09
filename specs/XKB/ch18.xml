@@ -43,7 +43,7 @@ The names component of the keyboard description is defined as follows:
 <para><programlisting>
 typedef struct {
       char      name[XkbKeyNameLength];      /* symbolic key names */
-} <emphasis>XkbKeyNameRec</emphasis>,*XkbKeyNamePtr;
+} <structname>XkbKeyNameRec</structname>,*XkbKeyNamePtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -52,7 +52,7 @@ typedef struct {
                 /* this key name must be in the keys array */
       char      alias[XkbKeyNameLength];
                 /* symbolic key name as alias for the key */
-} <emphasis>XkbKeyAliasRec</emphasis>,*XkbKeyAliasPtr;
+} <structname>XkbKeyAliasRec</structname>,*XkbKeyAliasPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -73,7 +73,7 @@ typedef struct _XkbNamesRec {
       unsigned char      num_key_aliases;  /* number of keys in the
                                               <emphasis>key_aliases</emphasis> array */
       unsigned short     num_rg;      /* number of radio groups */
-} <emphasis>XkbNamesRec</emphasis>,*XkbNamesPtr;      /*
+} <structname>XkbNamesRec</structname>,*XkbNamesPtr;      /*
 </programlisting></para>
 
 <para>
@@ -194,12 +194,12 @@ name LEFT as an alias for A31 in the
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
 (see <xref linkend="Keyboard_Geometry" />) override those defined in the keycodes component of the server
 database, which are stored in the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  (
 <emphasis>xkb-&gt;names</emphasis>
 ). Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the
-<emphasis>XkbNamesRec</emphasis>.
+<structname>XkbNamesRec</structname>.
 </para></note>
 
 <para>
@@ -498,7 +498,7 @@ To change the symbolic names in the server, first modify a local copy of the
 keyboard description and then use either
 <function>XkbSetNames</function>,
  or, to save network traffic, use a
-<emphasis>XkbNameChangesRec</emphasis>
+<structname>XkbNameChangesRec</structname>
 structure and call
 <function>XkbChangeNames</function>
  to download the changes to the server.
@@ -633,7 +633,7 @@ The specified types are illegal if
 
 <para>
 The
-<emphasis>XkbNameChangesRec</emphasis>
+<structname>XkbNameChangesRec</structname>
  allows applications to identify small modifications to the symbolic names and
 effectively reduces the amount of traffic sent to the server:
 </para>
@@ -663,7 +663,7 @@ typedef struct _XkbNameChanges {
                                                  for which names were changed */
       unsigned char       changed_groups;   /* mask of groups for
                                                which names were changed */
-} <emphasis>XkbNameChangesRec</emphasis>, *XkbNameChangesPtr
+} <structname>XkbNameChangesRec</structname>, *XkbNameChangesPtr
 </programlisting></para>
 
 <para>
@@ -760,7 +760,7 @@ various kinds of symbolic names, as shown in
  provides a more flexible method for changing symbolic names than
 <function>XkbSetNames</function>
  and requires the use of an
-<emphasis>XkbNameChangesRec</emphasis>
+<structname>XkbNameChangesRec</structname>
  structure.
 </para>
 
@@ -910,7 +910,7 @@ The
 inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>. The other
 fields in this event are interpreted as the like-named fields in an
-<emphasis>XkbNameChangesRec</emphasis> , as previously defined.
+<structname>XkbNameChangesRec</structname> , as previously defined.
 </para>
 
 

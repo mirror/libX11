@@ -13,9 +13,9 @@ document that discuss the major Xkb components in detail.
 
 <para>
 The complete description of an Xkb keyboard is given by an
-<emphasis>XkbDescRec</emphasis>.
+<structname>XkbDescRec</structname>.
 The component structures in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  represent the major Xkb components outlined in <link linkend="figure1.1">Figure 1.1</link>.
 </para>
 
@@ -43,7 +43,7 @@ components */
       XkbGeometryPtr                  geom;            /* physical geometry of
 keyboard */
 }
-<emphasis>XkbDescRec</emphasis>,
+<structname>XkbDescRec</structname>,
 *XkbDescPtr;
 </programlisting></para>
 
@@ -73,7 +73,7 @@ are described in detail in other sections of this document.
 <link linkend="table6.1">Table 6.1</link>
 identifies the subsequent sections of this document that discuss the individual
 components of the
-<emphasis>XkbDescRec</emphasis>.
+<structname>XkbDescRec</structname>.
 </para>
 
 <table id='table6.1' frame='topbot'>
@@ -126,7 +126,7 @@ Each structure component has a corresponding mask bit that is used in function
 calls to indicate that the structure should be manipulated in some manner, such
 as allocating it or freeing it. These masks and their relationships to the
 fields in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  are shown in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
@@ -256,7 +256,7 @@ server for those components specified in the
  parameter for device
 <parameter>device_spec</parameter>
  and copies the results to the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  it allocated. The remaining fields in the keyboard description are set to
 <symbol>NULL</symbol>.
 The valid masks for
@@ -333,7 +333,7 @@ obtain values for the structure components from a keyboard device.
 
 <para>
 To destroy either an entire an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  or just some of its members, use
 <function>XkbFreeKeyboard</function>.
 </para>

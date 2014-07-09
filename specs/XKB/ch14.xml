@@ -215,21 +215,21 @@ Xkb provides two functions to obtain the keyboard mapping components from the
 server. The first function,
 <function>XkbGetMap</function>,
 allocates an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure, retrieves mapping components from the server, and stores them in
 the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure it just allocated. The second function,
 <function>XkbGetUpdatedMap</function>,
 retrieves mapping components from the server and stores them in an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure that has previously been allocated.
 </para>
 
 
 <para>
 To allocate an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure and populate it with the server’s keyboard client map and server
 map, use
 <function>XkbGetMap</function>.
@@ -237,7 +237,7 @@ map, use
 is similar to
 <function>XkbGetKeyboard</function>
  (see <link linkend="Obtaining_a_Keyboard_Description_from_the_Server">section 6.2</link>), but is used only for obtaining the address of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure that is populated with keyboard mapping components. It allows finer
 control over which substructures of the keyboard mapping components are to be
 populated.
@@ -324,7 +324,7 @@ and
 reply, and then returns. If successful,
 <function>XkbGetMap</function>
  returns a pointer to the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure it allocated. If unsuccessful,
 <function>XkbGetMap</function>
  returns
@@ -332,7 +332,7 @@ reply, and then returns. If successful,
 When unsuccessful, one of the following protocol errors is also generated:
 <errorname>BadAlloc</errorname>
  (unable to allocate the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure),
 <errorname>BadValue</errorname>
  (some mask bits in
@@ -554,7 +554,7 @@ If the needed components of the
  allocates them.
 <function>XkbGetUpdatedMap</function>
  fetches the requested information for the device specified in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  passed in the
 <parameter>xkb</parameter>
  parameter.
@@ -573,7 +573,7 @@ If unsuccessful,
  returns one of the following:
 <errorname>BadAlloc</errorname>
  (unable to allocate a component in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure),
 <errorname>BadValue</errorname>
  (some mask bits in
@@ -594,7 +594,7 @@ copy of the keyboard map and call
 <function>XkbSetMap</function>
  to send the modified map to the server, or, to reduce network traffic, use
 an
-<emphasis>XkbMapChangesRec</emphasis>
+<structname>XkbMapChangesRec</structname>
  structure and call <function>XkbChangeMap</function>.
 </para>
 
@@ -657,7 +657,7 @@ inclusive OR of the masks listed in
 <link linkend="table14.1">Table 14.1</link>. The
 <parameter>xkb</parameter>
  parameter is a pointer to an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure and contains the information to be copied to the server. For each
 bit set in the
 <parameter>which</parameter>
@@ -704,7 +704,7 @@ helper functions and provides a pointer to where they are defined.
 
 <para>
 Use the
-<emphasis>XkbMapChangesRec</emphasis>
+<structname>XkbMapChangesRec</structname>
  structure to identify and track partial modifications to the mapping
 components and to reduce the amount of traffic between the server and clients.
 </para>
@@ -747,20 +747,20 @@ typedef struct _XkbMapChanges {
       unsigned char     pad1;                 /* reserved */
       unsigned short    vmods;                /* mask indicating which <emphasis>vmods</emphasis>
                                                  changed */
-} <emphasis>XkbMapChangesRec</emphasis>,*XkbMapChangesPtr;
+} <structname>XkbMapChangesRec</structname>,*XkbMapChangesPtr;
 </programlisting></para>
 
 <para>
 The
 <emphasis>changed</emphasis>
  field identifies the map components that have changed in an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure and may contain any of the bits in
 <link linkend="table14.1">Table 14.1</link>, which are also shown
 in <link linkend="table14.2">Table 14.2</link>. Every 1 bit in
 <emphasis>changed</emphasis>
  also identifies which other fields in the
-<emphasis>XkbMapChangesRec</emphasis>
+<structname>XkbMapChangesRec</structname>
  structure contain valid values, as indicated in
 <link linkend="table14.2">Table 14.2</link>. The
 <emphasis>min_key_code</emphasis>
@@ -768,7 +768,7 @@ in <link linkend="table14.2">Table 14.2</link>. Every 1 bit in
 <emphasis>max_key_code</emphasis>
  fields are for reference only; they are ignored on any requests sent to the
 server and are always updated by the server whenever it returns the data for an
-<emphasis>XkbMapChangesRec</emphasis>.
+<structname>XkbMapChangesRec</structname>.
 </para>
 
 <table id='table14.2' frame='topbot'>
@@ -878,7 +878,7 @@ appropriate fields in the server and map components of a local copy of the
 keyboard description, then call
 <function>XkbChangeMap</function>
  with an
-<emphasis>XkbMapChangesRec</emphasis>
+<structname>XkbMapChangesRec</structname>
  structure indicating which components have changed.
 </para>
 
@@ -1057,7 +1057,7 @@ The
 inclusive OR of the mask bits defined in
 <link linkend="table14.1">Table 14.1</link>. The other fields in this
 event are interpreted as the like-named fields in an
-<emphasis>XkbMapChangesRec</emphasis>
+<structname>XkbMapChangesRec</structname>
  (see <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link>). The
 <emphasis>XkbMapNotifyEvent</emphasis>
  structure also has an additional
@@ -1304,7 +1304,7 @@ or
 
 <para>
 To free memory used by the client map member of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure, use
 <function>XkbFreeClientMap</function>.
 </para>
@@ -1361,7 +1361,7 @@ To free memory used by the client map member of an
  frees the components of client map specified by
 <parameter>which</parameter>
  in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure specified by the
 <parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
@@ -1384,7 +1384,7 @@ If
  frees every non-
 <symbol>NULL</symbol>
  structure component in the client map, frees the
-<emphasis>XkbClientMapRec</emphasis>
+<structname>XkbClientMapRec</structname>
  structure referenced by the
 <emphasis>map</emphasis>
  member of the
@@ -1592,7 +1592,7 @@ Otherwise, it can return either
 
 <para>
 To free memory used by the server member of an
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure, use
 <function>XkbFreeServerMap</function>.
 </para>
@@ -1648,7 +1648,7 @@ To free memory used by the server member of an
 The
 <function>XkbFreeServerMap</function>
  function frees the specified components of server map in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  structure specified by the
 <parameter>xkb</parameter>
  parameter and sets the corresponding structure component values to
@@ -1667,7 +1667,7 @@ inclusive OR of the masks listed in
  frees every non-
 <symbol>NULL</symbol>
  structure component in the server map, frees the
-<emphasis>XkbServerMapRec</emphasis>
+<structname>XkbServerMapRec</structname>
  structure referenced by the
 <emphasis>server</emphasis>
  member of the

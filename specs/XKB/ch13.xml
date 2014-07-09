@@ -53,7 +53,7 @@ Objects should be drawn in order from highest priority (0) to lowest (255).
 
 <para>
 The keyboard geometry’s top-level description is stored in a
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  structure. This structure contains three types of information:
 </para>
 
@@ -97,7 +97,7 @@ The top-level keyboard geometry description includes a list of up to
  (32)
 <emphasis>color names</emphasis>.
 A color name is a string whose interpretation is not specified by Xkb. The
-<emphasis>XkbColorRec</emphasis>
+<structname>XkbColorRec</structname>
  structure provides a field for this name as well as a pixel field. The pixel
 field is a convenient place for an application to store a pixel value or color
 definition, if it needs to. All other geometry data structures refer to colors
@@ -135,7 +135,7 @@ multiple key names to a single key.
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
 override those defined in the keycodes component of the server database, which
 are stored in the
-<emphasis>XkbNamesRec</emphasis>
+<structname>XkbNamesRec</structname>
  (
 <emphasis>xkb-&gt;names</emphasis>
 ). Therefore, consider the key aliases defined by the geometry before
@@ -154,7 +154,7 @@ list of outlines. One outline is the primary outline. The primary outline is by
 default the first outline, or it can be optionally specified by the
 <emphasis>primary</emphasis>
  field in the
-<emphasis>XkbShapeRec</emphasis>
+<structname>XkbShapeRec</structname>
  structure. A keyboard display application can generate a simpler but still
 accurate keyboard image by displaying only the primary outlines for each shape.
 Nonrectangular keys must include a rectangular
@@ -168,7 +168,7 @@ to generate a recognizable but degraded image of the keyboard.
 
 <para>
 The
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  top-level geometry description contains the following information that
 pertains to the keyboard as a whole:
 </para>
@@ -222,7 +222,7 @@ The keyboard is subdivided into named
 <emphasis>sections</emphasis>
  of related keys and doodads. The sections and doodads on the keyboard are
 listed in the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  top-level keyboard geometry description. A section is composed of keys that
 are physically together and logically related. <link linkend="figure13.2">Figure 13.2</link> shows a keyboard
 that is divided into four sections. A
@@ -251,7 +251,7 @@ Keyboard with Four Sections</H5>
 A
 <emphasis>shape</emphasis>,
 used to draw keyboard components and stored in a
-<emphasis>XkbShapeRec</emphasis>
+<structname>XkbShapeRec</structname>
  structure, has:
 </para>
 
@@ -287,7 +287,7 @@ outlines for the shape.
 An
 <emphasis>outline</emphasis>,
 stored in a
-<emphasis>XkbOutlineRec</emphasis>
+<structname>XkbOutlineRec</structname>
  structure, is a list of one or more points that describes a single
 closed-polygon, as follows:
 </para>
@@ -336,7 +336,7 @@ outlines for each shape. The default primary outline is the first in a
 shape’s list of outlines. If the
 <emphasis>primary</emphasis>
  field of the
-<emphasis>XkbShapeRec</emphasis>
+<structname>XkbShapeRec</structname>
  structure is not
 <symbol>NULL</symbol>,
 it points to the primary outline. A rectangular
@@ -358,7 +358,7 @@ As previously noted, a keyboard is subdivided into
 is rotated, the coordinates of any components within the section are
 interpreted relative to the edges that were on the top and left before
 rotation. The components that make up a section, stored in a
-<emphasis>XkbSectionRec</emphasis>,
+<structname>XkbSectionRec</structname>,
 include:
 </para>
 
@@ -443,7 +443,7 @@ containing the entire section.
 
 <para>
 A row description (
-<emphasis>XkbRowRec</emphasis>
+<structname>XkbRowRec</structname>
 ) consists of the coordinates of its origin relative to its enclosing section,
 a flag indicating whether the row is horizontal or vertical, and a list of keys
 in the row.
@@ -452,12 +452,12 @@ in the row.
 
 <para>
 A key description (
-<emphasis>XkbKeyRec</emphasis>
+<structname>XkbKeyRec</structname>
 ) consists of a key name, a shape, a key color, and a gap. The key name should
 correspond to one of the keys named in the keyboard names description, the
 shape specifies the appearance of the key, and the key color specifies the
 color of the key (not the label on the key; the label color is stored in the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
 ). Keys are normally drawn immediately adjacent to one another from left to
 right (or top to bottom) within a row. The gap field specifies the distance
 between a key and its predecessor.
@@ -578,7 +578,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>indicator doodad</emphasis>
 </entry>
     <entry>
-<emphasis>XkbIndicatorDoodadRec</emphasis>
+<structname>XkbIndicatorDoodadRec</structname>
 </entry>
     <entry>
 <symbol>XkbIndicatorDoodad</symbol>
@@ -589,7 +589,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>outline doodad</emphasis>
 </entry>
     <entry>
-<emphasis>XkbShapeDoodadRec</emphasis>
+<structname>XkbShapeDoodadRec</structname>
 </entry>
     <entry>
 <symbol>XkbOutlineDoodad</symbol>
@@ -600,7 +600,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>solid doodad</emphasis>
 </entry>
     <entry>
-<emphasis>XkbShapeDoodadRec</emphasis>
+<structname>XkbShapeDoodadRec</structname>
 </entry>
     <entry>
 <symbol>XkbSolidDoodad</symbol>
@@ -611,7 +611,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>text doodad</emphasis>
 </entry>
     <entry>
-<emphasis>XkbTextDoodadRec</emphasis>
+<structname>XkbTextDoodadRec</structname>
 </entry>
     <entry>
 <symbol>XkbTextDoodad</symbol>
@@ -622,7 +622,7 @@ The structures these doodads are stored in and the values of the
 <emphasis>logo doodad</emphasis>
 </entry>
     <entry>
-<emphasis>XkbLogoDoodadRec</emphasis>
+<structname>XkbLogoDoodadRec</structname>
 </entry>
     <entry>
 <symbol>XkbLogoDoodad</symbol>
@@ -640,7 +640,7 @@ The structures these doodads are stored in and the values of the
 An
 <emphasis>overlay row</emphasis>
  (
-<emphasis>XkbOverlayRowRec</emphasis>
+<structname>XkbOverlayRowRec</structname>
 ) contains a pointer to the row it overlays and a list of
 <emphasis>overlay keys</emphasis>.
 </para>
@@ -648,7 +648,7 @@ An
 
 <para>
 Each overlay key definition (
-<emphasis>XkbOverlayKeyRec</emphasis>
+<structname>XkbOverlayKeyRec</structname>
 ) indicates a key that can yield multiple keycodes and consists of a field
 named
 <emphasis>under</emphasis>,
@@ -765,7 +765,7 @@ typedef struct _XkbGeometry {              /* top-level keyboard geometry struct
       XkbSectionPtr       sections;        /* sections array */
       XkbDoodadPtr        doodads;         /* doodads array */
       XkbKeyAliasPtr      key_aliases;     /* key aliases array */
-} <emphasis>XkbGeometryRec</emphasis>*XkbGeometryPtr;
+} <structname>XkbGeometryRec</structname>*XkbGeometryPtr;
 </programlisting></para>
 
 <para>
@@ -785,28 +785,28 @@ keyboard description.
 typedef struct _XkbProperty {
       char *      name;            /* property name */
       char *      value;           /* property value */
-} <emphasis>XkbPropertyRec</emphasis>,*XkbPropertyPtr;
+} <structname>XkbPropertyRec</structname>,*XkbPropertyPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbColor {
       unsigned int      pixel;     /* color */
       char *            spec;      /* color name */
-} <emphasis>XkbColorRec</emphasis>,*XkbColorPtr;
+} <structname>XkbColorRec</structname>,*XkbColorPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbKeyAliasRec {
       char      real[XkbKeyNameLength];   /* real name of the key */
       char      alias[XkbKeyNameLength];  /* alias for the key */
-} <emphasis>XkbKeyAliasRec</emphasis>,*XkbKeyAliasPtr;
+} <structname>XkbKeyAliasRec</structname>,*XkbKeyAliasPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbPoint {                /* x,y coordinates */
       short      x;
       short      y;
-} <emphasis>XkbPointRec</emphasis>, *XkbPointPtr;
+} <structname>XkbPointRec</structname>, *XkbPointPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -815,7 +815,7 @@ typedef struct _XkbOutline {
       unsigned short      sz_points;      /* size of the points array */
       unsigned short      corner_radius;  /* draw corners as circles with this radius */
       XkbPointPtr         points;         /* array of points defining the outline */
-} <emphasis>XkbOutlineRec</emphasis>, *XkbOutlinePtr;
+} <structname>XkbOutlineRec</structname>, *XkbOutlinePtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -824,7 +824,7 @@ typedef struct _XkbBounds {
                                       in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
        short      x2,y2;            /* lower right corner of the bounds, in
                                       <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-} <emphasis>XkbBoundsRec</emphasis>, *XkbBoundsPtr;
+} <structname>XkbBoundsRec</structname>, *XkbBoundsPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -836,7 +836,7 @@ typedef struct _XkbShape {
       XkbOutlinePtr     approx;         /* pointer into the array to the approximating outline */
       XkbOutlinePtr     primary;        /* pointer into the array to the primary outline */
       XkbBoundsRec      bounds;         /* bounding box for the shape; encompasses all outlines */
-} <emphasis>XkbShapeRec</emphasis>, *XkbShapePtr;
+} <structname>XkbShapeRec</structname>, *XkbShapePtr;
 </programlisting></para>
 
 <para>
@@ -856,7 +856,7 @@ typedef struct _XkbKey {         /* key in a row */
       short            gap;      /* gap in <emphasis>mm</emphasis>/<emphasis>10</emphasis> from previous key in row */
       unsigned char    shape_ndx;      /* index of shape for key */
       unsigned char    color_ndx;      /* index of color for key body */
-} <emphasis>XkbKeyRec</emphasis>, *XkbKeyPtr;
+} <structname>XkbKeyRec</structname>, *XkbKeyPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -869,7 +869,7 @@ typedef struct _XkbRow {             /* row in a section */
                                         <symbol>False</symbol> =&gt;horizontal row */
       XkbKeyPtr           keys;      /* array of keys in the row*/
       XkbBoundsRec        bounds;    /* bounding box for the row */
-} <emphasis>XkbRowRec</emphasis>, *XkbRowPtr;
+} <structname>XkbRowRec</structname>, *XkbRowPtr;
 </programlisting></para>
 
 <para>
@@ -890,7 +890,7 @@ typedef struct _XkbOverlayRec {
       unsigned short    sz_rows;        /* size of the rows array */
       XkbOverlayRowPtr  rows;           /* array of rows in the overlay */
       XkbBoundsPtr      bounds;         /* bounding box for the overlay */
-} <emphasis>XkbOverlayRec</emphasis>,*XkbOverlayPtr;
+} <structname>XkbOverlayRec</structname>,*XkbOverlayPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -899,7 +899,7 @@ typedef struct _XkbOverlayRow {
       unsigned short      num_keys;      /* number of keys in the keys array */
       unsigned short      sz_keys;       /* size of the keys array */
       XkbOverlayKeyPtr    keys;          /* array of keys in the overlay row */
-} <emphasis>XkbOverlayRowRec</emphasis>,*XkbOverlayRowPtr;
+} <structname>XkbOverlayRowRec</structname>,*XkbOverlayRowPtr;
 </programlisting></para>
 
 <para>
@@ -910,14 +910,14 @@ typedef struct _XkbOverlayRow {
 one pointed to by
 <emphasis>section_under</emphasis>
  in this overlay row’s
-<emphasis>XkbOverlayRec</emphasis>.
+<structname>XkbOverlayRec</structname>.
 </para>
 
 <para><programlisting>
 typedef struct _XkbOverlayKey {
       XkbKeyNameRec      over;      /* name of this overlay key */
       XkbKeyNameRec      under;     /* name of the key under this overlay key */
-} <emphasis>XkbOverlayKeyRec</emphasis>,*XkbOverlayKeyPtr;
+} <structname>XkbOverlayKeyRec</structname>,*XkbOverlayKeyPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -939,7 +939,7 @@ typedef struct _XkbSection {
       XkbDoodadPtr    doodads;       /* section doodads array */
       XkbBoundsRec    bounds;        /* bounding box for the section, before rotation*/
       XkbOverlayPtr   overlays;      /* section overlays array */
-} <emphasis>XkbSectionRec</emphasis>, *XkbSectionPtr;
+} <structname>XkbSectionRec</structname>, *XkbSectionPtr;
 </programlisting></para>
 
 <para>
@@ -963,9 +963,9 @@ typedef struct _XkbSection {
 
 <para>
 The doodad arrays in the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  and the
-<emphasis>XkbSectionRec</emphasis>
+<structname>XkbSectionRec</structname>
  may contain any of the doodad structures and types shown in
 <link linkend="table13.1">Table 13.1</link>.
 </para>
@@ -982,7 +982,7 @@ typedef union _XkbDoodad {
         XkbTextDoodadRec       text;
         XkbIndicatorDoodadRec  indicator;
         XkbLogoDoodadRec       logo;
-} <emphasis>XkbDoodadRec</emphasis>, *XkbDoodadPtr;
+} <structname>XkbDoodadRec</structname>, *XkbDoodadPtr;
 </programlisting></para>
 
 <para>
@@ -992,9 +992,9 @@ The
 <emphasis>left</emphasis>
  coordinates of each doodad are the coordinates of the origin of the doodad
 relative to the keyboard’s origin if the doodad is in the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
  doodad array, and with respect to the section’s origin if the doodad is in a
-<emphasis>XkbSectionRec</emphasis>
+<structname>XkbSectionRec</structname>
  doodad array. The
 <emphasis>color_ndx</emphasis>
  or
@@ -1002,11 +1002,11 @@ relative to the keyboard’s origin if the doodad is in the
  and
 <emphasis>off_color_ndx</emphasis>
  fields are color indices into the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
 ’s color array and are the colors to draw the doodads with. Similarly, the
 <emphasis>shape_ndx</emphasis>
  fields are indices into the
-<emphasis>XkbGeometryRec</emphasis>
+<structname>XkbGeometryRec</structname>
 ’s shape array.
 </para>
 
@@ -1022,7 +1022,7 @@ typedef struct _XkbShapeDoodad {
       short      angle;               /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
       unsigned short      color_ndx;  /* doodad color */
       unsigned short      shape_ndx;  /* doodad shape */
-} <emphasis>XkbShapeDoodadRec</emphasis>, *XkbShapeDoodadPtr;
+} <structname>XkbShapeDoodadRec</structname>, *XkbShapeDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -1039,7 +1039,7 @@ typedef struct _XkbTextDoodad {
       unsigned short  color_ndx;    /* doodad color */
       char *           text;        /* doodad text */
       char *           font;        /* arbitrary font name for doodad text */
-} <emphasis>XkbTextDoodadRec</emphasis>, *XkbTextDoodadPtr;
+} <structname>XkbTextDoodadRec</structname>, *XkbTextDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -1053,7 +1053,7 @@ typedef struct _XkbIndicatorDoodad {
       unsigned short shape_ndx;     /* doodad shape */
       unsigned short on_color_ndx;  /* color for doodad if indicator is on */
       unsigned short off_color_ndx; /* color for doodad if indicator is off */
-} <emphasis>XkbIndicatorDoodadRec</emphasis>, *XkbIndicatorDoodadPtr;
+} <structname>XkbIndicatorDoodadRec</structname>, *XkbIndicatorDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -1067,7 +1067,7 @@ typedef struct _XkbLogoDoodad {
       unsigned short      color_ndx;  /* doodad color */
       unsigned short      shape_ndx;  /* doodad shape */
       char *      logo_name;          /* text for logo */
-} <emphasis>XkbLogoDoodadRec</emphasis>, *XkbLogoDoodadPtr
+} <structname>XkbLogoDoodadRec</structname>, *XkbLogoDoodadPtr
 </programlisting></para>
 
 </sect2>
@@ -1280,7 +1280,7 @@ To determine the bounding box of the top surface of a shape, use
 <para>
 <function>XkbComputeShapeTop</function>
  returns a
-<emphasis>BoundsRec</emphasis>
+<structname>BoundsRec</structname>
  that contains two x and y coordinates. These coordinates describe the corners
 of a rectangle that contains the outline that describes the top surface of the
 shape. The top surface is defined to be the approximating outline if the
@@ -1310,9 +1310,9 @@ the top surface is defined as the last outline in the
 
 <para>
 A
-<emphasis>ShapeRec</emphasis>
+<structname>ShapeRec</structname>
  contains a
-<emphasis>BoundsRec</emphasis>
+<structname>BoundsRec</structname>
  that describes the bounds of the shape. If you add or delete an outline to or
 from a shape, the bounding box must be updated. To update the bounding box of a
 shape, use <function>XkbComputeShapeBounds</function>.
@@ -1346,11 +1346,11 @@ shape, use <function>XkbComputeShapeBounds</function>.
 <para>
 <function>XkbComputeShapeBounds</function>
  updates the
-<emphasis>BoundsRec</emphasis>
+<structname>BoundsRec</structname>
  contained in the
 <parameter>shape</parameter>
  by examining all the outlines of the shape and setting the
-<emphasis>BoundsRec</emphasis>
+<structname>BoundsRec</structname>
  to the minimum x and minimum y, and maximum x and maximum y values found in
 those outlines.
 <function>XkbComputeShapeBounds</function>

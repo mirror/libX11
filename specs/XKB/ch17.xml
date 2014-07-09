@@ -88,7 +88,7 @@ In addition, whenever the Xkb state is retrieved, the
 and
 <emphasis>compat_lookup_mods</emphasis>
  fields of the
-<emphasis>XkbStateRec</emphasis>
+<structname>XkbStateRec</structname>
  returned indicate the result of applying the compatibility map to the current
 Xkb state in the server.
     </para>
@@ -144,7 +144,7 @@ separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_
 The
 <emphasis>compat</emphasis>
  member of an Xkb keyboard description (
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
 ) points to the
 <emphasis>XkbCompatMap</emphasis>
  structure:
@@ -158,7 +158,7 @@ typedef struct _XkbCompatMapRec {
                                                         <emphasis>sym_interpret</emphasis> */
       unsigned short       size_si;                  /* # structures allocated in
                                                         <emphasis>sym_interpret</emphasis> */
-} <emphasis>XkbCompatMapRec</emphasis>, *XkbCompatMapPtr;
+} <structname>XkbCompatMapRec</structname>, *XkbCompatMapPtr;
 </programlisting></para>
 
 <figure id='figure17.3'>
@@ -185,7 +185,7 @@ As shown in <link linkend="figure17.3">Figure 17.3</link>, there are four
  (contained in
 <emphasis>groups</emphasis>
  [0..3]) in the
-<emphasis>XkbCompatMapRec</emphasis>
+<structname>XkbCompatMapRec</structname>
  structure, one per possible Xkb group. Each group compatibility map is a
 modifier definition (see <link linkend="Modifier_Definitions">section 7.2</link> for a description of modifier
 definitions). The
@@ -195,7 +195,7 @@ the core protocol state field when the corresponding group is active. Because
 only one group is active at any one time, only one of the four possible
 transformations is ever applied at any one point in time. If the device
 described by the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  does not support four groups, the extra groups fields are present, but
 undefined.
 </para>
@@ -397,11 +397,11 @@ apply a default interpretation.
 <para>
 The symbol interpretations used in step 2 are configurable and may be specified
 using
-<emphasis>XkbSymInterpretRec</emphasis>
+<structname>XkbSymInterpretRec</structname>
  structures referenced by the
 <emphasis>sym_interpret</emphasis>
  field of an
-<emphasis>XkbCompatMapRec</emphasis>
+<structname>XkbCompatMapRec</structname>
  (see <link linkend="figure17.3">Figure 17.3</link>).
 </para>
 
@@ -431,7 +431,7 @@ processing may be modified for the particular key involved:
 </literallayout>
 
 <para>
-The <emphasis>XkbSymInterpretRec</emphasis>
+The <structname>XkbSymInterpretRec</structname>
 structure specifies a symbol interpretation:
 </para>
 
@@ -443,7 +443,7 @@ typedef struct {
       unsigned char   mods;         /* modifier bits, correspond to eight real modifiers */
       unsigned char   virtual_mod;  /* 1 modifier to add to key virtual mod map */
       XkbAnyAction    act;          /* action to bind to symbol position on key */
-} <emphasis>XkbSymInterpretRec</emphasis>,*XkbSymInterpretPtr;
+} <structname>XkbSymInterpretRec</structname>,*XkbSymInterpretPtr;
 </programlisting></para>
 
 <para>
@@ -1293,12 +1293,12 @@ You may allocate a new compatibility map for this purpose using
 although you need to adjust the
 <emphasis>device_spec</emphasis>
  field in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  accordingly. Note that symbol interpretations in a compatibility map
 (
 <emphasis>sym_interpret</emphasis>,
 the vector of
-<emphasis>XkbSymInterpretRec</emphasis>
+<structname>XkbSymInterpretRec</structname>
  structures) are also allocated using this same function.
 </para>
 
@@ -1416,7 +1416,7 @@ the request subsequently via protocol errors.
 
 <para>
 To add a symbol interpretation to the list of symbol interpretations in an
-<emphasis>XkbCompatRec</emphasis>,
+<structname>XkbCompatRec</structname>,
 use
 <function>XkbAddSymInterpret</function>.
 </para>
@@ -1603,7 +1603,7 @@ from the server using
 [0..
 <emphasis>changed_groups</emphasis>
 -1] in the
-<emphasis>XkbCompatMapRec</emphasis>
+<structname>XkbCompatMapRec</structname>
  structure.
 </para>
 
@@ -1717,7 +1717,7 @@ vector (
 Note that symbol interpretations in a compatibility map (the
 <emphasis>sym_interpret</emphasis>
  vector of
-<emphasis>XkbSymInterpretRec</emphasis>
+<structname>XkbSymInterpretRec</structname>
  structures) are also allocated using this same function. To ensure that there
 is sufficient space in the symbol interpretation vector for entries to be
 added, use
@@ -1825,7 +1825,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
  compatibility map components are freed, and the
 <emphasis>compat</emphasis>
  field in the
-<emphasis>XkbDescRec</emphasis>
+<structname>XkbDescRec</structname>
  referenced by
 <parameter>xkb</parameter>
  is set to

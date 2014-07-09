@@ -35,7 +35,7 @@ The
 <emphasis>map</emphasis>
 field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb client map, which is of type
-<emphasis>XkbClientMapRec</emphasis>
+<structname>XkbClientMapRec</structname>
 :
 </para>
 
@@ -49,12 +49,12 @@ typedef struct {                        /* Client Map */
       KeySym *           syms;          /* linear 2d tables of keysyms, 1 per key */
       XkbSymMapPtr       key_sym_map;   /* 1 per keycode, maps keycode to <emphasis>syms</emphasis> */
       unsigned char *    modmap;        /* 1 per keycode, real mods bound to key */
-} <emphasis>XkbClientMapRec</emphasis>, *XkbClientMapPtr;
+} <structname>XkbClientMapRec</structname>, *XkbClientMapPtr;
 </programlisting></para>
 
 <para>
 The following sections describe each of the elements of the
-<emphasis>XkbClientMapRec</emphasis>
+<structname>XkbClientMapRec</structname>
  structure in more detail.
 </para>
 
@@ -90,7 +90,7 @@ typedef struct {                       /* Key Type */
                                           <emphasis>map</emphasis> entry */
       Atom              name;          /* name of key type */
       Atom *            level_names;   /* array of names of each shift level */
-} <emphasis>XkbKeyTypeRec</emphasis>, *XkbKeyTypePtr;
+} <structname>XkbKeyTypeRec</structname>, *XkbKeyTypePtr;
 </programlisting></para>
 
 <para><programlisting>
@@ -100,14 +100,14 @@ typedef struct {                   /* Modifiers for a key type */
       unsigned char   level;       /* shift level if modifiers match <emphasis>mods</emphasis> */
       XkbModsRec      mods;        /* mods needed for this level to be
                                       selected */
-} <emphasis>XkbKTMapEntryRec</emphasis>,*XkbKTMapEntryPtr;
+} <structname>XkbKTMapEntryRec</structname>,*XkbKTMapEntryPtr;
 </programlisting></para>
 
 <para>
 The
 <emphasis>mods</emphasis>
  field of a key type is an
-<emphasis>XkbModsRec</emphasis>
+<structname>XkbModsRec</structname>
  (see <link linkend="Modifier_Definitions">section 7.2</link>) specifying the modifiers the key type uses when calculating
 the shift level, and can be composed of both the core modifiers and virtual
 modifiers. To set the modifiers associated with a key type, modify the
@@ -116,11 +116,11 @@ modifiers. To set the modifiers associated with a key type, modify the
 <emphasis>vmods</emphasis>
  fields of the
 <emphasis>mods</emphasis>
-<emphasis>XkbModsRec</emphasis>
+<structname>XkbModsRec</structname>
  accordingly. The
 <emphasis>mask</emphasis>
  field of the
-<emphasis>XkbModsRec</emphasis>
+<structname>XkbModsRec</structname>
  is reserved for use by Xkb and is calculated from the
 <emphasis>real_mods</emphasis>
  and
@@ -146,7 +146,7 @@ The
 The
 <emphasis>map</emphasis>
  field is a vector of
-<emphasis>XkbKTMapEntryRec</emphasis>
+<structname>XkbKTMapEntryRec</structname>
  structures, with
 <emphasis>map_count</emphasis>
  entries, that specify the modifier combinations for each possible shift level.
@@ -1022,7 +1022,7 @@ Use
  and
 <function>XkbCopyKeyTypes</function>
  to copy one or more
-<emphasis>XkbKeyTypeRec</emphasis>
+<structname>XkbKeyTypeRec</structname>
  structures.
 </para>
 
@@ -1069,7 +1069,7 @@ Use
  to the key type specified by
 <parameter>into</parameter>.
 Both must point to legal
-<emphasis>XkbKeyTypeRec</emphasis>
+<structname>XkbKeyTypeRec</structname>
  structures. Xkb assumes
 <parameter>from</parameter>
  and
@@ -1153,7 +1153,7 @@ Otherwise,
 <function>XkbCopyKeyTypes</function>
  copies
 <parameter>num_types</parameter>
-<emphasis>XkbKeyTypeRec</emphasis>
+<structname>XkbKeyTypeRec</structname>
  structures from the array specified by
 <parameter>from</parameter>
  into the array specified by
@@ -1240,7 +1240,7 @@ key symbol mappings, held in the
  field. The
 <emphasis>key_sym_map</emphasis>
  field is an array of
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structures indexed by keycode. The
 <emphasis>key_sym_map</emphasis>
  array has
@@ -1250,7 +1250,7 @@ keycodes falling between the minimum and maximum legal keycodes, inclusive,
 have
 <emphasis>key_sym_map</emphasis>
  arrays, whether or not any key actually yields that code. The
-<emphasis>KeySymMapRec</emphasis>
+<structname>KeySymMapRec</structname>
  structure is defined as follows:
 </para>
 
@@ -1265,7 +1265,7 @@ typedef struct {                                   /* map to keysyms for a singl
       unsigned char     group_info;                /* # of groups and out of range group handling */
       unsigned char     width;                     /* max # of shift levels for key */
       unsigned short    offset;                    /* index to keysym table in <emphasis>syms</emphasis> array */
-} <emphasis>XkbSymMapRec</emphasis>, *XkbSymMapPtr;
+} <structname>XkbSymMapRec</structname>, *XkbSymMapPtr;
 </programlisting></para>
 
 <para>
@@ -1280,7 +1280,7 @@ These fields are described in detail in the following sections.
 The
 <emphasis>kt_index</emphasis>
  array of the
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structure contains the indices of the key types (see <link linkend="Key_Types">section 15.2</link>) for each
 possible group of symbols associated with the key. To obtain the index of a key
 type or the pointer to a key type, Xkb provides the following macros, to access
@@ -1422,7 +1422,7 @@ currently four); if a key has fewer than
 The
 <emphasis>group_info</emphasis>
  field of an
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  is an encoded value containing the number of groups of symbols bound to the
 key as well as the specification of the treatment of out-of-range groups. It is
 legal for a key to have zero groups, in which case it also has zero symbols and
@@ -1591,7 +1591,7 @@ Xkb provides the following macros to access group information:
  returns the
 <emphasis>group_info</emphasis>
  field from the
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structure associated with the key corresponding to
 <parameter>keycode</parameter>.
 </para>
@@ -1615,7 +1615,7 @@ Xkb provides the following macros to access group information:
     </term>
     <listitem>
       <para>
-        group_info field of <emphasis>XkbSymMapRec</emphasis>
+        group_info field of <structname>XkbSymMapRec</structname>
       </para>
     </listitem>
   </varlistentry>
@@ -1626,7 +1626,7 @@ Xkb provides the following macros to access group information:
  returns only the out-of-range processing information from the
 <emphasis>group_info</emphasis>
  field of an
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structure.
 </para>
 
@@ -1649,7 +1649,7 @@ Xkb provides the following macros to access group information:
     </term>
     <listitem>
       <para>
-        group_info field of <emphasis>XkbSymMapRec</emphasis>
+        group_info field of <structname>XkbSymMapRec</structname>
       </para>
     </listitem>
   </varlistentry>
@@ -1660,7 +1660,7 @@ Xkb provides the following macros to access group information:
  returns the out-of-range group number, represented as a group index, from the
 <emphasis>group_info</emphasis>
  field of an
-<emphasis>XkbSymMapRec</emphasis>
+<structname>XkbSymMapRec</structname>
  structure.
 </para>
 

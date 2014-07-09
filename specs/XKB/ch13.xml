@@ -25,9 +25,8 @@ top left corner of the keyboard image. A component’s own origin is also its
 upper left corner. In some cases a component needs to be drawn rotated. For
 example, a special keyboard may have a section of keys arranged in rows in a
 rectangular area, but the entire rectangle may not be in alignment with the
-rest of the keyboard, and instead, it is rotated from horizontal by 30
-<emphasis>o</emphasis>.
-Rotation for a geometry object is specified in 1/10 o increments about its
+rest of the keyboard, and instead, it is rotated from horizontal by 30°.
+Rotation for a geometry object is specified in 1/10° increments about its
 origin. An example of a keyboard with rotated sections is shown in <link linkend="figure13.1">Figure 13.1</link>.
 </para>
 

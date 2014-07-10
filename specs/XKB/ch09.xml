@@ -252,9 +252,9 @@ feedback and keyboard feedback. Some of the functions in this section have
  parameters; set them as follows: Set
 <structfield>bell_class</structfield>
  to
-<emphasis>BellFeedbackClass</emphasis>
+<symbol>BellFeedbackClass</symbol>
  or
-<emphasis>KbdFeedbackClass</emphasis>.
+<symbol>KbdFeedbackClass</symbol>.
 A device can have more than one feedback of each type; set
 <structfield>bell_id</structfield>
  to the particular bell feedback of
@@ -1088,7 +1088,7 @@ can call
  as the
 <structfield>event_type</structfield>
  and specifying
-<emphasis>XkbAllBellNotifyMask</emphasis>
+<symbol>XkbAllBellEventsMask</symbol>
  in
 <emphasis>bits_to_change</emphasis>
  and

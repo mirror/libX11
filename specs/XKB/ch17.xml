@@ -438,7 +438,7 @@ structure specifies a symbol interpretation:
 <para><programlisting>
 typedef struct {
       KeySym          sym;          /* keysym of interest or <symbol>NULL</symbol> */
-      unsigned char   flags;        /* <emphasis>XkbSI_AutoRepeat, XkbSI_LockingKey</emphasis> */
+      unsigned char   flags;        /* <symbol>XkbSI_AutoRepeat</symbol>, <symbol>XkbSI_LockingKey</symbol> */
       unsigned char   match;        /* specifies how mods is interpreted */
       unsigned char   mods;         /* modifier bits, correspond to eight real modifiers */
       unsigned char   virtual_mod;  /* 1 modifier to add to key virtual mod map */

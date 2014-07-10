@@ -553,7 +553,7 @@ have an associated data structure.
   </row>
   <row>
     <entry>
-<para><emphasis>XKbSA_PtrBtn</emphasis></para>
+<para><symbol>XkbSA_PtrBtn</symbol></para>
 <para><symbol>XkbSA_LockPtrBtn</symbol></para>
     </entry>
     <entry><structname>XkbPtrBtnAction</structname></entry><entry>btn</entry>
@@ -601,7 +601,7 @@ have an associated data structure.
   <row>
     <entry>
 <para><symbol>XkbSA_DeviceBtn</symbol></para>
-<para><emphasis>XKbSA_LockDeviceBtn</emphasis></para>
+<para><symbol>XkbSA_LockDeviceBtn</symbol></para>
     </entry>
     <entry><structname>XkbDeviceBtnAction</structname></entry>
     <entry>devbtn</entry>
@@ -630,7 +630,7 @@ Actions associated with the
 
 <para><programlisting>
 typedef struct _XkbModAction {
-      unsigned char     type;         /* <emphasis>XkbSA_{Set|Latch|Lock}Mods</emphasis> */
+      unsigned char     type;         /* <symbol>XkbSA_{Set|Latch|Lock}Mods</symbol> */
       unsigned char     flags;        /* with <structfield>type</structfield> , controls the effect on modifiers */
       unsigned char     mask;         /* same as <structfield>mask</structfield> field of a modifier description */
       unsigned char     real_mods;    /* same as <structfield>real_mods</structfield> field of a modifier description */
@@ -1006,7 +1006,7 @@ Actions associated with the
 
 <para><programlisting>
 typedef struct _XkbGroupAction {
-      unsigned char   type;       /* <emphasis>XkbSA_{Set|Latch|Lock}Group</emphasis> */
+      unsigned char   type;       /* <symbol>XkbSA_{Set|Latch|Lock}Group</symbol> */
       unsigned char   flags;      /* with <structfield>type</structfield> , controls the effect on groups */
       char            group_XXX;  /* represents a group index or delta */
 } <structname>XkbGroupAction</structname>;
@@ -1178,7 +1178,7 @@ the server sets the locked keyboard group to
     <entry><symbol>XkbSA_LatchToLock</symbol></entry>
     <entry>
 If set, and the action type is
-<emphasis>SA_LatchGroup</emphasis>,
+<symbol>XkbSA_LatchGroup</symbol>,
 the server locks the action group if it is already latched.
     </entry>
   </row>
@@ -1595,7 +1595,7 @@ pressed and released:
 
 <para><programlisting>
 typedef struct _XkbPtrBtnAction {
-      unsigned char   type;     /*<emphasis>XkbSA_PtrBtn, XkbSA_LockPtrBtn</emphasis> */
+      unsigned char   type;     /* <symbol>XkbSA_PtrBtn</symbol>, <symbol>XkbSA_LockPtrBtn</symbol> */
       unsigned char   flags;    /* with <structfield>type</structfield> , controls the effect on pointer buttons*/
       unsigned char   count;    /* controls number of ButtonPress and ButtonRelease events */
       unsigned char   button;   /* pointer button to simulate */
@@ -2119,7 +2119,7 @@ A key press sets the base group as specified by the
  bit of the
 <structfield>flags</structfield>
  field (see section Note). If no other actions are transformed by the
-<emphasis>XkbISO_Lock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action, a key release locks the group. Otherwise, a key release clears group
 set by the key press.
       </para>
@@ -2144,7 +2144,7 @@ If not set, any
  actions that occur simultaneously with the
 <symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockMod</emphasis>
+<symbol>XkbSA_LockMods</symbol>
  actions instead.
     </entry>
   </row>
@@ -2231,7 +2231,7 @@ the
 and
 <structfield>vmods2</structfield>
 fields (see <link linkend="Actions_for_Changing_Modifiers_State">section 16.1.3</link>). If no other actions are transformed by the
-<emphasis>XkbISO_Lock</emphasis>
+<symbol>XkbSA_ISOLock</symbol>
  action, a key release locks the action modifiers. Otherwise, a key release
 clears the base modifiers set by the key press.
       </para>
@@ -2269,7 +2269,7 @@ If not set, any
  actions that occur simultaneously with the
 <symbol>XkbSA_ISOLock</symbol>
  action are treated as
-<emphasis>XkbSA_LockMod</emphasis>
+<symbol>XkbSA_LockMods</symbol>
  actions instead.
     </entry>
   </row>
@@ -2371,7 +2371,7 @@ The
 </thead>
 <tbody>
   <row>
-    <entry><emphasis>XkbSA_ISODNoAffectMods</emphasis></entry>
+    <entry><symbol>XkbSA_ISONoAffectMods</symbol></entry>
     <entry>
 If
 <symbol>XkbSA_ISONoAffectMods</symbol>
@@ -3003,7 +3003,7 @@ The
  as the
 <structfield>event_type</structfield>
  and specifying
-<emphasis>XkbAllActionMessageMask</emphasis>
+<symbol>XkbAllActionMessagesMask</symbol>
  in
 <emphasis>bits_to_change</emphasis>
  and
@@ -3176,7 +3176,7 @@ The
 <symbol>XkbSA_RedirectKey</symbol>
  action normally redirects to another key on the same device as the key that
 caused the event, unless that device does not belong to the input extension
-<emphasis>KeyClass</emphasis>,
+<symbol>KeyClass</symbol>,
 in which case this action causes an event on the core keyboard device. (The
 input extension categorizes devices by breaking them into classes. Keyboards,
 and other input devices with keys, are classified as KeyClass devices by the
@@ -3368,9 +3368,9 @@ provides the following convenience macros:
 Actions associated with
 <structname>XkbDeviceBtnAction</structname>
  structures generate
-<emphasis>DeviceButtonPress</emphasis>
+<symbol>DeviceButtonPress</symbol>
  and
-<emphasis>DeviceButtonRelease</emphasis>
+<symbol>DeviceButtonRelease</symbol>
  events instead of normal
 <symbol>KeyPress</symbol>
  and
@@ -3380,7 +3380,7 @@ Actions associated with
 
 <para><programlisting>
 typedef struct _XkbDeviceBtnAction {
-      unsigned char    type;      /* <emphasis>XkbSA_DeviceBtn, XkbSA_LockDeviceBtn</emphasis> */
+      unsigned char    type;      /* <symbol>XkbSA_DeviceBtn</symbol>, <symbol>XkbSA_LockDeviceBtn</symbol> */
       unsigned char    flags;     /* with <structfield>type</structfield> , specifies locking or unlocking */
       unsigned char    count;     /* controls number of DeviceButtonPress and Release events */
       unsigned char    button;    /* index of button on <structfield>device</structfield> */
@@ -3426,13 +3426,13 @@ Otherwise, key presses cause one or more input extension device events instead
 of the usual key press event. If the
 <structfield>count</structfield>
  field is zero, a key press generates a single
-<emphasis>DeviceButtonPress</emphasis>
+<symbol>DeviceButtonPress</symbol>
  event. If count is greater than zero, a key press event generates
 <structfield>count</structfield>
  pairs of
-<emphasis>DeviceButtonPress</emphasis>
+<symbol>DeviceButtonPress</symbol>
  and
-<emphasis>DeviceButtonRelease</emphasis>
+<symbol>DeviceButtonRelease</symbol>
  events.
     </para>
   </listitem>
@@ -3441,11 +3441,11 @@ of the usual key press event. If the
 If
 <structfield>count</structfield>
  is zero, a key release generates an input extension
-<emphasis>DeviceButtonRelease</emphasis>
+<symbol>DeviceButtonRelease</symbol>
  event that matches the event generated by the corresponding key press. If
 <structfield>count</structfield>
  is nonzero, a key release does not cause a
-<emphasis>DeviceButtonRelease</emphasis>
+<symbol>DeviceButtonRelease</symbol>
  event. Key releases never cause
 <symbol>KeyRelease</symbol>
  events.
@@ -3471,7 +3471,7 @@ Otherwise, if the specified button is not locked and the
  bit is not set in the
 <structfield>flags</structfield>
  field, a key press generates an input extension
-<emphasis>DeviceButtonPress</emphasis>
+<symbol>DeviceButtonPress</symbol>
  event instead of a
 <symbol>KeyPress</symbol>
  event and locks the button. If the button is already locked or if
@@ -3488,7 +3488,7 @@ If the corresponding key press was ignored, and if the
  bit is not set in the
 <structfield>flags</structfield>
  field, a key release generates an input extension
-<emphasis>DeviceButtonRelease</emphasis>
+<symbol>DeviceButtonRelease</symbol>
  event instead of a
 <symbol>KeyRelease</symbol>
  event and unlocks the button. If the corresponding key press locked a button,
@@ -4003,7 +4003,7 @@ currently defined is:
 </para>
 
 <para><programlisting>
-#define      XkbRG_AllowNone      0x80
+#define      XkbKB_RGAllowNone      0x80
 </programlisting></para>
 
 </sect2>
@@ -4086,7 +4086,7 @@ that is logically down and then processes the new key press event normally.
 If the key itself is logically down when pressed, the key press event is
 ignored, but the processing of the corresponding key release depends on the
 value of the
-<emphasis>Xkb_RGAllowNone</emphasis>
+<symbol>XkbKB_RGAllowNone</symbol>
  bit in
 <structfield>flags</structfield>.
 If it is set, the key release is processed normally; otherwise, the key

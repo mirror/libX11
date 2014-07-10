@@ -1028,9 +1028,9 @@ Xkb also allows applications to refer to indicators by name. Use
  to get the indicator names (see <xref linkend="Symbolic_Names" />). Using names eliminates the need
 for hard-coding bitmask values for particular keyboards. For example, instead
 of using vendor-specific constants such as
-<emphasis>WSKBLed_ScrollLock</emphasis>
+<symbol>WSKBLed_ScrollLock</symbol>
  mask on Digital workstations or
-<emphasis>XLED_SCROLL_LOCK</emphasis>
+<symbol>XLED_SCROLL_LOCK</symbol>
  on Sun workstations, you can instead use
 <function>XkbGetNamedIndicator</function>
  to look up information on the indicator named "Scroll Lock."
@@ -1764,8 +1764,8 @@ To receive events for only specific indicators, use
 <function>XkbSelectEventDetails</function>.
 Set the
 <structfield>event_type</structfield>
- parameter
-<emphasis>to XkbIndicatorStateNotify</emphasis>
+ parameter to
+<symbol>XkbIndicatorStateNotify</symbol>
  or
 <symbol>XkbIndicatorMapNotify</symbol>,
 and set both the
@@ -1802,9 +1802,9 @@ typedef struct _XkbIndicatorNotify {
  or
 <symbol>XkbIndicatorMapNotify</symbol>,
 depending on whether the event is a
-<emphasis>kbIndicatorStateNotify</emphasis>
+<symbol>XkbIndicatorStateNotify</symbol>
  event or
-<emphasis>kbIndicatorMapNotify</emphasis>
+<symbol>XkbIndicatorMapNotify</symbol>,
  event.
 </para>
 
@@ -1823,7 +1823,7 @@ have changed. If the event is of type
  is a mask that specifies the current state of all indicators, whether they
 have changed or not, for both
 <symbol>XkbIndicatorStateNotify</symbol>
- and <emphasis>IndicatorMapNotify</emphasis> events.
+ and <symbol>XkbIndicatorMapNotify</symbol> events.
 </para>
 
 <para>

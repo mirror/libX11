@@ -915,8 +915,8 @@ fields in this event are interpreted as the like-named fields in an
 
 
 <para>
-When your application receives a X
-<emphasis>kbNamesNotify</emphasis>
+When your application receives a
+<symbol>XkbNamesNotify</symbol>
  event, you can note the changed names in a changes structure using
 <function>XkbNoteNameChanges</function>.
 </para>

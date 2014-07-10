@@ -325,7 +325,7 @@ name is “<literal>ComposeFail</literal>”.
 
 <para>
 When Xkb is initialized, it implicitly forces requests for
-<emphasis>NewKeyboardNotify</emphasis>
+<symbol>NewKeyboardNotify</symbol>
  events. These events may be used by the Xkb library extension internally; they
 are normally translated into core protocol
 <symbol>MappingNotify</symbol>
@@ -333,7 +333,7 @@ are normally translated into core protocol
 client is appropriate in most cases, it is not appropriate for some clients
 that maintain per-key data structures. This is because once the server has sent
 a
-<emphasis>NewKeyboardNotify</emphasis>
+<symbol>NewKeyboardNotify</symbol>
  event, it is free to send the client events for all keys in the new range and
 that range may be outside of the per-key data structures the client is
 maintaining.
@@ -344,7 +344,7 @@ maintaining.
 The
 <emphasis>IgnoreNewKeyboards</emphasis>
  control, if enabled, prevents Xkb from mapping
-<emphasis>NewKeyboardNotify</emphasis>
+<symbol>NewKeyboardNotify</symbol>
  events to core
 <symbol>MappingNotify</symbol>
  events and passing them to the client. The control is initially disabled.

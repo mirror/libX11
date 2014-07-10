@@ -379,7 +379,7 @@ generated.
 <tbody>
   <row>
     <entry>pointer to a structure</entry>
-    <entry>NULL</entry>
+    <entry><symbol>NULL</symbol></entry>
   </row>
   <row>
     <entry>Bool</entry>

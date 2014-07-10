@@ -10,7 +10,7 @@ input extension. Other types of devices supported by the input extension
 include, but are not limited to: mice, tablets, touchscreens, barcode readers,
 button boxes, trackballs, identifier devices, data gloves, and eye trackers.
 Xkb provides additional control over all X input extension devices, whether
-they are <emphasis>KeyClass</emphasis>
+they are <symbol>KeyClass</symbol>
  devices or not, as well as the core keyboard and pointer.
 </para>
 
@@ -59,14 +59,14 @@ the following additional access is provided:
 <listitem>
   <para>
 If allowed, Xkb functionality for additional
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  devices supported by the input extension is accessed via those same functions.
   </para>
 </listitem>
 <listitem>
   <para>
 If allowed, Xkb functionality for non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  devices supported by the input extension is also accessed via the
 XkbGetDeviceInfo and XkbSetDeviceInfo functions described in this chapter.
   </para>
@@ -77,9 +77,9 @@ XkbGetDeviceInfo and XkbSetDeviceInfo functions described in this chapter.
 Each device has an X Input Extension device ID. Each device may have several
 classes of feedback. For example, there are two types of feedbacks that can
 generate bells: bell feedback and keyboard feedback (
-<emphasis>BellFeedbackClass</emphasis>
+<symbol>BellFeedbackClass</symbol>
  and
-<emphasis>KbdFeedbackClass</emphasis>
+<symbol>KbdFeedbackClass</symbol>
 ). A device can have more than one feedback of each type; the feedback ID
 identifies the particular feedback within its class.
 </para>
@@ -124,7 +124,7 @@ If the input extension is present and the server allows interaction between the
 input extension and Xkb, then the core keyboard, the core keyboard indicators,
 and the core keyboard bells may each be addressed using an appropriate device
 spec, class, and ID. The constant
-<emphasis>XkbXIDfltID</emphasis>
+<symbol>XkbDfltXIId</symbol>
  may be used as the device ID to specify the core keyboard indicators for the
 core indicator feedback. The particular device ID corresponding to the core
 keyboard feedback and the core indicator feedback may be obtained by calling
@@ -142,11 +142,11 @@ keyboard feedback and the core indicator feedback may be obtained by calling
 
 <para>
 If the server does not allow Xkb access to input extension
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  devices, attempts to use Xkb requests with those devices fail with a
 <errorname>BadKeyboard</errorname>
  error. Attempts to access non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  input extension devices via XkbGetDeviceInfo and XkbSetDeviceInfo fail
 silently if Xkb access to those devices is not supported by the X server.
 </para>
@@ -201,7 +201,7 @@ The
 <structfield>type</structfield>
  field is a registered symbolic name for a class of devices (for example,
 "TABLET"). If a device is a keyboard (that is, is a member of
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
 ), it has its own state, and
 <structfield>has_own_state</structfield>
  is
@@ -246,7 +246,7 @@ functions described subsequently in this section.
     <entry>(1L &lt;&lt; 0)</entry>
     <entry>
 Clients can use all Xkb requests and events with
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
 devices supported by the input device extension.
     </entry>
   </row>
@@ -259,7 +259,7 @@ devices supported by the input device extension.
     <entry>(1L &lt;&lt;1)</entry>
     <entry>
 Clients can assign key actions to buttons on non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
 input extension devices.
     </entry>
   </row>
@@ -269,7 +269,7 @@ input extension devices.
     <entry>(1L &lt;&lt;2)</entry>
     <entry>
 Clients can assign names to indicators on non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  input extension devices.
     </entry>
   </row>
@@ -279,7 +279,7 @@ Clients can assign names to indicators on non-
     <entry>(1L &lt;&lt;3)</entry>
     <entry>
 Clients can assign indicator maps to indicators on non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  input extension devices.
     </entry>
   </row>
@@ -289,7 +289,7 @@ Clients can assign indicator maps to indicators on non-
     <entry>(1L &lt;&lt;4)</entry>
     <entry>
 Clients can request the status of indicators on non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  input extension devices.
     </entry>
   </row>
@@ -302,9 +302,9 @@ Clients can request the status of indicators on non-
     </entry>
     <entry>(0x1c)</entry>
     <entry>
-<para>XkbXI_IndicatorNames&#xAD;Mask |</para>
-<para>XkbXI_IndicatorMaps&#xAD;Mask |</para>
-<para>XkbXI_IndicatorState&#xAD;Mask</para>
+<para><symbol>XkbXI_IndicatorNames&#xAD;Mask</symbol> |</para>
+<para><symbol>XkbXI_IndicatorMaps&#xAD;Mask</symbol> |</para>
+<para><symbol>XkbXI_IndicatorState&#xAD;Mask</symbol></para>
     </entry>
   </row>
   <row>
@@ -318,8 +318,8 @@ Clients can request the status of indicators on non-
     <entry>Those selected by Value column masks</entry>
     <entry>(0x1e)</entry>
     <entry>
-<para>XkbXI_Indicators&#xAD;Mask | </para>
-<para>XkbSI_ButtonActions&#xAD;Mask</para>
+<para><symbol>XkbXI_Indicators&#xAD;Mask</symbol> | </para>
+<para><symbol>XkbXI_ButtonActions&#xAD;Mask</symbol> </para>
     </entry>
   </row>
   <row>
@@ -327,8 +327,8 @@ Clients can request the status of indicators on non-
     <entry>Those selected by Value column masks</entry>
     <entry>(0x1f)</entry>
     <entry>
-<para>XkbSI_AllDevice&#xAD;FeaturesMask |</para>
-<para>XkbSI_Keyboards&#xAD;Mask</para>
+<para><symbol>XkbXI_AllDevice&#xAD;FeaturesMask</symbol> | </para>
+<para><symbol>XkbXI_Keyboards&#xAD;Mask</symbol> </para>
     </entry>
   </row>
   <row>
@@ -336,8 +336,8 @@ Clients can request the status of indicators on non-
     <entry>Those selected by Value column masks</entry>
     <entry>(0x801f)</entry>
     <entry>
-<para>XkbXI_AllFeatures&#xAD;Mask | </para>
-<para>XkbXI_Unsupported&#xAD;FeaturesMask</para>
+<para><symbol>XkbXI_AllFeatures&#xAD;Mask</symbol> | </para>
+<para><symbol>XkbXI_Unsupported&#xAD;FeaturesMask</symbol></para>
     </entry>
   </row>
 </tbody>
@@ -367,7 +367,7 @@ them.
 To determine whether the X server allows Xkb access to particular capabilities
 of input devices other than the core X keyboard, or to determine the status of
 indicator maps, indicator names or button actions on a non-
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  extension device, use XkbGetDeviceInfo.
 </para>
 
@@ -496,7 +496,7 @@ the server implementation, and a client may modify the associated behavior.
 
 <para>
 If the
-<emphasis>XkbButtonActionsMask</emphasis>
+<symbol>XkbXI_ButtonActionsMask</symbol>
  bit is set in
 <parameter>which</parameter>,
 the
@@ -510,10 +510,12 @@ the
 <para>
 If
 <parameter>which</parameter>
- includes one of the bits in XkbXI_IndicatorsMask, the feedback class of the
+ includes one of the bits in <symbol>XkbXI_IndicatorsMask</symbol>,
+the feedback class of the
 indicators must be specified in ind_class, and the feedback ID of the
 indicators must be specified in ind_id. If the request does not include any of
-the bits in XkbXI_IndicatorsMask, the ind_class and ind_id parameters are
+the bits in <symbol>XkbXI_IndicatorsMask</symbol>,
+the ind_class and ind_id parameters are
 ignored. The class and ID can be obtained via the input device extension
 XListInputDevices request.
 </para>
@@ -1321,7 +1323,8 @@ the value of which determines which subcomponents are freed.
 <parameter>which</parameter>
 is an inclusive OR of one or more of the values from
 <link linkend="table21.1">Table 21.1</link>. If which
-contains XkbXI_ButtonActionsMask, all button actions associated with
+contains <symbol>XkbXI_ButtonActionsMask</symbol>,
+ all button actions associated with
 <parameter>device_info</parameter>
  are freed,
 <parameter>device_info</parameter>
@@ -1333,7 +1336,8 @@ and
 <parameter>device_info</parameter>
 -&gt;
 <structfield>num_btns</structfield>
- is set to zero. If which contains all bits in XkbXI_IndicatorsMask, all
+ is set to zero. If which contains all bits in
+<symbol>XkbXI_IndicatorsMask</symbol>, all
 <structname>XkbDeviceLedInfoRec</structname>
  structures associated with
 <parameter>device_info</parameter>
@@ -1351,14 +1355,16 @@ and
 <parameter>device_info</parameter>
 -&gt;
 <structfield>num_leds</structfield>
- are set to zero. If which contains XkbXI_IndicatorMapsMask, all indicator maps
-associated with
+ are set to zero. If which contains <symbol>XkbXI_IndicatorMapsMask</symbol>,
+ all indicator maps associated with
 <parameter>device_info</parameter>
  are cleared, but the number of LEDs and the leds structures themselves are
-preserved. If which contains XkbXI_IndicatorNamesMask, all indicator names
+preserved. If which contains <symbol>XkbXI_IndicatorNamesMask</symbol>,
+all indicator names
 associated with device_info are cleared, but the number of LEDs and the leds
 structures themselves are preserved. If which contains
-XkbXI_IndicatorStateMask, the indicator state associated with the
+<symbol>XkbXI_IndicatorStateMask</symbol>,
+the indicator state associated with the
 <parameter>device_info</parameter>
  leds are set to zeros but the number of LEDs and the leds structures
 themselves are preserved.
@@ -1548,7 +1554,7 @@ If the number of buttons requested to be updated is not valid for the device,
 
 <para>
 If the
-<emphasis>XkbXI_IndicatorMaps</emphasis>
+<symbol>XkbXI_IndicatorMapsMask</symbol>
  and / or
 <symbol>XkbXI_IndicatorNamesMask</symbol>
  bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
@@ -1788,7 +1794,7 @@ The
  as the
 <structfield>event_type</structfield>
  and specifying
-<emphasis>XkbAllExtensionDeviceMask</emphasis>
+<symbol>XkbAllExtensionDeviceEventsMask</symbol>
  in
 <emphasis>bits_to_change</emphasis>
  and
@@ -1844,7 +1850,7 @@ state or configuration.
 
 <para>
 Changes to an Xkb extension device may be tracked by listening to
-<emphasis>XkbDeviceExtensionNotify</emphasis>
+<symbol>XkbExtensionDeviceNotify</symbol>
  events and accumulating the changes in an
 <structname>XkbDeviceChangesRec</structname>
  structure. The changes noted in the structure may then be used in subsequent

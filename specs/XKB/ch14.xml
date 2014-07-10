@@ -853,7 +853,7 @@ server and are always updated by the server whenever it returns the data for an
     </entry>
   </row>
   <row>
-    <entry><emphasis>XkbVirtuawModsMask</emphasis></entry>
+    <entry><symbol>XkbVirtualModsMask</symbol></entry>
     <entry>vmods</entry>
     <entry>server-&gt;vmods[*]</entry>
   </row>

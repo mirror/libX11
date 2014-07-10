@@ -782,7 +782,7 @@ involve both a server connection (Display *
 
 <para>
 The device identifier can specify any X input extension device with a
-<emphasis>KeyClass</emphasis>
+<symbol>KeyClass</symbol>
  component, or it can specify the constant,
 <symbol>XkbUseCoreKbd</symbol>.
 The use of

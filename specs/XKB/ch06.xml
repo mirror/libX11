@@ -57,7 +57,7 @@ The
  may yield unpredictable results. The
 <parameter>device_spec</parameter>
  field specifies the device identifier of the keyboard input device, or
-<emphasis>XkbUseCoreKeyboard</emphasis>,
+<symbol>XkbUseCoreKbd</symbol>,
 which specifies the core keyboard device. The
 <structfield>min_key_code</structfield>
  and

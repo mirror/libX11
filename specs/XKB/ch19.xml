@@ -19,9 +19,9 @@ XChangeKeyboardDevice input extension request allows a client to designate an
 input extension keyboard device as the X keyboard, in which case the old X
 keyboard device becomes inaccessible except via the input device extension. In
 this case, core protocol
-<emphasis>XMappingNotify</emphasis>
+<symbol>MappingNotify</symbol>
  and input extension
-<emphasis>XChangeDeviceNotify</emphasis>
+<symbol>XChangeDeviceNotify</symbol>
  events are generated to notify all clients that a new keyboard with a new
 keymap has been designated.
 </para>
@@ -233,12 +233,12 @@ and
     <entry>Notification of geometry changes wanted</entry>
   </row>
   <row>
-    <entry>XkbNKN_DeviceIDMask</entry>
+    <entry><symbol>XkbNKN_DeviceIDMask</symbol></entry>
     <entry>(1L&lt;&lt;2)</entry>
     <entry>Notification of device ID changes wanted</entry>
   </row>
   <row>
-    <entry><emphasis>XkbNKN_AllChangesMask</emphasis></entry>
+    <entry><symbol>XkbAllNewKeyboardEventsMask</symbol></entry>
     <entry>(0x7)</entry>
     <entry>Includes all of the above masks</entry>
   </row>
@@ -290,7 +290,7 @@ If the keyboard change is the result of an X Input Extension
  contains the input extension major opcode, and
 <structfield>req_minor</structfield>
  contains the input extension request number for
-<emphasis>X_ChangeKeyboardDevice</emphasis>.
+<symbol>X_ChangeKeyboardDevice</symbol>.
 In this case,
 <structfield>device</structfield>
  and

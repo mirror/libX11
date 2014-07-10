@@ -2113,7 +2113,7 @@ To receive
  events under all possible conditions, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
-<emphasis>XkbAccesXNotifyMask</emphasis>
+<symbol>XkbAccessXNotifyMask</symbol>
  in both
 <emphasis>bits_to_change</emphasis>
  and
@@ -4215,7 +4215,7 @@ operate; the
 
 <para>
 The
-<emphasis>XkbAX_AnyFeeback</emphasis>
+<symbol>XkbAX_AnyFeedback</symbol>
  macro accepts a pointer to an
 <structname>XkbControlsRec</structname>
  structure and tells whether the
@@ -4559,7 +4559,7 @@ the corresponding values are still updated in the X server. For example, the
  control is enabled (that is, the X server’s equivalent of
 <emphasis>xkb-&gt;ctrls</emphasis>
  has
-<emphasis>XkbRepeatKeyMask</emphasis>
+<symbol>XkbRepeatKeysMask</symbol>
  set in
 <structfield>enabled_ctrls</structfield>
 ). It is permissible to modify the attributes of a control in one call to
@@ -4822,8 +4822,8 @@ and the
  is set to the type of event that caused the change (one of
 <symbol>KeyPress</symbol>,
 <symbol>KeyRelease</symbol>,
-<emphasis>DeviceKeyPress</emphasis>,
-<emphasis>DeviceKeyRelease</emphasis>,
+<symbol>DeviceKeyPress</symbol>,
+<symbol>DeviceKeyRelease</symbol>,
 <symbol>ButtonPress</symbol>
  or
 <symbol>ButtonRelease</symbol>
@@ -4836,9 +4836,9 @@ and the
  is
 <symbol>KeyPress</symbol>,
 <symbol>KeyRelease</symbol>,
-<emphasis>DeviceKeyPress</emphasis>,
+<symbol>DeviceKeyPress</symbol>,
 or
-<emphasis>DeviceKeyRelease</emphasis>,
+<symbol>DeviceKeyRelease</symbol>,
 the
 <structfield>keycode</structfield>
  field is set to the key that caused the change. If

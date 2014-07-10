@@ -2299,9 +2299,9 @@ The
  is four and
 <parameter>groups</parameter>
  only has
-<emphasis>Group1Mask</emphasis>
+<symbol>XkbGroup1Mask</symbol>
  and
-<emphasis>Group3Mask</emphasis>
+<symbol>XkbGroup3Mask</symbol>
  set,
 <parameter>new_types_in</parameter>
  looks like this:

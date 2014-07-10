@@ -44,13 +44,13 @@ specify have been met.
 <para>
 The Xkb Extension adds new event types to the X protocol definition. An Xkb
 event type is defined by two fields in the X event data structure. One is the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field, containing the
 <emphasis>base event code</emphasis>.
  This base event code is a value the X server assigns to each X extension at
 runtime and thatidentifies the extension that generated the event; thus, the
 event code in the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field identifies the event as an Xkb extension event, rather than an event
 from another extension or a core X protocol event. You can obtain the base
 event code via a call to
@@ -274,7 +274,7 @@ values needed to describe the conditions the event is reporting. However, all
 Xkb events have certain things in common. These common features are contained
 in the same fields at the beginning of all Xkb event structures and are
 described in the
-<emphasis>XkbAnyEvent</emphasis>
+<structname>XkbAnyEvent</structname>
  structure:
 </para>
 
@@ -289,28 +289,28 @@ generated */
       int                xkb_type;    /* Xkb minor event code */
       unsigned int       device;      /* Xkb device ID, will not be
                                          <symbol>XkbUseCoreKbd</symbol> */
-} <emphasis>XkbAnyEvent</emphasis>
+} <structname>XkbAnyEvent</structname>
 ;
 </programlisting></para>
 
 <para>
 For any Xkb event, the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field is set to the base event code for the Xkb extension, assigned by the
 server to all Xkb extension events. The
-<emphasis>serial</emphasis>,
-<emphasis>send_event</emphasis>,
+<structfield>serial</structfield>,
+<structfield>send_event</structfield>,
 and
-<emphasis>display</emphasis>
+<structfield>display</structfield>
  fields are as described for all X11 events. The
-<emphasis>time</emphasis>
+<structfield>time</structfield>
  field is set to the time when the event was generated and is expressed in
 milliseconds. The
-<emphasis>xkb_type</emphasis>
+<structfield>xkb_type</structfield>
  field contains the minor extension event code, which is the extension event
 type, and is one of the values listed in
 <link linkend="table4.1">Table 4.1</link>. The
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  field contains the keyboard device identifier associated with the event. This
 is never
 <symbol>XkbUseCoreKbd</symbol>,
@@ -318,10 +318,10 @@ even if the request that generated the event specified a device of
 <symbol>XkbUseCoreKbd</symbol>.
 If the request that generated the event specified
 <symbol>XkbUseCoreKbd</symbol>,
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  contains a value assigned by the server to specify the core keyboard. If the
 request that generated the event specified an X input extension device,
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  contains that same identifier.
 </para>
 
@@ -782,16 +782,16 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 
 <para>
 The
-<emphasis>XkbEvent</emphasis>
+<structname>XkbEvent</structname>
  structure is a union of the individual structures declared for each Xkb event
 type and for the core protocol
 <structname>XEvent</structname>
  type. Given an
-<emphasis>XkbEvent</emphasis>
+<structname>XkbEvent</structname>
  structure, you may use the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field to determine if the event is an Xkb event (
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  equals the Xkb base event code; see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>). If the event is an Xkb
 event, you may then use the
 <emphasis>any.xkb_type</emphasis>
@@ -816,7 +816,7 @@ typedef union _XkbEvent {
       XkbExtensionDeviceNotifyEvent  device;
       XkbNewKeyboardNotifyEvent      new_kbd;
       XEvent                         core;
-} <emphasis>XkbEvent</emphasis>;
+} <structname>XkbEvent</structname>;
 </programlisting></para>
 
 <para>
@@ -826,7 +826,7 @@ This unified Xkb event type includes a normal
 use Xkb events to call the X library event functions without having to cast
 every reference. For example, to get the next event, you can simply declare a
 variable of type
-<emphasis>XkbEvent</emphasis>
+<structname>XkbEvent</structname>
  and call:
 </para>
 

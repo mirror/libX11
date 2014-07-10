@@ -92,9 +92,9 @@ that occur when a keyboard change occurs.
 
 <para>
 Clients wishing to track changes in
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  must watch for both
 <symbol>XkbNewKeyboardNotify</symbol>
  and
@@ -181,7 +181,7 @@ typedef struct _XkbNewKeyboardNotify {
       unsigned int            changed; /* changed aspects - see masks below */
       char            req_major;   /* major request that caused change */
       char            req_minor;   /* minor request that caused change */
-} <emphasis>XkbNewKeyboardNotifyEvent</emphasis>;
+} <structname>XkbNewKeyboardNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
@@ -196,7 +196,7 @@ To receive name notify events, use
  parameters. To receive events for only specific names, use
 <function>XkbSelectEventDetails</function>.
 Set the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  parameter to
 <symbol>XkbNewKeyboardNotify</symbol>,
 and set both the
@@ -248,33 +248,33 @@ and
 
 <para>
 The
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  fields indicate what type of keyboard change has occurred.
 </para>
 
 
 <para>
 If
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  are zero, the device change was not caused by a software request to the server
 — a spontaneous change has occurred, such as hot-plugging a new device. In
 this case,
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  is the device identifier for the new, current X keyboard device, but no
 implementation-independent guarantee can be made about
-<emphasis>old_device</emphasis>.
-<emphasis>old_device</emphasis>
+<structfield>old_device</structfield>.
+<structfield>old_device</structfield>
  may be identical to
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  (an implementor is permitted to reuse the device specifier when the device
 changes); or it may be different. Note that
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  being zero do not necessarily mean that the physical keyboard device has
 changed; rather, they only imply a spontaneous change outside of software
 control (some systems have keyboards that can change personality at the press
@@ -286,19 +286,19 @@ of a key).
 If the keyboard change is the result of an X Input Extension
 <emphasis>ChangeKeyboardDevice</emphasis>
  request,
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  contains the input extension major opcode, and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  contains the input extension request number for
 <emphasis>X_ChangeKeyboardDevice</emphasis>.
 In this case,
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  and
-<emphasis>old_device</emphasis>
+<structfield>old_device</structfield>
  are different, with
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  being the identifier for the new, current X keyboard device, and
-<emphasis>old_device</emphasis>
+<structfield>old_device</structfield>
  being the identifier for the former device.
 </para>
 
@@ -309,17 +309,17 @@ If the keyboard change is the result of an
  function call, which generates an
 <symbol>X_kbGetKbdByName</symbol>
  request,
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  contains the Xkb extension base event code (see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>), and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  contains the event code for the Xkb extension request
 <symbol>X_kbGetKbdByName</symbol>.
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  contains the device identifier for the new device, but nothing definitive can
 be said for
-<emphasis>old_device</emphasis>
+<structfield>old_device</structfield>
 ; it may be identical to
-<emphasis>device</emphasis>,
+<structfield>device</structfield>,
 or it may be different, depending on the implementation.
 </para>
 

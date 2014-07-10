@@ -45,7 +45,7 @@ Rotated Keyboard Sections</H5>
 
 <para>
 Some geometry components include a
-<emphasis>priority</emphasis>,
+<structfield>priority</structfield>,
 which indicates the order in which overlapping objects should be drawn.
 Objects should be drawn in order from highest priority (0) to lowest (255).
 </para>
@@ -112,7 +112,7 @@ A geometry property associates an arbitrary string with an equally arbitrary
 name. Geometry properties can be used to provide hints to programs that display
 images of keyboards, but they are not interpreted by Xkb. No other geometry
 structures refer to geometry properties. As an example of a possible use of
-<emphasis>properties</emphasis>,
+<structfield>properties</structfield>,
 consider the pause/break key on most PC keyboards: the "break" symbol is
 usually on the front of the key and is often a different color. A program might
 set a property to:
@@ -144,15 +144,15 @@ considering key aliases supplied by the keycodes.</para></note>
 <listitem>
   <para>
 The top-level keyboard geometry description includes a list of
-<emphasis>shapes</emphasis>
+<structfield>shapes</structfield>
 ; other keyboard components refer to shapes by their index in this list. A
 shape consists of an arbitrary name of type Atom and one or more closed-polygon
-<emphasis>outlines</emphasis>.
+<structfield>outlines</structfield>.
 All points in an outline are specified relative to the origin of its
 enclosing shape, that is, whichever shape that contains this outline in its
 list of outlines. One outline is the primary outline. The primary outline is by
 default the first outline, or it can be optionally specified by the
-<emphasis>primary</emphasis>
+<structfield>primary</structfield>
  field in the
 <structname>XkbShapeRec</structname>
  structure. A keyboard display application can generate a simpler but still
@@ -184,9 +184,9 @@ A
 <listitem>
   <para>
 The
-<emphasis>width</emphasis>
+<structfield>width</structfield>
  and
-<emphasis>height</emphasis>
+<structfield>height</structfield>
  of the keyboard, in mm/10. For nonrectangular keyboards, the width and height
 describe the smallest bounding box that encloses the outline of the keyboard.
   </para>
@@ -219,14 +219,14 @@ space for font names.
 
 <para>
 The keyboard is subdivided into named
-<emphasis>sections</emphasis>
+<structfield>sections</structfield>
  of related keys and doodads. The sections and doodads on the keyboard are
 listed in the
 <structname>XkbGeometryRec</structname>
  top-level keyboard geometry description. A section is composed of keys that
 are physically together and logically related. <link linkend="figure13.2">Figure 13.2</link> shows a keyboard
 that is divided into four sections. A
-<emphasis>doodad</emphasis>
+<structfield>doodad</structfield>
  describes some visible aspect of the keyboard that is not a key and is not a
 section.
 </para>
@@ -249,7 +249,7 @@ Keyboard with Four Sections</H5>
 
 <para>
 A
-<emphasis>shape</emphasis>,
+<structfield>shape</structfield>,
 used to draw keyboard components and stored in a
 <structname>XkbShapeRec</structname>
  structure, has:
@@ -316,7 +316,7 @@ with the first.
 <listitem>
   <para>
 A nonzero value for the
-<emphasis>corner_radius</emphasis>
+<structfield>corner_radius</structfield>
  field specifies that the corners of the polygon should be drawn as circles
 with the specified radius.
   </para>
@@ -334,7 +334,7 @@ One outline is the primary outline; a keyboard display application can generate
 a simple but still accurate keyboard image by displaying only the primary
 outlines for each shape. The default primary outline is the first in a
 shape’s list of outlines. If the
-<emphasis>primary</emphasis>
+<structfield>primary</structfield>
  field of the
 <structname>XkbShapeRec</structname>
  structure is not
@@ -353,7 +353,7 @@ degraded image of the keyboard.
 
 <para>
 As previously noted, a keyboard is subdivided into
-<emphasis>sections</emphasis>
+<structfield>sections</structfield>
  of related keys. Each section has its own coordinate system — if a section
 is rotated, the coordinates of any components within the section are
 interpreted relative to the edges that were on the top and left before
@@ -387,7 +387,7 @@ The width and height and the angle of rotation.
 <listitem>
   <para>
 A list of
-<emphasis>rows</emphasis>.
+<structfield>rows</structfield>.
 A row is a list of horizontally or vertically adjacent keys. Horizontal rows
 parallel the (prerotation) top of the section, and vertical rows parallel the
 (prerotation) left of the section. All keys in a horizontal row share a common
@@ -416,7 +416,7 @@ Rows in a Section</H5>
 <listitem>
   <para>
 An optional list of
-<emphasis>doodads</emphasis>
+<structfield>doodads</structfield>
 ; any type of doodad can be enclosed within a section. Position and angle of
 rotation are relative to the origin and angle of rotation of the sections that
 contain them. Priority for doodads in a section is relative to the other
@@ -478,9 +478,9 @@ entire keyboard.
 
 <para>
 Each doodad’s origin is stored in fields named
-<emphasis>left</emphasis>
+<structfield>left</structfield>
  and
-<emphasis>top</emphasis>,
+<structfield>top</structfield>,
 which are the coordinates of the doodad’s origin relative to its enclosing
 object, whether it be a section or the top-level keyboard. The priority for
 doodads that are listed in the top-level geometry is relative to the other
@@ -488,7 +488,7 @@ doodads listed in the top-level geometry and the sections listed in the
 top-level geometry. The priority for doodads listed in a section are relative
 to the other components of the section. Each doodad is stored in a structure
 with a
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field, which specifies the type of doodad.
 </para>
 
@@ -554,7 +554,7 @@ specify the interpretation of logo names.
 
 <para>
 The structures these doodads are stored in and the values of the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  fields are shown in <link linkend="table13.1">Table 13.1</link>.
 </para>
 
@@ -651,12 +651,12 @@ Each overlay key definition (
 <structname>XkbOverlayKeyRec</structname>
 ) indicates a key that can yield multiple keycodes and consists of a field
 named
-<emphasis>under</emphasis>,
+<structfield>under</structfield>,
 which specifies the primary name of the key and a field named
-<emphasis>over</emphasis>,
+<structfield>over</structfield>,
 which specifies the name for the key when the overlay keycode is selected.
 The key specified in
-<emphasis>under</emphasis>
+<structfield>under</structfield>
  must be a member of the section that contains the overlay key definition,
 while the key specified in over must not be.
 </para>
@@ -770,13 +770,13 @@ typedef struct _XkbGeometry {              /* top-level keyboard geometry struct
 
 <para>
 The
-<emphasis>doodads</emphasis>
+<structfield>doodads</structfield>
  array is only for doodads not contained in any of the
-<emphasis>sections</emphasis>
+<structfield>sections</structfield>
  that has its own
-<emphasis>doodads</emphasis>.
+<structfield>doodads</structfield>.
 The key aliases contained in the
-<emphasis>key_aliases</emphasis>
+<structfield>key_aliases</structfield>
  array take precedence over any defined in the keycodes component of the
 keyboard description.
 </para>
@@ -841,9 +841,9 @@ typedef struct _XkbShape {
 
 <para>
 If
-<emphasis>approx</emphasis>
+<structfield>approx</structfield>
  and/or
-<emphasis>primary</emphasis>
+<structfield>primary</structfield>
  is
 <symbol>NULL</symbol>,
 the default value is used. The default primary outline is the first element
@@ -873,9 +873,9 @@ typedef struct _XkbRow {             /* row in a section */
 </programlisting></para>
 
 <para>
-<emphasis>top</emphasis>
+<structfield>top</structfield>
  and
-<emphasis>left</emphasis>
+<structfield>left</structfield>
  are in
 <emphasis>mm</emphasis>
 /
@@ -903,12 +903,12 @@ typedef struct _XkbOverlayRow {
 </programlisting></para>
 
 <para>
-<emphasis>row_under</emphasis>
+<structfield>row_under</structfield>
  is an index into the array of
-<emphasis>rows</emphasis>
+<structfield>rows</structfield>
  in the section under this overlay. The section under this overlay row is the
 one pointed to by
-<emphasis>section_under</emphasis>
+<structfield>section_under</structfield>
  in this overlay row’s
 <structname>XkbOverlayRec</structname>.
 </para>
@@ -943,14 +943,14 @@ typedef struct _XkbSection {
 </programlisting></para>
 
 <para>
-<emphasis>top</emphasis>
+<structfield>top</structfield>
  and
-<emphasis>left</emphasis>
+<structfield>left</structfield>
  are the origin of the section, relative to the origin of the keyboard, in
 <emphasis>mm</emphasis>
 /
 <emphasis>10</emphasis>.
-<emphasis>angle</emphasis>
+<structfield>angle</structfield>
  is in
 <emphasis>1</emphasis>
 /
@@ -987,24 +987,24 @@ typedef union _XkbDoodad {
 
 <para>
 The
-<emphasis>top</emphasis>
+<structfield>top</structfield>
  and
-<emphasis>left</emphasis>
+<structfield>left</structfield>
  coordinates of each doodad are the coordinates of the origin of the doodad
 relative to the keyboard’s origin if the doodad is in the
 <structname>XkbGeometryRec</structname>
  doodad array, and with respect to the section’s origin if the doodad is in a
 <structname>XkbSectionRec</structname>
  doodad array. The
-<emphasis>color_ndx</emphasis>
+<structfield>color_ndx</structfield>
  or
-<emphasis>on_color_ndx</emphasis>
+<structfield>on_color_ndx</structfield>
  and
-<emphasis>off_color_ndx</emphasis>
+<structfield>off_color_ndx</structfield>
  fields are color indices into the
 <structname>XkbGeometryRec</structname>
 ’s color array and are the colors to draw the doodads with. Similarly, the
-<emphasis>shape_ndx</emphasis>
+<structfield>shape_ndx</structfield>
  fields are indices into the
 <structname>XkbGeometryRec</structname>
 ’s shape array.
@@ -1284,13 +1284,13 @@ To determine the bounding box of the top surface of a shape, use
  that contains two x and y coordinates. These coordinates describe the corners
 of a rectangle that contains the outline that describes the top surface of the
 shape. The top surface is defined to be the approximating outline if the
-<emphasis>approx</emphasis>
+<structfield>approx</structfield>
  field of
 <parameter>shape</parameter>
  is not
 <symbol>NULL</symbol>.
 If
-<emphasis>approx</emphasis>
+<structfield>approx</structfield>
  is
 <symbol>NULL</symbol>,
 the top surface is defined as the last outline in the
@@ -1773,7 +1773,7 @@ To add one color name to an existing keyboard geometry description, use
 <para>
 <function>XkbAddGeomColor</function>
  adds the specified color
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  and
 <parameter>pixel</parameter>
  to the specified geometry
@@ -1783,7 +1783,7 @@ The top-level geometry description includes a list of up to
  (32)
 <emphasis>color names</emphasis>.
 A color
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  is a string whose interpretation is not specified by Xkb and neither is the
 <parameter>pixel</parameter>
  value’s interpretation. All other geometry data structures refer to colors
@@ -2197,7 +2197,7 @@ geometry, use
 
 <para>
 A
-<emphasis>doodad</emphasis>
+<structfield>doodad</structfield>
  describes some visible aspect of the keyboard that is not a key and is not a
 section.
 <function>XkbAddGeomDoodad</function>

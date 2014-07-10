@@ -97,7 +97,7 @@ There may be multiple entries for each of the component types. An entry may be
 either
 <emphasis>complete</emphasis>
  or
-<emphasis>partial</emphasis>.
+<structfield>partial</structfield>.
 Partial entries describe only a piece of the corresponding keyboard component
 and are designed to be combined with other entries of the same type to form a
 complete entry.
@@ -109,7 +109,7 @@ common ASCII keyboard and some national layout. Such a partial map is not
 useful on its own because it does not include those symbols that are the same
 on both the ASCII and national layouts (such as function keys). On the other
 hand, this partial map can be used to configure
-<emphasis>any</emphasis>
+<structfield>any</structfield>
  ASCII keyboard to use a national layout.
 </para>
 
@@ -126,7 +126,7 @@ later definitions override earlier ones.
 Component names have the form "
 <emphasis>class(member)</emphasis>
 " where
-<emphasis>class</emphasis>
+<structfield>class</structfield>
  describes a subset of the available components for a particular type and the
 optional
 <emphasis>member</emphasis>
@@ -142,7 +142,7 @@ interpretation of the class and member names used in component names.
 
 <para>
 The
-<emphasis>class</emphasis>
+<structfield>class</structfield>
  and
 <emphasis>member</emphasis>
  names are both specified using characters from the Latin-1 character set. Xkb
@@ -666,7 +666,7 @@ characters ‘
 The special component name "
 <emphasis>computed</emphasis>
 " may be used in
-<emphasis>keycodes</emphasis>
+<structfield>keycodes</structfield>
  component expressions and refers to a component consisting of a set of
 keycodes computed automatically by the server as needed.
   </para>
@@ -676,7 +676,7 @@ keycodes computed automatically by the server as needed.
 The special component name "
 <emphasis>canonical</emphasis>
 " may be used in
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  component expressions and refers to a partial component defining the four
 standard key types:
 <emphasis>ALPHABETIC</emphasis>,
@@ -823,11 +823,11 @@ the server modifies
 " entry) to ensure all of the following fields are non-
 <symbol>NULL</symbol>
 :
-<emphasis>types</emphasis>,
-<emphasis>keycodes</emphasis>,
-<emphasis>symbols</emphasis>,
+<structfield>types</structfield>,
+<structfield>keycodes</structfield>,
+<structfield>symbols</structfield>,
 and
-<emphasis>compat</emphasis>.
+<structfield>compat</structfield>.
 </para>
 
 <table id='table20.3' frame='topbot'>
@@ -1079,9 +1079,9 @@ There is no way to determine which components specified in
 <para>
 <function>XkbGetKeyboardByName</function>
  always sets
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  in the returned
 <structname>XkbDescRec</structname>
  structure.

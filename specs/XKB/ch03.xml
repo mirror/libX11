@@ -119,9 +119,9 @@ XkbAllocGeomShapes(geom,4)
 <para>
 to say "I’ll need space for four new shapes in this geometry." This makes
 sure that
-<emphasis>sz_shapes</emphasis>
+<structfield>sz_shapes</structfield>
  -
-<emphasis>num_shapes</emphasis>
+<structfield>num_shapes</structfield>
  &gt;= 4, and resizes the shapes array if it isn’t. If this function
 succeeds, you are guaranteed to have space for the number of shapes you need.
 </para>

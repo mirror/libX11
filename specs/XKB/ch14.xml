@@ -35,9 +35,9 @@ For detailed information on particular components of the keyboard map, refer to
 <para>
 The graphic characters or control functions that may be accessed by one key are
 logically arranged in groups and levels, where
-<emphasis>group</emphasis>
+<structfield>group</structfield>
  and
-<emphasis>level</emphasis>
+<structfield>level</structfield>
  are defined as in the ISO9995 standard:
 </para>
 
@@ -311,9 +311,9 @@ In addition to allocating and obtaining the server map and the client map,
  also sets the
 <parameter>device_spec</parameter>,
 the
-<emphasis>min_key_code</emphasis>,
+<structfield>min_key_code</structfield>,
 and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the keyboard description.
 </para>
 
@@ -380,9 +380,9 @@ information on these functions.
     <entry>(1&lt;&lt;0)</entry>
     <entry>client</entry>
     <entry>
-      <para><emphasis>types</emphasis></para>
-      <para><emphasis>size_types</emphasis></para>
-      <para><emphasis>num_types</emphasis></para>
+      <para><structfield>types</structfield></para>
+      <para><structfield>size_types</structfield></para>
+      <para><structfield>num_types</structfield></para>
     </entry>
     <entry>
       <para><function>XkbGetKeyTypes</function></para>
@@ -397,10 +397,10 @@ information on these functions.
     <entry>(1&lt;&lt;1)</entry>
     <entry>client</entry>
     <entry>
-      <para><emphasis>syms</emphasis></para>
-      <para><emphasis>size_syms</emphasis></para>
-      <para><emphasis>num_syms</emphasis></para>
-      <para><emphasis>key_sym_map</emphasis></para>
+      <para><structfield>syms</structfield></para>
+      <para><structfield>size_syms</structfield></para>
+      <para><structfield>num_syms</structfield></para>
+      <para><structfield>key_sym_map</structfield></para>
     </entry>
     <entry>
       <para><function>XkbGetKeySyms</function></para>
@@ -413,7 +413,7 @@ information on these functions.
     <entry><symbol>XkbModifierMapMask</symbol></entry>
     <entry>(1&lt;&lt;2)</entry>
     <entry>client</entry>
-    <entry><emphasis>modmap</emphasis></entry>
+    <entry><structfield>modmap</structfield></entry>
     <entry><emphasis>XkbGetKeyModifier&#xAD;Map</emphasis></entry>
     <entry>15.4</entry>
   </row>
@@ -421,7 +421,7 @@ information on these functions.
     <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>(1&lt;&lt;3)</entry>
     <entry>server</entry>
-    <entry><emphasis>explicit</emphasis></entry>
+    <entry><structfield>explicit</structfield></entry>
     <entry><emphasis>XkbGetKeyExplicit&#xAD;Components</emphasis></entry>
     <entry>16.3</entry>
   </row>
@@ -430,10 +430,10 @@ information on these functions.
     <entry>(1&lt;&lt;4)</entry>
     <entry>server</entry>
     <entry>
-      <para><emphasis>key_acts</emphasis></para>
-      <para><emphasis>acts</emphasis></para>
-      <para><emphasis>num_acts</emphasis></para>
-      <para><emphasis>size_acts</emphasis></para>
+      <para><structfield>key_acts</structfield></para>
+      <para><structfield>acts</structfield></para>
+      <para><structfield>num_acts</structfield></para>
+      <para><structfield>size_acts</structfield></para>
     </entry>
     <entry>
       <para><function>XkbGetKeyActions</function></para>
@@ -445,7 +445,7 @@ information on these functions.
     <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>(1&lt;&lt;5)</entry>
     <entry>server</entry>
-    <entry><emphasis>behaviors</emphasis></entry>
+    <entry><structfield>behaviors</structfield></entry>
     <entry><emphasis>XkbGetKey&#xAD;Behaviors</emphasis></entry>
     <entry>16.2</entry>
   </row>
@@ -453,7 +453,7 @@ information on these functions.
     <entry><symbol>XkbVirtualModsMask</symbol></entry>
     <entry>(1&lt;&lt;6)</entry>
     <entry>server</entry>
-    <entry><emphasis>vmods</emphasis></entry>
+    <entry><structfield>vmods</structfield></entry>
     <entry><function>XkbGetVirtualMods</function></entry>
     <entry>16.4</entry>
   </row>
@@ -461,7 +461,7 @@ information on these functions.
     <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>(1&lt;&lt;7)</entry>
     <entry>server</entry>
-    <entry><emphasis>vmodmap</emphasis></entry>
+    <entry><structfield>vmodmap</structfield></entry>
     <entry><emphasis>XkbGetVirtualMod&#xAD;Map</emphasis></entry>
     <entry>16.4</entry>
   </row>
@@ -717,55 +717,55 @@ typedef struct _XkbMapChanges {
                                                  device */
       KeyCode           max_key_code;         /* highest numbered keycode for
                                                  device */
-      unsigned char     first_type;           /* index of first key <emphasis>type</emphasis>
+      unsigned char     first_type;           /* index of first key <structfield>type</structfield>
                                                  modified */
       unsigned char     num_types;            /* # types modified */
-      KeyCode           first_key_sym;        /* first key whose <emphasis>key_sym_map</emphasis>
+      KeyCode           first_key_sym;        /* first key whose <structfield>key_sym_map</structfield>
                                                  changed */
-      unsigned char     num_key_syms;         /* # <emphasis>key_sym_map</emphasis>
+      unsigned char     num_key_syms;         /* # <structfield>key_sym_map</structfield>
                                                  entries changed */
-      KeyCode           first_key_act;        /* first key whose <emphasis>key_acts</emphasis>
+      KeyCode           first_key_act;        /* first key whose <structfield>key_acts</structfield>
                                                  entry changed */
-      unsigned char     num_key_acts;         /* # <emphasis>key_acts</emphasis>
+      unsigned char     num_key_acts;         /* # <structfield>key_acts</structfield>
                                                  entries changed */
-      KeyCode           first_key_behavior;   /* first key whose <emphasis>behaviors</emphasis>
+      KeyCode           first_key_behavior;   /* first key whose <structfield>behaviors</structfield>
                                                  changed */
-      unsigned char     num_key_behaviors;    /* # <emphasis>behaviors</emphasis>
+      unsigned char     num_key_behaviors;    /* # <structfield>behaviors</structfield>
                                                  entries changed */
-      KeyCode           first_key_explicit;   /* first key whose <emphasis>explicit</emphasis>
+      KeyCode           first_key_explicit;   /* first key whose <structfield>explicit</structfield>
                                                  entry changed */
-      unsigned char     num_key_explicit;     /* # <emphasis>explicit</emphasis>
+      unsigned char     num_key_explicit;     /* # <structfield>explicit</structfield>
                                                  entries changed */
-      KeyCode           first_modmap_key;     /* first key whose <emphasis>modmap</emphasis>
+      KeyCode           first_modmap_key;     /* first key whose <structfield>modmap</structfield>
                                                  entry changed */
-      unsigned char     num_modmap_keys;      /* # <emphasis>modmap</emphasis>
+      unsigned char     num_modmap_keys;      /* # <structfield>modmap</structfield>
                                                  entries changed */
-      KeyCode           first_vmodmap_key;    /* first key whose <emphasis>vmodmap</emphasis>
+      KeyCode           first_vmodmap_key;    /* first key whose <structfield>vmodmap</structfield>
                                                  changed */
-      unsigned char     num_vmodmap_keys;     /* # <emphasis>vmodmap</emphasis>
+      unsigned char     num_vmodmap_keys;     /* # <structfield>vmodmap</structfield>
                                                  entries changed */
       unsigned char     pad1;                 /* reserved */
-      unsigned short    vmods;                /* mask indicating which <emphasis>vmods</emphasis>
+      unsigned short    vmods;                /* mask indicating which <structfield>vmods</structfield>
                                                  changed */
 } <structname>XkbMapChangesRec</structname>,*XkbMapChangesPtr;
 </programlisting></para>
 
 <para>
 The
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  field identifies the map components that have changed in an
 <structname>XkbDescRec</structname>
  structure and may contain any of the bits in
 <link linkend="table14.1">Table 14.1</link>, which are also shown
 in <link linkend="table14.2">Table 14.2</link>. Every 1 bit in
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  also identifies which other fields in the
 <structname>XkbMapChangesRec</structname>
  structure contain valid values, as indicated in
 <link linkend="table14.2">Table 14.2</link>. The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields are for reference only; they are ignored on any requests sent to the
 server and are always updated by the server whenever it returns the data for an
 <structname>XkbMapChangesRec</structname>.
@@ -1004,7 +1004,7 @@ To receive
  using
 <symbol>XkbMapNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying the desired map changes in
 <emphasis>bits_to_change</emphasis>
  and
@@ -1030,36 +1030,36 @@ typedef struct {
       int            device;       /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed;      /* identifies valid fields in rest of event */
       unsigned int   resized;      /* reserved */
-      int            first_type;   /* index of first key <emphasis>type</emphasis> modified */
+      int            first_type;   /* index of first key <structfield>type</structfield> modified */
       int            num_types     /* # types modified */
       KeyCode        min_key_code; /* minimum keycode for device */
       KeyCode        max_key_code; /* maximum keycode for device */
-      KeyCode        first_key_sym; /* first key whose <emphasis>key_sym_map</emphasis> changed */
-      KeyCode        first_key_act; /* first key whose <emphasis>key_acts</emphasis> entry changed */
-      KeyCode        first_key_behavior; /* first key whose <emphasis>behaviors</emphasis> changed */
-      KeyCode        first_key_explicit; /* first key whose <emphasis>explicit</emphasis> entry changed */
-      KeyCode        first_modmap_key;   /* first key whose <emphasis>modmap</emphasis> entry changed */
-      KeyCode        first_vmodmap_key;  /* # <emphasis>modmap</emphasis> entries changed */
-      int            num_key_syms;       /* # <emphasis>key_sym_map</emphasis> entries changed */
-      int            num_key_acts;       /* # <emphasis>key_acts</emphasis> entries changed */
-      int            num_key_behaviors;  /* # <emphasis>behaviors</emphasis> entries changed */
-      int            num_key_explicit;   /* # <emphasis>explicit</emphasis> entries changed */
-      int            num_modmap_keys;    /* # <emphasis>modmap</emphasis> entries changed */
-      int            num_vmodmap_keys;   /* # <emphasis>vmodmap</emphasis> entries changed */
-      unsigned in      t      vmods;     /* mask indicating which <emphasis>vmods</emphasis> changed */
-} <emphasis>XkbMapNotifyEvent</emphasis>;
+      KeyCode        first_key_sym; /* first key whose <structfield>key_sym_map</structfield> changed */
+      KeyCode        first_key_act; /* first key whose <structfield>key_acts</structfield> entry changed */
+      KeyCode        first_key_behavior; /* first key whose <structfield>behaviors</structfield> changed */
+      KeyCode        first_key_explicit; /* first key whose <structfield>explicit</structfield> entry changed */
+      KeyCode        first_modmap_key;   /* first key whose <structfield>modmap</structfield> entry changed */
+      KeyCode        first_vmodmap_key;  /* # <structfield>modmap</structfield> entries changed */
+      int            num_key_syms;       /* # <structfield>key_sym_map</structfield> entries changed */
+      int            num_key_acts;       /* # <structfield>key_acts</structfield> entries changed */
+      int            num_key_behaviors;  /* # <structfield>behaviors</structfield> entries changed */
+      int            num_key_explicit;   /* # <structfield>explicit</structfield> entries changed */
+      int            num_modmap_keys;    /* # <structfield>modmap</structfield> entries changed */
+      int            num_vmodmap_keys;   /* # <structfield>vmodmap</structfield> entries changed */
+      unsigned in      t      vmods;     /* mask indicating which <structfield>vmods</structfield> changed */
+} <structname>XkbMapNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  field specifies the map components that have changed and is the bitwise
 inclusive OR of the mask bits defined in
 <link linkend="table14.1">Table 14.1</link>. The other fields in this
 event are interpreted as the like-named fields in an
 <structname>XkbMapChangesRec</structname>
  (see <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link>). The
-<emphasis>XkbMapNotifyEvent</emphasis>
+<structname>XkbMapNotifyEvent</structname>
  structure also has an additional
 <emphasis>resized</emphasis>
  field that is reserved for future use.
@@ -1153,7 +1153,7 @@ To allocate and initialize an empty client map description record, use
     </term>
     <listitem>
       <para>
-        value of <emphasis>num_types</emphasis> field in map to be allocated
+        value of <structfield>num_types</structfield> field in map to be allocated
       </para>
     </listitem>
   </varlistentry>
@@ -1162,7 +1162,7 @@ To allocate and initialize an empty client map description record, use
 <para>
 <function>XkbAllocClientMap</function>
  allocates and initializes an empty client map in the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  field of the keyboard description specified by
 <parameter>xkb</parameter>.
 The
@@ -1191,7 +1191,7 @@ masks shown in <link linkend="table14.3">Table 14.3</link>.
 The
 <parameter>type_count</parameter>
 field specifies the number of entries to preallocate for the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  field of the client map. If the
 <parameter>type_count</parameter>
 field is less than
@@ -1204,20 +1204,20 @@ field is less than
     <entry><symbol>XkbKeySymsMask</symbol></entry>
 <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter are used to allocate the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  and
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  fields of the client map. The fields are allocated to contain the maximum
 number of entries necessary for
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  -
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  + 1 keys.
 </entry>
   </row>
@@ -1225,18 +1225,18 @@ number of entries necessary for
     <entry><symbol>XkbModifierMapMask</symbol></entry>
 <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter are used to allocate the
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
  field of the client map. The field is allocated to contain the maximum number
 of entries necessary for
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  -
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  + 1 keys.
 </entry>
   </row>
@@ -1245,9 +1245,9 @@ of entries necessary for
 </table>
 
 <note><para>The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter must be legal values if the
@@ -1269,17 +1269,17 @@ and any fields are already allocated in the client map,
 <function>XkbAllocClientMap</function>
  does not overwrite the existing values; it simply ignores that part of the
 request. The only exception is the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  array. If
 <parameter>type_count</parameter>
  is greater than the current
-<emphasis>num_types</emphasis>
+<structfield>num_types</structfield>
  field of the client map,
 <function>XkbAllocClientMap</function>
  resizes the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  array and resets the
-<emphasis>num_types</emphasis>
+<structfield>num_types</structfield>
  field accordingly.
 </para>
 
@@ -1386,11 +1386,11 @@ If
  structure component in the client map, frees the
 <structname>XkbClientMapRec</structname>
  structure referenced by the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  member of the
 <parameter>xkb</parameter>
  parameter, and sets the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  member to
 <symbol>NULL</symbol>.
 </para>
@@ -1445,7 +1445,7 @@ To allocate and initialize an empty server map description record, use
     </term>
     <listitem>
       <para>
-        value of <emphasis>num_acts</emphasis> field in map to be allocated
+        value of <structfield>num_acts</structfield> field in map to be allocated
       </para>
     </listitem>
   </varlistentry>
@@ -1454,7 +1454,7 @@ To allocate and initialize an empty server map description record, use
 <para>
 <function>XkbAllocServerMap</function>
  allocates and initializes an empty server map in the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  field of the keyboard description specified by
 <parameter>xkb</parameter>.
 The
@@ -1480,13 +1480,13 @@ allocate, as specified in <link linkend="table14.4">Table 14.4</link>.
     <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter are used to allocate the
-<emphasis>explicit</emphasis>
+<structfield>explicit</structfield>
 field of the server map.
     </entry>
   </row>
@@ -1494,17 +1494,17 @@ field of the server map.
     <entry><symbol>XkbKeyActionsMask</symbol></entry>
     <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter are used to allocate the
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
 field of the server map. The
 <parameter>count_acts</parameter>
  parameter is used to allocate the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  field of the server map.
     </entry>
   </row>
@@ -1512,13 +1512,13 @@ field of the server map. The
     <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter are used to allocate the
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
 field of the server map.
     </entry>
   </row>
@@ -1526,13 +1526,13 @@ field of the server map.
     <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>
 The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
 parameter are used to allocate the
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
 field of the server map.
     </entry>
   </row>
@@ -1541,9 +1541,9 @@ field of the server map.
 </table>
 
 <note><para>The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields of the
 <parameter>xkb</parameter>
  parameter must be legal values. If they are not valid,
@@ -1558,17 +1558,17 @@ If the server map of the keyboard description is not
  and any fields are already allocated in the server map,
 <function>XkbAllocServerMap</function>
  does not overwrite the existing values. The only exception is with the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
 array. If the
 <parameter>count_acts</parameter>
 parameter is greater than the current
-<emphasis>num_acts</emphasis>
+<structfield>num_acts</structfield>
 field of the server map,
 <function>XkbAllocServerMap</function>
  resizes the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
 array and resets the
-<emphasis>num_acts</emphasis>
+<structfield>num_acts</structfield>
 field accordingly.
 </para>
 
@@ -1669,11 +1669,11 @@ inclusive OR of the masks listed in
  structure component in the server map, frees the
 <structname>XkbServerMapRec</structname>
  structure referenced by the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  member of the
 <parameter>xkb</parameter>
  parameter, and sets the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  member to
 <symbol>NULL</symbol>.
 </para>

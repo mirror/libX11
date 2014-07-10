@@ -87,7 +87,7 @@ keys available on most keyboards. The definitions for the canonical key types
 are held in the first
 <symbol>XkbNumRequiredTypes</symbol>
  entries of the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  field of the client map and are indexed using the following constants:
     </para>
     <itemizedlist>
@@ -190,7 +190,7 @@ of event processing. For those rare occasions when a modifier
 <emphasis>should</emphasis>
  be considered despite having been used to look up a symbol, key types include
 an optional
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  field.
     </para>
   </glossdef>
@@ -233,7 +233,7 @@ depending on the value of the
 legal for the keyboard as a whole, but not for the key in question, the group
 <emphasis>for that event only</emphasis>
  is normalized using the algorithm specified by the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  member of the key symbol map (
 <structname>XkbSymMapRec</structname>
 ).
@@ -423,7 +423,7 @@ An indicator has its own set of attributes that specify whether clients can
 explicitly set its state and whether it tracks the keyboard state. The
 indicator map is the collection of these attributes for each indicator and is
 held in the
-<emphasis>maps</emphasis>
+<structfield>maps</structfield>
  array, which is an array of
 <structname>XkbIndicatorRec</structname>
  structures.
@@ -507,9 +507,9 @@ symbolic names section.
   <glossdef>
     <para>
 The
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
  field of the server map is an array of
-<emphasis>XkbBehavior</emphasis>,
+<structname>XkbBehavior</structname>,
 indexed by keycode, and contains the behavior for each key. The X server uses
 key behavior to determine whether to process or filter out any given key event;
 key behavior is independent of keyboard modifier or group state. Each key has
@@ -570,7 +570,7 @@ types are defined using the
     <para>
 The sound the default bell makes when rung is the system bell or the default
 keyboard bell. Some input devices may have more than one bell, identified by
-<emphasis>bell_class</emphasis> and <emphasis>bell_id</emphasis>.
+<structfield>bell_class</structfield> and <structfield>bell_id</structfield>.
     </para>
   </glossdef>
 </glossentry>
@@ -582,7 +582,7 @@ There are five types of components stored in the X server database of keyboard
 components. They correspond to the
 <emphasis>symbols, geometry, keycodes, compat</emphasis>,
 and
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  symbolic names associated with a keyboard.
     </para>
   </glossdef>
@@ -806,7 +806,7 @@ The physical indicator mask is a field in the
 <structname>XkbIndicatorRec</structname>
  that indicates which indicators are bound to physical LEDs on the keyboard; if
 a bit is set in
-<emphasis>phys_indicators</emphasis>,
+<structfield>phys_indicators</structfield>,
 then the associated indicator has a physical LED associated with it. This
 field is necessary because some indicators may not have corresponding physical
 LEDs on the keyboard.
@@ -818,11 +818,11 @@ LEDs on the keyboard.
   <glossdef>
     <para>
 The
-<emphasis>symbols</emphasis>
+<structfield>symbols</structfield>
  keyboard name identifies the symbols logically bound to the keys. The symbols
 name is a human or application-readable description of the intended locale or
 usage of the keyboard with these symbols. The
-<emphasis>phys_symbols</emphasis>
+<structfield>phys_symbols</structfield>
  keyboard name, on the other hand, identifies the symbols actually engraved on
 the keyboard.
     </para>
@@ -838,9 +838,9 @@ of event processing. For those rare occasions when a modifier
 <emphasis>should</emphasis>
  be considered despite having been used to look up a symbol, key types include
 an optional
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  field. If a modifier is present in the
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  list, it is a preserved modifier.
     </para>
   </glossdef>
@@ -899,11 +899,11 @@ produced when a key is actuated.
   <glossdef>
     <para>
 The
-<emphasis>symbols</emphasis>
+<structfield>symbols</structfield>
  keyboard name identifies the symbols logically bound to the keys. The symbols
 name is a human or application-readable description of the intended locale or
 usage of the keyboard with these symbols. The
-<emphasis>phys_symbols</emphasis>
+<structfield>phys_symbols</structfield>
  keyboard name, on the other hand, identifies the symbols actually engraved on
 the keyboard.
     </para>
@@ -915,7 +915,7 @@ the keyboard.
     <para>
 Xkb supports symbolic names for most components of the keyboard extension. Most
 of these symbolic names are grouped into the
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  component of the keyboard description.
     </para>
   </glossdef>

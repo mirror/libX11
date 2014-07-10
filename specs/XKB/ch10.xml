@@ -219,7 +219,7 @@ The
 <emphasis>EnabledControls</emphasis>
  control is a bit mask where each bit that is turned on means the corresponding
 control is enabled, and when turned off, disabled. It corresponds to the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field of an
 <structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The bits describing which controls are turned on
@@ -304,7 +304,7 @@ The
 these masks are composed of a bitwise inclusive OR of bits taken from the set
 of mask bits in <link linkend="table10.7">Table 10.7</link>,
 using only those masks with "ok" in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  column.
 </para>
 
@@ -331,9 +331,9 @@ by enabling and disabling them. Others, however, have additional attributes to
 configure their behavior. For example, the
 <emphasis>RepeatControl</emphasis>
  control uses
-<emphasis>repeat_delay</emphasis>
+<structfield>repeat_delay</structfield>
  and
-<emphasis>repeat_interval</emphasis>
+<structfield>repeat_interval</structfield>
  fields to describe the timing behavior of keys that repeat. The
 <emphasis>RepeatControl</emphasis>
  behavior is turned on or off depending on the value of the
@@ -1208,7 +1208,7 @@ When
 The
 <emphasis>MouseKeys</emphasis>
  control has a single attribute,
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  that specifies the core button number to be used by mouse keys actions that do
 not explicitly specify a button. There is no convenience function for getting
 or setting the attribute; instead use
@@ -1328,23 +1328,23 @@ If the
 <symbol>XkbSA_MovePtr</symbol>
  action specifies relative motion, the initial event always moves the cursor
 the distance specified in the action. After
-<emphasis>mk_delay</emphasis>
+<structfield>mk_delay</structfield>
  milliseconds, a second motion event is generated, and another occurs every
-<emphasis>mk_interval</emphasis>
+<structfield>mk_interval</structfield>
  milliseconds until the user releases the key.
 </para>
 
 
 <para>
 Between the time of the second motion event and
-<emphasis>mk_time_to_max</emphasis>
+<structfield>mk_time_to_max</structfield>
  intervals, the change in pointer distance per interval increases with each
 interval. After
-<emphasis>mk_time_to_max</emphasis>
+<structfield>mk_time_to_max</structfield>
  intervals have elapsed, the change in pointer distance per interval remains
 the same and is calculated by multiplying the original distance specified in
 the action by
-<emphasis>mk_max_speed</emphasis>.
+<structfield>mk_max_speed</structfield>.
 </para>
 
 
@@ -1352,13 +1352,13 @@ the action by
 For example, if the
 <symbol>XkbSA_MovePtr</symbol>
  action specifies a relative motion in the X direction of 5,
-<emphasis>mk_delay</emphasis>
+<structfield>mk_delay</structfield>
 =160,
-<emphasis>mk_interval</emphasis>
+<structfield>mk_interval</structfield>
 =40,
-<emphasis>mk_time_to_max</emphasis>
+<structfield>mk_time_to_max</structfield>
 =30, and
-<emphasis>mk_max_speed</emphasis>
+<structfield>mk_max_speed</structfield>
 =30, the following happens when the user presses the key:
 </para>
 
@@ -1372,9 +1372,9 @@ pressed.
 <listitem>
   <para>
 After 160 milliseconds (
-<emphasis>mk_delay</emphasis>
+<structfield>mk_delay</structfield>
 ), and every 40 milliseconds thereafter (
-<emphasis>mk_interval</emphasis>
+<structfield>mk_interval</structfield>
 ), the pointer moves in the X direction.
   </para>
 </listitem>
@@ -1382,7 +1382,7 @@ After 160 milliseconds (
   <para>
 The distance in the X direction increases with each interval until 30 intervals
 (
-<emphasis>mk_time_to_max</emphasis>
+<structfield>mk_time_to_max</structfield>
 ) have elapsed.
   </para>
 </listitem>
@@ -1390,7 +1390,7 @@ The distance in the X direction increases with each interval until 30 intervals
   <para>
 After 30 intervals, the pointer stops accelerating, and moves 150 pixels
 (
-<emphasis>mk_max_speed</emphasis>
+<structfield>mk_max_speed</structfield>
  * the original distance) every interval thereafter, until the key is released.
   </para>
 </listitem>
@@ -1398,7 +1398,7 @@ After 30 intervals, the pointer stops accelerating, and moves 150 pixels
 
 <para>
 The increase in pointer difference for each interval is a function of
-<emphasis>mk_curve</emphasis>.
+<structfield>mk_curve</structfield>.
  Events after the first but before maximum acceleration has been achieved are
 accelerated according to the formula:
 </para>
@@ -1415,14 +1415,14 @@ Where
  is the relative motion specified by the
 <symbol>XkbSA_MovePtr</symbol>
  action,
-<emphasis>mk_max_speed</emphasis>
+<structfield>mk_max_speed</structfield>
 and
-<emphasis>mk_time_to_max</emphasis>
+<structfield>mk_time_to_max</structfield>
  are parameters to the
 <emphasis>MouseKeysAccel</emphasis>
  control, and the curveFactor is computed using the
 <emphasis>MouseKeysAccel</emphasis>
-<emphasis>mk_curve</emphasis>
+<structfield>mk_curve</structfield>
  parameter as follows:
 </para>
 
@@ -1434,7 +1434,7 @@ and
 
 <para>
 With the result that a
-<emphasis>mk_curve</emphasis>
+<structfield>mk_curve</structfield>
  of zero causes the distance moved to increase linearly from
 <emphasis>action_delta</emphasis>
  to <mediaobject>
@@ -1442,14 +1442,14 @@ With the result that a
  </imageobject>
  </mediaobject>.
 A negative
-<emphasis>mk_curve</emphasis>
+<structfield>mk_curve</structfield>
  causes an initial sharp increase in acceleration that tapers off, and a
 positive curve yields a slower initial increase in acceleration followed by a
 sharp increase as the number of pointer events generated by the action
 approaches
-<emphasis>mk_time_to_max</emphasis>.
+<structfield>mk_time_to_max</structfield>.
 The legal values for
-<emphasis>mk_curve</emphasis>
+<structfield>mk_curve</structfield>
  are between -1000 and 1000.
 </para>
 
@@ -1679,7 +1679,7 @@ Use
     </term>
     <listitem>
       <para>
-        backfilled with <emphasis>ax_options</emphasis> to modify
+        backfilled with <structfield>ax_options</structfield> to modify
       </para>
     </listitem>
   </varlistentry>
@@ -1689,7 +1689,7 @@ Use
     </term>
     <listitem>
       <para>
-        backfilled with values for <emphasis>ax_options</emphasis>
+        backfilled with values for <structfield>ax_options</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -1706,7 +1706,7 @@ The parameters
  and
 <parameter>opts_values_rtrn</parameter>
  are backfilled with the options to modify and the values for
-<emphasis>ax_options</emphasis>,
+<structfield>ax_options</structfield>,
 which is a field in the
 <structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
@@ -1805,7 +1805,7 @@ opts_values</parameter>
     </term>
     <listitem>
       <para>
-        <emphasis>ax_options</emphasis> to change
+        <structfield>ax_options</structfield> to change
       </para>
     </listitem>
   </varlistentry>
@@ -1815,7 +1815,7 @@ opts_values</parameter>
     </term>
     <listitem>
       <para>
-        new bits for <emphasis>ax_options</emphasis> selected by <parameter>opts_mask</parameter>
+        new bits for <structfield>ax_options</structfield> selected by <parameter>opts_mask</parameter>
       </para>
     </listitem>
   </varlistentry>
@@ -1840,7 +1840,7 @@ correspond to those for enabling and disabling boolean controls
 <parameter>opts_values</parameter>
  specifies the new values for those options. The bit values correspond to those
 for the
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field of an
 <structname>XkbDescRec</structname>
  (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>).
@@ -1880,7 +1880,7 @@ There is no convenience function for modifying the
  control, although the feedback as a whole can be enabled or disabled just as
 other boolean controls are (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>). Individual beep codes are turned
 on or off by modifying the following bits in the
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field of an
 <structname>XkbControlsRec</structname>
  structure and using
@@ -1990,7 +1990,7 @@ falling tone. Other implementations can only ring the bell with one fixed
 pitch. In these cases, use the
 <symbol>XkbAX_DumbBellFBMask</symbol>
  bit of
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  to indicate that the bell can only ring with a fixed pitch.
 </para>
 
@@ -2027,12 +2027,12 @@ typedef struct {
       KeyCode         keycode;         /* key of event */
       int             slowKeysDelay;   /* current SlowKeys delay */
       int             debounceDelay;   /* current debounce delay */
-} <emphasis>XkbAccessXNotifyEvent</emphasis>;
+} <structname>XkbAccessXNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>detail</emphasis>
+<structfield>detail</structfield>
  field describes what AccessX event just occurred and can be any of the values
 in <link linkend="table10.4">Table 10.4</link>.
 </para>
@@ -2086,18 +2086,18 @@ expired).</entry>
 
 <para>
 The
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  field reports the keycode of the key for which the event occurred. If the
 action is related to
 <emphasis>SlowKeys</emphasis>,
 the
-<emphasis>slowKeysDelay</emphasis>
+<structfield>slowKeysDelay</structfield>
  field contains the current
 <emphasis>SlowKeys</emphasis>
  acceptance delay. If the action is related to
 <emphasis>BounceKeys</emphasis>,
 the
-<emphasis>debounceDelay</emphasis>
+<structfield>debounceDelay</structfield>
  field contains the current
 <emphasis>BounceKeys</emphasis>
  debounce delay.
@@ -2128,7 +2128,7 @@ To receive
  using
 <symbol>XkbAccessXNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying the desired state changes in
 <emphasis>bits_to_change</emphasis>
  and
@@ -2677,7 +2677,7 @@ is a shifted single quote, the user could press and release the
  modifier. Then, when the user presses the
 <emphasis>9</emphasis>,
 <emphasis>‘</emphasis>,
-<emphasis>x</emphasis>,
+<structfield>x</structfield>,
 <emphasis>k</emphasis>,
 <emphasis>b</emphasis>,
 <emphasis>‘</emphasis>,
@@ -2705,7 +2705,7 @@ behavior of modifier keys.
 The
 <emphasis>StickyKeys</emphasis>
  control has two options that can be accessed via the
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  of an
 <structname>XkbControlsRec</structname>
  structure (see <link linkend="The_XkbControlsRec_Structure">section 10.8</link>). The first option,
@@ -3009,7 +3009,7 @@ There are no convenience functions for manipulating the
  control. Manipulate the
 <emphasis>GroupsWrap</emphasis>
  control via the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field in the
 <structname>XkbControlsRec</structname>
  structure, then use
@@ -3020,7 +3020,7 @@ There are no convenience functions for manipulating the
 </para>
 
 <note><para>See also <link linkend="Per_Key_Group_Information">section 15.3.2</link> or a discussion of the related field,
-<emphasis>group_info</emphasis>,
+<structfield>group_info</structfield>,
 which also normalizes a group under certain circumstances.</para></note>
 
 </sect2>
@@ -3051,7 +3051,7 @@ is active.
 Manipulate the
 <emphasis>IgnoreLockMods</emphasis>
  control via the
-<emphasis>ignore_lock</emphasis>
+<structfield>ignore_lock</structfield>
  field in the
 <structname>XkbControlsRec</structname>
  structure, then use
@@ -3261,7 +3261,7 @@ protocol compatibility state.
 Manipulate the
 <emphasis>InternalMods</emphasis>
  control via the
-<emphasis>internal</emphasis>
+<structfield>internal</structfield>
  field in the
 <structname>XkbControlsRec</structname>
  structure, using
@@ -3469,8 +3469,8 @@ typedef struct {
       unsigned short       ax_timeout;        /* seconds until Access X disabled */
       unsigned short       axt_opts_mask;     /* 1 bit =&gt; options to reset on Access X timeout */
       unsigned short       axt_opts_values;   /* 1 bit =&gt; turn option on, 0=&gt; off */
-      unsigned int         axt_ctrls_mask;    /* which bits in <emphasis>enabled_ctrls</emphasis> to modify */
-      unsigned int         axt_ctrls_values;  /* values for new bits in <emphasis>enabled_ctrls</emphasis> */
+      unsigned int         axt_ctrls_mask;    /* which bits in <structfield>enabled_ctrls</structfield> to modify */
+      unsigned int         axt_ctrls_values;  /* values for new bits in <structfield>enabled_ctrls</structfield> */
       unsigned char        per_key_repeat[XkbPerKeyBitArraySize];           /* per key auto repeat */
 } <structname>XkbControlsRec</structname>, *XkbControlsPtr;
 </programlisting>
@@ -3483,7 +3483,7 @@ The general-purpose functions that work with the
 <link linkend="table10.6">Table 10.6</link>
 lists these controls, the masks used to select them in the general
 function calls (
-<emphasis>which</emphasis>
+<structfield>which</structfield>
  parameter), and the data fields in the
 <structname>XkbControlsRec</structname>
  structure that comprise each of the individual controls. Also listed are the
@@ -3679,9 +3679,9 @@ shows the actual values for the individual mask bits used to select
 controls for modification and to enable and disable the control. Note that the
 same mask bit is used to specify general modifications to the parameters used
 to configure the control (
-<emphasis>which</emphasis>
+<structfield>which</structfield>
 ), and to enable and disable the control (
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
 ). The anomalies in the table (no "ok" in column) are for controls that have no
 configurable attributes; and for controls that are not boolean controls and
 therefore cannot be enabled or disabled.
@@ -3846,7 +3846,7 @@ The individual fields of the
 <title>mk_dflt_btn</title>
 
 <para>
-<emphasis>mk_dflt_btn</emphasis> is an attribute of the
+<structfield>mk_dflt_btn</structfield> is an attribute of the
 <emphasis>MouseKeys</emphasis>
 control
  (see <link linkend="Controls_for_Using_the_Mouse_from_the_Keyboard">section 10.5</link>). It
@@ -3863,7 +3863,7 @@ operations. Its value should be one of the core symbols
 <title>num_groups</title>
 
 <para>
-<emphasis>num_groups</emphasis>
+<structfield>num_groups</structfield>
  is not a part of any control, but is reported in the
 <structname>XkbControlsRec</structname>
  structure whenever any of its components are fetched from the server. It
@@ -3877,12 +3877,12 @@ computed automatically by the server whenever the keyboard mapping changes.
 <title>groups_wrap</title>
 
 <para>
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  is an attribute of the
 <emphasis>GroupsWrap</emphasis>
  control (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>). It specifies the handling of illegal groups on a
 global basis. Valid values for
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  are shown in <link linkend="table10.8">Table 10.8</link>.
 </para>
 
@@ -3917,7 +3917,7 @@ global basis. Valid values for
 
 <para>
 When
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  is set to
 <symbol>XkbRedirectIntoRange</symbol>,
 its four low-order bits specify the index of the group to use.
@@ -3929,7 +3929,7 @@ its four low-order bits specify the index of the group to use.
 <title>internal</title>
 
 <para>
-<emphasis>internal</emphasis>
+<structfield>internal</structfield>
  is an attribute of the
 <emphasis>InternalMods</emphasis>
  control (see <link linkend="The_InternalMods_Control">section 10.7.4</link>). It specifies modifiers to be consumed in the
@@ -3949,7 +3949,7 @@ consist of any combination of the eight core modifier bits:
 <title>ignore_lock</title>
 
 <para>
-<emphasis>ignore_lock</emphasis>
+<structfield>ignore_lock</structfield>
  is an attribute of the
 <emphasis>IgnoreLockMods</emphasis>
  control (see <link linkend="The_IgnoreLockMods_Control">section 10.7.2</link>). It specifies modifiers to be ignored in grab
@@ -3969,7 +3969,7 @@ modifier bits:
 <title>enabled_ctrls</title>
 
 <para>
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  is an attribute of the
 <emphasis>EnabledControls</emphasis>
  control (see <link linkend="The_EnabledControls_Control">section 10.1.1</link>). It contains one bit per boolean control. Each
@@ -3977,7 +3977,7 @@ bit determines whether the corresponding control is enabled or disabled; a one
 bit means the control is enabled. The mask bits used to enable these controls
 are listed in <link linkend="table10.7">Table 10.7</link>,
 using only those masks with "ok" in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  column.
 </para>
 
@@ -3987,15 +3987,15 @@ using only those masks with "ok" in the
 <title>repeat_delay and repeat_interval</title>
 
 <para>
-<emphasis>repeat_delay</emphasis>
+<structfield>repeat_delay</structfield>
  and
-<emphasis>repeat_interval</emphasis>
+<structfield>repeat_interval</structfield>
  are attributes of the
 <emphasis>RepeatKeys</emphasis>
  control (see <link linkend="The_RepeatKeys_Control">section 10.3.2</link>).
-<emphasis>repeat_delay</emphasis>
+<structfield>repeat_delay</structfield>
  is the initial delay before a key begins repeating, in milliseconds;
-<emphasis>repeat_interval</emphasis>
+<structfield>repeat_interval</structfield>
  is the delay between subsequent key events, in milliseconds.
 </para>
 
@@ -4005,7 +4005,7 @@ using only those masks with "ok" in the
 <title>slow_keys_delay</title>
 
 <para>
-<emphasis>slow_keys_delay</emphasis>
+<structfield>slow_keys_delay</structfield>
  is an attribute of the
 <emphasis>SlowKeys</emphasis>
  control (see <link linkend="The_SlowKeys_Control">section 10.6.6</link>). Its value specifies the
@@ -4020,7 +4020,7 @@ server.
 <title>debounce_delay</title>
 
 <para>
-<emphasis>debounce_delay</emphasis>
+<structfield>debounce_delay</structfield>
  is an attribute of the
 <emphasis>BounceKeys</emphasis>
  control (see <link linkend="The_BounceKeys_Control">section 10.6.7</link>). Its value specifies the
@@ -4035,12 +4035,12 @@ pressed before another press of the same key is accepted by the server.
 <title>mk_delay, mk_interval, mk_time_to_max, mk_max_speed, and mk_curve</title>
 
 <para>
-<emphasis>mk_delay</emphasis>,
-<emphasis>mk_interval</emphasis>,
-<emphasis>mk_time_to_max</emphasis>,
-<emphasis>mk_max_speed</emphasis>,
+<structfield>mk_delay</structfield>,
+<structfield>mk_interval</structfield>,
+<structfield>mk_time_to_max</structfield>,
+<structfield>mk_max_speed</structfield>,
 and
-<emphasis>mk_curve</emphasis>
+<structfield>mk_curve</structfield>
  are attributes of the
 <emphasis>MouseKeysAccel</emphasis>
  control. Refer to <link linkend="The_MouseKeysAccel_Control">section 10.5.2</link> for a description of these fields and the
@@ -4054,13 +4054,13 @@ units involved.
 
 <para>
 The
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field contains attributes used to configure two different controls, the
 <emphasis>StickyKeys</emphasis>
  control (see <link linkend="The_StickyKeys_Control">section 10.6.8</link>) and the
 <emphasis>AccessXFeedback</emphasis>
  control (see <link linkend="The_AccessXFeedback_Control">section 10.6.3</link>). The
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field is a bitmask and may include any combination of the bits defined in
 <link linkend="table10.9">Table 10.9</link>.
 </para>
@@ -4163,7 +4163,7 @@ enabled (
 
 <para>
 Xkb provides a set of convenience macros for working with the
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field of an
 <structname>XkbControlsRec</structname>
  structure:
@@ -4183,7 +4183,7 @@ or not. It accepts a pointer to an
  structure and a valid mask bit from
 <link linkend="table10.9">Table 10.9</link>.
  If the specified mask bit in the
-<emphasis>ax_options</emphasis>
+<structfield>ax_options</structfield>
  field of the controls structure is set, the macro returns the mask bit.
 Otherwise, it returns zero. Thus,
 </para>
@@ -4202,7 +4202,7 @@ zero if it is disabled. Note that
 operate; the
 <symbol>XkbAccessXFeedbackMask</symbol>
  bit must also be turned on in
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  for the capability to actually be functioning.
 </para>
 
@@ -4253,12 +4253,12 @@ id='ax_timeout_axt_opts_mask_axt_opts_values_axt_ctrls_mask_and_axt_ctrls_values
 <title>ax_timeout, axt_opts_mask, axt_opts_values, axt_ctrls_mask, and axt_ctrls_values</title>
 
 <para>
-<emphasis>ax_timeout</emphasis>,
+<structfield>ax_timeout</structfield>,
 <emphasis>act_opts_mask</emphasis>,
-<emphasis>axt_opts_values</emphasis>,
-<emphasis>axt_ctrls_mask</emphasis>,
+<structfield>axt_opts_values</structfield>,
+<structfield>axt_ctrls_mask</structfield>,
 and
-<emphasis>axt_ctrls_values</emphasis>
+<structfield>axt_ctrls_values</structfield>
  are attributes of the
 <emphasis>AccessXTimeout</emphasis>
  control. Refer to <link linkend="The_AccessXTimeout_Control">section 10.6.2</link> for a description of these fields and the
@@ -4361,7 +4361,7 @@ Use
 <function>XkbGetControls</function>
  queries the server for the requested control information, waits for a reply,
 and then copies the server’s values for the requested information into the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  structure of the
 <parameter>xkb</parameter>
  argument. Only those components specified by the
@@ -4379,7 +4379,7 @@ and then copies the server’s values for the requested information into the
 If
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
 is
 <symbol>NULL</symbol>,
 <function>XkbGetControls</function>
@@ -4388,14 +4388,14 @@ is
 If
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  is not
 <symbol>NULL</symbol>,
 <function>XkbGetControls</function>
  modifies only those portions of
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  corresponding to the values specified by
 <parameter>which</parameter>.
 </para>
@@ -4422,7 +4422,7 @@ If
 
 <para>
 To free the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  member of a keyboard description, use
 <function>XkbFreeControls</function>
  (see <link linkend="Allocating_and_Freeing_an_XkbControlsRec">section 10.12</link>)
@@ -4431,9 +4431,9 @@ To free the
 
 <para>
 The
-<emphasis>num_groups</emphasis>
+<structfield>num_groups</structfield>
  field in the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  structure is always filled in by
 <function>XkbGetControls</function>,
 regardless of which bits are selected by
@@ -4458,7 +4458,7 @@ or, to reduce network traffic, use an
 
 <para>
 To change the state of one or more controls, first modify the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  structure in a local copy of the keyboard description and then use
 <function>XkbSetControls</function>
  to copy those changes to the X server.
@@ -4503,7 +4503,7 @@ To change the state of one or more controls, first modify the
     </term>
     <listitem>
       <para>
-        <emphasis>ctrls</emphasis> field contains new values to be set
+        <structfield>ctrls</structfield> field contains new values to be set
       </para>
     </listitem>
   </varlistentry>
@@ -4517,7 +4517,7 @@ For each bit that is set in the
  sends the corresponding values from the
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field to the server. Valid values for
 <parameter>which</parameter>
  are any combination of the masks listed in
@@ -4531,7 +4531,7 @@ For each bit that is set in the
 If
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  is
 <symbol>NULL</symbol>,
 the server does not support a compatible version of Xkb, or the Xkb extension
@@ -4549,9 +4549,9 @@ Note that changes to attributes of controls in the
 <structname>XkbControlsRec</structname>
  structure are apparent only when the associated control is enabled, although
 the corresponding values are still updated in the X server. For example, the
-<emphasis>repeat_delay</emphasis>
+<structfield>repeat_delay</structfield>
  and
-<emphasis>repeat_interval</emphasis>
+<structfield>repeat_interval</structfield>
  fields are ignored unless the
 <emphasis>RepeatKeys</emphasis>
  control is enabled (that is, the X server’s equivalent of
@@ -4559,7 +4559,7 @@ the corresponding values are still updated in the X server. For example, the
  has
 <emphasis>XkbRepeatKeyMask</emphasis>
  set in
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
 ). It is permissible to modify the attributes of a control in one call to
 XkbSetControls and enable the control in a subsequent call. See <link linkend="The_EnabledControls_Control">section 10.1.1</link>
 for more information on enabling and disabling controls.
@@ -4568,12 +4568,12 @@ for more information on enabling and disabling controls.
 
 <para>
 Note that the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field is itself a control — the
 <emphasis>EnabledControls</emphasis>
  control. As such, to set a specific configuration of enabled and disabled
 boolean controls, you must set
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  to the appropriate bits to enable only the controls you want and disable all
 others, then specify the
 <symbol>XkbControlsEnabledMask</symbol>
@@ -4617,24 +4617,24 @@ typedef struct _XkbControlsChanges {
 
 <para>
 The
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  field is a mask specifying which logical sets of data in the controls
 structure have been modified. In this context, modified means
 <emphasis>set</emphasis>,
 that is, if a value is set to the same value it previously contained, it has
 still been modified, and is noted as changed. Valid values for
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  are any combination of the masks listed in
 <link linkend="table10.7">Table 10.7</link> that have "ok" in the
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  column. Setting a bit implies the corresponding data fields from the
 "Relevant XkbControlsRec Data Fields" column in
 <link linkend="table10.6">Table 10.6</link> have been modified. The
-<emphasis>enabled_ctrls_changes</emphasis>
+<structfield>enabled_ctrls_changes</structfield>
  field specifies which bits in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field have changed. If the number of keyboard groups has changed, the
-<emphasis>num_groups_changed</emphasis>
+<structfield>num_groups_changed</structfield>
  field is set to <symbol>True</symbol>.
 </para>
 
@@ -4701,7 +4701,7 @@ match those in the changed keyboard description.
  from the keyboard description controls structure,
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>,
+<structfield>ctrls</structfield>,
 to the server specified by
 <parameter>dpy</parameter>.
 </para>
@@ -4737,7 +4737,7 @@ To receive
  using
 <symbol>XkbControlsNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying the desired state changes in
 <emphasis>bits_to_change</emphasis>
  and
@@ -4769,34 +4769,34 @@ typedef struct {
       char           event_type;      /* Type of event causing change */
       char           req_major;       /* major event code of event causing change */
       char           req_minor;       /* minor event code of event causing change */
-} <emphasis>XkbControlsNotifyEvent</emphasis>;
+} <structname>XkbControlsNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  field specifies the controls components that have changed and consists of bits
 taken from the masks defined in
 <link linkend="table10.7">Table 10.7</link> with "ok" in the
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  column.
 </para>
 
 
 <para>
 The controls currently enabled in the server are reported in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field. If any controls were just enabled or disabled (that is, the contents of
 the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field changed), they are flagged in the
-<emphasis>enabled_ctrl_changes</emphasis>
+<structfield>enabled_ctrl_changes</structfield>
  field. The valid bits for these fields are the masks listed in
 <link linkend="table10.7">Table 10.7</link> with
 "ok" in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  column. The
-<emphasis>num_groups</emphasis>
+<structfield>num_groups</structfield>
  field reports the number of groups bound to the key belonging to the most
 number of groups and is automatically updated when the keyboard mapping changes.
 </para>
@@ -4804,19 +4804,19 @@ number of groups and is automatically updated when the keyboard mapping changes.
 
 <para>
 If the change was caused by a request from a client, the
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  and
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  fields are set to
 <emphasis>zero</emphasis>
 and the
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  fields identify the request. The
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  value is the same as the major extension opcode. Otherwise,
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  is set to the type of event that caused the change (one of
 <symbol>KeyPress</symbol>,
 <symbol>KeyRelease</symbol>,
@@ -4826,11 +4826,11 @@ and the
  or
 <symbol>ButtonRelease</symbol>
 ), and
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  are undefined. If
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  is
 <symbol>KeyPress</symbol>,
 <symbol>KeyRelease</symbol>,
@@ -4838,14 +4838,14 @@ and the
 or
 <emphasis>DeviceKeyRelease</emphasis>,
 the
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  field is set to the key that caused the change. If
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  is
 <symbol>ButtonPress</symbol>
  or
 <symbol>ButtonRelease</symbol>,
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  contains the button number.
 </para>
 
@@ -4910,7 +4910,7 @@ The
 <parameter>wanted</parameter>
  parameter is a bitwise inclusive OR of bits taken from the set of masks
 specified in <link linkend="table10.7">Table 10.7</link> with "ok" in the
-<emphasis>changed_ctrls</emphasis>
+<structfield>changed_ctrls</structfield>
  column.
 <function>XkbNoteControlsChanges</function>
  copies any changes reported in
@@ -4987,16 +4987,16 @@ noted by one or more calls to
 results into the
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  keyboard description. If the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field of
 <parameter>xkb</parameter>
  is
 <symbol>NULL</symbol>,
 <function>XkbGetControlsChanges</function>
  allocates and initializes it. To free the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field, use
 <function>XkbFreeControls</function>
  (see <link linkend="Allocating_and_Freeing_an_XkbControlsRec">section 10.12</link>).
@@ -5062,7 +5062,7 @@ allocate one by calling
     </term>
     <listitem>
       <para>
-        mask of components of <emphasis>ctrls</emphasis> to allocate
+        mask of components of <structfield>ctrls</structfield> to allocate
       </para>
     </listitem>
   </varlistentry>
@@ -5071,13 +5071,13 @@ allocate one by calling
 <para>
 <function>XkbAllocControls</function>
  allocates the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field of the
 <parameter>xkb</parameter>
  parameter, initializes all fields to zero, and returns
 <symbol>Success</symbol>.
 If the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field is not
 <symbol>NULL</symbol>,
 <function>XkbAllocControls</function>
@@ -5091,7 +5091,7 @@ If
  reports a
 <errorname>BadMatch</errorname>
  error. If the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field could not be allocated, it reports a
 <errorname>BadAlloc</errorname>
  error.
@@ -5102,7 +5102,7 @@ If
 The
 <parameter>which</parameter>
  mask specifies the individual fields of the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  structure to be allocated and can contain any of the valid masks defined in
 <link linkend="table10.7">Table 10.7</link>.
 Because none of the currently existing controls have any structures
@@ -5112,7 +5112,7 @@ associated with them, which is currently of little practical value in this call.
 
 <para>
 To free memory used by the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  member of an
 <structname>XkbDescRec</structname>
 structure, use
@@ -5150,7 +5150,7 @@ structure, use
     </term>
     <listitem>
       <para>
-        mask of components of <emphasis>ctrls</emphasis> to free
+        mask of components of <structfield>ctrls</structfield> to free
       </para>
     </listitem>
   </varlistentry>
@@ -5169,7 +5169,7 @@ structure, use
 <para>
 <function>XkbFreeControls</function>
  frees the specified components of the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field in the
 <parameter>xkb</parameter>
  keyboard description and sets the corresponding structure component values to
@@ -5179,7 +5179,7 @@ structure, use
 The
 <parameter>which</parameter>
  mask specifies the fields of
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  to be freed and can contain any of the controls components specified in
 <link linkend="table10.7">Table 10.7</link>.
 </para>
@@ -5196,11 +5196,11 @@ If
  structure component in the controls, frees the
 <structname>XkbControlsRec</structname>
  structure referenced by the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  member of
 <parameter>xkb</parameter>,
 and sets
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  to
 <symbol>NULL</symbol>.
 </para>

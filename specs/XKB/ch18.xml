@@ -21,7 +21,7 @@ any other modifiers).
 To make it easier for applications to present a keyboard to the user, Xkb
 supports symbolic names for most components of the keyboard extension. Most of
 these symbolic names are grouped into the
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  component of the keyboard description.
 </para>
 
@@ -69,19 +69,19 @@ typedef struct _XkbNamesRec {
       XkbKeyAliasPtr     key_aliases;  /* real/alias symbolic name pairs array */
       Atom *    radio_groups;      /* radio group name array */
       Atom      phys_symbols;      /* identifies the symbols engraved on the keyboard */
-      unsigned char      num_keys; /* number of keys in the <emphasis>keys</emphasis> array */
+      unsigned char      num_keys; /* number of keys in the <structfield>keys</structfield> array */
       unsigned char      num_key_aliases;  /* number of keys in the
-                                              <emphasis>key_aliases</emphasis> array */
+                                              <structfield>key_aliases</structfield> array */
       unsigned short     num_rg;      /* number of radio groups */
 } <structname>XkbNamesRec</structname>,*XkbNamesPtr;      /*
 </programlisting></para>
 
 <para>
 The
-<emphasis>keycodes</emphasis>
+<structfield>keycodes</structfield>
  name identifies the range and meaning of the keycodes returned by the keyboard
 in question. The
-<emphasis>geometry</emphasis>
+<structfield>geometry</structfield>
  name, on the other hand, identifies the physical location, size and shape of
 the various keys on the keyboard. As an example to distinguish between these
 two names, consider function keys on PC-compatible keyboards. Function keys are
@@ -96,33 +96,33 @@ the keycodes returned by a keyboard; a single keycodes name might cover
 keyboards with differing numbers of keys provided all keys have the same
 semantics when present. For example, 101 and 102 key PC keyboards might use the
 same name. In these cases, applications can use the keyboard
-<emphasis>geometry</emphasis>
+<structfield>geometry</structfield>
  name to determine which subset of the named keycodes is in use.</para></note>
 
 <para>
 The
-<emphasis>symbols</emphasis>
+<structfield>symbols</structfield>
  name identifies the symbols logically bound to the keys. The symbols name is a
 human or application-readable description of the intended locale or usage of
 the keyboard with these symbols. The
-<emphasis>phys_symbols</emphasis>
+<structfield>phys_symbols</structfield>
  name, on the other hand, identifies the symbols actually engraved on the
 keyboard. Given this, the
-<emphasis>symbols</emphasis>
+<structfield>symbols</structfield>
  name and
-<emphasis>phys_symbols</emphasis>
+<structfield>phys_symbols</structfield>
  names might be different. For example, the description for a keyboard that has
 English US engravings, but that is using Swiss German symbols might have a
-<emphasis>phys_symbols</emphasis>
+<structfield>phys_symbols</structfield>
  name of "en_US" and a
-<emphasis>symbols</emphasis>
+<structfield>symbols</structfield>
  name of "de_CH."
 </para>
 
 
 <para>
 The
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  name provides some information about the set of key types (see <link linkend="Key_Types">section 15.2</link>)
 that can be associated with the keyboard. In addition, each key type can have a
 name, and each shift level of a type can have a name. Although these names are
@@ -133,7 +133,7 @@ the same methods as the other symbolic names.
 
 <para>
 The
-<emphasis>compat</emphasis>
+<structfield>compat</structfield>
  name provides some information about the rules used to bind actions to keys
 that are changed using core protocol requests.
 </para>
@@ -143,10 +143,10 @@ that are changed using core protocol requests.
 Xkb provides symbolic names for each of the 4 keyboard groups, 16 virtual
 modifiers, 32 keyboard indicators, and 4 keyboard groups. These names are held
 in the
-<emphasis>vmods</emphasis>,
-<emphasis>indicators</emphasis>,
+<structfield>vmods</structfield>,
+<structfield>indicators</structfield>,
 and
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  fixed-length arrays.
 </para>
 
@@ -154,9 +154,9 @@ and
 <para>
 Each key has a four-byte symbolic name. All of the symbolic key names are held
 in the
-<emphasis>keys</emphasis>
+<structfield>keys</structfield>
  array, and
-<emphasis>num_keys</emphasis>
+<structfield>num_keys</structfield>
  reports the number of entries that are in the keys array. For each key, the
 key name links keys with similar functions or in similar positions on keyboards
 that report different keycodes. For example, the
@@ -174,12 +174,12 @@ either their position or their "function." For example, a keyboard layout
 designer may wish to refer to the left arrow key on a PC keyboard using the
 ISO9995-5 positional specification of A31 or using the functional specification
 of LEFT. The
-<emphasis>key_aliases</emphasis>
+<structfield>key_aliases</structfield>
  field holds a variable-length array of real and alias key name pairs, and the
 total number of entries in the
-<emphasis>key_aliases</emphasis>
+<structfield>key_aliases</structfield>
  array is held in
-<emphasis>num_key_aliases</emphasis>.
+<structfield>num_key_aliases</structfield>.
 For each real and alias key name pair, the
 <emphasis>real</emphasis>
  field refers to the a name in the keys array, and the
@@ -187,7 +187,7 @@ For each real and alias key name pair, the
  field refers to the alias for that key. Using the previous example, the
 keyboard designer may use the name A31 in the keys array, but also define the
 name LEFT as an alias for A31 in the
-<emphasis>key_aliases</emphasis>
+<structfield>key_aliases</structfield>
  array.
 </para>
 
@@ -214,11 +214,11 @@ be logically depressed at one time.
 <para>
 Each radio group in the keyboard description can have a name. These names are
 held in the variable-length array
-<emphasis>radio_groups</emphasis>,
+<structfield>radio_groups</structfield>,
 and
-<emphasis>num_rg</emphasis>
+<structfield>num_rg</structfield>
  tells how many elements are in the
-<emphasis>radio_groups</emphasis>
+<structfield>radio_groups</structfield>
  array.
 </para>
 
@@ -427,18 +427,18 @@ defined in <link linkend="table18.1">Table 18.1</link>.
 
 <para>
 If the
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  field of the keyboard description
 <parameter>xkb</parameter>
  is
 <symbol>NULL</symbol>,
 <function>XkbGetNames</function>
  allocates and initializes the
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  component of the keyboard description before obtaining the values specified by
 <parameter>which</parameter>.
 If the
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  field of
 <parameter>xkb</parameter>
  is not
@@ -453,7 +453,7 @@ If the
 
 <para>
 If the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  component of the
 <parameter>xkb</parameter>
  parameter is
@@ -668,7 +668,7 @@ typedef struct _XkbNameChanges {
 
 <para>
 The
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  field specifies the name components that have changed and is the bitwise
 inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>. The rest of
@@ -851,7 +851,7 @@ server sends a
 To receive events for only specific names, use
 <function>XkbSelectEventDetails</function>.
 Set the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  parameter to
 <symbol>XkbNamesNotify</symbol>,
 and set both the
@@ -900,12 +900,12 @@ that have changed */
                                                 names were changed */
       int      first_key;             /* first key with a new name */
       int      num_keys;              /* number of keys with new names */
-} <emphasis>XkbNamesNotifyEvent</emphasis>;
+} <structname>XkbNamesNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  field specifies the name components that have changed and is the bitwise
 inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>. The other

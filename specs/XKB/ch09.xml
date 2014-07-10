@@ -28,9 +28,9 @@ The default bell
 <listitem>
   <para>
 Any bell on an input device that can be specified by a
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
  and
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
  pair
   </para>
 </listitem>
@@ -246,25 +246,25 @@ events.
 <para>
 The input extension has two types of feedbacks that can generate bells — bell
 feedback and keyboard feedback. Some of the functions in this section have
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
  and
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
  parameters; set them as follows: Set
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
  to
 <emphasis>BellFeedbackClass</emphasis>
  or
 <emphasis>KbdFeedbackClass</emphasis>.
 A device can have more than one feedback of each type; set
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
  to the particular bell feedback of
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
  type.
 </para>
 
 <para>
 <link linkend="table9.2">Table 9.2</link> shows the conditions that cause
-a bell to sound or an <emphasis>XkbBellNotifyEvent</emphasis>
+a bell to sound or an <structname>XkbBellNotifyEvent</structname>
  to be generated when a bell function is called.
 </para>
 
@@ -564,15 +564,15 @@ calls
 and
 <parameter>name</parameter>,
 a
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  of
 <symbol>XkbUseCoreKbd</symbol>,
 a
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
 of
 <symbol>XkbDfltXIClass</symbol>,
 and a
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
 of
 <symbol>XkbDfltXIId</symbol>,
  and returns
@@ -816,15 +816,15 @@ calls
 and
 <parameter>name</parameter>,
 a
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  of
 <symbol>XkbUseCoreKbd</symbol>,
 a
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
 of
 <symbol>XkbDfltXIClass</symbol>,
 and a
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
 of
 <symbol>XkbDfltXIId</symbol>,
  and returns what
@@ -947,7 +947,7 @@ Set
  to be the volume relative to the base volume for the keyboard as described for
 <function>XBell</function>.
 There is no
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  parameter because
 <function>XkbForceDeviceBell</function>
 does not cause an
@@ -1020,18 +1020,18 @@ calls
 <parameter>display</parameter>
 and
 <parameter>percent</parameter>,
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  =
 <symbol>XkbUseCoreKbd</symbol>,
-<emphasis>bell_class</emphasis>
+<structfield>bell_class</structfield>
 =
 <symbol>XkbDfltXIClass</symbol>,
-<emphasis>bell_id</emphasis>
+<structfield>bell_id</structfield>
 =
 <symbol>XkbDfltXIId</symbol>,
-<emphasis>window</emphasis>
+<structfield>window</structfield>
  = None, and
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  =
 <symbol>NULL</symbol>,
 and returns what
@@ -1086,7 +1086,7 @@ can call
  using
 <symbol>XkbBellNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying
 <emphasis>XkbAllBellNotifyMask</emphasis>
  in
@@ -1120,13 +1120,13 @@ typedef struct _XkbBellNotify {
       Atom            name;        /* "name" of requested bell */
       Window          window;      /* window associated with event */
       Bool            event_only;  /* <symbol>False</symbol> -&gt; the server did not produce a beep */
-} <emphasis>XkbBellNotifyEvent</emphasis>;
+} <structname>XkbBellNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
 If your application needs to generate visual bell feedback on the screen when
 it receives a bell event, use the window ID in the
-<emphasis>XkbBellNotifyEvent</emphasis>,
+<structname>XkbBellNotifyEvent</structname>,
 if present.
 </para>
 

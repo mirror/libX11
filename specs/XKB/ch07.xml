@@ -130,25 +130,25 @@ real modifiers */
 <para>
 An Xkb modifier definition consists of a set of bit masks corresponding to the
 eight real modifiers (
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
 ); a similar set of bitmasks corresponding to the 16 named virtual modifiers
 (
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
 ); and an effective mask (
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
 ). The effective mask represents the set of all real modifiers that can
 logically be set either by setting any of the real modifiers or by setting any
 of the virtual modifiers in the definition.
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  is derived from the real and virtual modifiers and should never be explicitly
 changed — it contains all of the real modifiers specified in the definition
 (
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
 )
 <emphasis>plus</emphasis>
  any real modifiers that are bound to the virtual modifiers specified in the
 definition (
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
 ). The binding of the virtual modifiers to real modifiers is exterior to the
 modifier definition. Xkb automatically recomputes the mask field of modifier
 definitions as necessary. Whenever you access a modifier definition that has
@@ -194,9 +194,9 @@ bitmask for the virtual modifier bits. The
 
 <para>
 The
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  and
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  members of the server map are the "master" virtual modifier definitions. Xkb
 automatically propagates any changes to these fields to all other fields that
 use virtual modifier mappings (see <link linkend="Virtual_Modifier_Mapping">section 16.4</link>).
@@ -331,9 +331,9 @@ contain virtual modifier information. </para></note>
 <para>
 An unbound virtual modifier is one that is not bound to any real modifier
 (
-<emphasis>server</emphasis>
+<structfield>server</structfield>
 -&gt;
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
 [virtual_modifier_index] is zero).
 </para>
 

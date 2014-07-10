@@ -165,7 +165,7 @@ There are two circumstances under which groups are normalized:
 <orderedlist>
   <listitem><para>
 The global locked or effective group changes. In this case, the changed group is normalized into range according to the settings of the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field of the
 <structname>XkbControlsRec</structname>
  structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
@@ -173,7 +173,7 @@ The global locked or effective group changes. In this case, the changed group is
   <listitem><para>
 
 The Xkb library is interpreting an event with an effective group that is legal for the keyboard as a whole, but not for the key in question. In this case, the group to use for this event only is determined using the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field of the key symbol mapping (
 <structname>XkbSymMapRec</structname>
 ) for the event key.
@@ -301,7 +301,7 @@ The X11 protocol interpretation of modifiers does not include direct support for
 
 <para>
 The functions in this section that change the use of modifiers use a mask in the parameter
-<emphasis>affect</emphasis>.
+<structfield>affect</structfield>.
 It is a bitwise inclusive OR of the legal modifier masks:
 </para>
 
@@ -897,7 +897,7 @@ To receive
  using
 <symbol>XkbStateNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying the desired state changes in
 <emphasis>bits_to_change</emphasis>
  and
@@ -937,11 +937,11 @@ typedef struct {
       unsigned char  compat_lookup_mods;                  /* mods used for compatibility look up */
       int            ptr_buttons;     /* core pointer buttons */
       KeyCode        keycode;         /* keycode causing event, 0 if programmatic */
-      char           event_type;      /* core event if <emphasis>req_major</emphasis> or
-                                         <emphasis>req_minor</emphasis> non zero */
+      char           event_type;      /* core event if <structfield>req_major</structfield> or
+                                         <structfield>req_minor</structfield> non zero */
       char           req_major;       /* major request code if program trigger, else 0 */
       char           req_minor;       /* minor request code if program trigger, else 0 */
-} <emphasis>XkbStateNotifyEvent</emphasis>
+} <structname>XkbStateNotifyEvent</structname>
 ;
 </programlisting></para>
 
@@ -949,25 +949,25 @@ typedef struct {
 When you receive an
 <symbol>XkbStateNotify</symbol>
  event, the
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  field indicates which elements of keyboard state have changed.
 This will be the bitwise inclusive OR of one or more of the
 <symbol>XkbStateNotify</symbol>
  event detail masks shown in <link linkend="table5.3">Table 5.3</link>.
  All fields reported in the event are valid, but only those indicated in
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  have changed values.
 </para>
 
 
 <para>
 The
-<emphasis>group</emphasis>
+<structfield>group</structfield>
  field is the group index of the effective keysym group. The
-<emphasis>base_group</emphasis>,
-<emphasis>latched_group</emphasis>,
+<structfield>base_group</structfield>,
+<structfield>latched_group</structfield>,
 and
-<emphasis>locked_group</emphasis>
+<structfield>locked_group</structfield>
  fields are set to a group index value representing the base group,
 the latched group, and the locked group, respectively. The X
 server can set the modifier and compatibility state fields to
@@ -983,26 +983,26 @@ core pointer button masks.
 Xkb state changes can occur either in response to keyboard
 activity or under application control. If a key event
 caused the state change, the
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  field gives the keycode of the key event, and the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  field is set to either <symbol>KeyPress</symbol>
  or
 <symbol>KeyRelease</symbol>.
 If a pointer button event caused the state change, the
-<emphasis>keycode</emphasis>
- field is zero, and the <emphasis>event_type</emphasis>
+<structfield>keycode</structfield>
+ field is zero, and the <structfield>event_type</structfield>
  field is set to either <symbol>ButtonPress</symbol>
  or <symbol>ButtonRelease</symbol>.
 Otherwise, the major and minor codes of the request that caused the
 state change are given in the
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  and
-<emphasis>req_minor</emphasis>
+<structfield>req_minor</structfield>
  fields, and the
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  field is zero. The
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  value is the same as the major extension opcode.
 </para>
 </sect1>

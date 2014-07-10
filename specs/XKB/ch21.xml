@@ -170,7 +170,7 @@ typedef struct {
                                         device has its own state */
       unsigned short  supported;     /* bits indicating supported capabilities */
       unsigned short  unsupported;   /* bits indicating unsupported capabilities */
-      unsigned short  num_btns;      /* number of entries in <emphasis>btn_acts</emphasis> */
+      unsigned short  num_btns;      /* number of entries in <structfield>btn_acts</structfield> */
       XkbAction *     btn_acts;      /* button actions */
       unsigned short  sz_leds;       /* total number of entries in LEDs vector */
       unsigned short  num_leds;      /* number of valid entries in LEDs vector */
@@ -187,9 +187,9 @@ typedef struct {
       unsigned int     phys_indicators;   /* bits for which LEDs physically
                                              present */
       unsigned int     maps_present;      /* bits for which LEDs have maps in
-                                             <emphasis>maps</emphasis> */
+                                             <structfield>maps</structfield> */
       unsigned int     names_present;     /* bits for which LEDs are in
-                                             <emphasis>names</emphasis> */
+                                             <structfield>names</structfield> */
       unsigned int     state;            /* 1 bit =&gt; corresponding LED is on */
       Atom             names[XkbNumIndicators];  /* names for LEDs */
       XkbIndicatorMapRec  maps;          /* indicator maps for each LED */
@@ -198,22 +198,22 @@ typedef struct {
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field is a registered symbolic name for a class of devices (for example,
 "TABLET"). If a device is a keyboard (that is, is a member of
 <emphasis>KeyClass</emphasis>
 ), it has its own state, and
-<emphasis>has_own_state</emphasis>
+<structfield>has_own_state</structfield>
  is
 <symbol>True</symbol>.
 If
-<emphasis>has_own_state</emphasis>
+<structfield>has_own_state</structfield>
  is
 <symbol>False</symbol>,
 the state of the core keyboard is used. The
-<emphasis>supported</emphasis>
+<structfield>supported</structfield>
  and
-<emphasis>unsupported</emphasis>
+<structfield>unsupported</structfield>
  fields are masks where each bit indicates a capability. The meaning of the
 mask bits is listed in <link linkend="table21.1">Table 21.1</link>,
 together with the fields in the
@@ -346,12 +346,12 @@ Clients can request the status of indicators on non-
 
 <para>
 The
-<emphasis>name</emphasis>,
-<emphasis>type</emphasis>,
-<emphasis>has_own_state</emphasis>,
-<emphasis>supported</emphasis>,
+<structfield>name</structfield>,
+<structfield>type</structfield>,
+<structfield>has_own_state</structfield>,
+<structfield>supported</structfield>,
 and
-<emphasis>unsupported</emphasis>
+<structfield>unsupported</structfield>
  fields are always filled in when a valid reply is returned from the server
 involving an
 <structname>XkbDeviceInfoRec</structname>.
@@ -470,15 +470,15 @@ The
  returned by
 <function>XkbGetDeviceInfo</function>
  always has values for
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  (may be a null string, ""),
-<emphasis>type</emphasis>,
-<emphasis>supported</emphasis>,
-<emphasis>unsupported</emphasis>,
-<emphasis>has_own_state</emphasis>,
+<structfield>type</structfield>,
+<structfield>supported</structfield>,
+<structfield>unsupported</structfield>,
+<structfield>has_own_state</structfield>,
 <emphasis>dflt_kbd_fd</emphasis>,
 and
-<emphasis>dflt_kbd_fb</emphasis>.
+<structfield>dflt_kbd_fb</structfield>.
 Other fields are filled in as specified by
 <parameter>which</parameter>.
 </para>
@@ -486,7 +486,7 @@ Other fields are filled in as specified by
 
 <para>
 Upon return, the
-<emphasis>supported</emphasis>
+<structfield>supported</structfield>
  field will be set to the inclusive OR of zero or more bits from
 <link linkend="table21.1">Table 21.1</link>;
 each bit set indicates an optional Xkb extension device feature supported by
@@ -502,7 +502,7 @@ If the
 the
 <structname>XkbDeviceInfoRec</structname>
  returned will have the button actions (
-<emphasis>btn_acts</emphasis>
+<structfield>btn_acts</structfield>
  field) filled in for all buttons.
 </para>
 
@@ -527,26 +527,26 @@ If any of the
 the
 <structname>XkbDeviceInfoRec</structname>
  returned will have filled in the portions of the
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  structure corresponding to the indicator feedback identified by
 <parameter>ind_class</parameter>
  and
 <parameter>ind_id</parameter>.
 The
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  vector of the
 <structname>XkbDeviceInfoRec</structname>
  is allocated if necessary and
-<emphasis>sz_leds</emphasis>
+<structfield>sz_leds</structfield>
  and
-<emphasis>num_leds</emphasis>
+<structfield>num_leds</structfield>
  filled in. The
-<emphasis>led_class</emphasis>,
-<emphasis>led_id</emphasis>
+<structfield>led_class</structfield>,
+<structfield>led_id</structfield>
  and
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  fields of the
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  entry corresponding to
 <parameter>ind_class</parameter>
  and
@@ -556,11 +556,11 @@ The
  contains
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
-<emphasis>names_present</emphasis>
+<structfield>names_present</structfield>
  and
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  fields of the
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  structure corresponding to
 <parameter>ind_class</parameter>
  and
@@ -571,15 +571,15 @@ If
  contains
 <symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
-<emphasis>state</emphasis>
+<structfield>state</structfield>
  field is updated. If
 <parameter>which</parameter>
  contains
 <symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
-<emphasis>maps_present</emphasis>
+<structfield>maps_present</structfield>
  and
-<emphasis>maps</emphasis>
+<structfield>maps</structfield>
  fields are updated.
 </para>
 
@@ -686,21 +686,21 @@ XkbGetDeviceButtonActions.
 <function>XkbGetDeviceButtonActions</function>
  queries the server for the desired button information for the device indicated
 by the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field of
 <parameter>device_info</parameter>
  and waits for a reply. If successful,
 <function>XkbGetDeviceButtonActions</function>
  backfills the button actions (
-<emphasis>btn_acts</emphasis>
+<structfield>btn_acts</structfield>
  field of
 <parameter>device_info</parameter>
 ) for only the requested buttons, updates the
-<emphasis>name</emphasis>,
-<emphasis>type</emphasis>,
-<emphasis>supported</emphasis>,
+<structfield>name</structfield>,
+<structfield>type</structfield>,
+<structfield>supported</structfield>,
 and
-<emphasis>unsupported</emphasis>
+<structfield>unsupported</structfield>
  fields, and returns
 <symbol>Success</symbol>.
 </para>
@@ -735,7 +735,7 @@ If allocation errors occur, a
  status is returned. If the specified device (
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
 ) is invalid, a
 <errorname>BadKeyboard</errorname>
  status is returned. If the device has no buttons, a
@@ -832,7 +832,7 @@ by
  and
 <parameter>led_id</parameter>
  for the X input extension device indicated by
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
 -&gt;
 <parameter>device_info</parameter>
  and waits for a reply. If successful,
@@ -859,9 +859,9 @@ The fields of
  that are filled in when this request succeeds are
 <emphasis>name, type, supported</emphasis>,
 and
-<emphasis>unsupported</emphasis>,
+<structfield>unsupported</structfield>,
 and portions of the
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  structure corresponding to
 <parameter>led_class</parameter>
  and
@@ -871,18 +871,18 @@ and portions of the
 The
 <emphasis>device_info-&gt;leds</emphasis>
  vector is allocated if necessary and
-<emphasis>sz_leds</emphasis>
+<structfield>sz_leds</structfield>
  and
-<emphasis>num_leds</emphasis>
+<structfield>num_leds</structfield>
  filled in. The
 <parameter>led_class</parameter>,
 <parameter>led_id</parameter>
  and
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  fields of the
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  entry corresponding to
 <parameter>led_class</parameter>
  and
@@ -897,13 +897,13 @@ If
  contains
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
-<emphasis>names_present</emphasis>
+<structfield>names_present</structfield>
  and
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  fields of the
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  structure corresponding to
 <parameter>led_class</parameter>
  and
@@ -913,15 +913,15 @@ the
  contains
 <symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
-<emphasis>state</emphasis>
+<structfield>state</structfield>
  field is updated, and if
 <parameter>which</parameter>
  contains
 <symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
-<emphasis>maps_present</emphasis>
+<structfield>maps_present</structfield>
  and
-<emphasis>maps</emphasis>
+<structfield>maps</structfield>
  fields are updated.
 </para>
 
@@ -937,9 +937,9 @@ If allocation errors occur, a
 status is returned. If the device has no indicators, a
 <errorname>BadMatch</errorname>
 error is returned. If
-<emphasis>ledClass</emphasis>
+<structfield>ledClass</structfield>
  or
-<emphasis>ledID</emphasis>
+<structfield>ledID</structfield>
  have illegal values, a
 <errorname>BadValue</errorname>
  error is returned. If they have legal values but do not specify a feedback
@@ -1150,15 +1150,15 @@ To initialize an
 Otherwise, it checks to be sure there is at least one empty entry in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  and extends it if there is not enough room. It then increments
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_leds</emphasis>
+<structfield>num_leds</structfield>
  and fills in the next available entry in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  with
 <parameter>led_class</parameter>
  and
@@ -1238,11 +1238,11 @@ To allocate additional space for button actions in an
  returns Success. If new_total is zero, all button actions are deleted,
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_btns</emphasis>
+<structfield>num_btns</structfield>
  is set to zero, and
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>btn_acts</emphasis>
+<structfield>btn_acts</structfield>
  is set to
 <symbol>NULL</symbol>.
 If device_info is invalid or new_total is greater than 255,
@@ -1326,13 +1326,13 @@ contains XkbXI_ButtonActionsMask, all button actions associated with
  are freed,
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>btn_acts</emphasis>
+<structfield>btn_acts</structfield>
  is set to
 <symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_btns</emphasis>
+<structfield>num_btns</structfield>
  is set to zero. If which contains all bits in XkbXI_IndicatorsMask, all
 <structname>XkbDeviceLedInfoRec</structname>
  structures associated with
@@ -1340,17 +1340,17 @@ and
  are freed,
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  is set to
 <symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>sz_leds</emphasis>
+<structfield>sz_leds</structfield>
  and
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_leds</emphasis>
+<structfield>num_leds</structfield>
  are set to zero. If which contains XkbXI_IndicatorMapsMask, all indicator maps
 associated with
 <parameter>device_info</parameter>
@@ -1391,7 +1391,7 @@ Implementations that do not support button actions for extension devices must
 not set the
 <symbol>XkbXI_ButtonActionsMask</symbol>
  bit in the
-<emphasis>supported</emphasis>
+<structfield>supported</structfield>
  field of an
 <structname>XkbDeviceInfoRec</structname>
  structure.
@@ -1512,7 +1512,7 @@ more of them, that particular portion of the request is ignored.
 If the device specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  does not contain buttons and a request affecting buttons is made, or the
 device does not contain indicators and a request affecting indicators is made,
 a
@@ -1531,11 +1531,11 @@ extension devices other than the core keyboard device. If the
  is set in
 <parameter>which</parameter>,
 the actions for all buttons specified in device_info are set to the
-<emphasis>XkbAction</emphasis>
+<structname>XkbAction</structname>
 s specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>btn_acts</emphasis>.
+<structfield>btn_acts</structfield>.
 If the number of buttons requested to be updated is not valid for the device,
 <function>XkbSetDeviceInfo</function>
  returns
@@ -1569,22 +1569,22 @@ If the
 the indicator maps and / or names for all
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_leds</emphasis>
+<structfield>num_leds</structfield>
  indicator devices specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
  are set to the maps and / or names specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>.
+<structfield>leds</structfield>.
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
 -&gt;
-<emphasis>led_class</emphasis>
+<structfield>led_class</structfield>
  and
-<emphasis>led_id</emphasis>
+<structfield>led_id</structfield>
  specify the input extension class and device ID for each indicator device to
 modify; if they have invalid values, a
 <errorname>BadValue</errorname>
@@ -1598,9 +1598,9 @@ feedback for the device in question, a
  error results. If any of the values in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>leds</emphasis>
+<structfield>leds</structfield>
 <emphasis>-&gt;</emphasis>
-<emphasis>names</emphasis>
+<structfield>names</structfield>
  are not a valid Atom or
 <symbol>None</symbol>,
 a
@@ -1685,7 +1685,7 @@ device, first_button, num_buttons, actions) -->
 <function>XkbSetDeviceButtonActions</function>
  assigns actions to the buttons of the device specified in
 device_info-&gt;
-<emphasis>device_spec</emphasis>.
+<structfield>device_spec</structfield>.
 Actions are assigned to
 <parameter>num_buttons</parameter>
  buttons beginning with
@@ -1693,7 +1693,7 @@ Actions are assigned to
  and are taken from the actions specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>btn_acts</emphasis>.
+<structfield>btn_acts</structfield>.
 </para>
 
 
@@ -1710,7 +1710,7 @@ If the device has no buttons or if
  specify buttons outside of the valid range as determined by
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>num_btns</emphasis>,
+<structfield>num_btns</structfield>,
 the function has no effect and returns
 <symbol>False</symbol>.
 Otherwise,
@@ -1726,12 +1726,12 @@ If the actual request sent to the server involved illegal button numbers, a
 <errorname>BadValue</errorname>
  protocol error is generated. If an invalid device identifier is specified in
 device_info-&gt;
-<emphasis>device_spec</emphasis>,
+<structfield>device_spec</structfield>,
 a <errorname>BadKeyboard</errorname>
  protocol error results. If the actual device specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  does not contain buttons and a request affecting buttons is made, a
 <errorname>BadMatch</errorname>
  protocol error is generated.
@@ -1786,7 +1786,7 @@ The
  using
 <symbol>XkbExtensionDeviceNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying
 <emphasis>XkbAllExtensionDeviceMask</emphasis>
  in
@@ -1812,7 +1812,7 @@ typedef struct {
                                   =&gt; synthetically generated*/
       Display *      display;  /* server connection where event generated */
       Time     time;           /* server time when event generated */
-      int      xkb_type;  /* <emphasis>XkbExtensionDeviceNotifyEvent</emphasis> */
+      int      xkb_type;  /* <structname>XkbExtensionDeviceNotifyEvent</structname> */
       int      device;         /* Xkb device ID, will not be
                                   <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   reason;   /* reason for the event */
@@ -1825,7 +1825,7 @@ typedef struct {
       unsigned int       led_state; /* current state of the indicators */
       int       led_class;          /* feedback class for LED changes */
       int       led_id;             /* feedback ID for LED changes */
-} <emphasis>XkbExtensionDeviceNotifyEvent</emphasis>;
+} <structname>XkbExtensionDeviceNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
@@ -1950,7 +1950,7 @@ The wanted field specifies the changes that should be noted in
 and is composed of the bitwise inclusive OR of one or more of the masks from
 <link linkend="table21.1">Table 21.1</link>.
 The
-<emphasis>reason</emphasis>
+<structfield>reason</structfield>
  field of the event in
 <parameter>new</parameter>
  indicates the types of changes the event is reporting.
@@ -1964,7 +1964,7 @@ The
  and contained in
 <parameter>new</parameter>
 -&gt;
-<emphasis>reason</emphasis>.
+<structfield>reason</structfield>.
 </para>
 
 
@@ -2035,7 +2035,7 @@ The changes-&gt;changed field indicates which attributes of the device
 specified in
 <parameter>changes</parameter>
 -&gt;
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  have changed. The parameters describing the changes are contained in the other
 fields of
 <parameter>changes</parameter>.
@@ -2105,7 +2105,7 @@ XkbDeviceChangesRec, use XkbChangeDeviceInfo.
  updates the server’s description of the device specified in
 <parameter>device_info</parameter>
 -&gt;
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  with the changes specified in
 <parameter>changes</parameter>
  and contained in

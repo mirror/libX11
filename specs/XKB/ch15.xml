@@ -32,7 +32,7 @@ Xkb Client Map</H5>
 
 <para>
 The
-<emphasis>map</emphasis>
+<structfield>map</structfield>
 field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb client map, which is of type
 <structname>XkbClientMapRec</structname>
@@ -41,13 +41,13 @@ to the Xkb client map, which is of type
 
 <para><programlisting>
 typedef struct {                        /* Client Map */
-      unsigned char      size_types;    /* # occupied entries in <emphasis>types</emphasis> */
-      unsigned char      num_types;     /* # entries in <emphasis>types</emphasis> */
+      unsigned char      size_types;    /* # occupied entries in <structfield>types</structfield> */
+      unsigned char      num_types;     /* # entries in <structfield>types</structfield> */
       XkbKeyTypePtr      types;         /* vector of key types used by this keymap */
-      unsigned short     size_syms;     /* length of the <emphasis>syms</emphasis> array */
-      unsigned short     num_syms;      /* # entries in <emphasis>syms</emphasis> */
+      unsigned short     size_syms;     /* length of the <structfield>syms</structfield> array */
+      unsigned short     num_syms;      /* # entries in <structfield>syms</structfield> */
       KeySym *           syms;          /* linear 2d tables of keysyms, 1 per key */
-      XkbSymMapPtr       key_sym_map;   /* 1 per keycode, maps keycode to <emphasis>syms</emphasis> */
+      XkbSymMapPtr       key_sym_map;   /* 1 per keycode, maps keycode to <structfield>syms</structfield> */
       unsigned char *    modmap;        /* 1 per keycode, real mods bound to key */
 } <structname>XkbClientMapRec</structname>, *XkbClientMapPtr;
 </programlisting></para>
@@ -67,11 +67,11 @@ The following sections describe each of the elements of the
 Key types are used to determine the shift level of a key given the current
 state of the keyboard. The set of all possible key types for the Xkb keyboard
 description are held in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  field of the client map, whose total size is stored in
-<emphasis>size_types</emphasis>,
+<structfield>size_types</structfield>,
 and whose total number of valid entries is stored in
-<emphasis>num_types</emphasis>.
+<structfield>num_types</structfield>.
 Key types are defined using the following structures:
 </para>
 
@@ -81,13 +81,13 @@ typedef struct {                       /* Key Type */
                                           level */
       unsigned char     num_levels;    /* total # shift levels, do not
                                           modify directly */
-      unsigned char     map_count;     /* # entries in <emphasis>map</emphasis>,
-                                          <emphasis>preserve</emphasis>
+      unsigned char     map_count;     /* # entries in <structfield>map</structfield>,
+                                          <structfield>preserve</structfield>
                                           (if non-<symbol>NULL</symbol>) */
       XkbKTMapEntryPtr  map;           /* vector of modifiers for each
                                           shift level */
       XkbModsPtr        preserve;      /* mods to preserve for corresponding
-                                          <emphasis>map</emphasis> entry */
+                                          <structfield>map</structfield> entry */
       Atom              name;          /* name of key type */
       Atom *            level_names;   /* array of names of each shift level */
 } <structname>XkbKeyTypeRec</structname>, *XkbKeyTypePtr;
@@ -97,7 +97,7 @@ typedef struct {                       /* Key Type */
 typedef struct {                   /* Modifiers for a key type */
       Bool            active;      /* <symbol>True</symbol> =&gt; entry
                                       active when determining shift level */
-      unsigned char   level;       /* shift level if modifiers match <emphasis>mods</emphasis> */
+      unsigned char   level;       /* shift level if modifiers match <structfield>mods</structfield> */
       XkbModsRec      mods;        /* mods needed for this level to be
                                       selected */
 } <structname>XkbKTMapEntryRec</structname>,*XkbKTMapEntryPtr;
@@ -105,37 +105,37 @@ typedef struct {                   /* Modifiers for a key type */
 
 <para>
 The
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field of a key type is an
 <structname>XkbModsRec</structname>
  (see <link linkend="Modifier_Definitions">section 7.2</link>) specifying the modifiers the key type uses when calculating
 the shift level, and can be composed of both the core modifiers and virtual
 modifiers. To set the modifiers associated with a key type, modify the
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  and
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  fields of the
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
 <structname>XkbModsRec</structname>
  accordingly. The
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of the
 <structname>XkbModsRec</structname>
  is reserved for use by Xkb and is calculated from the
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  and
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  fields.
 </para>
 
 
 <para>
 The
-<emphasis>num_levels</emphasis>
+<structfield>num_levels</structfield>
  field holds the total number of shift levels for the key type. Xkb uses
-<emphasis>num_levels</emphasis>
+<structfield>num_levels</structfield>
  to ensure the array of symbols bound to a key is large enough. Do not modify
-<emphasis>num_levels</emphasis>
+<structfield>num_levels</structfield>
  directly to change the number if shift levels for a key type. Instead, use
 <function>XkbResizeKeyType</function>
  (see <link linkend="Changing_the_Number_of_Levels_in_a_Key_Type">section 15.2.3</link>).
@@ -144,57 +144,57 @@ The
 
 <para>
 The
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  field is a vector of
 <structname>XkbKTMapEntryRec</structname>
  structures, with
-<emphasis>map_count</emphasis>
+<structfield>map_count</structfield>
  entries, that specify the modifier combinations for each possible shift level.
 Each map entry contains an
-<emphasis>active</emphasis>
+<structfield>active</structfield>
  field, a
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field, and a
-<emphasis>level</emphasis>
+<structfield>level</structfield>
  field. The
-<emphasis>active</emphasis>
+<structfield>active</structfield>
  field determines whether the modifier combination listed in the
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field should be considered when determining shift level. If
-<emphasis>active</emphasis>
+<structfield>active</structfield>
  is
 <symbol>False</symbol>,
 this
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entry is ignored. If
-<emphasis>active</emphasis>
+<structfield>active</structfield>
  is
 <symbol>True</symbol>,
 the
-<emphasis>level</emphasis>
+<structfield>level</structfield>
  field of the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
 entry specifies the shift level to use when the current modifier combination
 matches the combination specified in the
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field of the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entry.
 </para>
 
 
 <para>
 Any combination of modifiers not explicitly listed somewhere in the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  yields shift level one. In addition,
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entries specifying unbound virtual modifiers are not considered.
 </para>
 
 
 <para>
 Any modifiers specified in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are normally
 <emphasis>consumed</emphasis>
  by
@@ -203,14 +203,14 @@ Any modifiers specified in
 <emphasis>should</emphasis>
  be considered despite having been used to look up a symbol, key types include
 an optional
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  field. If a
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  member of a key type is not
 <symbol>NULL</symbol>,
 it represents a list of modifiers where each entry corresponds directly to
 one of the key type’s
-<emphasis>map</emphasis>.
+<structfield>map</structfield>.
 Each entry lists the modifiers that should
 <emphasis>not</emphasis>
  be consumed if the matching map entry is used to determine shift level.
@@ -219,11 +219,11 @@ Each entry lists the modifiers that should
 
 <para>
 Each shift level has a name and these names are held in the
-<emphasis>level_names</emphasis>
+<structfield>level_names</structfield>
  array, whose length is
-<emphasis>num_levels</emphasis>.
+<structfield>num_levels</structfield>.
 The type itself also has a name, which is held in the
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  field.
 </para>
 
@@ -318,7 +318,7 @@ although this format is one possible example):
 
 <para>
 The
-<emphasis>name</emphasis>
+<structfield>name</structfield>
  of the example key type is "ALPHATHREE," and the modifiers it pays attention
 to are
 <symbol>Shift</symbol>,
@@ -332,11 +332,11 @@ of shift level two is "Caps," and the name of shift level three is "Level3."
 
 <para>
 Given the combination of the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  and
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  specifications, there are five
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entries. The first map entry specifies that shift level one is to be used if
 no modifiers are set. The second entry specifies the
 <symbol>Lock</symbol>
@@ -355,30 +355,30 @@ that the virtual
  is bound to a real modifier (see <link linkend="Virtual_Modifier_Mapping">section 16.4</link>). If
 <emphasis>LevelThree</emphasis>
  is not bound to a real modifier, the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entries associated with it are ignored.</para></note>
 
 <para>
 Because the
 <symbol>Lock</symbol>
  modifier is to be preserved for further event processing, the
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  list is not
 <symbol>NULL</symbol>
  and parallels the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  list. All
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  entries, except for the one corresponding to the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entry that specifies the
 <symbol>Lock</symbol>
 modifier, do not list any modifiers. For the
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  entry that specifies the
 <symbol>Lock</symbol>
  modifier, the corresponding
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  list entry lists the
 <symbol>Lock</symbol>
  modifier, meaning do not consume the
@@ -407,7 +407,7 @@ on most keyboards. The definitions for the canonical key types are held in the
 first
 <symbol>XkbNumRequiredTypes</symbol>
  entries of the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  field of the client map and are indexed using the following constants:
 </para>
 
@@ -438,7 +438,7 @@ type "ONE_LEVEL" {
 
 <para>
 The description of the ONE_LEVEL key type is stored in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
 [
 <symbol>XkbOneLevelIndex</symbol>
 ] entry of the client key map.
@@ -471,7 +471,7 @@ type "TWO_LEVEL" {
 
 <para>
 The description of the TWO_LEVEL key type is stored in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
 [
 <symbol>XkbTwoLevelIndex</symbol>
 ] entry of the client key map.
@@ -548,7 +548,7 @@ type "ALPHABETIC" {
 
 <para>
 The description of the ALPHABETIC key type is stored in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
 [
 <symbol>XkbAlphabeticIndex</symbol>
 ] entry of the client key map.
@@ -622,7 +622,7 @@ type "KEYPAD" {
 
 <para>
 The description of the KEYPAD key type is stored in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
 [
 <symbol>XkbKeypadIndex</symbol>
 ] entry of the client key map.
@@ -812,7 +812,7 @@ use
  is used to obtain descriptions of the key types themselves, not the key types
 bound to individual keys. To obtain the key types bound to an individual key,
 refer to the
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  field of the client map (see <link linkend="Per_Key_Key_Type_Indices">section 15.3.1</link>).</para></note>
 
 <para>
@@ -951,9 +951,9 @@ can be zero or greater. If
  is zero,
 <function>XkbResizeKeyType</function>
  frees the existing
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  and
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  entries for the type if they exist and sets them to
 <symbol>NULL</symbol>.
 </para>
@@ -963,13 +963,13 @@ can be zero or greater. If
 The
 <parameter>want_preserve</parameter>
  parameter specifies whether a
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  list for the key should be created. If
 <parameter>want_preserve</parameter>
  is
 <symbol>True</symbol>,
 the
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  list with
 <parameter>map_count</parameter>
  entries is allocated or reallocated if it already exists. Otherwise, if
@@ -977,7 +977,7 @@ the
  is
 <symbol>False</symbol>,
 the
-<emphasis>preserve</emphasis>
+<structfield>preserve</structfield>
  field is freed if necessary and set to
 <symbol>NULL</symbol>.
 </para>
@@ -1077,10 +1077,10 @@ Both must point to legal
  point to different places. As a result, overlaps can be fatal.
 <function>XkbCopyKeyType</function>
  frees any existing
-<emphasis>map</emphasis>,
-<emphasis>preserve</emphasis>,
+<structfield>map</structfield>,
+<structfield>preserve</structfield>,
 and
-<emphasis>level_names</emphasis>
+<structfield>level_names</structfield>
  in
 <parameter>into</parameter>
  prior to copying. If any allocation errors occur while copying
@@ -1197,12 +1197,12 @@ Otherwise,
 
 <para>
 The entire list of key symbols for the keyboard mapping is held in the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of the client map. Whereas the core keyboard mapping is a
 two-dimensional array of
 <emphasis>KeySyms</emphasis>
  whose rows are indexed by keycode, the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of Xkb is a linear list of
 <emphasis>KeySyms</emphasis>
  that needs to be indexed uniquely for each key. This section describes the key
@@ -1212,7 +1212,7 @@ symbol map and the methods for determining the symbols bound to a key.
 
 <para>
 The reason the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field is a linear list of
 <emphasis>KeySyms</emphasis>
  is to reduce the memory consumption associated with a keymap; because Xkb
@@ -1224,7 +1224,7 @@ two-dimensional array of
 <emphasis>KeySyms</emphasis>
  for each key. To store all of these individual arrays, Xkb concatenates each
 array together in the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of the client map.
 </para>
 
@@ -1233,22 +1233,22 @@ array together in the
 In order to determine which
 <emphasis>KeySyms</emphasis>
  in the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field are associated with each keycode, the client map contains an array of
 key symbol mappings, held in the
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  field. The
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  field is an array of
 <structname>XkbSymMapRec</structname>
  structures indexed by keycode. The
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  array has
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  unused entries at the start to allow direct indexing using a keycode. All
 keycodes falling between the minimum and maximum legal keycodes, inclusive,
 have
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  arrays, whether or not any key actually yields that code. The
 <structname>KeySymMapRec</structname>
  structure is defined as follows:
@@ -1264,7 +1264,7 @@ typedef struct {                                   /* map to keysyms for a singl
       unsigned char     kt_index[XkbNumKbdGroups]; /* key type index for each group */
       unsigned char     group_info;                /* # of groups and out of range group handling */
       unsigned char     width;                     /* max # of shift levels for key */
-      unsigned short    offset;                    /* index to keysym table in <emphasis>syms</emphasis> array */
+      unsigned short    offset;                    /* index to keysym table in <structfield>syms</structfield> array */
 } <structname>XkbSymMapRec</structname>, *XkbSymMapPtr;
 </programlisting></para>
 
@@ -1343,7 +1343,7 @@ currently four); if a key has fewer than
 <para>
 <function>XkbKeyTypeIndex</function>
  computes an index into the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  vector of the client map in
 <parameter>xkb</parameter>
  from the given
@@ -1403,7 +1403,7 @@ currently four); if a key has fewer than
 <para>
 <function>XkbKeyType</function>
  returns a pointer to the key type in the
-<emphasis>types</emphasis>
+<structfield>types</structfield>
  vector of the client map in
 <parameter>xkb</parameter>
  corresponding to the given
@@ -1420,7 +1420,7 @@ currently four); if a key has fewer than
 
 <para>
 The
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field of an
 <structname>XkbSymMapRec</structname>
  is an encoded value containing the number of groups of symbols bound to the
@@ -1442,16 +1442,16 @@ out-of-range groups, use
 
 <para>
 The keyboard controls (see <xref linkend="Keyboard_Controls" />) contain a
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field specifying the handling of illegal groups on a global basis. That is,
 when the user performs an action causing the effective group to go out of the
 legal range, the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field specifies how to normalize the effective keyboard group to a group that
 is legal for the keyboard as a whole, but there is no guarantee that the
 normalized group will be within the range of legal groups for any individual
 key. The per-key
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field specifies how a key treats a legal effective group if the key does not
 have a type specified for the group of concern. For example, the
 <emphasis>Enter</emphasis>
@@ -1459,7 +1459,7 @@ have a type specified for the group of concern. For example, the
 the global keyboard group to change to
 <emphasis>Group2</emphasis>,
 the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field for the
 <emphasis>Enter</emphasis>
  key describes how to handle this situation.
@@ -1470,7 +1470,7 @@ the
 Out-of-range groups for individual keys are mapped to a legal group using the
 same options as are used for the overall keyboard group. The particular type of
 mapping used is controlled by the bits set in the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  flag, as shown in <link linkend="table15.2">Table 15.2</link>.
  See <link linkend="The_GroupsWrap_Control">section 10.7.1</link>
  for more details on the normalization methods in this table.
@@ -1589,7 +1589,7 @@ Xkb provides the following macros to access group information:
 <para>
 <function>XkbKeyGroupInfo</function>
  returns the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field from the
 <structname>XkbSymMapRec</structname>
  structure associated with the key corresponding to
@@ -1624,7 +1624,7 @@ Xkb provides the following macros to access group information:
 <para>
 <function>XkbOutOfRangeGroupInfo</function>
  returns only the out-of-range processing information from the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field of an
 <structname>XkbSymMapRec</structname>
  structure.
@@ -1658,7 +1658,7 @@ Xkb provides the following macros to access group information:
 <para>
 <function>XkbOutOfRangeGroupNumber</function>
  returns the out-of-range group number, represented as a group index, from the
-<emphasis>group_info</emphasis>
+<structfield>group_info</structfield>
  field of an
 <structname>XkbSymMapRec</structname>
  structure.
@@ -1672,12 +1672,12 @@ Xkb provides the following macros to access group information:
 <para>
 The maximum number of shift levels for a type is also referred to as the width
 of a key type. The
-<emphasis>width</emphasis>
+<structfield>width</structfield>
  field of the
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  entry for a key contains the width of the widest type associated with the key.
 The
-<emphasis>width</emphasis>
+<structfield>width</structfield>
 field cannot be explicitly changed; it is updated automatically whenever the
 symbols or set of types bound to a key are changed.
 </para>
@@ -1694,7 +1694,7 @@ small two-dimensional array of
  for a key. This array may be different sizes for different keys. The array for
 a single key is stored as a linear list, in row-major order. The arrays for all
 of the keys are stored in the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of the client map. There is one row for each group associated with a key
 and one column for each level. The index corresponding to a given group and
 shift level is computed as:
@@ -1706,18 +1706,18 @@ shift level is computed as:
 
 <para>
 The
-<emphasis>offset</emphasis>
+<structfield>offset</structfield>
  field of the
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  entry for a key is used to access the beginning of the array.
 </para>
 
 
 <para>
 Xkb provides the following macros for accessing the
-<emphasis>width</emphasis>
+<structfield>width</structfield>
  and
-<emphasis>offset</emphasis>
+<structfield>offset</structfield>
  for individual keys, as well as macros for accessing the two-dimensional array
 of symbols bound to the key:
 </para>
@@ -2109,7 +2109,7 @@ The
 
 <para>
 If the client
-<emphasis>map</emphasis>
+<structfield>map</structfield>
  in the
 <parameter>xkb</parameter>
  parameter has not been allocated,
@@ -2251,9 +2251,9 @@ as appropriate. If the
  field of
 <parameter>p_changes</parameter>
  and modifies the
-<emphasis>first_key_sym</emphasis>
+<structfield>first_key_sym</structfield>
  and
-<emphasis>num_key_syms</emphasis>
+<structfield>num_key_syms</structfield>
  fields of
 <parameter>p_changes</parameter>
  to include the
@@ -2448,20 +2448,20 @@ To change the number of symbols bound to a key, use
 <parameter>needed</parameter>
  keysyms and returns a pointer to the beginning of the new array that holds the
 keysyms. It adjusts the
-<emphasis>offset</emphasis>
+<structfield>offset</structfield>
  field of the
-<emphasis>key_sym_map</emphasis>
+<structfield>key_sym_map</structfield>
  entry for the key if necessary and can also change the
-<emphasis>syms</emphasis>,
-<emphasis>num_syms</emphasis>,
+<structfield>syms</structfield>,
+<structfield>num_syms</structfield>,
 and
-<emphasis>size_syms</emphasis>
+<structfield>size_syms</structfield>
  fields of
 <parameter>xkb</parameter>
 -
 <emphasis>&gt;map</emphasis>
  if it is necessary to reallocate the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  array.
 <function>XkbResizeKeySyms</function>
  does not modify either the width or number of groups associated with the key.
@@ -2517,7 +2517,7 @@ a key.</para></note>
 
 <para>
 The
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
  entry of the client map is an array, indexed by keycode, specifying the real
 modifiers bound to a key. Each entry is a mask composed of a bitwise inclusive
 OR of the legal real modifiers:
@@ -2531,7 +2531,7 @@ OR of the legal real modifiers:
 and
 <symbol>Mod5Mask</symbol>.
 If a bit is set in a
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
  entry, the corresponding key is bound to that modifier.
 </para>
 

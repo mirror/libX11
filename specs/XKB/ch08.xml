@@ -80,7 +80,7 @@ to inquire about and control most indicator properties and behaviors.
 
 <para>
 The description for all the Xkb indicators is held in the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  field of the complete keyboard description (see <xref linkend="Complete_Keyboard_Description" />), which is defined
 as follows:
 </para>
@@ -97,19 +97,19 @@ typedef struct {
 
 <para>
 This structure contains the
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  field, which relates some information about the correspondence between
 indicators and physical LEDs on the keyboard, and an array of indicator
-<emphasis>maps</emphasis>,
+<structfield>maps</structfield>,
 one map per indicator.
 </para>
 
 <para>
 The
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  field indicates which indicators are bound to physical LEDs on the keyboard;
 if a bit is set in
-<emphasis>phys_indicators</emphasis>,
+<structfield>phys_indicators</structfield>,
 then the associated indicator has a physical LED associated with it. This
 field is necessary because some indicators may not have corresponding physical
 LEDs on the keyboard. For example, most keyboards have an LED for indicating
@@ -117,13 +117,13 @@ the state of
 <emphasis>CapsLock</emphasis>,
 but most keyboards do not have an LED that indicates the current group.
 Because
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  describes a physical characteristic of the keyboard, you cannot directly
 change it under program control. However, if a client program loads a
 completely new keyboard description via
 <function>XkbGetKeyboardByName</function>,
 or if a new keyboard is attached and the X implementation notices,
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  changes if the indicators for the new keyboard are different.
 </para>
 
@@ -136,7 +136,7 @@ or if a new keyboard is attached and the X implementation notices,
 Each indicator has its own set of attributes that specify whether clients can
 explicitly set its state and whether it tracks the keyboard state. The
 attributes of each indicator are held in the
-<emphasis>maps</emphasis>
+<structfield>maps</structfield>
  array, which is an array of
 <structname>XkbIndicatorRec</structname>
  structures:
@@ -196,10 +196,10 @@ relationship to the indicator map, see <link linkend="Effects_of_Explicit_Change
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field specifies the conditions under which the indicator can be changed and
 the effects of changing the indicator. The valid values for
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  and their effects are shown in <link linkend="table8.1">Table 8.1</link>.
 </para>
 
@@ -310,14 +310,14 @@ indicator on. If the conditions do not match, Xkb turns the indicator off.
 
 <para>
 The
-<emphasis>which_groups</emphasis>
+<structfield>which_groups</structfield>
  and the
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  fields of an indicator map determine how the keyboard group state affects the
 corresponding indicator. The
-<emphasis>which_groups</emphasis>
+<structfield>which_groups</structfield>
  field controls the interpretation of
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  and may contain any one of the following values:
 </para>
 
@@ -333,7 +333,7 @@ corresponding indicator. The
 
 <para>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
 field specifies what keyboard groups an indicator watches and is the bitwise
 inclusive OR of the following valid values:
 </para>
@@ -351,9 +351,9 @@ inclusive OR of the following valid values:
 If
 <symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the effect of
-<emphasis>which_groups</emphasis>
+<structfield>which_groups</structfield>
  and
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is shown in <link linkend="table8.2">Table 8.2</link>.
 </para>
 
@@ -375,7 +375,7 @@ Indicator</title>
     <entry><symbol>XkbIM_UseNone</symbol></entry>
     <entry>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  field and the current keyboard group state are ignored.
     </entry>
   </row>
@@ -383,10 +383,10 @@ The
     <entry><symbol>XkbIM_UseBase</symbol></entry>
     <entry>
 If
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is nonzero, the indicator is lit whenever the base keyboard group is nonzero.
 If
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is zero, the indicator is lit whenever the base keyboard group is zero.
     </entry>
   </row>
@@ -394,10 +394,10 @@ If
     <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>
 If
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is nonzero, the indicator is lit whenever the latched keyboard group is
 nonzero. If
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is zero, the indicator is lit whenever the latched keyboard group is zero.
     </entry>
   </row>
@@ -405,20 +405,20 @@ nonzero. If
     <entry><symbol>XkbIM_UseLocked</symbol></entry>
     <entry>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  field is interpreted as a mask. The indicator is lit when the current locked
 keyboard group matches one of the bits that are set in
-<emphasis>groups</emphasis>.
+<structfield>groups</structfield>.
     </entry>
   </row>
   <row>
     <entry><symbol>XkbIM_UseEffective</symbol></entry>
     <entry>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  field is interpreted as a mask. The indicator is lit when the current
 effective keyboard group matches one of the bits that are set in
-<emphasis>groups</emphasis>.
+<structfield>groups</structfield>.
 </entry>
   </row>
 </tbody>
@@ -427,9 +427,9 @@ effective keyboard group matches one of the bits that are set in
 
 <para>
 The effect of
-<emphasis>which_groups</emphasis>
+<structfield>which_groups</structfield>
  and
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  when you change an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
@@ -468,12 +468,12 @@ Keyboard</title>
     <entry>On</entry>
     <entry>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  field is treated as a group mask. The keyboard group latch is changed to the
 lowest numbered group specified in
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
 ; if
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is empty, the keyboard group latch is changed to zero.
     </entry>
   </row>
@@ -482,12 +482,12 @@ lowest numbered group specified in
     <entry>Off</entry>
     <entry>
 The
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  field is treated as a group mask. If the indicator is explicitly extinguished,
 keyboard group latch is changed to the lowest numbered group not specified in
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
 ; if
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  is zero, the keyboard group latch is set to the index of the highest legal
 keyboard group.
     </entry>
@@ -497,10 +497,10 @@ keyboard group.
     <entry>On</entry>
     <entry>
 If the
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  mask is empty, group is not changed; otherwise, the locked keyboard group is
 changed to the lowest numbered group specified in
-<emphasis>groups</emphasis>.
+<structfield>groups</structfield>.
     </entry>
   </row>
   <row>
@@ -509,11 +509,11 @@ changed to the lowest numbered group specified in
     <entry>
 Locked keyboard group is changed to the lowest numbered group that is not
 specified in the
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  mask, or to
 <emphasis>Group1</emphasis>
  if the
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  mask contains all keyboard groups.
     </entry>
   </row>
@@ -527,16 +527,16 @@ specified in the
 
 <para>
 The
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
 field specifies what modifiers an indicator watches. The
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field is an Xkb modifier definition,
 <structname>XkbModsRec</structname>,
 as described in <link linkend="Modifier_Definitions">section 7.2</link>, which can specify both real and virtual
 modifiers. The
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field takes effect even if some or all of the virtual indicators specified in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are unbound. To specify the mods field, in general, assign the modifiers of
 interest to
 <emphasis>mods.real_mods</emphasis>
@@ -557,27 +557,27 @@ modifiers are changed in the modifier definition) or you can use
 </para>
 
 <para>
-<emphasis>which_mods</emphasis>
+<structfield>which_mods</structfield>
  specifies what criteria Xkb uses to determine a match with the corresponding
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field by specifying one or more components of the Xkb keyboard state. If
 <symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the indicator is lit whenever
 any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of the
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  modifier definition are also set in any of the current keyboard state
 components specified by
-<emphasis>which_mods</emphasis>.
+<structfield>which_mods</structfield>.
 Remember that the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field is comprised of all of the real modifiers specified in the definition
 plus any real modifiers that are bound to the virtual modifiers specified in
 the definition. (See <xref linkend="Keyboard_State" /> for more information on the keyboard state and
 <xref linkend="Virtual_Modifiers" /> for more information on virtual modifiers.) Use a bitwise inclusive
 OR of the following values to compose a value for
-<emphasis>which_mods</emphasis>:
+<structfield>which_mods</structfield>:
 </para>
 
 <para><programlisting>
@@ -596,9 +596,9 @@ OR of the following values to compose a value for
 If
 <symbol>XkbIM_NoAutomatic</symbol>
  is not set (the keyboard drives the indicator), the effect of
-<emphasis>which_mods</emphasis>
+<structfield>which_mods</structfield>
  and
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  is shown in <link linkend="table8.4">Table 8.4</link>
 </para>
 
@@ -624,9 +624,9 @@ ignored.</entry>
     <entry><symbol>XkbIM_UseBase</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are on in the keyboard base state. If both
 <emphasis>mods.real_mods</emphasis>
  and
@@ -639,9 +639,9 @@ modifiers.
     <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are latched. If both
 <emphasis>mods.real_mods</emphasis>
  and
@@ -653,9 +653,9 @@ The indicator is lit when any of the modifiers specified in the
     <entry><symbol>XkbIM_UseLocked</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are locked. If both
 <emphasis>mods.real_mods</emphasis>
  and
@@ -667,9 +667,9 @@ The indicator is lit when any of the modifiers specified in the
     <entry><symbol>XkbIM_UseEffective</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are in the effective keyboard state. If both
 <emphasis>mods.real_mods</emphasis>
  and
@@ -682,9 +682,9 @@ modifiers.
     <entry><symbol>XkbIM_UseCompat</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are in the keyboard compatibility state. If both
 <emphasis>mods.real_mods</emphasis>
  and
@@ -699,9 +699,9 @@ no modifiers.
 
 <para>
 The effect on the keyboard modifiers of
-<emphasis>which_mods</emphasis>
+<structfield>which_mods</structfield>
  and
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  when you change an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
@@ -734,9 +734,9 @@ State" column refers to the new state to which you set the indicator.
     <entry>On</entry>
     <entry>
 Any modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are added to the latched modifiers.
     </entry>
   </row>
@@ -745,9 +745,9 @@ Any modifiers specified in the
     <entry>Off</entry>
     <entry>
 Any modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are removed from the latched modifiers.
     </entry>
   </row>
@@ -756,9 +756,9 @@ Any modifiers specified in the
     <entry>On</entry>
     <entry>
 Any modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are added to the locked modifiers.
     </entry>
   </row>
@@ -767,9 +767,9 @@ Any modifiers specified in the
     <entry>Off</entry>
     <entry>
 Any modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are removed from the locked modifiers.
     </entry>
   </row>
@@ -778,9 +778,9 @@ Any modifiers specified in the
     <entry>Off</entry>
     <entry>
 Any modifiers specified in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  are removed from both the locked and latched modifiers.
     </entry>
   </row>
@@ -794,7 +794,7 @@ Any modifiers specified in the
 
 <para>
 The
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field specifies what controls (see <xref linkend="Keyboard_Controls" />) the indicator watches and is
 composed using the bitwise inclusive OR of the following values:
 </para>
@@ -817,7 +817,7 @@ composed using the bitwise inclusive OR of the following values:
 
 <para>
 Xkb lights the indicator whenever any of the boolean controls specified in
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  is enabled.
 </para>
 
@@ -990,7 +990,7 @@ indicators, use
  mask and copies the values into the keyboard description specified by
 <parameter>desc</parameter>.
 If the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  field of the
 <parameter>desc</parameter>
  parameter is
@@ -1211,9 +1211,9 @@ so you can change it using a mask or a name.
 </para>
 
 <note><para>You cannot change the
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  field of the indicators structure. The only way to change the
-<emphasis>phys_indicators</emphasis>
+<structfield>phys_indicators</structfield>
  field is to change the keyboard map.</para></note>
 
 <para>
@@ -1302,11 +1302,11 @@ and sets the state of the indicator to the values specified by the indicator
 map. Note that it is possible in this case for the indicator to end up in a
 different state than the one that was explicitly requested. For example, Xkb
 does not extinguish an indicator with
-<emphasis>which_mods</emphasis>
+<structfield>which_mods</structfield>
  of
 <symbol>XkbIM_UseBase</symbol>
  and
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  of
 <symbol>Shift</symbol>
  if, at the time Xkb processes the request to extinguish the indicator, one of
@@ -1320,10 +1320,10 @@ the
 If you explicitly light an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
  is set, Xkb enables all of the boolean controls specified in the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  field of its indicator map. Explicitly extinguishing such an indicator causes
 Xkb to disable all of the boolean controls specified in
-<emphasis>ctrls</emphasis>.
+<structfield>ctrls</structfield>.
 </para>
 
 
@@ -1618,9 +1618,9 @@ typedef struct _XkbIndicatorChanges {
 
 <para>
 The
-<emphasis>state_changes</emphasis>
+<structfield>state_changes</structfield>
  field is a mask that specifies the indicators that have changed state, and
-<emphasis>map_changes</emphasis>
+<structfield>map_changes</structfield>
  is a mask that specifies the indicators whose maps have changed.
 </para>
 
@@ -1684,7 +1684,7 @@ description, use
       <para>
         new state of indicators listed in <parameter>changes</parameter>
         -&gt;
-<emphasis>state_changes</emphasis>
+<structfield>state_changes</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -1699,7 +1699,7 @@ description, use
 to the server specified by
 <parameter>dpy</parameter>.
 If any bits are set in the
-<emphasis>state_changes</emphasis>
+<structfield>state_changes</structfield>
  field of
 <parameter>changes</parameter>,
 <function>XkbChangeIndicators</function>
@@ -1764,7 +1764,7 @@ To receive
 To receive events for only specific indicators, use
 <function>XkbSelectEventDetails</function>.
 Set the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  parameter
 <emphasis>to XkbIndicatorStateNotify</emphasis>
  or
@@ -1793,11 +1793,11 @@ typedef struct _XkbIndicatorNotify {
       int            device;      /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       unsigned int   changed;     /* mask of indicators with new state or map */
       unsigned int   state;       /* current state of all indicators */
-} <emphasis>XkbIndicatorNotifyEvent</emphasis>;
+} <structname>XkbIndicatorNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
-<emphasis>xkb_type</emphasis>
+<structfield>xkb_type</structfield>
  is either
 <symbol>XkbIndicatorStateNotify</symbol>
  or
@@ -1811,14 +1811,14 @@ depending on whether the event is a
 
 <para>
 The
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  parameter is a mask that is the bitwise inclusive OR of the indicators that
 have changed. If the event is of type
 <symbol>XkbIndicatorMapNotify</symbol>,
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  reports the maps that changed. If the event is of type
 <symbol>XkbIndicatorStateNotify</symbol>,
-<emphasis>changed</emphasis>
+<structfield>changed</structfield>
  reports the indicators that have changed state.
 <parameter>state</parameter>
  is a mask that specifies the current state of all indicators, whether they
@@ -1978,21 +1978,21 @@ the results of one or more calls to
 the results into the
 <parameter>xkb</parameter>
  keyboard description. If any bits are set in the
-<emphasis>state_changes</emphasis>
+<structfield>state_changes</structfield>
  field of
 <parameter>changes</parameter>,
 <function>XkbGetIndicatorChanges</function>
  also places the state of those indicators in
 <parameter>state</parameter>.
 If the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  field of
 <parameter>xkb</parameter>
  is
 <symbol>NULL</symbol>,
 <function>XkbGetIndicatorChanges</function>
  allocates and initializes it. To free the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  field, use
 <emphasis>XkbFreeIndicators</emphasis>
  (see <link linkend="Allocating_and_Freeing_Indicator_Maps">section 8.6</link>).
@@ -2016,7 +2016,7 @@ If the
 
 <para>
 Most applications do not need to directly allocate the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  member of the keyboard description record (the keyboard description record is
 described in <xref linkend="Complete_Keyboard_Description" />). If the need arises, however, use
 <function>XkbAllocIndicatorMaps</function>.
@@ -2056,7 +2056,7 @@ The
  error. Otherwise,
 <function>XkbAllocIndicatorMaps</function>
  allocates and initializes the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  member of the keyboard description record and returns
 <symbol>Success</symbol>.
 If
@@ -2068,7 +2068,7 @@ If
 
 <para>
 To free memory used by the
-<emphasis>indicators</emphasis>
+<structfield>indicators</structfield>
  member of an
 <structname>XkbDescRec</structname>
  structure, use
@@ -2100,13 +2100,13 @@ To free memory used by the
 </variablelist>
 
 <para>
-If the <emphasis>indicators</emphasis>
+If the <structfield>indicators</structfield>
  member of the keyboard description record
 pointed to by <parameter>xkb</parameter>
 is not <symbol>NULL</symbol>,
 <function>XkbFreeIndicatorMaps</function>
 frees the memory associated with
-the <emphasis>indicators</emphasis>
+the <structfield>indicators</structfield>
 member of <parameter>xkb</parameter>.
 </para>
 

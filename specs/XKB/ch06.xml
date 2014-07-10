@@ -51,17 +51,17 @@ keyboard */
 The
 <parameter>display</parameter>
  field points to an X display structure. The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is private to the library: modifying
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  may yield unpredictable results. The
 <parameter>device_spec</parameter>
  field specifies the device identifier of the keyboard input device, or
 <emphasis>XkbUseCoreKeyboard</emphasis>,
 which specifies the core keyboard device. The
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  fields specify the least and greatest keycode that can be returned by the
 keyboard.
 </para>
@@ -323,7 +323,7 @@ If
 <symbol>NULL</symbol>.
 Otherwise, it returns a pointer to an empty keyboard description structure.
 The
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field will have been initialized to
 <symbol>XkbUseCoreKbd</symbol>.
 You may then either fill in the structure components or use Xkb functions to

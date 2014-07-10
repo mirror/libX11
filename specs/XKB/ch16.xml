@@ -3,7 +3,7 @@
 
 <para>
 The
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb server map.
 </para>
@@ -40,11 +40,11 @@ events and is of type
 
 <para><programlisting>
 typedef struct {                         /* Server Map */
-      unsigned short     num_acts;       /* # of occupied entries in <emphasis>acts</emphasis> */
-      unsigned short     size_acts;      /* # of entries in <emphasis>acts</emphasis> */
+      unsigned short     num_acts;       /* # of occupied entries in <structfield>acts</structfield> */
+      unsigned short     size_acts;      /* # of entries in <structfield>acts</structfield> */
       XkbAction *        acts;           /* linear 2d tables of key actions, 1 per keycode */
       XkbBehavior *      behaviors;      /* key behaviors,1 per keycode */
-      unsigned short *   key_acts;       /* index into <emphasis>acts</emphasis> , 1 per keycode */
+      unsigned short *   key_acts;       /* index into <structfield>acts</structfield> , 1 per keycode */
       unsigned char *    explicit;       /* explicit overrides of core remapping, 1 per key */
       unsigned char      vmods[XkbNumVirtualMods];  /* real mods bound to virtual mods */
       unsigned short *   vmodmap;        /* virtual mods bound to key, 1 per keycode*/
@@ -53,20 +53,20 @@ typedef struct {                         /* Server Map */
 
 <para>
 The
-<emphasis>num_acts</emphasis>,
-<emphasis>size_acts</emphasis>,
-<emphasis>acts</emphasis>,
+<structfield>num_acts</structfield>,
+<structfield>size_acts</structfield>,
+<structfield>acts</structfield>,
 and
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  fields specify the key actions, defined in <link linkend="Key_Actions">section 16.1</link>. The
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
  field describes the behavior for each key and is defined in <link linkend="Key_Behavior">section 16.2</link>. The
-<emphasis>explicit</emphasis>
+<structfield>explicit</structfield>
  field describes the explicit components for a key and is defined in section
 16.3. The
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  and the
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  fields describe the virtual modifiers and the per-key virtual modifier mapping
 and are defined in <link linkend="Virtual_Modifier_Mapping">section 16.4</link>.
 </para>
@@ -88,59 +88,59 @@ each key.
 
 <para>
 Just as the entire list of key symbols for the keyboard mapping is held in the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of the client map, the entire list of key actions for the keyboard
 mapping is held in the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  array of the server map. The total size of
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  is specified by
-<emphasis>size_acts</emphasis>,
+<structfield>size_acts</structfield>,
 and the number of entries is specified by
-<emphasis>num_acts</emphasis>.
+<structfield>num_acts</structfield>.
 </para>
 
 
 <para>
 The
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  array, indexed by keycode, describes the actions associated with a key. The
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  array has
-<emphasis>min_key_code</emphasis>
+<structfield>min_key_code</structfield>
  unused entries at the start to allow direct indexing using a keycode. If a
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  entry is
 <emphasis>zero</emphasis>,
 it means the key does not have any actions associated with it. If an entry is
 not
 <emphasis>zero</emphasis>,
 the entry represents an index into the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  field of the server map, much as the
-<emphasis>offset</emphasis>
+<structfield>offset</structfield>
  field of a
 <structname>KeySymMapRec</structname>
  structure is an index into the
-<emphasis>syms</emphasis>
+<structfield>syms</structfield>
  field of the client map.
 </para>
 
 <para>
 The reason the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  field is a linear list of
-<emphasis>XkbAction</emphasis>
+<structname>XkbAction</structname>
 s is to reduce the memory consumption associated with a keymap. Because Xkb
 allows individual keys to have multiple shift levels and a different number of
 groups per key, a single two-dimensional array of
 <emphasis>KeySyms</emphasis>
  would potentially be very large and sparse. Instead, Xkb provides a small
 two-dimensional array of
-<emphasis>XkbAction</emphasis>
+<structname>XkbAction</structname>
 s for each key. To store all of these individual arrays, Xkb concatenates each
 array together in the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
  field of the server map.
 </para>
 
@@ -433,7 +433,7 @@ corresponding to
 
 <para>
 The description for an action is held in an
-<emphasis>XkbAction</emphasis>
+<structname>XkbAction</structname>
  structure, which is a union of all possible Xkb action types:
 </para>
 
@@ -453,12 +453,12 @@ typedef union _XkbAction {
       XkbDeviceBtnAction        devbtn;
       XkbDeviceValuatorAction   devval;
       unsigned char             type;
-} <emphasis>XkbAction</emphasis>;
+} <structname>XkbAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field is provided for convenience and is the same as the type field in the
 individual structures. The following sections describe the individual
 structures for each action in detail.
@@ -471,7 +471,7 @@ structures for each action in detail.
 
 <para>
 The
-<emphasis>XkbAnyAction</emphasis>
+<structname>XkbAnyAction</structname>
  structure is a convenience structure that refers to any of the actions:
 </para>
 
@@ -483,17 +483,17 @@ The
 typedef struct _XkbAnyAction {
    unsigned char    type;            /* type of action; determines interpretation for data */
    unsigned char    data[XkbAnyActionDataSize];
-} <emphasis>XkbAnyAction</emphasis>;
+} <structname>XkbAnyAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field represents a structure for an action, and its interpretation depends on
 the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field. The valid values for the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field, and the data structures associated with them are shown in
 <link linkend="table16.1">Table 16.1</link>:
 </para>
@@ -531,7 +531,7 @@ have an associated data structure.
 <para><symbol>XkbSA_LatchMods</symbol></para>
 <para><symbol>XkbSA_LockMods</symbol></para>
     </entry>
-    <entry><para><emphasis>XkbModAction</emphasis></para></entry>
+    <entry><para><structname>XkbModAction</structname></para></entry>
     <entry>mods</entry>
     <entry>16.1.3</entry>
   </row>
@@ -541,13 +541,13 @@ have an associated data structure.
 <para><symbol>XkbSA_LatchGroup</symbol></para>
 <para><symbol>XkbSA_LockGroup</symbol></para>
     </entry>
-    <entry><emphasis>XkbGroupAction</emphasis></entry>
+    <entry><structname>XkbGroupAction</structname></entry>
     <entry>group</entry>
     <entry>16.1.4</entry>
   </row>
   <row>
     <entry><symbol>XkbSA_MovePtr</symbol></entry>
-    <entry><emphasis>XkbPtrAction</emphasis></entry>
+    <entry><structname>XkbPtrAction</structname></entry>
     <entry>ptr</entry>
     <entry>16.1.5</entry>
   </row>
@@ -556,24 +556,24 @@ have an associated data structure.
 <para><emphasis>XKbSA_PtrBtn</emphasis></para>
 <para><symbol>XkbSA_LockPtrBtn</symbol></para>
     </entry>
-    <entry><emphasis>XkbPtrBtnAction</emphasis></entry><entry>btn</entry>
+    <entry><structname>XkbPtrBtnAction</structname></entry><entry>btn</entry>
     <entry>16.1.6</entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetPtrDflt</symbol></entry>
-    <entry><emphasis>XkbPtrDfltAction</emphasis></entry>
+    <entry><structname>XkbPtrDfltAction</structname></entry>
     <entry>dflt</entry>
     <entry>16.1.7</entry>
   </row>
   <row>
     <entry><symbol>XkbSA_ISOLock</symbol></entry>
-    <entry><emphasis>XkbISOAction</emphasis></entry>
+    <entry><structname>XkbISOAction</structname></entry>
     <entry>iso</entry>
     <entry>16.1.8</entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SwitchScreen</symbol></entry>
-    <entry><emphasis>XkbSwitchScreenAction</emphasis></entry>
+    <entry><structname>XkbSwitchScreenAction</structname></entry>
     <entry>screen</entry>
     <entry>16.1.9</entry>
   </row>
@@ -582,7 +582,7 @@ have an associated data structure.
 <para><symbol>XkbSA_SetControls</symbol></para>
 <para><symbol>XkbSA_LockControls</symbol></para>
     </entry>
-    <entry><emphasis>XkbCtrlsAction</emphasis></entry>
+    <entry><structname>XkbCtrlsAction</structname></entry>
     <entry>ctrls</entry>
     <entry>16.1.10</entry>
   </row>
@@ -594,7 +594,7 @@ have an associated data structure.
   </row>
   <row>
     <entry><symbol>XkbSA_RedirectKey</symbol></entry>
-    <entry><emphasis>XkbRedirectKeyAction</emphasis></entry>
+    <entry><structname>XkbRedirectKeyAction</structname></entry>
     <entry>redirect</entry>
     <entry>16.1.12</entry>
   </row>
@@ -603,13 +603,13 @@ have an associated data structure.
 <para><symbol>XkbSA_DeviceBtn</symbol></para>
 <para><emphasis>XKbSA_LockDeviceBtn</emphasis></para>
     </entry>
-    <entry><emphasis>XkbDeviceBtnAction</emphasis></entry>
+    <entry><structname>XkbDeviceBtnAction</structname></entry>
     <entry>devbtn</entry>
     <entry>16.1.13</entry>
   </row>
   <row>
     <entry><symbol>XkbSA_DeviceValuator</symbol></entry>
-    <entry><emphasis>XkbDeviceValuatorAction</emphasis></entry>
+    <entry><structname>XkbDeviceValuatorAction</structname></entry>
     <entry>devval</entry>
     <entry>16.1.14</entry>
   </row>
@@ -623,7 +623,7 @@ have an associated data structure.
 
 <para>
 Actions associated with the
-<emphasis>XkbModAction</emphasis>
+<structname>XkbModAction</structname>
  structure change the state of the modifiers when keys are pressed and released
 (see <xref linkend="Virtual_Modifiers" /> for a discussion of modifiers):
 </para>
@@ -631,12 +631,12 @@ Actions associated with the
 <para><programlisting>
 typedef struct _XkbModAction {
       unsigned char     type;         /* <emphasis>XkbSA_{Set|Latch|Lock}Mods</emphasis> */
-      unsigned char     flags;        /* with <emphasis>type</emphasis> , controls the effect on modifiers */
-      unsigned char     mask;         /* same as <emphasis>mask</emphasis> field of a modifier description */
-      unsigned char     real_mods;    /* same as <emphasis>real_mods</emphasis> field of a modifier description */
-      unsigned char     vmods1;       /* derived from <emphasis>vmods</emphasis> field of a modifier description */
-      unsigned char     vmods2;       /* derived from <emphasis>vmods</emphasis> field of a modifier description */
-} <emphasis>XkbModAction</emphasis>;
+      unsigned char     flags;        /* with <structfield>type</structfield> , controls the effect on modifiers */
+      unsigned char     mask;         /* same as <structfield>mask</structfield> field of a modifier description */
+      unsigned char     real_mods;    /* same as <structfield>real_mods</structfield> field of a modifier description */
+      unsigned char     vmods1;       /* derived from <structfield>vmods</structfield> field of a modifier description */
+      unsigned char     vmods2;       /* derived from <structfield>vmods</structfield> field of a modifier description */
+} <structname>XkbModAction</structname>;
 </programlisting></para>
 
 <para>
@@ -644,17 +644,17 @@ In the following description, the term
 <emphasis>action modifiers</emphasis>
  means the real modifier bits associated with this action. Depending on the
 value of
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  (see <link linkend="table16.3">Table 16.3</link>),
  these are designated either in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of the
-<emphasis>XkbModAction</emphasis>
+<structname>XkbModAction</structname>
  structure itself or the real modifiers bound to the key for which the action
 is being used. In the latter case, this is the client
-<emphasis>map</emphasis>
+<structfield>map</structfield>
 -&gt;
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
 [
 <parameter>keycode</parameter>
 ] field.
@@ -663,7 +663,7 @@ is being used. In the latter case, this is the client
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field can have any of the values shown in
 <link linkend="table16.2">Table 16.2</link>.
 </para>
@@ -701,7 +701,7 @@ provided no other key affecting the same modifiers is logically down.
 If no other keys are physically depressed when this key is released, and
 <symbol>XkbSA_ClearLocks</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the key release unlocks any action modifiers.
     </para>
   </listitem>
@@ -732,7 +732,7 @@ Modifiers unlocked due to
 If
 <symbol>XkbSA_LatchToLock</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key release locks and then unlatches any remaining action modifiers
 that are already latched.
     </para>
@@ -758,7 +758,7 @@ A key release latches any action modifiers not used by the
 A key press sets the base state of any action modifiers. If
 <symbol>XkbSA_LockNoLock</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key press also sets the locked state of any action modifiers.
     </para>
   </listitem>
@@ -768,7 +768,7 @@ A key release clears any action modifiers in the keyboard’s base modifiers,
 provided no other key that affects the same modifiers is down. If
 <symbol>XkbSA_LockNoUnlock</symbol>
  is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, and any of the action modifiers were locked before the corresponding
 key press occurred, a key release unlocks them.
     </para>
@@ -782,11 +782,11 @@ key press occurred, a key release unlocks them.
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.3">Table 16.3</link>.
  A general meaning is given in the table, but the exact meaning depends on
-the action <emphasis>type</emphasis>.
+the action <structfield>type</structfield>.
 </para>
 
 <table id='table16.3' frame='topbot'>
@@ -808,8 +808,8 @@ the action <emphasis>type</emphasis>.
 If set, the action modifiers are determined by the modifiers bound by the
 modifier mapping of the key. Otherwise, the action modifiers are set to the
 modifiers specified by the
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
 <emphasis>vmod1</emphasis>,
 and
 <emphasis>vmod2</emphasis>
@@ -855,18 +855,18 @@ the server only locks the action modifiers.
 If
 <symbol>XkbSA_UseModMapMods</symbol>
  is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
-<emphasis>vmods1</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
 fields are used to determine the action modifiers. Otherwise they are ignored
 and the modifiers bound to the key (client
-<emphasis>map</emphasis>
+<structfield>map</structfield>
 -&gt;
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
 [
 <parameter>keycode</parameter>
 ]) are used instead.
@@ -875,26 +875,26 @@ and the modifiers bound to the key (client
 
 <para>
 The
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
-<emphasis>vmods1</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields represent the components of an Xkb modifier description
 (see <link linkend="Modifier_Definitions">section 7.2</link>). While the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  and
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  fields correspond directly to the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  and
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  fields of an Xkb modifier description, the
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields are combined to correspond to the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  field of an Xkb modifier description. Xkb provides the following macros, to
 convert between the two formats:
 </para>
@@ -926,13 +926,13 @@ convert between the two formats:
 <para>
 <function>XkbModActionVMods</function>
  returns the
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields of
 <parameter>act</parameter>
  converted to the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  format of an Xkb modifier description.
 </para>
 
@@ -975,9 +975,9 @@ convert between the two formats:
 <para>
 <function>XkbSetModActionVMods</function>
  sets the
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields of
 <parameter>act</parameter>
  using the
@@ -987,9 +987,9 @@ convert between the two formats:
 
 <note><para>Despite the fact that the first parameter of these two macros is of
 type XkbAction, these macros may be used only with Actions of type
-<emphasis>XkbModAction</emphasis>
+<structname>XkbModAction</structname>
  and
-<emphasis>XkbISOAction</emphasis>.
+<structname>XkbISOAction</structname>.
 </para></note>
 
 
@@ -999,7 +999,7 @@ type XkbAction, these macros may be used only with Actions of type
 
 <para>
 Actions associated with the
-<emphasis>XkbGroupAction</emphasis>
+<structname>XkbGroupAction</structname>
  structure change the current group state when keys are pressed and released
 (see <xref linkend="Keyboard_State" /> for a description of groups and keyboard state):
 </para>
@@ -1007,14 +1007,14 @@ Actions associated with the
 <para><programlisting>
 typedef struct _XkbGroupAction {
       unsigned char   type;       /* <emphasis>XkbSA_{Set|Latch|Lock}Group</emphasis> */
-      unsigned char   flags;      /* with <emphasis>type</emphasis> , controls the effect on groups */
+      unsigned char   flags;      /* with <structfield>type</structfield> , controls the effect on groups */
       char            group_XXX;  /* represents a group index or delta */
-} <emphasis>XkbGroupAction</emphasis>;
+} <structname>XkbGroupAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field can have any of the following values:
 </para>
 
@@ -1040,16 +1040,16 @@ The
 If the
 <symbol>XkbSA_GroupAbsolute</symbol>
  bit is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, key press events change the base keyboard group to the group specified
 by the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field. Otherwise, key press events change the base keyboard group by adding
 the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field to the base keyboard group. In either case, the resulting effective
 keyboard group is brought back into range depending on the value of the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field of the controls structure (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
     </para>
   </listitem>
@@ -1091,12 +1091,12 @@ events have the following additional effects.
 If the
 <symbol>XkbSA_LatchToLock</symbol>
  bit is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field and the latched keyboard group index is nonzero, the key release adds
 the delta applied by the corresponding key press to the locked keyboard group
 and subtracts it from the latched keyboard group. The locked and effective
 keyboard group are brought back into range according to the value of the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field of the controls structure.
     </para>
   </listitem>
@@ -1117,16 +1117,16 @@ Otherwise, the key press adds the key press delta to the latched keyboard group.
 If the
 <symbol>XkbSA_GroupAbsolute</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, key press events set the locked keyboard group to the group specified
 by the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field. Otherwise, key press events add the group specified by the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field to the locked keyboard group. In either case, the resulting locked and
 effective keyboard groups are brought back into range depending on the value of
 the
-<emphasis>groups_wrap</emphasis>
+<structfield>groups_wrap</structfield>
  field of the controls structure.
     </para>
   </listitem>
@@ -1144,12 +1144,12 @@ A key release has no effect.
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.5">Table 16.5</link>.
  A general meaning is given in the table, but the exact meaning depends on
 the action
-<emphasis>type</emphasis>.
+<structfield>type</structfield>.
 </para>
 
 <table id='table16.5' frame='topbot'>
@@ -1186,7 +1186,7 @@ the server locks the action group if it is already latched.
     <entry><symbol>XkbSA_GroupAbsolute</symbol></entry>
     <entry>
 If set, the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field represents an absolute group number. Otherwise, it represents a group
 delta to be added to the current group to determine the new group number.
     </entry>
@@ -1197,7 +1197,7 @@ delta to be added to the current group to determine the new group number.
 
 <para>
 The
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field represents a signed character. Xkb provides the following macros to
 convert between a signed integer value and a signed character:
 </para>
@@ -1229,7 +1229,7 @@ convert between a signed integer value and a signed character:
 <para>
 <function>XkbSAGroup</function>
  returns the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field of
 <parameter>act</parameter>
  converted to a signed int.
@@ -1265,7 +1265,7 @@ convert between a signed integer value and a signed character:
     </term>
     <listitem>
       <para>
-        group index to set in <emphasis>group_XXX</emphasis>
+        group index to set in <structfield>group_XXX</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -1274,7 +1274,7 @@ convert between a signed integer value and a signed character:
 <para>
 <function>XkbSASetGroup</function>
  sets the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field of
 <parameter>act</parameter>
  from the group index
@@ -1283,9 +1283,9 @@ convert between a signed integer value and a signed character:
 
 <note><para>Despite the fact that the first parameter of these two macros is of
 type XkbAction, these macros may only be used with Actions of type
-<emphasis>XkbGroupAction</emphasis>
+<structname>XkbGroupAction</structname>
  and
-<emphasis>XkbISOAction</emphasis>.
+<structname>XkbISOAction</structname>.
 </para></note>
 
 
@@ -1295,7 +1295,7 @@ type XkbAction, these macros may only be used with Actions of type
 
 <para>
 Actions associated with the
-<emphasis>XkbPtrAction</emphasis>
+<structname>XkbPtrAction</structname>
  structure move the pointer when keys are pressed and released:
 </para>
 
@@ -1307,7 +1307,7 @@ typedef struct _XkbPtrAction {
       unsigned char      low_XXX;   /* y coordinate, low bits */
       unsigned char      high_YYY;  /* x coordinate, high bits */
       unsigned char      low_YYY;   /* y coordinate, low bits */
-} <emphasis>XkbPtrAction</emphasis>;
+} <structname>XkbPtrAction</structname>;
 </programlisting></para>
 
 <para>
@@ -1341,9 +1341,9 @@ the
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field of the
-<emphasis>XkbPtrAction</emphasis>
+<structname>XkbPtrAction</structname>
  structure is always
 <symbol>XkbSA_MovePtr</symbol>.
 </para>
@@ -1351,7 +1351,7 @@ The
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is a bitwise inclusive OR of the masks shown in
 <link linkend="table16.6">Table 16.6</link>.
 </para>
@@ -1401,15 +1401,15 @@ to the current pointer Y coordinate to determine the new pointer Y coordinate.
 
 <para>
 Each of the X and Y coordinantes of the
-<emphasis>XkbPtrAction</emphasis>
+<structname>XkbPtrAction</structname>
  structure is composed of two signed 16-bit values, that is, the X coordinate
 is composed of
-<emphasis>high_XXX</emphasis>
+<structfield>high_XXX</structfield>
  and
-<emphasis>low_XXX</emphasis>,
+<structfield>low_XXX</structfield>,
 and similarly for the Y coordinate. Xkb provides the following macros, to
 convert between a signed integer and two signed 16-bit values in
-<emphasis>XkbPtrAction</emphasis>
+<structname>XkbPtrAction</structname>
  structures:
 </para>
 
@@ -1440,9 +1440,9 @@ convert between a signed integer and two signed 16-bit values in
 <para>
 <function>XkbPtrActionX</function>
  returns the
-<emphasis>high_XXX</emphasis>
+<structfield>high_XXX</structfield>
  and
-<emphasis>low_XXX</emphasis>
+<structfield>low_XXX</structfield>
  fields of
 <parameter>act</parameter>
  converted to a signed int.
@@ -1476,9 +1476,9 @@ convert between a signed integer and two signed 16-bit values in
 <para>
 <function>XkbPtrActionY</function>
  returns the
-<emphasis>high_YYY</emphasis>
+<structfield>high_YYY</structfield>
  and
-<emphasis>low_YYY</emphasis>
+<structfield>low_YYY</structfield>
  fields of
 <parameter>act</parameter>
  converted to a signed int.
@@ -1524,9 +1524,9 @@ convert between a signed integer and two signed 16-bit values in
 <para>
 <function>XkbSetPtrActionX</function>
  sets the
-<emphasis>high_XXX</emphasis>
+<structfield>high_XXX</structfield>
  and
-<emphasis>low_XXX</emphasis>
+<structfield>low_XXX</structfield>
  fields of
 <parameter>act</parameter>
  from the signed integer value
@@ -1572,9 +1572,9 @@ convert between a signed integer and two signed 16-bit values in
 <para>
 <function>XkbSetPtrActionX</function>
  sets the
-<emphasis>high_YYY</emphasis>
+<structfield>high_YYY</structfield>
  and
-<emphasis>low_YYY</emphasis>
+<structfield>low_YYY</structfield>
  fields of
 <parameter>act</parameter>
  from the signed integer value
@@ -1588,7 +1588,7 @@ convert between a signed integer and two signed 16-bit values in
 
 <para>
 Actions associated with the
-<emphasis>XkbPtrBtnAction</emphasis>
+<structname>XkbPtrBtnAction</structname>
  structure simulate the press and release of pointer buttons when keys are
 pressed and released:
 </para>
@@ -1596,10 +1596,10 @@ pressed and released:
 <para><programlisting>
 typedef struct _XkbPtrBtnAction {
       unsigned char   type;     /*<emphasis>XkbSA_PtrBtn, XkbSA_LockPtrBtn</emphasis> */
-      unsigned char   flags;    /* with <emphasis>type</emphasis> , controls the effect on pointer buttons*/
+      unsigned char   flags;    /* with <structfield>type</structfield> , controls the effect on pointer buttons*/
       unsigned char   count;    /* controls number of ButtonPress and ButtonRelease events */
       unsigned char   button;   /* pointer button to simulate */
-} <emphasis>XkbPtrBtnAction</emphasis>;
+} <structname>XkbPtrBtnAction</structname>;
 </programlisting></para>
 
 <para>
@@ -1616,7 +1616,7 @@ If the
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field can have any one of the values shown in
 <link linkend="table16.7">Table 16.7</link>.
 </para>
@@ -1643,14 +1643,14 @@ The
 If
 <symbol>XkbSA_UseDfltButton</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the event is generated for the pointer button specified by the
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). Otherwise, the event is generated for the button
 specified by the
-<emphasis>button</emphasis>
+<structfield>button</structfield>
  field.
     </para>
   </listitem>
@@ -1661,17 +1661,17 @@ and corresponding key release are ignored and have no effect. Otherwise, a key
 press causes one or more core pointer button events instead of the usual
 <symbol>KeyPress</symbol>
  event. If
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is
 <emphasis>zero</emphasis>,
 a key press generates a single
 <symbol>ButtonPress</symbol>
  event; if
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is greater than
 <emphasis>zero</emphasis>,
 a key press generates
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  pairs of
 <symbol>ButtonPress</symbol>
  and
@@ -1682,7 +1682,7 @@ a key press generates
   <listitem>
     <para>
 If
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is
 <emphasis>zero</emphasis>,
 a key release generates a core pointer
@@ -1690,7 +1690,7 @@ a key release generates a core pointer
  that matches the event generated by the corresponding
 <symbol>KeyPress</symbol>
 ; if
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is nonzero, a key release does not cause a
 <symbol>ButtonRelease</symbol>
  event. A key release never generates a key
@@ -1711,7 +1711,7 @@ If the button specified by the
 <emphasis>MouseKeys</emphasis>
  default button
 or
-<emphasis>button</emphasis>
+<structfield>button</structfield>
  is not locked, a key press causes a
 <symbol>ButtonPress</symbol>
  event instead of a
@@ -1719,7 +1719,7 @@ or
  event and locks the button. If the button is already locked or if
 <symbol>XkbSA_LockNoUnlock</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key press is ignored and has no effect.
     </para>
   </listitem>
@@ -1728,7 +1728,7 @@ or
 If the corresponding key press was ignored, and if
 <symbol>XkbSA_LockNoLock</symbol>
  is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key release generates a
 <symbol>ButtonRelease</symbol>
  event instead of a
@@ -1746,12 +1746,12 @@ a button, the key release is ignored and has no effect.
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.8">Table 16.8</link>.
  A general meaning is given in the table, but the exact meaning depends on
 the action
-<emphasis>type</emphasis>.
+<structfield>type</structfield>.
 :
 </para>
 
@@ -1772,12 +1772,12 @@ the action
     <entry><symbol>XkbSA_UseDfltButton</symbol></entry>
     <entry>
 If set, the action uses the pointer button specified by the
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). Otherwise, the action uses the pointer button
 specified by the
-<emphasis>button</emphasis>
+<structfield>button</structfield>
 field.
     </entry>
   </row>
@@ -1807,9 +1807,9 @@ the server only locks the pointer button.
 
 <para>
 Actions associated with the
-<emphasis>XkbPtrDfltAction</emphasis>
+<structname>XkbPtrDfltAction</structname>
  structure change the
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>):
@@ -1821,7 +1821,7 @@ typedef struct _XkbPtrDfltAction {
       unsigned char   flags;     /* controls the pointer button number */
       unsigned char   affect;    /* <symbol>XkbSA_AffectDfltBtn</symbol> */
       char            valueXXX;  /* new default button member */
-} <emphasis>XkbPtrDfltAction</emphasis>;
+} <structname>XkbPtrDfltAction</structname>;
 </programlisting></para>
 
 <para>
@@ -1834,7 +1834,7 @@ If the
  events are treated as though the action is
 <symbol>XkbSA_NoAction</symbol>.
 Otherwise, this action changes the
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control.
@@ -1843,9 +1843,9 @@ Otherwise, this action changes the
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field of the
-<emphasis>XkbPtrDfltAction</emphasis>
+<structname>XkbPtrDfltAction</structname>
  structure should always be
 <symbol>XkbSA_SetPtrDflt</symbol>.
 </para>
@@ -1853,7 +1853,7 @@ The
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the values shown in
 <link linkend="table16.9">Table 16.9</link>
  (currently there is only one value defined).
@@ -1876,9 +1876,9 @@ The
     <entry><symbol>XkbSA_DfltBtnAbsolute</symbol></entry>
     <entry>
 If set, the
-<emphasis>value</emphasis>
+<structfield>value</structfield>
  field represents an absolute pointer button. Otherwise, the
-<emphasis>value</emphasis>
+<structfield>value</structfield>
  field represents the amount to be added to the current default button.
     </entry>
   </row>
@@ -1888,32 +1888,32 @@ If set, the
 
 <para>
 The
-<emphasis>affect</emphasis>
+<structfield>affect</structfield>
  field specifies what changes as a result of this action. The only valid value
 for the
-<emphasis>affect</emphasis>
+<structfield>affect</structfield>
  field is <symbol>XkbSA_AffectDfltBtn</symbol>.
 </para>
 
 <para>
 The
-<emphasis>valueXXX</emphasis>
+<structfield>valueXXX</structfield>
  field is a signed character that represents the new button value for the
-<emphasis>mk_dflt_btn</emphasis>
+<structfield>mk_dflt_btn</structfield>
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>). If
 <symbol>XkbSA_DfltBtnAbsolute</symbol>
  is set in
-<emphasis>flags</emphasis>,
-<emphasis>valueXXX</emphasis>
+<structfield>flags</structfield>,
+<structfield>valueXXX</structfield>
  specifies the button to be used; otherwise,
-<emphasis>valueXXX</emphasis>
+<structfield>valueXXX</structfield>
  specifies the amount to be added to the current default button. In either
 case, illegal button choices are wrapped back around into range. Xkb provides
 the following macros, to convert between the integer and signed character
 values in
-<emphasis>XkbPtrDfltAction</emphasis>
+<structname>XkbPtrDfltAction</structname>
  structures:
 </para>
 
@@ -1944,7 +1944,7 @@ values in
 <para>
 <function>XkbSAPtrDfltValue</function>
  returns the
-<emphasis>valueXXX</emphasis>
+<structfield>valueXXX</structfield>
  field of
 <parameter>act</parameter>
  converted to a signed int.
@@ -1970,7 +1970,7 @@ values in
     </term>
     <listitem>
       <para>
-        action in which to set <emphasis>valueXXX</emphasis>
+        action in which to set <structfield>valueXXX</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -1980,7 +1980,7 @@ values in
     </term>
     <listitem>
       <para>
-        value to set in <emphasis>valueXXX</emphasis>
+        value to set in <structfield>valueXXX</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -1989,7 +1989,7 @@ values in
 <para>
 <function>XkbSASetPtrDfltValue</function>
  sets the
-<emphasis>valueXXX</emphasis>
+<structfield>valueXXX</structfield>
  field of
 <parameter>act</parameter>
  from
@@ -2003,14 +2003,14 @@ values in
 
 <para>
 Actions associated with the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  structure lock modifiers and the group according to the ISO9995 specification.
 </para>
 
 
 <para>
 Operated by itself, the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  is just a caps lock. Operated simultaneously with another modifier key, it
 transforms the other key into a locking key. For example, press
 <keysym>ISO_Lock</keysym>,
@@ -2049,20 +2049,20 @@ The
 typedef struct _XkbISOAction {
       unsigned char   type;        /* <symbol>XkbSA_ISOLock</symbol> */
       unsigned char   flags;       /* controls changes to group or modifier state */
-      unsigned char   mask;        /* same as <emphasis>mask</emphasis> field of a modifier description */
-      unsigned char   real_mods;   /* same as <emphasis>real_mods</emphasis> field of a modifier description */
+      unsigned char   mask;        /* same as <structfield>mask</structfield> field of a modifier description */
+      unsigned char   real_mods;   /* same as <structfield>real_mods</structfield> field of a modifier description */
       char            group_XXX;   /* group index or delta group */
       unsigned char   affect;      /* specifies whether to affect mods, group, ptrbtn, or controls*/
-      unsigned char   vmods1;      /* derived from <emphasis>vmods</emphasis> field of a modifier description */
-      unsigned char   vmods2;      /* derived from <emphasis>vmods</emphasis> field of a modifier description */
-} <emphasis>XkbISOAction</emphasis>;
+      unsigned char   vmods1;      /* derived from <structfield>vmods</structfield> field of a modifier description */
+      unsigned char   vmods2;      /* derived from <structfield>vmods</structfield> field of a modifier description */
+} <structname>XkbISOAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field of the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  structure should always be
 <symbol>XkbSA_ISOLock</symbol>.
 </para>
@@ -2070,11 +2070,11 @@ The
 
 <para>
 The interpretation of the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field depends on whether the
 <symbol>XkbSA_ISODfltIsGroup</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field or not.
 </para>
 
@@ -2083,10 +2083,10 @@ The interpretation of the
 If the
 <symbol>XkbSA_ISODfltIsGroup</symbol>
  is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the action is used to change the group state. The remaining valid bits
 of the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field are composed of a bitwise inclusive OR using the masks shown in
 <link linkend="table16.10">Table 16.10</link>.
 </para>
@@ -2113,11 +2113,11 @@ remaining bits in this table to carry their interpretations.
       </para>
       <para>
 A key press sets the base group as specified by the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field and the
 <symbol>XkbSA_GroupAbsolute</symbol>
  bit of the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field (see section Note). If no other actions are transformed by the
 <emphasis>XkbISO_Lock</emphasis>
  action, a key release locks the group. Otherwise, a key release clears group
@@ -2129,7 +2129,7 @@ set by the key press.
     <entry><symbol>XkbSA_GroupAbsolute</symbol></entry>
     <entry>
 If set, the
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field represents an absolute group number. Otherwise, it represents a group
 delta to be added to the current group to determine the new group number.
     </entry>
@@ -2194,10 +2194,10 @@ If not set, any
 If the
 <symbol>XkbSA_ISODfltIsGroup</symbol>
  is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the action is used to change the modifier state and the remaining valid
 bits of the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field are composed of a bitwise inclusive OR using the masks shown in
 <link linkend="table16.11">Table 16.11</link>.
 </para>
@@ -2225,11 +2225,11 @@ for the remaining bits in this table to carry their interpretations.
       <para>
 A key press sets the action modifiers in the keyboard’s base modifiers using
 the
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
-<emphasis>vmods1</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
 fields (see <link linkend="Actions_for_Changing_Modifiers_State">section 16.1.3</link>). If no other actions are transformed by the
 <emphasis>XkbISO_Lock</emphasis>
  action, a key release locks the action modifiers. Otherwise, a key release
@@ -2243,8 +2243,8 @@ clears the base modifiers set by the key press.
 If set, the action modifiers are determined by the modifiers bound by the
 modifier mapping of the key. Otherwise, the action modifiers are set to the
 modifiers specified by the
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
 <emphasis>vmod1</emphasis>,
 and
 <emphasis>vmod2</emphasis>
@@ -2317,7 +2317,7 @@ If not set, any
 
 <para>
 The
-<emphasis>group_XXX</emphasis>
+<structfield>group_XXX</structfield>
  field represents a signed character. Xkb provides macros to convert between a
 signed integer value and a signed character as shown in section Note.
 </para>
@@ -2325,26 +2325,26 @@ signed integer value and a signed character as shown in section Note.
 
 <para>
 The
-<emphasis>mask</emphasis>,
-<emphasis>real_mods</emphasis>,
-<emphasis>vmods1</emphasis>,
+<structfield>mask</structfield>,
+<structfield>real_mods</structfield>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields represent the components of an Xkb modifier description
  (see <link linkend="Modifier_Definitions">section 7.2</link>). While the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  and
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  fields correspond directly to the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  and
-<emphasis>real_mods</emphasis>
+<structfield>real_mods</structfield>
  fields of an Xkb modifier description, the
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  and
-<emphasis>vmods2</emphasis>
+<structfield>vmods2</structfield>
  fields are combined to correspond to the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  field of an Xkb modifier description. Xkb provides macros to convert between
 the two formats as shown in <link linkend="Actions_for_Changing_Modifiers_State">section 16.1.3</link>.
 </para>
@@ -2352,7 +2352,7 @@ the two formats as shown in <link linkend="Actions_for_Changing_Modifiers_State"
 
 <para>
 The
-<emphasis>affect</emphasis>
+<structfield>affect</structfield>
  field is composed of a bitwise inclusive OR using the masks shown in
 <link linkend="table16.11">Table 16.11</link>.
 </para>
@@ -2380,7 +2380,7 @@ If
  or
 <emphasis>SA_LatchMods</emphasis>
  actions occurring simultaneously with the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  are treated as
 <emphasis>SA_LockMods</emphasis>
  instead.
@@ -2396,7 +2396,7 @@ If
  or
 <emphasis>SA_LatchGroup</emphasis>
  actions occurring simultaneously with the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  are treated as
 <emphasis>SA_LockGroup</emphasis>
  instead.
@@ -2410,7 +2410,7 @@ If
  is not set, any
 <emphasis>SA_PtrBtn</emphasis>
  actions occurring simultaneously with the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  are treated as
 <emphasis>SA_LockPtrBtn</emphasis>
  instead.
@@ -2424,7 +2424,7 @@ If
  is not set, any
 <emphasis>SA_SetControls</emphasis>
  actions occurring simultaneously with the
-<emphasis>XkbISOAction</emphasis>
+<structname>XkbISOAction</structname>
  are treated as
 <emphasis>SA_LockControls</emphasis>
  instead.
@@ -2456,14 +2456,14 @@ typedef struct _XkbSwitchScreenAction {
       unsigned char   type;        /* <symbol>XkbSA_SwitchScreen</symbol> */
       unsigned char   flags;       /* controls screen switching */
       char            screenXXX;   /* screen number or delta */
-} <emphasis>XkbSwitchScreenAction</emphasis>;
+} <structname>XkbSwitchScreenAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field of the
-<emphasis>XkbSwitchScreenAction</emphasis>
+<structname>XkbSwitchScreenAction</structname>
  structure should always be
 <symbol>XkbSA_SwitchScreen</symbol>.
 </para>
@@ -2471,7 +2471,7 @@ The
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.13">Table 16.13</link>.
 </para>
@@ -2493,7 +2493,7 @@ The
     <entry><symbol>XkbSA_SwitchAbsolute</symbol></entry>
     <entry>
 If set, the
-<emphasis>screenXXX</emphasis>
+<structfield>screenXXX</structfield>
  field represents the index of the new screen. Otherwise, it represents an
 offset from the current screen to the new screen.
     </entry>
@@ -2512,15 +2512,15 @@ shares the same physical display.
 
 <para>
 The
-<emphasis>screenXXX</emphasis>
+<structfield>screenXXX</structfield>
  field is a signed character value that represents either the relative or
 absolute screen index, depending on the state of the
 <symbol>XkbSA_SwitchAbsolute</symbol>
  bit in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field. Xkb provides the following macros to convert between the integer and
 signed character value for screen numbers in
-<emphasis>XkbSwitchScreenAction</emphasis>
+<structname>XkbSwitchScreenAction</structname>
  structures:
 </para>
 
@@ -2551,7 +2551,7 @@ signed character value for screen numbers in
 <para>
 <function>XkbSAScreen</function>
  returns the
-<emphasis>screenXXX</emphasis>
+<structfield>screenXXX</structfield>
  field of
 <parameter>act</parameter>
  converted to a signed int.
@@ -2577,7 +2577,7 @@ signed character value for screen numbers in
     </term>
     <listitem>
       <para>
-        action in which to set <emphasis>screenXXX</emphasis>
+        action in which to set <structfield>screenXXX</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -2587,7 +2587,7 @@ signed character value for screen numbers in
     </term>
     <listitem>
       <para>
-        value to set in <emphasis>screenXXX</emphasis>
+        value to set in <structfield>screenXXX</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -2596,7 +2596,7 @@ signed character value for screen numbers in
 <para>
 <function>XkbSASetScreen</function>
  sets the
-<emphasis>screenXXX</emphasis>
+<structfield>screenXXX</structfield>
  field of
 <parameter>act</parameter>
  from
@@ -2610,7 +2610,7 @@ signed character value for screen numbers in
 
 <para>
 Actions associated with the
-<emphasis>XkbCtrlsAction</emphasis>
+<structname>XkbCtrlsAction</structname>
  structure change the state of the boolean controls (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>):
 </para>
 
@@ -2618,22 +2618,22 @@ Actions associated with the
 typedef struct _XkbCtrlsAction {
       unsigned char     type;        /* <symbol>XkbSA_SetControls</symbol>,
                                         <symbol>XkbSA_LockControls</symbol> */
-      unsigned char     flags;       /* with <emphasis>type</emphasis>,
+      unsigned char     flags;       /* with <structfield>type</structfield>,
                                         controls enabling and disabling of controls */
-      unsigned char     ctrls3;      /* <emphasis>ctrls0</emphasis> through
-                                        <emphasis>ctrls3</emphasis> represent the boolean controls */
-      unsigned char     ctrls2;      /* <emphasis>ctrls0</emphasis> through
-                                        <emphasis>ctrls3</emphasis> represent the boolean controls */
-      unsigned char     ctrls1;      /* <emphasis>ctrls0</emphasis> through
-                                        <emphasis>ctrls3</emphasis> represent the boolean controls */
-      unsigned char     ctrls0;      /* <emphasis>ctrls0</emphasis> through
-                                        <emphasis>ctrls3</emphasis> represent the boolean controls */
-} <emphasis>XkbCtrlsAction</emphasis>;
+      unsigned char     ctrls3;      /* <structfield>ctrls0</structfield> through
+                                        <structfield>ctrls3</structfield> represent the boolean controls */
+      unsigned char     ctrls2;      /* <structfield>ctrls0</structfield> through
+                                        <structfield>ctrls3</structfield> represent the boolean controls */
+      unsigned char     ctrls1;      /* <structfield>ctrls0</structfield> through
+                                        <structfield>ctrls3</structfield> represent the boolean controls */
+      unsigned char     ctrls0;      /* <structfield>ctrls0</structfield> through
+                                        <structfield>ctrls3</structfield> represent the boolean controls */
+} <structname>XkbCtrlsAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field can have any one of the values shown in
 <link linkend="table16.14">Table 16.14</link>.
 </para>
@@ -2658,7 +2658,7 @@ The
   <listitem>
     <para>
 A key press enables any boolean controls specified in the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  fields that were not already enabled at the time of the key press.
     </para>
   </listitem>
@@ -2686,9 +2686,9 @@ This action can cause
 If the
 <symbol>XkbSA_LockNoLock</symbol>
  bit is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key press enables any controls specified in the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  fields that were not already enabled at the time of the key press.
     </para>
   </listitem>
@@ -2697,9 +2697,9 @@ If the
 If the
 <symbol>XkbSA_LockNoUnlock</symbol>
  bit is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key release disables any controls specified in the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  fields that were not already disabled at the time of the key press.
     </para>
   </listitem>
@@ -2719,7 +2719,7 @@ This action can cause
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.15">Table 16.15</link>.
 </para>
@@ -2775,13 +2775,13 @@ boolean control.
 
 <para>
 The
-<emphasis>ctrls0</emphasis>,
-<emphasis>ctrls1</emphasis>,
-<emphasis>ctrls2</emphasis>,
+<structfield>ctrls0</structfield>,
+<structfield>ctrls1</structfield>,
+<structfield>ctrls2</structfield>,
 and
-<emphasis>ctrls3</emphasis>
+<structfield>ctrls3</structfield>
  fields represent the boolean controls in the
-<emphasis>enabled_ctrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field of the controls structure (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>). Xkb provides the following
 macros, to convert between the two formats:
 </para>
@@ -2813,7 +2813,7 @@ macros, to convert between the two formats:
 <para>
 <function>XkbActionCtrls</function>
  returns the
-<emphasis>ctrls</emphasis>
+<structfield>ctrls</structfield>
  fields of
 <parameter>act</parameter>
  converted to an unsigned int.
@@ -2858,9 +2858,9 @@ macros, to convert between the two formats:
 <para>
 <function>XkbSAActionSetCtrls</function>
  sets the
-<emphasis>ctrls0</emphasis>
+<structfield>ctrls0</structfield>
  through
-<emphasis>ctrls3</emphasis>
+<structfield>ctrls3</structfield>
  fields of
 <parameter>act</parameter>
  from
@@ -2874,7 +2874,7 @@ macros, to convert between the two formats:
 
 <para>
 Actions associated with the
-<emphasis>XkbMessageAction</emphasis>
+<structname>XkbMessageAction</structname>
  structure generate
 <symbol>XkbActionMessage</symbol>
  events:
@@ -2888,14 +2888,14 @@ typedef struct _XkbMessageAction {
       unsigned char   type;             /* <symbol>XkbSA_ActionMessage</symbol> */
       unsigned char   flags;            /* controls event generation via key presses and releases */
       unsigned char   message[XkbActionMessageLength];    /* message */
-} <emphasis>XkbMessageAction</emphasis>;
+} <structname>XkbMessageAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field of the
-<emphasis>XkbMessageAction</emphasis>
+<structname>XkbMessageAction</structname>
  structure should always be
 <symbol>XkbSA_ActionMessage</symbol>.
 </para>
@@ -2903,7 +2903,7 @@ The
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.16">Table 16.16</link>.
 </para>
@@ -2927,7 +2927,7 @@ The
 If set, key press events generate an
 <symbol>XkbActionMessage</symbol>
  event that reports the keycode, event type, and contents of the
-<emphasis>message</emphasis>
+<structfield>message</structfield>
  field.
     </entry>
   </row>
@@ -2937,7 +2937,7 @@ If set, key press events generate an
 If set, key release events generate an
 <symbol>XkbActionMessage</symbol>
  event that reports the keycode, event type, and contents of the
-<emphasis>message</emphasis>
+<structfield>message</structfield>
  field.
     </entry>
   </row>
@@ -2959,7 +2959,7 @@ If set, key press and key release events generate
 
 <para>
 The
-<emphasis>message</emphasis>
+<structfield>message</structfield>
  field is an array of
 <symbol>XkbActionMessageLength</symbol>
  unsigned characters and may be set to anything the keymap designer wishes.
@@ -3001,7 +3001,7 @@ The
  using
 <symbol>XkbActionMessage</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying
 <emphasis>XkbAllActionMessageMask</emphasis>
  in
@@ -3033,14 +3033,14 @@ typedef struct _XkbActionMessage {
                                          <symbol>False</symbol> =&gt; release */
       Bool           key_event_follows; /* <symbol>True</symbol> =&gt; KeyPress/KeyRelease follows */
       char           message[XkbActionMessageLength+1];                       /* message text */
-} <emphasis>XkbActionMessageEvent</emphasis>;
+} <structname>XkbActionMessageEvent</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>keycode</emphasis>
+<structfield>keycode</structfield>
  is the keycode of the key that was pressed or released. The
-<emphasis>press</emphasis>
+<structfield>press</structfield>
  field specifies whether the event was the result of a key press or key
 release.
 </para>
@@ -3048,30 +3048,30 @@ release.
 
 <para>
 The
-<emphasis>key_event_follows</emphasis>
+<structfield>key_event_follows</structfield>
  specifies whether a
 <symbol>KeyPress</symbol>
  (if
-<emphasis>press</emphasis>
+<structfield>press</structfield>
  is
 <symbol>True</symbol>
 ) or
 <symbol>KeyRelease</symbol>
  (if
-<emphasis>press</emphasis>
+<structfield>press</structfield>
  is
 <symbol>False</symbol>
 ) event is also sent to the client. As with all other Xkb events,
-<emphasis>XkbActionMessageEvent</emphasis>
+<structname>XkbActionMessageEvent</structname>
 s are delivered to all clients requesting them, regardless of the current
 keyboard focus. However, the
 <symbol>KeyPress</symbol>
  or
 <symbol>KeyRelease</symbol>
  event that conditionally follows an
-<emphasis>XkbActionMessageEvent</emphasis>
+<structname>XkbActionMessageEvent</structname>
  is sent only to the client selected by the current keyboard focus.
-<emphasis>key_event_follows</emphasis>
+<structfield>key_event_follows</structfield>
  is
 <symbol>True</symbol>
  only for the client that is actually sent the following
@@ -3084,13 +3084,13 @@ keyboard focus. However, the
 
 <para>
 The
-<emphasis>message</emphasis>
+<structfield>message</structfield>
  field is set to the message specified in the action and is guaranteed to be
 <symbol>NULL</symbol>
 -terminated; the Xkb extension forces a
 <symbol>NULL</symbol>
  into
-<emphasis>message</emphasis>
+<structfield>message</structfield>
 [
 <symbol>XkbActionMessageLength</symbol>
 ].
@@ -3104,7 +3104,7 @@ The
 
 <para>
 Actions associated with the
-<emphasis>XkbRedirectKeyAction</emphasis>
+<structname>XkbRedirectKeyAction</structname>
  structure generate
 <symbol>KeyPress</symbol>
  and
@@ -3123,14 +3123,14 @@ typedef struct      _XkbRedirectKeyAction {
       unsigned char      vmods_mask1;   /* other half of mask of virtual mods to be reset */
       unsigned char      vmods0;        /* first half of mask of virtual mods to take values from */
       unsigned char      vmods1;        /* other half of mask of virtual mods to take values from */
-} <emphasis>XkbRedirectKeyAction</emphasis>;
+} <structname>XkbRedirectKeyAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field for the
-<emphasis>XkbRedirectKeyAction</emphasis>
+<structname>XkbRedirectKeyAction</structname>
  structure should always be
 <symbol>XkbSA_RedirectKey</symbol>.
 </para>
@@ -3140,21 +3140,21 @@ The
 Key presses cause a
 <symbol>KeyPress</symbol>
  event for the key specified by the
-<emphasis>new_key</emphasis>
+<structfield>new_key</structfield>
  field instead of the actual key. The state reported in this event reports the
 current effective modifiers changed as follows: any real modifiers selected by
 the
-<emphasis>mods_mask</emphasis>
+<structfield>mods_mask</structfield>
  field are set to corresponding values from the
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  field. Any real modifiers bound to the virtual modifiers specified by the
-<emphasis>vmods_mask0</emphasis>
+<structfield>vmods_mask0</structfield>
  and
-<emphasis>vmods_mask1</emphasis>
+<structfield>vmods_mask1</structfield>
  fields are either set or cleared, depending on the corresponding values in the
-<emphasis>vmods0</emphasis>
+<structfield>vmods0</structfield>
  and
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  fields. If the real and virtual modifier definitions specify conflicting
 values for a single modifier, the real modifier definition has priority.
 </para>
@@ -3164,7 +3164,7 @@ values for a single modifier, the real modifier definition has priority.
 Key releases cause a
 <symbol>KeyRelease</symbol>
  event for the key specified by the
-<emphasis>new_key</emphasis>
+<structfield>new_key</structfield>
  field instead of the actual key. The state for this event consists of the
 effective keyboard modifiers at the time of the release, changed as described
 previously.
@@ -3186,9 +3186,9 @@ input extension.)
 
 <para>
 The
-<emphasis>vmods_mask0</emphasis>
+<structfield>vmods_mask0</structfield>
  and
-<emphasis>vmods_mask1</emphasis>
+<structfield>vmods_mask1</structfield>
  fields actually represent one
 <emphasis>vmods_mask</emphasis>
  value, as described in <xref linkend="Virtual_Modifiers" />. Xkb provides the following macros, to
@@ -3222,9 +3222,9 @@ convert between the two formats:
 <para>
 <function>XkbSARedirectVModsMask</function>
  returns the
-<emphasis>vmods_mask0</emphasis>
+<structfield>vmods_mask0</structfield>
  and
-<emphasis>vmods_mask1</emphasis>
+<structfield>vmods_mask1</structfield>
  fields of
 <parameter>act</parameter>
  converted to an unsigned int.
@@ -3269,9 +3269,9 @@ convert between the two formats:
 <para>
 <function>XkbSARedirectSetVModsMask</function>
  sets the
-<emphasis>vmods_mask0</emphasis>
+<structfield>vmods_mask0</structfield>
  and
-<emphasis>vmods_mask1</emphasis>
+<structfield>vmods_mask1</structfield>
  fields of
 <parameter>act</parameter>
  from
@@ -3281,11 +3281,11 @@ convert between the two formats:
 
 <para>
 Similarly, the
-<emphasis>vmods0</emphasis>
+<structfield>vmods0</structfield>
  and
-<emphasis>vmods1</emphasis>
+<structfield>vmods1</structfield>
  fields actually represent one
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
 value, as described in <xref linkend="Virtual_Modifiers" />. To convert between the two formats, Xkb
 provides the following convenience macros:
 </para>
@@ -3316,8 +3316,8 @@ provides the following convenience macros:
 </variablelist>
 
 <literallayout>
-     <function>XkbSARedirectVModsMask</function> returns the <emphasis>vmods0</emphasis>
-     and <emphasis>vmods1</emphasis> fields of <parameter>act</parameter>
+     <function>XkbSARedirectVModsMask</function> returns the <structfield>vmods0</structfield>
+     and <structfield>vmods1</structfield> fields of <parameter>act</parameter>
      converted to an unsigned int.
 </literallayout>
 
@@ -3356,8 +3356,8 @@ provides the following convenience macros:
   </varlistentry>
 </variablelist>
 <literallayout>
-     <function>XkbSARedirectSetVModsMask</function> sets the <emphasis>vmods0</emphasis>
-     and <emphasis>vmods1</emphasis> of <parameter>act</parameter> from <parameter>v</parameter>.
+     <function>XkbSARedirectSetVModsMask</function> sets the <structfield>vmods0</structfield>
+     and <structfield>vmods1</structfield> of <parameter>act</parameter> from <parameter>v</parameter>.
 </literallayout>
 
 </sect2>
@@ -3366,7 +3366,7 @@ provides the following convenience macros:
 
 <para>
 Actions associated with
-<emphasis>XkbDeviceBtnAction</emphasis>
+<structname>XkbDeviceBtnAction</structname>
  structures generate
 <emphasis>DeviceButtonPress</emphasis>
  and
@@ -3381,16 +3381,16 @@ Actions associated with
 <para><programlisting>
 typedef struct _XkbDeviceBtnAction {
       unsigned char    type;      /* <emphasis>XkbSA_DeviceBtn, XkbSA_LockDeviceBtn</emphasis> */
-      unsigned char    flags;     /* with <emphasis>type</emphasis> , specifies locking or unlocking */
+      unsigned char    flags;     /* with <structfield>type</structfield> , specifies locking or unlocking */
       unsigned char    count;     /* controls number of DeviceButtonPress and Release events */
-      unsigned char    button;    /* index of button on <emphasis>device</emphasis> */
+      unsigned char    button;    /* index of button on <structfield>device</structfield> */
       unsigned char    device;    /* device ID of an X input extension device */
-} <emphasis>XkbDeviceBtnAction</emphasis>;
+} <structname>XkbDeviceBtnAction</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field can have any one of the values shown in
 <link linkend="table16.17">Table 16.17</link>.
 </para>
@@ -3424,11 +3424,11 @@ specified by this action are illegal, this action behaves like
     <para>
 Otherwise, key presses cause one or more input extension device events instead
 of the usual key press event. If the
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  field is zero, a key press generates a single
 <emphasis>DeviceButtonPress</emphasis>
  event. If count is greater than zero, a key press event generates
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  pairs of
 <emphasis>DeviceButtonPress</emphasis>
  and
@@ -3439,11 +3439,11 @@ of the usual key press event. If the
   <listitem>
     <para>
 If
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is zero, a key release generates an input extension
 <emphasis>DeviceButtonRelease</emphasis>
  event that matches the event generated by the corresponding key press. If
-<emphasis>count</emphasis>
+<structfield>count</structfield>
  is nonzero, a key release does not cause a
 <emphasis>DeviceButtonRelease</emphasis>
  event. Key releases never cause
@@ -3469,7 +3469,7 @@ behaves like <symbol>XkbSA_NoAction</symbol>.
 Otherwise, if the specified button is not locked and the
 <symbol>XkbSA_LockNoLock</symbol>
  bit is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key press generates an input extension
 <emphasis>DeviceButtonPress</emphasis>
  event instead of a
@@ -3477,7 +3477,7 @@ Otherwise, if the specified button is not locked and the
  event and locks the button. If the button is already locked or if
 <symbol>XkbSA_LockNoLock</symbol>
  bit is set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, the key press is ignored and has no effect.
     </para>
   </listitem>
@@ -3486,7 +3486,7 @@ Otherwise, if the specified button is not locked and the
 If the corresponding key press was ignored, and if the
 <symbol>XkbSA_LockNoUnlock</symbol>
  bit is not set in the
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field, a key release generates an input extension
 <emphasis>DeviceButtonRelease</emphasis>
  event instead of a
@@ -3504,7 +3504,7 @@ the key release is ignored and has no effect.
 
 <para>
 The
-<emphasis>flags</emphasis>
+<structfield>flags</structfield>
  field is composed of the bitwise inclusive OR of the masks shown in
 <link linkend="table16.18">Table 16.18</link>.
 </para>
@@ -3551,7 +3551,7 @@ A
 <emphasis>valuator</emphasis>
  manipulates a range of values for some entity, like a mouse axis, a slider or
 a dial. Actions associated with
-<emphasis>XkbDeviceValuatorAction</emphasis>
+<structname>XkbDeviceValuatorAction</structname>
  structures are used to simulate events from one or two input extension device
 valuators.
 </para>
@@ -3566,16 +3566,16 @@ typedef struct _XkbDeviceValuatorAction {
       unsigned char    v2_what;     /* determines how valuator is to behave for valuator 2 */
       unsigned char    v2_ndx;      /* specifies a real valuator */
       unsigned char    v2_value;    /* the value for valuator 1 */
-} <emphasis>XkbDeviceValuatorAction</emphasis>;
+} <structname>XkbDeviceValuatorAction</structname>;
 </programlisting></para>
 
 <para>
 If
-<emphasis>device</emphasis>
+<structfield>device</structfield>
  is illegal or if neither
-<emphasis>v1_ndx</emphasis>
+<structfield>v1_ndx</structfield>
  nor
-<emphasis>v2_ndx</emphasis>
+<structfield>v2_ndx</structfield>
  specifies a legal valuator, this action behaves like
 <symbol>XkbSA_NoAction</symbol>.
 </para>
@@ -3583,20 +3583,20 @@ If
 
 <para>
 The low four bits of
-<emphasis>v1_what</emphasis>
+<structfield>v1_what</structfield>
  and
-<emphasis>v2_what</emphasis>
+<structfield>v2_what</structfield>
  specify the corresponding scale value (denoted
 <emphasis>val&lt;n&gt;Scale</emphasis>
  in <link linkend="table16.17">Table 16.17</link>), if needed.
  The high four bits of
-<emphasis>v1_what</emphasis>
+<structfield>v1_what</structfield>
  and
-<emphasis>v2_what</emphasis>
+<structfield>v2_what</structfield>
  specify the operation to perform to set the values. The high four bits of
-<emphasis>v1_what</emphasis>
+<structfield>v1_what</structfield>
  and
-<emphasis>v2_what</emphasis>
+<structfield>v2_what</structfield>
  can have the values shown in <link linkend="table16.17">Table 16.17</link>;
  the use of
 <emphasis>val&lt;n&gt;Scale</emphasis>
@@ -3674,9 +3674,9 @@ legal values shown in <link linkend="table16.17">Table 16.17</link>.
 <para>
 The following two masks are provided as a convenience to select either portion
 of
-<emphasis>v1_what</emphasis>
+<structfield>v1_what</structfield>
  or
-<emphasis>v2_what</emphasis>
+<structfield>v2_what</structfield>
 :
 </para>
 
@@ -3686,9 +3686,9 @@ of
 </literallayout>
 
 <para>
-<emphasis>v1_ndx</emphasis>
+<structfield>v1_ndx</structfield>
  and
-<emphasis>v2_ndx</emphasis>
+<structfield>v2_ndx</structfield>
  specify valuators that actually exists. For example, most mice have two
 valuators (x and y axes) so the only legal values for a mouse would be 0 and 1.
 For a dial box with eight dials, any value in the range 0..7 would be correct.
@@ -3701,7 +3701,7 @@ For a dial box with eight dials, any value in the range 0..7 would be correct.
 
 <para>
 To update the actions (the
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  array) for a subset of the keys in a keyboard description, use
 <function>XkbGetKeyActions</function>.
 </para>
@@ -3773,9 +3773,9 @@ To update the actions (the
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the actions in the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
 -&gt;
-<emphasis>key_acts</emphasis>
+<structfield>key_acts</structfield>
  field of
 <parameter>xkb</parameter>.
 If successful,
@@ -3790,7 +3790,7 @@ The
 
 <para>
 If the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  map in the
 <parameter>xkb</parameter>
  parameter has not been allocated,
@@ -3893,16 +3893,16 @@ The
 <function>XkbResizeKeyActions</function>
  reserves the space needed for the actions and returns a pointer to the
 beginning of the new array that holds the actions. It can change the
-<emphasis>acts</emphasis>,
-<emphasis>num_acts</emphasis>,
+<structfield>acts</structfield>,
+<structfield>num_acts</structfield>,
 and
-<emphasis>size_acts</emphasis>
+<structfield>size_acts</structfield>
  fields of
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  if it is necessary to reallocate the
-<emphasis>acts</emphasis>
+<structfield>acts</structfield>
 array.
 </para>
 
@@ -3970,11 +3970,11 @@ pressed again.
 Keys that belong to the same radio group have the
 <symbol>XkbKB_RadioGroup</symbol>
  type in the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field and the radio group index specified in the
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field in the
-<emphasis>XkbBehavior</emphasis>
+<structname>XkbBehavior</structname>
  structure. If the radio group has a name in the
 <structname>XkbNamesRec</structname>
  structure, the radio group index is the index into the
@@ -3995,9 +3995,9 @@ which case none of the keys of the radio group would be logically down. If
 
 <para>
 The low five bits of the
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field of the
-<emphasis>XkbBehavior</emphasis>
+<structname>XkbBehavior</structname>
  structure are the group number, the high three bits are flags. The only flag
 currently defined is:
 </para>
@@ -4012,11 +4012,11 @@ currently defined is:
 
 <para>
 The
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
  field of the server map is an array of
-<emphasis>XkbBehavior</emphasis>
+<structname>XkbBehavior</structname>
  structures, indexed by keycode, and contains the behavior for each key. The
-<emphasis>XkbBehavior</emphasis>
+<structname>XkbBehavior</structname>
  structure is defined as follows:
 </para>
 
@@ -4025,16 +4025,16 @@ typedef struct _XkbBehavior {
       unsigned char  type;                  /* behavior type + optional
                                                <symbol>XkbKB_Permanent</symbol> bit */
       unsigned char  data;
-} <emphasis>XkbBehavior</emphasis>;
+} <structname>XkbBehavior</structname>;
 </programlisting></para>
 
 <para>
 The
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field specifies the Xkb behavior, and the value of the
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field depends on the
-<emphasis>type</emphasis>.
+<structfield>type</structfield>.
 Xkb supports the key behaviors shown in
 <link linkend="table16.20">Table 16.20</link>.
 </para>
@@ -4056,7 +4056,7 @@ Xkb supports the key behaviors shown in
     <entry><symbol>XkbKB_Default</symbol></entry>
     <entry>
 Press and release events are processed normally. The
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field is unused.
     </entry>
   </row>
@@ -4068,7 +4068,7 @@ cleared) when it is pressed, the key press is processed normally and the
 corresponding release is ignored. If the key is logically down when pressed,
 the key press is ignored but the corresponding release is processed normally.
 The
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  field is unused.
     </entry>
   </row>
@@ -4078,7 +4078,7 @@ The
       <para>
 If another member of the radio group is logically down (all members of the
 radio group have the same index, specified in
-<emphasis>data</emphasis>
+<structfield>data</structfield>
 ) when a key is pressed, the server synthesizes a key release for the member
 that is logically down and then processes the new key press event normally.
       </para>
@@ -4088,7 +4088,7 @@ ignored, but the processing of the corresponding key release depends on the
 value of the
 <emphasis>Xkb_RGAllowNone</emphasis>
  bit in
-<emphasis>flags</emphasis>.
+<structfield>flags</structfield>.
 If it is set, the key release is processed normally; otherwise, the key
 release is also ignored.
       </para>
@@ -4103,10 +4103,10 @@ All other key release events are ignored.
 If the
 <emphasis>Overlay1</emphasis>
  control is enabled (see <link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">section 10.4</link>),
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
-<emphasis>data</emphasis>
+<structfield>data</structfield>
 ’s keycode. Otherwise, press and release events are processed normally.
     </entry>
   </row>
@@ -4116,10 +4116,10 @@ came from
 If the
 <emphasis>Overlay2</emphasis>
  control is enabled (see <link linkend="Controls_for_Keyboard_Overlays_Overlay1_and_Overlay2_Controls">section 10.4</link>),
-<emphasis>data</emphasis>
+<structfield>data</structfield>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
-<emphasis>data</emphasis>
+<structfield>data</structfield>
 ’s keycode. Otherwise, press and release events are processed normally.
     </entry>
   </row>
@@ -4135,7 +4135,7 @@ the key behavior describes an unalterable physical, electrical, or software
 aspect of the keyboard. If the
 <symbol>XkbKB_Permanent</symbol>
  bit is not set in the
-<emphasis>type</emphasis>
+<structfield>type</structfield>
  field, Xkb simulates the behavior in software. Otherwise, Xkb relies upon the
 keyboard to implement the behavior.
 </para>
@@ -4147,7 +4147,7 @@ keyboard to implement the behavior.
 
 <para>
 To obtain the behaviors (the
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
  array) for a subset of the keys in a keyboard description from the server, use
 <function>XkbGetKeyBehaviors</function>
 :
@@ -4220,9 +4220,9 @@ To obtain the behaviors (the
  keys on the keyboard starting with the key whose keycode is
 <parameter>first</parameter>.
 It waits for a reply and returns the behaviors in the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
 -&gt;
-<emphasis>behaviors</emphasis>
+<structfield>behaviors</structfield>
  field of
 <parameter>xkb</parameter>.
 If successful,
@@ -4234,7 +4234,7 @@ If successful,
 
 <para>
 If the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  map in the
 <parameter>xkb</parameter>
  parameter has not been allocated,
@@ -4287,7 +4287,7 @@ mapping.
 
 <para>
 The explicit components masks are held in the
-<emphasis>explicit</emphasis>
+<structfield>explicit</structfield>
  field of the server map, which is an array indexed by keycode. Each entry in
 this array is a mask that is a bitwise inclusive OR of the values shown in
 <link linkend="table16.21">Table 16.21</link>.
@@ -4383,7 +4383,7 @@ match the key.
 
 <para>
 To obtain the explicit components (the
-<emphasis>explicit</emphasis>
+<structfield>explicit</structfield>
  array) for a subset of the keys in a keyboard description, use
 <function>XkbGetKeyExplicitComponents</function>.
 </para>
@@ -4455,9 +4455,9 @@ To obtain the explicit components (the
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the explicit components in the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
 -&gt;
-<emphasis>explicit</emphasis>
+<structfield>explicit</structfield>
  array of
 <parameter>xkb</parameter>.
 If successful,
@@ -4472,7 +4472,7 @@ The
 
 <para>
 If the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  map in the
 <parameter>xkb</parameter>
  parameter has not been allocated,
@@ -4508,12 +4508,12 @@ If any allocation errors occur,
 
 <para>
 The
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  member of the server map is a fixed-length array containing
 <symbol>XkbNumVirtualMods</symbol>
  entries. Each entry corresponds to a virtual modifier and provides the binding
 of the virtual modifier to the real modifier bits. Each entry in the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  array is a bitwise inclusive OR of the legal modifier masks:
 </para>
 
@@ -4530,12 +4530,12 @@ of the virtual modifier to the real modifier bits. Each entry in the
 
 <para>
 The
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  member of the server map is similar to the
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
  array of the client map (see <link linkend="The_Per_Key_Modifier_Map">section 15.4</link>), but is used to define the virtual
 modifier mapping for each key. Like the
-<emphasis>modmap</emphasis>
+<structfield>modmap</structfield>
  member, it is indexed by keycode, and each entry is a mask representing the
 virtual modifiers bound to the corresponding key:
 </para>
@@ -4544,23 +4544,23 @@ virtual modifiers bound to the corresponding key:
   <listitem>
     <para>
 Each of the bits in a
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  entry represents an index into the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  member. That is, bit 0 of a
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  entry refers to index 0 of the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  array, bit 1 refers to index 1, and so on.
     </para>
   </listitem>
   <listitem>
     <para>
 If a bit is set in the
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  entry for a key, that key is bound to the corresponding virtual modifier in
 the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  array.
     </para>
   </listitem>
@@ -4568,9 +4568,9 @@ the
 
 <para>
 The
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  and
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  members of the server map are the "master" virtual modifier definitions. Xkb
 automatically propagates any changes to these fields to all other fields that
 use virtual modifier mappings.
@@ -4602,7 +4602,7 @@ Virtual Modifier Relationships</H5>
 
 <para>
 To obtain a subset of the virtual modifier bindings (the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  array) in a keyboard description, use
 <function>XkbGetVirtualMods</function>
 :
@@ -4659,7 +4659,7 @@ To obtain a subset of the virtual modifier bindings (the
 <para>
 <function>XkbGetVirtualMods</function>
  sends a request to the server to obtain the
-<emphasis>vmods</emphasis>
+<structfield>vmods</structfield>
  entries for the virtual modifiers specified in the mask,
 <parameter>which</parameter>,
 and waits for a reply. See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a description of how to determine
@@ -4682,7 +4682,7 @@ successful,
 
 <para>
 If the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  map has not been allocated in the
 <parameter>xkb</parameter>
  parameter,
@@ -4710,7 +4710,7 @@ to return
 
 <para>
 To obtain the virtual modifier map (the
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  array) for a subset of the keys in a keyboard description, use
 <function>XkbGetKeyVirtualModMap</function>
 :
@@ -4783,9 +4783,9 @@ sends a request to the server to obtain the virtual modifier mappings for
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the virtual modifier mappings in the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
 -&gt;
-<emphasis>vmodmap</emphasis>
+<structfield>vmodmap</structfield>
  array of
 <parameter>xkb</parameter>.
 If successful,
@@ -4800,7 +4800,7 @@ The
 
 <para>
 If the
-<emphasis>server</emphasis>
+<structfield>server</structfield>
  map in the
 <parameter>xkb</parameter>
  parameter has not been allocated,

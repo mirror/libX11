@@ -304,7 +304,7 @@ and the major and minor version numbers of the extension in
  and
 <parameter>minor_in_out</parameter>.
 The major opcode is reported in the
-<emphasis>req_major</emphasis>
+<structfield>req_major</structfield>
  fields of some Xkb events. For a discussion of the base event code, see
 <link linkend="Xkb_Event_Types">section 4.1</link>.
 </para>
@@ -739,19 +739,19 @@ indicated ID
 Where a connection to the server is passed as an argument (Display*) and an
 <type>XkbDescPtr</type>
  is also passed as an argument, the Display* argument must match the
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
  field of the
 <structname>XkbDescRec</structname>
  pointed to by the
 <type>XkbDescPtr</type>
  argument, or else the
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
  field of the
 <structname>XkbDescRec</structname>
  must be
 <symbol>NULL</symbol>.
 If they don’t match or the
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
  field is not
 <symbol>NULL</symbol>,
 a
@@ -759,7 +759,7 @@ a
  error is returned (either in the return value or a backfilled
 <type>Status</type>
  variable). Upon successful return, the
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
  field of the
 <structname>XkbDescRec</structname>
  always contains the Display* value passed in.
@@ -770,11 +770,11 @@ The Xkb extension can communicate with the X input extension if it is present.
 Consequently, there can potentially be more than one input device connected to
 the server. Most Xkb library calls that require communicating with the server
 involve both a server connection (Display *
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
 ) and a device identifier (unsigned int
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
 ). In some cases, the device identifier is implicit and is taken as the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field of an
 <structname>XkbDescRec</structname>
  structure passed as an argument.
@@ -796,18 +796,18 @@ Where an Xkb device identifier is passed as an argument and an
 <type>XkbDescPtr</type>
  is also passed as an argument, if either the argument or the
 <structname>XkbDescRec</structname>
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field is
 <symbol>XkbUseCoreKbd</symbol>,
 and if the function returns successfully, the
 <type>XkbDescPtr</type>
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field will have been converted from
 <symbol>XkbUseCoreKbd</symbol>
  to a real Xkb device ID. If the function does not complete successfully, the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field remains unchanged. Subsequently, the device id argument must match the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field of the
 <type>XkbDescPtr</type>
  argument. If they don’t match, a

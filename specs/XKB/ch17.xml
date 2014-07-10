@@ -83,10 +83,10 @@ not.
     </para>
     <para>
 In addition, whenever the Xkb state is retrieved, the
-<emphasis>compat_state</emphasis>,
-<emphasis>compat_grab_mods</emphasis>,
+<structfield>compat_state</structfield>,
+<structfield>compat_grab_mods</structfield>,
 and
-<emphasis>compat_lookup_mods</emphasis>
+<structfield>compat_lookup_mods</structfield>
  fields of the
 <structname>XkbStateRec</structname>
  returned indicate the result of applying the compatibility map to the current
@@ -142,7 +142,7 @@ separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_
 
 <para>
 The
-<emphasis>compat</emphasis>
+<structfield>compat</structfield>
  member of an Xkb keyboard description (
 <structname>XkbDescRec</structname>
 ) points to the
@@ -155,9 +155,9 @@ typedef struct _XkbCompatMapRec {
       XkbSymInterpretPtr   sym_interpret;            /* symbol based key semantics*/
       XkbModsRec           groups[XkbNumKbdGroups];  /* group =&gt; modifier map */
       unsigned short       num_si;                   /* # structures used in
-                                                        <emphasis>sym_interpret</emphasis> */
+                                                        <structfield>sym_interpret</structfield> */
       unsigned short       size_si;                  /* # structures allocated in
-                                                        <emphasis>sym_interpret</emphasis> */
+                                                        <structfield>sym_interpret</structfield> */
 } <structname>XkbCompatMapRec</structname>, *XkbCompatMapPtr;
 </programlisting></para>
 
@@ -183,13 +183,13 @@ transformations are made.
 As shown in <link linkend="figure17.3">Figure 17.3</link>, there are four
 <emphasis>group compatibility maps</emphasis>
  (contained in
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
  [0..3]) in the
 <structname>XkbCompatMapRec</structname>
  structure, one per possible Xkb group. Each group compatibility map is a
 modifier definition (see <link linkend="Modifier_Definitions">section 7.2</link> for a description of modifier
 definitions). The
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  component of the definition specifies which real modifiers should be set in
 the core protocol state field when the corresponding group is active. Because
 only one group is active at any one time, only one of the four possible
@@ -202,7 +202,7 @@ undefined.
 
 <para>
 Normally, the Xkb-aware server reports keyboard state in the
-<emphasis>state</emphasis>
+<structfield>state</structfield>
  member of events such as a
 <symbol>KeyPress</symbol>
  event and
@@ -246,7 +246,7 @@ Normally, the Xkb-aware server reports keyboard state in the
 For Xkb-unaware clients, only core protocol keyboard information may be
 reported. Because core protocol does not define the group index, the group
 index is mapped to modifier bits as specified by the
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
 [group index] field of the compatibility map (the bits set in the compatibility
 map are ORed into bits 0-7 of the state), and bits 13-14 are reported in the
 event as zero.
@@ -399,7 +399,7 @@ The symbol interpretations used in step 2 are configurable and may be specified
 using
 <structname>XkbSymInterpretRec</structname>
  structures referenced by the
-<emphasis>sym_interpret</emphasis>
+<structfield>sym_interpret</structfield>
  field of an
 <structname>XkbCompatMapRec</structname>
  (see <link linkend="figure17.3">Figure 17.3</link>).
@@ -448,31 +448,31 @@ typedef struct {
 
 <para>
 If
-<emphasis>sym</emphasis>
+<structfield>sym</structfield>
  is not
 <symbol>NULL</symbol>,
 it limits the symbol interpretation to keys on which that particular keysym
 is selected by the modifiers matching the criteria specified by
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  and
-<emphasis>match</emphasis>.
+<structfield>match</structfield>.
 If
-<emphasis>sym</emphasis>
+<structfield>sym</structfield>
  is
 <symbol>NULL</symbol>,
 the interpretation may be applied to any symbol selected on a key when the
 modifiers match the criteria specified by
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  and
-<emphasis>match</emphasis>.
+<structfield>match</structfield>.
 </para>
 
 
 <para>
-<emphasis>match</emphasis>
+<structfield>match</structfield>
 must be one of the values shown in
 <link linkend="table17.1">Table 17.1</link> and specifies how the real
-modifiers specified in <emphasis>mods</emphasis>
+modifiers specified in <structfield>mods</structfield>
 are to be interpreted.
 </para>
 
@@ -495,7 +495,7 @@ are to be interpreted.
     <entry><symbol>XkbSI_NoneOf</symbol></entry>
     <entry>(0)</entry>
     <entry>
-None of the bits that are on in <emphasis>mods</emphasis>
+None of the bits that are on in <structfield>mods</structfield>
  can be set, but other bits can be.
     </entry>
   </row>
@@ -504,7 +504,7 @@ None of the bits that are on in <emphasis>mods</emphasis>
     <entry>(1)</entry>
     <entry>
 Zero or more of the bits that are on in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  can be set, as well as others.
     </entry>
   </row>
@@ -513,7 +513,7 @@ Zero or more of the bits that are on in
     <entry>(2)</entry>
     <entry>
 One or more of the bits that are on in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  can be set, as well as any others.
     </entry>
   </row>
@@ -522,7 +522,7 @@ One or more of the bits that are on in
     <entry>(3)</entry>
     <entry>
 All of the bits that are on in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  must be set, but others may be set as well.
     </entry>
   </row>
@@ -531,7 +531,7 @@ All of the bits that are on in
     <entry>(4)</entry>
     <entry>
 All of the bits that are on in
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  must be set, and no other bits may be set.
     </entry>
   </row>
@@ -541,19 +541,19 @@ All of the bits that are on in
 
 <para>
 In addition to the above bits,
-<emphasis>match</emphasis>
+<structfield>match</structfield>
  may contain the
 <symbol>XkbSI_LevelOneOnly</symbol>
  bit, in which case the modifier match criteria specified by
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  and
-<emphasis>match</emphasis>
+<structfield>match</structfield>
  applies only if
-<emphasis>sym</emphasis>
+<structfield>sym</structfield>
  is in level one of its group; otherwise,
-<emphasis>mods</emphasis>
+<structfield>mods</structfield>
  and
-<emphasis>match</emphasis>
+<structfield>match</structfield>
  are ignored and the symbol matches a condition where no modifiers are set.
 </para>
 
@@ -574,28 +574,28 @@ interpretation where:
 <colspec colname='c1' colwidth='3.0*'/>
 <tbody>
   <row>
-    <entry><emphasis>sym</emphasis> =</entry>
+    <entry><structfield>sym</structfield> =</entry>
     <entry>0</entry>
   </row>
   <row>
-    <entry><emphasis>flags</emphasis> =</entry>
+    <entry><structfield>flags</structfield> =</entry>
     <entry><symbol>XkbSI_AutoRepeat</symbol></entry>
   </row>
   <row>
-    <entry><emphasis>match</emphasis> =</entry>
+    <entry><structfield>match</structfield> =</entry>
     <entry><symbol>XkbSI_AnyOfOrNone</symbol></entry>
   </row>
   <row>
-    <entry><emphasis>mods</emphasis> =</entry>
+    <entry><structfield>mods</structfield> =</entry>
     <entry>0</entry>
   </row>
   <row>
-    <entry><emphasis>virtual_mod</emphasis> =</entry>
+    <entry><structfield>virtual_mod</structfield> =</entry>
     <entry><symbol>XkbNoModifier</symbol></entry>
   </row>
   <row>
 
-   <entry><emphasis>act</emphasis> =</entry>
+   <entry><structfield>act</structfield> =</entry>
     <entry><emphasis>SA_NoAction</emphasis></entry>
   </row>
 </tbody>
@@ -609,7 +609,7 @@ is applied to modify the Xkb map as follows.
 
 <para>
 The
-<emphasis>act</emphasis>
+<structfield>act</structfield>
  field specifies a single action to be bound to the symbol position; any key
 event that selects the symbol causes the action to be taken. Valid actions are
 defined in <link linkend="Key_Actions">section 16.1</link>.
@@ -624,17 +624,17 @@ If the Xkb keyboard map for the key does not have its
  bit and symbol position are examined. If the
 <symbol>XkbSI_LevelOneOnly</symbol>
  bit is not set in
-<emphasis>match</emphasis>
+<structfield>match</structfield>
  or the symbol is in position G1L1, the
-<emphasis>virtual_mod</emphasis>
+<structfield>virtual_mod</structfield>
  field is examined. If
-<emphasis>virtual_mod</emphasis>
+<structfield>virtual_mod</structfield>
  is not
 <symbol>XkbNoModifier</symbol>,
-<emphasis>virtual_mod</emphasis>
+<structfield>virtual_mod</structfield>
  specifies a single virtual modifier to be added to the virtual modifier map
 for the key.
-<emphasis>virtual_mod</emphasis>
+<structfield>virtual_mod</structfield>
  is specified as an index in the range [0..15].
 </para>
 
@@ -727,7 +727,7 @@ modifiers affected by any of the actions associated with the key combined with
 all of the real modifiers associated with any of the virtual modifiers bound to
 the key. In addition, if any of the actions associated with the key affect any
 component of the keyboard group, all of the modifiers in the
-<emphasis>mask</emphasis>
+<structfield>mask</structfield>
  field of all of the group compatibility maps are added to the modifier mapping
 as well. While an
 <symbol>XkbSA_ISOLock</symbol>
@@ -816,7 +816,7 @@ explicit override components of the server state.</para></note>
  from the server specified by
 <parameter>display</parameter>
  and places them in the
-<emphasis>compat</emphasis>
+<structfield>compat</structfield>
  structure of the keyboard description
 <parameter>xkb</parameter>.
 Valid values for
@@ -872,7 +872,7 @@ returned results.
 <para>
 <function>XkbGetCompatMap</function>
  fetches compatibility map information for the device specified by the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field of
 <parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
@@ -886,7 +886,7 @@ device.
 work space,
 <errorname>BadMatch</errorname>
  if the
-<emphasis>dpy</emphasis>
+<structfield>dpy</structfield>
  field of the
 <parameter>xkb</parameter>
  argument is non-
@@ -1170,7 +1170,7 @@ which will be non-
 A core keymap is a two-dimensional array of keysyms. It has
 <parameter>map_width</parameter>
  columns and
-<emphasis>max_key_code</emphasis>
+<structfield>max_key_code</structfield>
  rows.
 <function>XkbKeyTypesForCoreSymbols</function>
  takes a single row from a core keymap, determines the number of groups
@@ -1291,12 +1291,12 @@ You may allocate a new compatibility map for this purpose using
 <function>XkbAllocCompatMap</function>
  (see <link linkend="Allocating_and_Freeing_the_Compatibility_Map">section 17.6</link>). You may also use a compatibility map from another server,
 although you need to adjust the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field in the
 <structname>XkbDescRec</structname>
  accordingly. Note that symbol interpretations in a compatibility map
 (
-<emphasis>sym_interpret</emphasis>,
+<structfield>sym_interpret</structfield>,
 the vector of
 <structname>XkbSymInterpretRec</structname>
  structures) are also allocated using this same function.
@@ -1366,7 +1366,7 @@ the vector of
  to the server specified in
 <parameter>display</parameter>
 ’s compatibility map for the device specified by the
-<emphasis>device_spec</emphasis>
+<structfield>device_spec</structfield>
  field of
 <parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
@@ -1520,7 +1520,7 @@ changes to the compatibility map, you should select for
  events, you no longer receive the automatically generated
 <symbol>MappingNotify</symbol>
  events. If you subsequently deselect
-<emphasis>XkbMapNotifyEvent</emphasis>
+<structname>XkbMapNotifyEvent</structname>
  delivery, you again receive
 <symbol>MappingNotify</symbol>
  events.
@@ -1549,7 +1549,7 @@ To receive
  using
 <symbol>XkbCompatMapNotify</symbol>
  as the
-<emphasis>event_type</emphasis>
+<structfield>event_type</structfield>
  and specifying the desired map changes in
 <emphasis>bits_to_change</emphasis>
  and
@@ -1566,7 +1566,7 @@ made by other clients.
 
 <para>
 The structure for the
-<emphasis>XkbCompatMapNotifyEvent</emphasis>
+<structname>XkbCompatMapNotifyEvent</structname>
  is:
 </para>
 
@@ -1588,20 +1588,20 @@ typedef struct {
                                        interpretations */
       int            num_total_si;  /* total number of valid symbol
                                        interpretations */
-} <emphasis>XkbCompatMapNotifyEvent</emphasis>;
+} <structname>XkbCompatMapNotifyEvent</structname>;
 </programlisting></para>
 
 <para>
-<emphasis>changed_groups</emphasis>
+<structfield>changed_groups</structfield>
  is the number of group compatibility maps that have changed. If you are
 maintaining a corresponding copy of the compatibility map, or get a fresh copy
 from the server using
 <function>XkbGetCompatMap</function>,
-<emphasis>changed_groups</emphasis>
+<structfield>changed_groups</structfield>
  references
-<emphasis>groups</emphasis>
+<structfield>groups</structfield>
 [0..
-<emphasis>changed_groups</emphasis>
+<structfield>changed_groups</structfield>
 -1] in the
 <structname>XkbCompatMapRec</structname>
  structure.
@@ -1609,19 +1609,19 @@ from the server using
 
 
 <para>
-<emphasis>first_si</emphasis>
+<structfield>first_si</structfield>
  is the index of the first changed symbol interpretation,
-<emphasis>num_si</emphasis>
+<structfield>num_si</structfield>
  is the number of changed symbol interpretations, and
-<emphasis>num_total_si</emphasis>
+<structfield>num_total_si</structfield>
  is the total number of valid symbol interpretations. If you are maintaining a
 corresponding copy of the compatibility map, or get a fresh copy from the
 server using
 <function>XkbGetCompatMap</function>,
-<emphasis>first_si</emphasis>,
-<emphasis>num_si</emphasis>,
+<structfield>first_si</structfield>,
+<structfield>num_si</structfield>,
 and
-<emphasis>num_total_si</emphasis>
+<structfield>num_total_si</structfield>
  are appropriate for use with the
 <emphasis>compat.sym_interpret</emphasis>
  vector in this structure.
@@ -1688,7 +1688,7 @@ compatibility map if you do not already have one available. To do so, use
 <parameter>xkb</parameter>
  specifies the keyboard description for which compatibility maps are to be
 allocated. The compatibility map is the
-<emphasis>compat</emphasis>
+<structfield>compat</structfield>
  field in this structure.
 </para>
 
@@ -1715,7 +1715,7 @@ vector (
 
 <para>
 Note that symbol interpretations in a compatibility map (the
-<emphasis>sym_interpret</emphasis>
+<structfield>sym_interpret</structfield>
  vector of
 <structname>XkbSymInterpretRec</structname>
  structures) are also allocated using this same function. To ensure that there
@@ -1823,7 +1823,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
  is ignored, all non-
 <symbol>NULL</symbol>
  compatibility map components are freed, and the
-<emphasis>compat</emphasis>
+<structfield>compat</structfield>
  field in the
 <structname>XkbDescRec</structname>
  referenced by

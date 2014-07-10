@@ -219,19 +219,19 @@ the effects of changing the indicator. The valid values for
 </thead>
 <tbody>
   <row>
-    <entry>XkbIM_NoExplicit</entry>
+    <entry><symbol>XkbIM_NoExplicit</symbol></entry>
     <entry>(1L&lt;&lt;7)</entry>
     <entry>Client applications cannot change the state of the indicator.</entry>
   </row>
   <row>
-    <entry>XkbIM_NoAutomatic</entry>
+    <entry><symbol>XkbIM_NoAutomatic</symbol></entry>
     <entry>(1L&lt;&lt;6)</entry>
     <entry>Xkb does not automatically change the value of the indicator based
 upon a change in the keyboard state, regardless of the values for the other
 fields of the indicator map.</entry>
   </row>
   <row>
-    <entry>XkbIM_LEDDrivesKB</entry>
+    <entry><symbol>XkbIM_LEDDrivesKB</symbol></entry>
     <entry>(1L&lt;&lt;5)</entry>
     <entry>A client application changing the state of the indicator causes the
 state of the keyboard to change.</entry>
@@ -372,7 +372,7 @@ Indicator</title>
 </thead>
 <tbody>
   <row>
-    <entry>XkbIM_UseNone</entry>
+    <entry><symbol>XkbIM_UseNone</symbol></entry>
     <entry>
 The
 <emphasis>groups</emphasis>
@@ -380,7 +380,7 @@ The
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseBase</entry>
+    <entry><symbol>XkbIM_UseBase</symbol></entry>
     <entry>
 If
 <emphasis>groups</emphasis>
@@ -391,7 +391,7 @@ If
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>
 If
 <emphasis>groups</emphasis>
@@ -402,7 +402,7 @@ nonzero. If
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLocked</entry>
+    <entry><symbol>XkbIM_UseLocked</symbol></entry>
     <entry>
 The
 <emphasis>groups</emphasis>
@@ -412,7 +412,7 @@ keyboard group matches one of the bits that are set in
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseEffective</entry>
+    <entry><symbol>XkbIM_UseEffective</symbol></entry>
     <entry>
 The
 <emphasis>groups</emphasis>
@@ -454,17 +454,17 @@ Keyboard</title>
 </thead>
 <tbody>
   <row>
-    <entry>XkbIM_UseNone </entry>
+    <entry><symbol>XkbIM_UseNone</symbol></entry>
     <entry>On or Off</entry>
     <entry>No effect</entry>
   </row>
   <row>
-    <entry>XkbIM_UseBase</entry>
+    <entry><symbol>XkbIM_UseBase</symbol></entry>
     <entry>On or Off</entry>
     <entry>No effect</entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>On</entry>
     <entry>
 The
@@ -478,7 +478,7 @@ lowest numbered group specified in
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>Off</entry>
     <entry>
 The
@@ -616,12 +616,12 @@ If
 </thead>
 <tbody>
   <row>
-    <entry>XkbIM_UseNone</entry>
+    <entry><symbol>XkbIM_UseNone</symbol></entry>
     <entry>The mods field and the current keyboard modifier state are
 ignored.</entry>
   </row>
   <row>
-    <entry>XkbIM_UseBase</entry>
+    <entry><symbol>XkbIM_UseBase</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -636,7 +636,7 @@ modifiers.
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -650,7 +650,7 @@ The indicator is lit when any of the modifiers specified in the
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLocked</entry>
+    <entry><symbol>XkbIM_UseLocked</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -664,7 +664,7 @@ The indicator is lit when any of the modifiers specified in the
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseEffective</entry>
+    <entry><symbol>XkbIM_UseEffective</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -679,7 +679,7 @@ modifiers.
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseCompat</entry>
+    <entry><symbol>XkbIM_UseCompat</symbol></entry>
     <entry>
 The indicator is lit when any of the modifiers specified in the
 <emphasis>mask</emphasis>
@@ -730,7 +730,7 @@ State" column refers to the new state to which you set the indicator.
     <entry>No Effect</entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>On</entry>
     <entry>
 Any modifiers specified in the
@@ -741,7 +741,7 @@ Any modifiers specified in the
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLatched</entry>
+    <entry><symbol>XkbIM_UseLatched</symbol></entry>
     <entry>Off</entry>
     <entry>
 Any modifiers specified in the
@@ -763,7 +763,7 @@ Any modifiers specified in the
     </entry>
   </row>
   <row>
-    <entry>XkbIM_UseLocked</entry>
+    <entry><symbol>XkbIM_UseLocked</symbol></entry>
     <entry>Off</entry>
     <entry>
 Any modifiers specified in the

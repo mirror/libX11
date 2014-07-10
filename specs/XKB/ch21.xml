@@ -241,7 +241,7 @@ functions described subsequently in this section.
 </thead>
 <tbody>
   <row>
-    <entry>XkbXI_KeyboardsMask</entry>
+    <entry><symbol>XkbXI_KeyboardsMask</symbol></entry>
     <entry></entry>
     <entry>(1L &lt;&lt; 0)</entry>
     <entry>
@@ -251,7 +251,7 @@ devices supported by the input device extension.
     </entry>
   </row>
   <row>
-    <entry>XkbXI_ButtonActionsMask</entry>
+    <entry><symbol>XkbXI_ButtonActionsMask</symbol></entry>
     <entry>
 <para>num_btns</para>
 <para>btn_acts</para>
@@ -264,7 +264,7 @@ input extension devices.
     </entry>
   </row>
   <row>
-    <entry>XkbXI_IndicatorNamesMask</entry>
+    <entry><symbol>XkbXI_IndicatorNamesMask</symbol></entry>
     <entry>leds-&gt;names</entry>
     <entry>(1L &lt;&lt;2)</entry>
     <entry>
@@ -274,7 +274,7 @@ Clients can assign names to indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_IndicatorMapsMask</entry>
+    <entry><symbol>XkbXI_IndicatorMapsMask</symbol></entry>
     <entry>leds-&gt;maps</entry>
     <entry>(1L &lt;&lt;3)</entry>
     <entry>
@@ -284,7 +284,7 @@ Clients can assign indicator maps to indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_IndicatorStateMask</entry>
+    <entry><symbol>XkbXI_IndicatorStateMask</symbol></entry>
     <entry>leds-&gt;state</entry>
     <entry>(1L &lt;&lt;4)</entry>
     <entry>
@@ -294,7 +294,7 @@ Clients can request the status of indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_IndicatorsMask</entry>
+    <entry><symbol>XkbXI_IndicatorsMask</symbol></entry>
     <entry>
 <para>sz_leds</para>
 <para>num_leds</para>
@@ -308,13 +308,13 @@ Clients can request the status of indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_UnsupportedFeaturesMask</entry>
+    <entry><symbol>XkbXI_UnsupportedFeaturesMask</symbol></entry>
     <entry>unsupported</entry>
     <entry>(1L &lt;&lt;15)</entry>
     <entry></entry>
   </row>
   <row>
-    <entry>XkbXI_AllDeviceFeaturesMask</entry>
+    <entry><symbol>XkbXI_AllDeviceFeaturesMask</symbol></entry>
     <entry>Those selected by Value column masks</entry>
     <entry>(0x1e)</entry>
     <entry>
@@ -323,7 +323,7 @@ Clients can request the status of indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_AllFeaturesMask</entry>
+    <entry><symbol>XkbXI_AllFeaturesMask</symbol></entry>
     <entry>Those selected by Value column masks</entry>
     <entry>(0x1f)</entry>
     <entry>
@@ -332,7 +332,7 @@ Clients can request the status of indicators on non-
     </entry>
   </row>
   <row>
-    <entry>XkbXI_AllDetailsMask</entry>
+    <entry><symbol>XkbXI_AllDetailsMask</symbol></entry>
     <entry>Those selected by Value column masks</entry>
     <entry>(0x801f)</entry>
     <entry>

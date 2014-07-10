@@ -846,52 +846,52 @@ and
 </thead>
 <tbody>
   <row>
-    <entry>XkbGBN_TypesMask</entry>
+    <entry><symbol>XkbGBN_TypesMask</symbol></entry>
     <entry>Types</entry>
     <entry>(1L&lt;&lt;0)</entry>
   </row>
   <row>
-    <entry>XkbGBN_CompatMapMask</entry>
+    <entry><symbol>XkbGBN_CompatMapMask</symbol></entry>
     <entry>Compat</entry>
     <entry>(1L&lt;&lt;1)</entry>
   </row>
   <row>
-    <entry>XkbGBN_ClientSymbolsMask</entry>
+    <entry><symbol>XkbGBN_ClientSymbolsMask</symbol></entry>
     <entry>Types + Symbols + Keycodes</entry>
     <entry>(1L&lt;&lt;2)</entry>
   </row>
   <row>
-    <entry>XkbGBN_ServerSymbolsMask</entry>
+    <entry><symbol>XkbGBN_ServerSymbolsMask</symbol></entry>
     <entry>Types + Symbols + Keycodes</entry>
     <entry>(1L&lt;&lt;3)</entry>
   </row>
   <row>
-    <entry>XkbGBN_SymbolsMask</entry>
+    <entry><symbol>XkbGBN_SymbolsMask</symbol></entry>
     <entry>Symbols</entry>
     <entry>(1L&lt;&lt;1)</entry>
   </row>
   <row>
-    <entry>XkbGBN_IndicatorMapMask</entry>
+    <entry><symbol>XkbGBN_IndicatorMapMask</symbol></entry>
     <entry>Compat</entry>
     <entry>(1L&lt;&lt;4)</entry>
   </row>
   <row>
-    <entry>XkbGBN_KeyNamesMask</entry>
+    <entry><symbol>XkbGBN_KeyNamesMask</symbol></entry>
     <entry>Keycodes</entry>
     <entry>(1L&lt;&lt;5)</entry>
   </row>
   <row>
-    <entry>XkbGBN_GeometryMask</entry>
+    <entry><symbol>XkbGBN_GeometryMask</symbol></entry>
     <entry>Geometry</entry>
     <entry>(1L&lt;&lt;6)</entry>
   </row>
   <row>
-    <entry>XkbGBN_OtherNamesMask</entry>
+    <entry><symbol>XkbGBN_OtherNamesMask</symbol></entry>
     <entry>Types + Symbols + Keycodes + Compat + Geometry</entry>
     <entry>(1L&lt;&lt;7)</entry>
   </row>
   <row>
-    <entry>XkbGBN_AllComponentsMask</entry>
+    <entry><symbol>XkbGBN_AllComponentsMask</symbol></entry>
     <entry></entry>
     <entry>(0xff)</entry>
   </row>
@@ -1001,17 +1001,17 @@ corresponding to each of the mask bits are summarized in
 </thead>
 <tbody>
   <row>
-    <entry>XkbGBN_TypesMask</entry>
+    <entry><symbol>XkbGBN_TypesMask</symbol></entry>
     <entry>map.types</entry>
     <entry>XkbGetUpdatedMap(dpy, XkbTypesMask, Xkb)</entry>
   </row>
   <row>
-    <entry>XkbGBN_ServerSymbolsMask</entry>
+    <entry><symbol>XkbGBN_ServerSymbolsMask</symbol></entry>
     <entry>server</entry>
     <entry>XkbGetUpdatedMap(dpy, XkbAllClientInfoMask, Xkb)</entry>
   </row>
   <row>
-    <entry>XkbGBN_ClientSymbolsMask</entry>
+    <entry><symbol>XkbGBN_ClientSymbolsMask</symbol></entry>
     <entry>map, including map.types</entry>
     <entry>XkbGetUpdatedMap(dpy, XkbAllServerInfoMask, Xkb)</entry>
   </row>
@@ -1021,17 +1021,17 @@ corresponding to each of the mask bits are summarized in
     <entry>XkbGetIndicatorMap(dpy, XkbAllIndicators, Xkb)</entry>
   </row>
   <row>
-    <entry>XkbGBN_CompatMapMask</entry>
+    <entry><symbol>XkbGBN_CompatMapMask</symbol></entry>
     <entry>compat</entry>
     <entry>XkbGetCompatMap(dpy, XkbAllCompatMask, Xkb)</entry>
   </row>
   <row>
-    <entry>XkbGBN_GeometryMask</entry>
+    <entry><symbol>XkbGBN_GeometryMask</symbol></entry>
     <entry>geom</entry>
     <entry>XkbGetGeometry(dpy, Xkb)</entry>
   </row>
   <row>
-    <entry>XkbGBN_KeyNamesMask</entry>
+    <entry><symbol>XkbGBN_KeyNamesMask</symbol></entry>
     <entry>
 <para>names.keys</para>
 <para>names.key_aliases</para>
@@ -1041,7 +1041,7 @@ XkbGetNames(dpy, XkbKeyNamesMask | XkbKeyAliasesMask, Xkb)
     </entry>
   </row>
   <row>
-    <entry>XkbGBN_OtherNamesMask</entry>
+    <entry><symbol>XkbGBN_OtherNamesMask</symbol></entry>
     <entry>
 <para>names.keycodes</para>
 <para>names.geometry</para>

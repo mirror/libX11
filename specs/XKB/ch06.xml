@@ -146,12 +146,12 @@ fields in the
 </thead>
 <tbody>
 <row>
-    <entry>XkbControlsMask</entry>
+    <entry><symbol>XkbControlsMask</symbol></entry>
     <entry>ctrls</entry>
     <entry>(1L&lt;&lt;0)</entry>
 </row>
 <row>
-    <entry>XkbServerMapMask</entry>
+    <entry><symbol>XkbServerMapMask</symbol></entry>
     <entry>server</entry>
     <entry>(1L&lt;&lt;1)</entry>
 </row>
@@ -161,27 +161,27 @@ fields in the
     <entry>(1L&lt;&lt;2)</entry>
 </row>
 <row>
-    <entry>XkbIndicatorMapMask</entry>
+    <entry><symbol>XkbIndicatorMapMask</symbol></entry>
     <entry>indicators</entry>
     <entry>(1L&lt;&lt;3)</entry>
 </row>
 <row>
-    <entry>XkbNamesMask</entry>
+    <entry><symbol>XkbNamesMask</symbol></entry>
     <entry>names</entry>
     <entry>(1L&lt;&lt;4)</entry>
 </row>
 <row>
-    <entry>XkbCompatMapMask</entry>
+    <entry><symbol>XkbCompatMapMask</symbol></entry>
     <entry>compat</entry>
     <entry>(1L&lt;&lt;5)</entry>
 </row>
 <row>
-    <entry>XkbGeometryMask</entry>
+    <entry><symbol>XkbGeometryMask</symbol></entry>
     <entry>geom</entry>
     <entry>(1L&lt;&lt;6)</entry>
 </row>
 <row>
-    <entry>XkbAllComponentsMask</entry>
+    <entry><symbol>XkbAllComponentsMask</symbol></entry>
     <entry>All Fields</entry>
     <entry>(0x7f)</entry>
   </row>

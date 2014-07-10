@@ -383,7 +383,7 @@ generated.
   </row>
   <row>
     <entry>Bool</entry>
-    <entry>False</entry>
+    <entry><symbol>False</symbol></entry>
   </row>
   <row>
     <entry>Status</entry>

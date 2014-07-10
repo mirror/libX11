@@ -1186,7 +1186,7 @@ masks shown in <link linkend="table14.3">Table 14.3</link>.
 </thead>
 <tbody>
   <row>
-    <entry>XkbKeyTypesMask</entry>
+    <entry><symbol>XkbKeyTypesMask</symbol></entry>
     <entry>
 The
 <parameter>type_count</parameter>
@@ -1201,7 +1201,7 @@ field is less than
 </entry>
   </row>
   <row>
-    <entry>XkbKeySymsMask</entry>
+    <entry><symbol>XkbKeySymsMask</symbol></entry>
 <entry>
 The
 <emphasis>min_key_code</emphasis>
@@ -1222,7 +1222,7 @@ number of entries necessary for
 </entry>
   </row>
   <row>
-    <entry>XkbModifierMapMask</entry>
+    <entry><symbol>XkbModifierMapMask</symbol></entry>
 <entry>
 The
 <emphasis>min_key_code</emphasis>
@@ -1477,7 +1477,7 @@ allocate, as specified in <link linkend="table14.4">Table 14.4</link>.
 </thead>
 <tbody>
   <row>
-    <entry>XkbExplicitComponentsMask</entry>
+    <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>
 The
 <emphasis>min_key_code</emphasis>
@@ -1491,7 +1491,7 @@ field of the server map.
     </entry>
   </row>
   <row>
-    <entry>XkbKeyActionsMask</entry>
+    <entry><symbol>XkbKeyActionsMask</symbol></entry>
     <entry>
 The
 <emphasis>min_key_code</emphasis>
@@ -1509,7 +1509,7 @@ field of the server map. The
     </entry>
   </row>
   <row>
-    <entry>XkbKeyBehaviorsMask</entry>
+    <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>
 The
 <emphasis>min_key_code</emphasis>
@@ -1523,7 +1523,7 @@ field of the server map.
     </entry>
   </row>
   <row>
-    <entry>XkbVirtualModMapMask</entry>
+    <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>
 The
 <emphasis>min_key_code</emphasis>

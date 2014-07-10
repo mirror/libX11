@@ -252,91 +252,91 @@ description are shown in <link linkend="table18.1">Table 18.1</link>.
 </thead>
 <tbody>
 <row>
-    <entry>XkbKeycodesNameMask</entry>
+    <entry><symbol>XkbKeycodesNameMask</symbol></entry>
     <entry>(1&lt;&lt;0)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>keycodes</entry>
 </row>
 <row>
-    <entry>XkbGeometryNameMask</entry>
+    <entry><symbol>XkbGeometryNameMask</symbol></entry>
     <entry>(1&lt;&lt;1)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>geometry</entry>
 </row>
 <row>
-    <entry>XkbSymbolsNameMask</entry>
+    <entry><symbol>XkbSymbolsNameMask</symbol></entry>
     <entry>(1&lt;&lt;2)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>symbols</entry>
 </row>
 <row>
-    <entry>XkbPhysSymbolsNameMask</entry>
+    <entry><symbol>XkbPhysSymbolsNameMask</symbol></entry>
     <entry>(1&lt;&lt;3)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>phys_symbols</entry>
 </row>
 <row>
-    <entry>XkbTypesNameMask</entry>
+    <entry><symbol>XkbTypesNameMask</symbol></entry>
     <entry>(1&lt;&lt;4)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>type</entry>
 </row>
 <row>
-    <entry>XkbCompatNameMask</entry>
+    <entry><symbol>XkbCompatNameMask</symbol></entry>
     <entry>(1&lt;&lt;5)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>compat</entry>
 </row>
 <row>
-    <entry>XkbKeyTypeNamesMask</entry>
+    <entry><symbol>XkbKeyTypeNamesMask</symbol></entry>
     <entry>(1&lt;&lt;6)</entry>
     <entry>Xkb-&gt;map</entry>
     <entry>type[*].name</entry>
 </row>
 <row>
-    <entry>XkbKTLevelNamesMask</entry>
+    <entry><symbol>XkbKTLevelNamesMask</symbol></entry>
     <entry>(1&lt;&lt;7)</entry>
     <entry>Xkb-&gt;map</entry>
     <entry>type[*].lvl_names[*]</entry>
 </row>
 <row>
-    <entry>XkbIndicatorNamesMask</entry>
+    <entry><symbol>XkbIndicatorNamesMask</symbol></entry>
     <entry>(1&lt;&lt;8)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>indicators[*]</entry>
 </row>
 <row>
-    <entry>XkbKeyNamesMask</entry>
+    <entry><symbol>XkbKeyNamesMask</symbol></entry>
     <entry>(1&lt;&lt;9)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>keys[*], num_keys</entry>
 </row>
 <row>
-    <entry>XkbKeyAliasesMask</entry>
+    <entry><symbol>XkbKeyAliasesMask</symbol></entry>
     <entry>(1&lt;&lt;10)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>key_aliases[*], num_key_aliases</entry>
 </row>
 <row>
-    <entry>XkbVirtualModNamesMask</entry>
+    <entry><symbol>XkbVirtualModNamesMask</symbol></entry>
     <entry>(1&lt;&lt;11)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>vmods[*]</entry>
 </row>
 <row>
-    <entry>XkbGroupNamesMask</entry>
+    <entry><symbol>XkbGroupNamesMask</symbol></entry>
     <entry>(1&lt;&lt;12)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>groups[*]</entry>
 </row>
 <row>
-    <entry>XkbRGNamesMask</entry>
+    <entry><symbol>XkbRGNamesMask</symbol></entry>
     <entry>(1&lt;&lt;13)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>radio_groups[*], num_rg</entry>
 </row>
 <row>
-    <entry>XkbComponentNamesMask</entry>
+    <entry><symbol>XkbComponentNamesMask</symbol></entry>
     <entry>(0x3f)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>
@@ -349,7 +349,7 @@ description are shown in <link linkend="table18.1">Table 18.1</link>.
     </entry>
 </row>
 <row>
-    <entry>XkbAllNamesMask</entry>
+    <entry><symbol>XkbAllNamesMask</symbol></entry>
     <entry>(0x3fff)</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>all name components</entry>
@@ -695,7 +695,7 @@ various kinds of symbolic names, as shown in
 </thead>
 <tbody>
 <row>
-    <entry>XkbKeyTypeNamesMask</entry>
+    <entry><symbol>XkbKeyTypeNamesMask</symbol></entry>
     <entry>
 <para>first_type,</para>
 <para>num_types</para>
@@ -704,7 +704,7 @@ various kinds of symbolic names, as shown in
     <entry>type[*].name</entry>
 </row>
 <row>
-    <entry>XkbKTLevelNamesMask</entry>
+    <entry><symbol>XkbKTLevelNamesMask</symbol></entry>
     <entry>
 <para>first_lvl,</para>
 <para>num_lvls</para>
@@ -713,19 +713,19 @@ various kinds of symbolic names, as shown in
     <entry>type[*].lvl_names[*]</entry>
 </row>
 <row>
-    <entry>XkbKeyAliasesMask</entry>
+    <entry><symbol>XkbKeyAliasesMask</symbol></entry>
     <entry>num_aliases</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>key_aliases[*]</entry>
 </row>
 <row>
-    <entry>XkbRGNamesMask</entry>
+    <entry><symbol>XkbRGNamesMask</symbol></entry>
     <entry>num_rg</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>radio_groups[*]</entry>
 </row>
 <row>
-    <entry>XkbKeyNamesMask</entry>
+    <entry><symbol>XkbKeyNamesMask</symbol></entry>
     <entry>
 <para>first_key,</para>
 <para>num_keys</para>
@@ -734,19 +734,19 @@ various kinds of symbolic names, as shown in
     <entry>keys[*]</entry>
 </row>
 <row>
-    <entry>XkbVirtualModNamesMask</entry>
+    <entry><symbol>XkbVirtualModNamesMask</symbol></entry>
     <entry>changed_vmods</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>vmods[*]</entry>
 </row>
 <row>
-    <entry>XkbIndicatorNamesMask</entry>
+    <entry><symbol>XkbIndicatorNamesMask</symbol></entry>
     <entry>changed_indicators</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>indicators[*]</entry>
 </row>
 <row>
-    <entry>XkbGroupNamesMask</entry>
+    <entry><symbol>XkbGroupNamesMask</symbol></entry>
     <entry>changed_groups</entry>
     <entry>Xkb-&gt;names</entry>
     <entry>groups[*]</entry>

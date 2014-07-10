@@ -1490,16 +1490,16 @@ mapping used is controlled by the bits set in the
 </thead>
 <tbody>
   <row>
-    <entry>XkbRedirectIntoRange</entry>
-    <entry>XkbRedirectIntoRange</entry>
+    <entry><symbol>XkbRedirectIntoRange</symbol></entry>
+    <entry><symbol>XkbRedirectIntoRange</symbol></entry>
   </row>
   <row>
-    <entry>XkbClampIntoRange</entry>
-    <entry>XkbClampIntoRange</entry>
+    <entry><symbol>XkbClampIntoRange</symbol></entry>
+    <entry><symbol>XkbClampIntoRange</symbol></entry>
   </row>
   <row>
     <entry>none of the above</entry>
-    <entry>XkbWrapIntoRange</entry>
+    <entry><symbol>XkbWrapIntoRange</symbol></entry>
   </row>
 </tbody>
 </tgroup>
@@ -2333,19 +2333,19 @@ groups:
 </thead>
 <tbody>
   <row>
-    <entry>XkbGroup1Index</entry>
+    <entry><symbol>XkbGroup1Index</symbol></entry>
     <entry>0</entry>
   </row>
   <row>
-    <entry>XkbGroup2Index</entry>
+    <entry><symbol>XkbGroup2Index</symbol></entry>
     <entry>1</entry>
   </row>
   <row>
-    <entry>XkbGroup3Index</entry>
+    <entry><symbol>XkbGroup3Index</symbol></entry>
     <entry>2</entry>
   </row>
   <row>
-    <entry>XkbGroup4Index</entry>
+    <entry><symbol>XkbGroup4Index</symbol></entry>
     <entry>3</entry>
   </row>
 </tbody>

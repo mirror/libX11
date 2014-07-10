@@ -379,35 +379,35 @@ defined in <link linkend="table11.1">Table 11.1</link>.
 </thead>
 <tbody>
   <row>
-    <entry>XkbLC_ForceLatin1Lookup</entry>
+    <entry><symbol>XkbLC_ForceLatin1Lookup</symbol></entry>
     <entry>(1 &lt;&lt; 0)</entry>
   </row>
   <row>
-    <entry>XkbLC_ConsumeLookupMods</entry>
+    <entry><symbol>XkbLC_ConsumeLookupMods</symbol></entry>
     <entry>(1 &lt;&lt; 1)</entry>
   </row>
   <row>
-    <entry>XkbLC_AlwaysConsumeShiftAndLock</entry>
+    <entry><symbol>XkbLC_AlwaysConsumeShiftAndLock</symbol></entry>
     <entry>(1 &lt;&lt; 2)</entry>
   </row>
   <row>
-    <entry>XkbLC_IgnoreNewKeyboards</entry>
+    <entry><symbol>XkbLC_IgnoreNewKeyboards</symbol></entry>
     <entry>(1 &lt;&lt; 3)</entry>
   </row>
   <row>
-    <entry>XkbLC_ConsumeKeysOnComposeFail</entry>
+    <entry><symbol>XkbLC_ConsumeKeysOnComposeFail</symbol></entry>
     <entry>(1 &lt;&lt; 29)</entry>
   </row>
   <row>
-    <entry>XkbLC_ComposeLED</entry>
+    <entry><symbol>XkbLC_ComposeLED</symbol></entry>
     <entry>(1 &lt;&lt; 30)</entry>
   </row>
   <row>
-    <entry>XkbLC_BeepOnComposeFail</entry>
+    <entry><symbol>XkbLC_BeepOnComposeFail</symbol></entry>
     <entry>(1 &lt;&lt; 31)</entry>
   </row>
   <row>
-    <entry>XkbLC_AllControls</entry>
+    <entry><symbol>XkbLC_AllControls</symbol></entry>
     <entry>(0xc0000007)</entry>
   </row>
 </tbody>

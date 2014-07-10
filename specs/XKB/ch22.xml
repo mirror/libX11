@@ -199,7 +199,7 @@ Xkb modifies its behavior according to each controls bit.
 </thead>
 <tbody>
 <row>
-    <entry>XkbDF_DisableLocks</entry>
+    <entry><symbol>XkbDF_DisableLocks</symbol></entry>
     <entry>(1 &lt;&lt; 0)</entry>
     <entry>Disable actions that lock modifiers</entry>
   </row>

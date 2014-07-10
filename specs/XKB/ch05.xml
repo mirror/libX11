@@ -525,19 +525,19 @@ Reference the keysym group indices with these symbolic constants:
     <entry>Value</entry>
   </row>
   <row>
-    <entry>XkbGroup1Index</entry>
+    <entry><symbol>XkbGroup1Index</symbol></entry>
     <entry>0</entry>
   </row>
   <row>
-    <entry>XkbGroup2Index</entry>
+    <entry><symbol>XkbGroup2Index</symbol></entry>
     <entry>1</entry>
   </row>
   <row>
-    <entry>XkbGroup3Index</entry>
+    <entry><symbol>XkbGroup3Index</symbol></entry>
     <entry>2</entry>
   </row>
   <row>
-    <entry>XkbGroup4Index</entry>
+    <entry><symbol>XkbGroup4Index</symbol></entry>
     <entry>3</entry>
   </row>
 </tbody>
@@ -801,63 +801,63 @@ listed in <link linkend="table5.3">Table 5.3</link>.
 </thead>
 <tbody>
   <row>
-    <entry>XkbModifierStateMask</entry>
+    <entry><symbol>XkbModifierStateMask</symbol></entry>
     <entry>(1L &lt;&lt; 0)</entry>
   </row>
   <row>
-    <entry>XkbModifierBaseMask</entry>
+    <entry><symbol>XkbModifierBaseMask</symbol></entry>
     <entry>(1L &lt;&lt; 1)</entry>
   </row>
   <row>
-    <entry>XkbModifierLatchMask</entry>
+    <entry><symbol>XkbModifierLatchMask</symbol></entry>
     <entry>(1L &lt;&lt; 2)</entry>
   </row>
   <row>
-    <entry>XkbModifierLockMask</entry>
+    <entry><symbol>XkbModifierLockMask</symbol></entry>
     <entry>(1L &lt;&lt; 3)</entry>
   </row>
   <row>
-    <entry>XkbGroupStateMask</entry>
+    <entry><symbol>XkbGroupStateMask</symbol></entry>
     <entry>(1L &lt;&lt; 4)</entry>
   </row>
   <row>
-    <entry>XkbGroupBaseMask</entry>
+    <entry><symbol>XkbGroupBaseMask</symbol></entry>
     <entry>(1L &lt;&lt; 5)</entry>
   </row>
   <row>
-    <entry>XkbGroupLatchMask</entry>
+    <entry><symbol>XkbGroupLatchMask</symbol></entry>
     <entry>(1L &lt;&lt; 6)</entry>
   </row>
   <row>
-    <entry>XkbGroupLockMask</entry>
+    <entry><symbol>XkbGroupLockMask</symbol></entry>
     <entry>(1L &lt;&lt; 7)</entry>
   </row>
   <row>
-    <entry>XkbCompatStateMask</entry>
+    <entry><symbol>XkbCompatStateMask</symbol></entry>
     <entry>(1L &lt;&lt; 8)</entry>
   </row>
   <row>
-    <entry>XkbGrabModsMask</entry>
+    <entry><symbol>XkbGrabModsMask</symbol></entry>
     <entry>(1L &lt;&lt; 9)</entry>
   </row>
   <row>
-    <entry>XkbCompatGrabModsMask</entry>
+    <entry><symbol>XkbCompatGrabModsMask</symbol></entry>
     <entry>(1L &lt;&lt; 10)</entry>
   </row>
   <row>
-    <entry>XkbLookupModsMask</entry>
+    <entry><symbol>XkbLookupModsMask</symbol></entry>
     <entry>(1L &lt;&lt; 11)</entry>
   </row>
   <row>
-    <entry>XkbCompatLookupModsMask</entry>
+    <entry><symbol>XkbCompatLookupModsMask</symbol></entry>
     <entry>(1L &lt;&lt; 12)</entry>
   </row>
   <row>
-    <entry>XkbPointerButtonMask</entry>
+    <entry><symbol>XkbPointerButtonMask</symbol></entry>
     <entry>(1L &lt;&lt; 13)</entry>
   </row>
   <row>
-    <entry>XkbAllStateComponentsMask</entry>
+    <entry><symbol>XkbAllStateComponentsMask</symbol></entry>
     <entry>(0x3fff)</entry>
   </row>
 </tbody>

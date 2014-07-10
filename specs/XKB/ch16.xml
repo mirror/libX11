@@ -3957,7 +3957,7 @@ a key.</para></note>
 <para>
 Key behavior refers to the demeanor of a key. For example, the expected
 behavior of the
-<emphasis>CapsLock</emphasis>
+<keycap>CapsLock</keycap>
  key is that it logically locks when pressed, and then logically unlocks when
 pressed again.
 </para>

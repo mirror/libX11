@@ -160,7 +160,7 @@ in the
  reports the number of entries that are in the keys array. For each key, the
 key name links keys with similar functions or in similar positions on keyboards
 that report different keycodes. For example, the
-<emphasis>F1</emphasis>
+<keycap>F1</keycap>
  key may emit keycode 23 on one keyboard and keycode 86 on another. By naming
 this key "FK01" on both keyboards, the keyboard layout designer can reuse parts
 of keyboard descriptions for different keyboards.

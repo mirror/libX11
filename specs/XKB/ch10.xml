@@ -1224,7 +1224,7 @@ or setting the attribute; instead use
 produce an
 <keysym>XK_Pointer_EnableKeys</keysym>
  keysym. The de facto default standard for this is
-<emphasis>Shift+Alt+NumLock</emphasis>,
+<keycombo><keycap>Shift</keycap><keycap>Alt</keycap><keycap>NumLock</keycap></keycombo>,
 but this may vary depending on the keymap.</para></note>
 
 </sect2>
@@ -1521,7 +1521,8 @@ entering the following standard key sequences:
 <itemizedlist>
 <listitem>
   <para>
-Holding down a shift key by itself for eight seconds toggles the
+Holding down a <keycap>Shift</keycap> key by itself for eight seconds
+toggles the
 <emphasis>SlowKeys</emphasis>
  control.
   </para>
@@ -1529,7 +1530,7 @@ Holding down a shift key by itself for eight seconds toggles the
 <listitem>
   <para>
 Pressing and releasing the left or right
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key five times in a row, without any intervening key events and with less than
 30 seconds delay between consecutive presses, toggles the state of the
 <emphasis>StickyKeys</emphasis>
@@ -2596,9 +2597,9 @@ in the server,
 <para>
 Some people find it difficult or even impossible to press two keys at once. For
 example, a one-fingered typist or someone using a mouth stick cannot press the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  and
-<emphasis>1</emphasis>
+<keycap>1</keycap>
  keys at the same time. The
 <emphasis>StickyKeys</emphasis>
  control solves this problem by changing the behavior of the modifier keys.
@@ -2607,9 +2608,9 @@ With
 the user can first press a modifier, release it, then press another key. For
 example, to get an exclamation point on a PC-style keyboard, the user can press
 the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key, release it, and then press the
-<emphasis>1</emphasis>
+<keycap>1</keycap>
  key.
 </para>
 
@@ -2628,35 +2629,36 @@ it one more time.
 <para>
 When a modifier is latched, it becomes unlatched when the user presses a
 nonmodifier key or a pointer button. For instance, to enter the sequence
-<symbol>Shift</symbol>
-+
-<symbol>Control</symbol>
-+
-<emphasis>Z</emphasis>
+<keycombo>
+<keycap>Shift</keycap>
+<keycap>Control</keycap>
+<keycap>Z</keycap>
+</keycombo>
  the user could press and release the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key to latch it, then press and release the
-<symbol>Control</symbol>
- key to latch it, and finally press and release the Z key. Because the
-<symbol>Control</symbol>
+<keycap>Control</keycap>
+ key to latch it, and finally press and release the
+<keycap>Z</keycap> key. Because the
+<keycap>Control</keycap>
  key is a modifier key, pressing it does not unlatch the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key. Thus, after the user presses the
-<symbol>Control</symbol>
+<keycap>Control</keycap>
  key, both the
 <symbol>Shift</symbol>
  and
 <symbol>Control</symbol>
  modifiers are latched. When the user presses the
-<emphasis>Z</emphasis>
+<keycap>Z</keycap>
  key, the effect is as though the user had pressed
-<symbol>Shift</symbol>
-+
-<symbol>Control</symbol>
-+
-<emphasis>Z</emphasis>.
+<keycombo>
+<keycap>Shift</keycap>
+<keycap>Control</keycap>
+<keycap>Z</keycap>
+</keycombo>.
 In addition, because the
-<emphasis>Z</emphasis>
+<keycap>Z</keycap>
  key is not a modifier key, the
 <symbol>Shift</symbol>
  and
@@ -2671,22 +2673,22 @@ button the user presses until the user unlocks it or it is unlocked
 programmatically. For example, to enter the sequence ("XKB") on a keyboard
 where ‘(’ is a shifted ‘9’, ‘)’ is a shifted ‘0’, and ‘"’
 is a shifted single quote, the user could press and release the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key twice to lock the
 <symbol>Shift</symbol>
  modifier. Then, when the user presses the
-<emphasis>9</emphasis>,
-<emphasis>‘</emphasis>,
-<structfield>x</structfield>,
-<emphasis>k</emphasis>,
-<emphasis>b</emphasis>,
-<emphasis>‘</emphasis>,
+<keycap>9</keycap>,
+<keycap>'</keycap>,
+<keycap>x</keycap>,
+<keycap>k</keycap>,
+<keycap>b</keycap>,
+<keycap>'</keycap>,
 and
-<emphasis>0</emphasis>
+<keycap>0</keycap>
  keys in sequence, it generates ("XKB"). To unlock the
 <symbol>Shift</symbol>
  modifier, the user can press and release the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key.
 </para>
 

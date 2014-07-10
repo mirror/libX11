@@ -5,10 +5,10 @@
 Although the core X implementation supports up to 32 LEDs on an input device,
 it does not provide any linkage between the state of the LEDs and the logical
 state of the input device. For example, most keyboards have a
-<emphasis>CapsLock</emphasis>
+<guilabel>CapsLock</guilabel>
  LED, but X does not provide a mechanism to make the LED automatically follow
 the logical state of the
-<emphasis>CapsLock</emphasis>
+<keycap>CapsLock</keycap>
  key.
 </para>
 
@@ -23,9 +23,9 @@ ability to determine what bits in the
 method for a client to determine what bit to set in the
 <emphasis>led_mask</emphasis>
  field to turn on the
-<emphasis>Scroll Lock</emphasis>
+<guilabel>Scroll Lock</guilabel>
 LED or whether the keyboard even has a
-<emphasis>Scroll Lock</emphasis>
+<guilabel>Scroll Lock</guilabel>
  LED.
 </para>
 
@@ -114,7 +114,7 @@ then the associated indicator has a physical LED associated with it. This
 field is necessary because some indicators may not have corresponding physical
 LEDs on the keyboard. For example, most keyboards have an LED for indicating
 the state of
-<emphasis>CapsLock</emphasis>,
+<keycap>CapsLock</keycap>,
 but most keyboards do not have an LED that indicates the current group.
 Because
 <structfield>phys_indicators</structfield>
@@ -269,25 +269,24 @@ attempt to explicitly change the value of an indicator for which
 
 <para>
 For example, a keyboard designer may want to make the
-<emphasis>CapsLock</emphasis>
+<guilabel>CapsLock</guilabel>
  LED controllable only by the server, but allow the
-<emphasis>Scroll Lock</emphasis>
+<guilabel>Scroll Lock</guilabel>
  LED to be controlled by client applications. To do so, the keyboard designer
 could set the
 <symbol>XkbIM_NoExplicit</symbol>
  flag for the
-<emphasis>CapsLock</emphasis>
-
+<guilabel>CapsLock</guilabel>
 LED, but not set it for the
-<emphasis>Scroll Lock</emphasis>
+<guilabel>Scroll Lock</guilabel>
  LED. Or the keyboard designer may wish to allow the
-<emphasis>CapsLock</emphasis>
+<guilabel>CapsLock</guilabel>
  LED to be controlled by both the server and client applications and also have
 the server to automatically change the
 <emphasis>CapsLock</emphasis>
 
 modifier state whenever a client application changes the
-<emphasis>CapsLock</emphasis>
+<guilabel>CapsLock</guilabel>
  LED. To do so, the keyboard designer would not set the
 <symbol>XkbIM_NoExplicit</symbol>
  flag, but would instead set the

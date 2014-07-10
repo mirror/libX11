@@ -127,11 +127,11 @@ keysym when it is determining the string associated with a keysym. For example,
 assume the keymap for the ‘A’ key only contains the shift modifier and the
 <emphasis>ConsumeLookupMods</emphasis>
  control is enabled. If a user presses the
-<symbol>Shift</symbol>
+<keycap>Shift</keycap>
  key and the
-<emphasis>A</emphasis>
+<keycap>A</keycap>
  key while the
-<keysym>Num_Lock</keysym>
+<keycap>Num_Lock</keycap>
  key is locked,
 <function>XLookupString</function>
  uses the

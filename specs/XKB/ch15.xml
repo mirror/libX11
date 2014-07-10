@@ -1454,14 +1454,14 @@ key. The per-key
 <structfield>group_info</structfield>
  field specifies how a key treats a legal effective group if the key does not
 have a type specified for the group of concern. For example, the
-<emphasis>Enter</emphasis>
+<keycap>Enter</keycap>
  key usually has just one group defined. If the user performs an action causing
 the global keyboard group to change to
 <emphasis>Group2</emphasis>,
 the
 <structfield>group_info</structfield>
  field for the
-<emphasis>Enter</emphasis>
+<keycap>Enter</keycap>
  key describes how to handle this situation.
 </para>
 

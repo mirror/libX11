@@ -97,7 +97,7 @@ There may be multiple entries for each of the component types. An entry may be
 either
 <emphasis>complete</emphasis>
  or
-<structfield>partial</structfield>.
+<emphasis>partial</emphasis>.
 Partial entries describe only a piece of the corresponding keyboard component
 and are designed to be combined with other entries of the same type to form a
 complete entry.
@@ -109,7 +109,7 @@ common ASCII keyboard and some national layout. Such a partial map is not
 useful on its own because it does not include those symbols that are the same
 on both the ASCII and national layouts (such as function keys). On the other
 hand, this partial map can be used to configure
-<structfield>any</structfield>
+<emphasis>any</emphasis>
  ASCII keyboard to use a national layout.
 </para>
 
@@ -123,13 +123,11 @@ later definitions override earlier ones.
 <title>Component Names</title>
 
 <para>
-Component names have the form "
-<emphasis>class(member)</emphasis>
-" where
-<structfield>class</structfield>
+Component names have the form “<replaceable>class(member)</replaceable>” where
+<replaceable>class</replaceable>
  describes a subset of the available components for a particular type and the
 optional
-<emphasis>member</emphasis>
+<replaceable>member</replaceable>
  identifies a specific component from that subset. For example, the name
 "atlantis(acme)" for a symbols component might specify the symbols used for the
 atlantis national keyboard layout by the vendor "acme." Each class has an
@@ -142,9 +140,9 @@ interpretation of the class and member names used in component names.
 
 <para>
 The
-<structfield>class</structfield>
+<replaceable>class</replaceable>
  and
-<emphasis>member</emphasis>
+<replaceable>member</replaceable>
  names are both specified using characters from the Latin-1 character set. Xkb
 implementations must accept all alphanumeric characters, minus (‘-’) and
 underscore (‘_’) in class or member names, and must not accept parentheses,
@@ -725,7 +723,7 @@ entire expression is invalid and is ignored.
 
 <para>
 For example, if
-<emphasis>names-&gt;symbols</emphasis>
+<structfield>names-&gt;symbols</structfield>
  contained the expression "+de", it specifies that the default member of the
 "de" class of symbols should be applied to the current keyboard mapping,
 overriding any existing definitions (it could also be written "+de(default)").

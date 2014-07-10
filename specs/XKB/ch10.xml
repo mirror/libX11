@@ -658,7 +658,7 @@ protocol. There are no convenience functions in Xkb for manipulating this
 control. The
 <emphasis>PerKeyRepeat</emphasis>
  control settings are carried in the
-<emphasis>per_key_repeat</emphasis>
+<structfield>per_key_repeat</structfield>
  field of an
 <structname>XkbControlsRec</structname>
  structure, discussed in <link linkend="The_XkbControlsRec_Structure">section 10.8</link>.
@@ -4158,7 +4158,7 @@ enabled (
  or
 <symbol>XkbStickyKeysMask</symbol>
  bit is turned on in the
-<emphasis>enabled_cntrls</emphasis>
+<structfield>enabled_ctrls</structfield>
  field).
 </para>
 
@@ -4256,7 +4256,7 @@ id='ax_timeout_axt_opts_mask_axt_opts_values_axt_ctrls_mask_and_axt_ctrls_values
 
 <para>
 <structfield>ax_timeout</structfield>,
-<emphasis>act_opts_mask</emphasis>,
+<structfield>axt_opts_mask</structfield>,
 <structfield>axt_opts_values</structfield>,
 <structfield>axt_ctrls_mask</structfield>,
 and
@@ -4274,29 +4274,29 @@ units involved.
 
 <para>
 The
-<emphasis>per_key_repeat</emphasis>
+<structfield>per_key_repeat</structfield>
  field mirrors the
-<emphasis>auto_repeats</emphasis>
+<structfield>auto_repeats</structfield>
  field of the core protocol
 <structname>XKeyboardState</structname>
  structure: changing the
-<emphasis>auto_repeats</emphasis>
+<structfield>auto_repeats</structfield>
  field automatically changes
-<emphasis>per_key_repeat</emphasis>
+<structfield>per_key_repeat</structfield>
  and vice versa. It is provided for convenience and to reduce protocol traffic.
 For example, to obtain the individual repeat key behavior as well as the repeat
 delay and rate, use
 <function>XkbGetControls</function>.
 If the
-<emphasis>per_key_repeat</emphasis>
+<structfield>per_key_repeat</structfield>
  were not in this structure, you would have to call both
 <function>XGetKeyboardControl</function>
  and
 <function>XkbGetControls</function>
  to get this information. The bits correspond to keycodes. The first seven keys
 (keycodes 1-7) are indicated in
-<emphasis>per_key_repeat</emphasis>
-[0], with bit position 0 (low order) corresponding to the fictitious keycode 0.
+<structfield>per_key_repeat</structfield>[0],
+with bit position 0 (low order) corresponding to the fictitious keycode 0.
 Following array elements correspond to 8 keycodes per element. A 1 bit
 indicates that the key is a repeating key.
 </para>
@@ -4557,7 +4557,7 @@ the corresponding values are still updated in the X server. For example, the
  fields are ignored unless the
 <emphasis>RepeatKeys</emphasis>
  control is enabled (that is, the X server’s equivalent of
-<emphasis>xkb-&gt;ctrls</emphasis>
+<structfield>xkb-&gt;ctrls</structfield>
  has
 <symbol>XkbRepeatKeysMask</symbol>
  set in
@@ -4680,7 +4680,7 @@ match those in the changed keyboard description.
     </term>
     <listitem>
       <para>
-        keyboard description with changed <emphasis>xkb-&gt;ctrls</emphasis>
+        keyboard description with changed <structfield>xkb-&gt;ctrls</structfield>
       </para>
     </listitem>
   </varlistentry>
@@ -4690,7 +4690,7 @@ match those in the changed keyboard description.
     </term>
     <listitem>
       <para>
-        which parts of <emphasis>xkb-&gt;ctrls</emphasis> have changed
+        which parts of <structfield>xkb-&gt;ctrls</structfield> have changed
       </para>
     </listitem>
   </varlistentry>
@@ -4965,7 +4965,7 @@ noted by one or more calls to
     </term>
     <listitem>
       <para>
-        <emphasis>xkb-&gt;ctrls</emphasis> will be updated
+        <structfield>xkb-&gt;ctrls</structfield> will be updated
       </para>
     </listitem>
   </varlistentry>
@@ -4975,7 +4975,7 @@ noted by one or more calls to
     </term>
     <listitem>
       <para>
-        indicates which parts of <emphasis>xkb-&gt;ctrls</emphasis> to update
+        indicates which parts of <structfield>xkb-&gt;ctrls</structfield> to update
       </para>
     </listitem>
   </varlistentry>

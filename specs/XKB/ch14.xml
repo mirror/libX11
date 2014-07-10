@@ -789,83 +789,83 @@ server and are always updated by the server whenever it returns the data for an
   <row>
     <entry><symbol>XkbKeyTypesMask</symbol></entry>
     <entry>
-<para>first_type</para>,
-<para>num_types</para>
+<structfield>first_type</structfield>,
+<structfield>num_types</structfield>
     </entry>
     <entry>
-<para>map-&gt;type[first_type] ..</para>
-<para>map-&gt;type[first_type + num_types - 1]</para>
+<structfield>map-&gt;type[first_type]</structfield> ..
+<structfield>map-&gt;type[first_type + num_types - 1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbKeySymsMask</symbol></entry>
     <entry>
-<para>first_key_sym</para>,
-<para>num_key_syms</para>
+<structfield>first_key_sym</structfield>,
+<structfield>num_key_syms</structfield>
     </entry>
     <entry>
-<para>map-&gt;key_sym_map[first_key_sym] ..</para>
-<para>map-&gt;key_sym_map[first_key_sym + num_key_syms - 1]</para>
+<structfield>map-&gt;key_sym_map[first_key_sym]</structfield> ..
+<structfield>map-&gt;key_sym_map[first_key_sym + num_key_syms - 1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbModifierMapMask</symbol></entry>
     <entry>
-<para>first_modmap_key</para>,
-<para>num_modmap_keys</para>
+<structfield>first_modmap_key</structfield>,
+<structfield>num_modmap_keys</structfield>
     </entry>
     <entry>
-<para>map-&gt;modmap[first_modmap_key] ..</para>
-<para>map-&gt;modmap[first_modmap_key + num_modmap_keys-1]</para>
+<structfield>map-&gt;modmap[first_modmap_key]</structfield> ..
+<structfield>map-&gt;modmap[first_modmap_key + num_modmap_keys-1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
     <entry>
-<para>first_key_explicit</para>,
-<para>num_key_explicit</para>
+<structfield>first_key_explicit</structfield>,
+<structfield>num_key_explicit</structfield>
     </entry>
     <entry>
-<para>server-&gt;explicit[first_key_explicit] ..</para>
-<para>server-&gt;explicit[first_key_explicit + num_key_explicit - 1]</para>
+<structfield>server-&gt;explicit[first_key_explicit]</structfield> ..
+<structfield>server-&gt;explicit[first_key_explicit + num_key_explicit - 1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbKeyActionsMask</symbol></entry>
     <entry>
-<para>first_key_act,</para>
-<para>num_key_acts</para>
+<structfield>first_key_act</structfield>,
+<structfield>num_key_acts</structfield>
     </entry>
     <entry>
-<para>server-&gt;key_acts[first_key_act] ..</para>
-<para>server-&gt;key_acts[first_key_act + num_key_acts - 1]</para>
+<structfield>server-&gt;key_acts[first_key_act]</structfield> ..
+<structfield>server-&gt;key_acts[first_key_act + num_key_acts - 1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
     <entry>
-<para>first_key_behavior,</para>
-<para>num_key_behaviors</para>
+<structfield>first_key_behavior</structfield>,
+<structfield>num_key_behaviors</structfield>
     </entry>
     <entry>
-<para>server-&gt;behaviors[first_key_behavior] ..</para>
-<para>server-&gt;behaviors[first_key_behavior + num_key_behaviors - 1]</para>
+<structfield>server-&gt;behaviors[first_key_behavior]</structfield> ..
+<structfield>server-&gt;behaviors[first_key_behavior + num_key_behaviors - 1]</structfield>
     </entry>
   </row>
   <row>
     <entry><symbol>XkbVirtualModsMask</symbol></entry>
-    <entry>vmods</entry>
-    <entry>server-&gt;vmods[*]</entry>
+    <entry><structfield>vmods</structfield></entry>
+    <entry><structfield>server-&gt;vmods[*]</structfield></entry>
   </row>
   <row>
     <entry><symbol>XkbVirtualModMapMask</symbol></entry>
     <entry>
-<para>first_vmodmap_key,</para>
-<para>num_vmodmap_keys</para>
+<structfield>first_vmodmap_key</structfield>,
+<structfield>num_vmodmap_keys</structfield>
     </entry>
     <entry>
-<para>server-&gt;vmodmap[first_vmodmap_key] ..</para>
-<para>server-&gt;vmodmap[first_vmodmap_key + num_vmodmap_keys - 1]</para>
+<structfield>server-&gt;vmodmap[first_vmodmap_key]</structfield> ..
+<structfield>server-&gt;vmodmap[first_vmodmap_key + num_vmodmap_keys - 1]</structfield>
     </entry>
   </row>
 </tbody>
@@ -1046,7 +1046,7 @@ typedef struct {
       int            num_key_explicit;   /* # <structfield>explicit</structfield> entries changed */
       int            num_modmap_keys;    /* # <structfield>modmap</structfield> entries changed */
       int            num_vmodmap_keys;   /* # <structfield>vmodmap</structfield> entries changed */
-      unsigned in      t      vmods;     /* mask indicating which <structfield>vmods</structfield> changed */
+      unsigned int   vmods;              /* mask indicating which <structfield>vmods</structfield> changed */
 } <structname>XkbMapNotifyEvent</structname>;
 </programlisting></para>
 
@@ -1061,7 +1061,7 @@ event are interpreted as the like-named fields in an
  (see <link linkend="The_XkbMapChangesRec_Structure">section 14.3.1</link>). The
 <structname>XkbMapNotifyEvent</structname>
  structure also has an additional
-<emphasis>resized</emphasis>
+<structfield>resized</structfield>
  field that is reserved for future use.
 </para>
 

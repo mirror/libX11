@@ -794,7 +794,7 @@ type and for the core protocol
 <structfield>type</structfield>
  equals the Xkb base event code; see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>). If the event is an Xkb
 event, you may then use the
-<emphasis>any.xkb_type</emphasis>
+<structfield>any.xkb_type</structfield>
  field to determine the type of Xkb event and thereafter access the
 event-dependent components using the union member corresponding to the
 particular Xkb event type.

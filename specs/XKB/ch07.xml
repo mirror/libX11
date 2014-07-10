@@ -67,15 +67,15 @@ in effect.
 Virtual modifiers are named by converting their string name to an X
 <type>Atom</type>
  and storing the Atom in the
-<emphasis>names.vmods</emphasis>
+<structfield>names.vmods</structfield>
  array in an
 <structname>XkbDescRec</structname>
  structure (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>). The position of a name Atom in the
-<emphasis>names.vmods</emphasis>
+<structfield>names.vmods</structfield>
  array defines the bit position used to represent the virtual modifier and also
 the index used when accessing virtual modifier information in arrays: the name
 in the i-th (0 relative) entry of
-<emphasis>names.vmods</emphasis>
+<structfield>names.vmods</structfield>
  is the i-th virtual modifier, represented by the mask (1&lt;&lt;i). Throughout
 Xkb, various functions have a parameter that is a mask representing virtual
 modifier choices. In each case, the i-th bit (0 relative) of the mask
@@ -129,27 +129,24 @@ real modifiers */
 
 <para>
 An Xkb modifier definition consists of a set of bit masks corresponding to the
-eight real modifiers (
-<structfield>real_mods</structfield>
-); a similar set of bitmasks corresponding to the 16 named virtual modifiers
-(
-<structfield>vmods</structfield>
-); and an effective mask (
-<structfield>mask</structfield>
-). The effective mask represents the set of all real modifiers that can
+eight real modifiers
+(<structfield>real_mods</structfield>);
+ a similar set of bitmasks corresponding to the 16 named virtual modifiers
+(<structfield>vmods</structfield>);
+ and an effective mask
+(<structfield>mask</structfield>).
+ The effective mask represents the set of all real modifiers that can
 logically be set either by setting any of the real modifiers or by setting any
 of the virtual modifiers in the definition.
 <structfield>mask</structfield>
  is derived from the real and virtual modifiers and should never be explicitly
 changed — it contains all of the real modifiers specified in the definition
-(
-<structfield>real_mods</structfield>
-)
+(<structfield>real_mods</structfield>)
 <emphasis>plus</emphasis>
  any real modifiers that are bound to the virtual modifiers specified in the
-definition (
-<structfield>vmods</structfield>
-). The binding of the virtual modifiers to real modifiers is exterior to the
+definition
+(<structfield>vmods</structfield>).
+ The binding of the virtual modifiers to real modifiers is exterior to the
 modifier definition. Xkb automatically recomputes the mask field of modifier
 definitions as necessary. Whenever you access a modifier definition that has
 been retrieved using an Xkb library function, the mask field will be correct
@@ -163,7 +160,7 @@ for the keyboard mapping of interest.
 
 <para>
 The binding of virtual modifiers to real modifiers is defined by the
-<emphasis>server.vmods</emphasis>
+<structfield>server.vmods</structfield>
  array in an
 <structname>XkbDescRec</structname>
  structure. Each entry contains the real modifier bits that are bound to the
@@ -184,10 +181,10 @@ which lists the virtual modifiers associated with, or bound to, each key. The
 real modifiers bound to a virtual modifier always include all of the modifiers
 bound to any of the keys that specify that virtual modifier in their virtual
 modifier mapping. The
-<emphasis>server.vmodmap</emphasis>
+<structfield>server.vmodmap</structfield>
  array indicates which virtual modifiers are bound to each key; each entry is a
 bitmask for the virtual modifier bits. The
-<emphasis>server.vmodmap</emphasis>
+<structfield>server.vmodmap</structfield>
  array is indexed by keycode.
 </para>
 
@@ -387,12 +384,12 @@ following names are suggested:
 
 <para>
 If the second (0-relative) entry in
-<emphasis>names.vmods</emphasis>
+<structfield>names.vmods</structfield>
  contains the Atom for "NumLock", then 0x4 (1&lt;&lt;2) is the virtual modifier
 bit for the
 <emphasis>NumLock</emphasis>
  virtual modifier. If
-<emphasis>server.vmods</emphasis>
+<structfield>server.vmods</structfield>
 [2] contains
 <symbol>Mod3Mask</symbol>,
 then the
@@ -419,8 +416,8 @@ Continuing the example, if the keyboard has a
  keysym bound to the key with keycode 14, and the
 <emphasis>NumLock</emphasis>
  virtual modifier is bound to this key,
-<emphasis>server.vmodmap</emphasis>
-[14] contains 0x4.
+<structfield>server.vmodmap[14]</structfield>
+contains 0x4.
 </para>
 
 

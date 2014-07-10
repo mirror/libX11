@@ -181,9 +181,9 @@ total number of entries in the
  array is held in
 <structfield>num_key_aliases</structfield>.
 For each real and alias key name pair, the
-<emphasis>real</emphasis>
+<structfield>real</structfield>
  field refers to the a name in the keys array, and the
-<emphasis>alias</emphasis>
+<structfield>alias</structfield>
  field refers to the alias for that key. Using the previous example, the
 keyboard designer may use the name A31 in the keys array, but also define the
 name LEFT as an alias for A31 in the
@@ -196,7 +196,7 @@ name LEFT as an alias for A31 in the
 database, which are stored in the
 <structname>XkbNamesRec</structname>
  (
-<emphasis>xkb-&gt;names</emphasis>
+<structfield>xkb-&gt;names</structfield>
 ). Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the
 <structname>XkbNamesRec</structname>.
@@ -943,7 +943,7 @@ When your application receives a
     </term>
     <listitem>
       <para>
-        <emphasis>XkbNameChanges</emphasis> structure to be updated
+        <structname>XkbNameChangesRec</structname> structure to be updated
       </para>
     </listitem>
   </varlistentry>

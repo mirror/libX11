@@ -580,7 +580,10 @@ keyboard bell. Some input devices may have more than one bell, identified by
     <para>
 There are five types of components stored in the X server database of keyboard
 components. They correspond to the
-<emphasis>symbols, geometry, keycodes, compat</emphasis>,
+<structfield>>symbols</structfield>,
+<structfield>geometry</structfield>,
+<structfield>keycodes</structfield>,
+<structfield>compat</structfield>,
 and
 <structfield>types</structfield>
  symbolic names associated with a keyboard.

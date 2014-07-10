@@ -819,7 +819,7 @@ refer to the
 <function>XkbGetKeyTypes</function>
  queries the server for the desired types, waits for a reply, and returns the
 desired types in the
-<emphasis>xkb-&gt;map-&gt;types</emphasis>.
+<structfield>xkb-&gt;map-&gt;types</structfield>.
 If successful, it returns Success.
 </para>
 
@@ -925,7 +925,7 @@ To change the number of levels in a key type, use
  changes the type specified by
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>map-&gt;types</emphasis>
+<structfield>map-&gt;types</structfield>
 [
 <parameter>type_ndx</parameter>
 ], and reallocates the symbols and actions bound to all keys that use the type,
@@ -1278,7 +1278,7 @@ These fields are described in detail in the following sections.
 
 <para>
 The
-<emphasis>kt_index</emphasis>
+<structfield>kt_index</structfield>
  array of the
 <structname>XkbSymMapRec</structname>
  structure contains the indices of the key types (see <link linkend="Key_Types">section 15.2</link>) for each
@@ -2094,7 +2094,7 @@ To obtain the symbols for a subset of the keys in a keyboard description, use
  keys starting with the key whose keycode is
 <parameter>first</parameter>.
 It waits for a reply and returns the keysyms in the
-<emphasis>map.syms</emphasis>
+<structfield>map.syms</structfield>
  field of
 <parameter>xkb</parameter>.
 If successful,
@@ -2247,7 +2247,7 @@ as appropriate. If the
  adds the
 <symbol>XkbKeySymsMask</symbol>
  to the
-<emphasis>changes</emphasis>
+<structfield>changes</structfield>
  field of
 <parameter>p_changes</parameter>
  and modifies the
@@ -2291,7 +2291,7 @@ Each entry represents the type to use for the associated group and is an
 index into
 <parameter>xkb</parameter>
 -&gt;
-<emphasis>map-&gt;types</emphasis>.
+<structfield>map-&gt;types</structfield>.
 The
 <parameter>new_types_in</parameter>
  array is indexed by group index; if
@@ -2457,9 +2457,7 @@ keysyms. It adjusts the
 and
 <structfield>size_syms</structfield>
  fields of
-<parameter>xkb</parameter>
--
-<emphasis>&gt;map</emphasis>
+<structfield>xkb-&gt;map</structfield>
  if it is necessary to reallocate the
 <structfield>syms</structfield>
  array.

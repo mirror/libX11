@@ -16,12 +16,12 @@ the logical state of the
 <para>
 Furthermore, the core X implementation does not provide clients with the
 ability to determine what bits in the
-<emphasis>led_mask</emphasis>
+<structfield>led_mask</structfield>
  field of the
 <structname>XKeyboardState</structname>
  map to the particular LEDs on the keyboard. For example, X does not provide a
 method for a client to determine what bit to set in the
-<emphasis>led_mask</emphasis>
+<structfield>led_mask</structfield>
  field to turn on the
 <guilabel>Scroll Lock</guilabel>
 LED or whether the keyboard even has a
@@ -538,11 +538,11 @@ modifiers. The
 <structfield>mods</structfield>
  are unbound. To specify the mods field, in general, assign the modifiers of
 interest to
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and the virtual modifiers of interest to
-<emphasis>mods.vmods</emphasis>.
+<structfield>mods.vmods</structfield>.
 You can disregard the
-<emphasis>mods.mask</emphasis>
+<structfield>mods.mask</structfield>
  field unless your application needs to interpret the indicator map directly
 (that is, to simulate automatic indicator behavior on its own). Relatively few
 applications need to do so, but if you find it necessary, you can either read
@@ -627,9 +627,9 @@ The indicator is lit when any of the modifiers specified in the
  field of
 <structfield>mods</structfield>
  are on in the keyboard base state. If both
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and
-<emphasis>mods.vmods</emphasis>
+<structfield>mods.vmods</structfield>
  are zero, the indicator is lit when the base keyboard state contains no
 modifiers.
     </entry>
@@ -642,9 +642,9 @@ The indicator is lit when any of the modifiers specified in the
  field of
 <structfield>mods</structfield>
  are latched. If both
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and
-<emphasis>mods.vmods</emphasis>
+<structfield>mods.vmods</structfield>
  are zero, the indicator is lit when none of the modifier keys are latched.
     </entry>
   </row>
@@ -656,9 +656,9 @@ The indicator is lit when any of the modifiers specified in the
  field of
 <structfield>mods</structfield>
  are locked. If both
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and
-<emphasis>mods.vmods</emphasis>
+<structfield>mods.vmods</structfield>
  are zero, the indicator is lit when none of the modifier keys are locked.
     </entry>
   </row>
@@ -670,9 +670,9 @@ The indicator is lit when any of the modifiers specified in the
  field of
 <structfield>mods</structfield>
  are in the effective keyboard state. If both
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and
-<emphasis>mods.vmods</emphasis>
+<structfield>mods.vmods</structfield>
  are zero, the indicator is lit when the effective keyboard state contains no
 modifiers.
     </entry>
@@ -685,9 +685,9 @@ The indicator is lit when any of the modifiers specified in the
  field of
 <structfield>mods</structfield>
  are in the keyboard compatibility state. If both
-<emphasis>mods.real_mods</emphasis>
+<structfield>mods.real_mods</structfield>
  and
-<emphasis>mods.vmods</emphasis>
+<structfield>mods.vmods</structfield>
  are zero, the indicator is lit when the keyboard compatibility state contains
 no modifiers.
     </entry>

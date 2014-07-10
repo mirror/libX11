@@ -137,7 +137,7 @@ override those defined in the keycodes component of the server database, which
 are stored in the
 <structname>XkbNamesRec</structname>
  (
-<emphasis>xkb-&gt;names</emphasis>
+<structfield>xkb-&gt;names</structfield>
 ). Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the keycodes.</para></note>
 </listitem>
@@ -1002,12 +1002,12 @@ relative to the keyboard’s origin if the doodad is in the
  and
 <structfield>off_color_ndx</structfield>
  fields are color indices into the
-<structname>XkbGeometryRec</structname>
-’s color array and are the colors to draw the doodads with. Similarly, the
+<structname>XkbGeometryRec</structname>’s
+ color array and are the colors to draw the doodads with. Similarly, the
 <structfield>shape_ndx</structfield>
  fields are indices into the
-<structname>XkbGeometryRec</structname>
-’s shape array.
+<structname>XkbGeometryRec</structname>’s
+ shape array.
 </para>
 
 <para><programlisting>
@@ -1559,12 +1559,10 @@ to look up the alternate name, which it returns.
 <para>
 Xkb provides functions to add a single new element to the top-level keyboard
 geometry. In each case the
-<emphasis>num_</emphasis>
-<emphasis>*</emphasis>
+<structfield>num_<replaceable>*</replaceable></structfield>
  fields of the corresponding structure is incremented by 1. These functions do
 not change
-<emphasis>sz_</emphasis>
-<emphasis>*</emphasis>
+<structfield>sz_<replaceable>*</replaceable></structfield>
  unless there is no more room in the array. Some of these functions fill in the
 values of the element’s structure from the arguments. For other functions,
 you must explicitly write code to fill the structure’s elements.
@@ -2455,17 +2453,13 @@ keyboard geometry. Use these functions to create or modify keyboard geometries.
 Note that these functions merely allocate space for the new element(s), and it
 is up to you to fill in the values explicitly in your code. These allocation
 functions increase
-<emphasis>sz_</emphasis>
-<emphasis>*</emphasis>
+<structfield>sz_<replaceable>*</replaceable></structfield>
  but never touch
-<emphasis>num_</emphasis>
-<emphasis>*</emphasis>
+<structfield>num_<replaceable>*</replaceable></structfield>
  (unless there is an allocation failure, in which case they reset both
-<emphasis>sz_</emphasis>
-<emphasis>*</emphasis>
+<structfield>sz_<replaceable>*</replaceable></structfield>
  and
-<emphasis>num_</emphasis>
-<emphasis>*</emphasis>
+<structfield>num_<replaceable>*</replaceable></structfield>
  to zero). These functions return
 <symbol>Success</symbol>
  if they succeed,

@@ -972,7 +972,7 @@ and
 the latched group, and the locked group, respectively. The X
 server can set the modifier and compatibility state fields to
 a union of the core modifier mask bits; this union represents the
-corresponding modifier states. The <emphasis>ptr_button</emphasis>
+corresponding modifier states. The <structfield>ptr_buttons</structfield>
  field gives the state of the core pointer buttons as a
 mask composed of an inclusive OR of zero or more of the
 core pointer button masks.

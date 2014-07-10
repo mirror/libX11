@@ -130,15 +130,15 @@ the entry represents an index into the
 The reason the
 <structfield>acts</structfield>
  field is a linear list of
-<structname>XkbAction</structname>
-s is to reduce the memory consumption associated with a keymap. Because Xkb
+<structname>XkbAction</structname>s
+ is to reduce the memory consumption associated with a keymap. Because Xkb
 allows individual keys to have multiple shift levels and a different number of
 groups per key, a single two-dimensional array of
 <emphasis>KeySyms</emphasis>
  would potentially be very large and sparse. Instead, Xkb provides a small
 two-dimensional array of
-<structname>XkbAction</structname>
-s for each key. To store all of these individual arrays, Xkb concatenates each
+<structname>XkbAction</structname>s
+ for each key. To store all of these individual arrays, Xkb concatenates each
 array together in the
 <structfield>acts</structfield>
  field of the server map.
@@ -588,7 +588,7 @@ have an associated data structure.
   </row>
   <row>
     <entry><symbol>XkbSA_ActionMessage</symbol></entry>
-    <entry><emphasis>XkbMessgeAction</emphasis></entry>
+    <entry><structname>XkbMessageAction</structname></entry>
     <entry>msg</entry>
     <entry>16.1.11</entry>
   </row>
@@ -810,9 +810,9 @@ modifier mapping of the key. Otherwise, the action modifiers are set to the
 modifiers specified by the
 <structfield>mask</structfield>,
 <structfield>real_mods</structfield>,
-<emphasis>vmod1</emphasis>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmod2</emphasis>
+<structfield>vmods2</structfield>
  fields.
     </entry>
   </row>
@@ -1751,8 +1751,7 @@ The
 <link linkend="table16.8">Table 16.8</link>.
  A general meaning is given in the table, but the exact meaning depends on
 the action
-<structfield>type</structfield>.
-:
+<structfield>type</structfield>:
 </para>
 
 <table id='table16.8' frame='topbot'>
@@ -2245,9 +2244,9 @@ modifier mapping of the key. Otherwise, the action modifiers are set to the
 modifiers specified by the
 <structfield>mask</structfield>,
 <structfield>real_mods</structfield>,
-<emphasis>vmod1</emphasis>,
+<structfield>vmods1</structfield>,
 and
-<emphasis>vmod2</emphasis>
+<structfield>vmods2</structfield>
  fields.
     </entry>
   </row>
@@ -2440,7 +2439,7 @@ If
 
 <para>
 Actions associated with the
-<emphasis>XkbSwitchScreen</emphasis>
+<structname>XkbSwitchScreenAction</structname>
  action structure change the active screen on a multiscreen display:
 </para>
 
@@ -3062,8 +3061,8 @@ The
  is
 <symbol>False</symbol>
 ) event is also sent to the client. As with all other Xkb events,
-<structname>XkbActionMessageEvent</structname>
-s are delivered to all clients requesting them, regardless of the current
+<structname>XkbActionMessageEvent</structname>s
+ are delivered to all clients requesting them, regardless of the current
 keyboard focus. However, the
 <symbol>KeyPress</symbol>
  or
@@ -3587,7 +3586,7 @@ The low four bits of
  and
 <structfield>v2_what</structfield>
  specify the corresponding scale value (denoted
-<emphasis>val&lt;n&gt;Scale</emphasis>
+<structfield>val&lt;n&gt;Scale</structfield>
  in <link linkend="table16.17">Table 16.17</link>), if needed.
  The high four bits of
 <structfield>v1_what</structfield>
@@ -3599,7 +3598,7 @@ The low four bits of
 <structfield>v2_what</structfield>
  can have the values shown in <link linkend="table16.17">Table 16.17</link>;
  the use of
-<emphasis>val&lt;n&gt;Scale</emphasis>
+<structfield>val&lt;n&gt;Scale</structfield>
  is shown in that table also.
 </para>
 
@@ -3623,34 +3622,34 @@ The low four bits of
   <row>
     <entry><symbol>XkbSA_SetValMin</symbol></entry>
     <entry>
-<emphasis>v&lt;n&gt;_value</emphasis> is set to its minimum legal value.
+<structfield>v&lt;n&gt;_value</structfield> is set to its minimum legal value.
     </entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetValCenter</symbol></entry>
     <entry>
-<emphasis>v&lt;n&gt;_value</emphasis>is centered (to (max-min)/2).
+<structfield>v&lt;n&gt;_value</structfield>is centered (to (max-min)/2).
     </entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetValMax</symbol></entry>
     <entry>
-<emphasis>v&lt;n&gt;_value</emphasis> is set to its maximum legal value.
+<structfield>v&lt;n&gt;_value</structfield> is set to its maximum legal value.
     </entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetValRelative</symbol></entry>
     <entry>
-<emphasis>v&lt;n&gt;_value</emphasis> * (2
-<emphasis>val&lt;n&gt;Scale</emphasis>) is added to
-<emphasis>v&lt;n&gt;_value</emphasis>.
+<structfield>v&lt;n&gt;_value</structfield> * (2
+<structfield>val&lt;n&gt;Scale</structfield>) is added to
+<structfield>v&lt;n&gt;_value</structfield>.
     </entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetValAbsolute</symbol></entry>
     <entry>
-<emphasis>v&lt;n&gt;_value</emphasis>
- is set to (2 <emphasis>val&lt;n&gt;Scale</emphasis>).
+<structfield>v&lt;n&gt;_value</structfield>
+ is set to (2 <structfield>val&lt;n&gt;Scale</structfield>).
     </entry>
   </row>
 </tbody>
@@ -3978,7 +3977,7 @@ Keys that belong to the same radio group have the
  structure. If the radio group has a name in the
 <structname>XkbNamesRec</structname>
  structure, the radio group index is the index into the
-<emphasis>radio_group</emphasis>
+<structfield>radio_group</structfield>
  array in the
 <structname>XkbNamesRec</structname>
  structure. A radio group key when pressed stays logically down until another
@@ -4106,8 +4105,8 @@ If the
 <structfield>data</structfield>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
-<structfield>data</structfield>
-’s keycode. Otherwise, press and release events are processed normally.
+<structfield>data</structfield>’s
+ keycode. Otherwise, press and release events are processed normally.
     </entry>
   </row>
   <row>
@@ -4119,8 +4118,8 @@ If the
 <structfield>data</structfield>
  is interpreted as a keycode, and events from this key are reported as if they
 came from
-<structfield>data</structfield>
-’s keycode. Otherwise, press and release events are processed normally.
+<structfield>data</structfield>’s
+ keycode. Otherwise, press and release events are processed normally.
     </entry>
   </row>
 </tbody>
@@ -4667,7 +4666,7 @@ the virtual modifier mask. For each bit set in
 <parameter>which</parameter>,
 <function>XkbGetVirtualMods</function>
  updates the corresponding virtual modifier definition in the
-<emphasis>server-&gt;vmods</emphasis>
+<structfield>server-&gt;vmods</structfield>
  array of
 <parameter>xkb</parameter>.
 The

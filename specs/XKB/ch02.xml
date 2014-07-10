@@ -671,9 +671,9 @@ to the core protocol error set. This error code will be reported as the
  error is reported in an
 <structname>XErrorEvent</structname>,
 additional information is reported in the
-<emphasis>resource_id</emphasis>
+<structfield>resourceid</structfield>
  field. The most significant byte of the
-<emphasis>resource_id</emphasis>
+<structfield>resource_id</structfield>
  is a further refinement of the error cause, as defined in
 <link linkend="table2.2">Table 2.2</link>. The least
 significant byte will contain the device, class, or feedback ID as indicated in

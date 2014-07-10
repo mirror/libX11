@@ -134,9 +134,9 @@ keyboard feedback and the core indicator feedback may be obtained by calling
  as the
 <parameter>device_spec</parameter>
 ; the values will be returned in
-<emphasis>dflt_kbd_id</emphasis>
+<structfield>dflt_kbd_fb</structfield>
  and
-<emphasis>dflt_led_id</emphasis>.
+<structfield>dflt_led_fb</structfield>.
 </para>
 
 
@@ -476,9 +476,9 @@ The
 <structfield>supported</structfield>,
 <structfield>unsupported</structfield>,
 <structfield>has_own_state</structfield>,
-<emphasis>dflt_kbd_fd</emphasis>,
+<structfield>dflt_kbd_fb</structfield>,
 and
-<structfield>dflt_kbd_fb</structfield>.
+<structfield>dflt_led_fb</structfield>.
 Other fields are filled in as specified by
 <parameter>which</parameter>.
 </para>
@@ -598,8 +598,8 @@ the
 <parameter>device_spec</parameter>
  field of the structure. Only the parts of the structure indicated in the
 function description are updated. The
-<emphasis>XkbDeviceInfo</emphasis>
-Rec structure used in the function call can be obtained by calling
+<structname>XkbDeviceInfoRec</structname>
+structure used in the function call can be obtained by calling
 XkbGetDeviceInfo or can be allocated by calling XkbAllocDeviceInfo
 (see <link linkend="Allocating_Initializing_and_Freeing_the_XkbDeviceInfoRecStructure">section 21.3</link>).
 </para>
@@ -859,7 +859,9 @@ and
 The fields of
 <parameter>device_info</parameter>
  that are filled in when this request succeeds are
-<emphasis>name, type, supported</emphasis>,
+<structfield>name</structfield>,
+<structfield>type</structfield>,
+<structfield>supported</structfield>,
 and
 <structfield>unsupported</structfield>,
 and portions of the
@@ -871,7 +873,7 @@ and portions of the
  as indicated by the bits set in
 <parameter>which</parameter>.
 The
-<emphasis>device_info-&gt;leds</emphasis>
+<structfield>device_info-&gt;leds</structfield>
  vector is allocated if necessary and
 <structfield>sz_leds</structfield>
  and
@@ -1016,7 +1018,7 @@ To obtain an
 <parameter>n_buttons</parameter>
  is nonzero,
 <parameter>n_buttons</parameter>
-<emphasis>XkbActions</emphasis>
+<structname>XkbAction</structname>s
  are linked into the
 <structname>XkbDeviceInfoRec</structname>
  structure and initialized to zero. If sz_leds is nonzero,
@@ -1147,7 +1149,7 @@ To initialize an
  and
 <parameter>led_id</parameter>
  already exists in the
-<emphasis>device_info-&gt;leds</emphasis>
+<structfield>device_info-&gt;leds</structfield>
  array. If it finds a matching entry, it returns a pointer to that entry.
 Otherwise, it checks to be sure there is at least one empty entry in
 <parameter>device_info</parameter>
@@ -1537,8 +1539,8 @@ extension devices other than the core keyboard device. If the
  is set in
 <parameter>which</parameter>,
 the actions for all buttons specified in device_info are set to the
-<structname>XkbAction</structname>
-s specified in
+<structname>XkbAction</structname>s
+ specified in
 <parameter>device_info</parameter>
 -&gt;
 <structfield>btn_acts</structfield>.
@@ -1604,9 +1606,7 @@ feedback for the device in question, a
  error results. If any of the values in
 <parameter>device_info</parameter>
 -&gt;
-<structfield>leds</structfield>
-<emphasis>-&gt;</emphasis>
-<structfield>names</structfield>
+<structfield>leds-&gt;names</structfield>
  are not a valid Atom or
 <symbol>None</symbol>,
 a

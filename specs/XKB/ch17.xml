@@ -132,7 +132,7 @@ subsequent transformations have a particular result.
 All configurable aspects of mapping Xkb state and configuration to and from
 core protocol state and configuration are defined by a compatibility map,
 contained in an
-<emphasis>XkbCompatMap</emphasis>
+<structname>XkbCompatMapRec</structname>
  structure; plus a set of explicit override controls used to prevent particular
 components of type 2 (core-to-Xkb keyboard mapping) transformations from
 automatically occurring. These explicit override controls are maintained in a
@@ -146,7 +146,7 @@ The
  member of an Xkb keyboard description (
 <structname>XkbDescRec</structname>
 ) points to the
-<emphasis>XkbCompatMap</emphasis>
+<structname>XkbCompatMapRec</structname>
  structure:
 </para>
 
@@ -1623,7 +1623,7 @@ server using
 and
 <structfield>num_total_si</structfield>
  are appropriate for use with the
-<emphasis>compat.sym_interpret</emphasis>
+<structfield>compat.sym_interpret</structfield>
  vector in this structure.
 </para>
 
@@ -1708,7 +1708,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
 <parameter>num_si</parameter>
  specifies the total number of entries to allocate in the symbol interpretation
 vector (
-<emphasis>xkb.compat.sym_interpret</emphasis>
+<structfield>xkb.compat.sym_interpret</structfield>
 ).
 </para>
 
@@ -1793,7 +1793,7 @@ To free an entire compatibility map or selected portions of one, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; free <emphasis>XkbCompatMap</emphasis>
+        <symbol>True</symbol> =&gt; free <structname>XkbCompatMapRec</structname>
          structure itself
       </para>
     </listitem>
@@ -1814,7 +1814,7 @@ in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 
 <para>
 <parameter>free_map</parameter>
  indicates whether the
-<emphasis>XkbCompatMap</emphasis>
+<structname>XkbCompatMapRec</structname>
  structure itself should be freed. If
 <parameter>free_map</parameter>
  is

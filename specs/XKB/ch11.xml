@@ -277,9 +277,8 @@ used when the
 <emphasis>ComposeLED</emphasis>
  control is implemented, a consistent convention between implementations is to
 everyone’s benefit. If a named indicator is used for this purpose, the
-recommended name is "
-<emphasis>Compose</emphasis>
-". Note that some implementations may use an unnamed, custom hardware LED for
+recommended name is “<literal>Compose</literal>”.
+Note that some implementations may use an unnamed, custom hardware LED for
 this purpose.
 </para>
 
@@ -312,9 +311,7 @@ While the Xkb extension does not specify the type of bell to be used when the
 <emphasis>BeepOnComposeFail</emphasis>
  control is implemented, a consistent convention between implementations is to
 everyone’s benefit. If a named bell is used for this purpose, the recommended
-name is "
-<emphasis>ComposeFail</emphasis>
-".
+name is “<literal>ComposeFail</literal>”.
 </para>
 
 

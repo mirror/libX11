@@ -2393,7 +2393,7 @@ To set the
 It does not wait for a reply, and normally returns
 <symbol>True</symbol>.
 Specifying a value of
-<emphasis>0</emphasis>
+<literal>0</literal>
  for the
 <parameter>delay</parameter>
 parameter causes

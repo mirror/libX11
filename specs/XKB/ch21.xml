@@ -1778,9 +1778,9 @@ To receive
  and pass
 <symbol>XkbExtensionDeviceNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -1796,9 +1796,9 @@ The
  and specifying
 <symbol>XkbAllExtensionDeviceEventsMask</symbol>
  in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
  This has the same effect as a call to
 <function>XkbSelectEvents</function>.
 </para>

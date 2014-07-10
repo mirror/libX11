@@ -990,9 +990,9 @@ To receive
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <symbol>XkbMapNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -1006,9 +1006,9 @@ To receive
  as the
 <structfield>event_type</structfield>
  and specifying the desired map changes in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  using mask bits from <link linkend="table14.1">Table 14.1</link>.
 </para>
 

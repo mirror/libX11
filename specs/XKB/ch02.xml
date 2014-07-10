@@ -663,7 +663,7 @@ Device, Feedback Class, or Feedback ID invalid
 The Xkb extension adds a single protocol error,
 <errorname>BadKeyboard</errorname>,
 to the core protocol error set. This error code will be reported as the
-<emphasis>error_rtrn</emphasis>
+<parameter>error_rtrn</parameter>
  when
 <function>XkbQueryExtension</function>
  is called. When a

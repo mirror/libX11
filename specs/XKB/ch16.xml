@@ -421,7 +421,7 @@ corresponding to
  returns the key action corresponding to group
 <parameter>grp</parameter>
  and shift level
-<emphasis>lvl</emphasis>
+<parameter>shift</parameter>
  from the two-dimensional table of key actions associated with the key
 corresponding to
 <parameter>keycode</parameter>.
@@ -2986,9 +2986,9 @@ To receive
  and pass
 <symbol>XkbActionMessageMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -3004,9 +3004,9 @@ The
  and specifying
 <symbol>XkbAllActionMessagesMask</symbol>
  in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
  This has the same effect as a call to
 <function>XkbSelectEvents</function>.
 </para>

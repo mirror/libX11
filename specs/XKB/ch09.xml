@@ -560,7 +560,9 @@ Otherwise,
 calls
 <function>XkbDeviceBell</function>
  with the specified
-<emphasis>display, window, percent</emphasis>,
+<parameter>display</parameter>,
+<parameter>window</parameter>,
+<parameter>percent</parameter>,
 and
 <parameter>name</parameter>,
 a
@@ -812,7 +814,9 @@ Otherwise,
 calls
 <function>XkbDeviceBellEvent</function>
  with the specified
-<emphasis>display, window, percent</emphasis>,
+<parameter>display</parameter>,
+<parameter>window</parameter>,
+<parameter>percent</parameter>,
 and
 <parameter>name</parameter>,
 a
@@ -1069,9 +1073,9 @@ To receive
  events under all possible conditions, pass
 <symbol>XkbBellNotifyMask</symbol>
  in both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameters to
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
@@ -1090,9 +1094,9 @@ can call
  and specifying
 <symbol>XkbAllBellEventsMask</symbol>
  in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
  This has the same effect as a call to
 <function>XkbSelectEvents</function>.
 </para>

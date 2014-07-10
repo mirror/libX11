@@ -190,9 +190,9 @@ To receive name notify events, use
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
 <symbol>XkbNewKeyboardNotifyMask</symbol>
  in both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameters. To receive events for only specific names, use
 <function>XkbSelectEventDetails</function>.
 Set the
@@ -200,9 +200,9 @@ Set the
  parameter to
 <symbol>XkbNewKeyboardNotify</symbol>,
 and set both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  detail parameter to a mask composed of a bitwise OR of masks in
 <link linkend="table19.1">Table 19.1</link>.
 </para>

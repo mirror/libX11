@@ -883,9 +883,9 @@ To receive
  and pass
 <symbol>XkbStateNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -899,9 +899,9 @@ To receive
  as the
 <structfield>event_type</structfield>
  and specifying the desired state changes in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  using mask bits from <link linkend="table5.3">Table 5.3</link>.
 </para>
 

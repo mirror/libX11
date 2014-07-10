@@ -447,7 +447,7 @@ If the
  obtains the values specified by
 <parameter>which</parameter>
  and copies them into the keyboard description
-<emphasis>Xkb</emphasis>.
+<parameter>xkb</parameter>.
 </para>
 
 
@@ -840,9 +840,9 @@ server sends a
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
 <symbol>XkbNamesNotifyMask</symbol>
  in both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameters.
 </para>
 
@@ -855,9 +855,9 @@ Set the
  parameter to
 <symbol>XkbNamesNotify</symbol>,
 and set both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  detail parameter to a mask composed of a bitwise OR of masks in
 <link linkend="table18.1">Table 18.1</link>.
 </para>

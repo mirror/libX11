@@ -1364,8 +1364,8 @@ the vector of
  copies compatibility map information from the keyboard description in
 <parameter>xkb</parameter>
  to the server specified in
-<parameter>display</parameter>
-’s compatibility map for the device specified by the
+<parameter>display</parameter>’s
+ compatibility map for the device specified by the
 <structfield>device_spec</structfield>
  field of
 <parameter>xkb</parameter>.
@@ -1535,9 +1535,9 @@ To receive
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <symbol>XkbCompatMapNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -1551,9 +1551,9 @@ To receive
  as the
 <structfield>event_type</structfield>
  and specifying the desired map changes in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  using mask bits from <link linkend="table17.2">Table 17.2</link>.
 </para>
 

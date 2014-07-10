@@ -1294,8 +1294,8 @@ If
  is
 <symbol>NULL</symbol>,
 the top surface is defined as the last outline in the
-<parameter>shape</parameter>
-’s array of outlines.
+<parameter>shape</parameter>’s
+ array of outlines.
 <function>XkbComputeShapeTop</function>
  returns
 <symbol>False</symbol>

@@ -1179,13 +1179,9 @@ indicator is mapped to a physical LED, the
 
 
 <para>
-Each of the "
-<emphasis>_rtrn</emphasis>
-" arguments is optional; you can pass
+Each of the "<parameter>_rtrn</parameter>" arguments is optional; you can pass
 <symbol>NULL</symbol>
- for any unneeded "
-<emphasis>_rtrn</emphasis>
-" arguments.
+ for any unneeded "<parameter>_rtrn</parameter>" arguments.
 </para>
 
 
@@ -1745,9 +1741,9 @@ To receive
  events, use
 <function>XkbSelectEvents</function>
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  parameters containing
 <symbol>XkbIndicatorStateNotifyMask</symbol>.
 To receive
@@ -1769,9 +1765,9 @@ Set the
  or
 <symbol>XkbIndicatorMapNotify</symbol>,
 and set both the
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
 and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  detail parameters to a mask where each bit specifies one indicator, turning on
 those bits that specify the indicators for which you want to receive events.
 </para>

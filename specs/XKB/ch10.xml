@@ -2115,9 +2115,9 @@ To receive
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <symbol>XkbAccessXNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -2131,9 +2131,9 @@ To receive
  as the
 <structfield>event_type</structfield>
  and specifying the desired state changes in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  using mask bits from <link linkend="table10.5">Table 10.5</link>.
 </para>
 
@@ -4725,9 +4725,9 @@ description, the server sends an
  (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <symbol>XkbControlsNotifyMask</symbol>
  in both
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>.
+<parameter>values_for_bits</parameter>.
 </para>
 
 
@@ -4741,9 +4741,9 @@ To receive
  as the
 <structfield>event_type</structfield>
  and specifying the desired state changes in
-<emphasis>bits_to_change</emphasis>
+<parameter>bits_to_change</parameter>
  and
-<emphasis>values_for_bits</emphasis>
+<parameter>values_for_bits</parameter>
  using mask bits from <link linkend="table10.7">Table 10.7</link>.
 </para>
 
@@ -4920,7 +4920,7 @@ specified in <link linkend="table10.7">Table 10.7</link> with "ok" in the
  and specified in
 <parameter>wanted</parameter>
  into the changes record specified by
-<emphasis>old</emphasis>.
+<parameter>changes</parameter>.
 </para>
 
 

@@ -143,7 +143,7 @@ The
  function reports the keysym associated with a particular index for a single
 key. The index specifies a column of symbols in the core keyboard mapping (that
 is, as reported by the core protocol
-<emphasis>GetKeyboardMapping</emphasis>
+<systemitem>GetKeyboardMapping</systemitem>
  request). The order of the symbols in the core mapping does not necessarily
 correspond to the order of the symbols used by Xkb; <link linkend="Xkb_Keyboard_Mapping_to_Core_Keyboard_Mapping_Transformations">section 17.1.3</link> describes
 the differences.

@@ -125,7 +125,7 @@ Adjusts core protocol
   <para>
 Reports keyboard mappings for keys that match the stored legal range to clients
 that issue a core protocol
-<emphasis>GetKeyboardMapping</emphasis>
+<systemitem>GetKeyboardMapping</systemitem>
  request.
   </para>
 </listitem>
@@ -133,16 +133,16 @@ that issue a core protocol
   <para>
 Reports modifier mappings only for keys that match the stored legal range to
 clients that issue a core protocol
-<emphasis>GetModifierMapping</emphasis>
+<systemitem>GetModifierMapping</systemitem>
  request.
   </para>
 </listitem>
 <listitem>
   <para>
 Restricts the core protocol
-<emphasis>ChangeKeyboardMapping</emphasis>
+<systemitem>ChangeKeyboardMapping</systemitem>
  and
-<emphasis>SetModifierMapping</emphasis>
+<systemitem>SetModifierMapping</systemitem>
  requests to keys that fall inside the stored legal range.
   </para>
 </listitem>
@@ -284,7 +284,7 @@ of a key).
 
 <para>
 If the keyboard change is the result of an X Input Extension
-<emphasis>ChangeKeyboardDevice</emphasis>
+<systemitem>ChangeKeyboardDevice</systemitem>
  request,
 <structfield>req_major</structfield>
  contains the input extension major opcode, and

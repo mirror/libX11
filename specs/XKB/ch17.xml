@@ -42,9 +42,9 @@ Xkb components to core components and vice versa. In addition, the server also
 maintains a core keyboard mapping that approximates the Xkb keyboard mapping.
 The core keyboard mapping may be updated piecemeal, on a per-key basis. When
 the server receives a core protocol
-<emphasis>ChangeKeyboardMapping</emphasis>
+<systemitem>ChangeKeyboardMapping</systemitem>
  or
-<emphasis>SetModifierMapping</emphasis>
+<systemitem>SetModifierMapping</systemitem>
  request, it updates its core keyboard mapping, then uses the compatibility map
 to update its Xkb keyboard mapping. When the server receives an
 <function>XkbSetMap</function>
@@ -98,9 +98,9 @@ Xkb state in the server.
     <para>
 After core protocol requests received by the server to change the keyboard
 mapping (
-<emphasis>ChangeKeyboardMapping</emphasis>
+<systemitem>ChangeKeyboardMapping</systemitem>
  and
-<emphasis>SetModifierMapping</emphasis>
+<systemitem>SetModifierMapping</systemitem>
 ) have been applied to the server’s core keyboard map, the results must be
 transformed to achieve an equivalent change of the Xkb keyboard mapping
 maintained by the server.

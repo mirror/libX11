@@ -1200,11 +1200,11 @@ The entire list of key symbols for the keyboard mapping is held in the
 <structfield>syms</structfield>
  field of the client map. Whereas the core keyboard mapping is a
 two-dimensional array of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  whose rows are indexed by keycode, the
 <structfield>syms</structfield>
  field of Xkb is a linear list of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  that needs to be indexed uniquely for each key. This section describes the key
 symbol map and the methods for determining the symbols bound to a key.
 </para>
@@ -1214,14 +1214,14 @@ symbol map and the methods for determining the symbols bound to a key.
 The reason the
 <structfield>syms</structfield>
  field is a linear list of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  is to reduce the memory consumption associated with a keymap; because Xkb
 allows individual keys to have multiple shift levels and a different number of
 groups per key, a single two-dimensional array of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  would potentially be very large and sparse. Instead, Xkb provides a small
 two-dimensional array of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  for each key. To store all of these individual arrays, Xkb concatenates each
 array together in the
 <structfield>syms</structfield>
@@ -1231,7 +1231,7 @@ array together in the
 
 <para>
 In order to determine which
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  in the
 <structfield>syms</structfield>
  field are associated with each keycode, the client map contains an array of
@@ -1690,7 +1690,7 @@ symbols or set of types bound to a key are changed.
 <para>
 The key width and number of groups associated with a key are used to form a
 small two-dimensional array of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  for a key. This array may be different sizes for different keys. The array for
 a single key is stored as a linear list, in row-major order. The arrays for all
 of the keys are stored in the
@@ -2007,7 +2007,7 @@ corresponding to
 <para>
 <function>XkbKeySymEntry</function>
  returns the
-<emphasis>keysym</emphasis>
+<type>KeySym</type>
  corresponding to shift level
 <parameter>shift</parameter>
  and group

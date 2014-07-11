@@ -134,7 +134,7 @@ The reason the
  is to reduce the memory consumption associated with a keymap. Because Xkb
 allows individual keys to have multiple shift levels and a different number of
 groups per key, a single two-dimensional array of
-<emphasis>KeySyms</emphasis>
+<type>KeySym</type>s
  would potentially be very large and sparse. Instead, Xkb provides a small
 two-dimensional array of
 <structname>XkbAction</structname>s

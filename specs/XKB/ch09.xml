@@ -1130,7 +1130,7 @@ typedef struct _XkbBellNotify {
       unsigned int    bell_id;     /* X input extension feedback ID */
       Atom            name;        /* "name" of requested bell */
       Window          window;      /* window associated with event */
-      Bool            event_only;  /* <symbol>False</symbol> -&gt; the server did not produce a beep */
+      Bool            event_only;  /* <symbol>False</symbol> &rarr; the server did not produce a beep */
 } <structname>XkbBellNotifyEvent</structname>;
 </programlisting></para>
 

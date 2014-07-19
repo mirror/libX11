@@ -436,7 +436,7 @@ them delivered under all conditions, use
     </term>
     <listitem>
       <para>
-        1&rArr;select, 0-&gt;deselect; for events in <parameter>bits_to_change</parameter>
+        1&rArr;select, 0&rarr;deselect; for events in <parameter>bits_to_change</parameter>
       </para>
     </listitem>
   </varlistentry>

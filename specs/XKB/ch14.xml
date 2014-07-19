@@ -402,7 +402,7 @@ information on these functions.
       <para><function>XkbCopyKeyType</function></para>
       <para><function>XkbCopyKeyTypes</function></para>
     </entry>
-    <entry>15.2</entry>
+    <entry><link linkend="Key_Types">15.2</link></entry>
   </row>
   <row>
     <entry><symbol>XkbKeySymsMask</symbol></entry>
@@ -419,7 +419,7 @@ information on these functions.
       <para><function>XkbResizeKeySyms</function></para>
       <para><function>XkbChangeTypes&#xAD;OfKey</function></para>
     </entry>
-    <entry>15.3</entry>
+    <entry><link linkend="Key_Symbol_Map">15.3</link></entry>
   </row>
   <row>
     <entry><symbol>XkbModifierMapMask</symbol></entry>
@@ -427,7 +427,7 @@ information on these functions.
     <entry>client</entry>
     <entry><structfield>modmap</structfield></entry>
     <entry><function>XkbGetKeyModifier&#xAD;Map</function></entry>
-    <entry>15.4</entry>
+    <entry><link linkend="The_Per_Key_Modifier_Map">15.4</link></entry>
   </row>
   <row>
     <entry><symbol>XkbExplicitComponentsMask</symbol></entry>
@@ -435,7 +435,7 @@ information on these functions.
     <entry>server</entry>
     <entry><structfield>explicit</structfield></entry>
     <entry><function>XkbGetKeyExplicit&#xAD;Components</function></entry>
-    <entry>16.3</entry>
+    <entry><link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">16.3</link></entry>
   </row>
   <row>
     <entry><symbol>XkbKeyActionsMask</symbol></entry>
@@ -451,7 +451,7 @@ information on these functions.
       <para><function>XkbGetKeyActions</function></para>
       <para><function>XkbResizeKey&#xAD;Actions</function></para>
     </entry>
-    <entry>16.1</entry>
+    <entry><link linkend="Key_Actions">16.1</link></entry>
   </row>
   <row>
     <entry><symbol>XkbKeyBehaviorsMask</symbol></entry>
@@ -459,7 +459,7 @@ information on these functions.
     <entry>server</entry>
     <entry><structfield>behaviors</structfield></entry>
     <entry><function>XkbGetKey&#xAD;Behaviors</function></entry>
-    <entry>16.2</entry>
+    <entry><link linkend="Key_Behavior">16.2</link></entry>
   </row>
   <row>
     <entry><symbol>XkbVirtualModsMask</symbol></entry>
@@ -467,7 +467,7 @@ information on these functions.
     <entry>server</entry>
     <entry><structfield>vmods</structfield></entry>
     <entry><function>XkbGetVirtualMods</function></entry>
-    <entry>16.4</entry>
+    <entry><link linkend="Virtual_Modifier_Mapping">16.4</link></entry>
   </row>
   <row>
     <entry><symbol>XkbVirtualModMapMask</symbol></entry>
@@ -475,7 +475,7 @@ information on these functions.
     <entry>server</entry>
     <entry><structfield>vmodmap</structfield></entry>
     <entry><function>XkbGetVirtualMod&#xAD;Map</function></entry>
-    <entry>16.4</entry>
+    <entry><link linkend="Virtual_Modifier_Mapping">16.4</link></entry>
   </row>
 </tbody>
 </tgroup>

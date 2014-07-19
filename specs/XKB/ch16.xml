@@ -536,7 +536,7 @@ have an associated data structure.
     </entry>
     <entry><para><structname>XkbModAction</structname></para></entry>
     <entry>mods</entry>
-    <entry>16.1.3</entry>
+    <entry><link linkend="Actions_for_Changing_Modifiers_State">16.1.3</link></entry>
   </row>
   <row>
     <entry>
@@ -546,13 +546,13 @@ have an associated data structure.
     </entry>
     <entry><structname>XkbGroupAction</structname></entry>
     <entry>group</entry>
-    <entry>16.1.4</entry>
+    <entry><link linkend="Actions_for_Changing_Group_State">16.1.4</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_MovePtr</symbol></entry>
     <entry><structname>XkbPtrAction</structname></entry>
     <entry>ptr</entry>
-    <entry>16.1.5</entry>
+    <entry><link linkend="Actions_for_Moving_the_Pointer">16.1.5</link></entry>
   </row>
   <row>
     <entry>
@@ -560,25 +560,25 @@ have an associated data structure.
 <para><symbol>XkbSA_LockPtrBtn</symbol></para>
     </entry>
     <entry><structname>XkbPtrBtnAction</structname></entry><entry>btn</entry>
-    <entry>16.1.6</entry>
+    <entry><link linkend="Actions_for_Simulating_Pointer_Button_Press_and_Release">16.1.6</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SetPtrDflt</symbol></entry>
     <entry><structname>XkbPtrDfltAction</structname></entry>
     <entry>dflt</entry>
-    <entry>16.1.7</entry>
+    <entry><link linkend="Actions_for_Changing_the_Pointer_Button_Simulated">16.1.7</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_ISOLock</symbol></entry>
     <entry><structname>XkbISOAction</structname></entry>
     <entry>iso</entry>
-    <entry>16.1.8</entry>
+    <entry><link linkend="Actions_for_Locking_Modifiers_and_Group">16.1.8</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_SwitchScreen</symbol></entry>
     <entry><structname>XkbSwitchScreenAction</structname></entry>
     <entry>screen</entry>
-    <entry>16.1.9</entry>
+    <entry><link linkend="Actions_for_Changing_the_Active_Screen">16.1.9</link></entry>
   </row>
   <row>
     <entry>
@@ -587,19 +587,19 @@ have an associated data structure.
     </entry>
     <entry><structname>XkbCtrlsAction</structname></entry>
     <entry>ctrls</entry>
-    <entry>16.1.10</entry>
+    <entry><link linkend="Actions_for_Changing_Boolean_Controls_State">16.1.10</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_ActionMessage</symbol></entry>
     <entry><structname>XkbMessageAction</structname></entry>
     <entry>msg</entry>
-    <entry>16.1.11</entry>
+    <entry><link linkend="Actions_for_Generating_Messages">16.1.11</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_RedirectKey</symbol></entry>
     <entry><structname>XkbRedirectKeyAction</structname></entry>
     <entry>redirect</entry>
-    <entry>16.1.12</entry>
+    <entry><link linkend="Actions_for_Generating_a_Different_Keycode">16.1.12</link></entry>
   </row>
   <row>
     <entry>
@@ -608,13 +608,13 @@ have an associated data structure.
     </entry>
     <entry><structname>XkbDeviceBtnAction</structname></entry>
     <entry>devbtn</entry>
-    <entry>16.1.13</entry>
+    <entry><link linkend="Actions_for_Generating_DeviceButtonPress_and_DeviceButtonRelease">16.1.13</link></entry>
   </row>
   <row>
     <entry><symbol>XkbSA_DeviceValuator</symbol></entry>
     <entry><structname>XkbDeviceValuatorAction</structname></entry>
     <entry>devval</entry>
-    <entry>16.1.14</entry>
+    <entry><link linkend="Actions_for_Simulating_Events_from_Device_Valuators">16.1.14</link></entry>
   </row>
 </tbody>
 </tgroup>

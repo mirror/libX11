@@ -94,62 +94,62 @@ event.
 <row>
   <entry><symbol>XkbNewKeyboardNotify</symbol></entry>
   <entry>Keyboard geometry; keycode range change</entry>
-  <entry>19</entry>
+  <entry><link linkend="Replacing_a_Keyboard_On_the_Fly">19</link></entry>
 </row>
 <row>
   <entry><symbol>XkbMapNotify</symbol></entry>
   <entry>Keyboard mapping change</entry>
-  <entry>14.4</entry>
+  <entry><link linkend="Tracking_Changes_to_Map_Components">14.4</link></entry>
 </row>
 <row>
   <entry><symbol>XkbStateNotify</symbol></entry>
   <entry>Keyboard state change</entry>
-  <entry>5.4</entry>
+  <entry><link linkend="Tracking_Keyboard_State">5.4</link></entry>
 </row>
 <row>
   <entry><symbol>XkbControlsNotify</symbol></entry>
   <entry>Keyboard controls state change</entry>
-  <entry>10.11</entry>
+  <entry><link linkend="Tracking_Changes_to_Keyboard_Controls">10.11</link></entry>
 </row>
 <row>
   <entry><symbol>XkbIndicatorStateNotify</symbol></entry>
   <entry>Keyboard indicators state change</entry>
-  <entry>8.5</entry>
+  <entry><link linkend="Tracking_Changes_to_Indicator_State_or_Map">8.5</link></entry>
 </row>
 <row>
   <entry><symbol>XkbIndicatorMapNotify</symbol></entry>
   <entry>Keyboard indicators map change</entry>
-  <entry>8.5</entry>
+  <entry><link linkend="Tracking_Changes_to_Indicator_State_or_Map">8.5</link></entry>
 </row>
 <row>
   <entry><symbol>XkbNamesNotify</symbol></entry>
   <entry>Keyboard name change</entry>
-  <entry>18.5</entry>
+  <entry><link linkend="Tracking_Name_Changes">18.5</link></entry>
 </row>
 <row>
   <entry><symbol>XkbCompatMapNotify</symbol></entry>
   <entry>Keyboard compatibility map change</entry>
-  <entry>17.5</entry>
+  <entry><link linkend="Tracking_Changes_to_the_Compatibility_Map">17.5</link></entry>
 </row>
 <row>
   <entry><symbol>XkbBellNotify</symbol></entry>
   <entry>Keyboard bell generated</entry>
-  <entry>9.4</entry>
+  <entry><link linkend="Detecting_Bells">9.4</link></entry>
 </row>
 <row>
   <entry><symbol>XkbActionMessage</symbol></entry>
   <entry>Keyboard action message</entry>
-  <entry>16.1.11</entry>
+  <entry><link linkend="Actions_for_Generating_Messages">16.1.11</link></entry>
 </row>
 <row>
   <entry><symbol>XkbAccessXNotify</symbol></entry>
   <entry>AccessX state change</entry>
-  <entry>10.6.4</entry>
+  <entry><link linkend="AccessXNotify_Events">10.6.4</link></entry>
 </row>
 <row>
   <entry><symbol>XkbExtensionDeviceNotify</symbol></entry>
   <entry>Extension device change</entry>
-  <entry>21.6</entry>
+  <entry><link linkend="Tracking_Changes_to_Extension_Devices">21.6</link></entry>
 </row>
 </tbody>
 </tgroup>

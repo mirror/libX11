@@ -79,189 +79,77 @@ event.
 <table id='table4.1' frame='topbot'>
 <title>Xkb Event Types</title>
 <?dbfo keep-together="always" ?>
-<tgroup cols='4' align='left' colsep='0' rowsep='0'>
+<tgroup cols='3' align='left' colsep='0' rowsep='0'>
 <colspec colname='c1' colwidth='3.0*'/>
 <colspec colname='c2' colwidth='4.0*'/>
 <colspec colname='c3' colwidth='1.0*'/>
-<colspec colname='c4' colwidth='1.0*'/>
 <thead>
 <row rowsep='1'>
   <entry>Event Type</entry>
   <entry>Conditions Generating Event</entry>
   <entry>Section</entry>
-  <entry>Page</entry>
 </row>
 </thead>
 <tbody>
 <row>
-  <entry>
-    <para><symbol>XkbNewKeyboardNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard geometry; keycode range change</para>
-  </entry>
-  <entry>
-    <para>19</para>
-  </entry>
-  <entry>
-    <para>187</para>
-  </entry>
+  <entry><symbol>XkbNewKeyboardNotify</symbol></entry>
+  <entry>Keyboard geometry; keycode range change</entry>
+  <entry>19</entry>
 </row>
 <row>
-  <entry>
-    <para>
-    <symbol>XkbMapNotify</symbol>
-    </para>
-  </entry>
-  <entry>
-    <para>Keyboard mapping change</para>
-  </entry>
-  <entry>
-    <para>14.4</para>
-  </entry>
-  <entry>
-    <para>122</para>
-  </entry>
+  <entry><symbol>XkbMapNotify</symbol></entry>
+  <entry>Keyboard mapping change</entry>
+  <entry>14.4</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbStateNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard state change</para>
-  </entry>
-  <entry>
-    <para>5.4</para>
-  </entry>
-  <entry>
-    <para>25</para>
-  </entry>
+  <entry><symbol>XkbStateNotify</symbol></entry>
+  <entry>Keyboard state change</entry>
+  <entry>5.4</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbControlsNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard controls state change</para>
-  </entry>
-  <entry>
-    <para>10.11</para>
-  </entry>
-  <entry>
-    <para>79</para>
-  </entry>
+  <entry><symbol>XkbControlsNotify</symbol></entry>
+  <entry>Keyboard controls state change</entry>
+  <entry>10.11</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbIndicatorStateNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard indicators state change</para>
-  </entry>
-  <entry>
-    <para>8.5</para>
-  </entry>
-  <entry>
-    <para>45</para>
-  </entry>
+  <entry><symbol>XkbIndicatorStateNotify</symbol></entry>
+  <entry>Keyboard indicators state change</entry>
+  <entry>8.5</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbIndicatorMapNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard indicators map change</para>
-  </entry>
-  <entry>
-    <para>8.5</para>
-  </entry>
-  <entry>
-    <para>45</para>
-  </entry>
+  <entry><symbol>XkbIndicatorMapNotify</symbol></entry>
+  <entry>Keyboard indicators map change</entry>
+  <entry>8.5</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbNamesNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard name change</para>
-  </entry>
-  <entry>
-    <para>18.5</para>
-  </entry>
-  <entry>
-    <para>185</para>
-  </entry>
+  <entry><symbol>XkbNamesNotify</symbol></entry>
+  <entry>Keyboard name change</entry>
+  <entry>18.5</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbCompatMapNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard compatibility map change</para>
-  </entry>
-  <entry>
-    <para>17.5</para>
-  </entry>
-  <entry>
-    <para>178</para>
-  </entry>
+  <entry><symbol>XkbCompatMapNotify</symbol></entry>
+  <entry>Keyboard compatibility map change</entry>
+  <entry>17.5</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbBellNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard bell generated</para>
-  </entry>
-  <entry>
-    <para>9.4</para>
-  </entry>
-  <entry>
-    <para>52</para>
-  </entry>
+  <entry><symbol>XkbBellNotify</symbol></entry>
+  <entry>Keyboard bell generated</entry>
+  <entry>9.4</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbActionMessage</symbol></para>
-  </entry>
-  <entry>
-    <para>Keyboard action message</para>
-  </entry>
-  <entry>
-    <para>16.1.11</para>
-  </entry>
-  <entry>
-    <para>155</para>
-  </entry>
+  <entry><symbol>XkbActionMessage</symbol></entry>
+  <entry>Keyboard action message</entry>
+  <entry>16.1.11</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbAccessXNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>AccessX state change</para>
-  </entry>
-  <entry>
-    <para>10.6.4</para>
-  </entry>
-  <entry>
-    <para>65</para>
-  </entry>
+  <entry><symbol>XkbAccessXNotify</symbol></entry>
+  <entry>AccessX state change</entry>
+  <entry>10.6.4</entry>
 </row>
 <row>
-  <entry>
-    <para><symbol>XkbExtensionDeviceNotify</symbol></para>
-  </entry>
-  <entry>
-    <para>Extension device change</para>
-  </entry>
-  <entry>
-    <para>21.6</para>
-  </entry>
-  <entry>
-    <para>207</para>
-  </entry>
+  <entry><symbol>XkbExtensionDeviceNotify</symbol></entry>
+  <entry>Extension device change</entry>
+  <entry>21.6</entry>
 </row>
 </tbody>
 </tgroup>

@@ -643,7 +643,7 @@ should be present in the returned
 The individual fields in
 <parameter>names</parameter>
  are
-<emphasis>component expressions</emphasis>
+<firstterm>component expressions</firstterm>
  composed of keyboard component names (no wildcarding as may be used in
 <function>XkbListComponents</function>),
 the special component name symbol ‘<literal>%</literal>’,

@@ -7,7 +7,11 @@ client-side X library extension. <xref linkend="Keyboard_Controls" /> discusses 
 controls affecting the behavior of the server portion of the Xkb extension.
 This chapter discusses functions used to modify controls that affect only the
 behavior of the client portion of the extension; these controls are known as
-Library Controls.
+<firstterm>Library Controls</firstterm>.
+<indexterm significance="preferred" zone="X_Library_Controls">
+<primary>library controls</primary></indexterm>
+<indexterm significance="preferred" zone="X_Library_Controls">
+<primary>controls</primary><secondary>library</secondary></indexterm>
 </para>
 
 
@@ -58,7 +62,7 @@ enabled may be missing.
 
 <para>
 The first type of string lookups, which are here called
-<emphasis>simple string lookups</emphasis>,
+<firstterm>simple string lookups</firstterm>,
 involves translating a single keycode into a string. Because these simple
 lookups involve only a single keycode, all of the information needed to do the
 translation is contained in the keyboard state in a single event. The controls
@@ -196,7 +200,9 @@ can involve more than one key event, they require
 <function>XLookupString</function>
  to retain some state information between successive calls. The process of
 mapping a series of keysyms to a string is known as
-<emphasis>compose processing</emphasis>.
+<firstterm>compose processing</firstterm>.
+<indexterm significance="preferred" zone="Controls_Affecting_Compose_Processing">
+<primary>compose processing</primary></indexterm>
 The controls affecting compose processing are:
 </para>
 

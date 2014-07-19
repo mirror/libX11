@@ -157,7 +157,9 @@ description or even an entire data structure for only minor changes.
 <para>
 To help you keep track of the changes you make to a local copy of the keyboard
 description, Xkb provides separate special
-<emphasis>changes</emphasis>
+<firstterm>changes</firstterm>
+<indexterm significance="preferred" zone="Making_Changes_to_the_Servers_Keyboard_Description">
+<primary>changes data structures</primary></indexterm>
  data structures for each major Xkb data structure. These data structures do
 not contain the actual changed values: they only indicate the changes that have
 been made to the structures that actually describe the keyboard.

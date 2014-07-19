@@ -49,9 +49,11 @@ The state of the core pointer buttons
 </listitem>
 </itemizedlist>
 
-<para>
+<para id='modifiers'>
 The
-<emphasis>modifiers</emphasis>
+<firstterm>modifiers</firstterm>
+<indexterm significance="preferred" zone="modifiers">
+<primary>modifiers</primary></indexterm>
  are
 <symbol>Shift</symbol>,
 <symbol>Lock</symbol>,
@@ -64,10 +66,13 @@ as defined by the core protocol. A modifier can be thought of as a toggle that i
 </para>
 
 
-<para>
+<para id='keysym_groups'>
 The Xkb extension provides support for
-<emphasis>keysym</emphasis>
-<emphasis>groups</emphasis>,
+<firstterm>keysym groups</firstterm>,
+<indexterm significance="preferred" zone="keysym_groups">
+<primary>keysym groups</primary></indexterm>
+<indexterm significance="preferred" zone="keysym_groups">
+<primary>group</primary><secondary>keysym</secondary></indexterm>
 as defined by ISO9995:
 </para>
 
@@ -99,7 +104,7 @@ Changing to a different group changes the keyboard state to produce characters f
 
 <para>
 The
-<emphasis>pointer buttons</emphasis>
+<firstterm>pointer buttons</firstterm>
  are
 <symbol>Button1</symbol>
  -
@@ -108,11 +113,19 @@ as defined by the core protocol.
 </para>
 
 
-<para>
+<para id='base_group'>
 The
-<emphasis>base group</emphasis>
+<firstterm>base group</firstterm>
+<indexterm significance="preferred" zone="base_group">
+<primary>base group</primary></indexterm>
+<indexterm significance="preferred" zone="base_group">
+<primary>group</primary><secondary>base</secondary></indexterm>
  and
-<emphasis>base modifiers</emphasis>
+<firstterm>base modifiers</firstterm>
+<indexterm significance="preferred" zone="base_group">
+<primary>base modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="base_group">
+<primary>modifiers</primary><secondary>base</secondary></indexterm>
  represent keys that are physically or logically down. These
 and the pointer buttons can be changed by keyboard activity and
 not by Xkb requests. It is possible for a key to be logically
@@ -126,16 +139,24 @@ in the X server having filtered the key release, for esoteric reasons.
 </para>
 
 
-<para>
+<para id='effective_modifiers'>
 The
-<emphasis>effective modifiers</emphasis>
+<firstterm>effective modifiers</firstterm>
+<indexterm significance="preferred" zone="effective_modifiers">
+<primary>effective modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="effective_modifiers">
+<primary>modifiers</primary><secondary>effective</secondary></indexterm>
  are the bitwise union of the locked, latched, and the base modifiers.
 </para>
 
 
-<para>
+<para id='effective_group'>
 The
-<emphasis>effective group</emphasis>
+<firstterm>effective group</firstterm>
+<indexterm significance="preferred" zone="effective_group">
+<primary>effective group</primary></indexterm>
+<indexterm significance="preferred" zone="effective_group">
+<primary>group</primary><secondary>effective</secondary></indexterm>
  is the arithmetic sum of the group indices of the latched group, locked group, and base group, which is then normalized by some function. The result is a meaningful group index.
 </para>
 
@@ -185,11 +206,16 @@ Each nonmodifier key on a keyboard has zero or more symbols, or keysyms, associa
 </para>
 
 
-<para>
+<para id='Xkb-aware'>
 A client that does not explicitly call Xkb functions, but that otherwise makes use of an X library containing the Xkb extension, will have keyboard state represented in bits 0 - 14 of the state field of events that report modifier and button state. Such a client is said to be
-<emphasis>Xkb-capable</emphasis>.
+<firstterm>Xkb-capable</firstterm>.
+<indexterm significance="preferred" zone="Xkb-aware">
+<primary>Xkb-capable client</primary></indexterm>
+
 A client that does explicitly call Xkb functions is an
-<emphasis>Xkb-aware</emphasis>
+<firstterm>Xkb-aware</firstterm>
+<indexterm significance="preferred" zone="Xkb-aware">
+<primary>Xkb-aware client</primary></indexterm>
  client. The Xkb keyboard state includes information derived from the effective state and from two server parameters that can be set through the keyboard extension. The following components of keyboard state pertain to Xkb-capable and Xkb-aware clients:
 </para>
 
@@ -206,11 +232,19 @@ grab state: grab group and grab modifiers
 </listitem>
 </itemizedlist>
 
-<para>
+<para id='lookup_state'>
 The
-<emphasis>lookup modifiers</emphasis>
+<firstterm>lookup modifiers</firstterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>lookup modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>modifiers</primary><secondary>lookup</secondary></indexterm>
  and
-<emphasis>lookup group</emphasis>
+<firstterm>lookup group</firstterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>lookup group</primary></indexterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>group</primary><secondary>lookup</secondary></indexterm>
  are represented in the state field of core X events. The modifier state and keycode of a key event are used to determine the symbols associated with the event. For
 <symbol>KeyPress</symbol>
  and
@@ -237,18 +271,34 @@ The lookup group is the same as the effective group.
 
 <para>
 When an Xkb-capable or Xkb-aware client wishes to map a keycode to a keysym, it should use the
-<emphasis>lookup state</emphasis>
+<firstterm>lookup state</firstterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>lookup state</primary></indexterm>
+<indexterm significance="preferred" zone="lookup_state">
+<primary>state</primary><secondary>lookup</secondary></indexterm>
  — the lookup group and the lookup modifiers.
 </para>
 
 
-<para>
+<para id='grab_state'>
 The
-<emphasis>grab state</emphasis>
+<firstterm>grab state</firstterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>grab state</primary></indexterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>state</primary><secondary>grab</secondary></indexterm>
  is the state used when matching events to passive grabs. If the event activates a grab, the
-<emphasis>grab modifiers</emphasis>
+<firstterm>grab modifiers</firstterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>grab modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>modifiers</primary><secondary>grab</secondary></indexterm>
  and
-<emphasis>grab group</emphasis>
+<firstterm>grab group</firstterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>grab group</primary></indexterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>group</primary><secondary>grab</secondary></indexterm>
  are represented in the state field of core X events; otherwise, the lookup state is used. The grab modifiers are computed as:
 </para>
 

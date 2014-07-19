@@ -95,7 +95,7 @@ as follows:
 The top-level keyboard geometry description includes a list of up to
 <symbol>XkbGeomMaxColors</symbol>
  (32)
-<emphasis>color names</emphasis>.
+<firstterm>color names</firstterm>.
 A color name is a string whose interpretation is not specified by Xkb. The
 <structname>XkbColorRec</structname>
  structure provides a field for this name as well as a pixel field. The pixel
@@ -107,7 +107,7 @@ using their indices in this global list.
 <listitem>
   <para>
 The top-level keyboard geometry description includes a list of
-<emphasis>geometry properties</emphasis>.
+<firstterm>geometry properties</firstterm>.
 A geometry property associates an arbitrary string with an equally arbitrary
 name. Geometry properties can be used to provide hints to programs that display
 images of keyboards, but they are not interpreted by Xkb. No other geometry
@@ -128,7 +128,7 @@ a top label.
 <listitem>
   <para>
 The top-level keyboard geometry description includes a list of
-<emphasis>key aliases</emphasis>
+<firstterm>key aliases</firstterm>
  (see <xref linkend="Symbolic_Names" />). Key aliases allow the keyboard layout designer to assign
 multiple key names to a single key.
   </para>
@@ -158,7 +158,7 @@ default the first outline, or it can be optionally specified by the
  structure. A keyboard display application can generate a simpler but still
 accurate keyboard image by displaying only the primary outlines for each shape.
 Nonrectangular keys must include a rectangular
-<emphasis>approximation</emphasis>
+<firstterm>approximation</firstterm>
  as one of the outlines associated with the shape. The approximation is not
 normally displayed but can be used by very simple keyboard display applications
 to generate a recognizable but degraded image of the keyboard.
@@ -177,7 +177,7 @@ pertains to the keyboard as a whole:
 <listitem>
   <para>
 A
-<emphasis>keyboard symbolic name</emphasis>
+<firstterm>keyboard symbolic name</firstterm>
  of type Atom to help users identify the keyboard.
   </para>
 </listitem>
@@ -194,7 +194,7 @@ describe the smallest bounding box that encloses the outline of the keyboard.
 <listitem>
   <para>
 The
-<emphasis>base color</emphasis>
+<firstterm>base color</firstterm>
  of the keyboard is the predominant color on the keyboard and is used as the
 default color for any components whose color is not explicitly specified.
   </para>
@@ -202,14 +202,14 @@ default color for any components whose color is not explicitly specified.
 <listitem>
   <para>
 The
-<emphasis>label color</emphasis>
+<firstterm>label color</firstterm>
  is the color used to draw the labels on most of the keyboard keys.
   </para>
 </listitem>
 <listitem>
   <para>
 The
-<emphasis>label font</emphasis>
+<firstterm>label font</firstterm>
  is a string that describes the font used to draw labels on most keys; label
 fonts are arbitrary strings, because Xkb does not specify the format or name
 space for font names.
@@ -285,7 +285,7 @@ outlines for the shape.
 
 <para>
 An
-<emphasis>outline</emphasis>,
+<firstterm>outline</firstterm>,
 stored in a
 <structname>XkbOutlineRec</structname>
  structure, is a list of one or more points that describes a single
@@ -340,7 +340,7 @@ shape’s list of outlines. If the
  structure is not
 <symbol>NULL</symbol>,
 it points to the primary outline. A rectangular
-<emphasis>approximation</emphasis>
+<firstterm>approximation</firstterm>
  must be included for nonrectangular keys as one of the outlines associated
 with the shape; the approximation is not normally displayed but can be used by
 very simple keyboard display applications to generate a recognizable but
@@ -426,7 +426,7 @@ components of the section, not to the keyboard as a whole.
 <listitem>
   <para>
 An optional
-<emphasis>overlay</emphasis>
+<firstterm>overlay</firstterm>
  with a name of type Atom and a list of overlay rows (described below).
   </para>
 </listitem>
@@ -500,7 +500,7 @@ Xkb supports five types of doodads:
 <listitem>
   <para>
 An
-<emphasis>indicator doodad</emphasis>
+<firstterm>indicator doodad</firstterm>
  describes one of the physical keyboard indicators. Indicator doodads specify
 the shape of the indicator, the indicator color when it is lit (
 <emphasis>on_color</emphasis>
@@ -512,7 +512,7 @@ the shape of the indicator, the indicator color when it is lit (
 <listitem>
   <para>
 An
-<emphasis>outline doodad</emphasis>
+<firstterm>outline doodad</firstterm>
  describes some aspect of the keyboard to be drawn as one or more hollow,
 closed polygons. Outline doodads specify the shape, color, and angle of
 rotation about the doodad origin at which they should be drawn.
@@ -521,7 +521,7 @@ rotation about the doodad origin at which they should be drawn.
 <listitem>
   <para>
 A
-<emphasis>solid doodad</emphasis>
+<firstterm>solid doodad</firstterm>
  describes some aspect of the keyboard to be drawn as one or more filled
 polygons. Solid doodads specify the shape, color, and angle of rotation about
 the doodad origin at which they should be drawn.
@@ -530,7 +530,7 @@ the doodad origin at which they should be drawn.
 <listitem>
   <para>
 A
-<emphasis>text doodad</emphasis>
+<firstterm>text doodad</firstterm>
  describes a text label somewhere on the keyboard. Text doodads specify the
 label string, the font and color to use when drawing the label, and the angle
 of rotation of the doodad about its origin.
@@ -539,7 +539,7 @@ of rotation of the doodad about its origin.
 <listitem>
   <para>
 A
-<emphasis>logo doodad</emphasis>
+<firstterm>logo doodad</firstterm>
 is a catch-all, which describes some other visible element of the keyboard. A
 logo doodad is essentially an outline doodad with an additional symbolic name
 that describes the element to be drawn. If a keyboard display program
@@ -638,11 +638,11 @@ The structures these doodads are stored in and the values of the
 
 <para>
 An
-<emphasis>overlay row</emphasis>
+<firstterm>overlay row</firstterm>
  (
 <structname>XkbOverlayRowRec</structname>
 ) contains a pointer to the row it overlays and a list of
-<emphasis>overlay keys</emphasis>.
+<firstterm>overlay keys</firstterm>.
 </para>
 
 
@@ -1571,7 +1571,7 @@ you must explicitly write code to fill the structure’s elements.
 
 <para>
 The top-level geometry description includes a list of
-<emphasis>geometry properties</emphasis>.
+<firstterm>geometry properties</firstterm>.
 A geometry property associates an arbitrary string with an equally arbitrary
 name. Programs that display images of keyboards can use geometry properties as
 hints, but they are not interpreted by Xkb. No other geometry structures refer

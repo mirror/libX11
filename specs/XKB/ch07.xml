@@ -28,9 +28,17 @@ the modifier mapping is changed.
 <para>
 Xkb alleviates these problems by defining virtual modifiers. In addition to the
 eight core modifiers, referred to as the
-<emphasis>real modifiers</emphasis>,
+<firstterm>real modifiers</firstterm>,
+<indexterm significance="preferred" zone="Virtual_Modifiers">
+<primary>real modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="Virtual_Modifiers">
+<primary>modifiers</primary><secondary>real</secondary></indexterm>
 Xkb provides a set of sixteen named
-<emphasis>virtual modifiers</emphasis>.
+<firstterm>virtual modifiers</firstterm>.
+<indexterm significance="preferred" zone="Virtual_Modifiers">
+<primary>virtual modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="Virtual_Modifiers">
+<primary>modifiers</primary><secondary>virtual</secondary></indexterm>
 Each virtual modifier can be bound to any set of the real modifiers
 (
 <symbol>Shift</symbol>,
@@ -104,7 +112,9 @@ These functions are discussed in <xref linkend="Symbolic_Names" />.
 
 <para>
 An Xkb
-<emphasis>modifier definition</emphasis>
+<firstterm>modifier definition</firstterm>
+<indexterm significance="preferred" zone="grab_state">
+<primary>modifier definition</primary></indexterm>
  enumerates a collection of real and virtual modifiers but does not in itself
 bind those modifiers to any particular key or to each other. Modifier
 definitions are included in a number of structures in the keyboard description
@@ -176,7 +186,11 @@ dealing with virtual modifiers in the server keyboard description are shown in
 
 <para>
 Xkb maintains a
-<emphasis>virtual modifier mapping</emphasis>,
+<firstterm>virtual modifier mapping</firstterm>,
+<indexterm significance="preferred" zone="Virtual_Modifier_Key_Mapping">
+<primary>virtual modifier mapping</primary></indexterm>
+<indexterm significance="preferred" zone="Virtual_Modifier_Key_Mapping">
+<primary>modifiers</primary><secondary>virtual mapping</secondary></indexterm>
 which lists the virtual modifiers associated with, or bound to, each key. The
 real modifiers bound to a virtual modifier always include all of the modifiers
 bound to any of the keys that specify that virtual modifier in their virtual

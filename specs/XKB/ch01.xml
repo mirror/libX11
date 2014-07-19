@@ -118,11 +118,13 @@ server and Xlib versions must be at least X11 R6.
 </figure>
 
 
-<para>
+<para id="keyboard_description">
 The server portion of the Xkb extension encompasses a database of named
 keyboard components, in unspecified format, that may be used to configure a
 keyboard. Internally, the server maintains a
-<emphasis>keyboard description</emphasis>
+<firstterm>keyboard description</firstterm>
+<indexterm significance="preferred" zone="keyboard_description">
+<primary>keyboard description</primary></indexterm>
  that includes the keyboard state and configuration (mapping). By "keyboard" we
 mean the logical keyboard device, which includes not only the physical keys,
 but also potentially a set of up to 32 indicators (usually LEDs) and bells.
@@ -231,7 +233,12 @@ description of groups and levels.
 <title>Radio Groups</title>
 
 <para>
-A radio group is a set of keys whose behavior simulates a set of radio buttons.
+<indexterm significance="preferred" zone="Radio_Groups">
+<primary>radio group</primary></indexterm>
+<indexterm significance="preferred" zone="Radio_Groups">
+<primary>group</primary><secondary>radio</secondary></indexterm>
+A <firstterm>radio group</firstterm>
+is a set of keys whose behavior simulates a set of radio buttons.
 Once a key in a radio group is pressed, it stays logically depressed until
 another key in the group is pressed, at which point the previously depressed
 key is logically released. Consequently, at most one key in a radio group can

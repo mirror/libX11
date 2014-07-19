@@ -15,11 +15,19 @@ known as Library Controls.
 Xkb contains control features that affect the entire keyboard, known as global
 keyboard controls. Some of the controls may be selectively enabled and
 disabled; these controls are known as the
-<emphasis>Boolean Controls</emphasis>.
+<firstterm>Boolean Controls</firstterm>.
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>boolean controls</primary></indexterm>
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>controls</primary><secondary>boolean</secondary></indexterm>
 Boolean Controls can be turned on or off under program control and can also
 be automatically set to an on or off condition when a client program exits. The
 remaining controls, known as the
-<emphasis>Non-Boolean Controls</emphasis>,
+<firstterm>Non-Boolean Controls</firstterm>,
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>non-boolean controls</primary></indexterm>
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>controls</primary><secondary>non-boolean</secondary></indexterm>
 are always active. The
 <structname>XkbControlsRec</structname>
  structure describes the current state of most of the global controls and the
@@ -353,9 +361,13 @@ when a program exits. This capability is controlled via two masks maintained in
 the X server on a per-client basis. There is no client-side Xkb data structure
 corresponding to these masks. Whenever the client exits for any reason, any
 boolean controls specified in the
-<emphasis>auto-reset mask</emphasis>
+<firstterm>auto-reset mask</firstterm>
+<indexterm significance="preferred" zone="The_AutoReset_Control">
+<primary>auto-reset mask</primary></indexterm>
+<indexterm significance="preferred" zone="The_AutoReset_Control">
+<primary>mask</primary><secondary>auto-reset</secondary></indexterm>
  are set to the corresponding value from the
-<emphasis>auto-reset values</emphasis>
+<firstterm>auto-reset values</firstterm>
  mask. This makes it possible for clients to "clean up after themselves"
 automatically, even if abnormally terminated. The bits used in the masks
 correspond to the
@@ -685,10 +697,10 @@ versa.
 
 <para>
 Auto-repeating keys are controlled by two attributes. The first,
-<emphasis>timeout</emphasis>,
+<firstterm>timeout</firstterm>,
 is the delay after the initial press of an auto-repeating key and the first
 generated repeat event. The second,
-<emphasis>interval</emphasis>,
+<firstterm>interval</firstterm>,
 is the delay between all subsequent generated repeat events. As with all
 boolean controls, configuring the attributes that determine how the control
 operates does not automatically enable the control as a whole; see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>.
@@ -898,7 +910,11 @@ those clients to detect the fact that a key is auto-repeating.
 
 <para>
 Xkb allows clients to request
-<emphasis>detectable auto-repeat</emphasis>.
+<firstterm>detectable auto-repeat</firstterm>.
+<indexterm significance="preferred" zone="The_DetectableAutorepeat_Control">
+<primary>detectable auto-repeat</primary></indexterm>
+<indexterm significance="preferred" zone="The_DetectableAutorepeat_Control">
+<primary>auto-repeat</primary><secondary>detectable</secondary></indexterm>
 If a client requests and the server supports
 <emphasis>DetectableAutorepeat</emphasis>,
 Xkb generates
@@ -2235,7 +2251,7 @@ just hit for a very short period of time. The
 <emphasis>SlowKeys</emphasis>
  control helps filter these accidental bumps by telling the server to wait a
 specified period, called the
-<emphasis>SlowKeys acceptance delay</emphasis>,
+<firstterm>SlowKeys acceptance delay</firstterm>,
 before delivering key events. If the key is released before this period
 elapses, no key events are generated. Users can then bump any number of keys on
 their way to the one they want without accidentally getting those characters.
@@ -2420,7 +2436,7 @@ it once, then accidentally press it again after they release it. The
  control temporarily disables a key after it has been pressed, effectively
 "debouncing" the keyboard. The period of time the key is disabled after it is
 released is known as the
-<emphasis>BounceKeys delay</emphasis>.
+<firstterm>BounceKeys delay</firstterm>.
 <emphasis>BounceKeys</emphasis>
  is a boolean control.
 </para>

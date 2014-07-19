@@ -15,7 +15,7 @@ When support for Xkb is built into the X library, the
 <function>XOpenDisplay</function>
  function looks for a compatible version of Xkb on the server. If it finds a
 compatible version, it initializes the extension and enables
-<emphasis>implicit support</emphasis>
+<firstterm>implicit support</firstterm>
  for Xkb in a number of X library functions. This makes it possible for clients
 to take advantage of nearly all Xkb features without having to be rewritten or
 even recompiled, if they are built with shared libraries. This implicit support

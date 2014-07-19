@@ -181,7 +181,11 @@ transformations are made.
 
 <para>
 As shown in <link linkend="figure17.3">Figure 17.3</link>, there are four
-<emphasis>group compatibility maps</emphasis>
+<firstterm>group compatibility maps</firstterm>
+<indexterm significance="preferred" zone="Xkb_State_to_Core_Protocol_State_Transformation">
+<primary>group compatibility map</primary></indexterm>
+<indexterm significance="preferred" zone="Xkb_State_to_Core_Protocol_State_Transformation">
+<primary>map</primary><secondary>group compatibility</secondary></indexterm>
  (contained in
 <structfield>groups</structfield>
  [0..3]) in the

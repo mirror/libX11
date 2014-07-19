@@ -11,13 +11,21 @@ utilities for manipulating the keyboard mapping.
 
 <para>
 The mapping consists of two components, a server map and a client map. The
-<emphasis>client</emphasis>
- map is the collection of information a client needs to interpret key events
+<firstterm>client map</firstterm>
+<indexterm significance="preferred" zone="Xkb_Keyboard_Mapping">
+<primary>client map</primary></indexterm>
+<indexterm significance="preferred" zone="Xkb_Keyboard_Mapping">
+<primary>map</primary><secondary>client</secondary></indexterm>
+is the collection of information a client needs to interpret key events
 from the keyboard. It contains a global list of key types and an array of key
 symbol maps, each of which describes the symbols bound to a key and the rules
 to be used to interpret those symbols. The
-<emphasis>server</emphasis>
- map contains the information the server needs to interpret key events. This
+<firstterm>server map</firstterm>
+<indexterm significance="preferred" zone="Xkb_Keyboard_Mapping">
+<primary>server map</primary></indexterm>
+<indexterm significance="preferred" zone="Xkb_Keyboard_Mapping">
+<primary>map</primary><secondary>server</secondary></indexterm>
+contains the information the server needs to interpret key events. This
 includes actions and behaviors for each key, explicit components for a key, and
 the virtual modifiers and the per-key virtual modifier mapping.
 </para>

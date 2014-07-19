@@ -641,7 +641,11 @@ typedef struct _XkbModAction {
 
 <para>
 In the following description, the term
-<emphasis>action modifiers</emphasis>
+<firstterm>action modifiers</firstterm>
+<indexterm significance="preferred" zone="Actions_for_Changing_Modifiers_State">
+<primary>action modifiers</primary></indexterm>
+<indexterm significance="preferred" zone="Actions_for_Changing_Modifiers_State">
+<primary>modifiers</primary><secondary>action</secondary></indexterm>
  means the real modifier bits associated with this action. Depending on the
 value of
 <structfield>flags</structfield>
@@ -3547,7 +3551,9 @@ the server only locks the button.
 
 <para>
 A
-<emphasis>valuator</emphasis>
+<firstterm>valuator</firstterm>
+<indexterm significance="preferred" zone="Actions_for_Simulating_Events_from_Device_Valuators">
+<primary>valuator</primary></indexterm>
  manipulates a range of values for some entity, like a mouse axis, a slider or
 a dial. Actions associated with
 <structname>XkbDeviceValuatorAction</structname>

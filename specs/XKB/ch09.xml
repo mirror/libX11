@@ -7,7 +7,11 @@ bell with a given duration, pitch, and volume. Xkb extends this capability by
 allowing clients to attach symbolic names to bells, disable audible bells, and
 receive an event whenever the keyboard bell is rung. For the purposes of this
 document, the
-<emphasis>audible</emphasis>
+<firstterm>audible</firstterm>
+<indexterm significance="preferred" zone="Bells">
+<primary>audible bell</primary></indexterm>
+<indexterm significance="preferred" zone="Bells">
+<primary>bell</primary><secondary>audible</secondary></indexterm>
  bell is defined to be the system bell, or the default keyboard bell, as
 opposed to any other audible sound generated elsewhere in the system.
 </para>

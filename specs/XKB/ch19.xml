@@ -160,6 +160,10 @@ manner; all Xkb events report the full range of legal keycodes. No requested
 Xkb events are discarded, and no Xkb requests have their keycode range clamped.
 </para>
 
+<indexterm significance="preferred" zone="Replacing_a_Keyboard_On_the_Fly">
+<primary>events</primary><secondary><symbol>XkbNewKeyboardNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Replacing_a_Keyboard_On_the_Fly">
+<primary><structname>XkbNewKeyboardNotifyEvent</structname></primary></indexterm>
 
 <para>
 The structure for the

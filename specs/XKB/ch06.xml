@@ -14,6 +14,9 @@ document that discuss the major Xkb components in detail.
 <sect1 id='The_XkbDescRec_Structure'>
 <title>The XkbDescRec Structure</title>
 
+<indexterm significance="preferred" zone="The_XkbDescRec_Structure">
+<primary><structname>XkbDescRec</structname></primary></indexterm>
+
 <para>
 The complete description of an Xkb keyboard is given by an
 <structname>XkbDescRec</structname>.

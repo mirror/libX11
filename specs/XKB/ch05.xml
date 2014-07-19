@@ -76,6 +76,8 @@ The Xkb extension provides support for
 <primary>keysym groups</primary></indexterm>
 <indexterm significance="preferred" zone="keysym_groups">
 <primary>group</primary><secondary>keysym</secondary></indexterm>
+<indexterm significance="preferred" zone="keysym_groups">
+<primary>group</primary><secondary>ISO9995</secondary></indexterm>
 as defined by ISO9995:
 </para>
 
@@ -346,6 +348,13 @@ The X11 protocol interpretation of modifiers does not include direct support for
 <sect2 id='Changing_Modifiers'>
 <title>Changing Modifiers</title>
 
+<indexterm zone="Changing_Modifiers">
+<primary>real modifiers</primary></indexterm>
+<indexterm zone="Changing_Modifiers">
+<primary>modifiers</primary><secondary>real</secondary></indexterm>
+<indexterm significance="preferred" zone="Changing_Modifiers">
+<primary>mask</primary><secondary>real modifiers</secondary></indexterm>
+
 <para>
 The functions in this section that change the use of modifiers use a mask in the parameter
 <structfield>affect</structfield>.
@@ -556,6 +565,11 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 <sect2 id='Changing_Groups'>
 <title>Changing Groups</title>
 
+<indexterm zone="Changing_Groups">
+<primary>keysym groups</primary></indexterm>
+<indexterm zone="Changing_Groups">
+<primary>group</primary><secondary>keysym</secondary></indexterm>
+
 <para>
 Reference the keysym group indices with these symbolic constants:
 </para>
@@ -721,6 +735,9 @@ To latch the keysym group, use
 <sect1 id='Determining_Keyboard_State'>
 <title>Determining Keyboard State</title>
 
+<indexterm significance="preferred" zone="Determining_Keyboard_State">
+<primary><structname>XkbStateRec</structname></primary></indexterm>
+
 <para>
 Xkb keyboard state may be represented in an
 <structname>XkbStateRec</structname>
@@ -818,6 +835,11 @@ All group values are expressed as group indices in the range [0..3]. Modifiers a
 </sect1>
 <sect1 id='Tracking_Keyboard_State'>
 <title>Tracking Keyboard State</title>
+
+<indexterm significance="preferred" zone="Tracking_Keyboard_State">
+<primary>events</primary><secondary><symbol>XkbStateNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Keyboard_State">
+<primary><structname>XkbStateNotifyEvent</structname></primary></indexterm>
 
 <para>
 The Xkb extension reports

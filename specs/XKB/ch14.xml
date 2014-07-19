@@ -43,6 +43,11 @@ For detailed information on particular components of the keyboard map, refer to
 <sect1 id='Notation_and_Terminology'>
 <title>Notation and Terminology</title>
 
+<indexterm significance="preferred" zone="Notation_and_Terminology">
+<primary>level</primary></indexterm>
+<indexterm significance="preferred" zone="Notation_and_Terminology">
+<primary>shift level</primary></indexterm>
+
 <para>
 The graphic characters or control functions that may be accessed by one key are
 logically arranged in groups and levels, where
@@ -712,6 +717,8 @@ helper functions and provides a pointer to where they are defined.
 
 <sect2 id='The_XkbMapChangesRec_Structure'>
 <title>The XkbMapChangesRec Structure</title>
+<indexterm significance="preferred" zone="The_XkbMapChangesRec_Structure">
+<primary><structname>XkbMapChangesRec</structname></primary></indexterm>
 
 <para>
 Use the
@@ -981,6 +988,11 @@ and
 </sect1>
 <sect1 id='Tracking_Changes_to_Map_Components'>
 <title>Tracking Changes to Map Components</title>
+
+<indexterm significance="preferred" zone="Tracking_Changes_to_Map_Components">
+<primary>events</primary><secondary><symbol>XkbMapNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Map_Components">
+<primary><structname>XkbMapNotifyEvent</structname></primary></indexterm>
 
 <para>
 The Xkb extension reports

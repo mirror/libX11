@@ -3,6 +3,7 @@
 	  "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
 <chapter id='Xkb_Events'>
 <title>Xkb Events</title>
+<indexterm zone="Xkb_Events"><primary>events</primary></indexterm>
 
 <para>
 The primary way the X server communicates with clients is by sending X events
@@ -159,7 +160,11 @@ event.
 <sect1 id='Xkb_Event_Data_Structures'>
 <title>Xkb Event Data Structures</title>
 
-<para>
+<para id='XkbAnyEvent'>
+<indexterm significance="preferred" zone="Xkb_Event_Data_Structures">
+<primary>events</primary><secondary><structname>XkbAnyEvent</structname></secondary></indexterm>
+<indexterm significance="preferred" zone="Xkb_Event_Data_Structures">
+<primary><structname>XkbAnyEvent</structname></primary></indexterm>
 Xkb reports each event it generates in a unique structure holding the data
 values needed to describe the conditions the event is reporting. However, all
 Xkb events have certain things in common. These common features are contained
@@ -222,6 +227,10 @@ chapters where the events are described.
 </sect1>
 <sect1 id='Selecting_Xkb_Events'>
 <title>Selecting Xkb Events</title>
+<indexterm significance="preferred" zone="Selecting_Xkb_Events">
+<primary>events</primary><secondary>mask</secondary></indexterm>
+<indexterm significance="preferred" zone="Selecting_Xkb_Events">
+<primary>mask</primary><secondary>event</secondary></indexterm>
 
 <para>
 Xkb events are selected using an event mask, much the same as normal core X
@@ -666,6 +675,10 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 </sect1>
 <sect1 id='Unified_Xkb_Event_Type'>
 <title>Unified Xkb Event Type</title>
+<indexterm significance="preferred" zone="Unified_Xkb_Event_Type">
+<primary>events</primary><secondary><structname>XkbEvent</structname></secondary></indexterm>
+<indexterm significance="preferred" zone="Unified_Xkb_Event_Type">
+<primary><structname>XkbEvent</structname></primary></indexterm>
 
 <para>
 The

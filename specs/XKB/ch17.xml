@@ -130,6 +130,8 @@ subsequent transformations have a particular result.
 
 <sect1 id='The_XkbCompatMap_Structure'>
 <title>The XkbCompatMap Structure</title>
+<indexterm significance="preferred" zone="The_XkbCompatMap_Structure">
+<primary><structname>XkbCompatMapRec</structname></primary></indexterm>
 
 <para>
 All configurable aspects of mapping Xkb state and configuration to and from
@@ -413,6 +415,8 @@ using
 
 <sect3 id='Symbol_Interpretations__the_XkbSymInterpretRec_Structure'>
 <title>Symbol Interpretations — the XkbSymInterpretRec Structure</title>
+<indexterm significance="preferred" zone="Symbol_Interpretations__the_XkbSymInterpretRec_Structure">
+<primary><structname>XkbSymInterpretRec</structname></primary></indexterm>
 
 <para>
 Symbol interpretations are used to guide the X server when it modifies the Xkb
@@ -1512,6 +1516,10 @@ not much changes).
 </sect1>
 <sect1 id='Tracking_Changes_to_the_Compatibility_Map'>
 <title>Tracking Changes to the Compatibility Map</title>
+<indexterm significance="preferred" zone="Tracking_Changes_to_the_Compatibility_Map">
+<primary>events</primary><secondary><symbol></symbol>XkbCompatMapNotify</secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_the_Compatibility_Map">
+<primary><structname>XkbCompatMapNotifyEvent</structname></primary></indexterm>
 
 <para>
 The server automatically generates

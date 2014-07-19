@@ -4,6 +4,13 @@
 <chapter id='Keyboard_Controls'>
 <title>Keyboard Controls</title>
 
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>controls</primary></indexterm>
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>server controls</primary></indexterm>
+<indexterm significance="preferred" zone="Keyboard_Controls">
+<primary>controls</primary><secondary>server</secondary></indexterm>
+
 <para>
 The Xkb extension is composed of two parts: a server extension, and a
 client-side X library extension. This chapter discusses functions used to
@@ -636,6 +643,9 @@ sound is forced. See <link linkend="Audible_Bells">section 9.2</link>.
 </sect1>
 <sect1 id='Controls_for_Repeat_Key_Behavior'>
 <title>Controls for Repeat Key Behavior</title>
+
+<indexterm significance="preferred" zone="Controls_for_Repeat_Key_Behavior">
+<primary>auto-repeat</primary><secondary>controls</secondary></indexterm>
 
 <para>
 The repeating behavior of keyboard keys is governed by three controls, the
@@ -2021,6 +2031,11 @@ When any of the above feedbacks occur, Xkb may generate a
 </sect2>
 <sect2 id='AccessXNotify_Events'>
 <title>AccessXNotify Events</title>
+
+<indexterm significance="preferred" zone="AccessXNotify_Events">
+<primary>events</primary><secondary><symbol>XkbAccessXNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="AccessXNotify_Events">
+<primary><structname>XkbAccessXNotifyEvent</structname></primary></indexterm>
 
 <para>
 The server can generate
@@ -3430,6 +3445,9 @@ See <link linkend="Virtual_Modifier_Names_and_Masks">section 7.1</link> for a di
 <sect1 id='The_XkbControlsRec_Structure'>
 <title>The XkbControlsRec Structure</title>
 
+<indexterm significance="preferred" zone="The_XkbControlsRec_Structure">
+<primary><structname>XkbControlsRec</structname></primary></indexterm>
+
 <para>
 Many of the individual controls described in sections 10.1 through 10.7 may be
 manipulated via convenience functions discussed in those sections. Some of
@@ -4590,6 +4608,9 @@ also provided for this purpose
 <sect2 id='The_XkbControlsChangesRec_Structure'>
 <title>The XkbControlsChangesRec Structure</title>
 
+<indexterm significance="preferred" zone="The_XkbControlsChangesRec_Structure">
+<primary><structname>XkbControlsChangesRec</structname></primary></indexterm>
+
 <para>
 The
 <structname>XkbControlsChangesRec</structname>
@@ -4710,6 +4731,11 @@ to the server specified by
 </sect1>
 <sect1 id='Tracking_Changes_to_Keyboard_Controls'>
 <title>Tracking Changes to Keyboard Controls</title>
+
+<indexterm significance="preferred" zone="Tracking_Changes_to_Keyboard_Controls">
+<primary>events</primary><secondary><symbol>XkbControlsNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Keyboard_Controls">
+<primary><structname>XkbControlsNotifyEvent</structname></primary></indexterm>
 
 <para>
 Whenever a field in the controls structure changes in the server’s keyboard

@@ -53,6 +53,7 @@ keyboard geometry descriptions.
 </sect1>
 <sect1 id='Extension_Name'>
 <title>Extension Name</title>
+<indexterm significance="preferred" zone="Extension_Name"><primary><symbol>XkbName</symbol></primary></indexterm>
 <para>
 The name of the Xkb extension is given in
 <filename class="headerfile">&lt;X11/extensions/Xkb.h&gt;</filename>:
@@ -193,6 +194,10 @@ calls to Xkb library functions made prior to initializing the Xkb extension
 cause
 <errorname>BadAccess</errorname>
  protocol errors.
+<indexterm zone="Initializing_the_Keyboard_Extension"><primary>errors</primary>
+<secondary><errorname>BadAccess</errorname></secondary></indexterm>
+<indexterm zone="Initializing_the_Keyboard_Extension">
+<primary><errorname>BadAccess</errorname></primary></indexterm>
 </para>
 
 <para>
@@ -562,6 +567,9 @@ use Xkb on a connection for which it is disabled.
 </sect1>
 <sect1 id='Protocol_Errors'>
 <title>Protocol Errors</title>
+<indexterm significance="preferred" zone="Protocol_Errors">
+<primary>errors</primary></indexterm>
+
 <para>
 Many of the Xkb extension library functions described in this document can
 cause the X server to report an error, referred to in this document as a
@@ -662,7 +670,11 @@ Device, Feedback Class, or Feedback ID invalid
 </tgroup>
 </table>
 
-<para>
+<para id='BadKeyboard'>
+<indexterm zone="BadKeyboard"><primary>errors</primary>
+<secondary><errorname>BadKeyboard</errorname></secondary></indexterm>
+<indexterm zone="BadKeyboard">
+<primary><errorname>BadKeyboard</errorname></primary></indexterm>
 The Xkb extension adds a single protocol error,
 <errorname>BadKeyboard</errorname>,
 to the core protocol error set. This error code will be reported as the
@@ -783,7 +795,8 @@ involve both a server connection (Display *
  structure passed as an argument.
 </para>
 
-<para>
+<para id='XkbUseCoreKbd'>
+<indexterm significance="preferred" zone="XkbUseCoreKbd"><primary><symbol>XkbUseCoreKbd</symbol></primary></indexterm>
 The device identifier can specify any X input extension device with a
 <symbol>KeyClass</symbol>
  component, or it can specify the constant,

@@ -3,6 +3,7 @@
 	  "http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
 <chapter id='Bells'>
 <title>Bells</title>
+<indexterm zone="Bells"><primary>bell</primary></indexterm>
 
 <para>
 The core X protocol allows only applications to explicitly sound the system

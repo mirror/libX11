@@ -44,6 +44,9 @@ by the core protocol.
 <sect2 id='Effects_of_Xkb_on_MappingNotify_Events'>
 <title>Effects of Xkb on MappingNotify Events</title>
 
+<indexterm zone="Effects_of_Xkb_on_MappingNotify_Events">
+<primary>events</primary><secondary><symbol>MappingNotify</symbol></secondary></indexterm>
+
 <para>
 When Xkb is missing or disabled, the X library tracks changes to the keyboard
 mapping using
@@ -140,9 +143,10 @@ clients.
 </para>
 
 
-<para>
+<para id='XKeycodeToKeysym'>
 The
 <function>XKeycodeToKeysym</function>
+<indexterm significance="preferred" zone="XKeycodeToKeysym"><primary><function>XKeycodeToKeysym</function></primary></indexterm>
  function reports the keysym associated with a particular index for a single
 key. The index specifies a column of symbols in the core keyboard mapping (that
 is, as reported by the core protocol
@@ -153,9 +157,10 @@ the differences.
 </para>
 
 
-<para>
+<para id='XKeysymToKeycode'>
 The
 <function>XKeysymToKeycode</function>
+<indexterm significance="preferred" zone="XKeysymToKeycode"><primary><function>XKeysymToKeycode</function></primary></indexterm>
  function reports a keycode to which a particular keysym is bound. When Xkb is
 missing or disabled, this function looks in each column of the core keyboard
 mapping in turn and returns the lowest numbered key that matches in the lowest
@@ -164,18 +169,20 @@ symbols instead.
 </para>
 
 
-<para>
+<para id='XLookupKeysym'>
 The
 <function>XLookupKeysym</function>
+<indexterm significance="preferred" zone="XLookupKeysym"><primary><function>XLookupKeysym</function></primary></indexterm>
  function reports the symbol in a specific column of the key associated with an
 event. Whether or not Xkb is present, the column specifies an index into the
 core symbol mapping.
 </para>
 
 
-<para>
+<para id='XLookupString'>
 The
 <function>XLookupString</function>
+<indexterm significance="preferred" zone="XLookupString"><primary><function>XLookupString</function></primary></indexterm>
  function reports the symbol and string associated with a key event, taking
 into account the keycode and keyboard state as reported in the event. When Xkb
 is disabled or missing,
@@ -194,9 +201,10 @@ determine matching bindings.
 </para>
 
 
-<para>
+<para id='XRefreshKeyboardMapping'>
 The
 <function>XRefreshKeyboardMapping</function>
+<indexterm significance="preferred" zone="XRefreshKeyboardMapping"><primary><function>XRefreshKeyboardMapping</function></primary></indexterm>
  function updates the X library’s internal representation of the keyboard to
 reflect changes reported via
 <symbol>MappingNotify</symbol>
@@ -211,9 +219,10 @@ changed. If the implicit support has not noted any keyboard mapping changes,
 </para>
 
 
-<para>
+<para id='XRebindKeysym'>
 The
 <function>XRebindKeysym</function>
+<indexterm significance="preferred" zone="XRebindKeysym"><primary><function>XRebindKeysym</function></primary></indexterm>
  function associates a string with a keysym and a set of modifiers. Xkb does
 not directly change this function, but it does affect the way that the state
 reported in the event is compared to the state specified to

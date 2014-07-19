@@ -44,6 +44,8 @@ Controls affecting event delivery
 <para>
 There are two types of string lookups performed by
 <function>XLookupString</function>.
+<indexterm significance="preferred" zone="X_Library_Controls">
+<primary><function>XLookupString</function></primary></indexterm>
 The first type involves translating a single keycode into a string; the
 controls in the first category affect this type of lookup. The second type
 involves translating a series of keysyms into a string; the controls in the
@@ -331,6 +333,11 @@ name is “<literal>ComposeFail</literal>”.
 
 <sect2 id='IgnoreNewKeyboards'>
 <title>IgnoreNewKeyboards</title>
+
+<indexterm zone="IgnoreNewKeyboards">
+<primary>events</primary><secondary><symbol>NewKeyboardNotify</symbol></secondary></indexterm>
+<indexterm zone="IgnoreNewKeyboards">
+<primary>events</primary><secondary><symbol>MappingNotify</symbol></secondary></indexterm>
 
 <para>
 When Xkb is initialized, it implicitly forces requests for

@@ -4,6 +4,9 @@
 <chapter id='Indicators'>
 <title>Indicators</title>
 
+<indexterm significance="preferred" zone="Indicators">
+<primary>indicators</primary></indexterm>
+
 <para>
 Although the core X implementation supports up to 32 LEDs on an input device,
 it does not provide any linkage between the state of the LEDs and the logical
@@ -82,6 +85,9 @@ to inquire about and control most indicator properties and behaviors.
 <sect2 id='XkbIndicatorRec'>
 <title>XkbIndicatorRec</title>
 
+<indexterm significance="preferred" zone="XkbIndicatorRec">
+<primary><structname>XkbIndicatorRec</structname></primary></indexterm>
+
 <para>
 The description for all the Xkb indicators is held in the
 <structfield>indicators</structfield>
@@ -133,6 +139,9 @@ or if a new keyboard is attached and the X implementation notices,
 </sect2>
 <sect2 id='XkbIndicatorMapRec'>
 <title>XkbIndicatorMapRec</title>
+
+<indexterm significance="preferred" zone="XkbIndicatorMapRec">
+<primary><structname>XkbIndicatorMapRec</structname></primary></indexterm>
 
 <para>
 Each indicator has its own set of attributes that specify whether clients can
@@ -1589,8 +1598,11 @@ and
 
 
 </sect2>
-<sect2 id='The_XkbIndicatorChangesRec_Structure'>
+<sect2 id='XkbIndicatorChangesRec'>
 <title>The XkbIndicatorChangesRec Structure</title>
+
+<indexterm significance="preferred" zone="XkbIndicatorChangesRec">
+<primary><structname>XkbIndicatorChangesRec</structname></primary></indexterm>
 
 <para>
 The
@@ -1718,6 +1730,16 @@ If any bits are set in the
 </sect1>
 <sect1 id='Tracking_Changes_to_Indicator_State_or_Map'>
 <title>Tracking Changes to Indicator State or Map</title>
+
+<indexterm significance="preferred" zone="Tracking_Changes_to_Indicator_State_or_Map">
+<primary>events</primary><secondary><symbol>XkbIndicatorStateNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Indicator_State_or_Map">
+<primary><structname>XkbIndicatorStateNotifyEvent</structname></primary></indexterm>
+
+<indexterm significance="preferred" zone="Tracking_Changes_to_Indicator_State_or_Map">
+<primary>events</primary><secondary><symbol>XkbIndicatorMapNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Indicator_State_or_Map">
+<primary><structname>XkbIndicatorMapNotifyEvent</structname></primary></indexterm>
 
 <para>
 Whenever an indicator changes state, the server sends

@@ -54,7 +54,9 @@ Objects should be drawn in order from highest priority (0) to lowest (255).
 </para>
 
 
-<para>
+<para id='XkbGeometryRec'>
+<indexterm significance="preferred" zone="XkbGeometryRec">
+<primary><structname>XkbGeometryRec</structname></primary></indexterm>
 The keyboard geometry’s top-level description is stored in a
 <structname>XkbGeometryRec</structname>
  structure. This structure contains three types of information:

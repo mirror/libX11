@@ -4,6 +4,11 @@
 <chapter id='Xkb_Server_Keyboard_Mapping'>
 <title>Xkb Server Keyboard Mapping</title>
 
+<indexterm zone="Xkb_Server_Keyboard_Mapping">
+<primary>server map</primary></indexterm>
+<indexterm zone="Xkb_Server_Keyboard_Mapping">
+<primary>map</primary><secondary>server</secondary></indexterm>
+
 <para>
 The
 <structfield>server</structfield>
@@ -30,7 +35,9 @@ to the Xkb server map.
 Server Map Relationships</H5>
 -->
 
-<para>
+<para id='XkbServerMapRec'>
+<indexterm significance="preferred" zone="XkbServerMapRec">
+<primary><structname>XkbServerMapRec</structname></primary></indexterm>
 The Xkb server map contains the information the server needs to interpret key
 events and is of type
 <structname>XkbServerMapRec</structname>:
@@ -433,6 +440,8 @@ corresponding to
 
 <sect2 id='The_XkbAction_Structure'>
 <title>The XkbAction Structure</title>
+<indexterm significance="preferred" zone="The_XkbAction_Structure">
+<primary><structname>XkbAction</structname></primary></indexterm>
 
 <para>
 The description for an action is held in an
@@ -470,6 +479,8 @@ structures for each action in detail.
 </sect2>
 <sect2 id='The_XkbAnyAction_Structure'>
 <title>The XkbAnyAction Structure</title>
+<indexterm significance="preferred" zone="The_XkbAnyAction_Structure">
+<primary><structname>XkbAnyAction</structname></primary></indexterm>
 
 <para>
 The
@@ -619,6 +630,8 @@ have an associated data structure.
 </sect2>
 <sect2 id='Actions_for_Changing_Modifiers_State'>
 <title>Actions for Changing Modifiers’ State</title>
+<indexterm significance="preferred" zone="Actions_for_Changing_Modifiers_State">
+<primary><structname>XkbModAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -999,6 +1012,8 @@ type XkbAction, these macros may be used only with Actions of type
 </sect2>
 <sect2 id='Actions_for_Changing_Group_State'>
 <title>Actions for Changing Group State</title>
+<indexterm significance="preferred" zone="Actions_for_Changing_Group_State">
+<primary><structname>XkbGroupAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -1294,6 +1309,8 @@ type XkbAction, these macros may only be used with Actions of type
 </sect2>
 <sect2 id='Actions_for_Moving_the_Pointer'>
 <title>Actions for Moving the Pointer</title>
+<indexterm significance="preferred" zone="Actions_for_Moving_the_Pointer">
+<primary><structname>XkbPtrAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -1586,6 +1603,8 @@ convert between a signed integer and two signed 16-bit values in
 </sect2>
 <sect2 id='Actions_for_Simulating_Pointer_Button_Press_and_Release'>
 <title>Actions for Simulating Pointer Button Press and Release</title>
+<indexterm significance="preferred" zone="Actions_for_Simulating_Pointer_Button_Press_and_Release">
+<primary><structname>XkbPtrBtnAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -1805,6 +1824,8 @@ the server only locks the pointer button.
 </sect2>
 <sect2 id='Actions_for_Changing_the_Pointer_Button_Simulated'>
 <title>Actions for Changing the Pointer Button Simulated</title>
+<indexterm significance="preferred" zone="Actions_for_Changing_the_Pointer_Button_Simulated">
+<primary><structname>XkbPtrDfltAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -2000,6 +2021,8 @@ values in
 </sect2>
 <sect2 id='Actions_for_Locking_Modifiers_and_Group'>
 <title>Actions for Locking Modifiers and Group</title>
+<indexterm significance="preferred" zone="Actions_for_Locking_Modifiers_and_Group">
+<primary><structname>XkbISOAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -2443,6 +2466,8 @@ If
 </sect2>
 <sect2 id='Actions_for_Changing_the_Active_Screen'>
 <title>Actions for Changing the Active Screen</title>
+<indexterm significance="preferred" zone="Actions_for_Changing_the_Active_Screen">
+<primary><structname>XkbSwitchScreenAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -2613,6 +2638,8 @@ signed character value for screen numbers in
 </sect2>
 <sect2 id='Actions_for_Changing_Boolean_Controls_State'>
 <title>Actions for Changing Boolean Controls State</title>
+<indexterm significance="preferred" zone="Actions_for_Changing_Boolean_Controls_State">
+<primary><structname>XkbCtrlsAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -2876,6 +2903,8 @@ macros, to convert between the two formats:
 </sect2>
 <sect2 id='Actions_for_Generating_Messages'>
 <title>Actions for Generating Messages</title>
+<indexterm significance="preferred" zone="Actions_for_Generating_Messages">
+<primary><structname>XkbMessageAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -2971,6 +3000,10 @@ The
 
 <sect3 id='Detecting_Key_Action_Messages'>
 <title>Detecting Key Action Messages</title>
+<indexterm significance="preferred" zone="Detecting_Key_Action_Messages">
+<primary>events</primary><secondary><symbol>XkbActionMessage</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Detecting_Key_Action_Messages">
+<primary><structname>XkbActionMessageEvent</structname></primary></indexterm>
 
 <para>
 To receive
@@ -3105,6 +3138,8 @@ The
 </sect2>
 <sect2 id='Actions_for_Generating_a_Different_Keycode'>
 <title>Actions for Generating a Different Keycode</title>
+<indexterm significance="preferred" zone="Actions_for_Generating_a_Different_Keycode">
+<primary><structname>XkbRedirectKeyAction</structname></primary></indexterm>
 
 <para>
 Actions associated with the
@@ -3370,6 +3405,8 @@ provides the following convenience macros:
 </sect2>
 <sect2 id='Actions_for_Generating_DeviceButtonPress_and_DeviceButtonRelease'>
 <title>Actions for Generating DeviceButtonPress and DeviceButtonRelease</title>
+<indexterm significance="preferred" zone="Actions_for_Generating_DeviceButtonPress_and_DeviceButtonRelease">
+<primary><structname>XkbDeviceBtnAction</structname></primary></indexterm>
 
 <para>
 Actions associated with
@@ -3552,6 +3589,8 @@ the server only locks the button.
 </sect2>
 <sect2 id='Actions_for_Simulating_Events_from_Device_Valuators'>
 <title>Actions for Simulating Events from Device Valuators</title>
+<indexterm significance="preferred" zone="Actions_for_Simulating_Events_from_Device_Valuators">
+<primary><structname>XkbDeviceValuatorAction</structname></primary></indexterm>
 
 <para>
 A
@@ -4014,6 +4053,8 @@ currently defined is:
 </sect2>
 <sect2 id='The_XkbBehavior_Structure'>
 <title>The XkbBehavior Structure</title>
+<indexterm significance="preferred" zone="The_XkbBehavior_Structure">
+<primary><structname>XkbBehavior</structname></primary></indexterm>
 
 <para>
 The

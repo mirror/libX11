@@ -287,7 +287,9 @@ because of the limit.
 </para>
 
 
-<para>
+<para id='XkbComponentNamesRec'>
+<indexterm significance="preferred" zone="XkbComponentNamesRec">
+<primary><structname>XkbComponentNamesRec</structname></primary></indexterm>
 The component name patterns used to describe the request are passed to
 <function>XkbListComponents</function>
  using an
@@ -311,7 +313,11 @@ typedef struct _XkbComponentNames {
 } <structname>XkbComponentNamesRec</structname>, *XkbComponentNamesPtr;
 </programlisting></para>
 
-<para>
+<para id='XkbComponentListRec'>
+<indexterm significance="preferred" zone="XkbComponentListRec">
+<primary><structname>XkbComponentListRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="XkbComponentListRec">
+<primary><structname>XkbComponentNameRec</structname></primary></indexterm>
 <function>XkbListComponents</function>
  returns a pointer to an
 <structname>XkbComponentListRec</structname>:

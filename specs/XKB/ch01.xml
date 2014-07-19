@@ -359,6 +359,7 @@ directly manipulate the new capabilities.
 
 <sect2 id='Error_Indications'>
 <title>Error Indications</title>
+<indexterm zone="Error_Indications"><primary>errors</primary></indexterm>
 
 <para>
 Xkb functions that communicate with the X server check to be sure the Xkb

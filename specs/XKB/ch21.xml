@@ -156,6 +156,10 @@ silently if Xkb access to those devices is not supported by the X server.
 
 <sect1 id='XkbDeviceInfoRec'>
 <title>XkbDeviceInfoRec</title>
+<indexterm significance="preferred" zone="XkbDeviceInfoRec">
+<primary><structname>XkbDeviceInfoRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="XkbDeviceInfoRec">
+<primary><structname>XkbDeviceLedInfoRec</structname></primary></indexterm>
 
 <para>
 Information about X Input Extension devices is transferred between a client
@@ -1694,6 +1698,10 @@ a <errorname>BadKeyboard</errorname>
 </sect1>
 <sect1 id='XkbExtensionDeviceNotify_Event'>
 <title>XkbExtensionDeviceNotify Event</title>
+<indexterm significance="preferred" zone="XkbExtensionDeviceNotify_Event">
+<primary>events</primary><secondary><symbol>XkbExtensionDeviceNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="XkbExtensionDeviceNotify_Event">
+<primary><structname>XkbExtensionDeviceNotifyEvent</structname></primary></indexterm>
 
 <para>
 The Xkb extension generates
@@ -1791,6 +1799,10 @@ state or configuration.
 </sect1>
 <sect1 id='Tracking_Changes_to_Extension_Devices'>
 <title>Tracking Changes to Extension Devices</title>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Extension_Devices">
+<primary><structname>XkbDeviceChangesRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Changes_to_Extension_Devices">
+<primary><structname>XkbDeviceLedChangesRec</structname></primary></indexterm>
 
 <para>
 Changes to an Xkb extension device may be tracked by listening to

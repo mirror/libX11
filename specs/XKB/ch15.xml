@@ -4,6 +4,11 @@
 <chapter id='Xkb_Client_Keyboard_Mapping'>
 <title>Xkb Client Keyboard Mapping</title>
 
+<indexterm zone="Xkb_Client_Keyboard_Mapping">
+<primary>client map</primary></indexterm>
+<indexterm zone="Xkb_Client_Keyboard_Mapping">
+<primary>map</primary><secondary>client</secondary></indexterm>
+
 <para>
 The Xkb client map for a keyboard is the collection of information a client
 needs to interpret key events from the keyboard. It contains a global list of
@@ -32,6 +37,8 @@ Xkb Client Map</H5>
 
 <sect1 id='The_XkbClientMapRec_Structure'>
 <title>The XkbClientMapRec Structure</title>
+<indexterm significance="preferred" zone="The_XkbClientMapRec_Structure">
+<primary><structname>XkbClientMapRec</structname></primary></indexterm>
 
 <para>
 The
@@ -63,6 +70,10 @@ The following sections describe each of the elements of the
 </sect1>
 <sect1 id='Key_Types'>
 <title>Key Types</title>
+<indexterm significance="preferred" zone="Key_Types">
+<primary><structname>XkbKeyTypeRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="Key_Types">
+<primary><structname>XkbKTMapEntryRec</structname></primary></indexterm>
 
 <para>
 Key types are used to determine the shift level of a key given the current
@@ -1191,6 +1202,8 @@ Otherwise,
 </sect1>
 <sect1 id='Key_Symbol_Map'>
 <title>Key Symbol Map</title>
+<indexterm significance="preferred" zone="Key_Symbol_Map">
+<primary><structname>XkbSymMapRec</structname></primary></indexterm>
 
 <para>
 The entire list of key symbols for the keyboard mapping is held in the

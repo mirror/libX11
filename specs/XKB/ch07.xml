@@ -113,6 +113,9 @@ These functions are discussed in <xref linkend="Symbolic_Names" />.
 <sect1 id='Modifier_Definitions'>
 <title>Modifier Definitions</title>
 
+<indexterm significance="preferred" zone="Modifier_Definitions">
+<primary><structname>XkbModsRec</structname></primary></indexterm>
+
 <para>
 An Xkb
 <firstterm>modifier definition</firstterm>
@@ -373,6 +376,9 @@ virtual modifiers are bound.
 </sect1>
 <sect1 id='Conventions'>
 <title>Conventions</title>
+
+<indexterm significance="preferred" zone="Conventions">
+<primary>modifiers</primary><secondary>names</secondary></indexterm>
 
 <para>
 The Xkb extension does not require any specific virtual modifier names.

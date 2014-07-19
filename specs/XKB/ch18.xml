@@ -30,6 +30,12 @@ these symbolic names are grouped into the
 
 <sect1 id='The_XkbNamesRec_Structure'>
 <title>The XkbNamesRec Structure</title>
+<indexterm significance="preferred" zone="The_XkbNamesRec_Structure">
+<primary><structname>XkbKeyNameRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="The_XkbNamesRec_Structure">
+<primary><structname>XkbKeyAliasRec</structname></primary></indexterm>
+<indexterm significance="preferred" zone="The_XkbNamesRec_Structure">
+<primary><structname>XkbNamesRec</structname></primary></indexterm>
 
 <para>
 The names component of the keyboard description is defined as follows:
@@ -635,6 +641,8 @@ The specified types are illegal if
 
 <sect3 id='The_XkbNameChangesRec_Structure'>
 <title>The XkbNameChangesRec Structure</title>
+<indexterm significance="preferred" zone="The_XkbNameChangesRec_Structure">
+<primary><structname>XkbNameChangesRec</structname></primary></indexterm>
 
 <para>
 The
@@ -831,6 +839,10 @@ to the X server specified by
 </sect1>
 <sect1 id='Tracking_Name_Changes'>
 <title>Tracking Name Changes</title>
+<indexterm significance="preferred" zone="Tracking_Name_Changes">
+<primary>events</primary><secondary><symbol>XkbNamesNotify</symbol></secondary></indexterm>
+<indexterm significance="preferred" zone="Tracking_Name_Changes">
+<primary><structname>XkbNamesNotifyEvent</structname></primary></indexterm>
 
 <para>
 Whenever a symbolic name changes in the server’s keyboard description, the

@@ -4398,25 +4398,19 @@ and then copies the server’s values for the requested information into the
 
 <para>
 If
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
 is
 <symbol>NULL</symbol>,
 <function>XkbGetControls</function>
  allocates and initializes it before obtaining the values specified by
 <parameter>which</parameter>.
 If
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
  is not
 <symbol>NULL</symbol>,
 <function>XkbGetControls</function>
  modifies only those portions of
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
  corresponding to the values specified by
 <parameter>which</parameter>.
 </para>
@@ -4536,9 +4530,7 @@ For each bit that is set in the
  parameter,
 <function>XkbSetControls</function>
  sends the corresponding values from the
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
  field to the server. Valid values for
 <parameter>which</parameter>
  are any combination of the masks listed in
@@ -4550,9 +4542,7 @@ For each bit that is set in the
 
 <para>
 If
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
  is
 <symbol>NULL</symbol>,
 the server does not support a compatible version of Xkb, or the Xkb extension
@@ -4720,9 +4710,7 @@ match those in the changed keyboard description.
  copies any controls fields specified by
 <parameter>changes</parameter>
  from the keyboard description controls structure,
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>,
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>,
 to the server specified by
 <parameter>dpy</parameter>.
 </para>
@@ -5007,9 +4995,7 @@ noted by one or more calls to
 <parameter>changes</parameter>
  parameter, queries the server for the necessary information, and copies the
 results into the
-<parameter>xkb</parameter>
--&gt;
-<structfield>ctrls</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>ctrls</structfield>
  keyboard description. If the
 <structfield>ctrls</structfield>
  field of

@@ -927,9 +927,7 @@ To change the number of levels in a key type, use
 <para>
 <function>XkbResizeKeyType</function>
  changes the type specified by
-<parameter>xkb</parameter>
--&gt;
-<structfield>map-&gt;types</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>map-&gt;types</structfield>
 [
 <parameter>type_ndx</parameter>
 ], and reallocates the symbols and actions bound to all keys that use the type,
@@ -2293,9 +2291,7 @@ The
 <parameter>n_groups</parameter>.
 Each entry represents the type to use for the associated group and is an
 index into
-<parameter>xkb</parameter>
--&gt;
-<structfield>map-&gt;types</structfield>.
+<parameter>xkb</parameter>-&gt;<structfield>map-&gt;types</structfield>.
 The
 <parameter>new_types_in</parameter>
  array is indexed by group index; if
@@ -2622,8 +2618,7 @@ description, use
  keys starting with the key whose keycode is
 <parameter>first</parameter>.
 It waits for a reply and places the results in the
-<parameter>xkb</parameter>
--&gt;map-&gt;modmap array. If successful,
+<parameter>xkb</parameter>-&gt;map-&gt;modmap array. If successful,
 <function>XkbGetKeyModifierMap</function>
  returns
 <symbol>Success</symbol>.

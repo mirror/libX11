@@ -1681,9 +1681,7 @@ description, use
     </term>
     <listitem>
       <para>
-        new state of indicators listed in <parameter>changes</parameter>
-        -&gt;
-<structfield>state_changes</structfield>
+        new state of indicators listed in <parameter>changes</parameter>-&gt;<structfield>state_changes</structfield>
       </para>
     </listitem>
   </varlistentry>

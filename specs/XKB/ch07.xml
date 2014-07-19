@@ -345,9 +345,7 @@ contain virtual modifier information. </para></note>
 <para>
 An unbound virtual modifier is one that is not bound to any real modifier
 (
-<structfield>server</structfield>
--&gt;
-<structfield>vmods</structfield>
+<structfield>server</structfield>-&gt;<structfield>vmods</structfield>
 [virtual_modifier_index] is zero).
 </para>
 

@@ -738,9 +738,7 @@ extension has not been properly initialized, XkbGetDeviceButtonActions returns
 If allocation errors occur, a
 <errorname>BadAlloc</errorname>
  status is returned. If the specified device
-(<parameter>device_info</parameter>
--&gt;
-<structfield>device_spec</structfield>)
+(<parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>)
  is invalid, a
 <errorname>BadKeyboard</errorname>
  status is returned. If the device has no buttons, a
@@ -837,9 +835,7 @@ by
  and
 <parameter>led_id</parameter>
  for the X input extension device indicated by
-<structfield>device_spec</structfield>
--&gt;
-<parameter>device_info</parameter>
+<structfield>device_spec</structfield>-&gt;<parameter>device_info</parameter>
  and waits for a reply. If successful,
 <function>XkbGetDeviceLedInfo</function>
  backfills the relevant fields of
@@ -887,9 +883,7 @@ The
  and
 <structfield>phys_indicators</structfield>
  fields of the
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  entry corresponding to
 <parameter>led_class</parameter>
  and
@@ -908,9 +902,7 @@ the
  and
 <structfield>names</structfield>
  fields of the
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  structure corresponding to
 <parameter>led_class</parameter>
  and
@@ -1155,17 +1147,11 @@ To initialize an
 <structfield>device_info-&gt;leds</structfield>
  array. If it finds a matching entry, it returns a pointer to that entry.
 Otherwise, it checks to be sure there is at least one empty entry in
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  and extends it if there is not enough room. It then increments
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
  and fills in the next available entry in
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  with
 <parameter>led_class</parameter>
  and
@@ -1243,13 +1229,9 @@ To allocate additional space for button actions in an
  structure. Any new entries allocated are zeroed. If successful,
 <function>XkbResizeDeviceButtonActions</function>
  returns Success. If new_total is zero, all button actions are deleted,
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_btns</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>
  is set to zero, and
-<parameter>device_info</parameter>
--&gt;
-<structfield>btn_acts</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>
  is set to
 <symbol>NULL</symbol>.
 If device_info is invalid or new_total is greater than 255,
@@ -1332,34 +1314,24 @@ contains <symbol>XkbXI_ButtonActionsMask</symbol>,
  all button actions associated with
 <parameter>device_info</parameter>
  are freed,
-<parameter>device_info</parameter>
--&gt;
-<structfield>btn_acts</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>
  is set to
 <symbol>NULL</symbol>,
 and
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_btns</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>
  is set to zero. If which contains all bits in
 <symbol>XkbXI_IndicatorsMask</symbol>, all
 <structname>XkbDeviceLedInfoRec</structname>
  structures associated with
 <parameter>device_info</parameter>
  are freed,
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  is set to
 <symbol>NULL</symbol>,
 and
-<parameter>device_info</parameter>
--&gt;
-<structfield>sz_leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>sz_leds</structfield>
  and
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
  are set to zero. If which contains <symbol>XkbXI_IndicatorMapsMask</symbol>,
  all indicator maps associated with
 <parameter>device_info</parameter>
@@ -1521,9 +1493,7 @@ more of them, that particular portion of the request is ignored.
 
 <para>
 If the device specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>device_spec</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
  does not contain buttons and a request affecting buttons is made, or the
 device does not contain indicators and a request affecting indicators is made,
 a
@@ -1544,9 +1514,7 @@ extension devices other than the core keyboard device. If the
 the actions for all buttons specified in device_info are set to the
 <structname>XkbAction</structname>s
  specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>btn_acts</structfield>.
+<parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>.
 If the number of buttons requested to be updated is not valid for the device,
 <function>XkbSetDeviceInfo</function>
  returns
@@ -1578,22 +1546,12 @@ If the
  flag is set in
 <parameter>which</parameter>,
 the indicator maps and / or names for all
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
  indicator devices specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
  are set to the maps and / or names specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>.
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds</structfield>
--&gt;
-<structfield>led_class</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>.
+<parameter>device_info</parameter>-&gt;<structfield>leds</structfield>-&gt;<structfield>led_class</structfield>
  and
 <structfield>led_id</structfield>
  specify the input extension class and device ID for each indicator device to
@@ -1607,9 +1565,7 @@ If they have legal values but do not specify a keyboard or indicator class
 feedback for the device in question, a
 <errorname>BadMatch</errorname>
  error results. If any of the values in
-<parameter>device_info</parameter>
--&gt;
-<structfield>leds-&gt;names</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>leds-&gt;names</structfield>
  are not a valid Atom or
 <symbol>None</symbol>,
 a
@@ -1693,16 +1649,13 @@ device, first_button, num_buttons, actions) -->
 <para>
 <function>XkbSetDeviceButtonActions</function>
  assigns actions to the buttons of the device specified in
-device_info-&gt;
-<structfield>device_spec</structfield>.
+device_info-&gt;<structfield>device_spec</structfield>.
 Actions are assigned to
 <parameter>num_buttons</parameter>
  buttons beginning with
 <parameter>first_button</parameter>
  and are taken from the actions specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>btn_acts</structfield>.
+<parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>.
 </para>
 
 
@@ -1717,9 +1670,7 @@ If the device has no buttons or if
  or
 <parameter>num_buttons</parameter>
  specify buttons outside of the valid range as determined by
-<parameter>device_info</parameter>
--&gt;
-<structfield>num_btns</structfield>,
+<parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>,
 the function has no effect and returns
 <symbol>False</symbol>.
 Otherwise,
@@ -1734,13 +1685,10 @@ and returns
 If the actual request sent to the server involved illegal button numbers, a
 <errorname>BadValue</errorname>
  protocol error is generated. If an invalid device identifier is specified in
-device_info-&gt;
-<structfield>device_spec</structfield>,
+device_info-&gt;<structfield>device_spec</structfield>,
 a <errorname>BadKeyboard</errorname>
  protocol error results. If the actual device specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>device_spec</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
  does not contain buttons and a request affecting buttons is made, a
 <errorname>BadMatch</errorname>
  protocol error is generated.
@@ -1971,9 +1919,7 @@ The
  with the changes that are both specified in
 <parameter>wanted</parameter>
  and contained in
-<parameter>new</parameter>
--&gt;
-<structfield>reason</structfield>.
+<parameter>new</parameter>-&gt;<structfield>reason</structfield>.
 </para>
 
 
@@ -2042,9 +1988,7 @@ changes) -->
 <para>
 The changes-&gt;changed field indicates which attributes of the device
 specified in
-<parameter>changes</parameter>
--&gt;
-<structfield>device</structfield>
+<parameter>changes</parameter>-&gt;<structfield>device</structfield>
  have changed. The parameters describing the changes are contained in the other
 fields of
 <parameter>changes</parameter>.
@@ -2112,9 +2056,7 @@ XkbDeviceChangesRec, use XkbChangeDeviceInfo.
 <para>
 <function>XkbChangeDeviceInfo</function>
  updates the server’s description of the device specified in
-<parameter>device_info</parameter>
--&gt;
-<structfield>device_spec</structfield>
+<parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
  with the changes specified in
 <parameter>changes</parameter>
  and contained in

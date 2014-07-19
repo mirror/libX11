@@ -659,9 +659,7 @@ value of
 <structname>XkbModAction</structname>
  structure itself or the real modifiers bound to the key for which the action
 is being used. In the latter case, this is the client
-<structfield>map</structfield>
--&gt;
-<structfield>modmap</structfield>
+<structfield>map</structfield>-&gt;<structfield>modmap</structfield>
 [
 <parameter>keycode</parameter>
 ] field.
@@ -871,9 +869,7 @@ and
 <structfield>vmods2</structfield>
 fields are used to determine the action modifiers. Otherwise they are ignored
 and the modifiers bound to the key (client
-<structfield>map</structfield>
--&gt;
-<structfield>modmap</structfield>
+<structfield>map</structfield>-&gt;<structfield>modmap</structfield>
 [
 <parameter>keycode</parameter>
 ]) are used instead.
@@ -3781,9 +3777,7 @@ To update the actions (the
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the actions in the
-<structfield>server</structfield>
--&gt;
-<structfield>key_acts</structfield>
+<structfield>server</structfield>-&gt;<structfield>key_acts</structfield>
  field of
 <parameter>xkb</parameter>.
 If successful,
@@ -3906,9 +3900,7 @@ beginning of the new array that holds the actions. It can change the
 and
 <structfield>size_acts</structfield>
  fields of
-<parameter>xkb</parameter>
--&gt;
-<structfield>server</structfield>
+<parameter>xkb</parameter>-&gt;<structfield>server</structfield>
  if it is necessary to reallocate the
 <structfield>acts</structfield>
 array.
@@ -4228,9 +4220,7 @@ To obtain the behaviors (the
  keys on the keyboard starting with the key whose keycode is
 <parameter>first</parameter>.
 It waits for a reply and returns the behaviors in the
-<structfield>server</structfield>
--&gt;
-<structfield>behaviors</structfield>
+<structfield>server</structfield>-&gt;<structfield>behaviors</structfield>
  field of
 <parameter>xkb</parameter>.
 If successful,
@@ -4463,9 +4453,7 @@ To obtain the explicit components (the
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the explicit components in the
-<structfield>server</structfield>
--&gt;
-<structfield>explicit</structfield>
+<structfield>server</structfield>-&gt;<structfield>explicit</structfield>
  array of
 <parameter>xkb</parameter>.
 If successful,
@@ -4791,9 +4779,7 @@ sends a request to the server to obtain the virtual modifier mappings for
  keys on the keyboard starting with key
 <parameter>first</parameter>.
 It waits for a reply and returns the virtual modifier mappings in the
-<structfield>server</structfield>
--&gt;
-<structfield>vmodmap</structfield>
+<structfield>server</structfield>-&gt;<structfield>vmodmap</structfield>
  array of
 <parameter>xkb</parameter>.
 If successful,

@@ -1703,7 +1703,7 @@ allocated. The compatibility map is the
 <para>
 <parameter>which</parameter>
  specifies the compatibility map components to be allocated (see
-<function>XkbGetCompatMap</function>,
+<link linkend="XkbGetCompatMap"><function>XkbGetCompatMap</function></link>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <parameter>which</parameter>
  is an inclusive OR of the bits shown in
@@ -1810,7 +1810,7 @@ To free an entire compatibility map or selected portions of one, use
 <para>
 <parameter>which</parameter>
  specifies the compatibility map components to be freed (see
-<function>XkbGetCompatMap</function>,
+<link linkend="XkbGetCompatMap"><function>XkbGetCompatMap</function></link>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <parameter>which</parameter>
  is an inclusive OR of the bits shown in

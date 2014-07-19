@@ -200,7 +200,7 @@ fields in the
 To retrieve one or more components of a keyboard device description, use
 <function>XkbGetKeyboard</function>
  (see also
-<function>XkbGetKeyboardByName</function>).
+<link linkend="XkbGetKeyboardByName"><function>XkbGetKeyboardByName</function></link>).
 
 </para>
 

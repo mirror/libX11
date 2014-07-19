@@ -65,8 +65,8 @@ and
 <structfield>behaviors</structfield>
  field describes the behavior for each key and is defined in <link linkend="Key_Behavior">section 16.2</link>. The
 <structfield>explicit</structfield>
- field describes the explicit components for a key and is defined in section
-16.3. The
+ field describes the explicit components for a key and is defined in
+<link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>. The
 <structfield>vmods</structfield>
  and the
 <structfield>vmodmap</structfield>

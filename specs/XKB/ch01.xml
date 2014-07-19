@@ -144,7 +144,7 @@ server and a client. The individual components are shown in <link linkend="figur
 
 <variablelist>
   <varlistentry>
-    <term>Client Map</term>
+    <term><link linkend="Xkb_Client_Keyboard_Mapping">Client Map</link></term>
     <listitem>
       <para>
 The key mapping information needed to convert arbitrary keycodes to symbols.
@@ -152,7 +152,7 @@ The key mapping information needed to convert arbitrary keycodes to symbols.
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Server Map</term>
+    <term><link linkend="Xkb_Server_Keyboard_Mapping">Server Map</link></term>
     <listitem>
       <para>
 The key mapping information categorizing keys by functionality (which keys are
@@ -161,7 +161,7 @@ modifiers, how keys behave, and so on).
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Controls</term>
+    <term><link linkend="Keyboard_Controls">Controls</link></term>
     <listitem>
       <para>
 Client configurable quantities effecting how the keyboard behaves, such as
@@ -170,7 +170,7 @@ repeat behavior and modifications for people with movement impairments.
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Indicators</term>
+    <term><link linkend="Indicators">Indicators</link></term>
     <listitem>
       <para>
 The mapping of behavior to indicators.
@@ -178,7 +178,7 @@ The mapping of behavior to indicators.
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Geometry</term>
+    <term><link linkend="Keyboard_Geometry">Geometry</link></term>
     <listitem>
       <para>
 A complete description of the physical keyboard layout, sufficient to draw a
@@ -187,7 +187,7 @@ representation of the keyboard.
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Names</term>
+    <term><link linkend="Symbolic_Names">Names</link></term>
     <listitem>
       <para>
 A mapping of names to various aspects of the keyboard such as individual
@@ -196,7 +196,7 @@ virtual modifiers, indicators, and bells.
     </listitem>
   </varlistentry>
   <varlistentry>
-    <term>Compatibility Map</term>
+    <term><link linkend="The_Xkb_Compatibility_Map">Compatibility Map</link></term>
     <listitem>
       <para>
 The definition of how to map core protocol keyboard state to Xkb keyboard state.

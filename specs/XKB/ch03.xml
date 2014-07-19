@@ -123,7 +123,7 @@ XkbAllocGeomShapes(geom,4)
 to say <quote>I’ll need space for four new shapes in this geometry.</quote>
 This makes sure that
 <structfield>sz_shapes</structfield>
- -
+ &minus;
 <structfield>num_shapes</structfield>
  &gt;= 4, and resizes the shapes array if it isn’t. If this function
 succeeds, you are guaranteed to have space for the number of shapes you need.

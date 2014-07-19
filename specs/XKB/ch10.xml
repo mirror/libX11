@@ -1469,7 +1469,7 @@ approaches
 <structfield>mk_time_to_max</structfield>.
 The legal values for
 <structfield>mk_curve</structfield>
- are between -1000 and 1000.
+ are between &minus;1000 and 1000.
 </para>
 
 

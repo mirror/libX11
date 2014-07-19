@@ -1228,7 +1228,7 @@ The
  fields of the client map. The fields are allocated to contain the maximum
 number of entries necessary for
 <structfield>max_key_code</structfield>
- -
+ &minus;
 <structfield>min_key_code</structfield>
  + 1 keys.
 </entry>
@@ -1247,7 +1247,7 @@ The
  field of the client map. The field is allocated to contain the maximum number
 of entries necessary for
 <structfield>max_key_code</structfield>
- -
+ &minus;
 <structfield>min_key_code</structfield>
  + 1 keys.
 </entry>

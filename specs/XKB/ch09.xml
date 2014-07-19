@@ -426,7 +426,7 @@ To ring the bell on an X input extension device or the default keyboard, use
     </term>
     <listitem>
       <para>
-        bell volume, from -100 to 100 inclusive
+        bell volume, from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>
@@ -535,7 +535,7 @@ default keyboard:
     </term>
     <listitem>
       <para>
-        relative volume, which can range from -100 to 100 inclusive
+        relative volume, which can range from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>
@@ -700,7 +700,7 @@ without ringing the corresponding bell, use
     </term>
     <listitem>
       <para>
-        volume for the bell, which can range from -100 to 100 inclusive
+        volume for the bell, which can range from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>
@@ -795,7 +795,7 @@ the keyboard without ringing the bell:
     </term>
     <listitem>
       <para>
-        relative volume, which can range from -100 to 100 inclusive
+        relative volume, which can range from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>
@@ -938,7 +938,7 @@ audible bells, use <function>XkbForceDeviceBell</function>.
     </term>
     <listitem>
       <para>
-        relative volume, which can range from -100 to 100 inclusive
+        relative volume, which can range from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>
@@ -1006,7 +1006,7 @@ for audible bells, use
     </term>
     <listitem>
       <para>
-        volume for the bell, which can range from -100 to 100 inclusive
+        volume for the bell, which can range from &minus;100 to 100 inclusive
       </para>
     </listitem>
   </varlistentry>

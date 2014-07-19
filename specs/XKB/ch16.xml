@@ -3057,14 +3057,14 @@ The
  (if
 <structfield>press</structfield>
  is
-<symbol>True</symbol>
-) or
+<symbol>True</symbol>)
+ or
 <symbol>KeyRelease</symbol>
  (if
 <structfield>press</structfield>
  is
-<symbol>False</symbol>
-) event is also sent to the client. As with all other Xkb events,
+<symbol>False</symbol>)
+ event is also sent to the client. As with all other Xkb events,
 <structname>XkbActionMessageEvent</structname>s
  are delivered to all clients requesting them, regardless of the current
 keyboard focus. However, the
@@ -4083,8 +4083,8 @@ The
       <para>
 If another member of the radio group is logically down (all members of the
 radio group have the same index, specified in
-<structfield>data</structfield>
-) when a key is pressed, the server synthesizes a key release for the member
+<structfield>data</structfield>)
+ when a key is pressed, the server synthesizes a key release for the member
 that is logically down and then processes the new key press event normally.
       </para>
       <para>

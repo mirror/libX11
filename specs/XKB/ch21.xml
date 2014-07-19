@@ -76,11 +76,11 @@ XkbGetDeviceInfo and XkbSetDeviceInfo functions described in this chapter.
 <para>
 Each device has an X Input Extension device ID. Each device may have several
 classes of feedback. For example, there are two types of feedbacks that can
-generate bells: bell feedback and keyboard feedback (
-<symbol>BellFeedbackClass</symbol>
+generate bells: bell feedback and keyboard feedback
+(<symbol>BellFeedbackClass</symbol>
  and
-<symbol>KbdFeedbackClass</symbol>
-). A device can have more than one feedback of each type; the feedback ID
+<symbol>KbdFeedbackClass</symbol>).
+ A device can have more than one feedback of each type; the feedback ID
 identifies the particular feedback within its class.
 </para>
 
@@ -201,8 +201,8 @@ The
 <structfield>type</structfield>
  field is a registered symbolic name for a class of devices (for example,
 "TABLET"). If a device is a keyboard (that is, is a member of
-<symbol>KeyClass</symbol>
-), it has its own state, and
+<symbol>KeyClass</symbol>),
+ it has its own state, and
 <structfield>has_own_state</structfield>
  is
 <symbol>True</symbol>.
@@ -501,8 +501,8 @@ If the
 <parameter>which</parameter>,
 the
 <structname>XkbDeviceInfoRec</structname>
- returned will have the button actions (
-<structfield>btn_acts</structfield>
+ returned will have the button actions
+(<structfield>btn_acts</structfield>
  field) filled in for all buttons.
 </para>
 
@@ -693,11 +693,11 @@ by the
 <parameter>device_info</parameter>
  and waits for a reply. If successful,
 <function>XkbGetDeviceButtonActions</function>
- backfills the button actions (
-<structfield>btn_acts</structfield>
+ backfills the button actions
+(<structfield>btn_acts</structfield>
  field of
-<parameter>device_info</parameter>
-) for only the requested buttons, updates the
+<parameter>device_info</parameter>)
+ for only the requested buttons, updates the
 <structfield>name</structfield>,
 <structfield>type</structfield>,
 <structfield>supported</structfield>,
@@ -734,11 +734,11 @@ extension has not been properly initialized, XkbGetDeviceButtonActions returns
 <errorname>BadAccess</errorname>.
 If allocation errors occur, a
 <errorname>BadAlloc</errorname>
- status is returned. If the specified device (
-<parameter>device_info</parameter>
+ status is returned. If the specified device
+(<parameter>device_info</parameter>
 -&gt;
-<structfield>device_spec</structfield>
-) is invalid, a
+<structfield>device_spec</structfield>)
+ is invalid, a
 <errorname>BadKeyboard</errorname>
  status is returned. If the device has no buttons, a
 <errorname>BadMatch</errorname>

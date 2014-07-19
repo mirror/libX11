@@ -195,9 +195,9 @@ The global locked or effective group changes. In this case, the changed group is
 
 The Xkb library is interpreting an event with an effective group that is legal for the keyboard as a whole, but not for the key in question. In this case, the group to use for this event only is determined using the
 <structfield>group_info</structfield>
- field of the key symbol mapping (
-<structname>XkbSymMapRec</structname>
-) for the event key.
+ field of the key symbol mapping
+(<structname>XkbSymMapRec</structname>)
+ for the event key.
   </para></listitem>
 </orderedlist>
 
@@ -314,8 +314,8 @@ If the server’s
 
 
 <para>
-The final three components of Xkb state are applicable to clients that are not linked with an Xlib containing the X keyboard extension library and therefore are not aware of the keyboard extension (
-<emphasis>Xkb-unaware</emphasis>
+The final three components of Xkb state are applicable to clients that are not linked with an Xlib containing the X keyboard extension library and therefore are not aware of the keyboard extension
+(<emphasis>Xkb-unaware</emphasis>
 clients):
 </para>
 

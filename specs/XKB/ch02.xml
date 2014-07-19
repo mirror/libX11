@@ -168,11 +168,11 @@ Call
 <function>XkbQueryExtension</function>
  to check for the presence and compatibility of the extension in the server and
 to initialize the extension. Because of potential version mismatches, you
-cannot use the generic extension mechanism functions (
-<function>XQueryExtension</function>
+cannot use the generic extension mechanism functions
+(<function>XQueryExtension</function>
 and
-<function>XInitExtension</function>
-) for checking for the presence of, and initializing the Xkb extension.
+<function>XInitExtension</function>)
+ for checking for the presence of, and initializing the Xkb extension.
 </para>
 
 <para>
@@ -770,10 +770,10 @@ The Xkb extension can communicate with the X input extension if it is present.
 Consequently, there can potentially be more than one input device connected to
 the server. Most Xkb library calls that require communicating with the server
 involve both a server connection (Display *
-<structfield>dpy</structfield>
-) and a device identifier (unsigned int
-<structfield>device_spec</structfield>
-). In some cases, the device identifier is implicit and is taken as the
+<structfield>dpy</structfield>)
+ and a device identifier (unsigned int
+<structfield>device_spec</structfield>).
+ In some cases, the device identifier is implicit and is taken as the
 <structfield>device_spec</structfield>
  field of an
 <structname>XkbDescRec</structname>

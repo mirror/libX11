@@ -234,9 +234,9 @@ legal for the keyboard as a whole, but not for the key in question, the group
 <emphasis>for that event only</emphasis>
  is normalized using the algorithm specified by the
 <structfield>group_info</structfield>
- member of the key symbol map (
-<structname>XkbSymMapRec</structname>
-).
+ member of the key symbol map
+(<structname>XkbSymMapRec</structname>).
+
     </para>
   </glossdef>
 </glossentry>
@@ -742,15 +742,15 @@ to a keysym.
     <para>
 A modifier is a logical condition that is either set or unset. The modifiers
 control the Shift Level selected when a key event occurs. Xkb supports the core
-protocol eight modifiers (
-<symbol>Shift</symbol>,
+protocol eight modifiers
+(<symbol>Shift</symbol>,
 <symbol>Lock</symbol>,
 <symbol>Control</symbol>,
 and
 <symbol>Mod1</symbol>
  through
-<symbol>Mod5</symbol>
-), called the
+<symbol>Mod5</symbol>),
+ called the
 <emphasis>real</emphasis>
  modifiers. In addition, Xkb extends modifier flexibility by providing a set of
 sixteen named virtual modifiers, each of which can be bound to any set of the
@@ -864,15 +864,15 @@ be logically depressed at one time.
   <glossterm>Real Modifier</glossterm>
   <glossdef>
     <para>
-Xkb supports the eight core protocol modifiers (
-<symbol>Shift</symbol>,
+Xkb supports the eight core protocol modifiers
+(<symbol>Shift</symbol>,
 <symbol>Lock</symbol>,
 <symbol>Control</symbol>,
 and
 <symbol>Mod1</symbol>
  through
-<symbol>Mod5</symbol>
-); these are called the
+<symbol>Mod5</symbol>);
+ these are called the
 <emphasis>real</emphasis>
  modifiers, as opposed to the set of sixteen named virtual modifiers that can
 be bound to any set of the eight real modifiers.
@@ -959,15 +959,15 @@ slider, or a dial.
     <para>
 Xkb provides a set of sixteen named virtual modifiers that can be bound to any
 set of the eight real modifiers. Each virtual modifier can be bound to any set
-of the real modifiers (
-<symbol>Shift</symbol>,
+of the real modifiers
+(<symbol>Shift</symbol>,
 <symbol>Lock</symbol>,
 <symbol>Control</symbol>,
  and
 <symbol>Mod1</symbol>
 -
-<symbol>Mod5</symbol>
-).
+<symbol>Mod5</symbol>).
+
     </para>
   </glossdef>
 </glossentry>

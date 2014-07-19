@@ -195,9 +195,9 @@ name LEFT as an alias for A31 in the
 (see <xref linkend="Keyboard_Geometry" />) override those defined in the keycodes component of the server
 database, which are stored in the
 <structname>XkbNamesRec</structname>
- (
-<structfield>xkb-&gt;names</structfield>
-). Therefore, consider the key aliases defined by the geometry before
+
+(<structfield>xkb-&gt;names</structfield>).
+ Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the
 <structname>XkbNamesRec</structname>.
 </para></note>

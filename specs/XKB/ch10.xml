@@ -1387,19 +1387,19 @@ pressed.
 </listitem>
 <listitem>
   <para>
-After 160 milliseconds (
-<structfield>mk_delay</structfield>
-), and every 40 milliseconds thereafter (
-<structfield>mk_interval</structfield>
-), the pointer moves in the X direction.
+After 160 milliseconds
+(<structfield>mk_delay</structfield>),
+ and every 40 milliseconds thereafter
+(<structfield>mk_interval</structfield>),
+ the pointer moves in the X direction.
   </para>
 </listitem>
 <listitem>
   <para>
 The distance in the X direction increases with each interval until 30 intervals
 (
-<structfield>mk_time_to_max</structfield>
-) have elapsed.
+<structfield>mk_time_to_max</structfield>)
+ have elapsed.
   </para>
 </listitem>
 <listitem>
@@ -2956,8 +2956,8 @@ and consumed in the server. These are:
 <para>
 Without the modifier processing options provided by Xkb, passive grabs set via
 translations in a client (for example,
-<emphasis>Alt&lt;KeyPress&gt;space</emphasis>
-) do not trigger if any modifiers other than those specified by the translation
+<emphasis>Alt&lt;KeyPress&gt;space</emphasis>)
+ do not trigger if any modifiers other than those specified by the translation
 are set. This results in problems in the user interface when either
 <emphasis>NumLock</emphasis>
  or a secondary keyboard group is active. The
@@ -3500,8 +3500,8 @@ The general-purpose functions that work with the
  structure use a mask to specify which controls are to be manipulated.
 <link linkend="table10.6">Table 10.6</link>
 lists these controls, the masks used to select them in the general
-function calls (
-<structfield>which</structfield>
+function calls
+(<structfield>which</structfield>
  parameter), and the data fields in the
 <structname>XkbControlsRec</structname>
  structure that comprise each of the individual controls. Also listed are the
@@ -3696,11 +3696,11 @@ is described in more detail.
 shows the actual values for the individual mask bits used to select
 controls for modification and to enable and disable the control. Note that the
 same mask bit is used to specify general modifications to the parameters used
-to configure the control (
-<structfield>which</structfield>
-), and to enable and disable the control (
-<structfield>enabled_ctrls</structfield>
-). The anomalies in the table (no "ok" in column) are for controls that have no
+to configure the control
+(<structfield>which</structfield>),
+ and to enable and disable the control
+(<structfield>enabled_ctrls</structfield>).
+ The anomalies in the table (no "ok" in column) are for controls that have no
 configurable attributes; and for controls that are not boolean controls and
 therefore cannot be enabled or disabled.
 </para>
@@ -4169,8 +4169,8 @@ The
 
 <para>
 The fields pertaining to each control are relevant only when the control is
-enabled (
-<symbol>XkbAccessXFeedbackMask</symbol>
+enabled
+(<symbol>XkbAccessXFeedbackMask</symbol>
  or
 <symbol>XkbStickyKeysMask</symbol>
  bit is turned on in the
@@ -4577,8 +4577,8 @@ the corresponding values are still updated in the X server. For example, the
  has
 <symbol>XkbRepeatKeysMask</symbol>
  set in
-<structfield>enabled_ctrls</structfield>
-). It is permissible to modify the attributes of a control in one call to
+<structfield>enabled_ctrls</structfield>).
+ It is permissible to modify the attributes of a control in one call to
 XkbSetControls and enable the control in a subsequent call. See <link linkend="The_EnabledControls_Control">section 10.1.1</link>
 for more information on enabling and disabling controls.
 </para>
@@ -4599,8 +4599,8 @@ others, then specify the
 <function>XkbSetControls</function>.
 Because this is somewhat awkward if all you want to do is enable and disable
 controls, and not modify any of their attributes, a convenience function is
-also provided for this purpose (
-<function>XkbChangeEnabledControls</function>,
+also provided for this purpose
+(<function>XkbChangeEnabledControls</function>,
 <link linkend="The_EnabledControls_Control">section 10.1.1</link>).
 </para>
 
@@ -4842,8 +4842,8 @@ and the
 <symbol>DeviceKeyRelease</symbol>,
 <symbol>ButtonPress</symbol>
  or
-<symbol>ButtonRelease</symbol>
-), and
+<symbol>ButtonRelease</symbol>),
+ and
 <structfield>req_major</structfield>
  and
 <structfield>req_minor</structfield>

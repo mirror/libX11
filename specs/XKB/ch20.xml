@@ -734,14 +734,14 @@ overriding any existing definitions (it could also be written "+de(default)").
 Here is a slightly more involved example: the expression
 "acme(ascii)+de(basic)|iso9995-3" constructs a German (de) mapping for the
 ASCII keyboard supplied by the "acme" vendor. The new definition begins with
-the symbols for the ASCII keyboard for Acme (
-<literal>acme(ascii)</literal>
-), overrides them with definitions for the basic German keyboard (
-<literal>de(basic)</literal>
-), and then applies the definitions from the default iso9995-3 keyboard
+the symbols for the ASCII keyboard for Acme
+(<literal>acme(ascii)</literal>),
+ overrides them with definitions for the basic German keyboard
+(<literal>de(basic)</literal>),
+ and then applies the definitions from the default iso9995-3 keyboard
 (
-<literal>iso9995-3</literal>
-) to any undefined keys or groups of keys (part three of the iso9995 standard
+<literal>iso9995-3</literal>)
+ to any undefined keys or groups of keys (part three of the iso9995 standard
 defines a common set of bindings for the secondary group, but allows national
 layouts to override those definitions where necessary).
 </para>
@@ -790,8 +790,8 @@ possible bits in
 If a required component has not been specified in the
 <parameter>names</parameter>
  structure (the corresponding field is
-<symbol>NULL</symbol>
-), the server substitutes the expression
+<symbol>NULL</symbol>),
+ the server substitutes the expression
 “<literal>%</literal>”,
  resulting in the component values being taken from
 <parameter>device_spec</parameter>.
@@ -1052,8 +1052,8 @@ XkbGetNames(dpy, XkbKeyNamesMask | XkbKeyAliasesMask, Xkb)
 There is no way to determine which components specified in
 <parameter>want</parameter>
  (but not in
-<parameter>need</parameter>
-) were actually fetched, other than breaking the call into successive calls to
+<parameter>need</parameter>)
+ were actually fetched, other than breaking the call into successive calls to
 <function>XkbGetKeyboardByName</function>
  and specifying individual components.
 </para>
@@ -1156,8 +1156,8 @@ keyboard device. It calls
 <symbol>NULL</symbol>,
 <parameter>which</parameter>,
 <parameter>which</parameter>,
-<symbol>False</symbol>
-).
+<symbol>False</symbol>).
+
 </para>
 
 </sect1>

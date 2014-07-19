@@ -256,8 +256,8 @@ If
 indicator map (such as
 <function>XkbSetIndicatorMap</function>
  or
-<function>XkbSetNamedIndicator</function>
-), Xkb changes the keyboard state and controls to reflect the other fields of
+<function>XkbSetNamedIndicator</function>),
+ Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map, as described in the remainder of this section. If you
 attempt to explicitly change the value of an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
@@ -1164,8 +1164,8 @@ bits, as well as the indicator’s index into the
 <structname>XkbIndicatorRec</structname>
  array of indicator maps.
 <parameter>state_rtrn</parameter>
- returns the current state of the named indicator (
-<symbol>True</symbol>
+ returns the current state of the named indicator
+(<symbol>True</symbol>
  = on,
 <symbol>False</symbol>
  = off).
@@ -1246,8 +1246,8 @@ If
 indicator map (such as
 <function>XkbSetIndicatorMap</function>
  or
-<function>XkbSetNamedIndicator</function>
-), Xkb changes the keyboard state and controls to reflect the other fields of
+<function>XkbSetNamedIndicator</function>),
+ Xkb changes the keyboard state and controls to reflect the other fields of
 the indicator map. If you attempt to explicitly change the value of an
 indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>

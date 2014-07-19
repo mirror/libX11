@@ -12,8 +12,8 @@ not provide a convenient way to determine the mapping of modifier bits (in
 particular
 <symbol>Mod1</symbol>
  through
-<symbol>Mod5</symbol>
-) to keysyms such as
+<symbol>Mod5</symbol>)
+ to keysyms such as
 <keysym>Num_Lock</keysym>
  and
 <keysym>Mode_switch</keysym>.
@@ -47,8 +47,8 @@ Each virtual modifier can be bound to any set of the real modifiers
  and
 <symbol>Mod1</symbol>
 -
-<symbol>Mod5</symbol>
-).
+<symbol>Mod5</symbol>).
+
 </para>
 
 
@@ -364,8 +364,8 @@ If the
 <emphasis>NumLock</emphasis>
  virtual modifier is not bound to any real modifiers, the effective masks for
 these two cases are identical (that is, contain only
-<symbol>Shift</symbol>
-). When it is essential to distinguish between
+<symbol>Shift</symbol>).
+ When it is essential to distinguish between
 <emphasis>OneThing</emphasis>
  and Another, Xkb considers only those modifier definitions for which all
 virtual modifiers are bound.

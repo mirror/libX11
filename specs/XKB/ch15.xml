@@ -1288,8 +1288,8 @@ the key types:
 </para>
 
 <note><para>The array of key types is of fixed width and is large enough to
-hold key types for the maximum legal number of groups (
-<symbol>XkbNumKbdGroups</symbol>,
+hold key types for the maximum legal number of groups
+(<symbol>XkbNumKbdGroups</symbol>,
 currently four); if a key has fewer than
 <symbol>XkbNumKbdGroups</symbol>
  groups, the extra key types are reported but ignored.</para></note>

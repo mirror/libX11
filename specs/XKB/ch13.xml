@@ -136,9 +136,9 @@ multiple key names to a single key.
 override those defined in the keycodes component of the server database, which
 are stored in the
 <structname>XkbNamesRec</structname>
- (
-<structfield>xkb-&gt;names</structfield>
-). Therefore, consider the key aliases defined by the geometry before
+
+(<structfield>xkb-&gt;names</structfield>).
+ Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the keycodes.</para></note>
 </listitem>
 <listitem>
@@ -442,23 +442,23 @@ containing the entire section.
 <title>Rows and Keys</title>
 
 <para>
-A row description (
-<structname>XkbRowRec</structname>
-) consists of the coordinates of its origin relative to its enclosing section,
+A row description
+(<structname>XkbRowRec</structname>)
+ consists of the coordinates of its origin relative to its enclosing section,
 a flag indicating whether the row is horizontal or vertical, and a list of keys
 in the row.
 </para>
 
 
 <para>
-A key description (
-<structname>XkbKeyRec</structname>
-) consists of a key name, a shape, a key color, and a gap. The key name should
+A key description
+(<structname>XkbKeyRec</structname>)
+ consists of a key name, a shape, a key color, and a gap. The key name should
 correspond to one of the keys named in the keyboard names description, the
 shape specifies the appearance of the key, and the key color specifies the
 color of the key (not the label on the key; the label color is stored in the
-<structname>XkbGeometryRec</structname>
-). Keys are normally drawn immediately adjacent to one another from left to
+<structname>XkbGeometryRec</structname>).
+ Keys are normally drawn immediately adjacent to one another from left to
 right (or top to bottom) within a row. The gap field specifies the distance
 between a key and its predecessor.
 </para>
@@ -502,11 +502,11 @@ Xkb supports five types of doodads:
 An
 <firstterm>indicator doodad</firstterm>
  describes one of the physical keyboard indicators. Indicator doodads specify
-the shape of the indicator, the indicator color when it is lit (
-<emphasis>on_color</emphasis>
-) and the indicator color when it is dark (
-<emphasis>off_color</emphasis>
-).
+the shape of the indicator, the indicator color when it is lit
+(<emphasis>on_color</emphasis>)
+ and the indicator color when it is dark
+(<emphasis>off_color</emphasis>).
+
   </para>
 </listitem>
 <listitem>
@@ -639,17 +639,17 @@ The structures these doodads are stored in and the values of the
 <para>
 An
 <firstterm>overlay row</firstterm>
- (
-<structname>XkbOverlayRowRec</structname>
-) contains a pointer to the row it overlays and a list of
+
+(<structname>XkbOverlayRowRec</structname>)
+ contains a pointer to the row it overlays and a list of
 <firstterm>overlay keys</firstterm>.
 </para>
 
 
 <para>
-Each overlay key definition (
-<structname>XkbOverlayKeyRec</structname>
-) indicates a key that can yield multiple keycodes and consists of a field
+Each overlay key definition
+(<structname>XkbOverlayKeyRec</structname>)
+ indicates a key that can yield multiple keycodes and consists of a field
 named
 <structfield>under</structfield>,
 which specifies the primary name of the key and a field named
@@ -2216,12 +2216,12 @@ the doodad. If there is already a doodad with the name
  in the doodad array for the geometry (if
 <parameter>section</parameter>
  is
-<symbol>NULL</symbol>
-) or the section (if
+<symbol>NULL</symbol>)
+ or the section (if
 <parameter>section</parameter>
  is non-
-<symbol>NULL</symbol>
-), a pointer to that doodad is returned. To allocate space for an arbitrary
+<symbol>NULL</symbol>),
+ a pointer to that doodad is returned. To allocate space for an arbitrary
 number of doodads to a section, use the XkbAllocGeomSectionDoodads function. To
 allocate space for an arbitrary number of doodads to a keyboard geometry, use
 the XkbAllocGeomDoodads function.

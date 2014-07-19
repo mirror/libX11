@@ -1418,7 +1418,7 @@ to the current pointer Y coordinate to determine the new pointer Y coordinate.
 </table>
 
 <para>
-Each of the X and Y coordinantes of the
+Each of the X and Y coordinates of the
 <structname>XkbPtrAction</structname>
  structure is composed of two signed 16-bit values, that is, the X coordinate
 is composed of

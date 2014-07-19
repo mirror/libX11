@@ -489,8 +489,8 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 <funcsynopsis id="XkbLatchModifiers">
   <funcprototype>
     <funcdef>Bool <function>XkbLatchModifiers</function></funcdef>
-<!-- (d
-<parameter>isplay, device_spec, affect, values</parameter>
+<!-- (
+<parameter>display, device_spec, affect, values</parameter>
 ) -->
 
     <paramdef>Display *<parameter>display</parameter></paramdef>

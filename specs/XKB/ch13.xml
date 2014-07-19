@@ -3321,7 +3321,7 @@ To free geometry shapes, use
 <parameter>geom</parameter>,
 <parameter>first</parameter>,
 <parameter>count</parameter>,
-<parameter>f ree_all</parameter>
+<parameter>free_all</parameter>
 ) -->
 
     <paramdef>XkbGeometryPtr <parameter>geom</parameter></paramdef>

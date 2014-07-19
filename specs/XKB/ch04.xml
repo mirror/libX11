@@ -52,7 +52,7 @@ event type is defined by two fields in the X event data structure. One is the
  field, containing the
 <emphasis>base event code</emphasis>.
  This base event code is a value the X server assigns to each X extension at
-runtime and thatidentifies the extension that generated the event; thus, the
+runtime and that identifies the extension that generated the event; thus, the
 event code in the
 <structfield>type</structfield>
  field identifies the event as an Xkb extension event, rather than an event
@@ -395,7 +395,7 @@ clear them via another call to
 <function>XkbSelectEvents</function>
  returns
 <symbol>False</symbol>
- if the Xkb extension has not been initilialized and
+ if the Xkb extension has not been initialized and
 <symbol>True</symbol>
  otherwise.
 </para>

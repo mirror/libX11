@@ -334,7 +334,7 @@ to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6<
 The X Keyboard Extension replaces the core protocol definition of a keyboard
 with a more comprehensive one. The X Keyboard Extension library interfaces are
 included in Xlib.<footnote><para>
-X11R6.1 is the first release by the X Consortium, Inc.,that includes the X
+X11R6.1 is the first release by the X Consortium, Inc., that includes the X
 Keyboard Extension in Xlib. X11R6 included work in progress on this extension
 as nonstandard additions to the library.
 </para>

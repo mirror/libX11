@@ -101,7 +101,7 @@ legal range of keycodes expected by that client. Once the server sends a client
 an
 <symbol>XkbNewKeyboardNotify</symbol>
  event, it reports events from all keys because it assumes that any client that
-has receieved an
+has received an
 <symbol>XkbNewKeyboardNotify</symbol>
  event expects key events from the new range of keycodes. The implicit support
 for Xkb asks for
@@ -792,7 +792,7 @@ To translate a keycode to a key symbol and modifiers, use
 <indexterm significance="preferred" zone="XkbTranslateKeyCode"><primary><function>XkbTranslateKeyCode</function></primary></indexterm>
 <funcsynopsis id="XkbTranslateKeyCode">
   <funcprototype>
-    <funcdef>Booll <function>XkbTranslateKeyCode</function></funcdef>
+    <funcdef>Bool <function>XkbTranslateKeyCode</function></funcdef>
 <!-- (
 <parameter>xkb, key, mods, mods_rtrn, keysym_rtrn)</parameter> -->
 

@@ -879,7 +879,7 @@ typedef struct {
       unsigned long      serial;      /* X server serial number for
                                          event */
       Bool      send_event;           /* <symbol>True</symbol>
-                                         =&gt; synthetically generated */
+                                         &rArr; synthetically generated */
       Display *      display;         /* server connection where event
                                          generated */
       Time      time;                 /* server time when event generated */
@@ -1205,7 +1205,7 @@ Use
     <listitem>
       <para>
         <symbol>True</symbol>
-         =&gt; XkbNamesRec structure itself should be freed
+         &rArr; XkbNamesRec structure itself should be freed
       </para>
     </listitem>
   </varlistentry>

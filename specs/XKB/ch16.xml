@@ -3029,15 +3029,15 @@ The structure for the
 typedef struct _XkbActionMessage {
       int            type;            /* Xkb extension base event code */
       unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
+      Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
       int            xkb_type;        /* <symbol>XkbActionMessage</symbol> */
       int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
       KeyCode        keycode;         /* keycode of key triggering event */
-      Bool           press;           /* <symbol>True</symbol> =&gt; key press,
-                                         <symbol>False</symbol> =&gt; release */
-      Bool           key_event_follows; /* <symbol>True</symbol> =&gt; KeyPress/KeyRelease follows */
+      Bool           press;           /* <symbol>True</symbol> &rArr; key press,
+                                         <symbol>False</symbol> &rArr; release */
+      Bool           key_event_follows; /* <symbol>True</symbol> &rArr; KeyPress/KeyRelease follows */
       char           message[XkbActionMessageLength+1];                       /* message text */
 } <structname>XkbActionMessageEvent</structname>;
 </programlisting></para>

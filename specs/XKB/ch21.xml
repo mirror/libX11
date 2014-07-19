@@ -169,7 +169,7 @@ typedef struct {
       char *          name;          /* name for device */
       Atom            type;          /* name for class of devices */
       unsigned short  device_spec;   /* device of interest */
-      Bool            has_own_state; /* <symbol>True</symbol> =&gt;this
+      Bool            has_own_state; /* <symbol>True</symbol> &rArr;this
                                         device has its own state */
       unsigned short  supported;     /* bits indicating supported capabilities */
       unsigned short  unsupported;   /* bits indicating unsupported capabilities */
@@ -193,7 +193,7 @@ typedef struct {
                                              <structfield>maps</structfield> */
       unsigned int     names_present;     /* bits for which LEDs are in
                                              <structfield>names</structfield> */
-      unsigned int     state;            /* 1 bit =&gt; corresponding LED is on */
+      unsigned int     state;            /* 1 bit &rArr; corresponding LED is on */
       Atom             names[XkbNumIndicators];  /* names for LEDs */
       XkbIndicatorMapRec  maps;          /* indicator maps for each LED */
 } <structname>XkbDeviceLedInfoRec</structname>, *XkbDeviceLedInfoPtr;
@@ -661,7 +661,7 @@ XkbGetDeviceButtonActions.
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; get information for all buttons
+        <symbol>True</symbol> &rArr; get information for all buttons
       </para>
     </listitem>
   </varlistentry>
@@ -1305,7 +1305,7 @@ To free an
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; free everything, including device_info
+        <symbol>True</symbol> &rArr; free everything, including device_info
       </para>
     </listitem>
   </varlistentry>
@@ -1818,7 +1818,7 @@ typedef struct {
       int      type;           /* Xkb extension base event code */
       unsigned long  serial;   /* X server serial number for event */
       Bool     send_event;     /* <symbol>True</symbol>
-                                  =&gt; synthetically generated*/
+                                  &rArr; synthetically generated*/
       Display *      display;  /* server connection where event generated */
       Time     time;           /* server time when event generated */
       int      xkb_type;  /* <structname>XkbExtensionDeviceNotifyEvent</structname> */

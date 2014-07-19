@@ -300,7 +300,7 @@ Use
     </term>
     <listitem>
       <para>
-        1 bit =&gt; enable, 0 bit =&gt; disable
+        1 bit &rArr; enable, 0 bit &rArr; disable
       </para>
     </listitem>
   </varlistentry>
@@ -440,7 +440,7 @@ To get the current values of the auto-reset controls, use
     </term>
     <listitem>
       <para>
-        1 bit =&gt; corresponding control has auto-reset on
+        1 bit &rArr; corresponding control has auto-reset on
       </para>
     </listitem>
   </varlistentry>
@@ -524,7 +524,7 @@ To change the current values of the
     </term>
     <listitem>
       <para>
-        1 bit =&gt; auto-reset on
+        1 bit &rArr; auto-reset on
       </para>
     </listitem>
   </varlistentry>
@@ -1071,7 +1071,7 @@ they have requested otherwise.
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; set
+        <symbol>True</symbol> &rArr; set
 <emphasis>DetectableAutorepeat</emphasis>
       </para>
     </listitem>
@@ -2038,7 +2038,7 @@ The server can generate
 typedef struct {
       int             type;            /* Xkb extension base event code */
       unsigned long   serial;          /* X server serial number for event */
-      Bool            send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
+      Bool            send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
       Display *       display;         /* server connection where event generated */
       Time            time;            /* server time when event generated */
       int             xkb_type;        /* <symbol>XkbAccessXNotify</symbol> */
@@ -3145,7 +3145,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        values for affected real modifiers (1=&gt;set, 0=&gt;unset)
+        values for affected real modifiers (1&rArr;set, 0&rArr;unset)
       </para>
     </listitem>
   </varlistentry>
@@ -3165,7 +3165,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        values for affected virtual modifiers (1=&gt;set, 0=&gt;unset)
+        values for affected virtual modifiers (1&rArr;set, 0&rArr;unset)
       </para>
     </listitem>
   </varlistentry>
@@ -3355,7 +3355,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        values for affected real modifiers (1=&gt;set, 0=&gt;unset)
+        values for affected real modifiers (1&rArr;set, 0&rArr;unset)
       </para>
     </listitem>
   </varlistentry>
@@ -3375,7 +3375,7 @@ virtual_values</parameter>
     </term>
     <listitem>
       <para>
-        values for affected virtual modifiers (1=&gt;set, 0=&gt;unset)
+        values for affected virtual modifiers (1&rArr;set, 0&rArr;unset)
       </para>
     </listitem>
   </varlistentry>
@@ -3476,7 +3476,7 @@ typedef struct {
       unsigned char        groups_wrap;       /* how to wrap out-of-bounds groups */
       XkbModsRec           internal;          /* defines server internal modifiers */
       XkbModsRec           ignore_lock;       /* modifiers to ignore when checking for grab */
-      unsigned int         enabled_ctrls;     /* 1 bit =&gt; corresponding boolean control enabled */
+      unsigned int         enabled_ctrls;     /* 1 bit &rArr; corresponding boolean control enabled */
       unsigned short       repeat_delay;      /* ms delay until first repeat */
       unsigned short       repeat_interval;   /* ms delay between repeats */
       unsigned short       slow_keys_delay;   /* ms minimum time key must be down to be ok */
@@ -3486,10 +3486,10 @@ typedef struct {
       unsigned short       mk_time_to_max;    /* # intervals until constant mouse move */
       unsigned short       mk_max_speed;      /* multiplier for maximum mouse speed */
       short                mk_curve;          /* determines mouse move curve type */
-      unsigned short       ax_options;        /* 1 bit =&gt; Access X option enabled */
+      unsigned short       ax_options;        /* 1 bit &rArr; Access X option enabled */
       unsigned short       ax_timeout;        /* seconds until Access X disabled */
-      unsigned short       axt_opts_mask;     /* 1 bit =&gt; options to reset on Access X timeout */
-      unsigned short       axt_opts_values;   /* 1 bit =&gt; turn option on, 0=&gt; off */
+      unsigned short       axt_opts_mask;     /* 1 bit &rArr; options to reset on Access X timeout */
+      unsigned short       axt_opts_values;   /* 1 bit &rArr; turn option on, 0&rArr; off */
       unsigned int         axt_ctrls_mask;    /* which bits in <structfield>enabled_ctrls</structfield> to modify */
       unsigned int         axt_ctrls_values;  /* values for new bits in <structfield>enabled_ctrls</structfield> */
       unsigned char        per_key_repeat[XkbPerKeyBitArraySize];           /* per key auto repeat */
@@ -4777,7 +4777,7 @@ The structure for the
 typedef struct {
       int            type;            /* Xkb extension base event code */
       unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <symbol>True</symbol> =&gt; synthetically generated */
+      Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
       Display *      display;         /* server connection where event generated */
       Time           time;            /* server time when event generated */
       int            xkb_type;        /* <symbol>XkbCompatMapNotify</symbol> */
@@ -4786,7 +4786,7 @@ typedef struct {
       unsigned int   enabled_ctrls;   /* controls currently enabled in server */
       unsigned int   enabled_ctrl_changes;  /* bits indicating enabled/disabled controls */
       int            num_groups;      /* current number of keyboard groups */
-      KeyCode        keycode;         /* != 0 =&gt; keycode of key causing change */
+      KeyCode        keycode;         /* != 0 &rArr; keycode of key causing change */
       char           event_type;      /* Type of event causing change */
       char           req_major;       /* major event code of event causing change */
       char           req_minor;       /* minor event code of event causing change */
@@ -5182,7 +5182,7 @@ structure, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; free everything + ctrls itself
+        <symbol>True</symbol> &rArr; free everything + ctrls itself
       </para>
     </listitem>
   </varlistentry>
@@ -5282,7 +5282,7 @@ To get the current values of the
     </term>
     <listitem>
       <para>
-        1 bit =&gt; corresponding control is on
+        1 bit &rArr; corresponding control is on
       </para>
     </listitem>
   </varlistentry>
@@ -5341,7 +5341,7 @@ To change the current values of the
     </term>
     <listitem>
       <para>
-        1 bit =&gt; change control
+        1 bit &rArr; change control
       </para>
     </listitem>
   </varlistentry>
@@ -5351,7 +5351,7 @@ To change the current values of the
     </term>
     <listitem>
       <para>
-        1 bit =&gt; control on
+        1 bit &rArr; control on
       </para>
     </listitem>
   </varlistentry>

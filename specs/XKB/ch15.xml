@@ -98,7 +98,7 @@ typedef struct {                       /* Key Type */
 
 <para><programlisting>
 typedef struct {                   /* Modifiers for a key type */
-      Bool            active;      /* <symbol>True</symbol> =&gt; entry
+      Bool            active;      /* <symbol>True</symbol> &rArr; entry
                                       active when determining shift level */
       unsigned char   level;       /* shift level if modifiers match <structfield>mods</structfield> */
       XkbModsRec      mods;        /* mods needed for this level to be
@@ -786,7 +786,7 @@ use
     </term>
     <listitem>
       <para>
-        index to first type to get, 0 =&gt; 1st type
+        index to first type to get, 0 &rArr; 1st type
       </para>
     </listitem>
   </varlistentry>
@@ -908,7 +908,7 @@ To change the number of levels in a key type, use
     <listitem>
       <para>
         <symbol>True</symbol>
-         =&gt; list of preserved modifiers is necessary
+         &rArr; list of preserved modifiers is necessary
       </para>
     </listitem>
   </varlistentry>

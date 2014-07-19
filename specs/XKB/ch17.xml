@@ -156,7 +156,7 @@ The
 <para><programlisting>
 typedef struct _XkbCompatMapRec {
       XkbSymInterpretPtr   sym_interpret;            /* symbol based key semantics*/
-      XkbModsRec           groups[XkbNumKbdGroups];  /* group =&gt; modifier map */
+      XkbModsRec           groups[XkbNumKbdGroups];  /* group &rArr; modifier map */
       unsigned short       num_si;                   /* # structures used in
                                                         <structfield>sym_interpret</structfield> */
       unsigned short       size_si;                  /* # structures allocated in
@@ -1360,7 +1360,7 @@ the vector of
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; apply to server’s keyboard map
+        <symbol>True</symbol> &rArr; apply to server’s keyboard map
       </para>
     </listitem>
   </varlistentry>
@@ -1470,7 +1470,7 @@ use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol>=&gt;apply compatibility map to keys
+        <symbol>True</symbol>&rArr;apply compatibility map to keys
       </para>
     </listitem>
   </varlistentry>
@@ -1581,7 +1581,7 @@ The structure for the
 typedef struct {
       int            type;          /* Xkb extension base event code */
       unsigned long  serial;        /* X server serial number for event */
-      Bool           send_event;    /* <symbol>True</symbol> =&gt;
+      Bool           send_event;    /* <symbol>True</symbol> &rArr;
                                        synthetically generated */
       Display *      display;       /* server connection where event generated */
       Time           time;          /* server time when event generated */
@@ -1800,7 +1800,7 @@ To free an entire compatibility map or selected portions of one, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; free <structname>XkbCompatMapRec</structname>
+        <symbol>True</symbol> &rArr; free <structname>XkbCompatMapRec</structname>
          structure itself
       </para>
     </listitem>

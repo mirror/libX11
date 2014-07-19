@@ -623,7 +623,7 @@ one, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; load into <parameter>device_spec</parameter>
+        <symbol>True</symbol> &rArr; load into <parameter>device_spec</parameter>
       </para>
     </listitem>
   </varlistentry>

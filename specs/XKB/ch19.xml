@@ -172,7 +172,7 @@ typedef struct _XkbNewKeyboardNotify {
       int            type;         /* Xkb extension base event code */
       unsigned long  serial;       /* X server serial number for event*/
       Bool           send_event;   /* <symbol>True</symbol>
-                                      =&gt; synthetically generated */
+                                      &rArr; synthetically generated */
       Display *      display;      /* server connection where event generated */
       Time           time;         /* server time when event generated */
       int            xkb_type;  /* <symbol>XkbNewKeyboardNotify</symbol> */

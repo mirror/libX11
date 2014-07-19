@@ -382,7 +382,7 @@ To destroy either an entire an
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; free all components and <parameter>xkb</parameter>
+        <symbol>True</symbol> &rArr; free all components and <parameter>xkb</parameter>
       </para>
     </listitem>
   </varlistentry>

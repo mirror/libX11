@@ -869,8 +869,8 @@ typedef struct _XkbRow {             /* row in a section */
       short               left;      /* left coordinate of row origin, relative to section’s origin */
       unsigned short      num_keys;  /* number of keys in the keys array */
       unsigned short      sz_keys;   /* size of the keys array */
-      int                 vertical;  /* <symbol>True</symbol> =&gt;vertical row,
-                                        <symbol>False</symbol> =&gt;horizontal row */
+      int                 vertical;  /* <symbol>True</symbol> &rArr;vertical row,
+                                        <symbol>False</symbol> &rArr;horizontal row */
       XkbKeyPtr           keys;      /* array of keys in the row*/
       XkbBoundsRec        bounds;    /* bounding box for the row */
 } <structname>XkbRowRec</structname>, *XkbRowPtr;
@@ -927,7 +927,7 @@ typedef struct _XkbOverlayKey {
 <para><programlisting>
 typedef struct _XkbSection {
       Atom            name;          /* section name */
-      unsigned char   priority;      /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
+      unsigned char   priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
       short           top;           /* top coordinate of section origin */
       short           left;          /* left coordinate of row origin */
       unsigned short  width;         /* section width, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
@@ -1020,7 +1020,7 @@ typedef struct _XkbShapeDoodad {
       unsigned char      type;        /* <symbol>XkbOutlineDoodad</symbol>
                                          or <symbol>XkbSolidDoodad</symbol> */
       unsigned char      priority;    /* drawing priority,
-                                         0=&gt;highest, 255=&gt;lowest */
+                                         0&rArr;highest, 255&rArr;lowest */
       short      top;                 /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short      left;                /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short      angle;               /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
@@ -1034,7 +1034,7 @@ typedef struct _XkbTextDoodad {
       Atom            name;         /* doodad name */
       unsigned char   type;         /* <symbol>XkbTextDoodad</symbol> */
       unsigned char   priority;     /* drawing priority,
-                                       0=&gt;highest, 255=&gt;lowest */
+                                       0&rArr;highest, 255&rArr;lowest */
       short           top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short           left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short           angle;        /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
@@ -1050,7 +1050,7 @@ typedef struct _XkbTextDoodad {
 typedef struct _XkbIndicatorDoodad {
       Atom           name;          /* doodad name */
       unsigned char  type;          /* <symbol>XkbIndicatorDoodad</symbol> */
-      unsigned char  priority;      /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
+      unsigned char  priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
       short          top;           /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short          left;          /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short          angle;         /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
@@ -1064,7 +1064,7 @@ typedef struct _XkbIndicatorDoodad {
 typedef struct _XkbLogoDoodad {
       Atom               name;        /* doodad name */
       unsigned char      type;        /* <symbol>XkbLogoDoodad</symbol> */
-      unsigned char      priority;    /* drawing priority, 0=&gt;highest, 255=&gt;lowest */
+      unsigned char      priority;    /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
       short              top;         /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short              left;        /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
       short              angle;       /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
@@ -2585,7 +2585,7 @@ To free geometry outlines, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all outlines are freed
+        <symbol>True</symbol> &rArr; all outlines are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2708,7 +2708,7 @@ To free geometry keys, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all keys are freed
+        <symbol>True</symbol> &rArr; all keys are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2837,7 +2837,7 @@ To free geometry properties, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all properties are freed
+        <symbol>True</symbol> &rArr; all properties are freed
       </para>
     </listitem>
   </varlistentry>
@@ -2963,7 +2963,7 @@ To free geometry key aliases, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all key aliases are freed
+        <symbol>True</symbol> &rArr; all key aliases are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3093,7 +3093,7 @@ To free geometry colors, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all colors are freed
+        <symbol>True</symbol> &rArr; all colors are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3219,7 +3219,7 @@ To free points in a outline, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all points are freed
+        <symbol>True</symbol> &rArr; all points are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3346,7 +3346,7 @@ To free geometry shapes, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all shapes are freed
+        <symbol>True</symbol> &rArr; all shapes are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3470,7 +3470,7 @@ To free geometry sections, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all sections are freed
+        <symbol>True</symbol> &rArr; all sections are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3594,7 +3594,7 @@ To free rows in a section, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all rows are freed
+        <symbol>True</symbol> &rArr; all rows are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3718,7 +3718,7 @@ To free rows in an section, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all overlays are freed
+        <symbol>True</symbol> &rArr; all overlays are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3842,7 +3842,7 @@ To free rows in an overlay, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all rows are freed
+        <symbol>True</symbol> &rArr; all rows are freed
       </para>
     </listitem>
   </varlistentry>
@@ -3966,7 +3966,7 @@ To free keys in an overlay row, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all keys are freed
+        <symbol>True</symbol> &rArr; all keys are freed
       </para>
     </listitem>
   </varlistentry>
@@ -4129,7 +4129,7 @@ To free geometry doodads, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; all doodads are freed
+        <symbol>True</symbol> &rArr; all doodads are freed
       </para>
     </listitem>
   </varlistentry>
@@ -4246,7 +4246,7 @@ To free an entire geometry, use
     </term>
     <listitem>
       <para>
-        <symbol>True</symbol> =&gt; the entire geometry is freed.
+        <symbol>True</symbol> &rArr; the entire geometry is freed.
       </para>
     </listitem>
   </varlistentry>

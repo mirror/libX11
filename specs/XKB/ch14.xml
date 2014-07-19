@@ -81,8 +81,8 @@ character the key is capable of generating.
 
 
 <para>
-Level is often referred to as "Shift Level". Levels are numbered sequentially
-starting at one.
+Level is often referred to as <quote>Shift Level</quote>.
+Levels are numbered sequentially starting at one.
 </para>
 
 <note><para>Shift level is derived from the modifier state, but not necessarily
@@ -356,7 +356,8 @@ free the returned data, use
 
 <para>
 Xkb also provides convenience functions to get partial component definitions
-from the server. These functions are specified in the "convenience functions"
+from the server. These functions are specified in the
+<quote>convenience functions</quote>
 column in <link linkend="table14.1">Table 14.1</link>.
 Refer to the sections listed in the table for more
 information on these functions.

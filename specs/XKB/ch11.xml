@@ -225,7 +225,7 @@ the compose processing controls is optional in an Xkb implementation.
 
 <para>
 Some compose processing algorithms signal the start of a compose sequence by a
-key event meaning "start compose".
+key event meaning <quote>start compose</quote>.
 <footnote><para>
 Another possibility is to have the compose processing simply be the result of a finite state acceptor; a compose sequence would never fail for a properly written finite state acceptor.
 </para></footnote>

@@ -43,7 +43,7 @@ Furthermore, this approach limits the number of keyboard groups to two.
   <listitem>
     <para>
 Poorly specified locking key behavior requires X servers to look for a few
-"magic" keysyms to determine that keys should lock when pressed. This leads to
+<quote>magic</quote> keysyms to determine that keys should lock when pressed. This leads to
 incompatibilities between X servers with no way for clients to detect
 implementation differences.
     </para>
@@ -60,7 +60,7 @@ incompatibilities between system wide and X library capitalization behavior.
 Limited interactions between modifiers specified by the core protocol make many
 common keyboard behaviors difficult or impossible to implement. For example,
 there is no reliable way to indicate whether or not the shift modifier should
-"cancel" the lock modifier.
+<quote>cancel</quote> the lock modifier.
     </para>
   </listitem>
   <listitem>
@@ -125,7 +125,8 @@ keyboard. Internally, the server maintains a
 <firstterm>keyboard description</firstterm>
 <indexterm significance="preferred" zone="keyboard_description">
 <primary>keyboard description</primary></indexterm>
- that includes the keyboard state and configuration (mapping). By "keyboard" we
+ that includes the keyboard state and configuration (mapping). By
+<quote>keyboard</quote> we
 mean the logical keyboard device, which includes not only the physical keys,
 but also potentially a set of up to 32 indicators (usually LEDs) and bells.
 </para>

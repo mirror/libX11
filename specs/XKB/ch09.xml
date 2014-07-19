@@ -610,7 +610,7 @@ application starts.
 
 <para>
 For example, if an audio client listens for these types of bells, it can
-produce a "whoosh" sound when it receives a named bell event to indicate a
+produce a <quote>whoosh</quote> sound when it receives a named bell event to indicate a
 client just started. In this manner, applications can generate start-up
 feedback and not worry about producing annoying beeps if an audio server is not
 running.

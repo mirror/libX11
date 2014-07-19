@@ -4576,7 +4576,7 @@ The
 <structfield>vmodmap</structfield>
  and
 <structfield>vmods</structfield>
- members of the server map are the "master" virtual modifier definitions. Xkb
+ members of the server map are the <quote>master</quote> virtual modifier definitions. Xkb
 automatically propagates any changes to these fields to all other fields that
 use virtual modifier mappings.
 </para>

@@ -485,8 +485,8 @@ The description of the TWO_LEVEL key type is stored in the
 <para>
 The ALPHABETIC key type describes groups consisting of two symbols: the
 lowercase form of a symbol followed by the uppercase form of the same symbol.
-The default ALPHABETIC type implements locale-sensitive "Shift cancels
-CapsLock" behavior using both the
+The default ALPHABETIC type implements locale-sensitive <quote>Shift cancels
+CapsLock</quote> behavior using both the
 <symbol>Shift</symbol>
  and
 <symbol>Lock</symbol>
@@ -562,9 +562,10 @@ The description of the ALPHABETIC key type is stored in the
 <para>
 The KEYPAD key type describes groups that consist of two symbols, at least one
 of which is a numeric keypad symbol. The numeric keypad symbol is assumed to
-reside at level two. The default KEYPAD key type implements "Shift cancels
-NumLock" behavior using the Shift modifier and the real modifier bound to the
-virtual modifier named "NumLock," known as the
+reside at level two. The default KEYPAD key type implements
+<quote>Shift cancels NumLock</quote> behavior using the Shift modifier
+and the real modifier bound to the virtual modifier named
+<quote>NumLock</quote>, known as the
 <emphasis>NumLock</emphasis>
  modifier, as follows:
 </para>

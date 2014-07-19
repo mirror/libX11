@@ -117,8 +117,8 @@ XkbAllocGeomShapes(geom,4)
 </para>
 
 <para>
-to say "I’ll need space for four new shapes in this geometry." This makes
-sure that
+to say <quote>I’ll need space for four new shapes in this geometry.</quote>
+This makes sure that
 <structfield>sz_shapes</structfield>
  -
 <structfield>num_shapes</structfield>
@@ -205,8 +205,9 @@ the server.
 <para>
 When your client application receives a report from the server indicating the
 keyboard description has changed, you can determine the set of changes by
-passing the event to an Xkb function that "notes" event information in the
-corresponding changes data structure. These "note changes" functions are
+passing the event to an Xkb function that <quote>notes</quote> event
+information in the corresponding changes data structure. These
+<quote>note changes</quote> functions are
 defined for all major Xkb components, and their names have the form
 <function>XkbNote<replaceable>{Component}</replaceable>Changes</function>,
 where

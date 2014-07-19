@@ -38,7 +38,8 @@ to reflect keyboard changes, and determine which of the 32 keyboard indicators
 reported by the protocol are actually present on the keyboard. Clients may also
 request immediate notification of changes to the state of any subset of the
 keyboard indicators, which makes it straightforward to provide an on-screen
-"virtual" LED panel. This chapter describes Xkb indicators and the functions
+<quote>virtual</quote> LED panel.
+This chapter describes Xkb indicators and the functions
 used for manipulating them.
 </para>
 
@@ -432,8 +433,8 @@ The effect of
  when you change an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
-<link linkend="table8.3">Table 8.3</link>. The "New
-State" column refers to the new state to which you set the indicator.
+<link linkend="table8.3">Table 8.3</link>. The <quote>New State</quote>
+column refers to the new state to which you set the indicator.
 </para>
 
 <table id='table8.3' frame='topbot'>
@@ -704,8 +705,8 @@ The effect on the keyboard modifiers of
  when you change an indicator for which
 <symbol>XkbIM_LEDDrivesKB</symbol>
  is set (the indicator drives the keyboard) is shown in
-<link linkend="table8.5">Table 8.5</link>. The "New
-State" column refers to the new state to which you set the indicator.
+<link linkend="table8.5">Table 8.5</link>. The <quote>New State</quote>
+column refers to the new state to which you set the indicator.
 </para>
 
 <table id='table8.5' frame='topbot'>
@@ -906,8 +907,8 @@ current state of the keyboard indicators, use
 <parameter>display</parameter>
  for the state of the indicators on the device specified by the
 <parameter>device_spec</parameter>.
-For each indicator that is "turned on" on the device, the associated bit is
-set in
+For each indicator that is <quote>turned on</quote> on the device,
+the associated bit is set in
 <parameter>state_return</parameter>.
 If a compatible version of the Xkb extension is not available in the server,
 <function>XkbGetIndicatorState</function>
@@ -1033,7 +1034,7 @@ of using vendor-specific constants such as
 <symbol>XLED_SCROLL_LOCK</symbol>
  on Sun workstations, you can instead use
 <function>XkbGetNamedIndicator</function>
- to look up information on the indicator named "Scroll Lock."
+ to look up information on the indicator named <quote>Scroll Lock.</quote>
 </para>
 
 <para>

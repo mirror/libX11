@@ -493,7 +493,8 @@ Simulate events on other keys
 A key alias is a symbolic name for a specific physical key. Key aliases allow
 the keyboard layout designer to assign multiple key names to a single key. This
 allows the keyboard layout designer to refer to keys using either their
-position or their "function." Key aliases can be specified both in the symbolic
+position or their <quote>function</quote>.
+Key aliases can be specified both in the symbolic
 names component and in the keyboard geometry. Both sets of aliases are always
 valid, but key alias definitions in the keyboard geometry have priority; if
 both symbolic names and geometry include aliases, you should consider the

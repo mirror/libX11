@@ -113,7 +113,8 @@ name. Geometry properties can be used to provide hints to programs that display
 images of keyboards, but they are not interpreted by Xkb. No other geometry
 structures refer to geometry properties. As an example of a possible use of
 <structfield>properties</structfield>,
-consider the pause/break key on most PC keyboards: the "break" symbol is
+consider the pause/break key on most PC keyboards: the <quote>break</quote>
+symbol is
 usually on the front of the key and is often a different color. A program might
 set a property to:
   </para>
@@ -471,8 +472,8 @@ between a key and its predecessor.
 <para>
 Doodads can be global to the keyboard or part of a section. Doodads have
 symbolic names of arbitrary length. The only doodad name whose interpretation
-is specified by Xkb is "Edges", which, if present, describes the outline of the
-entire keyboard.
+is specified by Xkb is <quote>Edges</quote>, which, if present, describes the
+outline of the entire keyboard.
 </para>
 
 

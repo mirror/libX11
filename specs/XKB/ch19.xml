@@ -1,8 +1,9 @@
 <chapter id='Replacing_a_Keyboard_On_the_Fly'>
-<title>Replacing a Keyboard "On the Fly"</title>
+<title>Replacing a Keyboard <quote>On the Fly</quote></title>
 
 <para>
-Some operating system and X server implementations allow "hot plugging" of
+Some operating system and X server implementations allow
+<quote>hot plugging</quote> of
 input devices. When using these implementations, input devices can be unplugged
 and new ones plugged in without restarting the software that is using those
 devices. There is no provision in the standard X server for notification of
@@ -58,8 +59,8 @@ When a client requests
 the range of keycodes that are valid for the client. If they are not the same,
 the server immediately sends the client an
 <symbol>XkbNewKeyboardNotify</symbol>
- event. Even if the "new" keyboard is not new to the server, it is new to this
-particular client.
+ event. Even if the <quote>new</quote> keyboard is not new to the server,
+it is new to this particular client.
 </para>
 
 

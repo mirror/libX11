@@ -311,7 +311,7 @@ The
  mask specifies the new state for those controls. Valid values for both of
 these masks are composed of a bitwise inclusive OR of bits taken from the set
 of mask bits in <link linkend="table10.7">Table 10.7</link>,
-using only those masks with "ok" in the
+using only those masks with <quote>ok</quote> in the
 <structfield>enabled_ctrls</structfield>
  column.
 </para>
@@ -2430,12 +2430,12 @@ in the server
 <title>The BounceKeys Control</title>
 
 <para>
-Some users may accidentally "bounce" on a key when they release it. They press
-it once, then accidentally press it again after they release it. The
+Some users may accidentally <quote>bounce</quote> on a key when they release it.
+They press it once, then accidentally press it again after they release it. The
 <emphasis>BounceKeys</emphasis>
  control temporarily disables a key after it has been pressed, effectively
-"debouncing" the keyboard. The period of time the key is disabled after it is
-released is known as the
+<quote>debouncing</quote> the keyboard. The period of time the key is disabled
+after it is released is known as the
 <firstterm>BounceKeys delay</firstterm>.
 <emphasis>BounceKeys</emphasis>
  is a boolean control.
@@ -3700,7 +3700,7 @@ to configure the control
 (<structfield>which</structfield>),
  and to enable and disable the control
 (<structfield>enabled_ctrls</structfield>).
- The anomalies in the table (no "ok" in column) are for controls that have no
+ The anomalies in the table (no <quote>ok</quote> in column) are for controls that have no
 configurable attributes; and for controls that are not boolean controls and
 therefore cannot be enabled or disabled.
 </para>
@@ -3994,7 +3994,7 @@ modifier bits:
 bit determines whether the corresponding control is enabled or disabled; a one
 bit means the control is enabled. The mask bits used to enable these controls
 are listed in <link linkend="table10.7">Table 10.7</link>,
-using only those masks with "ok" in the
+using only those masks with <quote>ok</quote> in the
 <structfield>enabled_ctrls</structfield>
  column.
 </para>
@@ -4387,7 +4387,7 @@ and then copies the server’s values for the requested information into the
  parameter are copied. Valid values for
 <parameter>which</parameter>
  are any combination of the masks listed in
-<link linkend="table10.7">Table 10.7</link> that have "ok" in the
+<link linkend="table10.7">Table 10.7</link> that have <quote>ok</quote> in the
 <parameter>which</parameter>
  column.
 </para>
@@ -4539,7 +4539,7 @@ For each bit that is set in the
  field to the server. Valid values for
 <parameter>which</parameter>
  are any combination of the masks listed in
-<link linkend="table10.7">Table 10.7</link> that have "ok" in the
+<link linkend="table10.7">Table 10.7</link> that have <quote>ok</quote> in the
 <parameter>which</parameter>
  column.
 </para>
@@ -4643,10 +4643,10 @@ that is, if a value is set to the same value it previously contained, it has
 still been modified, and is noted as changed. Valid values for
 <structfield>changed_ctrls</structfield>
  are any combination of the masks listed in
-<link linkend="table10.7">Table 10.7</link> that have "ok" in the
+<link linkend="table10.7">Table 10.7</link> that have <quote>ok</quote> in the
 <structfield>changed_ctrls</structfield>
  column. Setting a bit implies the corresponding data fields from the
-"Relevant XkbControlsRec Data Fields" column in
+<quote>Relevant XkbControlsRec Data Fields</quote> column in
 <link linkend="table10.6">Table 10.6</link> have been modified. The
 <structfield>enabled_ctrls_changes</structfield>
  field specifies which bits in the
@@ -4795,7 +4795,7 @@ The
 <structfield>changed_ctrls</structfield>
  field specifies the controls components that have changed and consists of bits
 taken from the masks defined in
-<link linkend="table10.7">Table 10.7</link> with "ok" in the
+<link linkend="table10.7">Table 10.7</link> with <quote>ok</quote> in the
 <structfield>changed_ctrls</structfield>
  column.
 </para>
@@ -4811,7 +4811,7 @@ the
 <structfield>enabled_ctrl_changes</structfield>
  field. The valid bits for these fields are the masks listed in
 <link linkend="table10.7">Table 10.7</link> with
-"ok" in the
+<quote>ok</quote> in the
 <structfield>enabled_ctrls</structfield>
  column. The
 <structfield>num_groups</structfield>
@@ -4927,7 +4927,8 @@ When a client receives an
 The
 <parameter>wanted</parameter>
  parameter is a bitwise inclusive OR of bits taken from the set of masks
-specified in <link linkend="table10.7">Table 10.7</link> with "ok" in the
+specified in <link linkend="table10.7">Table 10.7</link> with <quote>ok</quote>
+in the
 <structfield>changed_ctrls</structfield>
  column.
 <function>XkbNoteControlsChanges</function>

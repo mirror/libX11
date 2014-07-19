@@ -170,7 +170,8 @@ of keyboard descriptions for different keyboards.
 <para>
 Key aliases allow the keyboard layout designer to assign multiple key names to
 a single key. This allows the keyboard layout designer to refer to keys using
-either their position or their "function." For example, a keyboard layout
+either their position or their <quote>function</quote>.
+For example, a keyboard layout
 designer may wish to refer to the left arrow key on a PC keyboard using the
 ISO9995-5 positional specification of A31 or using the functional specification
 of LEFT. The

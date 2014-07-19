@@ -253,19 +253,15 @@ The
  and
 <symbol>KeyRelease</symbol>
  events, the lookup modifiers are computed as:
-</para>
 
-<literallayout>
-   ((base | latched | locked) &amp; ~<emphasis>server_internal_modifiers</emphasis>)
-</literallayout>
+<literallayout>   ((base | latched | locked) &amp; ~<emphasis>server_internal_modifiers</emphasis>)</literallayout>
+</para>
 
 <para>
 Otherwise the lookup modifiers are computed as:
-</para>
 
-<literallayout>
-(((base | latched | (locked &amp; ~<emphasis>ignore_locks</emphasis>)) &amp; ~<emphasis>server_internal_modifiers</emphasis>)
-</literallayout>
+<literallayout>   (((base | latched | (locked &amp; ~<emphasis>ignore_locks</emphasis>)) &amp; ~<emphasis>server_internal_modifiers</emphasis>)</literallayout>
+</para>
 
 <para>
 The lookup group is the same as the effective group.
@@ -303,11 +299,9 @@ The
 <indexterm significance="preferred" zone="grab_state">
 <primary>group</primary><secondary>grab</secondary></indexterm>
  are represented in the state field of core X events; otherwise, the lookup state is used. The grab modifiers are computed as:
-</para>
 
-<literallayout>
-(((base | latched | (locked &amp; ~ignore_locks)) &amp; ~server_internal_modifiers)
-</literallayout>
+<literallayout>   (((base | latched | (locked &amp; ~ignore_locks)) &amp; ~server_internal_modifiers)</literallayout>
+</para>
 
 <para>
 If the server’s

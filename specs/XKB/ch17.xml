@@ -428,14 +428,14 @@ server when it starts. A client may add new ones using
 Symbol interpretations result in key semantics being set. When a symbol
 interpretation is applied, the following components of server key event
 processing may be modified for the particular key involved:
-</para>
 
-<literallayout>
-      Virtual modifier map
-      Auto repeat
-      Key behavior (may be set to <symbol>XkbKB_Lock</symbol>)
-      Key action (see <link linkend="Key_Actions">section 16.1</link>)
-</literallayout>
+  <simplelist type='vert' columns='1'>
+    <member>Virtual modifier map</member>
+    <member>Auto repeat</member>
+    <member>Key behavior (may be set to <symbol>XkbKB_Lock</symbol>)</member>
+    <member>Key action (see <link linkend="Key_Actions">section 16.1</link>)</member>
+  </simplelist>
+</para>
 
 <para>
 The <structname>XkbSymInterpretRec</structname>

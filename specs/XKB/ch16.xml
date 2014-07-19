@@ -2028,14 +2028,14 @@ release
 
 <para>
 The default behavior is to convert:
-</para>
 
-<literallayout>
-     {Set,Latch}Mods to: LockMods
-     {Set,Latch}Group to: LockGroup
-     SetPtrBtn to: LockPtrBtn
-     SetControls to: LockControls
-</literallayout>
+<simplelist type='vert' columns='1'>
+  <member>{Set,Latch}Mods to: LockMods</member>
+  <member>{Set,Latch}Group to: LockGroup</member>
+  <member>SetPtrBtn to: LockPtrBtn</member>
+  <member>SetControls to: LockControls</member>
+</simplelist>
+</para>
 
 <para>
 The
@@ -3317,11 +3317,11 @@ provides the following convenience macros:
   </varlistentry>
 </variablelist>
 
-<literallayout>
+<para>
      <function>XkbSARedirectVModsMask</function> returns the <structfield>vmods0</structfield>
      and <structfield>vmods1</structfield> fields of <parameter>act</parameter>
      converted to an unsigned int.
-</literallayout>
+</para>
 
 <indexterm significance="preferred" zone="XkbSARedirectSetVMods"><primary><function>XkbSARedirectSetVMods</function></primary></indexterm>
 <funcsynopsis id="XkbSARedirectSetVMods">
@@ -3357,10 +3357,10 @@ provides the following convenience macros:
     </listitem>
   </varlistentry>
 </variablelist>
-<literallayout>
+<para>
      <function>XkbSARedirectSetVModsMask</function> sets the <structfield>vmods0</structfield>
      and <structfield>vmods1</structfield> of <parameter>act</parameter> from <parameter>v</parameter>.
-</literallayout>
+</para>
 
 </sect2>
 <sect2 id='Actions_for_Generating_DeviceButtonPress_and_DeviceButtonRelease'>
@@ -3682,12 +3682,12 @@ of
  or
 <structfield>v2_what</structfield>
 :
-</para>
 
-<literallayout>
-      #define XkbSA_ValOpMask      (0x70)
+<programlisting>
+      #define XkbSA_ValOpMask         (0x70)
       #define XkbSA_ValScaleMask      (0x07)
-</literallayout>
+</programlisting>
+</para>
 
 <para>
 <structfield>v1_ndx</structfield>
@@ -4513,16 +4513,16 @@ of the virtual modifier to the real modifier bits. Each entry in the
  array is a bitwise inclusive OR of the legal modifier masks:
 </para>
 
-<literallayout>
-     <symbol>ShiftMask</symbol>
-     <symbol>LockMask</symbol>
-     <symbol>ControlMask</symbol>
-     <symbol>Mod1Mask</symbol>
-     <symbol>Mod2Mask</symbol>
-     <symbol>Mod3Mask</symbol>
-     <symbol>Mod4Mask</symbol>
-     <symbol>Mod5Mask</symbol>
-</literallayout>
+<simplelist type='vert' columns='1'>
+     <member><symbol>ShiftMask</symbol></member>
+     <member><symbol>LockMask</symbol></member>
+     <member><symbol>ControlMask</symbol></member>
+     <member><symbol>Mod1Mask</symbol></member>
+     <member><symbol>Mod2Mask</symbol></member>
+     <member><symbol>Mod3Mask</symbol></member>
+     <member><symbol>Mod4Mask</symbol></member>
+     <member><symbol>Mod5Mask</symbol></member>
+</simplelist>
 
 <para>
 The

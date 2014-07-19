@@ -353,12 +353,11 @@ An unbound virtual modifier is one that is not bound to any real modifier
 <para>
 Some Xkb operations ignore modifier definitions in which the virtual modifiers
 are unbound. Consider this example:
-</para>
 
-<literallayout>
-if (state matches {Shift}) Do OneThing;
-if (state matches {Shift+NumLock}) Do Another;
+<literallayout>        if (state matches {Shift}) Do OneThing;
+        if (state matches {Shift+NumLock}) Do Another;
 </literallayout>
+</para>
 
 <para>
 If the
@@ -382,16 +381,16 @@ virtual modifiers are bound.
 The Xkb extension does not require any specific virtual modifier names.
 However, everyone benefits if the same names are used for common modifiers. The
 following names are suggested:
-</para>
 
-<literallayout class='monospaced'>
-     <emphasis>NumLock</emphasis>
-     <emphasis>ScrollLock</emphasis>
-     <emphasis>Alt</emphasis>
-     <emphasis>Meta</emphasis>
-     <emphasis>AltGr</emphasis>
-     <emphasis>LevelThree</emphasis>
-</literallayout>
+  <simplelist type='vert' columns='1'>
+    <member><emphasis>NumLock</emphasis></member>
+    <member><emphasis>ScrollLock</emphasis></member>
+    <member><emphasis>Alt</emphasis></member>
+    <member><emphasis>Meta</emphasis></member>
+    <member><emphasis>AltGr</emphasis></member>
+    <member><emphasis>LevelThree</emphasis></member>
+  </simplelist>
+</para>
 
 </sect1>
 <sect1 id='Example'>

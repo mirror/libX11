@@ -355,12 +355,12 @@ If a group index exceeds the maximum number of groups permitted for the
 specified keyboard, it is wrapped or truncated back into range as specified by
 the global <emphasis>GroupsWrap</emphasis> control.
 <emphasis>GroupsWrap</emphasis> can have the following values:
+      <simplelist type='vert' columns='1'>
+        <member><emphasis>WrapIntoRange</emphasis></member>
+        <member><emphasis>ClampIntoRange</emphasis></member>
+        <member><emphasis>RedirectIntoRange</emphasis></member>
+      </simplelist>
     </para>
-    <literallayout>
-          <emphasis>WrapIntoRange</emphasis>
-          <emphasis>ClampIntoRange</emphasis>
-          <emphasis>RedirectIntoRange</emphasis>
-    </literallayout>
   </glossdef>
 </glossentry>
 
@@ -599,16 +599,16 @@ and
   <glossdef>
     <para>
 A keyboard feedback includes the following:
+      <simplelist type='vert' columns='1'>
+        <member>Keyclick volume</member>
+        <member>Bell volume</member>
+        <member>Bell pitch</member>
+        <member>Bell duration</member>
+        <member>Global auto-repeat</member>
+        <member>Per key auto-repeat</member>
+        <member>32 LEDs</member>
+      </simplelist>
     </para>
-<literallayout>
-      Keyclick volume
-      Bell volume
-      Bell pitch
-      Bell duration
-      Global auto-repeat
-      Per key auto-repeat
-      32 LEDs
-</literallayout>
   </glossdef>
 </glossentry>
 

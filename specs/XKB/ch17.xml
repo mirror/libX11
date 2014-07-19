@@ -676,8 +676,8 @@ If the Xkb keyboard map for the key does not have its
  bit. If
 <symbol>XkbSI_LockingKey</symbol>
  is set, the key behavior is set to
-<emphasis>KB_Lock</emphasis>
-; otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
+<emphasis>KB_Lock</emphasis>;
+ otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
 </para>
 
 

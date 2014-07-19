@@ -557,8 +557,8 @@ To change the state of the Library Controls, use
 <para>
 <function>XkbSetXlibControls</function>
  modifies the state of the controls selected by
-<parameter>bits_to_change</parameter>
-; only the controls selected by
+<parameter>bits_to_change</parameter>;
+ only the controls selected by
 <parameter>bits_to_change</parameter>
  are modified. If the bit corresponding to a control is on in
 <parameter>bits_to_change</parameter>

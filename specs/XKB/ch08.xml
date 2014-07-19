@@ -470,8 +470,8 @@ The
 <structfield>groups</structfield>
  field is treated as a group mask. The keyboard group latch is changed to the
 lowest numbered group specified in
-<structfield>groups</structfield>
-; if
+<structfield>groups</structfield>;
+ if
 <structfield>groups</structfield>
  is empty, the keyboard group latch is changed to zero.
     </entry>
@@ -484,8 +484,8 @@ The
 <structfield>groups</structfield>
  field is treated as a group mask. If the indicator is explicitly extinguished,
 keyboard group latch is changed to the lowest numbered group not specified in
-<structfield>groups</structfield>
-; if
+<structfield>groups</structfield>;
+ if
 <structfield>groups</structfield>
  is zero, the keyboard group latch is set to the index of the highest legal
 keyboard group.

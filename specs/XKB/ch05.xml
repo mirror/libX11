@@ -991,8 +991,8 @@ typedef struct {
                                          <structfield>req_minor</structfield> non zero */
       char           req_major;       /* major request code if program trigger, else 0 */
       char           req_minor;       /* minor request code if program trigger, else 0 */
-} <structname>XkbStateNotifyEvent</structname>
-;
+} <structname>XkbStateNotifyEvent</structname>;
+
 </programlisting></para>
 
 <para>

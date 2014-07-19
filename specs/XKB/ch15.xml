@@ -932,8 +932,8 @@ To change the number of levels in a key type, use
 if necessary.
 <function>XkbResizeKeyType</function>
  updates only the local copy of the types in
-<parameter>xkb</parameter>
-; to update the server’s copy for the physical device, use
+<parameter>xkb</parameter>;
+ to update the server’s copy for the physical device, use
 <function>XkbSetMap</function>
  or
 <function>XkbChangeMap</function>
@@ -2023,8 +2023,8 @@ corresponding to
 
 <para>
 To obtain the symbols for a subset of the keys in a keyboard description, use
-<function>XkbGetKeySyms</function>
-:
+<function>XkbGetKeySyms</function>:
+
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeySyms"><primary><function>XkbGetKeySyms</function></primary></indexterm>

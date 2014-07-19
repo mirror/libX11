@@ -322,8 +322,8 @@ If the X server does not support a compatible version of Xkb or the Xkb
 extension has not been properly initialized,
 <function>XkbChangeEnabledControls</function>
  returns
-<symbol>False</symbol>
-; otherwise, it sends the request to the X server and returns
+<symbol>False</symbol>;
+ otherwise, it sends the request to the X server and returns
 <symbol>True</symbol>.
 </para>
 
@@ -1098,8 +1098,8 @@ they have requested otherwise.
 and off it
 <parameter>detectable</parameter>
  is
-<symbol>False</symbol>
-; it then waits for a reply. If
+<symbol>False</symbol>;
+ it then waits for a reply. If
 <parameter>supported_rtrn</parameter>
  is not
 <symbol>NULL</symbol>,

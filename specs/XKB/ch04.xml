@@ -33,8 +33,8 @@ calling either
  requests Xkb events by their event type and causes them to be reported to your
 client application under all circumstances. You can specify a finer granularity
 for event reporting by using
-<function>XkbSelectEventDetails</function>
-; in this case events are reported only when the specific detail conditions you
+<function>XkbSelectEventDetails</function>;
+ in this case events are reported only when the specific detail conditions you
 specify have been met.
 </para>
 
@@ -289,8 +289,8 @@ generated */
       int                xkb_type;    /* Xkb minor event code */
       unsigned int       device;      /* Xkb device ID, will not be
                                          <symbol>XkbUseCoreKbd</symbol> */
-} <structname>XkbAnyEvent</structname>
-;
+} <structname>XkbAnyEvent</structname>;
+
 </programlisting></para>
 
 <para>

@@ -317,8 +317,8 @@ If the keyboard change is the result of an
 <structfield>device</structfield>
  contains the device identifier for the new device, but nothing definitive can
 be said for
-<structfield>old_device</structfield>
-; it may be identical to
+<structfield>old_device</structfield>;
+ it may be identical to
 <structfield>device</structfield>,
 or it may be different, depending on the implementation.
 </para>

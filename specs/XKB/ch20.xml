@@ -804,8 +804,8 @@ the server modifies
  if necessary (again using a
 “<literal>%</literal>”
  entry) to ensure all of the following fields are non-
-<symbol>NULL</symbol>
-:
+<symbol>NULL</symbol>:
+
 <structfield>types</structfield>,
 <structfield>keycodes</structfield>,
 <structfield>symbols</structfield>,

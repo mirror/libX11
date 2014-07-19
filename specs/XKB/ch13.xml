@@ -144,8 +144,8 @@ considering key aliases supplied by the keycodes.</para></note>
 <listitem>
   <para>
 The top-level keyboard geometry description includes a list of
-<structfield>shapes</structfield>
-; other keyboard components refer to shapes by their index in this list. A
+<structfield>shapes</structfield>;
+ other keyboard components refer to shapes by their index in this list. A
 shape consists of an arbitrary name of type Atom and one or more closed-polygon
 <structfield>outlines</structfield>.
 All points in an outline are specified relative to the origin of its
@@ -416,8 +416,8 @@ Rows in a Section</H5>
 <listitem>
   <para>
 An optional list of
-<structfield>doodads</structfield>
-; any type of doodad can be enclosed within a section. Position and angle of
+<structfield>doodads</structfield>;
+ any type of doodad can be enclosed within a section. Position and angle of
 rotation are relative to the origin and angle of rotation of the sections that
 contain them. Priority for doodads in a section is relative to the other
 components of the section, not to the keyboard as a whole.
@@ -1427,8 +1427,8 @@ and updates the bounding box of the row if necessary.
  returns
 <symbol>False</symbol>
  if any of the arguments is
-<symbol>NULL</symbol>
-; otherwise, it returns
+<symbol>NULL</symbol>;
+ otherwise, it returns
 <symbol>True</symbol>.
 </para>
 
@@ -1484,8 +1484,8 @@ that section. To update the bounding box of a section, use
  returns
 <symbol>False</symbol>
  if any of the arguments is
-<symbol>NULL</symbol>
-; otherwise, it returns
+<symbol>NULL</symbol>;
+ otherwise, it returns
 <symbol>True</symbol>.
 </para>
 

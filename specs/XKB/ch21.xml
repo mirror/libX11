@@ -132,8 +132,8 @@ keyboard feedback and the core indicator feedback may be obtained by calling
  and specifying
 <symbol>XkbUseCoreKbd</symbol>
  as the
-<parameter>device_spec</parameter>
-; the values will be returned in
+<parameter>device_spec</parameter>;
+ the values will be returned in
 <structfield>dflt_kbd_fb</structfield>
  and
 <structfield>dflt_led_fb</structfield>.

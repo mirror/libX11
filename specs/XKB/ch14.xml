@@ -483,9 +483,8 @@ information on these functions.
 
 <para>
 Xkb defines combinations of these masks for convenience:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define  XkbResizableInfoMask      (XkbKeyTypesMask)
 #define  XkbAllClientInfoMask      (XkbKeyTypesMask | XkbKeySymsMask |
                                     XkbModifierMapMask)
@@ -723,43 +722,43 @@ components and to reduce the amount of traffic between the server and clients.
 
 <para><programlisting>
 typedef struct _XkbMapChanges {
-      unsigned short    changed;              /* identifies valid components
-                                                 in structure */
-      KeyCode           min_key_code;         /* lowest numbered keycode for
-                                                 device */
-      KeyCode           max_key_code;         /* highest numbered keycode for
-                                                 device */
-      unsigned char     first_type;           /* index of first key <structfield>type</structfield>
-                                                 modified */
-      unsigned char     num_types;            /* # types modified */
-      KeyCode           first_key_sym;        /* first key whose <structfield>key_sym_map</structfield>
-                                                 changed */
-      unsigned char     num_key_syms;         /* # <structfield>key_sym_map</structfield>
-                                                 entries changed */
-      KeyCode           first_key_act;        /* first key whose <structfield>key_acts</structfield>
-                                                 entry changed */
-      unsigned char     num_key_acts;         /* # <structfield>key_acts</structfield>
-                                                 entries changed */
-      KeyCode           first_key_behavior;   /* first key whose <structfield>behaviors</structfield>
-                                                 changed */
-      unsigned char     num_key_behaviors;    /* # <structfield>behaviors</structfield>
-                                                 entries changed */
-      KeyCode           first_key_explicit;   /* first key whose <structfield>explicit</structfield>
-                                                 entry changed */
-      unsigned char     num_key_explicit;     /* # <structfield>explicit</structfield>
-                                                 entries changed */
-      KeyCode           first_modmap_key;     /* first key whose <structfield>modmap</structfield>
-                                                 entry changed */
-      unsigned char     num_modmap_keys;      /* # <structfield>modmap</structfield>
-                                                 entries changed */
-      KeyCode           first_vmodmap_key;    /* first key whose <structfield>vmodmap</structfield>
-                                                 changed */
-      unsigned char     num_vmodmap_keys;     /* # <structfield>vmodmap</structfield>
-                                                 entries changed */
-      unsigned char     pad1;                 /* reserved */
-      unsigned short    vmods;                /* mask indicating which <structfield>vmods</structfield>
-                                                 changed */
-} <structname>XkbMapChangesRec</structname>,*XkbMapChangesPtr;
+    unsigned short    changed;              /* identifies valid components
+                                               in structure */
+    KeyCode           min_key_code;         /* lowest numbered keycode for
+                                               device */
+    KeyCode           max_key_code;         /* highest numbered keycode for
+                                               device */
+    unsigned char     first_type;           /* index of first key <structfield>type</structfield>
+                                               modified */
+    unsigned char     num_types;            /* # types modified */
+    KeyCode           first_key_sym;        /* first key whose <structfield>key_sym_map</structfield>
+                                               changed */
+    unsigned char     num_key_syms;         /* # <structfield>key_sym_map</structfield>
+                                               entries changed */
+    KeyCode           first_key_act;        /* first key whose <structfield>key_acts</structfield>
+                                               entry changed */
+    unsigned char     num_key_acts;         /* # <structfield>key_acts</structfield>
+                                               entries changed */
+    KeyCode           first_key_behavior;   /* first key whose <structfield>behaviors</structfield>
+                                               changed */
+    unsigned char     num_key_behaviors;    /* # <structfield>behaviors</structfield>
+                                               entries changed */
+    KeyCode           first_key_explicit;   /* first key whose <structfield>explicit</structfield>
+                                               entry changed */
+    unsigned char     num_key_explicit;     /* # <structfield>explicit</structfield>
+                                               entries changed */
+    KeyCode           first_modmap_key;     /* first key whose <structfield>modmap</structfield>
+                                               entry changed */
+    unsigned char     num_modmap_keys;      /* # <structfield>modmap</structfield>
+                                               entries changed */
+    KeyCode           first_vmodmap_key;    /* first key whose <structfield>vmodmap</structfield>
+                                               changed */
+    unsigned char     num_vmodmap_keys;     /* # <structfield>vmodmap</structfield>
+                                               entries changed */
+    unsigned char     pad1;                 /* reserved */
+    unsigned short    vmods;                /* mask indicating which <structfield>vmods</structfield>
+                                               changed */
+} <structname>XkbMapChangesRec</structname>, *XkbMapChangesPtr;
 </programlisting></para>
 
 <para>
@@ -1029,36 +1028,35 @@ To receive
 The structure for
 <symbol>XkbMapNotify</symbol>
  events is:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int            type;         /* Xkb extension base event code */
-      unsigned long  serial;       /* X server serial number for event */
-      Bool           send_event;   /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *      display;      /* server connection where event generated */
-      Time           time;         /* server time when event generated */
-      int            xkb_type;     /* <symbol>XkbMapNotify</symbol> */
-      int            device;       /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   changed;      /* identifies valid fields in rest of event */
-      unsigned int   resized;      /* reserved */
-      int            first_type;   /* index of first key <structfield>type</structfield> modified */
-      int            num_types     /* # types modified */
-      KeyCode        min_key_code; /* minimum keycode for device */
-      KeyCode        max_key_code; /* maximum keycode for device */
-      KeyCode        first_key_sym; /* first key whose <structfield>key_sym_map</structfield> changed */
-      KeyCode        first_key_act; /* first key whose <structfield>key_acts</structfield> entry changed */
-      KeyCode        first_key_behavior; /* first key whose <structfield>behaviors</structfield> changed */
-      KeyCode        first_key_explicit; /* first key whose <structfield>explicit</structfield> entry changed */
-      KeyCode        first_modmap_key;   /* first key whose <structfield>modmap</structfield> entry changed */
-      KeyCode        first_vmodmap_key;  /* # <structfield>modmap</structfield> entries changed */
-      int            num_key_syms;       /* # <structfield>key_sym_map</structfield> entries changed */
-      int            num_key_acts;       /* # <structfield>key_acts</structfield> entries changed */
-      int            num_key_behaviors;  /* # <structfield>behaviors</structfield> entries changed */
-      int            num_key_explicit;   /* # <structfield>explicit</structfield> entries changed */
-      int            num_modmap_keys;    /* # <structfield>modmap</structfield> entries changed */
-      int            num_vmodmap_keys;   /* # <structfield>vmodmap</structfield> entries changed */
-      unsigned int   vmods;              /* mask indicating which <structfield>vmods</structfield> changed */
+    int            type;         /* Xkb extension base event code */
+    unsigned long  serial;       /* X server serial number for event */
+    Bool           send_event;   /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;      /* server connection where event generated */
+    Time           time;         /* server time when event generated */
+    int            xkb_type;     /* <symbol>XkbMapNotify</symbol> */
+    int            device;       /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   changed;      /* identifies valid fields in rest of event */
+    unsigned int   resized;      /* reserved */
+    int            first_type;   /* index of first key <structfield>type</structfield> modified */
+    int            num_types     /* # types modified */
+    KeyCode        min_key_code; /* minimum keycode for device */
+    KeyCode        max_key_code; /* maximum keycode for device */
+    KeyCode        first_key_sym; /* first key whose <structfield>key_sym_map</structfield> changed */
+    KeyCode        first_key_act; /* first key whose <structfield>key_acts</structfield> entry changed */
+    KeyCode        first_key_behavior; /* first key whose <structfield>behaviors</structfield> changed */
+    KeyCode        first_key_explicit; /* first key whose <structfield>explicit</structfield> entry changed */
+    KeyCode        first_modmap_key;   /* first key whose <structfield>modmap</structfield> entry changed */
+    KeyCode        first_vmodmap_key;  /* # <structfield>modmap</structfield> entries changed */
+    int            num_key_syms;       /* # <structfield>key_sym_map</structfield> entries changed */
+    int            num_key_acts;       /* # <structfield>key_acts</structfield> entries changed */
+    int            num_key_behaviors;  /* # <structfield>behaviors</structfield> entries changed */
+    int            num_key_explicit;   /* # <structfield>explicit</structfield> entries changed */
+    int            num_modmap_keys;    /* # <structfield>modmap</structfield> entries changed */
+    int            num_vmodmap_keys;   /* # <structfield>vmodmap</structfield> entries changed */
+    unsigned int   vmods;              /* mask indicating which <structfield>vmods</structfield> changed */
 } <structname>XkbMapNotifyEvent</structname>;
 </programlisting></para>
 

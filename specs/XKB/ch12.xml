@@ -119,16 +119,16 @@ requesting notification of changes to the legal range of keycodes.
 
 <para>
 The following X library functions are modified by Xkb:
-</para>
 
-<para><programlisting>
-     <function>XKeycodeToKeysym</function>
-     <function>XKeysymToKeycode</function>
-     <function>XLookupKeysym</function>
-     <function>XLookupString</function>
-     <function>XRefreshKeyboardMapping</function>
-     <function>XRebindKeysym</function>
-</programlisting></para>
+  <simplelist type='vert' columns='1'>
+    <member><function>XKeycodeToKeysym</function></member>
+    <member><function>XKeysymToKeycode</function></member>
+    <member><function>XLookupKeysym</function></member>
+    <member><function>XLookupString</function></member>
+    <member><function>XRefreshKeyboardMapping</function></member>
+    <member><function>XRebindKeysym</function></member>
+  </simplelist>
+</para>
 
 <para>
 The implicit support for Xkb replaces a number of X library functions with

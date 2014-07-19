@@ -33,24 +33,24 @@ Server Map Relationships</H5>
 <para>
 The Xkb server map contains the information the server needs to interpret key
 events and is of type
-<structname>XkbServerMapRec</structname>
-:
-</para>
+<structname>XkbServerMapRec</structname>:
 
-<para><programlisting>
+<programlisting>
 #define XkbNumVirtualMods            16
-</programlisting></para>
 
-<para><programlisting>
-typedef struct {                         /* Server Map */
-      unsigned short     num_acts;       /* # of occupied entries in <structfield>acts</structfield> */
-      unsigned short     size_acts;      /* # of entries in <structfield>acts</structfield> */
-      XkbAction *        acts;           /* linear 2d tables of key actions, 1 per keycode */
-      XkbBehavior *      behaviors;      /* key behaviors,1 per keycode */
-      unsigned short *   key_acts;       /* index into <structfield>acts</structfield> , 1 per keycode */
-      unsigned char *    explicit;       /* explicit overrides of core remapping, 1 per key */
-      unsigned char      vmods[XkbNumVirtualMods];  /* real mods bound to virtual mods */
-      unsigned short *   vmodmap;        /* virtual mods bound to key, 1 per keycode*/
+typedef struct {                       /* Server Map */
+    unsigned short     num_acts;       /* # of occupied entries in <structfield>acts</structfield> */
+    unsigned short     size_acts;      /* # of entries in <structfield>acts</structfield> */
+    XkbAction *        acts;           /* linear 2d tables of key actions,
+                                          1 per keycode */
+    XkbBehavior *      behaviors;      /* key behaviors, 1 per keycode */
+    unsigned short *   key_acts;       /* index into <structfield>acts</structfield>, 1 per keycode */
+    unsigned char *    explicit;       /* explicit overrides of core
+                                          remapping, 1 per key */
+    unsigned char      vmods[XkbNumVirtualMods];  /* real mods bound
+                                                     to virtual mods */
+    unsigned short *   vmodmap;        /* virtual mods bound to key,
+                                          1 per keycode */
 } <structname>XkbServerMapRec</structname>, *XkbServerMapPtr;
 </programlisting></para>
 
@@ -438,24 +438,23 @@ corresponding to
 The description for an action is held in an
 <structname>XkbAction</structname>
  structure, which is a union of all possible Xkb action types:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef union _XkbAction {
-      XkbAnyAction              any;
-      XkbModAction              mods;
-      XkbGroupAction            group;
-      XkbISOAction              iso;
-      XkbPtrAction              ptr;
-      XkbPtrBtnAction           btn;
-      XkbPtrDfltAction          dflt;
-      XkbSwitchScreenAction     screen;
-      XkbCtrlsAction            ctrls;
-      XkbMessageAction          msg;
-      XkbRedirectKeyAction      redirect;
-      XkbDeviceBtnAction        devbtn;
-      XkbDeviceValuatorAction   devval;
-      unsigned char             type;
+    XkbAnyAction              any;
+    XkbModAction              mods;
+    XkbGroupAction            group;
+    XkbISOAction              iso;
+    XkbPtrAction              ptr;
+    XkbPtrBtnAction           btn;
+    XkbPtrDfltAction          dflt;
+    XkbSwitchScreenAction     screen;
+    XkbCtrlsAction            ctrls;
+    XkbMessageAction          msg;
+    XkbRedirectKeyAction      redirect;
+    XkbDeviceBtnAction        devbtn;
+    XkbDeviceValuatorAction   devval;
+    unsigned char             type;
 } <structname>XkbAction</structname>;
 </programlisting></para>
 
@@ -476,16 +475,13 @@ structures for each action in detail.
 The
 <structname>XkbAnyAction</structname>
  structure is a convenience structure that refers to any of the actions:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define      XkbAnyActionDataSize       7
-</programlisting></para>
 
-<para><programlisting>
 typedef struct _XkbAnyAction {
-   unsigned char    type;            /* type of action; determines interpretation for data */
-   unsigned char    data[XkbAnyActionDataSize];
+    unsigned char    type;            /* type of action; determines interpretation for data */
+    unsigned char    data[XkbAnyActionDataSize];
 } <structname>XkbAnyAction</structname>;
 </programlisting></para>
 
@@ -629,16 +625,20 @@ Actions associated with the
 <structname>XkbModAction</structname>
  structure change the state of the modifiers when keys are pressed and released
 (see <xref linkend="Virtual_Modifiers" /> for a discussion of modifiers):
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbModAction {
-      unsigned char     type;         /* <symbol>XkbSA_{Set|Latch|Lock}Mods</symbol> */
-      unsigned char     flags;        /* with <structfield>type</structfield> , controls the effect on modifiers */
-      unsigned char     mask;         /* same as <structfield>mask</structfield> field of a modifier description */
-      unsigned char     real_mods;    /* same as <structfield>real_mods</structfield> field of a modifier description */
-      unsigned char     vmods1;       /* derived from <structfield>vmods</structfield> field of a modifier description */
-      unsigned char     vmods2;       /* derived from <structfield>vmods</structfield> field of a modifier description */
+    unsigned char     type;         /* <symbol>XkbSA_{Set|Latch|Lock}Mods</symbol> */
+    unsigned char     flags;        /* with <structfield>type</structfield>, controls the effect
+                                       on modifiers */
+    unsigned char     mask;         /* same as <structfield>mask</structfield> field of
+                                       a modifier description */
+    unsigned char     real_mods;    /* same as <structfield>real_mods</structfield> field of
+                                       a modifier description */
+    unsigned char     vmods1;       /* derived from <structfield>vmods</structfield> field of
+                                       a modifier description */
+    unsigned char     vmods2;       /* derived from <structfield>vmods</structfield> field of
+                                       a modifier description */
 } <structname>XkbModAction</structname>;
 </programlisting></para>
 
@@ -1005,13 +1005,12 @@ Actions associated with the
 <structname>XkbGroupAction</structname>
  structure change the current group state when keys are pressed and released
 (see <xref linkend="Keyboard_State" /> for a description of groups and keyboard state):
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbGroupAction {
-      unsigned char   type;       /* <symbol>XkbSA_{Set|Latch|Lock}Group</symbol> */
-      unsigned char   flags;      /* with <structfield>type</structfield> , controls the effect on groups */
-      char            group_XXX;  /* represents a group index or delta */
+    unsigned char   type;       /* <symbol>XkbSA_{Set|Latch|Lock}Group</symbol> */
+    unsigned char   flags;      /* with <structfield>type</structfield> , controls the effect on groups */
+    char            group_XXX;  /* represents a group index or delta */
 } <structname>XkbGroupAction</structname>;
 </programlisting></para>
 
@@ -1300,16 +1299,15 @@ type XkbAction, these macros may only be used with Actions of type
 Actions associated with the
 <structname>XkbPtrAction</structname>
  structure move the pointer when keys are pressed and released:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbPtrAction {
-      unsigned char      type;      /* <symbol>XkbSA_MovePtr</symbol> */
-      unsigned char      flags;     /* determines type of pointer motion */
-      unsigned char      high_XXX;  /* x coordinate, high bits*/
-      unsigned char      low_XXX;   /* y coordinate, low bits */
-      unsigned char      high_YYY;  /* x coordinate, high bits */
-      unsigned char      low_YYY;   /* y coordinate, low bits */
+    unsigned char      type;      /* <symbol>XkbSA_MovePtr</symbol> */
+    unsigned char      flags;     /* determines type of pointer motion */
+    unsigned char      high_XXX;  /* x coordinate, high bits */
+    unsigned char      low_XXX;   /* y coordinate, low bits */
+    unsigned char      high_YYY;  /* x coordinate, high bits */
+    unsigned char      low_YYY;   /* y coordinate, low bits */
 } <structname>XkbPtrAction</structname>;
 </programlisting></para>
 
@@ -1594,14 +1592,15 @@ Actions associated with the
 <structname>XkbPtrBtnAction</structname>
  structure simulate the press and release of pointer buttons when keys are
 pressed and released:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbPtrBtnAction {
-      unsigned char   type;     /* <symbol>XkbSA_PtrBtn</symbol>, <symbol>XkbSA_LockPtrBtn</symbol> */
-      unsigned char   flags;    /* with <structfield>type</structfield> , controls the effect on pointer buttons*/
-      unsigned char   count;    /* controls number of ButtonPress and ButtonRelease events */
-      unsigned char   button;   /* pointer button to simulate */
+    unsigned char   type;     /* <symbol>XkbSA_PtrBtn</symbol>, <symbol>XkbSA_LockPtrBtn</symbol> */
+    unsigned char   flags;    /* with <structfield>type</structfield>, controls the effect
+                                 on pointer buttons */
+    unsigned char   count;    /* controls number of ButtonPress and
+                                 ButtonRelease events */
+    unsigned char   button;   /* pointer button to simulate */
 } <structname>XkbPtrBtnAction</structname>;
 </programlisting></para>
 
@@ -1815,14 +1814,13 @@ Actions associated with the
  attribute of the
 <emphasis>MouseKeys</emphasis>
  control (see <link linkend="The_MouseKeys_Control">section 10.5.1</link>):
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbPtrDfltAction {
-      unsigned char   type;      /* <symbol>XkbSA_SetPtrDflt</symbol> */
-      unsigned char   flags;     /* controls the pointer button number */
-      unsigned char   affect;    /* <symbol>XkbSA_AffectDfltBtn</symbol> */
-      char            valueXXX;  /* new default button member */
+    unsigned char   type;      /* <symbol>XkbSA_SetPtrDflt</symbol> */
+    unsigned char   flags;     /* controls the pointer button number */
+    unsigned char   affect;    /* <symbol>XkbSA_AffectDfltBtn</symbol> */
+    char            valueXXX;  /* new default button member */
 } <structname>XkbPtrDfltAction</structname>;
 </programlisting></para>
 
@@ -2049,14 +2047,20 @@ The
 
 <para><programlisting>
 typedef struct _XkbISOAction {
-      unsigned char   type;        /* <symbol>XkbSA_ISOLock</symbol> */
-      unsigned char   flags;       /* controls changes to group or modifier state */
-      unsigned char   mask;        /* same as <structfield>mask</structfield> field of a modifier description */
-      unsigned char   real_mods;   /* same as <structfield>real_mods</structfield> field of a modifier description */
-      char            group_XXX;   /* group index or delta group */
-      unsigned char   affect;      /* specifies whether to affect mods, group, ptrbtn, or controls*/
-      unsigned char   vmods1;      /* derived from <structfield>vmods</structfield> field of a modifier description */
-      unsigned char   vmods2;      /* derived from <structfield>vmods</structfield> field of a modifier description */
+    unsigned char   type;        /* <symbol>XkbSA_ISOLock</symbol> */
+    unsigned char   flags;       /* controls changes to group or
+                                    modifier state */
+    unsigned char   mask;        /* same as <structfield>mask</structfield> field of
+                                    a modifier description */
+    unsigned char   real_mods;   /* same as <structfield>real_mods</structfield> field of
+                                    a modifier description */
+    char            group_XXX;   /* group index or delta group */
+    unsigned char   affect;      /* specifies whether to affect
+                                    mods, group, ptrbtn, or controls */
+    unsigned char   vmods1;      /* derived from <structfield>vmods</structfield> field of
+                                    a modifier description */
+    unsigned char   vmods2;      /* derived from <structfield>vmods</structfield> field of
+                                    a modifier description */
 } <structname>XkbISOAction</structname>;
 </programlisting></para>
 
@@ -2455,9 +2459,9 @@ Otherwise, key press and key release events do not generate an event.
 
 <para><programlisting>
 typedef struct _XkbSwitchScreenAction {
-      unsigned char   type;        /* <symbol>XkbSA_SwitchScreen</symbol> */
-      unsigned char   flags;       /* controls screen switching */
-      char            screenXXX;   /* screen number or delta */
+    unsigned char   type;        /* <symbol>XkbSA_SwitchScreen</symbol> */
+    unsigned char   flags;       /* controls screen switching */
+    char            screenXXX;   /* screen number or delta */
 } <structname>XkbSwitchScreenAction</structname>;
 </programlisting></para>
 
@@ -2614,22 +2618,21 @@ signed character value for screen numbers in
 Actions associated with the
 <structname>XkbCtrlsAction</structname>
  structure change the state of the boolean controls (see <link linkend="Controls_that_Enable_and_Disable_Other_Controls">section 10.1</link>):
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbCtrlsAction {
-      unsigned char     type;        /* <symbol>XkbSA_SetControls</symbol>,
-                                        <symbol>XkbSA_LockControls</symbol> */
-      unsigned char     flags;       /* with <structfield>type</structfield>,
-                                        controls enabling and disabling of controls */
-      unsigned char     ctrls3;      /* <structfield>ctrls0</structfield> through
-                                        <structfield>ctrls3</structfield> represent the boolean controls */
-      unsigned char     ctrls2;      /* <structfield>ctrls0</structfield> through
-                                        <structfield>ctrls3</structfield> represent the boolean controls */
-      unsigned char     ctrls1;      /* <structfield>ctrls0</structfield> through
-                                        <structfield>ctrls3</structfield> represent the boolean controls */
-      unsigned char     ctrls0;      /* <structfield>ctrls0</structfield> through
-                                        <structfield>ctrls3</structfield> represent the boolean controls */
+    unsigned char     type;        /* <symbol>XkbSA_SetControls</symbol>,
+                                      <symbol>XkbSA_LockControls</symbol> */
+    unsigned char     flags;       /* with <structfield>type</structfield>, controls enabling
+                                      and disabling of controls */
+    unsigned char     ctrls3;      /* <structfield>ctrls0</structfield> through <structfield>ctrls3</structfield>
+                                      represent the boolean controls */
+    unsigned char     ctrls2;      /* <structfield>ctrls0</structfield> through <structfield>ctrls3</structfield>
+                                      represent the boolean controls */
+    unsigned char     ctrls1;      /* <structfield>ctrls0</structfield> through <structfield>ctrls3</structfield>
+                                      represent the boolean controls */
+    unsigned char     ctrls0;      /* <structfield>ctrls0</structfield> through <structfield>ctrls3</structfield>
+                                      represent the boolean controls */
 } <structname>XkbCtrlsAction</structname>;
 </programlisting></para>
 
@@ -2880,16 +2883,15 @@ Actions associated with the
  structure generate
 <symbol>XkbActionMessage</symbol>
  events:
-</para>
 
-<para><programlisting>
-#define            XkbActionMessageLength                  6
-</programlisting></para>
-<para><programlisting>
+<programlisting>
+#define             XkbActionMessageLength                  6
+
 typedef struct _XkbMessageAction {
-      unsigned char   type;             /* <symbol>XkbSA_ActionMessage</symbol> */
-      unsigned char   flags;            /* controls event generation via key presses and releases */
-      unsigned char   message[XkbActionMessageLength];    /* message */
+    unsigned char   type;             /* <symbol>XkbSA_ActionMessage</symbol> */
+    unsigned char   flags;            /* controls event generation via
+                                         key presses and releases */
+    unsigned char   message[XkbActionMessageLength];    /* message */
 } <structname>XkbMessageAction</structname>;
 </programlisting></para>
 
@@ -3019,22 +3021,22 @@ The
 The structure for the
 <symbol>XkbActionMessage</symbol>
  event is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbActionMessage {
-      int            type;            /* Xkb extension base event code */
-      unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *      display;         /* server connection where event generated */
-      Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <symbol>XkbActionMessage</symbol> */
-      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      KeyCode        keycode;         /* keycode of key triggering event */
-      Bool           press;           /* <symbol>True</symbol> &rArr; key press,
-                                         <symbol>False</symbol> &rArr; release */
-      Bool           key_event_follows; /* <symbol>True</symbol> &rArr; KeyPress/KeyRelease follows */
-      char           message[XkbActionMessageLength+1];                       /* message text */
+    int            type;             /* Xkb extension base event code */
+    unsigned long  serial;           /* X server serial number for event */
+    Bool           send_event;       /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;          /* server connection where event generated */
+    Time           time;             /* server time when event generated */
+    int            xkb_type;         /* <symbol>XkbActionMessage</symbol> */
+    int            device;           /* Xkb device ID,
+                                        will not be <symbol>XkbUseCoreKbd</symbol> */
+    KeyCode        keycode;          /* keycode of key triggering event */
+    Bool           press;            /* <symbol>True</symbol> &rArr; key press,
+                                        <symbol>False</symbol> &rArr; release */
+    Bool           key_event_follows;/* <symbol>True</symbol> &rArr; KeyPress/KeyRelease follows */
+    char           message[XkbActionMessageLength+1];  /* message text */
 } <structname>XkbActionMessageEvent</structname>;
 </programlisting></para>
 
@@ -3113,18 +3115,21 @@ Actions associated with the
 <symbol>KeyRelease</symbol>
  events containing a keycode different from the key that was pressed or
 released:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct      _XkbRedirectKeyAction {
-      unsigned char      type;          /* <symbol>XkbSA_RedirectKey</symbol> */
-      unsigned char      new_key;       /* keycode to be put in event */
-      unsigned char      mods_mask;     /* mask of real mods to be reset */
-      unsigned char      mods;          /* mask of real mods to take values from */
-      unsigned char      vmods_mask0;   /* first half of mask of virtual mods to be reset */
-      unsigned char      vmods_mask1;   /* other half of mask of virtual mods to be reset */
-      unsigned char      vmods0;        /* first half of mask of virtual mods to take values from */
-      unsigned char      vmods1;        /* other half of mask of virtual mods to take values from */
+    unsigned char      type;          /* <symbol>XkbSA_RedirectKey</symbol> */
+    unsigned char      new_key;       /* keycode to be put in event */
+    unsigned char      mods_mask;     /* mask of real mods to be reset */
+    unsigned char      mods;          /* mask of real mods to take values from */
+    unsigned char      vmods_mask0;   /* first half of mask of virtual mods
+                                         to be reset */
+    unsigned char      vmods_mask1;   /* other half of mask of virtual mods
+                                         to be reset */
+    unsigned char      vmods0;        /* first half of mask of virtual mods
+                                         to take values from */
+    unsigned char      vmods1;        /* other half of mask of virtual mods
+                                         to take values from */
 } <structname>XkbRedirectKeyAction</structname>;
 </programlisting></para>
 
@@ -3378,15 +3383,15 @@ Actions associated with
  and
 <symbol>KeyRelease</symbol>
  events:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbDeviceBtnAction {
-      unsigned char    type;      /* <symbol>XkbSA_DeviceBtn</symbol>, <symbol>XkbSA_LockDeviceBtn</symbol> */
-      unsigned char    flags;     /* with <structfield>type</structfield> , specifies locking or unlocking */
-      unsigned char    count;     /* controls number of DeviceButtonPress and Release events */
-      unsigned char    button;    /* index of button on <structfield>device</structfield> */
-      unsigned char    device;    /* device ID of an X input extension device */
+    unsigned char    type;      /* <symbol>XkbSA_DeviceBtn</symbol>, <symbol>XkbSA_LockDeviceBtn</symbol> */
+    unsigned char    flags;     /* with <structfield>type</structfield>, specifies locking or unlocking */
+    unsigned char    count;     /* controls number of DeviceButtonPress
+                                   and Release events */
+    unsigned char    button;    /* index of button on <structfield>device</structfield> */
+    unsigned char    device;    /* device ID of an X input extension device */
 } <structname>XkbDeviceBtnAction</structname>;
 </programlisting></para>
 
@@ -3562,14 +3567,16 @@ valuators.
 
 <para><programlisting>
 typedef struct _XkbDeviceValuatorAction {
-      unsigned char    type;        /*<symbol>XkbSA_DeviceValuator</symbol> */
-      unsigned char    device;      /* device ID */
-      unsigned char    v1_what;     /* determines how valuator is to behave for valuator 1 */
-      unsigned char    v1_ndx;      /* specifies a real valuator */
-      unsigned char    v1_value;    /* the value for valuator 1 */
-      unsigned char    v2_what;     /* determines how valuator is to behave for valuator 2 */
-      unsigned char    v2_ndx;      /* specifies a real valuator */
-      unsigned char    v2_value;    /* the value for valuator 1 */
+    unsigned char    type;        /* <symbol>XkbSA_DeviceValuator</symbol> */
+    unsigned char    device;      /* device ID */
+    unsigned char    v1_what;     /* determines how valuator is
+                                     to behave for valuator 1 */
+    unsigned char    v1_ndx;      /* specifies a real valuator */
+    unsigned char    v1_value;    /* the value for valuator 1 */
+    unsigned char    v2_what;     /* determines how valuator is
+                                     to behave for valuator 2 */
+    unsigned char    v2_ndx;      /* specifies a real valuator */
+    unsigned char    v2_value;    /* the value for valuator 1 */
 } <structname>XkbDeviceValuatorAction</structname>;
 </programlisting></para>
 
@@ -3680,12 +3687,11 @@ The following two masks are provided as a convenience to select either portion
 of
 <structfield>v1_what</structfield>
  or
-<structfield>v2_what</structfield>
-:
+<structfield>v2_what</structfield>:
 
 <programlisting>
-      #define XkbSA_ValOpMask         (0x70)
-      #define XkbSA_ValScaleMask      (0x07)
+#define XkbSA_ValOpMask         (0x70)
+#define XkbSA_ValScaleMask      (0x07)
 </programlisting>
 </para>
 
@@ -4000,9 +4006,8 @@ The low five bits of the
 <structname>XkbBehavior</structname>
  structure are the group number, the high three bits are flags. The only flag
 currently defined is:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define      XkbKB_RGAllowNone      0x80
 </programlisting></para>
 
@@ -4018,13 +4023,12 @@ The
  structures, indexed by keycode, and contains the behavior for each key. The
 <structname>XkbBehavior</structname>
  structure is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbBehavior {
-      unsigned char  type;                  /* behavior type + optional
-                                               <symbol>XkbKB_Permanent</symbol> bit */
-      unsigned char  data;
+    unsigned char  type;              /* behavior type + optional
+                                         <symbol>XkbKB_Permanent</symbol> bit */
+    unsigned char  data;
 } <structname>XkbBehavior</structname>;
 </programlisting></para>
 

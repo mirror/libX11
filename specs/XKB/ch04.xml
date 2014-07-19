@@ -167,21 +167,17 @@ in the same fields at the beginning of all Xkb event structures and are
 described in the
 <structname>XkbAnyEvent</structname>
  structure:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int                type;        /* Xkb extension base event code */
-      unsigned long      serial;      /* X server serial number for event */
-      Bool               send_event;  /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *          display;     /* server connection where event
-generated */
-      Time               time;        /* server time when event generated */
-      int                xkb_type;    /* Xkb minor event code */
-      unsigned int       device;      /* Xkb device ID, will not be
-                                         <symbol>XkbUseCoreKbd</symbol> */
+    int             type;        /* Xkb extension base event code */
+    unsigned long   serial;      /* X server serial number for event */
+    Bool            send_event;  /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *       display;     /* server connection where event generated */
+    Time            time;        /* server time when event generated */
+    int             xkb_type;    /* Xkb minor event code */
+    unsigned int    device;      /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
 } <structname>XkbAnyEvent</structname>;
-
 </programlisting></para>
 
 <para>
@@ -719,8 +715,8 @@ every reference. For example, to get the next event, you can simply declare a
 variable of type
 <structname>XkbEvent</structname>
  and call:
-</para>
 
-<para>XNextEvent(dpy,&amp;xkbev.core);</para>
+<programlisting>XNextEvent(dpy,&amp;xkbev.core);</programlisting>
+</para>
 </sect1>
 </chapter>

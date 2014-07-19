@@ -70,13 +70,13 @@ involves translating a single keycode into a string. Because these simple
 lookups involve only a single keycode, all of the information needed to do the
 translation is contained in the keyboard state in a single event. The controls
 affecting simple string lookups are:
-</para>
 
-<para><programlisting>
-     <emphasis>ForceLatin1Lookup</emphasis>
-     <emphasis>ConsumeLookupMods</emphasis>
-     <emphasis>LevelOneUsesShiftAndLock</emphasis>
-</programlisting></para>
+  <simplelist type='vert' columns='1'>
+    <member><emphasis>ForceLatin1Lookup</emphasis></member>
+    <member><emphasis>ConsumeLookupMods</emphasis></member>
+    <member><emphasis>LevelOneUsesShiftAndLock</emphasis></member>
+  </simplelist>
+</para>
 
 <sect2 id='ForceLatin1Lookup'>
 <title>ForceLatin1Lookup</title>
@@ -207,13 +207,13 @@ mapping a series of keysyms to a string is known as
 <indexterm significance="preferred" zone="Controls_Affecting_Compose_Processing">
 <primary>compose processing</primary></indexterm>
 The controls affecting compose processing are:
-</para>
 
-<para><programlisting>
-<emphasis>ConsumeKeysOnComposeFail</emphasis>
-<emphasis>ComposeLED</emphasis>
-<emphasis>BeepOnComposeFail</emphasis>
-</programlisting></para>
+  <simplelist type='vert' columns='1'>
+    <member><emphasis>ConsumeKeysOnComposeFail</emphasis></member>
+    <member><emphasis>ComposeLED</emphasis></member>
+    <member><emphasis>BeepOnComposeFail</emphasis></member>
+  </simplelist>
+</para>
 
 <para>
 Because different vendors have historically used different algorithms to

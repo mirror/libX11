@@ -56,10 +56,10 @@ keyboard geometry descriptions.
 <para>
 The name of the Xkb extension is given in
 <filename class="headerfile">&lt;X11/extensions/Xkb.h&gt;</filename>:
-</para>
 
-<para>
-<emphasis>#define XkbName "XKEYBOARD"</emphasis>
+<programlisting>
+#define XkbName "XKEYBOARD"
+</programlisting>
 </para>
 
 <para>

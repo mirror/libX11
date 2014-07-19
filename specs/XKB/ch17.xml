@@ -151,16 +151,15 @@ The
  points to the
 <structname>XkbCompatMapRec</structname>
  structure:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbCompatMapRec {
-      XkbSymInterpretPtr   sym_interpret;            /* symbol based key semantics*/
-      XkbModsRec           groups[XkbNumKbdGroups];  /* group &rArr; modifier map */
-      unsigned short       num_si;                   /* # structures used in
-                                                        <structfield>sym_interpret</structfield> */
-      unsigned short       size_si;                  /* # structures allocated in
-                                                        <structfield>sym_interpret</structfield> */
+      XkbSymInterpretPtr sym_interpret;    /* symbol based key semantics */
+      XkbModsRec         groups[XkbNumKbdGroups]; /* group &rArr; modifier map */
+      unsigned short     num_si;           /* # structures used in
+                                                <structfield>sym_interpret</structfield> */
+      unsigned short     size_si;          /* # structures allocated in
+                                                <structfield>sym_interpret</structfield> */
 } <structname>XkbCompatMapRec</structname>, *XkbCompatMapPtr;
 </programlisting></para>
 
@@ -440,16 +439,16 @@ processing may be modified for the particular key involved:
 <para>
 The <structname>XkbSymInterpretRec</structname>
 structure specifies a symbol interpretation:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      KeySym          sym;          /* keysym of interest or <symbol>NULL</symbol> */
-      unsigned char   flags;        /* <symbol>XkbSI_AutoRepeat</symbol>, <symbol>XkbSI_LockingKey</symbol> */
-      unsigned char   match;        /* specifies how mods is interpreted */
-      unsigned char   mods;         /* modifier bits, correspond to eight real modifiers */
-      unsigned char   virtual_mod;  /* 1 modifier to add to key virtual mod map */
-      XkbAnyAction    act;          /* action to bind to symbol position on key */
+    KeySym          sym;          /* keysym of interest or <symbol>NULL</symbol> */
+    unsigned char   flags;        /* <symbol>XkbSI_AutoRepeat</symbol>, <symbol>XkbSI_LockingKey</symbol> */
+    unsigned char   match;        /* specifies how mods is interpreted */
+    unsigned char   mods;         /* modifier bits, correspond to
+                                     eight real modifiers */
+    unsigned char   virtual_mod;  /* 1 modifier to add to key virtual mod map */
+    XkbAnyAction    act;          /* action to bind to symbol position on key */
 } <structname>XkbSymInterpretRec</structname>,*XkbSymInterpretPtr;
 </programlisting></para>
 
@@ -649,14 +648,12 @@ for the key.
 <para>
 If the matching symbol is in position G1L1 of the key, two bits in the flags
 field potentially specify additional behavior modifications:
-</para>
 
-<para><programlisting>
-#define      XkbSI_AutoRepeat    (1&lt;&lt;0)
-                                 /* key repeats if sym is in position G1L1 */
-#define      XkbSI_LockingKey    (1&lt;&lt;1)
-                                 /* set <emphasis>KB_Lock</emphasis>
-                                    behavior if sym is in psn G1L1 */
+<programlisting>
+#define   XkbSI_AutoRepeat    (1&lt;&lt;0)     /* key repeats if sym
+                                            is in position G1L1 */
+#define   XkbSI_LockingKey    (1&lt;&lt;1)     /* set <emphasis>KB_Lock</emphasis> behavior
+                                            if sym is in psn G1L1 */
 </programlisting></para>
 
 <para>
@@ -1575,26 +1572,25 @@ made by other clients.
 The structure for the
 <structname>XkbCompatMapNotifyEvent</structname>
  is:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int            type;          /* Xkb extension base event code */
-      unsigned long  serial;        /* X server serial number for event */
-      Bool           send_event;    /* <symbol>True</symbol> &rArr;
-                                       synthetically generated */
-      Display *      display;       /* server connection where event generated */
-      Time           time;          /* server time when event generated */
-      int            xkb_type;      /* <symbol>XkbCompatMapNotify</symbol> */
-      int            device;        /* Xkb device ID, will not be
-                                       <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   changed_groups;/* number of group maps changed */
-      int            first_si;      /* index to 1st changed symbol
-                                       interpretation */
-      int            num_si;        /* number of changed symbol
-                                       interpretations */
-      int            num_total_si;  /* total number of valid symbol
-                                       interpretations */
+    int            type;           /* Xkb extension base event code */
+    unsigned long  serial;         /* X server serial number for event */
+    Bool           send_event;     /* <symbol>True</symbol> &rArr;
+                                      synthetically generated */
+    Display *      display;        /* server connection where event generated */
+    Time           time;           /* server time when event generated */
+    int            xkb_type;       /* <symbol>XkbCompatMapNotify</symbol> */
+    int            device;         /* Xkb device ID, will not be
+                                      <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   changed_groups; /* number of group maps changed */
+    int            first_si;       /* index to 1st changed symbol
+                                      interpretation */
+    int            num_si;         /* number of changed symbol
+                                      interpretations */
+    int            num_total_si;   /* total number of valid symbol
+                                      interpretations */
 } <structname>XkbCompatMapNotifyEvent</structname>;
 </programlisting></para>
 

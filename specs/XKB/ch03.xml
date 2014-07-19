@@ -113,13 +113,11 @@ function expands the array if necessary.
 
 <para>
 For example, call:
-</para>
 
-<para>
+<programlisting>
 XkbAllocGeomShapes(geom,4)
-</para>
+</programlisting>
 
-<para>
 to say <quote>I’ll need space for four new shapes in this geometry.</quote>
 This makes sure that
 <structfield>sz_shapes</structfield>

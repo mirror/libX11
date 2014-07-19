@@ -165,26 +165,24 @@ Xkb events are discarded, and no Xkb requests have their keycode range clamped.
 The structure for the
 <symbol>XkbNewKeyboardNotify</symbol>
  event is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbNewKeyboardNotify {
-      int            type;         /* Xkb extension base event code */
-      unsigned long  serial;       /* X server serial number for event*/
-      Bool           send_event;   /* <symbol>True</symbol>
-                                      &rArr; synthetically generated */
-      Display *      display;      /* server connection where event generated */
-      Time           time;         /* server time when event generated */
-      int            xkb_type;  /* <symbol>XkbNewKeyboardNotify</symbol> */
-      int            device;       /* device ID of new keyboard */
-      int            old_device;   /* device ID of old keyboard */
-      int            min_key_code; /* min keycode of new keyboard */
-      int            max_key_code; /* max keycode of new keyboard */
-      int            old_min_key_code; /* min keycode of old keyboard */
-      int            old_max_key_code; /* max keycode of old keyboard */
-      unsigned int            changed; /* changed aspects - see masks below */
-      char            req_major;   /* major request that caused change */
-      char            req_minor;   /* minor request that caused change */
+    int            type;         /* Xkb extension base event code */
+    unsigned long  serial;       /* X server serial number for event */
+    Bool           send_event;   /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;      /* server connection where event generated */
+    Time           time;         /* server time when event generated */
+    int            xkb_type;     /* <symbol>XkbNewKeyboardNotify</symbol> */
+    int            device;       /* device ID of new keyboard */
+    int            old_device;   /* device ID of old keyboard */
+    int            min_key_code; /* min keycode of new keyboard */
+    int            max_key_code; /* max keycode of new keyboard */
+    int            old_min_key_code; /* min keycode of old keyboard */
+    int            old_max_key_code; /* max keycode of old keyboard */
+    unsigned int   changed;      /* changed aspects - see masks below */
+    char           req_major;    /* major request that caused change */
+    char           req_minor;    /* minor request that caused change */
 } <structname>XkbNewKeyboardNotifyEvent</structname>;
 </programlisting></para>
 

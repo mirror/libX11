@@ -725,27 +725,27 @@ To latch the keysym group, use
 Xkb keyboard state may be represented in an
 <structname>XkbStateRec</structname>
  structure:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      unsigned char            group;                /* effective group index */
-      unsigned char            base_group;           /* base group index */
-      unsigned char            latched_group;        /* latched group index */
-      unsigned char            locked_group;         /* locked group index */
-      unsigned char            mods;                 /* effective modifiers */
-      unsigned char            base_mods;            /* base modifiers */
-      unsigned char            latched_mods;         /* latched modifiers */
-      unsigned char            locked_mods;          /* locked modifiers */
-      unsigned char            compat_state;         /* effective group &rArr; modifiers */
-      unsigned char            grab_mods;            /* modifiers used for grabs */
-      unsigned char            compat_grab_mods;     /* mods used for compatibility mode grabs */
-      unsigned char            lookup_mods;          /* modifiers used to lookup symbols */
-      unsigned char            compat_lookup_mods;   /* mods used for compatibility lookup */
-      unsigned short            ptr_buttons;         /* 1 bit &rArr; corresponding pointer btn is down */
-}
-<structname>XkbStateRec</structname>,
-*XkbStatePtr;
+    unsigned char      group;                /* effective group index */
+    unsigned char      base_group;           /* base group index */
+    unsigned char      latched_group;        /* latched group index */
+    unsigned char      locked_group;         /* locked group index */
+    unsigned char      mods;                 /* effective modifiers */
+    unsigned char      base_mods;            /* base modifiers */
+    unsigned char      latched_mods;         /* latched modifiers */
+    unsigned char      locked_mods;          /* locked modifiers */
+    unsigned char      compat_state;         /* effective group &rArr; modifiers */
+    unsigned char      grab_mods;            /* modifiers used for grabs */
+    unsigned char      compat_grab_mods;     /* mods used for compatibility
+                                                mode grabs */
+    unsigned char      lookup_mods;          /* mods used to lookup symbols */
+    unsigned char      compat_lookup_mods;   /* mods used for compatibility
+                                                lookup */
+    unsigned short     ptr_buttons;          /* 1 bit &rArr; corresponding
+                                                pointer btn is down */
+} <structname>XkbStateRec</structname>, *XkbStatePtr;
 </programlisting></para>
 
 <para>
@@ -957,39 +957,41 @@ To receive
 The structure for
 <symbol>XkbStateNotify</symbol>
  events is:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int            type;            /* Xkb extension base event code */
-      unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *      display;         /* server connection where event generated */
-      Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <symbol>XkbStateNotify</symbol> */
-      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   changed;         /* bits indicating what has changed */
-      int            group;           /* group index of effective group */
-      int            base_group;      /* group index of base group */
-      int            latched_group;   /* group index of latched group */
-      int            locked_group;    /* group index of locked group */
-      unsigned int   mods;            /* effective modifiers */
-      unsigned int   base_mods;       /* base modifiers */
-      unsigned int   latched_mods;    /* latched modifiers */
-      unsigned int   locked_mods;     /* locked modifiers */
-      int            compat_state;    /* computed compatibility state */
-      unsigned char  grab_mods;       /* modifiers used for grabs */
-      unsigned char  compat_grab_mods;  /* modifiers used for compatibility grabs */
-      unsigned char  lookup_mods;     /* modifiers used to lookup symbols */
-      unsigned char  compat_lookup_mods;                  /* mods used for compatibility look up */
-      int            ptr_buttons;     /* core pointer buttons */
-      KeyCode        keycode;         /* keycode causing event, 0 if programmatic */
-      char           event_type;      /* core event if <structfield>req_major</structfield> or
-                                         <structfield>req_minor</structfield> non zero */
-      char           req_major;       /* major request code if program trigger, else 0 */
-      char           req_minor;       /* minor request code if program trigger, else 0 */
+    int            type;            /* Xkb extension base event code */
+    unsigned long  serial;          /* X server serial number for event */
+    Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;         /* server connection where event generated */
+    Time           time;            /* server time when event generated */
+    int            xkb_type;        /* <symbol>XkbStateNotify</symbol> */
+    int            device;          /* Xkb device ID,
+                                       will not be <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   changed;         /* bits indicating what has changed */
+    int            group;           /* group index of effective group */
+    int            base_group;      /* group index of base group */
+    int            latched_group;   /* group index of latched group */
+    int            locked_group;    /* group index of locked group */
+    unsigned int   mods;            /* effective modifiers */
+    unsigned int   base_mods;       /* base modifiers */
+    unsigned int   latched_mods;    /* latched modifiers */
+    unsigned int   locked_mods;     /* locked modifiers */
+    int            compat_state;    /* computed compatibility state */
+    unsigned char  grab_mods;       /* modifiers used for grabs */
+    unsigned char  compat_grab_mods; /* modifiers used for compatibility grabs */
+    unsigned char  lookup_mods;     /* modifiers used to lookup symbols */
+    unsigned char  compat_lookup_mods; /* mods used for compatibility look up */
+    int            ptr_buttons;     /* core pointer buttons */
+    KeyCode        keycode;         /* keycode causing event,
+                                       0 if programmatic */
+    char           event_type;      /* core event if <structfield>req_major</structfield> or <structfield>req_minor</structfield>
+                                       non zero */
+    char           req_major;       /* major request code if program trigger,
+                                       else 0 */
+    char           req_minor;       /* minor request code if program trigger,
+                                       else 0 */
 } <structname>XkbStateNotifyEvent</structname>;
-
 </programlisting></para>
 
 <para>

@@ -87,16 +87,14 @@ The description for all the Xkb indicators is held in the
 <structfield>indicators</structfield>
  field of the complete keyboard description (see <xref linkend="Complete_Keyboard_Description" />), which is defined
 as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define      XkbNumIndicators      32
-</programlisting></para>
-<para><programlisting>
+
 typedef struct {
-      unsigned long                   phys_indicators;        /* LEDs existence */
-      XkbIndicatorMapRec              maps[XkbNumIndicators]; /* indicator maps */
-} <structname>XkbIndicatorRec</structname>,*XkbIndicatorPtr;
+    unsigned long           phys_indicators;            /* LEDs existence */
+    XkbIndicatorMapRec      maps[XkbNumIndicators];     /* indicator maps */
+} <structname>XkbIndicatorRec</structname>, *XkbIndicatorPtr;
 </programlisting></para>
 
 <para>
@@ -144,16 +142,15 @@ attributes of each indicator are held in the
  array, which is an array of
 <structname>XkbIndicatorRec</structname>
  structures:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      unsigned char    flags;         /* how the indicator can be changed */
-      unsigned char    which_groups;  /* match criteria for groups */
-      unsigned char    groups;        /* which keyboard groups the indicator watches */
-      unsigned char    which_mods;    /* match criteria for modifiers */
-      XkbModsRec       mods;          /* which modifiers the indicator watches */
-      unsigned int     ctrls;         /* which controls the indicator watches */
+    unsigned char  flags;         /* how the indicator can be changed */
+    unsigned char  which_groups;  /* match criteria for groups */
+    unsigned char  groups;        /* which keyboard groups the indicator watches */
+    unsigned char  which_mods;    /* match criteria for modifiers */
+    XkbModsRec     mods;          /* which modifiers the indicator watches */
+    unsigned int   ctrls;         /* which controls the indicator watches */
 } <structname>XkbIndicatorMapRec</structname>, *XkbIndicatorMapPtr;
 </programlisting></para>
 
@@ -322,9 +319,8 @@ corresponding indicator. The
  field controls the interpretation of
 <structfield>groups</structfield>
  and may contain any one of the following values:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define XkbIM_UseNone             0
 #define XkbIM_UseBase             (1L &lt;&lt; 0)
 #define XkbIM_UseLatched          (1L &lt;&lt; 1)
@@ -339,9 +335,8 @@ The
 <structfield>groups</structfield>
 field specifies what keyboard groups an indicator watches and is the bitwise
 inclusive OR of the following valid values:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define XkbGroup1Mask            (1&lt;&lt;0)
 #define XkbGroup2Mask            (1&lt;&lt;1)
 #define XkbGroup3Mask            (1&lt;&lt;2)
@@ -581,9 +576,8 @@ the definition. (See <xref linkend="Keyboard_State" /> for more information on t
 <xref linkend="Virtual_Modifiers" /> for more information on virtual modifiers.) Use a bitwise inclusive
 OR of the following values to compose a value for
 <structfield>which_mods</structfield>:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define XkbIM_UseNone             0
 #define XkbIM_UseBase             (1L &lt;&lt; 0)
 #define XkbIM_UseLatched          (1L &lt;&lt; 1)
@@ -800,9 +794,8 @@ The
 <structfield>ctrls</structfield>
  field specifies what controls (see <xref linkend="Keyboard_Controls" />) the indicator watches and is
 composed using the bitwise inclusive OR of the following values:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define XkbRepeatKeysMask           (1L &lt;&lt; 0)
 #define XkbSlowKeysMask             (1L &lt;&lt; 1)
 #define XkbBounceKeysMask           (1L &lt;&lt; 2)
@@ -1609,10 +1602,9 @@ The
 
 <para><programlisting>
 typedef struct _XkbIndicatorChanges {
-      unsigned int             state_changes;
-      unsigned int             map_changes;
-}
-<structname>XkbIndicatorChangesRec</structname>,*XkbIndicatorChangesPtr;
+    unsigned int             state_changes;
+    unsigned int             map_changes;
+} <structname>XkbIndicatorChangesRec</structname>,*XkbIndicatorChangesPtr;
 </programlisting></para>
 
 <para>
@@ -1777,19 +1769,18 @@ those bits that specify the indicators for which you want to receive events.
 
 <para>
 Both types of indicator events use the same structure:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbIndicatorNotify {
-      int            type;        /* Xkb extension base event code */
-      unsigned long  serial;      /* X server serial number for event */
-      Bool           send_event;  /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *      display;     /* server connection where event generated */
-      Time           time;        /* server time when event generated */
-      int            xkb_type;    /* specifies state or map notify */
-      int            device;      /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   changed;     /* mask of indicators with new state or map */
-      unsigned int   state;       /* current state of all indicators */
+    int            type;        /* Xkb extension base event code */
+    unsigned long  serial;      /* X server serial number for event */
+    Bool           send_event;  /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;     /* server connection where event generated */
+    Time           time;        /* server time when event generated */
+    int            xkb_type;    /* specifies state or map notify */
+    int            device;      /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   changed;     /* mask of indicators with new state or map */
+    unsigned int   state;       /* current state of all indicators */
 } <structname>XkbIndicatorNotifyEvent</structname>;
 </programlisting></para>
 

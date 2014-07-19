@@ -556,41 +556,37 @@ the control is configured to not reset when the client exits. For example:
 To leave the auto-reset controls for
 <emphasis>StickyKeys</emphasis>
 the way they are:
-</para>
 
-<para><programlisting>
-ok = XkbSetAutoResetControls(dpy, 0, 0, 0);
+<programlisting>
+    ok = XkbSetAutoResetControls(dpy, 0, 0, 0);
 </programlisting></para>
 
 <para>
 To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
 are unaffected when the client exits:
-</para>
 
-<para><programlisting>
-ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, 0, 0);
+<programlisting>
+    ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, 0, 0);
 </programlisting></para>
 
 <para>
 To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
 are turned off when the client exits:
-</para>
 
-<para><programlisting>
-ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, XkbStickyKeysMask, 0);
+<programlisting>
+    ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, XkbStickyKeysMask, 0);
 </programlisting></para>
 
 <para>
 To change the auto-reset controls so that
 <emphasis>StickyKeys</emphasis>
 are turned on when the client exits:
-</para>
 
-<para><programlisting>
-ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, XkbStickyKeysMask,
-XkbStickyKeysMask);
+<programlisting>
+    ok = XkbSetAutoResetControls(dpy, XkbStickyKeysMask, XkbStickyKeysMask,
+                                 XkbStickyKeysMask);
 </programlisting></para>
 
 <para>
@@ -2032,21 +2028,20 @@ The server can generate
  events for some of the global keyboard controls. The structure for the
 <symbol>XkbAccessXNotify</symbol>
  event type is as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int             type;            /* Xkb extension base event code */
-      unsigned long   serial;          /* X server serial number for event */
-      Bool            send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *       display;         /* server connection where event generated */
-      Time            time;            /* server time when event generated */
-      int             xkb_type;        /* <symbol>XkbAccessXNotify</symbol> */
-      int             device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      int             detail;          /* XkbAXN_* */
-      KeyCode         keycode;         /* key of event */
-      int             slowKeysDelay;   /* current SlowKeys delay */
-      int             debounceDelay;   /* current debounce delay */
+    int             type;            /* Xkb extension base event code */
+    unsigned long   serial;          /* X server serial number for event */
+    Bool            send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *       display;         /* server connection where event generated */
+    Time            time;            /* server time when event generated */
+    int             xkb_type;        /* <symbol>XkbAccessXNotify</symbol> */
+    int             device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
+    int             detail;          /* XkbAXN_* */
+    KeyCode         keycode;         /* key of event */
+    int             slowKeysDelay;   /* current SlowKeys delay */
+    int             debounceDelay;   /* current debounce delay */
 } <structname>XkbAccessXNotifyEvent</structname>;
 </programlisting></para>
 
@@ -2814,13 +2809,11 @@ with a mask indicating whether the individual
  options are on or off. Valid bits in
 <parameter>options_rtrn</parameter>
  are:
-</para>
 
-<para>
-<programlisting>
-     <symbol>XkbAX_TwoKeysMask</symbol>
-     <symbol>XkbAX_LatchToLockMask</symbol>
-</programlisting>
+  <simplelist type='vert' columns='1'>
+    <member><symbol>XkbAX_TwoKeysMask</symbol></member>
+    <member><symbol>XkbAX_LatchToLockMask</symbol></member>
+  </simplelist>
 </para>
 
 <para>
@@ -2913,13 +2906,11 @@ The valid bits to use for both the
  and
 <parameter>values</parameter>
  parameters are:
-</para>
 
-<para>
-<programlisting>
-     <symbol>XkbAX_TwoKeysMask</symbol>
-     <symbol>XkbAX_LatchToLockMask</symbol>
-</programlisting>
+  <simplelist type='vert' columns='1'>
+    <member><symbol>XkbAX_TwoKeysMask</symbol></member>
+    <member><symbol>XkbAX_LatchToLockMask</symbol></member>
+  </simplelist>
 </para>
 
 <para>
@@ -2939,15 +2930,13 @@ The valid bits to use for both the
 There are several controls that apply to the keyboard mapping in general. They
 control handling of out-of-range group indices and how modifiers are processed
 and consumed in the server. These are:
-</para>
 
-<para>
-<programlisting>
-     <emphasis>GroupsWrap</emphasis>
-     <emphasis>IgnoreGroupLock</emphasis>
-     <emphasis>IgnoreLockMods</emphasis>
-     <emphasis>InternalMods</emphasis>
-</programlisting>
+  <simplelist type='vert' columns='1'>
+    <member><emphasis>GroupsWrap</emphasis></member>
+    <member><emphasis>IgnoreGroupLock</emphasis></member>
+    <member><emphasis>IgnoreLockMods</emphasis></member>
+    <member><emphasis>InternalMods</emphasis></member>
+  </simplelist>
 </para>
 
 <para>
@@ -3460,39 +3449,45 @@ convenience functions.
 The
 <structname>XkbControlsRec</structname>
  structure is defined as follows:
-</para>
 
-<para>
 <programlisting>
 #define      XkbMaxLegalKeyCode       255
 #define      XkbPerKeyBitArraySize    ((XkbMaxLegalKeyCode+1)/8)
-</programlisting>
-</para>
-<para>
-<programlisting>
+
 typedef struct {
-      unsigned char        mk_dflt_btn;       /* default button for keyboard driven mouse */
-      unsigned char        num_groups;        /* number of keyboard groups */
-      unsigned char        groups_wrap;       /* how to wrap out-of-bounds groups */
-      XkbModsRec           internal;          /* defines server internal modifiers */
-      XkbModsRec           ignore_lock;       /* modifiers to ignore when checking for grab */
-      unsigned int         enabled_ctrls;     /* 1 bit &rArr; corresponding boolean control enabled */
-      unsigned short       repeat_delay;      /* ms delay until first repeat */
-      unsigned short       repeat_interval;   /* ms delay between repeats */
-      unsigned short       slow_keys_delay;   /* ms minimum time key must be down to be ok */
-      unsigned short       debounce_delay;    /* ms delay before key reactivated */
-      unsigned short       mk_delay;          /* ms delay to second mouse motion event */
-      unsigned short       mk_interval;       /* ms delay between repeat mouse events */
-      unsigned short       mk_time_to_max;    /* # intervals until constant mouse move */
-      unsigned short       mk_max_speed;      /* multiplier for maximum mouse speed */
-      short                mk_curve;          /* determines mouse move curve type */
-      unsigned short       ax_options;        /* 1 bit &rArr; Access X option enabled */
-      unsigned short       ax_timeout;        /* seconds until Access X disabled */
-      unsigned short       axt_opts_mask;     /* 1 bit &rArr; options to reset on Access X timeout */
-      unsigned short       axt_opts_values;   /* 1 bit &rArr; turn option on, 0&rArr; off */
-      unsigned int         axt_ctrls_mask;    /* which bits in <structfield>enabled_ctrls</structfield> to modify */
-      unsigned int         axt_ctrls_values;  /* values for new bits in <structfield>enabled_ctrls</structfield> */
-      unsigned char        per_key_repeat[XkbPerKeyBitArraySize];           /* per key auto repeat */
+    unsigned char     mk_dflt_btn;       /* default button for
+                                             keyboard driven mouse */
+    unsigned char     num_groups;        /* number of keyboard groups */
+    unsigned char     groups_wrap;       /* how to wrap out-of-bounds groups */
+    XkbModsRec        internal;          /* defines server internal modifiers */
+    XkbModsRec        ignore_lock;       /* modifiers to ignore when
+                                             checking for grab */
+    unsigned int      enabled_ctrls;     /* 1 bit &rArr; corresponding
+                                             boolean control enabled */
+    unsigned short    repeat_delay;      /* ms delay until first repeat */
+    unsigned short    repeat_interval;   /* ms delay between repeats */
+    unsigned short    slow_keys_delay;   /* ms minimum time key must be
+                                             down to be ok */
+    unsigned short    debounce_delay;    /* ms delay before key reactivated */
+    unsigned short    mk_delay;          /* ms delay to second mouse
+                                             motion event */
+    unsigned short    mk_interval;       /* ms delay between repeat mouse
+                                             events */
+    unsigned short    mk_time_to_max;    /* # intervals until constant
+                                             mouse move */
+    unsigned short    mk_max_speed;      /* multiplier for maximum mouse speed */
+    short             mk_curve;          /* determines mouse move curve type */
+    unsigned short    ax_options;        /* 1 bit &rArr; Access X option enabled */
+    unsigned short    ax_timeout;        /* seconds until Access X disabled */
+    unsigned short    axt_opts_mask;     /* 1 bit &rArr; options to reset
+                                             on Access X timeout */
+    unsigned short    axt_opts_values;   /* 1 bit &rArr; turn option on, 0&rArr; off */
+    unsigned int      axt_ctrls_mask;    /* which bits in <structfield>enabled_ctrls</structfield>
+                                             to modify */
+    unsigned int      axt_ctrls_values;  /* values for new bits in
+                                             <structfield>enabled_ctrls</structfield> */
+    unsigned char     per_key_repeat[XkbPerKeyBitArraySize];
+                                         /* per key auto repeat */
 } <structname>XkbControlsRec</structname>, *XkbControlsPtr;
 </programlisting>
 </para>
@@ -4188,11 +4183,9 @@ Xkb provides a set of convenience macros for working with the
  field of an
 <structname>XkbControlsRec</structname>
  structure:
-</para>
 
-<para><programlisting>
-#define      <symbol>XkbAX_NeedOption</symbol>
-(c,w)      ((c)-&gt;ax_options&amp;(w))
+<programlisting>
+#define      <symbol>XkbAX_NeedOption</symbol>(c,w)      ((c)-&gt;ax_options &amp; (w))
 </programlisting></para>
 
 <para>
@@ -4207,15 +4200,11 @@ or not. It accepts a pointer to an
 <structfield>ax_options</structfield>
  field of the controls structure is set, the macro returns the mask bit.
 Otherwise, it returns zero. Thus,
-</para>
 
+<programlisting>
+    XkbAX_NeedOption(ctlrec, XkbAX_LatchToLockMask)
+</programlisting>
 
-<para>
-XkbAX_NeedOption(ctlrec, XkbAX_LatchToLockMask)
-</para>
-
-
-<para>
 is nonzero if the latch to lock transition for latching keys is enabled, and
 zero if it is disabled. Note that
 <symbol>XkbAX_NeedOption</symbol>
@@ -4228,8 +4217,8 @@ operate; the
 </para>
 
 <para><programlisting>
-#define      <symbol>XkbAX_AnyFeedback</symbol>
-(c)      ((c)-&gt;enabled_ctrls&amp;XkbAccessXFeedbackMask)
+#define      <symbol>XkbAX_AnyFeedback</symbol>(c) \
+                 ((c)-&gt;enabled_ctrls &amp; XkbAccessXFeedbackMask)
 </programlisting></para>
 
 <para>
@@ -4247,8 +4236,8 @@ Otherwise, it returns zero.
 </para>
 
 <para><programlisting>
-#define      <symbol>XkbAX_NeedFeedback</symbol>
-(c,w)      (XkbAX_AnyFeedback(c)&amp;&amp;XkbAX_NeedOption(c,w))
+#define      <symbol>XkbAX_NeedFeedback</symbol>(c,w) \
+                 (XkbAX_AnyFeedback(c) &amp;&amp; XkbAX_NeedOption(c,w))
 </programlisting></para>
 
 <para>
@@ -4615,15 +4604,16 @@ same
 changes, to be propagated to the server. The
 <structname>XkbControlsChangesRec</structname>
  structure is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbControlsChanges {
-      unsigned int changed_ctrls;          /* bits indicating changed control data */
-      unsigned int enabled_ctrls_changes;  /* bits indicating enabled/disabled controls */
-      Bool         num_groups_changed;     /* <symbol>True</symbol> if
-                                              number of keyboard groups changed */
-} <structname>XkbControlsChangesRec</structname>,*XkbControlsChangesPtr;
+    unsigned int changed_ctrls;          /* bits indicating changed
+                                             control data */
+    unsigned int enabled_ctrls_changes;  /* bits indicating
+                                             enabled/disabled controls */
+    Bool         num_groups_changed;     /* <symbol>True</symbol> if number of keyboard
+                                             groups changed */
+} <structname>XkbControlsChangesRec</structname>, *XkbControlsChangesPtr;
 </programlisting></para>
 
 <para>
@@ -4759,25 +4749,27 @@ To receive
 The structure for the
 <symbol>XkbControlsNotify</symbol>
  event is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int            type;            /* Xkb extension base event code */
-      unsigned long  serial;          /* X server serial number for event */
-      Bool           send_event;      /* <symbol>True</symbol> &rArr; synthetically generated */
-      Display *      display;         /* server connection where event generated */
-      Time           time;            /* server time when event generated */
-      int            xkb_type;        /* <symbol>XkbCompatMapNotify</symbol> */
-      int            device;          /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   changed_ctrls;   /* bits indicating which controls data have changed*/
-      unsigned int   enabled_ctrls;   /* controls currently enabled in server */
-      unsigned int   enabled_ctrl_changes;  /* bits indicating enabled/disabled controls */
-      int            num_groups;      /* current number of keyboard groups */
-      KeyCode        keycode;         /* != 0 &rArr; keycode of key causing change */
-      char           event_type;      /* Type of event causing change */
-      char           req_major;       /* major event code of event causing change */
-      char           req_minor;       /* minor event code of event causing change */
+    int            type;          /* Xkb extension base event code */
+    unsigned long  serial;        /* X server serial number for event */
+    Bool           send_event;    /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;       /* server connection where event generated */
+    Time           time;          /* server time when event generated */
+    int            xkb_type;      /* <symbol>XkbCompatMapNotify</symbol> */
+    int            device;        /* Xkb device ID,
+                                     will not be <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   changed_ctrls; /* bits indicating which controls
+                                     data have changed */
+    unsigned int   enabled_ctrls; /* controls currently enabled in server */
+    unsigned int   enabled_ctrl_changes;  /* bits indicating
+                                             enabled/disabled controls */
+    int            num_groups;    /* current number of keyboard groups */
+    KeyCode        keycode;       /* != 0 &rArr; keycode of key causing change */
+    char           event_type;    /* Type of event causing change */
+    char           req_major;     /* major event code of event causing change */
+    char           req_minor;     /* minor event code of event causing change */
 } <structname>XkbControlsNotifyEvent</structname>;
 </programlisting></para>
 

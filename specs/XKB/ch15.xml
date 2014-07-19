@@ -38,20 +38,18 @@ The
 <structfield>map</structfield>
 field of the complete Xkb keyboard description (see <link linkend="The_XkbDescRec_Structure">section 6.1</link>) is a pointer
 to the Xkb client map, which is of type
-<structname>XkbClientMapRec</structname>
-:
-</para>
+<structname>XkbClientMapRec</structname>:
 
-<para><programlisting>
-typedef struct {                        /* Client Map */
-      unsigned char      size_types;    /* # occupied entries in <structfield>types</structfield> */
-      unsigned char      num_types;     /* # entries in <structfield>types</structfield> */
-      XkbKeyTypePtr      types;         /* vector of key types used by this keymap */
-      unsigned short     size_syms;     /* length of the <structfield>syms</structfield> array */
-      unsigned short     num_syms;      /* # entries in <structfield>syms</structfield> */
-      KeySym *           syms;          /* linear 2d tables of keysyms, 1 per key */
-      XkbSymMapPtr       key_sym_map;   /* 1 per keycode, maps keycode to <structfield>syms</structfield> */
-      unsigned char *    modmap;        /* 1 per keycode, real mods bound to key */
+<programlisting>
+typedef struct {                   /* Client Map */
+    unsigned char   size_types;    /* # occupied entries in <structfield>types</structfield> */
+    unsigned char   num_types;     /* # entries in <structfield>types</structfield> */
+    XkbKeyTypePtr   types;         /* vector of key types used by this keymap */
+    unsigned short  size_syms;     /* length of the <structfield>syms</structfield> array */
+    unsigned short  num_syms;      /* # entries in <structfield>syms</structfield> */
+    KeySym *        syms;          /* linear 2d tables of keysyms, 1 per key */
+    XkbSymMapPtr    key_sym_map;   /* 1 per keycode, maps keycode to <structfield>syms</structfield> */
+    unsigned char * modmap;        /* 1 per keycode, real mods bound to key */
 } <structname>XkbClientMapRec</structname>, *XkbClientMapPtr;
 </programlisting></para>
 
@@ -76,34 +74,31 @@ description are held in the
 and whose total number of valid entries is stored in
 <structfield>num_types</structfield>.
 Key types are defined using the following structures:
-</para>
 
-<para><programlisting>
-typedef struct {                       /* Key Type */
-      XkbModsRec        mods;          /* modifiers used to compute shift
-                                          level */
-      unsigned char     num_levels;    /* total # shift levels, do not
-                                          modify directly */
-      unsigned char     map_count;     /* # entries in <structfield>map</structfield>,
-                                          <structfield>preserve</structfield>
-                                          (if non-<symbol>NULL</symbol>) */
-      XkbKTMapEntryPtr  map;           /* vector of modifiers for each
-                                          shift level */
-      XkbModsPtr        preserve;      /* mods to preserve for corresponding
-                                          <structfield>map</structfield> entry */
-      Atom              name;          /* name of key type */
-      Atom *            level_names;   /* array of names of each shift level */
+<programlisting>
+typedef struct {                     /* Key Type */
+    XkbModsRec        mods;          /* modifiers used to compute shift level */
+    unsigned char     num_levels;    /* total # shift levels, do not
+                                        modify directly */
+    unsigned char     map_count;     /* # entries in <structfield>map</structfield>, <structfield>preserve</structfield>
+                                        (if non-<symbol>NULL</symbol>) */
+    XkbKTMapEntryPtr  map;           /* vector of modifiers for each
+                                        shift level */
+    XkbModsPtr        preserve;      /* mods to preserve for
+                                        corresponding <structfield>map</structfield> entry */
+    Atom              name;          /* name of key type */
+    Atom *            level_names;   /* array of names of each shift level */
 } <structname>XkbKeyTypeRec</structname>, *XkbKeyTypePtr;
-</programlisting></para>
+</programlisting>
 
-<para><programlisting>
-typedef struct {                   /* Modifiers for a key type */
-      Bool            active;      /* <symbol>True</symbol> &rArr; entry
-                                      active when determining shift level */
-      unsigned char   level;       /* shift level if modifiers match <structfield>mods</structfield> */
-      XkbModsRec      mods;        /* mods needed for this level to be
-                                      selected */
-} <structname>XkbKTMapEntryRec</structname>,*XkbKTMapEntryPtr;
+<programlisting>
+typedef struct {                     /* Modifiers for a key type */
+    Bool              active;        /* <symbol>True</symbol> &rArr; entry active when
+                                        determining shift level */
+    unsigned char     level;         /* shift level if modifiers match <structfield>mods</structfield> */
+    XkbModsRec        mods;          /* mods needed for this level to be
+                                        selected */
+} <structname>XkbKTMapEntryRec</structname>, *XkbKTMapEntryPtr;
 </programlisting></para>
 
 <para>
@@ -412,14 +407,14 @@ first
  entries of the
 <structfield>types</structfield>
  field of the client map and are indexed using the following constants:
-</para>
 
-<para><programlisting>
-     <symbol>XkbOneLevelIndex</symbol>
-     <symbol>XkbTwoLevelIndex</symbol>
-     <symbol>XkbAlphabeticIndex</symbol>
-     <symbol>XkbKeypadIndex</symbol>
-</programlisting></para>
+  <simplelist type='vert' columns='1'>
+    <member><symbol>XkbOneLevelIndex</symbol></member>
+    <member><symbol>XkbTwoLevelIndex</symbol></member>
+    <member><symbol>XkbAlphabeticIndex</symbol></member>
+    <member><symbol>XkbKeypadIndex</symbol></member>
+  </simplelist>
+</para>
 
 <sect3 id='ONE_LEVEL'>
 <title>ONE_LEVEL</title>
@@ -1254,19 +1249,19 @@ have
  arrays, whether or not any key actually yields that code. The
 <structname>KeySymMapRec</structname>
  structure is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define XkbNumKbdGroups            4
 #define XkbMaxKbdGroup            (XkbNumKbdGroups-1)
-</programlisting></para>
 
-<para><programlisting>
-typedef struct {                                   /* map to keysyms for a single keycode */
-      unsigned char     kt_index[XkbNumKbdGroups]; /* key type index for each group */
-      unsigned char     group_info;                /* # of groups and out of range group handling */
-      unsigned char     width;                     /* max # of shift levels for key */
-      unsigned short    offset;                    /* index to keysym table in <structfield>syms</structfield> array */
+typedef struct {                 /* map to keysyms for a single keycode */
+    unsigned char     kt_index[XkbNumKbdGroups];
+                                         /* key type index for each group */
+    unsigned char     group_info;        /* # of groups and out of range
+                                            group handling */
+    unsigned char     width;             /* max # of shift levels for key */
+    unsigned short    offset;            /* index to keysym table in
+                                            <structfield>syms</structfield> array */
 } <structname>XkbSymMapRec</structname>, *XkbSymMapPtr;
 </programlisting></para>
 

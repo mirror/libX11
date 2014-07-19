@@ -672,9 +672,8 @@ while the key specified in over must not be.
 
 <para>
 To draw a representation of the keyboard, draw in the following order:
-</para>
 
-<para><programlisting>
+<programlisting>
      Draw the top-level keyboard as a rectangle, using its width and height.
      For each component (section or doodad) of the top-level geometry, in priority order:
         If component is a section
@@ -744,32 +743,40 @@ Xkb Geometry Data Structures (Doodads)</H5>
 Xkb Geometry Data Structures (Overlays)</H5>
 -->
 <para><programlisting>
-typedef struct _XkbGeometry {              /* top-level keyboard geometry structure */
-      Atom                name;            /* keyboard name */
-      unsigned short      width_mm;        /* keyboard width in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
-      unsigned short      height_mm;       /* keyboard height in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
-      char *              label_font;      /* font for key labels */
-      XkbColorPtr         label_color;     /* color for key labels - pointer into colors array */
-      XkbColorPtr         base_color;      /* color for basic keyboard - pointer into colors array */
-      unsigned short      sz_properties;   /* size of properties array */
-      unsigned short      sz_colors;       /* size of colors array */
-      unsigned short      sz_shapes;       /* size of shapes array */
-      unsigned short      sz_sections;     /* size of sections array */
-      unsigned short      sz_doodads;      /* size of doodads array */
-      unsigned short      sz_key_aliases;  /* size of key aliases array */
-      unsigned short      num_properties;  /* number of properties in the properties array */
-      unsigned short      num_colors;      /* number of colors in the colors array */
-      unsigned short      num_shapes;      /* number of shapes in the shapes array */
-      unsigned short      num_sections;    /* number of sections in the sections array */
-      unsigned short      num_doodads;     /* number of doodads in the doodads array */
-      unsigned short      num_key_aliases; /* number of key aliases in the key */
-      XkbPropertyPtr      properties;      /* properties array */
-      XkbColorPtr         colors;          /* colors array */
-      XkbShapePtr         shapes;          /* shapes array */
-      XkbSectionPtr       sections;        /* sections array */
-      XkbDoodadPtr        doodads;         /* doodads array */
-      XkbKeyAliasPtr      key_aliases;     /* key aliases array */
-} <structname>XkbGeometryRec</structname>*XkbGeometryPtr;
+typedef struct _XkbGeometry {    /* top-level keyboard geometry structure */
+    Atom              name;            /* keyboard name */
+    unsigned short    width_mm;        /* keyboard width in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
+    unsigned short    height_mm;       /* keyboard height in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
+    char *            label_font;      /* font for key labels */
+    XkbColorPtr       label_color;     /* color for key labels
+                                          - pointer into colors array */
+    XkbColorPtr       base_color;      /* color for basic keyboard
+                                          - pointer into colors array */
+    unsigned short    sz_properties;   /* size of properties array */
+    unsigned short    sz_colors;       /* size of colors array */
+    unsigned short    sz_shapes;       /* size of shapes array */
+    unsigned short    sz_sections;     /* size of sections array */
+    unsigned short    sz_doodads;      /* size of doodads array */
+    unsigned short    sz_key_aliases;  /* size of key aliases array */
+    unsigned short    num_properties;  /* number of properties in the
+                                           properties array */
+    unsigned short    num_colors;      /* number of colors in the
+                                           colors array */
+    unsigned short    num_shapes;      /* number of shapes in the
+                                           shapes array */
+    unsigned short    num_sections;    /* number of sections in the
+                                           sections array */
+    unsigned short    num_doodads;     /* number of doodads in the
+                                           doodads array */
+    unsigned short    num_key_aliases; /* number of key aliases in the
+                                           key_aliases array */
+    XkbPropertyPtr    properties;      /* properties array */
+    XkbColorPtr       colors;          /* colors array */
+    XkbShapePtr       shapes;          /* shapes array */
+    XkbSectionPtr     sections;        /* sections array */
+    XkbDoodadPtr      doodads;         /* doodads array */
+    XkbKeyAliasPtr    key_aliases;     /* key aliases array */
+} <structname>XkbGeometryRec</structname>, *XkbGeometryPtr;
 </programlisting></para>
 
 <para>
@@ -787,59 +794,62 @@ keyboard description.
 
 <para><programlisting>
 typedef struct _XkbProperty {
-      char *      name;            /* property name */
-      char *      value;           /* property value */
-} <structname>XkbPropertyRec</structname>,*XkbPropertyPtr;
+    char *      name;                   /* property name */
+    char *      value;                  /* property value */
+} <structname>XkbPropertyRec</structname>, *XkbPropertyPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbColor {
-      unsigned int      pixel;     /* color */
-      char *            spec;      /* color name */
-} <structname>XkbColorRec</structname>,*XkbColorPtr;
+    unsigned int      pixel;            /* color */
+    char *            spec;             /* color name */
+} <structname>XkbColorRec</structname>, *XkbColorPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbKeyAliasRec {
-      char      real[XkbKeyNameLength];   /* real name of the key */
-      char      alias[XkbKeyNameLength];  /* alias for the key */
-} <structname>XkbKeyAliasRec</structname>,*XkbKeyAliasPtr;
+    char      real[XkbKeyNameLength];   /* real name of the key */
+    char      alias[XkbKeyNameLength];  /* alias for the key */
+} <structname>XkbKeyAliasRec</structname>, *XkbKeyAliasPtr;
 </programlisting></para>
 
 <para><programlisting>
-typedef struct _XkbPoint {                /* x,y coordinates */
-      short      x;
-      short      y;
+typedef struct _XkbPoint {              /* x, y coordinates */
+    short      x;
+    short      y;
 } <structname>XkbPointRec</structname>, *XkbPointPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbOutline {
-      unsigned short      num_points;     /* number of points in the outline */
-      unsigned short      sz_points;      /* size of the points array */
-      unsigned short      corner_radius;  /* draw corners as circles with this radius */
-      XkbPointPtr         points;         /* array of points defining the outline */
+    unsigned short      num_points;     /* number of points in the outline */
+    unsigned short      sz_points;      /* size of the points array */
+    unsigned short      corner_radius;  /* draw corners as circles
+                                           with this radius */
+    XkbPointPtr         points;         /* array of points defining
+                                           the outline */
 } <structname>XkbOutlineRec</structname>, *XkbOutlinePtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbBounds {
-      short      x1,y1;            /* upper left corner of the bounds,
-                                      in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-       short      x2,y2;            /* lower right corner of the bounds, in
-                                      <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short      x1, y1;       /* upper left corner of the bounds, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short      x2, y2;       /* lower right corner of the bounds, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
 } <structname>XkbBoundsRec</structname>, *XkbBoundsPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbShape {
-      Atom              name;           /* shape’s name */
-      unsigned short    num_outlines;   /* number of outlines for the shape */
-      unsigned short    sz_outlines;    /* size of the outlines array */
-      XkbOutlinePtr     outlines;       /* array of outlines for the shape */
-      XkbOutlinePtr     approx;         /* pointer into the array to the approximating outline */
-      XkbOutlinePtr     primary;        /* pointer into the array to the primary outline */
-      XkbBoundsRec      bounds;         /* bounding box for the shape; encompasses all outlines */
+    Atom              name;             /* shape’s name */
+    unsigned short    num_outlines;     /* number of outlines for the shape */
+    unsigned short    sz_outlines;      /* size of the outlines array */
+    XkbOutlinePtr     outlines;         /* array of outlines for the shape */
+    XkbOutlinePtr     approx;           /* pointer into the array to the
+                                           approximating outline */
+    XkbOutlinePtr     primary;          /* pointer into the array to the
+                                           primary outline */
+    XkbBoundsRec      bounds;           /* bounding box for the shape;
+                                           encompasses all outlines */
 } <structname>XkbShapeRec</structname>, *XkbShapePtr;
 </programlisting></para>
 
@@ -855,24 +865,26 @@ in the outlines array, as is the default approximating outline.
 </para>
 
 <para><programlisting>
-typedef struct _XkbKey {         /* key in a row */
-      XkbKeyNameRec    name;     /* key name */
-      short            gap;      /* gap in <emphasis>mm</emphasis>/<emphasis>10</emphasis> from previous key in row */
-      unsigned char    shape_ndx;      /* index of shape for key */
-      unsigned char    color_ndx;      /* index of color for key body */
+typedef struct _XkbKey {           /* key in a row */
+    XkbKeyNameRec    name;         /* key name */
+    short            gap;          /* gap in <emphasis>mm</emphasis>/<emphasis>10</emphasis> from previous key in row */
+    unsigned char    shape_ndx;    /* index of shape for key */
+    unsigned char    color_ndx;    /* index of color for key body */
 } <structname>XkbKeyRec</structname>, *XkbKeyPtr;
 </programlisting></para>
 
 <para><programlisting>
-typedef struct _XkbRow {             /* row in a section */
-      short               top;       /* top coordinate of row origin, relative to section’s origin */
-      short               left;      /* left coordinate of row origin, relative to section’s origin */
-      unsigned short      num_keys;  /* number of keys in the keys array */
-      unsigned short      sz_keys;   /* size of the keys array */
-      int                 vertical;  /* <symbol>True</symbol> &rArr;vertical row,
-                                        <symbol>False</symbol> &rArr;horizontal row */
-      XkbKeyPtr           keys;      /* array of keys in the row*/
-      XkbBoundsRec        bounds;    /* bounding box for the row */
+typedef struct _XkbRow {           /* row in a section */
+    short               top;       /* top coordinate of row origin,
+                                      relative to section’s origin */
+    short               left;      /* left coordinate of row origin,
+                                      relative to section’s origin */
+    unsigned short      num_keys;  /* number of keys in the keys array */
+    unsigned short      sz_keys;   /* size of the keys array */
+    int                 vertical;  /* <symbol>True</symbol> &rArr;vertical row,
+                                      <symbol>False</symbol> &rArr;horizontal row */
+    XkbKeyPtr           keys;      /* array of keys in the row */
+    XkbBoundsRec        bounds;    /* bounding box for the row */
 } <structname>XkbRowRec</structname>, *XkbRowPtr;
 </programlisting></para>
 
@@ -888,22 +900,23 @@ typedef struct _XkbRow {             /* row in a section */
 
 <para><programlisting>
 typedef struct _XkbOverlayRec {
-      Atom              name;           /* overlay name */
-      XkbSectionPtr     section_under;  /* the section under this overlay */
-      unsigned short    num_rows;       /* number of rows in the rows array */
-      unsigned short    sz_rows;        /* size of the rows array */
-      XkbOverlayRowPtr  rows;           /* array of rows in the overlay */
-      XkbBoundsPtr      bounds;         /* bounding box for the overlay */
-} <structname>XkbOverlayRec</structname>,*XkbOverlayPtr;
+    Atom              name;           /* overlay name */
+    XkbSectionPtr     section_under;  /* the section under this overlay */
+    unsigned short    num_rows;       /* number of rows in the rows array */
+    unsigned short    sz_rows;        /* size of the rows array */
+    XkbOverlayRowPtr  rows;           /* array of rows in the overlay */
+    XkbBoundsPtr      bounds;         /* bounding box for the overlay */
+} <structname>XkbOverlayRec</structname>, *XkbOverlayPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbOverlayRow {
-      unsigned short      row_under;     /* index into the row under this overlay row */
-      unsigned short      num_keys;      /* number of keys in the keys array */
-      unsigned short      sz_keys;       /* size of the keys array */
-      XkbOverlayKeyPtr    keys;          /* array of keys in the overlay row */
-} <structname>XkbOverlayRowRec</structname>,*XkbOverlayRowPtr;
+    unsigned short      row_under;    /* index into the row under this
+                                         overlay row */
+    unsigned short      num_keys;     /* number of keys in the keys array */
+    unsigned short      sz_keys;      /* size of the keys array */
+    XkbOverlayKeyPtr    keys;         /* array of keys in the overlay row */
+} <structname>XkbOverlayRowRec</structname>, *XkbOverlayRowPtr;
 </programlisting></para>
 
 <para>
@@ -919,30 +932,32 @@ one pointed to by
 
 <para><programlisting>
 typedef struct _XkbOverlayKey {
-      XkbKeyNameRec      over;      /* name of this overlay key */
-      XkbKeyNameRec      under;     /* name of the key under this overlay key */
-} <structname>XkbOverlayKeyRec</structname>,*XkbOverlayKeyPtr;
+    XkbKeyNameRec      over;      /* name of this overlay key */
+    XkbKeyNameRec      under;     /* name of the key under this overlay key */
+} <structname>XkbOverlayKeyRec</structname>, *XkbOverlayKeyPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbSection {
-      Atom            name;          /* section name */
-      unsigned char   priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
-      short           top;           /* top coordinate of section origin */
-      short           left;          /* left coordinate of row origin */
-      unsigned short  width;         /* section width, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      unsigned short  height;        /* section height, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short           angle;         /* angle of section rotation, counterclockwise */
-      unsigned short  num_rows;      /* number of rows in the rows array */
-      unsigned short  num_doodads;   /* number of doodads in the doodads array */
-      unsigned short  num_overlays;  /* number of overlays in the overlays array */
-      unsigned short  sz_rows;       /* size of the rows array */
-      unsigned short  sz_doodads;    /* size of the doodads array */
-      unsigned short  sz_overlays;   /* size of the overlays array */
-      XkbRowPtr       rows;          /* section rows array */
-      XkbDoodadPtr    doodads;       /* section doodads array */
-      XkbBoundsRec    bounds;        /* bounding box for the section, before rotation*/
-      XkbOverlayPtr   overlays;      /* section overlays array */
+    Atom            name;          /* section name */
+    unsigned char   priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
+    short           top;           /* top coordinate of section origin */
+    short           left;          /* left coordinate of row origin */
+    unsigned short  width;         /* section width, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    unsigned short  height;        /* section height, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short           angle;         /* angle of section rotation,
+                                      counterclockwise */
+    unsigned short  num_rows;      /* number of rows in the rows array */
+    unsigned short  num_doodads;   /* number of doodads in the doodads array */
+    unsigned short  num_overlays;  /* number of overlays in the overlays array */
+    unsigned short  sz_rows;       /* size of the rows array */
+    unsigned short  sz_doodads;    /* size of the doodads array */
+    unsigned short  sz_overlays;   /* size of the overlays array */
+    XkbRowPtr       rows;          /* section rows array */
+    XkbDoodadPtr    doodads;       /* section doodads array */
+    XkbBoundsRec    bounds;        /* bounding box for the section,
+                                      before rotation */
+    XkbOverlayPtr   overlays;      /* section overlays array */
 } <structname>XkbSectionRec</structname>, *XkbSectionPtr;
 </programlisting></para>
 
@@ -981,11 +996,11 @@ The doodad structures form a union:
 
 <para><programlisting>
 typedef union _XkbDoodad {
-        XkbAnyDoodadRec        any;
-        XkbShapeDoodadRec      shape;
-        XkbTextDoodadRec       text;
-        XkbIndicatorDoodadRec  indicator;
-        XkbLogoDoodadRec       logo;
+      XkbAnyDoodadRec        any;
+      XkbShapeDoodadRec      shape;
+      XkbTextDoodadRec       text;
+      XkbIndicatorDoodadRec  indicator;
+      XkbLogoDoodadRec       logo;
 } <structname>XkbDoodadRec</structname>, *XkbDoodadPtr;
 </programlisting></para>
 
@@ -1016,61 +1031,65 @@ relative to the keyboard’s origin if the doodad is in the
 
 <para><programlisting>
 typedef struct _XkbShapeDoodad {
-      Atom       name;                /* doodad name */
-      unsigned char      type;        /* <symbol>XkbOutlineDoodad</symbol>
-                                         or <symbol>XkbSolidDoodad</symbol> */
-      unsigned char      priority;    /* drawing priority,
-                                         0&rArr;highest, 255&rArr;lowest */
-      short      top;                 /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short      left;                /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short      angle;               /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
-      unsigned short      color_ndx;  /* doodad color */
-      unsigned short      shape_ndx;  /* doodad shape */
+    Atom             name;         /* doodad name */
+    unsigned char    type;         /* <symbol>XkbOutlineDoodad</symbol>
+                                      or <symbol>XkbSolidDoodad</symbol> */
+    unsigned char    priority;     /* drawing priority,
+                                       0&rArr;highest, 255&rArr;lowest */
+    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            angle;        /* angle of rotation, clockwise,
+                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+    unsigned short   color_ndx;    /* doodad color */
+    unsigned short   shape_ndx;    /* doodad shape */
 } <structname>XkbShapeDoodadRec</structname>, *XkbShapeDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbTextDoodad {
-      Atom            name;         /* doodad name */
-      unsigned char   type;         /* <symbol>XkbTextDoodad</symbol> */
-      unsigned char   priority;     /* drawing priority,
-                                       0&rArr;highest, 255&rArr;lowest */
-      short           top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short           left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short           angle;        /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
-      short           width;        /* width in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short           height;       /* height in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      unsigned short  color_ndx;    /* doodad color */
-      char *           text;        /* doodad text */
-      char *           font;        /* arbitrary font name for doodad text */
+    Atom             name;         /* doodad name */
+    unsigned char    type;         /* <symbol>XkbTextDoodad</symbol> */
+    unsigned char    priority;     /* drawing priority,
+                                     0&rArr;highest, 255&rArr;lowest */
+    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            angle;        /* angle of rotation, clockwise,
+                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+    short            width;        /* width in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            height;       /* height in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    unsigned short   color_ndx;    /* doodad color */
+    char *           text;         /* doodad text */
+    char *           font;         /* arbitrary font name for doodad text */
 } <structname>XkbTextDoodadRec</structname>, *XkbTextDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbIndicatorDoodad {
-      Atom           name;          /* doodad name */
-      unsigned char  type;          /* <symbol>XkbIndicatorDoodad</symbol> */
-      unsigned char  priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
-      short          top;           /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short          left;          /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short          angle;         /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
-      unsigned short shape_ndx;     /* doodad shape */
-      unsigned short on_color_ndx;  /* color for doodad if indicator is on */
-      unsigned short off_color_ndx; /* color for doodad if indicator is off */
+    Atom             name;         /* doodad name */
+    unsigned char    type;         /* <symbol>XkbIndicatorDoodad</symbol> */
+    unsigned char    priority;     /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
+    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            angle;        /* angle of rotation, clockwise,
+                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+    unsigned short   shape_ndx;    /* doodad shape */
+    unsigned short   on_color_ndx; /* color for doodad if indicator is on */
+    unsigned short   off_color_ndx;/* color for doodad if indicator is off */
 } <structname>XkbIndicatorDoodadRec</structname>, *XkbIndicatorDoodadPtr;
 </programlisting></para>
 
 <para><programlisting>
 typedef struct _XkbLogoDoodad {
-      Atom               name;        /* doodad name */
-      unsigned char      type;        /* <symbol>XkbLogoDoodad</symbol> */
-      unsigned char      priority;    /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
-      short              top;         /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short              left;        /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-      short              angle;       /* angle of rotation, clockwise, in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
-      unsigned short      color_ndx;  /* doodad color */
-      unsigned short      shape_ndx;  /* doodad shape */
-      char *      logo_name;          /* text for logo */
+    Atom             name;         /* doodad name */
+    unsigned char    type;         /* <symbol>XkbLogoDoodad</symbol> */
+    unsigned char    priority;     /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
+    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            angle;        /* angle of rotation, clockwise,
+                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+    unsigned short   color_ndx;    /* doodad color */
+    unsigned short   shape_ndx;    /* doodad shape */
+    char *           logo_name;    /* text for logo */
 } <structname>XkbLogoDoodadRec</structname>, *XkbLogoDoodadPtr
 </programlisting></para>
 
@@ -4255,9 +4274,8 @@ To free an entire geometry, use
 <para>
 The values of which and free_all determine how much of the specified geometry
 is freed. The valid values for which are:
-</para>
 
-<para><programlisting>
+<programlisting>
 #define      XkbGeomPropertiesMask  (1&lt;&lt;0)
 #define      XkbGeomColorsMask      (1&lt;&lt;1)
 #define      XkbGeomShapesMask      (1&lt;&lt;2)

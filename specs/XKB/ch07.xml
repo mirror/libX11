@@ -131,13 +131,10 @@ entity such as an indicator map, a control, or a key type. (See
 
 <para><programlisting>
 typedef struct _XkbMods {
-      unsigned char            mask;            /* real_mods | vmods mapped to
-real modifiers */
-      unsigned char            real_mods;            /* real modifier bits */
-      unsigned short             vmods;            /* virtual modifier bits */
-}
-<structname>XkbModsRec</structname>,
-*XkbModsPtr;
+    unsigned char   mask;       /* real_mods | vmods mapped to real modifiers */
+    unsigned char   real_mods;  /* real modifier bits */
+    unsigned short  vmods;      /* virtual modifier bits */
+} <structname>XkbModsRec</structname>, *XkbModsPtr;
 </programlisting></para>
 
 <para>

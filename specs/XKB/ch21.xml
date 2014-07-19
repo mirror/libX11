@@ -162,40 +162,36 @@ Information about X Input Extension devices is transferred between a client
 program and the Xkb extension in an
 <structname>XkbDeviceInfoRec</structname>
  structure:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      char *          name;          /* name for device */
-      Atom            type;          /* name for class of devices */
-      unsigned short  device_spec;   /* device of interest */
-      Bool            has_own_state; /* <symbol>True</symbol> &rArr;this
-                                        device has its own state */
-      unsigned short  supported;     /* bits indicating supported capabilities */
-      unsigned short  unsupported;   /* bits indicating unsupported capabilities */
-      unsigned short  num_btns;      /* number of entries in <structfield>btn_acts</structfield> */
-      XkbAction *     btn_acts;      /* button actions */
-      unsigned short  sz_leds;       /* total number of entries in LEDs vector */
-      unsigned short  num_leds;      /* number of valid entries in LEDs vector */
-      unsigned short  dflt_kbd_fb;   /* input extension ID of default (core kbd) indicator */
-      unsigned short  dflt_led_fb;   /* input extension ID of default indicator feedback */
-      XkbDeviceLedInfoPtr  leds;     /* LED descriptions */
+    char *          name;          /* name for device */
+    Atom            type;          /* name for class of devices */
+    unsigned short  device_spec;   /* device of interest */
+    Bool            has_own_state; /* <symbol>True</symbol> &rArr; this device has
+                                      its own state */
+    unsigned short  supported;     /* bits indicating supported capabilities */
+    unsigned short  unsupported;   /* bits indicating unsupported capabilities */
+    unsigned short  num_btns;      /* number of entries in <structfield>btn_acts</structfield> */
+    XkbAction *     btn_acts;      /* button actions */
+    unsigned short  sz_leds;       /* total number of entries in LEDs vector */
+    unsigned short  num_leds;      /* number of valid entries in LEDs vector */
+    unsigned short  dflt_kbd_fb;   /* input extension ID of default
+                                      (core kbd) indicator */
+    unsigned short  dflt_led_fb;   /* input extension ID of default
+                                      indicator feedback */
+    XkbDeviceLedInfoPtr  leds;     /* LED descriptions */
 } <structname>XkbDeviceInfoRec</structname>, *XkbDeviceInfoPtr;
-</programlisting></para>
 
-<para><programlisting>
 typedef struct {
-      unsigned short   led_class;         /* class for this LED device*/
-      unsigned short   led_id;            /* ID for this LED device */
-      unsigned int     phys_indicators;   /* bits for which LEDs physically
-                                             present */
-      unsigned int     maps_present;      /* bits for which LEDs have maps in
-                                             <structfield>maps</structfield> */
-      unsigned int     names_present;     /* bits for which LEDs are in
-                                             <structfield>names</structfield> */
-      unsigned int     state;            /* 1 bit &rArr; corresponding LED is on */
-      Atom             names[XkbNumIndicators];  /* names for LEDs */
-      XkbIndicatorMapRec  maps;          /* indicator maps for each LED */
+    unsigned short  led_class;     /* class for this LED device */
+    unsigned short  led_id;        /* ID for this LED device */
+    unsigned int    phys_indicators; /* bits for which LEDs physically present */
+    unsigned int    maps_present;  /* bits for which LEDs have maps in <structfield>maps</structfield> */
+    unsigned int    names_present; /* bits for which LEDs are in <structfield>names</structfield> */
+    unsigned int    state;         /* 1 bit &rArr; corresponding LED is on */
+    Atom            names[XkbNumIndicators]; /* names for LEDs */
+    XkbIndicatorMapRec  maps;      /* indicator maps for each LED */
 } <structname>XkbDeviceLedInfoRec</structname>, *XkbDeviceLedInfoPtr;
 </programlisting></para>
 
@@ -1759,29 +1755,26 @@ The
 The structure for
 <symbol>XkbExtensionDeviceNotify</symbol>
  events is:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct {
-      int      type;           /* Xkb extension base event code */
-      unsigned long  serial;   /* X server serial number for event */
-      Bool     send_event;     /* <symbol>True</symbol>
-                                  &rArr; synthetically generated*/
-      Display *      display;  /* server connection where event generated */
-      Time     time;           /* server time when event generated */
-      int      xkb_type;  /* <structname>XkbExtensionDeviceNotifyEvent</structname> */
-      int      device;         /* Xkb device ID, will not be
-                                  <symbol>XkbUseCoreKbd</symbol> */
-      unsigned int   reason;   /* reason for the event */
-      unsigned int   supported;  /* mask of supported features */
-      unsigned int   unsupported;  /* unsupported features this client
+    int            type;           /* Xkb extension base event code */
+    unsigned long  serial;         /* X server serial number for event */
+    Bool           send_event;     /* <symbol>True</symbol> &rArr; synthetically generated */
+    Display *      display;        /* server connection where event generated */
+    Time           time;           /* server time when event generated */
+    int            xkb_type;       /* <structname>XkbExtensionDeviceNotifyEvent</structname> */
+    int            device;         /* Xkb device ID, will not be <symbol>XkbUseCoreKbd</symbol> */
+    unsigned int   reason;         /* reason for the event */
+    unsigned int   supported;      /* mask of supported features */
+    unsigned int   unsupported;    /* unsupported features this client
                                       attempted to use */
-      int      first_btn;      /* first button that changed */
-      int      num_btns;       /* number of buttons that changed */
-      unsigned int   leds_defined;  /* indicators with names or maps */
-      unsigned int       led_state; /* current state of the indicators */
-      int       led_class;          /* feedback class for LED changes */
-      int       led_id;             /* feedback ID for LED changes */
+    int            first_btn;      /* first button that changed */
+    int            num_btns;       /* number of buttons that changed */
+    unsigned int   leds_defined;   /* indicators with names or maps */
+    unsigned int   led_state;      /* current state of the indicators */
+    int            led_class;      /* feedback class for LED changes */
+    int            led_id;         /* feedback ID for LED changes */
 } <structname>XkbExtensionDeviceNotifyEvent</structname>;
 </programlisting></para>
 
@@ -1807,27 +1800,24 @@ Changes to an Xkb extension device may be tracked by listening to
  structure. The changes noted in the structure may then be used in subsequent
 operations to update either a server configuration or a local copy of an Xkb
 extension device configuration. The changes structure is defined as follows:
-</para>
 
-<para><programlisting>
+<programlisting>
 typedef struct _XkbDeviceChanges {
-      unsigned int    changed;   /* bits indicating what has changed */
-      unsigned short  first_btn; /* number of first button which changed,
-                                    if any */
-      unsigned short  num_btns;  /* number of buttons that have changed */
-      XkbDeviceLedChangesRec leds;
-} <structname>XkbDeviceChangesRec</structname>,*XkbDeviceChangesPtr;
-</programlisting></para>
+    unsigned int    changed;      /* bits indicating what has changed */
+    unsigned short  first_btn;    /* number of first button which changed,
+                                     if any */
+    unsigned short  num_btns;     /* number of buttons that have changed */
+    XkbDeviceLedChangesRec leds;
+} <structname>XkbDeviceChangesRec</structname>, *XkbDeviceChangesPtr;
 
-<para><programlisting>
 typedef struct _XkbDeviceLedChanges {
-      unsigned short  led_class; /* class of this indicator feedback bundle */
-      unsigned short  led_id;    /* ID of this indicator feedback bundle */
-      unsigned int    names;     /* bits indicating which names have changed */
-      unsigned int    maps;      /* bits indicating which maps have changed */
-      struct _XkbDeviceLedChanges *next; /* link to indicator change record
-                                            for next set */
-} <structname>XkbDeviceLedChangesRec</structname>,*XkbDeviceLedChangesPtr;
+    unsigned short  led_class;    /* class of this indicator feedback bundle */
+    unsigned short  led_id;       /* ID of this indicator feedback bundle */
+    unsigned int    names;        /* bits indicating which names have changed */
+    unsigned int    maps;         /* bits indicating which maps have changed */
+    struct _XkbDeviceLedChanges *next; /* link to indicator change record
+                                          for next set */
+} <structname>XkbDeviceLedChangesRec</structname>, *XkbDeviceLedChangesPtr;
 </programlisting></para>
 
 <para>

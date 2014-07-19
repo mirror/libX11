@@ -234,15 +234,15 @@ Normally, the Xkb-aware server reports keyboard state in the
     <entry>0</entry>
   </row>
   <row>
-    <entry>13-14</entry>
+    <entry>13&ndash;14</entry>
     <entry>Group index</entry>
   </row>
   <row>
-    <entry>8-12</entry>
+    <entry>8&ndash;12</entry>
     <entry>Pointer Buttons</entry>
   </row>
   <row>
-    <entry>0-7</entry>
+    <entry>0&ndash;7</entry>
     <entry>Modifiers</entry>
   </row>
 </tbody>
@@ -255,7 +255,7 @@ reported. Because core protocol does not define the group index, the group
 index is mapped to modifier bits as specified by the
 <structfield>groups</structfield>
 [group index] field of the compatibility map (the bits set in the compatibility
-map are ORed into bits 0-7 of the state), and bits 13-14 are reported in the
+map are ORed into bits 0&ndash;7 of the state), and bits 13&ndash;14 are reported in the
 event as zero.
 </para>
 

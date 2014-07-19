@@ -391,8 +391,8 @@ collection of characters. A group usually contains a set of characters that
 logically belong together and that may be arranged on several shift levels
 within that group. For example, Group1 could be the English alphabet, and
 Group2 could be Greek. Xkb supports up to four different groups for an input
-device or keyboard. Groups are in the range 1-4 (Group1 - Group4), and are
-often referred to as G1 - G4 and indexed as 0 - 3.
+device or keyboard. Groups are in the range 1&ndash;4 (Group1&ndash;Group4),
+and are often referred to as G1&ndash;G4 and indexed as 0&ndash;3.
     </para>
   </glossdef>
 </glossentry>
@@ -969,7 +969,7 @@ of the real modifiers
 <symbol>Control</symbol>,
  and
 <symbol>Mod1</symbol>
--
+&ndash;
 <symbol>Mod5</symbol>).
 
     </para>

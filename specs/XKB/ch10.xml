@@ -3203,7 +3203,7 @@ added and removed from the server’s
 <symbol>LockMask</symbol>,
 <symbol>ControlMask</symbol>,
 <symbol>Mod1Mask</symbol>
- -
+&ndash;
 <symbol>Mod5Mask</symbol>.
 <parameter>affect_virtual</parameter>
  and
@@ -3407,7 +3407,7 @@ selected by both
 <symbol>LockMask</symbol>,
 <symbol>ControlMask</symbol>,
 <symbol>Mod1Mask</symbol>
- -
+&ndash;
 <symbol>Mod5Mask</symbol>.
 <parameter>affect_virtual</parameter>
  and
@@ -3874,7 +3874,7 @@ control
  specifies the mouse button number to use for keyboard simulated mouse button
 operations. Its value should be one of the core symbols
 <symbol>Button1</symbol>
- -
+&ndash;
 <symbol>Button5</symbol>.
 </para>
 
@@ -3960,7 +3960,7 @@ consist of any combination of the eight core modifier bits:
 <symbol>LockMask</symbol>,
 <symbol>ControlMask</symbol>,
 <symbol>Mod1Mask</symbol>
- -
+&ndash;
 <symbol>Mod5Mask</symbol>.
 </para>
 
@@ -3980,7 +3980,7 @@ modifier bits:
 <symbol>LockMask</symbol>,
 <symbol>ControlMask</symbol>,
 <symbol>Mod1Mask</symbol>
- -
+&ndash;
 <symbol>Mod5Mask</symbol>.
 </para>
 
@@ -4313,7 +4313,7 @@ If the
  and
 <function>XkbGetControls</function>
  to get this information. The bits correspond to keycodes. The first seven keys
-(keycodes 1-7) are indicated in
+(keycodes 1&ndash;7) are indicated in
 <structfield>per_key_repeat</structfield>[0],
 with bit position 0 (low order) corresponding to the fictitious keycode 0.
 Following array elements correspond to 8 keycodes per element. A 1 bit

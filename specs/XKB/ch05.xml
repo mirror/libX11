@@ -63,7 +63,7 @@ The
 <symbol>Control</symbol>,
 and
 <symbol>Mod1</symbol>
--
+&ndash;
 <symbol>Mod5</symbol>,
 as defined by the core protocol. A modifier can be thought of as a toggle that is either set or unset. All modifiers are initially unset. When a modifier is locked, it is set and remains set for all future key events, until it is explicitly unset. A latched modifier is set, but automatically unsets after the next key event that does not change the keyboard state. Locked and latched modifier state can be changed by keyboard activity or via Xkb extension library functions.
 </para>
@@ -110,7 +110,7 @@ The
 <firstterm>pointer buttons</firstterm>
  are
 <symbol>Button1</symbol>
- -
+&ndash;
 <symbol>Button5</symbol>,
 as defined by the core protocol.
 </para>
@@ -210,7 +210,7 @@ Each nonmodifier key on a keyboard has zero or more symbols, or keysyms, associa
 
 
 <para id='Xkb-aware'>
-A client that does not explicitly call Xkb functions, but that otherwise makes use of an X library containing the Xkb extension, will have keyboard state represented in bits 0 - 14 of the state field of events that report modifier and button state. Such a client is said to be
+A client that does not explicitly call Xkb functions, but that otherwise makes use of an X library containing the Xkb extension, will have keyboard state represented in bits 0 &ndash; 14 of the state field of events that report modifier and button state. Such a client is said to be
 <firstterm>Xkb-capable</firstterm>.
 <indexterm significance="preferred" zone="Xkb-aware">
 <primary>Xkb-capable client</primary></indexterm>

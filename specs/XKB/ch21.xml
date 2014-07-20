@@ -14,7 +14,7 @@ include, but are not limited to: mice, tablets, touchscreens, barcode readers,
 button boxes, trackballs, identifier devices, data gloves, and eye trackers.
 Xkb provides additional control over all X input extension devices, whether
 they are <symbol>KeyClass</symbol>
- devices or not, as well as the core keyboard and pointer.
+devices or not, as well as the core keyboard and pointer.
 </para>
 
 
@@ -63,14 +63,14 @@ the following additional access is provided:
   <para>
 If allowed, Xkb functionality for additional
 <symbol>KeyClass</symbol>
- devices supported by the input extension is accessed via those same functions.
+devices supported by the input extension is accessed via those same functions.
   </para>
 </listitem>
 <listitem>
   <para>
 If allowed, Xkb functionality for non-
 <symbol>KeyClass</symbol>
- devices supported by the input extension is also accessed via the
+devices supported by the input extension is also accessed via the
 XkbGetDeviceInfo and XkbSetDeviceInfo functions described in this chapter.
   </para>
 </listitem>
@@ -81,9 +81,9 @@ Each device has an X Input Extension device ID. Each device may have several
 classes of feedback. For example, there are two types of feedbacks that can
 generate bells: bell feedback and keyboard feedback
 (<symbol>BellFeedbackClass</symbol>
- and
+and
 <symbol>KbdFeedbackClass</symbol>).
- A device can have more than one feedback of each type; the feedback ID
+A device can have more than one feedback of each type; the feedback ID
 identifies the particular feedback within its class.
 </para>
 
@@ -128,17 +128,17 @@ input extension and Xkb, then the core keyboard, the core keyboard indicators,
 and the core keyboard bells may each be addressed using an appropriate device
 spec, class, and ID. The constant
 <symbol>XkbDfltXIId</symbol>
- may be used as the device ID to specify the core keyboard indicators for the
+may be used as the device ID to specify the core keyboard indicators for the
 core indicator feedback. The particular device ID corresponding to the core
 keyboard feedback and the core indicator feedback may be obtained by calling
 <function>XkbGetDeviceInfo</function>
- and specifying
+and specifying
 <symbol>XkbUseCoreKbd</symbol>
- as the
+as the
 <parameter>device_spec</parameter>;
- the values will be returned in
+the values will be returned in
 <structfield>dflt_kbd_fb</structfield>
- and
+and
 <structfield>dflt_led_fb</structfield>.
 </para>
 
@@ -146,11 +146,11 @@ keyboard feedback and the core indicator feedback may be obtained by calling
 <para>
 If the server does not allow Xkb access to input extension
 <symbol>KeyClass</symbol>
- devices, attempts to use Xkb requests with those devices fail with a
+devices, attempts to use Xkb requests with those devices fail with a
 <errorname>BadKeyboard</errorname>
- error. Attempts to access non-
+error. Attempts to access non-
 <symbol>KeyClass</symbol>
- input extension devices via XkbGetDeviceInfo and XkbSetDeviceInfo fail
+input extension devices via XkbGetDeviceInfo and XkbSetDeviceInfo fail
 silently if Xkb access to those devices is not supported by the X server.
 </para>
 
@@ -165,7 +165,7 @@ silently if Xkb access to those devices is not supported by the X server.
 Information about X Input Extension devices is transferred between a client
 program and the Xkb extension in an
 <structname>XkbDeviceInfoRec</structname>
- structure:
+structure:
 
 <programlisting>
 typedef struct {
@@ -202,26 +202,26 @@ typedef struct {
 <para>
 The
 <structfield>type</structfield>
- field is a registered symbolic name for a class of devices (for example,
+field is a registered symbolic name for a class of devices (for example,
 "TABLET"). If a device is a keyboard (that is, is a member of
 <symbol>KeyClass</symbol>),
- it has its own state, and
+it has its own state, and
 <structfield>has_own_state</structfield>
- is
+is
 <symbol>True</symbol>.
 If
 <structfield>has_own_state</structfield>
- is
+is
 <symbol>False</symbol>,
 the state of the core keyboard is used. The
 <structfield>supported</structfield>
- and
+and
 <structfield>unsupported</structfield>
- fields are masks where each bit indicates a capability. The meaning of the
+fields are masks where each bit indicates a capability. The meaning of the
 mask bits is listed in <link linkend="table21.1">Table 21.1</link>,
 together with the fields in the
 <structname>XkbDeviceInfoRec</structname>
- structure that are associated with the capability represented by each bit. The
+structure that are associated with the capability represented by each bit. The
 same bits are used to indicate the specific information desired in many of the
 functions described subsequently in this section.
 </para>
@@ -273,7 +273,7 @@ input extension devices.
     <entry>
 Clients can assign names to indicators on non-
 <symbol>KeyClass</symbol>
- input extension devices.
+input extension devices.
     </entry>
   </row>
   <row>
@@ -283,7 +283,7 @@ Clients can assign names to indicators on non-
     <entry>
 Clients can assign indicator maps to indicators on non-
 <symbol>KeyClass</symbol>
- input extension devices.
+input extension devices.
     </entry>
   </row>
   <row>
@@ -293,7 +293,7 @@ Clients can assign indicator maps to indicators on non-
     <entry>
 Clients can request the status of indicators on non-
 <symbol>KeyClass</symbol>
- input extension devices.
+input extension devices.
     </entry>
   </row>
   <row>
@@ -355,7 +355,7 @@ The
 <structfield>supported</structfield>,
 and
 <structfield>unsupported</structfield>
- fields are always filled in when a valid reply is returned from the server
+fields are always filled in when a valid reply is returned from the server
 involving an
 <structname>XkbDeviceInfoRec</structname>.
 All of the other fields are modified only if the particular function asks for
@@ -371,7 +371,7 @@ To determine whether the X server allows Xkb access to particular capabilities
 of input devices other than the core X keyboard, or to determine the status of
 indicator maps, indicator names or button actions on a non-
 <symbol>KeyClass</symbol>
- extension device, use XkbGetDeviceInfo.
+extension device, use XkbGetDeviceInfo.
 </para>
 
 <indexterm significance="preferred" zone="XkbGetDeviceInfo"><primary><function>XkbGetDeviceInfo</function></primary></indexterm>
@@ -444,13 +444,13 @@ which, device_spec, ind_class, ind_id) -->
 
 <para>
 <function>XkbGetDeviceInfo</function>
- returns information about the input device specified by
+returns information about the input device specified by
 <parameter>device_spec</parameter>.
 Unlike the
 <parameter>device_spec</parameter>
- parameter of most Xkb functions,
+parameter of most Xkb functions,
 <parameter>device_spec</parameter>
- does not need to be a keyboard device. It must, however, indicate either the
+does not need to be a keyboard device. It must, however, indicate either the
 core keyboard or a valid X Input Extension device.
 </para>
 
@@ -463,18 +463,18 @@ is a mask specifying optional information to be returned. It is an inclusive OR
 of one or more of the values from <link linkend="table21.1">Table 21.1</link>
 and causes the returned
 <structname>XkbDeviceInfoRec</structname>
- to contain values for the corresponding fields specified in the table.
+to contain values for the corresponding fields specified in the table.
 </para>
 
 
 <para>
 The
 <structname>XkbDeviceInfoRec</structname>
- returned by
+returned by
 <function>XkbGetDeviceInfo</function>
- always has values for
+always has values for
 <structfield>name</structfield>
- (may be a null string, ""),
+(may be a null string, ""),
 <structfield>type</structfield>,
 <structfield>supported</structfield>,
 <structfield>unsupported</structfield>,
@@ -490,7 +490,7 @@ Other fields are filled in as specified by
 <para>
 Upon return, the
 <structfield>supported</structfield>
- field will be set to the inclusive OR of zero or more bits from
+field will be set to the inclusive OR of zero or more bits from
 <link linkend="table21.1">Table 21.1</link>;
 each bit set indicates an optional Xkb extension device feature supported by
 the server implementation, and a client may modify the associated behavior.
@@ -500,20 +500,20 @@ the server implementation, and a client may modify the associated behavior.
 <para>
 If the
 <symbol>XkbXI_ButtonActionsMask</symbol>
- bit is set in
+bit is set in
 <parameter>which</parameter>,
 the
 <structname>XkbDeviceInfoRec</structname>
- returned will have the button actions
+returned will have the button actions
 (<structfield>btn_acts</structfield>
- field) filled in for all buttons.
+field) filled in for all buttons.
 </para>
 
 
 <para>
 If
 <parameter>which</parameter>
- includes one of the bits in <symbol>XkbXI_IndicatorsMask</symbol>,
+includes one of the bits in <symbol>XkbXI_IndicatorsMask</symbol>,
 the feedback class of the
 indicators must be specified in ind_class, and the feedback ID of the
 indicators must be specified in ind_id. If the request does not include any of
@@ -527,65 +527,65 @@ XListInputDevices request.
 <para>
 If any of the
 <symbol>XkbXI_IndicatorsMask</symbol>
- bits are set in
+bits are set in
 <parameter>which</parameter>,
 the
 <structname>XkbDeviceInfoRec</structname>
- returned will have filled in the portions of the
+returned will have filled in the portions of the
 <structfield>leds</structfield>
- structure corresponding to the indicator feedback identified by
+structure corresponding to the indicator feedback identified by
 <parameter>ind_class</parameter>
- and
+and
 <parameter>ind_id</parameter>.
 The
 <structfield>leds</structfield>
- vector of the
+vector of the
 <structname>XkbDeviceInfoRec</structname>
- is allocated if necessary and
+is allocated if necessary and
 <structfield>sz_leds</structfield>
- and
+and
 <structfield>num_leds</structfield>
- filled in. The
+filled in. The
 <structfield>led_class</structfield>,
 <structfield>led_id</structfield>
- and
+and
 <structfield>phys_indicators</structfield>
- fields of the
+fields of the
 <structfield>leds</structfield>
- entry corresponding to
+entry corresponding to
 <parameter>ind_class</parameter>
- and
+and
 <parameter>ind_id</parameter>
- are always filled in. If
+are always filled in. If
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
 <structfield>names_present</structfield>
- and
+and
 <structfield>names</structfield>
- fields of the
+fields of the
 <structfield>leds</structfield>
- structure corresponding to
+structure corresponding to
 <parameter>ind_class</parameter>
- and
+and
 <parameter>ind_id</parameter>
- are returned.
+are returned.
 If
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
 <structfield>state</structfield>
- field is updated. If
+field is updated. If
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
 <structfield>maps_present</structfield>
- and
+and
 <structfield>maps</structfield>
- fields are updated.
+fields are updated.
 </para>
 
 
@@ -596,10 +596,10 @@ available via
 These convenience functions mirror some of the mask bits. The functions all
 take an
 <type>XkbDeviceInfoPtr</type>
- as an input argument and operate on the X Input Extension device specified by
+as an input argument and operate on the X Input Extension device specified by
 the
 <parameter>device_spec</parameter>
- field of the structure. Only the parts of the structure indicated in the
+field of the structure. Only the parts of the structure indicated in the
 function description are updated. The
 <structname>XkbDeviceInfoRec</structname>
 structure used in the function call can be obtained by calling
@@ -689,24 +689,24 @@ XkbGetDeviceButtonActions.
 
 <para>
 <function>XkbGetDeviceButtonActions</function>
- queries the server for the desired button information for the device indicated
+queries the server for the desired button information for the device indicated
 by the
 <structfield>device_spec</structfield>
- field of
+field of
 <parameter>device_info</parameter>
- and waits for a reply. If successful,
+and waits for a reply. If successful,
 <function>XkbGetDeviceButtonActions</function>
- backfills the button actions
+backfills the button actions
 (<structfield>btn_acts</structfield>
- field of
+field of
 <parameter>device_info</parameter>)
- for only the requested buttons, updates the
+for only the requested buttons, updates the
 <structfield>name</structfield>,
 <structfield>type</structfield>,
 <structfield>supported</structfield>,
 and
 <structfield>unsupported</structfield>
- fields, and returns
+fields, and returns
 <symbol>Success</symbol>.
 </para>
 
@@ -714,20 +714,20 @@ and
 <para>
 <parameter>all_buttons</parameter>,
 <parameter>first_button</parameter>
- and
+and
 <parameter>num_buttons</parameter>
- specify the device buttons for which actions should be returned. Setting
+specify the device buttons for which actions should be returned. Setting
 <parameter>all_buttons</parameter>
- to
+to
 <symbol>True</symbol>
- requests actions for all device buttons; if
+requests actions for all device buttons; if
 <parameter>all_buttons</parameter>
- is
+is
 <symbol>False</symbol>,
 <parameter>first_button</parameter>
- and
+and
 <parameter>num_buttons</parameter>
- specify a range of buttons for which actions are requested.
+specify a range of buttons for which actions are requested.
 </para>
 
 
@@ -737,19 +737,19 @@ extension has not been properly initialized, XkbGetDeviceButtonActions returns
 <errorname>BadAccess</errorname>.
 If allocation errors occur, a
 <errorname>BadAlloc</errorname>
- status is returned. If the specified device
+status is returned. If the specified device
 (<parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>)
- is invalid, a
+is invalid, a
 <errorname>BadKeyboard</errorname>
- status is returned. If the device has no buttons, a
+status is returned. If the device has no buttons, a
 <errorname>BadMatch</errorname>
- status is returned. If
+status is returned. If
 <parameter>first_button</parameter>
- and
+and
 <parameter>num_buttons</parameter>
- specify illegal buttons, a
+specify illegal buttons, a
 <errorname>BadValue</errorname>
- status is returned.
+status is returned.
 </para>
 
 
@@ -829,24 +829,24 @@ nfo, led_class, led_id, which) -->
 
 <para>
 <function>XkbGetDeviceLedInfo</function>
- queries the server for the desired LED information for the feedback specified
+queries the server for the desired LED information for the feedback specified
 by
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>
- for the X input extension device indicated by
+for the X input extension device indicated by
 <structfield>device_spec</structfield>-&gt;<parameter>device_info</parameter>
- and waits for a reply. If successful,
+and waits for a reply. If successful,
 <function>XkbGetDeviceLedInfo</function>
- backfills the relevant fields of
+backfills the relevant fields of
 <parameter>device_info</parameter>
- as determined by
+as determined by
 <parameter>which</parameter>
- with the results and returns
+with the results and returns
 <symbol>Success</symbol>.
 Valid values for
 <parameter>which</parameter>
- are the inclusive OR of any of
+are the inclusive OR of any of
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 <symbol>XkbXI_IndicatorMapsMask</symbol>,
 and
@@ -857,7 +857,7 @@ and
 <para>
 The fields of
 <parameter>device_info</parameter>
- that are filled in when this request succeeds are
+that are filled in when this request succeeds are
 <structfield>name</structfield>,
 <structfield>type</structfield>,
 <structfield>supported</structfield>,
@@ -865,63 +865,63 @@ and
 <structfield>unsupported</structfield>,
 and portions of the
 <structfield>leds</structfield>
- structure corresponding to
+structure corresponding to
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>
- as indicated by the bits set in
+as indicated by the bits set in
 <parameter>which</parameter>.
 The
 <structfield>device_info-&gt;leds</structfield>
- vector is allocated if necessary and
+vector is allocated if necessary and
 <structfield>sz_leds</structfield>
- and
+and
 <structfield>num_leds</structfield>
- filled in. The
+filled in. The
 <parameter>led_class</parameter>,
 <parameter>led_id</parameter>
- and
+and
 <structfield>phys_indicators</structfield>
- fields of the
+fields of the
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- entry corresponding to
+entry corresponding to
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>
- are always filled in.
+are always filled in.
 </para>
 
 
 <para>
 If
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 the
 <structfield>names_present</structfield>
- and
+and
 <structfield>names</structfield>
- fields of the
+fields of the
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- structure corresponding to
+structure corresponding to
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>
- are updated, if
+are updated, if
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorStateMask</symbol>,
 the corresponding
 <structfield>state</structfield>
- field is updated, and if
+field is updated, and if
 <parameter>which</parameter>
- contains
+contains
 <symbol>XkbXI_IndicatorMapsMask</symbol>,
 the
 <structfield>maps_present</structfield>
- and
+and
 <structfield>maps</structfield>
- fields are updated.
+fields are updated.
 </para>
 
 
@@ -929,7 +929,7 @@ the
 If a compatible version of Xkb is not available in the server or the Xkb
 extension has not been properly initialized,
 <function>XkbGetDeviceLedInfo</function>
- returns
+returns
 <errorname>BadAccess</errorname>.
 If allocation errors occur, a
 <errorname>BadAlloc</errorname>
@@ -937,14 +937,14 @@ status is returned. If the device has no indicators, a
 <errorname>BadMatch</errorname>
 error is returned. If
 <structfield>ledClass</structfield>
- or
+or
 <structfield>ledID</structfield>
- have illegal values, a
+have illegal values, a
 <errorname>BadValue</errorname>
- error is returned. If they have legal values but do not specify a feedback
+error is returned. If they have legal values but do not specify a feedback
 that contains LEDs and is associated with the specified device, a
 <errorname>BadMatch</errorname>
- error is returned.
+error is returned.
 </para>
 
 
@@ -956,7 +956,7 @@ Structure</title>
 <para>
 To obtain an
 <structname>XkbDeviceInfoRec</structname>
- structure, use XkbGetDeviceInfo or XkbAllocDeviceInfo.
+structure, use XkbGetDeviceInfo or XkbAllocDeviceInfo.
 </para>
 
 <indexterm significance="preferred" zone="XkbAllocDeviceInfo"><primary><function>XkbAllocDeviceInfo</function></primary></indexterm>
@@ -1005,25 +1005,25 @@ To obtain an
 
 <para>
 <function>XkbAllocDeviceInfo</function>
- allocates space for an
+allocates space for an
 <structname>XkbDeviceInfoRec</structname>
- structure and initializes that structure’s
+structure and initializes that structure’s
 <parameter>device_spec</parameter>
- field with the device ID specified by device_spec. If
+field with the device ID specified by device_spec. If
 <parameter>n_buttons</parameter>
- is nonzero,
+is nonzero,
 <parameter>n_buttons</parameter>
 <structname>XkbAction</structname>s
- are linked into the
+are linked into the
 <structname>XkbDeviceInfoRec</structname>
- structure and initialized to zero. If sz_leds is nonzero,
+structure and initialized to zero. If sz_leds is nonzero,
 <parameter>sz_leds</parameter>
 <structname>XkbDeviceLedInfoRec</structname>
- structures are also allocated and linked into the
+structures are also allocated and linked into the
 <structname>XkbDeviceInfoRec</structname>
- structure. If you request
+structure. If you request
 <structname>XkbDeviceLedInfoRec</structname>
- structures be allocated using this request, you must initialize them
+structures be allocated using this request, you must initialize them
 explicitly.
 </para>
 
@@ -1031,7 +1031,7 @@ explicitly.
 <para>
 To obtain an
 <structname>XkbDeviceLedInfoRec</structname>
- structure, use XkbAllocDeviceLedInfo.
+structure, use XkbAllocDeviceLedInfo.
 </para>
 
 
@@ -1070,18 +1070,18 @@ To obtain an
 
 <para>
 <function>XkbAllocDeviceLedInfo</function>
- allocates space for an
+allocates space for an
 <structname>XkbDeviceLedInfoRec</structname>
- and places it in
+and places it in
 <parameter>device_info</parameter>.
 If num_needed is nonzero,
 <parameter>num_needed</parameter>
 <structname>XkbIndicatorMapRec</structname>
- structures are also allocated and linked into the
+structures are also allocated and linked into the
 <structname>XkbDeviceLedInfoRec</structname>
- structure. If you request
+structure. If you request
 <structname>XkbIndicatorMapRec</structname>
- structures be allocated using this request, you must initialize them
+structures be allocated using this request, you must initialize them
 explicitly. All other fields are initialized to zero.
 </para>
 
@@ -1089,7 +1089,7 @@ explicitly. All other fields are initialized to zero.
 <para>
 To initialize an
 <structname>XkbDeviceLedInfoRec</structname>
- structure, use XkbAddDeviceLedInfo.
+structure, use XkbAddDeviceLedInfo.
 </para>
 
 
@@ -1139,22 +1139,22 @@ To initialize an
 
 <para>
 <function>XkbAddDeviceLedInfo</function>
- first checks to see whether an entry matching
+first checks to see whether an entry matching
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>
- already exists in the
+already exists in the
 <structfield>device_info-&gt;leds</structfield>
- array. If it finds a matching entry, it returns a pointer to that entry.
+array. If it finds a matching entry, it returns a pointer to that entry.
 Otherwise, it checks to be sure there is at least one empty entry in
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- and extends it if there is not enough room. It then increments
+and extends it if there is not enough room. It then increments
 <parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
- and fills in the next available entry in
+and fills in the next available entry in
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- with
+with
 <parameter>led_class</parameter>
- and
+and
 <parameter>led_id</parameter>.
 </para>
 
@@ -1162,20 +1162,20 @@ Otherwise, it checks to be sure there is at least one empty entry in
 <para>
 If successful,
 <function>XkbAddDeviceLedInfo</function>
- returns a pointer to the
+returns a pointer to the
 <structname>XkbDeviceLedInfoRec</structname>
- structure that was initialized. If unable to allocate sufficient storage, or
+structure that was initialized. If unable to allocate sufficient storage, or
 if
 <parameter>device_info</parameter>
- points to an invalid
+points to an invalid
 <structname>XkbDeviceInfoRec</structname>
- structure, or if
+structure, or if
 <parameter>led_class</parameter>
- or
+or
 <parameter>led_id</parameter>
- are inappropriate,
+are inappropriate,
 <function>XkbAddDeviceLedInfo</function>
- returns
+returns
 <symbol>NULL</symbol>.
 </para>
 
@@ -1183,7 +1183,7 @@ if
 <para>
 To allocate additional space for button actions in an
 <structname>XkbDeviceInfoRec</structname>
- structure, use XkbResizeDeviceButtonActions.
+structure, use XkbResizeDeviceButtonActions.
 </para>
 
 
@@ -1222,30 +1222,30 @@ To allocate additional space for button actions in an
 
 <para>
 <function>XkbResizeDeviceButtonActions</function>
- reallocates space, if necessary, to make sure there is room for a total of
+reallocates space, if necessary, to make sure there is room for a total of
 <parameter>new_total</parameter>
- button actions in the
+button actions in the
 <parameter>device_info</parameter>
- structure. Any new entries allocated are zeroed. If successful,
+structure. Any new entries allocated are zeroed. If successful,
 <function>XkbResizeDeviceButtonActions</function>
- returns Success. If new_total is zero, all button actions are deleted,
+returns Success. If new_total is zero, all button actions are deleted,
 <parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>
- is set to zero, and
+is set to zero, and
 <parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>
- is set to
+is set to
 <symbol>NULL</symbol>.
 If device_info is invalid or new_total is greater than 255,
 <errorname>BadValue</errorname>
- is returned. If a memory allocation failure occurs, a
+is returned. If a memory allocation failure occurs, a
 <errorname>BadAlloc</errorname>
- is returned.
+is returned.
 </para>
 
 
 <para>
 To free an
 <structname>XkbDeviceInfoRec</structname>
- structure, use XkbFreeDeviceInfo.
+structure, use XkbFreeDeviceInfo.
 </para>
 
 
@@ -1298,44 +1298,44 @@ If free_all is
 <symbol>True</symbol>,
 the
 <function>XkbFreeDeviceInfo</function>
- frees all components of
+frees all components of
 <parameter>device_info</parameter>
- and the
+and the
 <structname>XkbDeviceInfoRec</structname>
- structure pointed to by
+structure pointed to by
 <parameter>device_info</parameter>
- itself. If free_all is
+itself. If free_all is
 <symbol>False</symbol>,
 the value of which determines which subcomponents are freed.
 <parameter>which</parameter>
 is an inclusive OR of one or more of the values from
 <link linkend="table21.1">Table 21.1</link>. If which
 contains <symbol>XkbXI_ButtonActionsMask</symbol>,
- all button actions associated with
+all button actions associated with
 <parameter>device_info</parameter>
- are freed,
+are freed,
 <parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>
- is set to
+is set to
 <symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>
- is set to zero. If which contains all bits in
+is set to zero. If which contains all bits in
 <symbol>XkbXI_IndicatorsMask</symbol>, all
 <structname>XkbDeviceLedInfoRec</structname>
- structures associated with
+structures associated with
 <parameter>device_info</parameter>
- are freed,
+are freed,
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- is set to
+is set to
 <symbol>NULL</symbol>,
 and
 <parameter>device_info</parameter>-&gt;<structfield>sz_leds</structfield>
- and
+and
 <parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
- are set to zero. If which contains <symbol>XkbXI_IndicatorMapsMask</symbol>,
- all indicator maps associated with
+are set to zero. If which contains <symbol>XkbXI_IndicatorMapsMask</symbol>,
+all indicator maps associated with
 <parameter>device_info</parameter>
- are cleared, but the number of LEDs and the leds structures themselves are
+are cleared, but the number of LEDs and the leds structures themselves are
 preserved. If which contains <symbol>XkbXI_IndicatorNamesMask</symbol>,
 all indicator names
 associated with device_info are cleared, but the number of LEDs and the leds
@@ -1343,7 +1343,7 @@ structures themselves are preserved. If which contains
 <symbol>XkbXI_IndicatorStateMask</symbol>,
 the indicator state associated with the
 <parameter>device_info</parameter>
- leds are set to zeros but the number of LEDs and the leds structures
+leds are set to zeros but the number of LEDs and the leds structures
 themselves are preserved.
 </para>
 
@@ -1373,11 +1373,11 @@ core pointer device, but support for actions on extension devices is optional.
 Implementations that do not support button actions for extension devices must
 not set the
 <symbol>XkbXI_ButtonActionsMask</symbol>
- bit in the
+bit in the
 <structfield>supported</structfield>
- field of an
+field of an
 <structname>XkbDeviceInfoRec</structname>
- structure.
+structure.
 </para>
 
 
@@ -1387,7 +1387,7 @@ implementation that does not support modification of those characteristics, no
 protocol error is generated. Instead, the server reports a failure for the
 request; it also sends an
 <symbol>XkbExtensionDeviceNotify</symbol>
- event to the client that issued the request if the client has selected to
+event to the client that issued the request if the client has selected to
 receive these events.
 </para>
 
@@ -1396,11 +1396,11 @@ receive these events.
 To change characteristics of an X Input Extension device in the server, first
 modify a local copy of the device structure and then use either
 <function>XkbSetDeviceInfo</function>,
- or, to save network traffic, use an
+or, to save network traffic, use an
 <structname>XkbDeviceChangesRec</structname>
- structure (see <link linkend="Tracking_Changes_to_Extension_Devices">section 21.6</link>) and call
+structure (see <link linkend="Tracking_Changes_to_Extension_Devices">section 21.6</link>) and call
 <function>XkbChangeDeviceInfo</function>
- to download the changes to the server.
+to download the changes to the server.
 </para>
 
 
@@ -1457,19 +1457,19 @@ which, device_info) -->
 
 <para>
 <function>XkbSetDeviceInfo</function>
- sends a request to the server to modify the characteristics of the device
+sends a request to the server to modify the characteristics of the device
 specified in the
 <parameter>device_info</parameter>
- structure. The particular characteristics modified are identified by the bits
+structure. The particular characteristics modified are identified by the bits
 set in
 <parameter>which</parameter>
- and take their values from the relevant fields in
+and take their values from the relevant fields in
 <parameter>device_info</parameter>
- (see <link linkend="table21.1">Table 21.1</link>).
+(see <link linkend="table21.1">Table 21.1</link>).
 <function>XkbSetDeviceInfo</function>
- returns
+returns
 <symbol>True</symbol>
- if the request was successfully sent to the server. If the X server
+if the request was successfully sent to the server. If the X server
 implementation does not allow interaction between the X input extension and the
 Xkb Extension, the function does nothing and returns
 <symbol>False</symbol>.
@@ -1479,14 +1479,14 @@ Xkb Extension, the function does nothing and returns
 <para>
 The
 <parameter>which</parameter>
- parameter specifies which aspects of the device should be changed and is a
+parameter specifies which aspects of the device should be changed and is a
 bitmask composed of an inclusive OR or one or more of the following bits:
 <symbol>XkbXI_ButtonActionsMask</symbol>,
 <symbol>XkbXI_IndicatorNamesMask</symbol>,
 <symbol>XkbXI_IndicatorMapsMask</symbol>.
 If the features requested to be manipulated in
 <parameter>which</parameter>
- are valid for the device, but the server does not support assignment of one or
+are valid for the device, but the server does not support assignment of one or
 more of them, that particular portion of the request is ignored.
 </para>
 
@@ -1494,43 +1494,43 @@ more of them, that particular portion of the request is ignored.
 <para>
 If the device specified in
 <parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
- does not contain buttons and a request affecting buttons is made, or the
+does not contain buttons and a request affecting buttons is made, or the
 device does not contain indicators and a request affecting indicators is made,
 a
 <errorname>BadMatch</errorname>
- protocol error results.
+protocol error results.
 </para>
 
 
 <para>
 If the
 <symbol>XkbXI_ButtonActionsMask</symbol>
- bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
+bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
 extension allows applications to assign key actions to buttons on input
 extension devices other than the core keyboard device. If the
 <symbol>XkbXI_ButtonActionsMask</symbol>
- is set in
+is set in
 <parameter>which</parameter>,
 the actions for all buttons specified in device_info are set to the
 <structname>XkbAction</structname>s
- specified in
+specified in
 <parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>.
 If the number of buttons requested to be updated is not valid for the device,
 <function>XkbSetDeviceInfo</function>
- returns
+returns
 <symbol>False</symbol>
- and a
+and a
 <errorname>BadValue</errorname>
- protocol error results.
+protocol error results.
 </para>
 
 
 <para>
 If the
 <symbol>XkbXI_IndicatorMapsMask</symbol>
- and / or
+and / or
 <symbol>XkbXI_IndicatorNamesMask</symbol>
- bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
+bit is set in the supported mask returned by XkbGetDeviceInfo, the Xkb
 extension allows applications to assign maps and / or names to the indicators
 of nonkeyboard extension devices. If supported, maps and / or names can be
 assigned to all extension device indicators, whether they are part of a
@@ -1541,36 +1541,36 @@ keyboard feedback or part of an indicator feedback.
 <para>
 If the
 <symbol>XkbXI_IndicatorMapsMask</symbol>
- and / or
+and / or
 <symbol>XkbXI_IndicatorNamesMask</symbol>
- flag is set in
+flag is set in
 <parameter>which</parameter>,
 the indicator maps and / or names for all
 <parameter>device_info</parameter>-&gt;<structfield>num_leds</structfield>
- indicator devices specified in
+indicator devices specified in
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>
- are set to the maps and / or names specified in
+are set to the maps and / or names specified in
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>.
 <parameter>device_info</parameter>-&gt;<structfield>leds</structfield>-&gt;<structfield>led_class</structfield>
- and
+and
 <structfield>led_id</structfield>
- specify the input extension class and device ID for each indicator device to
+specify the input extension class and device ID for each indicator device to
 modify; if they have invalid values, a
 <errorname>BadValue</errorname>
- protocol error results and
+protocol error results and
 <function>XkbSetDeviceInfo</function>
- returns
+returns
 <symbol>False</symbol>.
 If they have legal values but do not specify a keyboard or indicator class
 feedback for the device in question, a
 <errorname>BadMatch</errorname>
- error results. If any of the values in
+error results. If any of the values in
 <parameter>device_info</parameter>-&gt;<structfield>leds-&gt;names</structfield>
- are not a valid Atom or
+are not a valid Atom or
 <symbol>None</symbol>,
 a
 <errorname>BadAtom</errorname>
- protocol error results.
+protocol error results.
 </para>
 
 
@@ -1648,13 +1648,13 @@ device, first_button, num_buttons, actions) -->
 
 <para>
 <function>XkbSetDeviceButtonActions</function>
- assigns actions to the buttons of the device specified in
+assigns actions to the buttons of the device specified in
 device_info-&gt;<structfield>device_spec</structfield>.
 Actions are assigned to
 <parameter>num_buttons</parameter>
- buttons beginning with
+buttons beginning with
 <parameter>first_button</parameter>
- and are taken from the actions specified in
+and are taken from the actions specified in
 <parameter>device_info</parameter>-&gt;<structfield>btn_acts</structfield>.
 </para>
 
@@ -1663,19 +1663,19 @@ Actions are assigned to
 If the server does not support assignment of Xkb actions to extension device
 buttons,
 <function>XkbSetDeviceButtonActions</function>
- has no effect and returns
+has no effect and returns
 <symbol>False</symbol>.
 If the device has no buttons or if
 <parameter>first_button</parameter>
- or
+or
 <parameter>num_buttons</parameter>
- specify buttons outside of the valid range as determined by
+specify buttons outside of the valid range as determined by
 <parameter>device_info</parameter>-&gt;<structfield>num_btns</structfield>,
 the function has no effect and returns
 <symbol>False</symbol>.
 Otherwise,
 <function>XkbSetDeviceButtonActions</function>
- sends a request to the server to change the actions for the specified buttons
+sends a request to the server to change the actions for the specified buttons
 and returns
 <symbol>True</symbol>.
 </para>
@@ -1684,14 +1684,14 @@ and returns
 <para>
 If the actual request sent to the server involved illegal button numbers, a
 <errorname>BadValue</errorname>
- protocol error is generated. If an invalid device identifier is specified in
+protocol error is generated. If an invalid device identifier is specified in
 device_info-&gt;<structfield>device_spec</structfield>,
 a <errorname>BadKeyboard</errorname>
- protocol error results. If the actual device specified in
+protocol error results. If the actual device specified in
 <parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
- does not contain buttons and a request affecting buttons is made, a
+does not contain buttons and a request affecting buttons is made, a
 <errorname>BadMatch</errorname>
- protocol error is generated.
+protocol error is generated.
 </para>
 
 
@@ -1706,7 +1706,7 @@ a <errorname>BadKeyboard</errorname>
 <para>
 The Xkb extension generates
 <symbol>XkbExtensionDeviceNotify</symbol>
- events when the status of an input extension device changes or when an attempt
+events when the status of an input extension device changes or when an attempt
 is made to use an Xkb feature that is not supported by a particular device.
 </para>
 
@@ -1717,24 +1717,24 @@ delivered only to the client requesting the event.</para></note>
 To track changes to the status of input extension devices or attempts to use
 unsupported features of a device, select to receive
 <symbol>XkbExtensionDeviceNotify</symbol>
- events by calling either
+events by calling either
 <function>XkbSelectEvents</function>
- or
+or
 <function>XkbSelectEventDetails</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
+(see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 
 <para>
 To receive
 <symbol>XkbExtensionDeviceNotify</symbol>
- events under all possible conditions, call
+events under all possible conditions, call
 <function>XkbSelectEvents</function>
- and pass
+and pass
 <symbol>XkbExtensionDeviceNotifyMask</symbol>
- in both
+in both
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>.
 </para>
 
@@ -1742,19 +1742,19 @@ To receive
 <para>
 The
 <symbol>XkbExtensionDeviceNotify</symbol>
- event has no event details. However, you can call
+event has no event details. However, you can call
 <function>XkbSelectEventDetails</function>
- using
+using
 <symbol>XkbExtensionDeviceNotify</symbol>
- as the
+as the
 <structfield>event_type</structfield>
- and specifying
+and specifying
 <symbol>XkbAllExtensionDeviceEventsMask</symbol>
- in
+in
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>.
- This has the same effect as a call to
+This has the same effect as a call to
 <function>XkbSelectEvents</function>.
 </para>
 
@@ -1762,7 +1762,7 @@ The
 <para>
 The structure for
 <symbol>XkbExtensionDeviceNotify</symbol>
- events is:
+events is:
 
 <programlisting>
 typedef struct {
@@ -1789,7 +1789,7 @@ typedef struct {
 <para>
 The
 <symbol>XkbExtensionDeviceNotify</symbol>
- event has fields enabling it to report changes in the state (on/off) of all of
+event has fields enabling it to report changes in the state (on/off) of all of
 the buttons for a device, but only for one LED feedback associated with a
 device. You will get multiple events when more than one LED feedback changes
 state or configuration.
@@ -1807,9 +1807,9 @@ state or configuration.
 <para>
 Changes to an Xkb extension device may be tracked by listening to
 <symbol>XkbExtensionDeviceNotify</symbol>
- events and accumulating the changes in an
+events and accumulating the changes in an
 <structname>XkbDeviceChangesRec</structname>
- structure. The changes noted in the structure may then be used in subsequent
+structure. The changes noted in the structure may then be used in subsequent
 operations to update either a server configuration or a local copy of an Xkb
 extension device configuration. The changes structure is defined as follows:
 
@@ -1836,7 +1836,7 @@ typedef struct _XkbDeviceLedChanges {
 A local description of the configuration and state of a device may be kept in
 an
 <structname>XkbDeviceInfoRec</structname>
- structure. The actual state or configuration of the device may change because
+structure. The actual state or configuration of the device may change because
 of XkbSetDeviceInfo and XkbSetButtonActions requests made by clients or by user
 interaction with the device. The X server sends an XkbExtensionDeviceNotify
 event to all interested clients when the state of any buttons or indicators or
@@ -1854,7 +1854,7 @@ server.
 <para>
 To note device changes reported in an
 <symbol>XkbExtensionDeviceNotify</symbol>
- event, use XkbNoteDeviceChanges.
+event, use XkbNoteDeviceChanges.
 </para>
 
 <indexterm significance="preferred" zone="XkbNoteDeviceChanges"><primary><function>XkbNoteDeviceChanges</function></primary></indexterm>
@@ -1910,17 +1910,17 @@ and is composed of the bitwise inclusive OR of one or more of the masks from
 <link linkend="table21.1">Table 21.1</link>.
 The
 <structfield>reason</structfield>
- field of the event in
+field of the event in
 <parameter>new</parameter>
- indicates the types of changes the event is reporting.
+indicates the types of changes the event is reporting.
 <function>XkbNoteDeviceChanges</function>
- updates the
+updates the
 <structname>XkbDeviceChangesRec</structname>
- specified by
+specified by
 <parameter>old</parameter>
- with the changes that are both specified in
+with the changes that are both specified in
 <parameter>wanted</parameter>
- and contained in
+and contained in
 <parameter>new</parameter>-&gt;<structfield>reason</structfield>.
 </para>
 
@@ -1929,7 +1929,7 @@ The
 To update a local copy of the state and configuration of an X input extension
 device with the changes previously noted in an
 <structname>XkbDeviceChangesRec</structname>
- structure, use XkbGetDeviceInfoChanges.
+structure, use XkbGetDeviceInfoChanges.
 </para>
 
 
@@ -1991,15 +1991,15 @@ changes) -->
 The changes-&gt;changed field indicates which attributes of the device
 specified in
 <parameter>changes</parameter>-&gt;<structfield>device</structfield>
- have changed. The parameters describing the changes are contained in the other
+have changed. The parameters describing the changes are contained in the other
 fields of
 <parameter>changes</parameter>.
 <function>XkbGetDeviceInfoChanges</function>
- uses that information to call XkbGetDeviceInfo to obtain the current status of
+uses that information to call XkbGetDeviceInfo to obtain the current status of
 those attributes that have changed. It then updates the local description of
 the device in
 <parameter>device_info</parameter>
- with the new information.
+with the new information.
 </para>
 
 
@@ -2057,11 +2057,11 @@ XkbDeviceChangesRec, use XkbChangeDeviceInfo.
 
 <para>
 <function>XkbChangeDeviceInfo</function>
- updates the server’s description of the device specified in
+updates the server’s description of the device specified in
 <parameter>device_info</parameter>-&gt;<structfield>device_spec</structfield>
- with the changes specified in
+with the changes specified in
 <parameter>changes</parameter>
- and contained in
+and contained in
 <parameter>device_info</parameter>.
 The update is made by an XkbSetDeviceInfo request.
 </para>

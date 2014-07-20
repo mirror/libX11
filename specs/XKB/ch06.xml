@@ -22,7 +22,7 @@ The complete description of an Xkb keyboard is given by an
 <structname>XkbDescRec</structname>.
 The component structures in the
 <structname>XkbDescRec</structname>
- represent the major Xkb components outlined in <link linkend="figure1.1">Figure 1.1</link>.
+represent the major Xkb components outlined in <link linkend="figure1.1">Figure 1.1</link>.
 </para>
 
 <para><programlisting>
@@ -45,19 +45,19 @@ typedef struct {
 <para>
 The
 <parameter>display</parameter>
- field points to an X display structure. The
+field points to an X display structure. The
 <structfield>flags</structfield>
- field is private to the library: modifying
+field is private to the library: modifying
 <structfield>flags</structfield>
- may yield unpredictable results. The
+may yield unpredictable results. The
 <parameter>device_spec</parameter>
- field specifies the device identifier of the keyboard input device, or
+field specifies the device identifier of the keyboard input device, or
 <symbol>XkbUseCoreKbd</symbol>,
 which specifies the core keyboard device. The
 <structfield>min_key_code</structfield>
- and
+and
 <structfield>max_key_code</structfield>
- fields specify the least and greatest keycode that can be returned by the
+fields specify the least and greatest keycode that can be returned by the
 keyboard.
 </para>
 
@@ -122,7 +122,7 @@ calls to indicate that the structure should be manipulated in some manner, such
 as allocating it or freeing it. These masks and their relationships to the
 fields in the
 <structname>XkbDescRec</structname>
- are shown in <link linkend="table6.2">Table 6.2</link>.
+are shown in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
 <table id='table6.2' frame='topbot'>
@@ -191,7 +191,7 @@ fields in the
 <para>
 To retrieve one or more components of a keyboard device description, use
 <function>XkbGetKeyboard</function>
- (see also
+(see also
 <link linkend="XkbGetKeyboardByName"><function>XkbGetKeyboardByName</function></link>).
 
 </para>
@@ -248,30 +248,30 @@ To retrieve one or more components of a keyboard device description, use
 allocates and returns a pointer to a keyboard description. It queries the
 server for those components specified in the
 <parameter>which</parameter>
- parameter for device
+parameter for device
 <parameter>device_spec</parameter>
- and copies the results to the
+and copies the results to the
 <structname>XkbDescRec</structname>
- it allocated. The remaining fields in the keyboard description are set to
+it allocated. The remaining fields in the keyboard description are set to
 <symbol>NULL</symbol>.
 The valid masks for
 <parameter>which</parameter>
- are those listed in <link linkend="table6.2">Table 6.2</link>.
+are those listed in <link linkend="table6.2">Table 6.2</link>.
 </para>
 
 
 <para>
 <function>XkbGetKeyboard</function>
- can generate
+can generate
 <errorname>BadAlloc</errorname>
- protocol errors.
+protocol errors.
 </para>
 
 
 <para>
 To free the returned keyboard description, use
 <function>XkbFreeKeyboard</function>
- (see <link linkend="Allocating_and_Freeing_a_Keyboard_Description">section 6.4</link>).
+(see <link linkend="Allocating_and_Freeing_a_Keyboard_Description">section 6.4</link>).
 </para>
 
 
@@ -293,10 +293,10 @@ tracking changes to the keyboard description.
 <para>
 Applications seldom need to directly allocate a keyboard description; calling
 <function>XkbGetKeyboard</function>
- usually suffices. In the event you need to create a keyboard description from
+usually suffices. In the event you need to create a keyboard description from
 scratch, however, use
 <function>XkbAllocKeyboard</function>
- rather than directly calling
+rather than directly calling
 <function>malloc</function>
 or
 <function>Xmalloc</function>.
@@ -314,12 +314,12 @@ or
 <para>
 If
 <function>XkbAllocKeyboard</function>
- fails to allocate the keyboard description, it returns
+fails to allocate the keyboard description, it returns
 <symbol>NULL</symbol>.
 Otherwise, it returns a pointer to an empty keyboard description structure.
 The
 <structfield>device_spec</structfield>
- field will have been initialized to
+field will have been initialized to
 <symbol>XkbUseCoreKbd</symbol>.
 You may then either fill in the structure components or use Xkb functions to
 obtain values for the structure components from a keyboard device.
@@ -329,7 +329,7 @@ obtain values for the structure components from a keyboard device.
 <para>
 To destroy either an entire an
 <structname>XkbDescRec</structname>
- or just some of its members, use
+or just some of its members, use
 <function>XkbFreeKeyboard</function>.
 </para>
 
@@ -382,24 +382,24 @@ To destroy either an entire an
 
 <para>
 <function>XkbFreeKeyboard</function>
- frees the components of
+frees the components of
 <parameter>xkb</parameter>
- specified by
+specified by
 <parameter>which</parameter>
- and sets the corresponding values to
+and sets the corresponding values to
 <symbol>NULL</symbol>.
 If
 <parameter>free_all</parameter>
- is
+is
 <symbol>True</symbol>,
 <function>XkbFreeKeyboard</function>
- frees every non-
+frees every non-
 <symbol>NULL</symbol>
- component of
+component of
 <parameter>xkb</parameter>
- and then frees the
+and then frees the
 <parameter>xkb</parameter>
- structure itself.
+structure itself.
 </para>
 
 </sect1>

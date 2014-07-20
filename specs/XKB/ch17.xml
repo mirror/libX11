@@ -46,12 +46,12 @@ maintains a core keyboard mapping that approximates the Xkb keyboard mapping.
 The core keyboard mapping may be updated piecemeal, on a per-key basis. When
 the server receives a core protocol
 <systemitem>ChangeKeyboardMapping</systemitem>
- or
+or
 <systemitem>SetModifierMapping</systemitem>
- request, it updates its core keyboard mapping, then uses the compatibility map
+request, it updates its core keyboard mapping, then uses the compatibility map
 to update its Xkb keyboard mapping. When the server receives an
 <function>XkbSetMap</function>
- request, it updates those portions of its Xkb keyboard mapping specified by
+request, it updates those portions of its Xkb keyboard mapping specified by
 the request, then uses its compatibility map to update the corresponding parts
 of its core keyboard map. Consequently, the server’s Xkb keyboard map and
 also its core keyboard map may contain components that were set directly and
@@ -90,9 +90,9 @@ In addition, whenever the Xkb state is retrieved, the
 <structfield>compat_grab_mods</structfield>,
 and
 <structfield>compat_lookup_mods</structfield>
- fields of the
+fields of the
 <structname>XkbStateRec</structname>
- returned indicate the result of applying the compatibility map to the current
+returned indicate the result of applying the compatibility map to the current
 Xkb state in the server.
     </para>
   </listitem>
@@ -102,9 +102,9 @@ Xkb state in the server.
 After core protocol requests received by the server to change the keyboard
 mapping
 (<systemitem>ChangeKeyboardMapping</systemitem>
- and
+and
 <systemitem>SetModifierMapping</systemitem>)
- have been applied to the server’s core keyboard map, the results must be
+have been applied to the server’s core keyboard map, the results must be
 transformed to achieve an equivalent change of the Xkb keyboard mapping
 maintained by the server.
     </para>
@@ -115,7 +115,7 @@ maintained by the server.
 After Xkb protocol requests received by the server to change the keyboard
 mapping
 (<function>XkbSetMap</function>)
- have been applied to the server’s Xkb keyboard map, the results are
+have been applied to the server’s Xkb keyboard map, the results are
 transformed to achieve an approximately equivalent change to the core keyboard
 mapping maintained by the server.
     </para>
@@ -138,7 +138,7 @@ All configurable aspects of mapping Xkb state and configuration to and from
 core protocol state and configuration are defined by a compatibility map,
 contained in an
 <structname>XkbCompatMapRec</structname>
- structure; plus a set of explicit override controls used to prevent particular
+structure; plus a set of explicit override controls used to prevent particular
 components of type 2 (core-to-Xkb keyboard mapping) transformations from
 automatically occurring. These explicit override controls are maintained in a
 separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>.
@@ -148,11 +148,11 @@ separate data structure discussed in <link linkend="Explicit_ComponentsAvoiding_
 <para>
 The
 <structfield>compat</structfield>
- member of an Xkb keyboard description
+member of an Xkb keyboard description
 (<structname>XkbDescRec</structname>)
- points to the
+points to the
 <structname>XkbCompatMapRec</structname>
- structure:
+structure:
 
 <programlisting>
 typedef struct _XkbCompatMapRec {
@@ -190,32 +190,32 @@ As shown in <link linkend="figure17.3">Figure 17.3</link>, there are four
 <primary>group compatibility map</primary></indexterm>
 <indexterm significance="preferred" zone="Xkb_State_to_Core_Protocol_State_Transformation">
 <primary>map</primary><secondary>group compatibility</secondary></indexterm>
- (contained in
+(contained in
 <structfield>groups</structfield>
- [0..3]) in the
+[0..3]) in the
 <structname>XkbCompatMapRec</structname>
- structure, one per possible Xkb group. Each group compatibility map is a
+structure, one per possible Xkb group. Each group compatibility map is a
 modifier definition (see <link linkend="Modifier_Definitions">section 7.2</link> for a description of modifier
 definitions). The
 <structfield>mask</structfield>
- component of the definition specifies which real modifiers should be set in
+component of the definition specifies which real modifiers should be set in
 the core protocol state field when the corresponding group is active. Because
 only one group is active at any one time, only one of the four possible
 transformations is ever applied at any one point in time. If the device
 described by the
 <structname>XkbDescRec</structname>
- does not support four groups, the extra groups fields are present, but
+does not support four groups, the extra groups fields are present, but
 undefined.
 </para>
 
 <para>
 Normally, the Xkb-aware server reports keyboard state in the
 <structfield>state</structfield>
- member of events such as a
+member of events such as a
 <symbol>KeyPress</symbol>
- event and
+event and
 <symbol>ButtonPress</symbol>
- event, encoded as follows:
+event, encoded as follows:
 </para>
 
 <informaltable frame='topbot'>
@@ -306,7 +306,7 @@ For each changed key, determine the number of symbols in each of the groups
 found in step 1a. There is one explicit override control associated with each
 of the four possible groups for each Xkb key,
 <emphasis>ExplicitKeyType1</emphasis>
- through
+through
 <emphasis>ExplicitKeyType4</emphasis>.
 If no explicit override control is set for a group, the number of symbols
 used for that group from the core map is two.  If the explicit override control
@@ -324,7 +324,7 @@ group on the key. If the total number of symbols required by the Xkb map for a
 particular key needs more symbols than the core protocol map contains, the
 additional symbols are taken to be
 <symbol>NoSymbol</symbol>
- keysyms appended to the end of the core set. If the core map contains more
+keysyms appended to the end of the core set. If the core map contains more
 symbols than are needed by the Xkb map, trailing symbols in the core map are
 discarded. In the absence of an explicit override for group one or two, symbols
 are assigned in order by group; the first symbols in the core map are assigned
@@ -380,7 +380,7 @@ the corresponding key definitions in the Xkb map.
 Apply symbol interpretations to modify key operation. This phase is completely
 skipped if the
 <emphasis>ExplicitInterpret</emphasis>
- override control bit is set in the explicit controls mask for the Xkb key (see
+override control bit is set in the explicit controls mask for the Xkb key (see
 <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
     </para>
     <orderedlist>
@@ -406,11 +406,11 @@ apply a default interpretation.
 The symbol interpretations used in step 2 are configurable and may be specified
 using
 <structname>XkbSymInterpretRec</structname>
- structures referenced by the
+structures referenced by the
 <structfield>sym_interpret</structfield>
- field of an
+field of an
 <structname>XkbCompatMapRec</structname>
- (see <link linkend="figure17.3">Figure 17.3</link>).
+(see <link linkend="figure17.3">Figure 17.3</link>).
 </para>
 
 <sect3 id='Symbol_Interpretations__the_XkbSymInterpretRec_Structure'>
@@ -423,7 +423,7 @@ Symbol interpretations are used to guide the X server when it modifies the Xkb
 keymap in step 2. An initial set of symbol interpretations is loaded by the
 server when it starts. A client may add new ones using
 <function>XkbSetCompatMap</function>
- (see <link linkend="Changing_the_Servers_Compatibility_Map">section 17.4</link>).
+(see <link linkend="Changing_the_Servers_Compatibility_Map">section 17.4</link>).
 </para>
 
 
@@ -459,21 +459,21 @@ typedef struct {
 <para>
 If
 <structfield>sym</structfield>
- is not
+is not
 <symbol>NULL</symbol>,
 it limits the symbol interpretation to keys on which that particular keysym
 is selected by the modifiers matching the criteria specified by
 <structfield>mods</structfield>
- and
+and
 <structfield>match</structfield>.
 If
 <structfield>sym</structfield>
- is
+is
 <symbol>NULL</symbol>,
 the interpretation may be applied to any symbol selected on a key when the
 modifiers match the criteria specified by
 <structfield>mods</structfield>
- and
+and
 <structfield>match</structfield>.
 </para>
 
@@ -506,7 +506,7 @@ are to be interpreted.
     <entry>(0)</entry>
     <entry>
 None of the bits that are on in <structfield>mods</structfield>
- can be set, but other bits can be.
+can be set, but other bits can be.
     </entry>
   </row>
   <row>
@@ -515,7 +515,7 @@ None of the bits that are on in <structfield>mods</structfield>
     <entry>
 Zero or more of the bits that are on in
 <structfield>mods</structfield>
- can be set, as well as others.
+can be set, as well as others.
     </entry>
   </row>
   <row>
@@ -524,7 +524,7 @@ Zero or more of the bits that are on in
     <entry>
 One or more of the bits that are on in
 <structfield>mods</structfield>
- can be set, as well as any others.
+can be set, as well as any others.
     </entry>
   </row>
   <row>
@@ -533,7 +533,7 @@ One or more of the bits that are on in
     <entry>
 All of the bits that are on in
 <structfield>mods</structfield>
- must be set, but others may be set as well.
+must be set, but others may be set as well.
     </entry>
   </row>
   <row>
@@ -542,7 +542,7 @@ All of the bits that are on in
     <entry>
 All of the bits that are on in
 <structfield>mods</structfield>
- must be set, and no other bits may be set.
+must be set, and no other bits may be set.
     </entry>
   </row>
 </tbody>
@@ -552,19 +552,19 @@ All of the bits that are on in
 <para>
 In addition to the above bits,
 <structfield>match</structfield>
- may contain the
+may contain the
 <symbol>XkbSI_LevelOneOnly</symbol>
- bit, in which case the modifier match criteria specified by
+bit, in which case the modifier match criteria specified by
 <structfield>mods</structfield>
- and
+and
 <structfield>match</structfield>
- applies only if
+applies only if
 <structfield>sym</structfield>
- is in level one of its group; otherwise,
+is in level one of its group; otherwise,
 <structfield>mods</structfield>
- and
+and
 <structfield>match</structfield>
- are ignored and the symbol matches a condition where no modifiers are set.
+are ignored and the symbol matches a condition where no modifiers are set.
 </para>
 
 <para><programlisting>
@@ -620,7 +620,7 @@ is applied to modify the Xkb map as follows.
 <para>
 The
 <structfield>act</structfield>
- field specifies a single action to be bound to the symbol position; any key
+field specifies a single action to be bound to the symbol position; any key
 event that selects the symbol causes the action to be taken. Valid actions are
 defined in <link linkend="Key_Actions">section 16.1</link>.
 </para>
@@ -629,23 +629,23 @@ defined in <link linkend="Key_Actions">section 16.1</link>.
 <para>
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitVModMap</emphasis>
- control set, the
+control set, the
 <symbol>XkbSI_LevelOneOnly</symbol>
- bit and symbol position are examined. If the
+bit and symbol position are examined. If the
 <symbol>XkbSI_LevelOneOnly</symbol>
- bit is not set in
+bit is not set in
 <structfield>match</structfield>
- or the symbol is in position G1L1, the
+or the symbol is in position G1L1, the
 <structfield>virtual_mod</structfield>
- field is examined. If
+field is examined. If
 <structfield>virtual_mod</structfield>
- is not
+is not
 <symbol>XkbNoModifier</symbol>,
 <structfield>virtual_mod</structfield>
- specifies a single virtual modifier to be added to the virtual modifier map
+specifies a single virtual modifier to be added to the virtual modifier map
 for the key.
 <structfield>virtual_mod</structfield>
- is specified as an index in the range [0..15].
+is specified as an index in the range [0..15].
 </para>
 
 
@@ -663,11 +663,11 @@ field potentially specify additional behavior modifications:
 <para>
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitAutoRepeat</emphasis>
- control set, its auto repeat behavior is set based on the value of the
+control set, its auto repeat behavior is set based on the value of the
 <symbol>XkbSI_AutoRepeat</symbol>
- bit. If the
+bit. If the
 <symbol>XkbSI_AutoRepeat</symbol>
- bit is set, the auto-repeat behavior of the key is turned on; otherwise, it is
+bit is set, the auto-repeat behavior of the key is turned on; otherwise, it is
 turned off.
 </para>
 
@@ -675,13 +675,13 @@ turned off.
 <para>
 If the Xkb keyboard map for the key does not have its
 <emphasis>ExplicitBehavior</emphasis>
- control set, its locking behavior is set based on the value of the
+control set, its locking behavior is set based on the value of the
 <symbol>XkbSI_LockingKey</symbol>
- bit. If
+bit. If
 <symbol>XkbSI_LockingKey</symbol>
- is set, the key behavior is set to
+is set, the key behavior is set to
 <emphasis>KB_Lock</emphasis>;
- otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
+otherwise, it is turned off (see <link linkend="Explicit_ComponentsAvoiding_Automatic_Remapping_by_the_Server">section 16.3</link>).
 </para>
 
 
@@ -736,13 +736,13 @@ all of the real modifiers associated with any of the virtual modifiers bound to
 the key. In addition, if any of the actions associated with the key affect any
 component of the keyboard group, all of the modifiers in the
 <structfield>mask</structfield>
- field of all of the group compatibility maps are added to the modifier mapping
+field of all of the group compatibility maps are added to the modifier mapping
 as well. While an
 <symbol>XkbSA_ISOLock</symbol>
- action can theoretically affect any modifier, if the Xkb mapping for a key
+action can theoretically affect any modifier, if the Xkb mapping for a key
 specifies an
 <symbol>XkbSA_ISOLock</symbol>
- action, only the modifiers or group that are set by default are added to the
+action, only the modifiers or group that are set by default are added to the
 modifier mapping.
 </para>
 
@@ -755,13 +755,13 @@ modifier mapping.
 <para>
 Use
 <function>XkbGetCompatMap</function>
- to fetch any combination of the current compatibility map components from the
+to fetch any combination of the current compatibility map components from the
 server. When another client modifies the compatibility map, you are notified if
 you have selected for
 <symbol>XkbCompatMapNotify</symbol>
- events (see <link linkend="Tracking_Changes_to_the_Compatibility_Map">section 17.5</link>).
+events (see <link linkend="Tracking_Changes_to_the_Compatibility_Map">section 17.5</link>).
 <function>XkbGetCompatMap</function>
- is particularly useful when you receive an event of this type, as it allows
+is particularly useful when you receive an event of this type, as it allows
 you to update your program’s version of the compatibility map to match the
 modified version now in the server. If your program is dealing with multiple
 servers and needs to configure them all in a similar manner, the updated
@@ -819,17 +819,17 @@ explicit override components of the server state.</para></note>
 
 <para>
 <function>XkbGetCompatMap</function>
- fetches the components of the compatibility map specified in
+fetches the components of the compatibility map specified in
 <parameter>which</parameter>
- from the server specified by
+from the server specified by
 <parameter>display</parameter>
- and places them in the
+and places them in the
 <structfield>compat</structfield>
- structure of the keyboard description
+structure of the keyboard description
 <parameter>xkb</parameter>.
 Valid values for
 <parameter>which</parameter>
- are an inclusive OR of the values shown in
+are an inclusive OR of the values shown in
 <link linkend="table17.2">Table 17.2</link>.
 </para>
 
@@ -870,40 +870,40 @@ Valid values for
 <para>
 If no compatibility map structure is allocated in
 <parameter>xkb</parameter>
- upon entry,
+upon entry,
 <function>XkbGetCompatMap</function>
- allocates one. If one already exists, its contents are overwritten with the
+allocates one. If one already exists, its contents are overwritten with the
 returned results.
 </para>
 
 
 <para>
 <function>XkbGetCompatMap</function>
- fetches compatibility map information for the device specified by the
+fetches compatibility map information for the device specified by the
 <structfield>device_spec</structfield>
- field of
+field of
 <parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
 device.
 <function>XkbGetCompatMap</function>
- returns
+returns
 <symbol>Success</symbol>
- if successful,
+if successful,
 <errorname>BadAlloc</errorname>
- if it is unable to obtain necessary storage for either the return values or
+if it is unable to obtain necessary storage for either the return values or
 work space,
 <errorname>BadMatch</errorname>
- if the
+if the
 <structfield>dpy</structfield>
- field of the
+field of the
 <parameter>xkb</parameter>
- argument is non-
+argument is non-
 <symbol>NULL</symbol>
- and does not match the
+and does not match the
 <parameter>display</parameter>
- argument, and
+argument, and
 <errorname>BadLength</errorname>
- under certain conditions caused by server or Xkb implementation errors.
+under certain conditions caused by server or Xkb implementation errors.
 </para>
 
 
@@ -1012,44 +1012,44 @@ format mapping by calling the function
 
 <para>
 <function>XkbUpdateMapFromCore</function>
- interprets input argument information representing a keyboard map in core
+interprets input argument information representing a keyboard map in core
 format to update the Xkb keyboard description passed in
 <parameter>xkb</parameter>.
 Only a portion of the Xkb map is updated — the portion corresponding to
 keys with keycodes in the range
 <parameter>first_key</parameter>
- through
+through
 <parameter>first_key</parameter>
- +
++
 <parameter>num_keys</parameter>
- - 1. If
+- 1. If
 <function>XkbUpdateMapFromCore</function>
- is being called in response to a
+is being called in response to a
 <symbol>MappingNotify</symbol>
 event,
 <parameter>first_key</parameter>
- and
+and
 <parameter>num_keys</parameter>
- are reported in the
+are reported in the
 <symbol>MappingNotify</symbol>
- event.
+event.
 <parameter>core_keysyms</parameter>
- contains the keysyms corresponding to the keycode range being updated, in core
+contains the keysyms corresponding to the keycode range being updated, in core
 keyboard description order.
 <parameter>map_width</parameter>
- is the number of keysyms per key in
+is the number of keysyms per key in
 <parameter>core_keysyms</parameter>.
 Thus, the first
 <parameter>map_width</parameter>
- entries in
+entries in
 <parameter>core_keysyms</parameter>
- are for the key with keycode
+are for the key with keycode
 <parameter>first_key</parameter>,
 the next
 <parameter>map_width</parameter>
- entries are for key
+entries are for key
 <parameter>first_key</parameter>
- + 1, and so on.
++ 1, and so on.
 </para>
 
 
@@ -1057,11 +1057,11 @@ the next
 In addition to modifying the Xkb keyboard mapping in
 <parameter>xkb</parameter>,
 <function>XkbUpdateMapFromCore</function>
- backfills the changes structure whose address is passed in
+backfills the changes structure whose address is passed in
 <parameter>changes</parameter>
- to indicate the modifications that were made. You may then use
+to indicate the modifications that were made. You may then use
 <parameter>changes</parameter>
- in subsequent calls such as
+in subsequent calls such as
 <function>XkbSetMap</function>,
 to propagate the local modifications to a server.
 </para>
@@ -1072,7 +1072,7 @@ When dealing with core keyboard mappings or descriptions, it is sometimes
 necessary to determine the Xkb key types appropriate for the symbols bound to a
 key in a core keyboard mapping. Use
 <function>XkbKeyTypesForCoreSymbols</function>
- for this purpose:
+for this purpose:
 </para>
 
 
@@ -1160,11 +1160,11 @@ key in a core keyboard mapping. Use
 
 <para>
 <function>XkbKeyTypesForCoreSymbols</function>
- expands the symbols in
+expands the symbols in
 <parameter>core_syms</parameter>
- and types in
+and types in
 <parameter>types_inout</parameter>
- according to the rules specified in section 12 of the core protocol, then
+according to the rules specified in section 12 of the core protocol, then
 chooses canonical key types (canonical key types are defined in <link linkend="The_Canonical_Key_Types">section 15.2.1</link>)
 for groups 1 and 2 using the rules specified by the Xkb protocol and places
 them in
@@ -1177,36 +1177,36 @@ which will be non-
 <para>
 A core keymap is a two-dimensional array of keysyms. It has
 <parameter>map_width</parameter>
- columns and
+columns and
 <structfield>max_key_code</structfield>
- rows.
+rows.
 <function>XkbKeyTypesForCoreSymbols</function>
- takes a single row from a core keymap, determines the number of groups
+takes a single row from a core keymap, determines the number of groups
 associated with it, the type of each group, and the symbols bound to each
 group. The return value is the number of groups,
 <parameter>types_inout</parameter>
- has the types for each group, and
+has the types for each group, and
 <parameter>xkb_syms_rtrn</parameter>
- has the symbols in Xkb order (that is, groups are contiguous, regardless of
+has the symbols in Xkb order (that is, groups are contiguous, regardless of
 size).
 </para>
 
 
 <para>
 <parameter>protected</parameter>
- contains the explicitly protected key types. There is one  explicit override
+contains the explicitly protected key types. There is one  explicit override
 control associated with each of the four possible groups for each Xkb key,
 <emphasis>ExplicitKeyType1</emphasis>
- through
+through
 <emphasis>ExplicitKeyType4</emphasis>;
 <parameter>protected</parameter>
 is an inclusive OR of these controls.
 <parameter>map_width</parameter>
- is the width of the core keymap and is not dependent on any Xkb definitions.
+is the width of the core keymap and is not dependent on any Xkb definitions.
 <parameter>types_inout</parameter>
- is an array of four type indices. On input,
+is an array of four type indices. On input,
 <parameter>types_inout</parameter>
- contains the indices of any types already assigned to the key, in case they
+contains the indices of any types already assigned to the key, in case they
 are explicitly protected from change.
 </para>
 
@@ -1214,11 +1214,11 @@ are explicitly protected from change.
 <para>
 Upon return,
 <parameter>types_inout</parameter>
- contains any automatically selected (that is, canonical) types plus any
+contains any automatically selected (that is, canonical) types plus any
 protected types. Canonical types are assigned to all four groups if there are
 enough symbols to do so. The four entries in
 <parameter>types_inout</parameter>
- correspond to the four groups for the key in question.
+correspond to the four groups for the key in question.
 </para>
 
 
@@ -1281,7 +1281,7 @@ semantics updated, use
 
 <para>
 <function>XkbApplyCompatMapToKey</function>
- essentially performs the operation described in <link linkend="Core_Keyboard_Mapping_to_Xkb_Keyboard_Mapping_Transformation">section 17.1.2</link> to a specific
+essentially performs the operation described in <link linkend="Core_Keyboard_Mapping_to_Xkb_Keyboard_Mapping_Transformation">section 17.1.2</link> to a specific
 key. This updates the behavior, actions, repeat status, and virtual modifier
 bindings of the key.
 </para>
@@ -1297,17 +1297,17 @@ Xkb compatibility map, then call
 <function>XkbSetCompatMap</function>.
 You may allocate a new compatibility map for this purpose using
 <function>XkbAllocCompatMap</function>
- (see <link linkend="Allocating_and_Freeing_the_Compatibility_Map">section 17.6</link>). You may also use a compatibility map from another server,
+(see <link linkend="Allocating_and_Freeing_the_Compatibility_Map">section 17.6</link>). You may also use a compatibility map from another server,
 although you need to adjust the
 <structfield>device_spec</structfield>
- field in the
+field in the
 <structname>XkbDescRec</structname>
- accordingly. Note that symbol interpretations in a compatibility map
+accordingly. Note that symbol interpretations in a compatibility map
 (
 <structfield>sym_interpret</structfield>,
 the vector of
 <structname>XkbSymInterpretRec</structname>
- structures) are also allocated using this same function.
+structures) are also allocated using this same function.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetCompatMap"><primary><function>XkbSetCompatMap</function></primary></indexterm>
@@ -1369,18 +1369,18 @@ the vector of
 
 <para>
 <function>XkbSetCompatMap</function>
- copies compatibility map information from the keyboard description in
+copies compatibility map information from the keyboard description in
 <parameter>xkb</parameter>
- to the server specified in
+to the server specified in
 <parameter>display</parameter>’s
- compatibility map for the device specified by the
+compatibility map for the device specified by the
 <structfield>device_spec</structfield>
- field of
+field of
 <parameter>xkb</parameter>.
 Unless you have specifically modified this field, it is the default keyboard
 device.
 <parameter>which</parameter>
- specifies the compatibility map components to be set, and is an inclusive OR
+specifies the compatibility map components to be set, and is an inclusive OR
 of the bits shown in <link linkend="table17.2">Table 17.2</link>.
 </para>
 
@@ -1388,13 +1388,13 @@ of the bits shown in <link linkend="table17.2">Table 17.2</link>.
 <para>
 After updating its compatibility map for the specified device, if
 <parameter>update_actions</parameter>
- is
+is
 <symbol>True</symbol>,
- the server applies the new compatibility map to its entire keyboard for the
+the server applies the new compatibility map to its entire keyboard for the
 device to generate a new set of key semantics, compatibility state, and a new
 core keyboard map. If
 <parameter>update_actions</parameter>
- is
+is
 <symbol>False</symbol>,
 the new compatibility map is not used to generate any modifications to the
 current device semantics, state, or core keyboard map. One reason for not
@@ -1402,22 +1402,22 @@ applying the compatibility map immediately would be if one server was being
 configured to match another on a piecemeal basis; the map should not be applied
 until everything is updated. To force an update at a later time, use
 <function>XkbSetCompatMap</function>
- specifying
+specifying
 <parameter>which</parameter>
- as zero and
+as zero and
 <parameter>update_actions</parameter>
- as
+as
 <symbol>True</symbol>.
 </para>
 
 
 <para>
 <function>XkbSetCompatMap</function>
- returns
+returns
 <symbol>True</symbol>
- if successful and
+if successful and
 <symbol>False</symbol>
- if unsuccessful. The server may report problems it encounters when processing
+if unsuccessful. The server may report problems it encounters when processing
 the request subsequently via protocol errors.
 </para>
 
@@ -1489,27 +1489,27 @@ use
 
 <para>
 <function>XkbAddSymInterpret</function>
- adds
+adds
 <parameter>si</parameter>
- to the list of symbol interpretations in
+to the list of symbol interpretations in
 <parameter>xkb</parameter>.
 If
 <parameter>updateMap</parameter>
- is
+is
 <symbol>True</symbol>,
 it (re)applies the compatibility map to all of the keys on the keyboard. If
 <parameter>changes</parameter>
- is non-
+is non-
 <symbol>NULL</symbol>,
 it reports the parts of the keyboard that were affected (unless
 <parameter>updateMap</parameter>
- is
+is
 <symbol>True</symbol>,
 not much changes).
 <function>XkbAddSymInterpret</function>
- returns a pointer to the actual new symbol interpretation in the list or
+returns a pointer to the actual new symbol interpretation in the list or
 <symbol>NULL</symbol>
- if it failed.
+if it failed.
 </para>
 
 
@@ -1524,31 +1524,31 @@ not much changes).
 <para>
 The server automatically generates
 <symbol>MappingNotify</symbol>
- events when the keyboard mapping changes. If you wish to be notified of
+events when the keyboard mapping changes. If you wish to be notified of
 changes to the compatibility map, you should select for
 <symbol>XkbCompatMapNotify</symbol>
- events. If you select for
+events. If you select for
 <symbol>XkbMapNotify</symbol>
- events, you no longer receive the automatically generated
+events, you no longer receive the automatically generated
 <symbol>MappingNotify</symbol>
- events. If you subsequently deselect
+events. If you subsequently deselect
 <structname>XkbMapNotifyEvent</structname>
- delivery, you again receive
+delivery, you again receive
 <symbol>MappingNotify</symbol>
- events.
+events.
 </para>
 
 
 <para>
 To receive
 <symbol>XkbCompatMapNotify</symbol>
- events under all possible conditions, use
+events under all possible conditions, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
+(see <link linkend="Selecting_Xkb_Events">section 4.3</link>) and pass
 <symbol>XkbCompatMapNotifyMask</symbol>
- in both
+in both
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>.
 </para>
 
@@ -1556,17 +1556,17 @@ To receive
 <para>
 To receive
 <symbol>XkbCompatMapNotify</symbol>
- events only under certain conditions, use
+events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
- using
+using
 <symbol>XkbCompatMapNotify</symbol>
- as the
+as the
 <structfield>event_type</structfield>
- and specifying the desired map changes in
+and specifying the desired map changes in
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- using mask bits from <link linkend="table17.2">Table 17.2</link>.
+using mask bits from <link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
@@ -1579,7 +1579,7 @@ made by other clients.
 <para>
 The structure for the
 <structname>XkbCompatMapNotifyEvent</structname>
- is:
+is:
 
 <programlisting>
 typedef struct {
@@ -1604,28 +1604,28 @@ typedef struct {
 
 <para>
 <structfield>changed_groups</structfield>
- is the number of group compatibility maps that have changed. If you are
+is the number of group compatibility maps that have changed. If you are
 maintaining a corresponding copy of the compatibility map, or get a fresh copy
 from the server using
 <function>XkbGetCompatMap</function>,
 <structfield>changed_groups</structfield>
- references
+references
 <structfield>groups</structfield>
 [0..
 <structfield>changed_groups</structfield>
 -1] in the
 <structname>XkbCompatMapRec</structname>
- structure.
+structure.
 </para>
 
 
 <para>
 <structfield>first_si</structfield>
- is the index of the first changed symbol interpretation,
+is the index of the first changed symbol interpretation,
 <structfield>num_si</structfield>
- is the number of changed symbol interpretations, and
+is the number of changed symbol interpretations, and
 <structfield>num_total_si</structfield>
- is the total number of valid symbol interpretations. If you are maintaining a
+is the total number of valid symbol interpretations. If you are maintaining a
 corresponding copy of the compatibility map, or get a fresh copy from the
 server using
 <function>XkbGetCompatMap</function>,
@@ -1633,9 +1633,9 @@ server using
 <structfield>num_si</structfield>,
 and
 <structfield>num_total_si</structfield>
- are appropriate for use with the
+are appropriate for use with the
 <structfield>compat.sym_interpret</structfield>
- vector in this structure.
+vector in this structure.
 </para>
 
 
@@ -1697,27 +1697,27 @@ compatibility map if you do not already have one available. To do so, use
 
 <para>
 <parameter>xkb</parameter>
- specifies the keyboard description for which compatibility maps are to be
+specifies the keyboard description for which compatibility maps are to be
 allocated. The compatibility map is the
 <structfield>compat</structfield>
- field in this structure.
+field in this structure.
 </para>
 
 
 <para>
 <parameter>which</parameter>
- specifies the compatibility map components to be allocated (see
+specifies the compatibility map components to be allocated (see
 <link linkend="XkbGetCompatMap"><function>XkbGetCompatMap</function></link>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <parameter>which</parameter>
- is an inclusive OR of the bits shown in
+is an inclusive OR of the bits shown in
 <link linkend="table17.2">Table 17.2</link>.
 </para>
 
 
 <para>
 <parameter>num_si</parameter>
- specifies the total number of entries to allocate in the symbol interpretation
+specifies the total number of entries to allocate in the symbol interpretation
 vector
 (<structfield>xkb.compat.sym_interpret</structfield>).
 
@@ -1727,34 +1727,34 @@ vector
 <para>
 Note that symbol interpretations in a compatibility map (the
 <structfield>sym_interpret</structfield>
- vector of
+vector of
 <structname>XkbSymInterpretRec</structname>
- structures) are also allocated using this same function. To ensure that there
+structures) are also allocated using this same function. To ensure that there
 is sufficient space in the symbol interpretation vector for entries to be
 added, use
 <function>XkbAllocCompatMap</function>
- specifying
+specifying
 <parameter>which</parameter>
- as
+as
 <emphasis>XkbSymInterpretMask</emphasis>
- and the number of free symbol interpretations needed in
+and the number of free symbol interpretations needed in
 <parameter>num_si</parameter>.
 </para>
 
 
 <para>
 <function>XkbAllocCompatMap</function>
- returns
+returns
 <symbol>Success</symbol>
- if successful,
+if successful,
 <errorname>BadMatch</errorname>
- if
+if
 <parameter>xkb</parameter>
- is
+is
 <symbol>NULL</symbol>,
 or
 <errorname>BadAlloc</errorname>
- if errors are encountered when attempting to allocate storage.
+if errors are encountered when attempting to allocate storage.
 </para>
 
 
@@ -1813,33 +1813,33 @@ To free an entire compatibility map or selected portions of one, use
 
 <para>
 <parameter>which</parameter>
- specifies the compatibility map components to be freed (see
+specifies the compatibility map components to be freed (see
 <link linkend="XkbGetCompatMap"><function>XkbGetCompatMap</function></link>,
 in <link linkend="Getting_Compatibility_Map_Components_From_the_Server">section 17.2</link>).
 <parameter>which</parameter>
- is an inclusive OR of the bits shown in
+is an inclusive OR of the bits shown in
 <link linkend="table17.2">Table 17.2</link>
 </para>
 
 
 <para>
 <parameter>free_map</parameter>
- indicates whether the
+indicates whether the
 <structname>XkbCompatMapRec</structname>
- structure itself should be freed. If
+structure itself should be freed. If
 <parameter>free_map</parameter>
- is
+is
 <symbol>True</symbol>,
 <parameter>which</parameter>
- is ignored, all non-
+is ignored, all non-
 <symbol>NULL</symbol>
- compatibility map components are freed, and the
+compatibility map components are freed, and the
 <structfield>compat</structfield>
- field in the
+field in the
 <structname>XkbDescRec</structname>
- referenced by
+referenced by
 <parameter>xkb</parameter>
- is set to
+is set to
 <symbol>NULL</symbol>.
 </para>
 

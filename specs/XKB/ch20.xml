@@ -99,7 +99,7 @@ used to refer to either individual components or a keymap.
 There may be multiple entries for each of the component types. An entry may be
 either
 <emphasis>complete</emphasis>
- or
+or
 <emphasis>partial</emphasis>.
 Partial entries describe only a piece of the corresponding keyboard component
 and are designed to be combined with other entries of the same type to form a
@@ -113,7 +113,7 @@ useful on its own because it does not include those symbols that are the same
 on both the ASCII and national layouts (such as function keys). On the other
 hand, this partial map can be used to configure
 <emphasis>any</emphasis>
- ASCII keyboard to use a national layout.
+ASCII keyboard to use a national layout.
 </para>
 
 <para>
@@ -128,15 +128,15 @@ later definitions override earlier ones.
 <para>
 Component names have the form “<replaceable>class(member)</replaceable>” where
 <replaceable>class</replaceable>
- describes a subset of the available components for a particular type and the
+describes a subset of the available components for a particular type and the
 optional
 <replaceable>member</replaceable>
- identifies a specific component from that subset. For example, the name
+identifies a specific component from that subset. For example, the name
 "atlantis(acme)" for a symbols component might specify the symbols used for the
 atlantis national keyboard layout by the vendor "acme." Each class has an
 optional
 <emphasis>default</emphasis>
- member — references that specify a class but not a member refer to the
+member — references that specify a class but not a member refer to the
 default member of the class, if one exists. Xkb places no constraints on the
 interpretation of the class and member names used in component names.
 </para>
@@ -144,9 +144,9 @@ interpretation of the class and member names used in component names.
 <para>
 The
 <replaceable>class</replaceable>
- and
+and
 <replaceable>member</replaceable>
- names are both specified using characters from the Latin-1 character set. Xkb
+names are both specified using characters from the Latin-1 character set. Xkb
 implementations must accept all alphanumeric characters, minus (‘-’) and
 underscore (‘_’) in class or member names, and must not accept parentheses,
 plus, vertical bar, percent sign, asterisk, question mark, or white space. The
@@ -227,15 +227,15 @@ To obtain this list, use
 
 <para>
 <function>XkbListComponents</function>
- queries the server for a list of component names matching the patterns
+queries the server for a list of component names matching the patterns
 specified in
 <parameter>ptrns</parameter>.
 It waits for a reply and returns the matching component names in an
 <structname>XkbComponentListRec</structname>
- structure. When you are done using the structure, you should free it using
+structure. When you are done using the structure, you should free it using
 <function>XkbFreeComponentList</function>.
 <parameter>device_spec</parameter>
- indicates a particular device in which the caller is interested. A server is
+indicates a particular device in which the caller is interested. A server is
 allowed (but not required) to restrict its reply to portions of the database
 that are relevant for that particular device.
 </para>
@@ -243,14 +243,14 @@ that are relevant for that particular device.
 
 <para>
 <parameter>ptrns</parameter>
- is a pointer to an
+is a pointer to an
 <structname>XkbComponentNamesRec</structname>,
 described below. Each of the fields in
 <parameter>ptrns</parameter>
- contains a pattern naming the components of interest. Each of the patterns is
+contains a pattern naming the components of interest. Each of the patterns is
 composed of characters from the ISO
 <emphasis>Latin1</emphasis>
- encoding, but can contain only parentheses, the wildcard characters
+encoding, but can contain only parentheses, the wildcard characters
 ‘<literal>?</literal>’ and ‘<literal>*</literal>’,
 and characters permitted in a component class or member name
 (see <link linkend="Component_Names">section 20.1</link>). A pattern may be
@@ -277,12 +277,12 @@ from the pattern.
 
 <para>
 <parameter>max_inout</parameter>
- is used to throttle the amount of data passed to and from the server. On
+is used to throttle the amount of data passed to and from the server. On
 input, it specifies the maximum number of names to be returned (the total
 number of names in all component categories). Upon return from
 <function>XkbListComponents</function>,
 <parameter>max_inout</parameter>
- contains the number of names that matched the request but were not returned
+contains the number of names that matched the request but were not returned
 because of the limit.
 </para>
 
@@ -292,15 +292,15 @@ because of the limit.
 <primary><structname>XkbComponentNamesRec</structname></primary></indexterm>
 The component name patterns used to describe the request are passed to
 <function>XkbListComponents</function>
- using an
+using an
 <structname>XkbComponentNamesRec</structname>
- structure. This structure has no special allocation constraints or
+structure. This structure has no special allocation constraints or
 interrelationships with other structures; allocate and free this structure
 using standard
 <function>malloc</function>
- and
+and
 <function>free</function>
- calls or their equivalent:
+calls or their equivalent:
 
 <programlisting>
 typedef struct _XkbComponentNames {
@@ -319,7 +319,7 @@ typedef struct _XkbComponentNames {
 <indexterm significance="preferred" zone="XkbComponentListRec">
 <primary><structname>XkbComponentNameRec</structname></primary></indexterm>
 <function>XkbListComponents</function>
- returns a pointer to an
+returns a pointer to an
 <structname>XkbComponentListRec</structname>:
 
 <programlisting>
@@ -349,7 +349,7 @@ Note that the structure used to specify patterns on input is an
 <structname>XkbComponentNamesRec</structname>,
 and that used to hold the individual component names upon return is an
 <structname>XkbComponentNameRec</structname>
- (no trailing ‘s’ in Name).
+(no trailing ‘s’ in Name).
 </para>
 
 
@@ -393,9 +393,9 @@ A set of flags is associated with each component; these flags provide
 additional hints about the component’s use. These hints are designated by bit
 masks in the flags field of the
 <structname>XkbComponentNameRec</structname>
- structures contained in the
+structures contained in the
 <structname>XkbComponentListRec</structname>
- returned from
+returned from
 <function>XkbListComponents</function>.
 The least significant byte of the flags field has the same meaning for all
 types of keyboard components; the interpretation of the most significant byte
@@ -405,7 +405,7 @@ The symbols hints in <link linkend="table20.2">Table 20.2</link>
 apply only to partial symbols components
 (those with
 <symbol>XkbLC_Partial</symbol>
- also set); full symbols components are assumed to specify all of the pieces.
+also set); full symbols components are assumed to specify all of the pieces.
 </para>
 
 
@@ -416,10 +416,10 @@ an exhaustive list of the kinds of keys that are affected. For example,
 national keyboard layouts affect primarily alphanumeric keys, but many affect a
 few modifier keys as well; such mappings should set only the
 <symbol>XkbLC_AlphanumericKeys</symbol>
- hint. In general, symbols components should set only one of the four flags
+hint. In general, symbols components should set only one of the four flags
 (
 <symbol>XkbLC_AlternateGroup</symbol>
- may be combined with any of the other flags).
+may be combined with any of the other flags).
 </para>
 
 <table id='table20.2' frame='topbot'>
@@ -632,12 +632,12 @@ one, use
 
 <para>
 <parameter>names</parameter>
- contains a set of expressions describing the keyboard components the server
+contains a set of expressions describing the keyboard components the server
 should use to build the new keyboard description.
 <parameter>want</parameter>
- and
+and
 <parameter>need</parameter>
- are bit fields describing the parts of the resulting keyboard description that
+are bit fields describing the parts of the resulting keyboard description that
 should be present in the returned
 <structname>XkbDescRec</structname>.
 </para>
@@ -646,9 +646,9 @@ should be present in the returned
 <para>
 The individual fields in
 <parameter>names</parameter>
- are
+are
 <firstterm>component expressions</firstterm>
- composed of keyboard component names (no wildcarding as may be used in
+composed of keyboard component names (no wildcarding as may be used in
 <function>XkbListComponents</function>),
 the special component name symbol ‘<literal>%</literal>’,
 and the special operator characters
@@ -662,7 +662,7 @@ A component expression is parsed left to right, as follows:
 The special component name “<literal>computed</literal>”
 may be used in
 <structfield>keycodes</structfield>
- component expressions and refers to a component consisting of a set of
+component expressions and refers to a component consisting of a set of
 keycodes computed automatically by the server as needed.
   </para>
 </listitem>
@@ -670,7 +670,7 @@ keycodes computed automatically by the server as needed.
   <para>
 The special component name “<literal>canonical</literal>” may be used in
 <structfield>types</structfield>
- component expressions and refers to a partial component defining the four
+component expressions and refers to a partial component defining the four
 standard key types:
 <emphasis>ALPHABETIC</emphasis>,
 <emphasis>ONE_LEVEL</emphasis>,
@@ -684,7 +684,7 @@ and
 The special component name ‘<literal>%</literal>’
 refers to the keyboard description for the device specified in
 <parameter>device_spec</parameter>
- or the keymap names component. If a keymap names component is specified that
+or the keymap names component. If a keymap names component is specified that
 does not begin with
 ‘<literal>+</literal>’ or ‘<literal>|</literal>’ and does not contain
 ‘<literal>%</literal>’, then ‘<literal>%</literal>’
@@ -696,18 +696,18 @@ Otherwise, it refers to the keyboard description for
 <listitem>
   <para>
 The ‘<literal>+</literal>’
- operator specifies that the following component should
+operator specifies that the following component should
 <emphasis>override</emphasis>
- the currently assembled description; any definitions that are present in both
+the currently assembled description; any definitions that are present in both
 components are taken from the second.
   </para>
 </listitem>
 <listitem>
   <para>
 The ‘<literal>|</literal>’
- operator specifies that the next specified component should
+operator specifies that the next specified component should
 <emphasis>augment</emphasis>
- the currently assembled description; any definitions that are present in both
+the currently assembled description; any definitions that are present in both
 components are taken from the first.
   </para>
 </listitem>
@@ -728,7 +728,7 @@ entire expression is invalid and is ignored.
 <para>
 For example, if
 <structfield>names-&gt;symbols</structfield>
- contained the expression "+de", it specifies that the default member of the
+contained the expression "+de", it specifies that the default member of the
 "de" class of symbols should be applied to the current keyboard mapping,
 overriding any existing definitions (it could also be written "+de(default)").
 </para>
@@ -740,12 +740,12 @@ Here is a slightly more involved example: the expression
 ASCII keyboard supplied by the "acme" vendor. The new definition begins with
 the symbols for the ASCII keyboard for Acme
 (<literal>acme(ascii)</literal>),
- overrides them with definitions for the basic German keyboard
+overrides them with definitions for the basic German keyboard
 (<literal>de(basic)</literal>),
- and then applies the definitions from the default iso9995-3 keyboard
+and then applies the definitions from the default iso9995-3 keyboard
 (
 <literal>iso9995-3</literal>)
- to any undefined keys or groups of keys (part three of the iso9995 standard
+to any undefined keys or groups of keys (part three of the iso9995 standard
 defines a common set of bindings for the secondary group, but allows national
 layouts to override those definitions where necessary).
 </para>
@@ -757,9 +757,9 @@ ordering are.</para></note>
 <para>
 Note that the presence of a keymap
 <parameter>names</parameter>
- component that does not contain
+component that does not contain
 ‘<literal>%</literal>’
- (either explicit or implied by virtue of an expression starting with an
+(either explicit or implied by virtue of an expression starting with an
 operator) indicates a description that is independent of the keyboard
 description for the device specified in
 <parameter>device_spec</parameter>.
@@ -774,40 +774,40 @@ independent of any actual device.
 <para>
 The server parses all non-
 <symbol>NULL</symbol>
- fields in
+fields in
 <parameter>names</parameter>
- and uses them to build a keyboard description. However, before parsing the
+and uses them to build a keyboard description. However, before parsing the
 expressions in
 <parameter>names</parameter>,
 the server ORs the bits in
 <parameter>want</parameter>
- and
+and
 <parameter>need</parameter>
- together and examines the result in relationship to the expressions in
+together and examines the result in relationship to the expressions in
 <parameter>names</parameter>.
 <link linkend="table20.3">Table 20.3</link>
 identifies the components that are required for each of the
 possible bits in
 <parameter>want</parameter>
- or
+or
 <parameter>need</parameter>.
 If a required component has not been specified in the
 <parameter>names</parameter>
- structure (the corresponding field is
+structure (the corresponding field is
 <symbol>NULL</symbol>),
- the server substitutes the expression
+the server substitutes the expression
 “<literal>%</literal>”,
- resulting in the component values being taken from
+resulting in the component values being taken from
 <parameter>device_spec</parameter>.
 In addition, if
 <parameter>load</parameter>
- is
+is
 <symbol>True</symbol>,
 the server modifies
 <parameter>names</parameter>
- if necessary (again using a
+if necessary (again using a
 “<literal>%</literal>”
- entry) to ensure all of the following fields are non-
+entry) to ensure all of the following fields are non-
 <symbol>NULL</symbol>:
 
 <structfield>types</structfield>,
@@ -888,28 +888,28 @@ and
 
 <para>
 <parameter>need</parameter>
- specifies a set of keyboard components that the server must be able to resolve
+specifies a set of keyboard components that the server must be able to resolve
 in order for
 <function>XkbGetKeyboardByName</function>
- to succeed; if any of the components specified in
+to succeed; if any of the components specified in
 <parameter>need</parameter>
- cannot be successfully resolved,
+cannot be successfully resolved,
 <function>XkbGetKeyboardByName</function>
- fails.
+fails.
 </para>
 
 
 <para>
 <parameter>want</parameter>
- specifies a set of keyboard components that the server should attempt to
+specifies a set of keyboard components that the server should attempt to
 resolve, but that are not mandatory. If the server is unable to resolve any of
 these components,
 <function>XkbGetKeyboardByName</function>
- still succeeds. Bits specified in
+still succeeds. Bits specified in
 <parameter>want</parameter>
- that are also specified in
+that are also specified in
 <parameter>need</parameter>
- have no effect in the context of
+have no effect in the context of
 <parameter>want</parameter>.
 </para>
 
@@ -917,33 +917,33 @@ these components,
 <para>
 If
 <parameter>load</parameter>
- is
+is
 <symbol>True</symbol>,
 the server updates its keyboard description for
 <parameter>device_spec</parameter>
- to match the result of the keyboard description just built. If load is
+to match the result of the keyboard description just built. If load is
 <symbol>False</symbol>,
 the server’s description for device
 <parameter>device_spec</parameter>
- is not updated. In all cases, the parts specified by
+is not updated. In all cases, the parts specified by
 <parameter>want</parameter>
- and
+and
 <parameter>need</parameter>
- from the just-built keyboard description are returned.
+from the just-built keyboard description are returned.
 </para>
 
 
 <para>
 The
 <parameter>names</parameter>
- structure in an
+structure in an
 <structname>XkbDescRec</structname>
- keyboard description record (see <xref linkend="Symbolic_Names" />) contains one field for each of
+keyboard description record (see <xref linkend="Symbolic_Names" />) contains one field for each of
 the five component types used to build a keyboard description. When a keyboard
 description is built from a set of database components, the corresponding
 fields in this
 <parameter>names</parameter>
- structure are set to match the expressions used to build the component.
+structure are set to match the expressions used to build the component.
 </para>
 
 
@@ -964,12 +964,12 @@ database of components and returning all or part of it is diagrammed in Figure
 <para>
 The information returned to the client in the
 <structname>XkbDescRec</structname>
- is essentially the result of a series of calls to extract information from a
+is essentially the result of a series of calls to extract information from a
 fictitious device whose description matches the one just built. The calls
 corresponding to each of the mask bits are summarized in
 <link linkend="table20.4">Table 20.4</link>, together with the
 <structname>XkbDescRec</structname>
- components that are filled in.
+components that are filled in.
 </para>
 
 <table id='table20.4' frame='topbot'>
@@ -1055,23 +1055,23 @@ XkbGetNames(dpy, XkbKeyNamesMask | XkbKeyAliasesMask, Xkb)
 <para>
 There is no way to determine which components specified in
 <parameter>want</parameter>
- (but not in
+(but not in
 <parameter>need</parameter>)
- were actually fetched, other than breaking the call into successive calls to
+were actually fetched, other than breaking the call into successive calls to
 <function>XkbGetKeyboardByName</function>
- and specifying individual components.
+and specifying individual components.
 </para>
 
 
 <para>
 <function>XkbGetKeyboardByName</function>
- always sets
+always sets
 <structfield>min_key_code</structfield>
- and
+and
 <structfield>max_key_code</structfield>
- in the returned
+in the returned
 <structname>XkbDescRec</structname>
- structure.
+structure.
 </para>
 
 
@@ -1092,7 +1092,7 @@ If you simply want to obtain information about the current keyboard device,
 rather than generating a new keyboard description from elements in the server
 database, use
 <function>XkbGetKeyboard</function>
- (see <link linkend="Obtaining_a_Keyboard_Description_from_the_Server">section 6.2</link>).
+(see <link linkend="Obtaining_a_Keyboard_Description_from_the_Server">section 6.2</link>).
 </para>
 
 <indexterm significance="preferred" zone="XkbGetKeyboard"><primary><function>XkbGetKeyboard</function></primary></indexterm>
@@ -1145,10 +1145,10 @@ database, use
 
 <para>
 <function>XkbGetKeyboard</function>
- is used to read the current description for one or more components of a
+is used to read the current description for one or more components of a
 keyboard device. It calls
 <function>XkbGetKeyboardByName</function>
- as follows:
+as follows:
 </para>
 
 

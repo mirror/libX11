@@ -78,7 +78,7 @@ edit the data structure, use it. For example, increasing the width of a type
 requires you to resize every key that uses that type. This is complicated and
 ugly, which is why there’s an
 <function>XkbResizeKeyType</function>
- function.
+function.
 </para>
 
 
@@ -105,7 +105,7 @@ Call the allocator function with some arbitrary size, as a hint.
     <para>
 For those arrays that have an
 <function>Xkb...Add...</function>
- function, call it each time you want to add new data to the array. The
+function, call it each time you want to add new data to the array. The
 function expands the array if necessary.
     </para>
   </listitem>
@@ -121,9 +121,9 @@ XkbAllocGeomShapes(geom,4)
 to say <quote>I’ll need space for four new shapes in this geometry.</quote>
 This makes sure that
 <structfield>sz_shapes</structfield>
- &minus;
+&minus;
 <structfield>num_shapes</structfield>
- &gt;= 4, and resizes the shapes array if it isn’t. If this function
+&gt;= 4, and resizes the shapes array if it isn’t. If this function
 succeeds, you are guaranteed to have space for the number of shapes you need.
 </para>
 
@@ -132,12 +132,12 @@ succeeds, you are guaranteed to have space for the number of shapes you need.
 When you call an editing function for a structure, you do not need to check for
 space, because the function automatically checks the
 <emphasis>sz_</emphasis>
- and
+and
 <emphasis>num_</emphasis>
- fields of the array, resizes the array if necessary, adds the entry to the
+fields of the array, resizes the array if necessary, adds the entry to the
 array, and then updates the
 <emphasis>num_</emphasis>
- field.
+field.
 </para>
 
 
@@ -161,7 +161,7 @@ description, Xkb provides separate special
 <firstterm>changes</firstterm>
 <indexterm significance="preferred" zone="Making_Changes_to_the_Servers_Keyboard_Description">
 <primary>changes data structures</primary></indexterm>
- data structures for each major Xkb data structure. These data structures do
+data structures for each major Xkb data structure. These data structures do
 not contain the actual changed values: they only indicate the changes that have
 been made to the structures that actually describe the keyboard.
 </para>
@@ -213,14 +213,14 @@ defined for all major Xkb components, and their names have the form
 <function>XkbNote<replaceable>{Component}</replaceable>Changes</function>,
 where
 <replaceable>Component</replaceable>
- is the name of a major Xkb component such as
+is the name of a major Xkb component such as
 <literal>Map</literal>
- or
+or
 <literal>Names</literal>.
 When you want to copy these changes from the server into a local copy of the
 keyboard description, use the corresponding
 <function>XkbGet<replaceable>{Component}</replaceable>Changes</function>
- function,
+function,
 passing it the changes structure. The function then retrieves only the changed
 structures from the server and copies the modified pieces into the local
 keyboard description.
@@ -233,16 +233,16 @@ keyboard description.
 <para>
 For the same reasons you should not directly use
 <function>malloc</function>
- to allocate Xkb data structures, you should not free Xkb data structures or
+to allocate Xkb data structures, you should not free Xkb data structures or
 components directly using
 <function>free</function>
- or
+or
 <function>Xfree</function>.
 Xkb provides functions to free the various data structures and their
 components. Always use the free functions supplied by Xkb. There is no
 guarantee that any particular field can be safely freed by
 <function>free</function>
- or
+or
 <function>Xfree</function>.
 </para>
 </sect1>

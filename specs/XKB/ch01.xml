@@ -128,7 +128,7 @@ keyboard. Internally, the server maintains a
 <firstterm>keyboard description</firstterm>
 <indexterm significance="preferred" zone="keyboard_description">
 <primary>keyboard description</primary></indexterm>
- that includes the keyboard state and configuration (mapping). By
+that includes the keyboard state and configuration (mapping). By
 <quote>keyboard</quote> we
 mean the logical keyboard device, which includes not only the physical keys,
 but also potentially a set of up to 32 indicators (usually LEDs) and bells.
@@ -249,7 +249,7 @@ key is logically released. Consequently, at most one key in a radio group can
 be logically depressed at one time. A radio group is defined by a radio group
 index, an optional name, and by assigning each key in the radio group
 <symbol>XkbKB_RadioGroup</symbol>
- behavior and the radio group index.
+behavior and the radio group index.
 </para>
 
 </sect2>
@@ -322,7 +322,7 @@ The Xkb extension adds a single protocol error,
 <errorname>BadKeyboard</errorname>,
 to the core protocol error set. See <link linkend="Protocol_Errors">section 2.6</link> for a discussion of the
 <errorname>BadKeyboard</errorname>
- protocol error.
+protocol error.
 </para>
 
 
@@ -369,9 +369,9 @@ and server versions are incompatible, these functions return an error
 indication as shown in <link linkend="table1.1">Table 1.1</link>.
 Because of this test,
 <errorname>BadAccess</errorname>
- and
+and
 <errorname>BadMatch</errorname>
- (due to incompatible versions) protocol errors should normally not be
+(due to incompatible versions) protocol errors should normally not be
 generated.
 </para>
 

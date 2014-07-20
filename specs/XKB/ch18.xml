@@ -13,9 +13,9 @@ the type of keyboard connected to the server and then examine keysyms and
 modifier mappings to determine the effects of most modifiers (the
 <symbol>Shift</symbol>,
 <symbol>Lock</symbol>
- and
+and
 <symbol>Control</symbol>
- modifiers are defined by the core protocol but no semantics are implied for
+modifiers are defined by the core protocol but no semantics are implied for
 any other modifiers).
 </para>
 
@@ -25,7 +25,7 @@ To make it easier for applications to present a keyboard to the user, Xkb
 supports symbolic names for most components of the keyboard extension. Most of
 these symbolic names are grouped into the
 <structfield>names</structfield>
- component of the keyboard description.
+component of the keyboard description.
 </para>
 
 <sect1 id='The_XkbNamesRec_Structure'>
@@ -89,10 +89,10 @@ typedef struct _XkbNamesRec {
 <para>
 The
 <structfield>keycodes</structfield>
- name identifies the range and meaning of the keycodes returned by the keyboard
+name identifies the range and meaning of the keycodes returned by the keyboard
 in question. The
 <structfield>geometry</structfield>
- name, on the other hand, identifies the physical location, size and shape of
+name, on the other hand, identifies the physical location, size and shape of
 the various keys on the keyboard. As an example to distinguish between these
 two names, consider function keys on PC-compatible keyboards. Function keys are
 sometimes above the main keyboard and sometimes to the left of the main
@@ -107,33 +107,33 @@ keyboards with differing numbers of keys provided all keys have the same
 semantics when present. For example, 101 and 102 key PC keyboards might use the
 same name. In these cases, applications can use the keyboard
 <structfield>geometry</structfield>
- name to determine which subset of the named keycodes is in use.</para></note>
+name to determine which subset of the named keycodes is in use.</para></note>
 
 <para>
 The
 <structfield>symbols</structfield>
- name identifies the symbols logically bound to the keys. The symbols name is a
+name identifies the symbols logically bound to the keys. The symbols name is a
 human or application-readable description of the intended locale or usage of
 the keyboard with these symbols. The
 <structfield>phys_symbols</structfield>
- name, on the other hand, identifies the symbols actually engraved on the
+name, on the other hand, identifies the symbols actually engraved on the
 keyboard. Given this, the
 <structfield>symbols</structfield>
- name and
+name and
 <structfield>phys_symbols</structfield>
- names might be different. For example, the description for a keyboard that has
+names might be different. For example, the description for a keyboard that has
 English US engravings, but that is using Swiss German symbols might have a
 <structfield>phys_symbols</structfield>
- name of "en_US" and a
+name of "en_US" and a
 <structfield>symbols</structfield>
- name of "de_CH."
+name of "de_CH."
 </para>
 
 
 <para>
 The
 <structfield>types</structfield>
- name provides some information about the set of key types (see <link linkend="Key_Types">section 15.2</link>)
+name provides some information about the set of key types (see <link linkend="Key_Types">section 15.2</link>)
 that can be associated with the keyboard. In addition, each key type can have a
 name, and each shift level of a type can have a name. Although these names are
 stored in the map description with each of the types, they are accessed using
@@ -144,7 +144,7 @@ the same methods as the other symbolic names.
 <para>
 The
 <structfield>compat</structfield>
- name provides some information about the rules used to bind actions to keys
+name provides some information about the rules used to bind actions to keys
 that are changed using core protocol requests.
 </para>
 
@@ -157,7 +157,7 @@ in the
 <structfield>indicators</structfield>,
 and
 <structfield>groups</structfield>
- fixed-length arrays.
+fixed-length arrays.
 </para>
 
 
@@ -165,13 +165,13 @@ and
 Each key has a four-byte symbolic name. All of the symbolic key names are held
 in the
 <structfield>keys</structfield>
- array, and
+array, and
 <structfield>num_keys</structfield>
- reports the number of entries that are in the keys array. For each key, the
+reports the number of entries that are in the keys array. For each key, the
 key name links keys with similar functions or in similar positions on keyboards
 that report different keycodes. For example, the
 <keycap>F1</keycap>
- key may emit keycode 23 on one keyboard and keycode 86 on another. By naming
+key may emit keycode 23 on one keyboard and keycode 86 on another. By naming
 this key "FK01" on both keyboards, the keyboard layout designer can reuse parts
 of keyboard descriptions for different keyboards.
 </para>
@@ -186,20 +186,20 @@ designer may wish to refer to the left arrow key on a PC keyboard using the
 ISO9995-5 positional specification of A31 or using the functional specification
 of LEFT. The
 <structfield>key_aliases</structfield>
- field holds a variable-length array of real and alias key name pairs, and the
+field holds a variable-length array of real and alias key name pairs, and the
 total number of entries in the
 <structfield>key_aliases</structfield>
- array is held in
+array is held in
 <structfield>num_key_aliases</structfield>.
 For each real and alias key name pair, the
 <structfield>real</structfield>
- field refers to the a name in the keys array, and the
+field refers to the a name in the keys array, and the
 <structfield>alias</structfield>
- field refers to the alias for that key. Using the previous example, the
+field refers to the alias for that key. Using the previous example, the
 keyboard designer may use the name A31 in the keys array, but also define the
 name LEFT as an alias for A31 in the
 <structfield>key_aliases</structfield>
- array.
+array.
 </para>
 
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
@@ -208,7 +208,7 @@ database, which are stored in the
 <structname>XkbNamesRec</structname>
 
 (<structfield>xkb-&gt;names</structfield>).
- Therefore, consider the key aliases defined by the geometry before
+Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the
 <structname>XkbNamesRec</structname>.
 </para></note>
@@ -228,9 +228,9 @@ held in the variable-length array
 <structfield>radio_groups</structfield>,
 and
 <structfield>num_rg</structfield>
- tells how many elements are in the
+tells how many elements are in the
 <structfield>radio_groups</structfield>
- array.
+array.
 </para>
 
 
@@ -426,12 +426,12 @@ To obtain symbolic names from the server, use
 
 <para>
 <function>XkbGetNames</function>
- retrieves symbolic names for the components of the keyboard extension from the
+retrieves symbolic names for the components of the keyboard extension from the
 X server. The
 <parameter>which</parameter>
- parameter specifies the name components to be updated in the
+parameter specifies the name components to be updated in the
 <parameter>xkb</parameter>
- parameter, and is the bitwise inclusive OR of the valid names mask bits
+parameter, and is the bitwise inclusive OR of the valid names mask bits
 defined in <link linkend="table18.1">Table 18.1</link>.
 </para>
 
@@ -439,25 +439,25 @@ defined in <link linkend="table18.1">Table 18.1</link>.
 <para>
 If the
 <structfield>names</structfield>
- field of the keyboard description
+field of the keyboard description
 <parameter>xkb</parameter>
- is
+is
 <symbol>NULL</symbol>,
 <function>XkbGetNames</function>
- allocates and initializes the
+allocates and initializes the
 <structfield>names</structfield>
- component of the keyboard description before obtaining the values specified by
+component of the keyboard description before obtaining the values specified by
 <parameter>which</parameter>.
 If the
 <structfield>names</structfield>
- field of
+field of
 <parameter>xkb</parameter>
- is not
+is not
 <symbol>NULL</symbol>,
 <function>XkbGetNames</function>
- obtains the values specified by
+obtains the values specified by
 <parameter>which</parameter>
- and copies them into the keyboard description
+and copies them into the keyboard description
 <parameter>xkb</parameter>.
 </para>
 
@@ -465,23 +465,23 @@ If the
 <para>
 If the
 <structfield>map</structfield>
- component of the
+component of the
 <parameter>xkb</parameter>
- parameter is
+parameter is
 <symbol>NULL</symbol>,
 <function>XkbGetNames</function>
- does not retrieve type or shift level names, even if
+does not retrieve type or shift level names, even if
 <symbol>XkbKeyTypeNamesMask</symbol>
- or
+or
 <symbol>XkbKTLevelNamesMask</symbol>
- are set in
+are set in
 <parameter>which</parameter>.
 </para>
 
 
 <para>
 <function>XkbGetNames</function>
- can return
+can return
 <symbol>Success</symbol>,
 or
 <errorname>BadAlloc</errorname>,
@@ -489,14 +489,14 @@ or
 <errorname>BadMatch</errorname>,
 and
 <errorname>BadImplementation</errorname>
- errors.
+errors.
 </para>
 
 
 <para>
 To free symbolic names, use
 <function>XkbFreeNames</function>
- (see <link linkend="Allocating_and_Freeing_Symbolic_Names">section 18.6</link>)
+(see <link linkend="Allocating_and_Freeing_Symbolic_Names">section 18.6</link>)
 </para>
 
 
@@ -508,22 +508,22 @@ To free symbolic names, use
 To change the symbolic names in the server, first modify a local copy of the
 keyboard description and then use either
 <function>XkbSetNames</function>,
- or, to save network traffic, use a
+or, to save network traffic, use a
 <structname>XkbNameChangesRec</structname>
 structure and call
 <function>XkbChangeNames</function>
- to download the changes to the server.
+to download the changes to the server.
 <function>XkbSetNames</function>
- and
+and
 <function>XkbChangeNames</function>
- can generate
+can generate
 <errorname>BadAlloc</errorname>,
 <errorname>BadAtom</errorname>,
 <errorname>BadLength</errorname>,
 <errorname>BadMatch</errorname>,
- and
+and
 <errorname>BadImplementation</errorname>
- errors.
+errors.
 </para>
 
 <indexterm significance="preferred" zone="XkbSetNames"><primary><function>XkbSetNames</function></primary></indexterm>
@@ -597,42 +597,42 @@ structure and call
 <para>
 Use
 <function>XkbSetNames</function>
- to change many names at the same time. For each bit set in
+to change many names at the same time. For each bit set in
 <parameter>which</parameter>,
 <function>XkbSetNames</function>
- takes the corresponding value (or values in the case of arrays) from the
+takes the corresponding value (or values in the case of arrays) from the
 keyboard description
 <parameter>xkb</parameter>
- and sends it to the server.
+and sends it to the server.
 </para>
 
 
 <para>
 The
 <parameter>first_type</parameter>
- and
+and
 <parameter>num_types</parameter>
- arguments are used only if
+arguments are used only if
 <symbol>XkbKeyTypeNamesMask</symbol>
- or
+or
 <symbol>XkbKTLevelNamesMask</symbol>
- is set in
+is set in
 <parameter>which</parameter>
- and specify a subset of the types for which the corresponding names are to be
+and specify a subset of the types for which the corresponding names are to be
 changed. If either or both of these mask bits are set but the specified types
 are illegal,
 <function>XkbSetNames</function>
- returns
+returns
 <symbol>False</symbol>
- and does not update any of the names specified in
+and does not update any of the names specified in
 <parameter>which</parameter>.
 The specified types are illegal if
 <parameter>xkb</parameter>
- does not include a map component or if
+does not include a map component or if
 <parameter>first_type</parameter>
- and
+and
 <parameter>num_types</parameter>
- specify types that are not defined in the keyboard description.
+specify types that are not defined in the keyboard description.
 </para>
 
 
@@ -647,7 +647,7 @@ The specified types are illegal if
 <para>
 The
 <structname>XkbNameChangesRec</structname>
- allows applications to identify small modifications to the symbolic names and
+allows applications to identify small modifications to the symbolic names and
 effectively reduces the amount of traffic sent to the server:
 
 <programlisting>
@@ -678,7 +678,7 @@ typedef struct _XkbNameChanges {
 <para>
 The
 <structfield>changed</structfield>
- field specifies the name components that have changed and is the bitwise
+field specifies the name components that have changed and is the bitwise
 inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>. The rest of
 the fields in the structure specify the ranges that have changed for the
@@ -766,11 +766,11 @@ various kinds of symbolic names, as shown in
 
 <para>
 <function>XkbChangeNames</function>
- provides a more flexible method for changing symbolic names than
+provides a more flexible method for changing symbolic names than
 <function>XkbSetNames</function>
- and requires the use of an
+and requires the use of an
 <structname>XkbNameChangesRec</structname>
- structure.
+structure.
 </para>
 
 <indexterm significance="preferred" zone="XkbChangeNames"><primary><function>XkbChangeNames</function></primary></indexterm>
@@ -821,16 +821,16 @@ various kinds of symbolic names, as shown in
 
 <para>
 <function>XkbChangeNames</function>
- copies any names specified by
+copies any names specified by
 <parameter>changes</parameter>
- from the keyboard description,
+from the keyboard description,
 <parameter>xkb</parameter>,
 to the X server specified by
 <parameter>dpy</parameter>.
 <function>XkbChangeNames</function>
- aborts and returns
+aborts and returns
 <symbol>False</symbol>
- if any illegal type names or type shift level names are specified by
+if any illegal type names or type shift level names are specified by
 <parameter>changes</parameter>.
 </para>
 
@@ -848,15 +848,15 @@ to the X server specified by
 Whenever a symbolic name changes in the server’s keyboard description, the
 server sends a
 <symbol>XkbNamesNotify</symbol>
- event to all interested clients. To receive name notify events, use
+event to all interested clients. To receive name notify events, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
+(see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
 <symbol>XkbNamesNotifyMask</symbol>
- in both the
+in both the
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- parameters.
+parameters.
 </para>
 
 
@@ -865,13 +865,13 @@ To receive events for only specific names, use
 <function>XkbSelectEventDetails</function>.
 Set the
 <structfield>event_type</structfield>
- parameter to
+parameter to
 <symbol>XkbNamesNotify</symbol>,
 and set both the
 <parameter>bits_to_change</parameter>
 and
 <parameter>values_for_bits</parameter>
- detail parameter to a mask composed of a bitwise OR of masks in
+detail parameter to a mask composed of a bitwise OR of masks in
 <link linkend="table18.1">Table 18.1</link>.
 </para>
 
@@ -879,7 +879,7 @@ and
 <para>
 The structure for the
 <symbol>XkbNamesNotify</symbol>
- event is defined as follows:
+event is defined as follows:
 
 <programlisting>
 typedef struct {
@@ -915,7 +915,7 @@ typedef struct {
 <para>
 The
 <structfield>changed</structfield>
- field specifies the name components that have changed and is the bitwise
+field specifies the name components that have changed and is the bitwise
 inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>. The other
 fields in this event are interpreted as the like-named fields in an
@@ -926,7 +926,7 @@ fields in this event are interpreted as the like-named fields in an
 <para>
 When your application receives a
 <symbol>XkbNamesNotify</symbol>
- event, you can note the changed names in a changes structure using
+event, you can note the changed names in a changes structure using
 <function>XkbNoteNameChanges</function>.
 </para>
 
@@ -981,14 +981,14 @@ When your application receives a
 <para>
 The
 <parameter>wanted</parameter>
- parameter is the bitwise inclusive OR of the valid names mask bits shown in
+parameter is the bitwise inclusive OR of the valid names mask bits shown in
 <link linkend="table18.1">Table 18.1</link>.
 <function>XkbNoteNameChanges</function>
- copies any changes that are reported in
+copies any changes that are reported in
 <parameter>new</parameter>
- and specified in
+and specified in
 <parameter>wanted</parameter>
- into the changes record specified by
+into the changes record specified by
 <parameter>old</parameter>.
 </para>
 
@@ -997,7 +997,7 @@ The
 To update the local copy of the keyboard description with the actual values,
 pass to
 <function>XkbGetNameChanges</function>
- the results of one or more calls to
+the results of one or more calls to
 <function>XkbNoteNameChanges</function>.
 </para>
 
@@ -1052,23 +1052,23 @@ pass to
 
 <para>
 <function>XkbGetNameChanges</function>
- examines the
+examines the
 <parameter>changes</parameter>
- parameter, retrieves the necessary information from the server, and places the
+parameter, retrieves the necessary information from the server, and places the
 results into the
 <parameter>xkb</parameter>
- keyboard description.
+keyboard description.
 </para>
 
 
 <para>
 <function>XkbGetNameChanges</function>
- can generate
+can generate
 <errorname>BadAlloc</errorname>,
 <errorname>BadImplementation</errorname>,
- and
+and
 <errorname>BadMatch</errorname>
- errors.
+errors.
 </para>
 
 
@@ -1080,9 +1080,9 @@ results into the
 Most applications do not need to directly allocate symbolic names structures.
 Do not allocate a names structure directly using
 <function>malloc</function>
- or
+or
 <function>Xmalloc</function>
- if your application changes the number of key aliases or radio groups or
+if your application changes the number of key aliases or radio groups or
 constructs a symbolic names structure without loading the necessary components
 from the X server. Instead use
 <function>XkbAllocNames</function>.
@@ -1146,15 +1146,15 @@ from the X server. Instead use
 
 <para>
 <function>XkbAllocNames</function>
- can return
+can return
 <errorname>BadAlloc</errorname>,
 <errorname>BadMatch</errorname>,
- and
+and
 <errorname>BadValue</errorname>
- errors.
+errors.
 The
 <parameter>which</parameter>
- parameter is the bitwise inclusive OR of the valid names mask bits defined in
+parameter is the bitwise inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>.
 </para>
 
@@ -1162,11 +1162,11 @@ The
 <para>
 Do not free symbolic names structures directly using
 <function>free</function>
- or
+or
 <function>XFree</function>.
 Use
 <function>XkbFreeNames</function>
- instead.
+instead.
 </para>
 
 
@@ -1219,7 +1219,7 @@ Use
 <para>
 The
 <parameter>which</parameter>
- parameter is the bitwise inclusive OR of the valid names mask bits defined in
+parameter is the bitwise inclusive OR of the valid names mask bits defined in
 <link linkend="table18.1">Table 18.1</link>.
 </para>
 </sect1>

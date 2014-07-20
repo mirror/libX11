@@ -57,7 +57,7 @@ The
 <firstterm>modifiers</firstterm>
 <indexterm significance="preferred" zone="modifiers">
 <primary>modifiers</primary></indexterm>
- are
+are
 <symbol>Shift</symbol>,
 <symbol>Lock</symbol>,
 <symbol>Control</symbol>,
@@ -110,7 +110,7 @@ Changing to a different group changes the keyboard state to produce characters f
 <para>
 The
 <firstterm>pointer buttons</firstterm>
- are
+are
 <symbol>Button1</symbol>
 &ndash;
 <symbol>Button5</symbol>,
@@ -125,13 +125,13 @@ The
 <primary>base group</primary></indexterm>
 <indexterm significance="preferred" zone="base_group">
 <primary>group</primary><secondary>base</secondary></indexterm>
- and
+and
 <firstterm>base modifiers</firstterm>
 <indexterm significance="preferred" zone="base_group">
 <primary>base modifiers</primary></indexterm>
 <indexterm significance="preferred" zone="base_group">
 <primary>modifiers</primary><secondary>base</secondary></indexterm>
- represent keys that are physically or logically down. These
+represent keys that are physically or logically down. These
 and the pointer buttons can be changed by keyboard activity and
 not by Xkb requests. It is possible for a key to be logically
 down, but not physically down, and neither latched nor locked.
@@ -151,7 +151,7 @@ The
 <primary>effective modifiers</primary></indexterm>
 <indexterm significance="preferred" zone="effective_modifiers">
 <primary>modifiers</primary><secondary>effective</secondary></indexterm>
- are the bitwise union of the locked, latched, and the base modifiers.
+are the bitwise union of the locked, latched, and the base modifiers.
 </para>
 
 
@@ -162,7 +162,7 @@ The
 <primary>effective group</primary></indexterm>
 <indexterm significance="preferred" zone="effective_group">
 <primary>group</primary><secondary>effective</secondary></indexterm>
- is the arithmetic sum of the group indices of the latched group, locked group, and base group, which is then normalized by some function. The result is a meaningful group index.
+is the arithmetic sum of the group indices of the latched group, locked group, and base group, which is then normalized by some function. The result is a meaningful group index.
 </para>
 
 <simplelist type='vert' columns='1'>
@@ -192,17 +192,17 @@ There are two circumstances under which groups are normalized:
   <listitem><para>
 The global locked or effective group changes. In this case, the changed group is normalized into range according to the settings of the
 <structfield>groups_wrap</structfield>
- field of the
+field of the
 <structname>XkbControlsRec</structname>
- structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
+structure for the keyboard (see <link linkend="The_GroupsWrap_Control">section 10.7.1</link>).
   </para></listitem>
   <listitem><para>
 
 The Xkb library is interpreting an event with an effective group that is legal for the keyboard as a whole, but not for the key in question. In this case, the group to use for this event only is determined using the
 <structfield>group_info</structfield>
- field of the key symbol mapping
+field of the key symbol mapping
 (<structname>XkbSymMapRec</structname>)
- for the event key.
+for the event key.
   </para></listitem>
 </orderedlist>
 
@@ -221,7 +221,7 @@ A client that does explicitly call Xkb functions is an
 <firstterm>Xkb-aware</firstterm>
 <indexterm significance="preferred" zone="Xkb-aware">
 <primary>Xkb-aware client</primary></indexterm>
- client. The Xkb keyboard state includes information derived from the effective state and from two server parameters that can be set through the keyboard extension. The following components of keyboard state pertain to Xkb-capable and Xkb-aware clients:
+client. The Xkb keyboard state includes information derived from the effective state and from two server parameters that can be set through the keyboard extension. The following components of keyboard state pertain to Xkb-capable and Xkb-aware clients:
 </para>
 
 <itemizedlist>
@@ -244,17 +244,17 @@ The
 <primary>lookup modifiers</primary></indexterm>
 <indexterm significance="preferred" zone="lookup_state">
 <primary>modifiers</primary><secondary>lookup</secondary></indexterm>
- and
+and
 <firstterm>lookup group</firstterm>
 <indexterm significance="preferred" zone="lookup_state">
 <primary>lookup group</primary></indexterm>
 <indexterm significance="preferred" zone="lookup_state">
 <primary>group</primary><secondary>lookup</secondary></indexterm>
- are represented in the state field of core X events. The modifier state and keycode of a key event are used to determine the symbols associated with the event. For
+are represented in the state field of core X events. The modifier state and keycode of a key event are used to determine the symbols associated with the event. For
 <symbol>KeyPress</symbol>
- and
+and
 <symbol>KeyRelease</symbol>
- events, the lookup modifiers are computed as:
+events, the lookup modifiers are computed as:
 
 <literallayout>   ((base | latched | locked) &amp; ~<emphasis>server_internal_modifiers</emphasis>)</literallayout>
 </para>
@@ -277,7 +277,7 @@ When an Xkb-capable or Xkb-aware client wishes to map a keycode to a keysym, it 
 <primary>lookup state</primary></indexterm>
 <indexterm significance="preferred" zone="lookup_state">
 <primary>state</primary><secondary>lookup</secondary></indexterm>
- — the lookup group and the lookup modifiers.
+— the lookup group and the lookup modifiers.
 </para>
 
 
@@ -288,19 +288,19 @@ The
 <primary>grab state</primary></indexterm>
 <indexterm significance="preferred" zone="grab_state">
 <primary>state</primary><secondary>grab</secondary></indexterm>
- is the state used when matching events to passive grabs. If the event activates a grab, the
+is the state used when matching events to passive grabs. If the event activates a grab, the
 <firstterm>grab modifiers</firstterm>
 <indexterm significance="preferred" zone="grab_state">
 <primary>grab modifiers</primary></indexterm>
 <indexterm significance="preferred" zone="grab_state">
 <primary>modifiers</primary><secondary>grab</secondary></indexterm>
- and
+and
 <firstterm>grab group</firstterm>
 <indexterm significance="preferred" zone="grab_state">
 <primary>grab group</primary></indexterm>
 <indexterm significance="preferred" zone="grab_state">
 <primary>group</primary><secondary>grab</secondary></indexterm>
- are represented in the state field of core X events; otherwise, the lookup state is used. The grab modifiers are computed as:
+are represented in the state field of core X events; otherwise, the lookup state is used. The grab modifiers are computed as:
 
 <literallayout>   (((base | latched | (locked &amp; ~ignore_locks)) &amp; ~server_internal_modifiers)</literallayout>
 </para>
@@ -308,7 +308,7 @@ The
 <para>
 If the server’s
 <emphasis>IgnoreGroupLock</emphasis>
- control (see <link linkend="The_IgnoreGroupLock_Control">section 10.7.3</link>) is not set, the grab group is the same as the effective group. Otherwise, the grab group is computed from the base group and latched group, ignoring the locked group.
+control (see <link linkend="The_IgnoreGroupLock_Control">section 10.7.3</link>) is not set, the grab group is the same as the effective group. Otherwise, the grab group is computed from the base group and latched group, ignoring the locked group.
 </para>
 
 
@@ -462,20 +462,20 @@ To lock and unlock any of the eight real keyboard modifiers, use
 
 <para>
 <function>XkbLockModifiers</function>
- sends a request to the server to lock the real modifiers selected by both
+sends a request to the server to lock the real modifiers selected by both
 <parameter>affect</parameter>
- and
+and
 <parameter>values</parameter>
- and to unlock the real modifiers selected by
+and to unlock the real modifiers selected by
 <parameter>affect</parameter>
- but not selected by
+but not selected by
 <parameter>values</parameter>.
 <function>XkbLockModifiers</function>
- does not wait for a reply from the server. It returns
+does not wait for a reply from the server. It returns
 <symbol>True</symbol>
- if the request was sent, and
+if the request was sent, and
 <symbol>False</symbol>
- otherwise.
+otherwise.
 </para>
 
 
@@ -544,20 +544,20 @@ To latch and unlatch any of the eight real keyboard modifiers, use
 
 <para>
 <function>XkbLatchModifiers</function>
- sends a request to the server to latch the real modifiers selected by both
+sends a request to the server to latch the real modifiers selected by both
 <parameter>affect</parameter>
- and
+and
 <parameter>values</parameter>
- and to unlatch the real modifiers selected by
+and to unlatch the real modifiers selected by
 <parameter>affect</parameter>
- but not selected by
+but not selected by
 <parameter>values</parameter>.
 <function>XkbLatchModifiers</function>
- does not wait for a reply from the server. It returns
+does not wait for a reply from the server. It returns
 <symbol>True</symbol>
- if the request was sent, and
+if the request was sent, and
 <symbol>False</symbol>
- otherwise.
+otherwise.
 </para>
 
 
@@ -658,13 +658,13 @@ To lock the keysym group, use
 
 <para>
 <function>XkbLockGroup</function>
- sends a request to the server to lock the specified
+sends a request to the server to lock the specified
 <parameter>group</parameter>
 and does not wait for a reply. It returns
 <symbol>True</symbol>
- if the request was sent and
+if the request was sent and
 <symbol>False</symbol>
- otherwise.
+otherwise.
 </para>
 
 
@@ -722,11 +722,11 @@ To latch the keysym group, use
 
 <para>
 <function>XkbLatchGroup</function>
- sends a request to the server to latch the specified group and does not wait for a reply. It returns
+sends a request to the server to latch the specified group and does not wait for a reply. It returns
 <symbol>True</symbol>
- if the request was sent and
+if the request was sent and
 <symbol>False</symbol>
- otherwise.
+otherwise.
 </para>
 
 
@@ -741,7 +741,7 @@ To latch the keysym group, use
 <para>
 Xkb keyboard state may be represented in an
 <structname>XkbStateRec</structname>
- structure:
+structure:
 
 <programlisting>
 typedef struct {
@@ -823,7 +823,7 @@ The
 <function>XkbGetState</function>
 function queries the server for the current keyboard state, waits for a reply, and then backfills
 <parameter>state_return</parameter>
- with the results.
+with the results.
 </para>
 
 
@@ -846,7 +846,7 @@ The Xkb extension reports
 <symbol>XkbStateNotify</symbol>
 events to clients wanting notification whenever the Xkb state changes. The changes reported include changes to any aspect of the keyboard state: when a modifier is set or unset, when the current group changes, or when a pointer button is pressed or released. As with all Xkb events,
 <symbol>XkbStateNotify</symbol>
- events are reported to all interested clients without regard to the current keyboard input focus or grab state.
+events are reported to all interested clients without regard to the current keyboard input focus or grab state.
 </para>
 
 
@@ -936,24 +936,24 @@ listed in <link linkend="table5.3">Table 5.3</link>.
 <para>
 To track changes in the keyboard state for a particular device, select to receive
 <symbol>XkbStateNotify</symbol>
- events by calling either
+events by calling either
 <function>XkbSelectEvents</function>
- or
+or
 <function>XkbSelectEventDetails</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
+(see <link linkend="Selecting_Xkb_Events">section 4.3</link>).
 </para>
 
 
 <para>
 To receive
 <symbol>XkbStateNotify</symbol>
- events under all possible conditions, use
+events under all possible conditions, use
 <function>XkbSelectEvents</function>
- and pass
+and pass
 <symbol>XkbStateNotifyMask</symbol>
- in both
+in both
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>.
 </para>
 
@@ -961,24 +961,24 @@ To receive
 <para>
 To receive
 <symbol>XkbStateNotify</symbol>
- events only under certain conditions, use
+events only under certain conditions, use
 <function>XkbSelectEventDetails</function>
- using
+using
 <symbol>XkbStateNotify</symbol>
- as the
+as the
 <structfield>event_type</structfield>
- and specifying the desired state changes in
+and specifying the desired state changes in
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- using mask bits from <link linkend="table5.3">Table 5.3</link>.
+using mask bits from <link linkend="table5.3">Table 5.3</link>.
 </para>
 
 
 <para>
 The structure for
 <symbol>XkbStateNotify</symbol>
- events is:
+events is:
 
 <programlisting>
 typedef struct {
@@ -1019,32 +1019,32 @@ typedef struct {
 <para>
 When you receive an
 <symbol>XkbStateNotify</symbol>
- event, the
+event, the
 <structfield>changed</structfield>
- field indicates which elements of keyboard state have changed.
+field indicates which elements of keyboard state have changed.
 This will be the bitwise inclusive OR of one or more of the
 <symbol>XkbStateNotify</symbol>
- event detail masks shown in <link linkend="table5.3">Table 5.3</link>.
- All fields reported in the event are valid, but only those indicated in
+event detail masks shown in <link linkend="table5.3">Table 5.3</link>.
+All fields reported in the event are valid, but only those indicated in
 <structfield>changed</structfield>
- have changed values.
+have changed values.
 </para>
 
 
 <para>
 The
 <structfield>group</structfield>
- field is the group index of the effective keysym group. The
+field is the group index of the effective keysym group. The
 <structfield>base_group</structfield>,
 <structfield>latched_group</structfield>,
 and
 <structfield>locked_group</structfield>
- fields are set to a group index value representing the base group,
+fields are set to a group index value representing the base group,
 the latched group, and the locked group, respectively. The X
 server can set the modifier and compatibility state fields to
 a union of the core modifier mask bits; this union represents the
 corresponding modifier states. The <structfield>ptr_buttons</structfield>
- field gives the state of the core pointer buttons as a
+field gives the state of the core pointer buttons as a
 mask composed of an inclusive OR of zero or more of the
 core pointer button masks.
 </para>
@@ -1055,26 +1055,26 @@ Xkb state changes can occur either in response to keyboard
 activity or under application control. If a key event
 caused the state change, the
 <structfield>keycode</structfield>
- field gives the keycode of the key event, and the
+field gives the keycode of the key event, and the
 <structfield>event_type</structfield>
- field is set to either <symbol>KeyPress</symbol>
- or
+field is set to either <symbol>KeyPress</symbol>
+or
 <symbol>KeyRelease</symbol>.
 If a pointer button event caused the state change, the
 <structfield>keycode</structfield>
- field is zero, and the <structfield>event_type</structfield>
- field is set to either <symbol>ButtonPress</symbol>
- or <symbol>ButtonRelease</symbol>.
+field is zero, and the <structfield>event_type</structfield>
+field is set to either <symbol>ButtonPress</symbol>
+or <symbol>ButtonRelease</symbol>.
 Otherwise, the major and minor codes of the request that caused the
 state change are given in the
 <structfield>req_major</structfield>
- and
+and
 <structfield>req_minor</structfield>
- fields, and the
+fields, and the
 <structfield>keycode</structfield>
- field is zero. The
+field is zero. The
 <structfield>req_major</structfield>
- value is the same as the major extension opcode.
+value is the same as the major extension opcode.
 </para>
 </sect1>
 </chapter>

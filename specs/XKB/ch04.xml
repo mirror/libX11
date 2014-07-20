@@ -31,14 +31,14 @@ The X server reports the events defined by the Xkb extension to your client
 application only if you have requested them. You may request Xkb events by
 calling either
 <function>XkbSelectEvents</function>
- or
+or
 <function>XkbSelectEventDetails</function>.
 <function>XkbSelectEvents</function>
- requests Xkb events by their event type and causes them to be reported to your
+requests Xkb events by their event type and causes them to be reported to your
 client application under all circumstances. You can specify a finer granularity
 for event reporting by using
 <function>XkbSelectEventDetails</function>;
- in this case events are reported only when the specific detail conditions you
+in this case events are reported only when the specific detail conditions you
 specify have been met.
 </para>
 
@@ -49,17 +49,17 @@ specify have been met.
 The Xkb Extension adds new event types to the X protocol definition. An Xkb
 event type is defined by two fields in the X event data structure. One is the
 <structfield>type</structfield>
- field, containing the
+field, containing the
 <emphasis>base event code</emphasis>.
- This base event code is a value the X server assigns to each X extension at
+This base event code is a value the X server assigns to each X extension at
 runtime and that identifies the extension that generated the event; thus, the
 event code in the
 <structfield>type</structfield>
- field identifies the event as an Xkb extension event, rather than an event
+field identifies the event as an Xkb extension event, rather than an event
 from another extension or a core X protocol event. You can obtain the base
 event code via a call to
 <function>XkbQueryExtension</function>
- or
+or
 <function>XkbOpenDisplay</function>.
 The second field is the Xkb event type, which contains a value uniquely
 identifying each different Xkb event type. Possible values are defined by
@@ -171,7 +171,7 @@ Xkb events have certain things in common. These common features are contained
 in the same fields at the beginning of all Xkb event structures and are
 described in the
 <structname>XkbAnyEvent</structname>
- structure:
+structure:
 
 <programlisting>
 typedef struct {
@@ -188,22 +188,22 @@ typedef struct {
 <para>
 For any Xkb event, the
 <structfield>type</structfield>
- field is set to the base event code for the Xkb extension, assigned by the
+field is set to the base event code for the Xkb extension, assigned by the
 server to all Xkb extension events. The
 <structfield>serial</structfield>,
 <structfield>send_event</structfield>,
 and
 <structfield>display</structfield>
- fields are as described for all X11 events. The
+fields are as described for all X11 events. The
 <structfield>time</structfield>
- field is set to the time when the event was generated and is expressed in
+field is set to the time when the event was generated and is expressed in
 milliseconds. The
 <structfield>xkb_type</structfield>
- field contains the minor extension event code, which is the extension event
+field contains the minor extension event code, which is the extension event
 type, and is one of the values listed in
 <link linkend="table4.1">Table 4.1</link>. The
 <structfield>device</structfield>
- field contains the keyboard device identifier associated with the event. This
+field contains the keyboard device identifier associated with the event. This
 is never
 <symbol>XkbUseCoreKbd</symbol>,
 even if the request that generated the event specified a device of
@@ -211,10 +211,10 @@ even if the request that generated the event specified a device of
 If the request that generated the event specified
 <symbol>XkbUseCoreKbd</symbol>,
 <structfield>device</structfield>
- contains a value assigned by the server to specify the core keyboard. If the
+contains a value assigned by the server to specify the core keyboard. If the
 request that generated the event specified an X input extension device,
 <structfield>device</structfield>
- contains that same identifier.
+contains that same identifier.
 </para>
 
 
@@ -258,15 +258,15 @@ same granularity.
 <para>
 Xkb provides two functions to select and deselect delivery of Xkb events.
 <function>XkbSelectEvents</function>
- allows you to select or deselect delivery of more than one Xkb event type at
+allows you to select or deselect delivery of more than one Xkb event type at
 once. Events selected using
 <function>XkbSelectEvents</function>
- are delivered to your program under all circumstances that generate the
+are delivered to your program under all circumstances that generate the
 events. To restrict delivery of an event to a subset of the conditions under
 which it occurs, use
 <function>XkbSelectEventDetails</function>.
 <function>XkbSelectEventDetails</function>
- only allows you to change the selection conditions for a single event at a
+only allows you to change the selection conditions for a single event at a
 time, but it provides a means of fine-tuning the conditions under which the
 event is delivered.
 </para>
@@ -344,21 +344,21 @@ This request changes the Xkb event selection mask for the keyboard specified by
 <para>
 Each Xkb event that can be selected is represented by a bit in the
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- masks. Only the event selection bits specified by the
+masks. Only the event selection bits specified by the
 <parameter>bits_to_change</parameter>
- parameter are affected; any unspecified bits are left unchanged. To turn on
+parameter are affected; any unspecified bits are left unchanged. To turn on
 event selection for an event, set the bit for the event in the
 <parameter>bits_to_change</parameter>
- parameter and set the corresponding bit in the
+parameter and set the corresponding bit in the
 <parameter>values_for_bits</parameter>
- parameter. To turn off event selection for an event, set the bit for the event
+parameter. To turn off event selection for an event, set the bit for the event
 in the
 <parameter>bits_to_change</parameter>
- parameter and do not set the corresponding bit in the
+parameter and do not set the corresponding bit in the
 <parameter>values_for_bits</parameter>
- parameter. The valid values for both of these parameters are an inclusive
+parameter. The valid values for both of these parameters are an inclusive
 bitwise OR of the masks shown in <link linkend="table4.2">Table 4.2</link>.
 There is no interface to return
 your client’s current event selection mask. Clients cannot set other
@@ -369,17 +369,17 @@ clients’ event selection masks.
 <para>
 If a bit is not set in the
 <parameter>bits_to_change</parameter>
- parameter, but the corresponding bit is set in the
+parameter, but the corresponding bit is set in the
 <parameter>values_for_bits</parameter>
- parameter, a
+parameter, a
 <errorname>BadMatch</errorname>
- protocol error results. If an undefined bit is set in either the
+protocol error results. If an undefined bit is set in either the
 <parameter>bits_to_change</parameter>
- or the
+or the
 <parameter>values_for_bits</parameter>
- parameter, a
+parameter, a
 <errorname>BadValue</errorname>
- protocol error results.
+protocol error results.
 </para>
 
 
@@ -393,11 +393,11 @@ clear them via another call to
 
 <para>
 <function>XkbSelectEvents</function>
- returns
+returns
 <symbol>False</symbol>
- if the Xkb extension has not been initialized and
+if the Xkb extension has not been initialized and
 <symbol>True</symbol>
- otherwise.
+otherwise.
 </para>
 
 
@@ -483,60 +483,60 @@ Xkb events with
 <para>
 While
 <function>XkbSelectEvents</function>
- allows multiple events to be selected,
+allows multiple events to be selected,
 <function>XkbSelectEventDetails</function>
- changes the selection criteria for a single type of Xkb event. The
+changes the selection criteria for a single type of Xkb event. The
 interpretation of the
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- masks depends on the event type in question.
+masks depends on the event type in question.
 </para>
 
 
 <para>
 <function>XkbSelectEventDetails</function>
- changes the Xkb event selection mask for the keyboard specified by
+changes the Xkb event selection mask for the keyboard specified by
 <parameter>device_spec</parameter>
- and the Xkb event specified by
+and the Xkb event specified by
 <parameter>event_type</parameter>.
 To turn on event selection for an event detail, set the bit for the detail in
 the
 <parameter>bits_to_change</parameter>
- parameter and set the corresponding bit in the
+parameter and set the corresponding bit in the
 <parameter>values_for_bits</parameter>
- parameter. To turn off event detail selection for a detail, set the bit for
+parameter. To turn off event detail selection for a detail, set the bit for
 the detail in the
 <parameter>bits_to_change</parameter>
- parameter and do not set the corresponding bit in the
+parameter and do not set the corresponding bit in the
 <parameter>values_for_bits</parameter>
- parameter.
+parameter.
 </para>
 
 
 <para>
 If an invalid event type is specified, a
 <errorname>BadValue</errorname>
- protocol error results. If a bit is not set in the
+protocol error results. If a bit is not set in the
 <parameter>bits_to_change</parameter>
- parameter, but the corresponding bit is set in the
+parameter, but the corresponding bit is set in the
 <parameter>values_for_bits</parameter>
- parameter, a
+parameter, a
 <errorname>BadMatch</errorname>
- protocol error results. If an undefined bit is set in either the
+protocol error results. If an undefined bit is set in either the
 <parameter>bits_to_change</parameter>
- or the
+or the
 <parameter>values_for_bits</parameter>
- parameter, a
+parameter, a
 <errorname>BadValue</errorname>
- protocol error results.
+protocol error results.
 </para>
 
 
 <para>
 For each type of Xkb event, the legal event details that you can specify in the
 <function>XkbSelectEventDetails</function>
- request are listed in the chapters that describe each event in detail.
+request are listed in the chapters that describe each event in detail.
 </para>
 
 
@@ -547,7 +547,7 @@ For each type of Xkb event, the legal event details that you can specify in the
 The X server reports the events defined by Xkb to your client application only
 if you have requested them via a call to
 <function>XkbSelectEvents</function>
- or
+or
 <function>XkbSelectEventDetails</function>.
 Specify the event types in which you are interested in a mask, as described
 in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
@@ -556,9 +556,9 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 
 <para>
 <link linkend="table4.2">Table 4.2</link>
- lists the event mask constants that can be specified with the
+lists the event mask constants that can be specified with the
 <function>XkbSelectEvents</function>
- request and the circumstances in which the mask should be specified.
+request and the circumstances in which the mask should be specified.
 </para>
 
 <table id='table4.2' frame='topbot'>
@@ -683,19 +683,19 @@ in <link linkend="Selecting_Xkb_Events">section 4.3</link>.
 <para>
 The
 <structname>XkbEvent</structname>
- structure is a union of the individual structures declared for each Xkb event
+structure is a union of the individual structures declared for each Xkb event
 type and for the core protocol
 <structname>XEvent</structname>
- type. Given an
+type. Given an
 <structname>XkbEvent</structname>
- structure, you may use the
+structure, you may use the
 <structfield>type</structfield>
- field to determine if the event is an Xkb event
+field to determine if the event is an Xkb event
 (<structfield>type</structfield>
- equals the Xkb base event code; see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>). If the event is an Xkb
+equals the Xkb base event code; see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>). If the event is an Xkb
 event, you may then use the
 <structfield>any.xkb_type</structfield>
- field to determine the type of Xkb event and thereafter access the
+field to determine the type of Xkb event and thereafter access the
 event-dependent components using the union member corresponding to the
 particular Xkb event type.
 </para>
@@ -722,12 +722,12 @@ typedef union _XkbEvent {
 <para>
 This unified Xkb event type includes a normal
 <structname>XEvent</structname>
- as used by the core protocol, so it is straightforward for applications that
+as used by the core protocol, so it is straightforward for applications that
 use Xkb events to call the X library event functions without having to cast
 every reference. For example, to get the next event, you can simply declare a
 variable of type
 <structname>XkbEvent</structname>
- and call:
+and call:
 
 <programlisting>XNextEvent(dpy,&amp;xkbev.core);</programlisting>
 </para>

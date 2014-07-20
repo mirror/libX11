@@ -24,9 +24,9 @@ input extension keyboard device as the X keyboard, in which case the old X
 keyboard device becomes inaccessible except via the input device extension. In
 this case, core protocol
 <symbol>MappingNotify</symbol>
- and input extension
+and input extension
 <symbol>XChangeDeviceNotify</symbol>
- events are generated to notify all clients that a new keyboard with a new
+events are generated to notify all clients that a new keyboard with a new
 keymap has been designated.
 </para>
 
@@ -43,14 +43,14 @@ for the client.
 <para>
 Xkb provides an
 <symbol>XkbNewKeyboardNotify</symbol>
- event that reports a change in keyboard geometry and/or the range of supported
+event that reports a change in keyboard geometry and/or the range of supported
 keycodes. The server can generate an
 <symbol>XkbNewKeyboardNotify</symbol>
- event when it detects a new keyboard or in response to an
+event when it detects a new keyboard or in response to an
 <function>XkbGetKeyboardByName</function>
- request that loads a new keyboard description. Selecting for
+request that loads a new keyboard description. Selecting for
 <symbol>XkbNewKeyboardNotify</symbol>
- events allows Xkb-aware clients to be notified whenever a keyboard change
+events allows Xkb-aware clients to be notified whenever a keyboard change
 occurs that may affect the keymap.
 </para>
 
@@ -58,11 +58,11 @@ occurs that may affect the keymap.
 <para>
 When a client requests
 <symbol>XkbNewKeyboardNotify</symbol>
- events, the server compares the range of keycodes for the current keyboard to
+events, the server compares the range of keycodes for the current keyboard to
 the range of keycodes that are valid for the client. If they are not the same,
 the server immediately sends the client an
 <symbol>XkbNewKeyboardNotify</symbol>
- event. Even if the <quote>new</quote> keyboard is not new to the server,
+event. Even if the <quote>new</quote> keyboard is not new to the server,
 it is new to this particular client.
 </para>
 
@@ -70,14 +70,14 @@ it is new to this particular client.
 <para>
 When the server sends an
 <symbol>XkbNewKeyboardNotify</symbol>
- event to a client to inform it of a new keycode range, it resets the stored
+event to a client to inform it of a new keycode range, it resets the stored
 range of legal keycodes for the client to the keycode range reported in the
 event; it does not reset this range for the client if it does not sent an
 <symbol>XkbNewKeyboardNotify</symbol>
- event to a client. Because Xkb-unaware clients and Xkb-aware clients that do
+event to a client. Because Xkb-unaware clients and Xkb-aware clients that do
 not request
 <symbol>XkbNewKeyboardNotify</symbol>
- events are never sent these events, the server’s notion of the legal keycode
+events are never sent these events, the server’s notion of the legal keycode
 range never changes, and these clients never receive events from keys that fall
 outside of their notion of the legal keycode range.
 </para>
@@ -86,9 +86,9 @@ outside of their notion of the legal keycode range.
 <para>
 Clients that have not selected to receive
 <symbol>XkbNewKeyboardNotify</symbol>
- events do, however, receive the
+events do, however, receive the
 <symbol>XkbNewKeyboardNotify</symbol>
- event when a keyboard change occurs. Clients that have not selected to receive
+event when a keyboard change occurs. Clients that have not selected to receive
 this event also receive numerous other events detailing the individual changes
 that occur when a keyboard change occurs.
 </para>
@@ -97,19 +97,19 @@ that occur when a keyboard change occurs.
 <para>
 Clients wishing to track changes in
 <structfield>min_key_code</structfield>
- and
+and
 <structfield>max_key_code</structfield>
- must watch for both
+must watch for both
 <symbol>XkbNewKeyboardNotify</symbol>
- and
+and
 <symbol>XkbMapNotify</symbol>
- events, because a simple mapping change causes an
+events, because a simple mapping change causes an
 <symbol>XkbMapNotify</symbol>
- event and may change the range of valid keycodes, but does not cause an
+event and may change the range of valid keycodes, but does not cause an
 <symbol>XkbNewKeyboardNotify</symbol>
- event. If a client does not select for
+event. If a client does not select for
 <symbol>XkbNewKeyboardNotify</symbol>
- events, the server restricts the range of keycodes reported to the client.
+events, the server restricts the range of keycodes reported to the client.
 </para>
 
 
@@ -122,7 +122,7 @@ In addition to filtering out-of-range key events, Xkb:
   <para>
 Adjusts core protocol
 <symbol>MappingNotify</symbol>
- events to refer only to keys that match the stored legal range.
+events to refer only to keys that match the stored legal range.
   </para>
 </listitem>
 <listitem>
@@ -130,7 +130,7 @@ Adjusts core protocol
 Reports keyboard mappings for keys that match the stored legal range to clients
 that issue a core protocol
 <systemitem>GetKeyboardMapping</systemitem>
- request.
+request.
   </para>
 </listitem>
 <listitem>
@@ -138,16 +138,16 @@ that issue a core protocol
 Reports modifier mappings only for keys that match the stored legal range to
 clients that issue a core protocol
 <systemitem>GetModifierMapping</systemitem>
- request.
+request.
   </para>
 </listitem>
 <listitem>
   <para>
 Restricts the core protocol
 <systemitem>ChangeKeyboardMapping</systemitem>
- and
+and
 <systemitem>SetModifierMapping</systemitem>
- requests to keys that fall inside the stored legal range.
+requests to keys that fall inside the stored legal range.
   </para>
 </listitem>
 </itemizedlist>
@@ -168,7 +168,7 @@ Xkb events are discarded, and no Xkb requests have their keycode range clamped.
 <para>
 The structure for the
 <symbol>XkbNewKeyboardNotify</symbol>
- event is defined as follows:
+event is defined as follows:
 
 <programlisting>
 typedef struct _XkbNewKeyboardNotify {
@@ -193,23 +193,23 @@ typedef struct _XkbNewKeyboardNotify {
 <para>
 To receive name notify events, use
 <function>XkbSelectEvents</function>
- (see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
+(see <link linkend="Selecting_Xkb_Events">section 4.3</link>) with
 <symbol>XkbNewKeyboardNotifyMask</symbol>
- in both the
+in both the
 <parameter>bits_to_change</parameter>
- and
+and
 <parameter>values_for_bits</parameter>
- parameters. To receive events for only specific names, use
+parameters. To receive events for only specific names, use
 <function>XkbSelectEventDetails</function>.
 Set the
 <structfield>event_type</structfield>
- parameter to
+parameter to
 <symbol>XkbNewKeyboardNotify</symbol>,
 and set both the
 <parameter>bits_to_change</parameter>
 and
 <parameter>values_for_bits</parameter>
- detail parameter to a mask composed of a bitwise OR of masks in
+detail parameter to a mask composed of a bitwise OR of masks in
 <link linkend="table19.1">Table 19.1</link>.
 </para>
 
@@ -255,33 +255,33 @@ and
 <para>
 The
 <structfield>req_major</structfield>
- and
+and
 <structfield>req_minor</structfield>
- fields indicate what type of keyboard change has occurred.
+fields indicate what type of keyboard change has occurred.
 </para>
 
 
 <para>
 If
 <structfield>req_major</structfield>
- and
+and
 <structfield>req_minor</structfield>
- are zero, the device change was not caused by a software request to the server
+are zero, the device change was not caused by a software request to the server
 — a spontaneous change has occurred, such as hot-plugging a new device. In
 this case,
 <structfield>device</structfield>
- is the device identifier for the new, current X keyboard device, but no
+is the device identifier for the new, current X keyboard device, but no
 implementation-independent guarantee can be made about
 <structfield>old_device</structfield>.
 <structfield>old_device</structfield>
- may be identical to
+may be identical to
 <structfield>device</structfield>
- (an implementor is permitted to reuse the device specifier when the device
+(an implementor is permitted to reuse the device specifier when the device
 changes); or it may be different. Note that
 <structfield>req_major</structfield>
- and
+and
 <structfield>req_minor</structfield>
- being zero do not necessarily mean that the physical keyboard device has
+being zero do not necessarily mean that the physical keyboard device has
 changed; rather, they only imply a spontaneous change outside of software
 control (some systems have keyboards that can change personality at the press
 of a key).
@@ -291,40 +291,40 @@ of a key).
 <para>
 If the keyboard change is the result of an X Input Extension
 <systemitem>ChangeKeyboardDevice</systemitem>
- request,
+request,
 <structfield>req_major</structfield>
- contains the input extension major opcode, and
+contains the input extension major opcode, and
 <structfield>req_minor</structfield>
- contains the input extension request number for
+contains the input extension request number for
 <symbol>X_ChangeKeyboardDevice</symbol>.
 In this case,
 <structfield>device</structfield>
- and
+and
 <structfield>old_device</structfield>
- are different, with
+are different, with
 <structfield>device</structfield>
- being the identifier for the new, current X keyboard device, and
+being the identifier for the new, current X keyboard device, and
 <structfield>old_device</structfield>
- being the identifier for the former device.
+being the identifier for the former device.
 </para>
 
 
 <para>
 If the keyboard change is the result of an
 <function>XkbGetKeyboardByName</function>
- function call, which generates an
+function call, which generates an
 <symbol>X_kbGetKbdByName</symbol>
- request,
+request,
 <structfield>req_major</structfield>
- contains the Xkb extension base event code (see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>), and
+contains the Xkb extension base event code (see <link linkend="Initializing_the_Keyboard_Extension">section 2.4</link>), and
 <structfield>req_minor</structfield>
- contains the event code for the Xkb extension request
+contains the event code for the Xkb extension request
 <symbol>X_kbGetKbdByName</symbol>.
 <structfield>device</structfield>
- contains the device identifier for the new device, but nothing definitive can
+contains the device identifier for the new device, but nothing definitive can
 be said for
 <structfield>old_device</structfield>;
- it may be identical to
+it may be identical to
 <structfield>device</structfield>,
 or it may be different, depending on the implementation.
 </para>

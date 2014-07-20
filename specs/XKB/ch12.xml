@@ -16,10 +16,10 @@ several core X library functions.
 <para>
 When support for Xkb is built into the X library, the
 <function>XOpenDisplay</function>
- function looks for a compatible version of Xkb on the server. If it finds a
+function looks for a compatible version of Xkb on the server. If it finds a
 compatible version, it initializes the extension and enables
 <firstterm>implicit support</firstterm>
- for Xkb in a number of X library functions. This makes it possible for clients
+for Xkb in a number of X library functions. This makes it possible for clients
 to take advantage of nearly all Xkb features without having to be rewritten or
 even recompiled, if they are built with shared libraries. This implicit support
 is invisible to most clients, but it can have side effects, so the extension
@@ -33,7 +33,7 @@ includes ways to control or disable it.
 <para>
 Because
 <function>XOpenDisplay</function>
- initializes Xkb, some events contain an Xkb description of the keyboard state
+initializes Xkb, some events contain an Xkb description of the keyboard state
 instead of that normally used by the core protocol. See <link linkend="Xkb_State_to_Core_Protocol_State_Transformation">section 17.1.1</link> for more
 information about the differences between Xkb keyboard state and that reported
 by the core protocol.
@@ -51,46 +51,46 @@ by the core protocol.
 When Xkb is missing or disabled, the X library tracks changes to the keyboard
 mapping using
 <symbol>MappingNotify</symbol>
- events. Whenever the keyboard mapping is changed, the server sends all clients
+events. Whenever the keyboard mapping is changed, the server sends all clients
 a
 <symbol>MappingNotify</symbol>
- event to report the change. When a client receives a
+event to report the change. When a client receives a
 <symbol>MappingNotify</symbol>
- event, it is supposed to call
+event, it is supposed to call
 <function>XRefreshKeyboardMapping</function>
- to update the keyboard description used internally by the X library.
+to update the keyboard description used internally by the X library.
 </para>
 
 
 <para>
 The X Keyboard Extension uses
 <symbol>XkbMapNotify</symbol>
- and
+and
 <symbol>XkbNewKeyboardNotify</symbol>
- events to track changes to the keyboard mapping. When an Xkb-aware client
+events to track changes to the keyboard mapping. When an Xkb-aware client
 receives either event, it should call
 <function>XkbRefreshKeyboardMapping</function>
- to update the keyboard description used internally by the X library. To avoid
+to update the keyboard description used internally by the X library. To avoid
 duplicate events, the X server does not send core protocol
 <symbol>MappingNotify</symbol>
- events to a client that has selected for
+events to a client that has selected for
 <symbol>XkbMapNotify</symbol>
- events.
+events.
 </para>
 
 
 <para>
 The implicit support for Xkb selects for
 <symbol>XkbMapNotify</symbol>
- events. This means that clients that do not explicitly use Xkb but that are
+events. This means that clients that do not explicitly use Xkb but that are
 using a version of the X library that has implicit support for Xkb do not
 receive
 <symbol>MappingNotify</symbol>
- events over the wire. Clients that were not written with Xkb in mind do not
+events over the wire. Clients that were not written with Xkb in mind do not
 recognize or properly handle the new Xkb events, so the implicit support
 converts them to
 <symbol>MappingNotify</symbol>
- events that report approximately the same information, unless the client has
+events that report approximately the same information, unless the client has
 explicitly selected for the Xkb version of the event.
 </para>
 
@@ -100,18 +100,18 @@ An Xkb-capable X server does not send events from keys that fall outside the
 legal range of keycodes expected by that client. Once the server sends a client
 an
 <symbol>XkbNewKeyboardNotify</symbol>
- event, it reports events from all keys because it assumes that any client that
+event, it reports events from all keys because it assumes that any client that
 has received an
 <symbol>XkbNewKeyboardNotify</symbol>
- event expects key events from the new range of keycodes. The implicit support
+event expects key events from the new range of keycodes. The implicit support
 for Xkb asks for
 <symbol>XkbNewKeyboardNotify</symbol>
- events, so the range of keycodes reported to the client might vary without the
+events, so the range of keycodes reported to the client might vary without the
 client’s knowledge. Most clients don’t really care about the range of legal
 keycodes, but some clients maintain information about each key and might have
 problems with events that come from unexpected keys. Such clients can set the
 <symbol>XkbLC_IgnoreNewKeyboards</symbol>
- library control (see <link linkend="IgnoreNewKeyboards">section 11.3.1</link>) to prevent the implicit support from
+library control (see <link linkend="IgnoreNewKeyboards">section 11.3.1</link>) to prevent the implicit support from
 requesting notification of changes to the legal range of keycodes.
 </para>
 
@@ -147,11 +147,11 @@ clients.
 The
 <olink targetdoc='libX11' targetptr='XKeycodeToKeysym'><function>XKeycodeToKeysym</function></olink>
 <indexterm significance="preferred" zone="XKeycodeToKeysym"><primary><function>XKeycodeToKeysym</function></primary></indexterm>
- function reports the keysym associated with a particular index for a single
+function reports the keysym associated with a particular index for a single
 key. The index specifies a column of symbols in the core keyboard mapping (that
 is, as reported by the core protocol
 <systemitem>GetKeyboardMapping</systemitem>
- request). The order of the symbols in the core mapping does not necessarily
+request). The order of the symbols in the core mapping does not necessarily
 correspond to the order of the symbols used by Xkb; <link linkend="Xkb_Keyboard_Mapping_to_Core_Keyboard_Mapping_Transformations">section 17.1.3</link> describes
 the differences.
 </para>
@@ -161,7 +161,7 @@ the differences.
 The
 <olink targetdoc='libX11' targetptr='XKeysymToKeycode'><function>XKeysymToKeycode</function></olink>
 <indexterm significance="preferred" zone="XKeysymToKeycode"><primary><function>XKeysymToKeycode</function></primary></indexterm>
- function reports a keycode to which a particular keysym is bound. When Xkb is
+function reports a keycode to which a particular keysym is bound. When Xkb is
 missing or disabled, this function looks in each column of the core keyboard
 mapping in turn and returns the lowest numbered key that matches in the lowest
 numbered group. When Xkb is present, this function uses the Xkb ordering for
@@ -173,7 +173,7 @@ symbols instead.
 The
 <olink targetdoc='libX11' targetptr='XLookupKeysym'><function>XLookupKeysym</function></olink>
 <indexterm significance="preferred" zone="XLookupKeysym"><primary><function>XLookupKeysym</function></primary></indexterm>
- function reports the symbol in a specific column of the key associated with an
+function reports the symbol in a specific column of the key associated with an
 event. Whether or not Xkb is present, the column specifies an index into the
 core symbol mapping.
 </para>
@@ -183,20 +183,20 @@ core symbol mapping.
 The
 <olink targetdoc='libX11' targetptr='XLookupString'><function>XLookupString</function></olink>
 <indexterm significance="preferred" zone="XLookupString"><primary><function>XLookupString</function></primary></indexterm>
- function reports the symbol and string associated with a key event, taking
+function reports the symbol and string associated with a key event, taking
 into account the keycode and keyboard state as reported in the event. When Xkb
 is disabled or missing,
 <function>XLookupString</function>
- uses the rules specified by the core protocol and reports only ISO Latin-1
+uses the rules specified by the core protocol and reports only ISO Latin-1
 characters. When Xkb is present,
 <function>XLookupString</function>
- uses the explicit keyboard group, key types, and rules specified by Xkb. When
+uses the explicit keyboard group, key types, and rules specified by Xkb. When
 Xkb is present,
 <function>XLookupString</function>
- is allowed, but not required, to return strings in character sets other than
+is allowed, but not required, to return strings in character sets other than
 ISO Latin-1, depending on the current locale. If any key bindings are defined,
 <function>XLookupString</function>
- does not use any consumed modifiers (see <link linkend="ConsumeLookupMods">section 11.1.2</link> and <link linkend="Key_Types">section 15.2</link>) to
+does not use any consumed modifiers (see <link linkend="ConsumeLookupMods">section 11.1.2</link> and <link linkend="Key_Types">section 15.2</link>) to
 determine matching bindings.
 </para>
 
@@ -205,17 +205,17 @@ determine matching bindings.
 The
 <olink targetdoc='libX11' targetptr='XRefreshKeyboardMapping'><function>XRefreshKeyboardMapping</function></olink>
 <indexterm significance="preferred" zone="XRefreshKeyboardMapping"><primary><function>XRefreshKeyboardMapping</function></primary></indexterm>
- function updates the X library’s internal representation of the keyboard to
+function updates the X library’s internal representation of the keyboard to
 reflect changes reported via
 <symbol>MappingNotify</symbol>
- events. When Xkb is missing or disabled, this function reloads the entire
+events. When Xkb is missing or disabled, this function reloads the entire
 modifier map or keyboard mapping. When Xkb is present, the implicit Xkb support
 keeps track of the changed components reported by each
 <symbol>XkbMapNotify</symbol>
- event and updates only those pieces of the keyboard description that have
+event and updates only those pieces of the keyboard description that have
 changed. If the implicit support has not noted any keyboard mapping changes,
 <function>XRefreshKeyboardMapping</function>
- updates the entire keyboard description.
+updates the entire keyboard description.
 </para>
 
 
@@ -223,13 +223,13 @@ changed. If the implicit support has not noted any keyboard mapping changes,
 The
 <olink targetdoc='libX11' targetptr='XRebindKeysym'><function>XRebindKeysym</function></olink>
 <indexterm significance="preferred" zone="XRebindKeysym"><primary><function>XRebindKeysym</function></primary></indexterm>
- function associates a string with a keysym and a set of modifiers. Xkb does
+function associates a string with a keysym and a set of modifiers. Xkb does
 not directly change this function, but it does affect the way that the state
 reported in the event is compared to the state specified to
 <function>XRebindKeysym</function>.
 When Xkb is missing or disabled,
 <function>XLookupString</function>
- returns the specified string if the modifiers in the event exactly match the
+returns the specified string if the modifiers in the event exactly match the
 modifiers from this call. When Xkb is present, any modifiers used to determine
 the keysym are consumed and are not used to look up the string.
 </para>
@@ -304,16 +304,16 @@ level, use <function>XkbKeycodeToKeysym</function>.
 
 <para>
 <function>XkbKeycodeToKeysym</function>
- returns the keysym bound to a particular group and shift level for a
+returns the keysym bound to a particular group and shift level for a
 particular key on the core keyboard. If
 <parameter>kc</parameter>
- is not a legal keycode for the core keyboard, or if
+is not a legal keycode for the core keyboard, or if
 <parameter>group</parameter>
- or
+or
 <parameter>level</parameter>
- are out of range for the specified key,
+are out of range for the specified key,
 <function>XkbKeycodeToKeysym</function>
- returns
+returns
 <symbol>NoSymbol</symbol>.
 </para>
 
@@ -363,14 +363,14 @@ use
 
 <para>
 <function>XkbKeysymToModifiers</function>
- finds the set of modifiers currently bound to the keysym
+finds the set of modifiers currently bound to the keysym
 <parameter>ks</parameter>
- on the core keyboard. The value returned is the mask of modifiers bound to the
+on the core keyboard. The value returned is the mask of modifiers bound to the
 keysym
 <parameter>ks</parameter>.
 If no modifiers are bound to the keysym,
 <function>XkbKeysymToModifiers</function>
- returns zero; otherwise, it returns the inclusive OR of zero or more of the
+returns zero; otherwise, it returns the inclusive OR of zero or more of the
 following:
 <symbol>ShiftMask</symbol>,
 <symbol>ControlMask</symbol>,
@@ -379,7 +379,7 @@ following:
 <symbol>Mod2Mask</symbol>,
 <symbol>Mod3Mask</symbol>,
 <symbol>Mod4Mask</symbol>,
- and
+and
 <symbol>Mod5Mask</symbol>.
 </para>
 
@@ -387,7 +387,7 @@ following:
 <para>
 Use
 <function>XkbLookupKeySym</function>
- to find the symbol associated with a key for a particular state.
+to find the symbol associated with a key for a particular state.
 </para>
 
 
@@ -465,40 +465,40 @@ Use
 
 <para>
 <function>XkbLookupKeySym</function>
- is the equivalent of the core
+is the equivalent of the core
 <symbol>XLookupKeySym</symbol>
- function. For the core keyboard, given a keycode
+function. For the core keyboard, given a keycode
 <parameter>key</parameter>
- and an Xkb state
+and an Xkb state
 <parameter>state</parameter>,
 <function>XkbLookupKeySym</function>
- returns the symbol associated with the key  in
+returns the symbol associated with the key  in
 <parameter>sym_rtrn</parameter>
- and the list of modifiers that should still be applied in
+and the list of modifiers that should still be applied in
 <parameter>mods_rtrn</parameter>.
 The
 <parameter>state</parameter>
- parameter is the state from a
+parameter is the state from a
 <symbol>KeyPress</symbol>
- or
+or
 <symbol>KeyRelease</symbol>
- event.
+event.
 <function>XkbLookupKeySym</function>
- returns
+returns
 <symbol>True</symbol>
- if it succeeds.
+if it succeeds.
 </para>
 
 
 <para>
 Use
 <function>XkbLookupKeyBinding</function>
- to find the string bound to a key by
+to find the string bound to a key by
 <function>XRebindKeysym</function>.
 <function>XkbLookupKeyBinding</function>
- is the equivalent of the core
+is the equivalent of the core
 <function>XLookupString</function>
- function.
+function.
 </para>
 
 
@@ -588,24 +588,24 @@ Use
 
 <para>
 <function>XRebindKeysym</function>
- binds an ASCII string to a specified keysym, so that the string and keysym are
+binds an ASCII string to a specified keysym, so that the string and keysym are
 returned when the key is pressed and a specified list of modifiers are also
 being held down.
 <function>XkbLookupKeyBinding</function>
- returns in
+returns in
 <parameter>buf</parameter>
- the string associated with the keysym
+the string associated with the keysym
 <parameter>sym</parameter>
- and modifier state
+and modifier state
 <parameter>state</parameter>.
 <parameter>buf</parameter>
- is
+is
 <symbol>NULL</symbol>
- terminated unless there’s an overflow. If the string returned is larger than
+terminated unless there’s an overflow. If the string returned is larger than
 <parameter>nbytes</parameter>,
 a count of bytes that does not fit into the buffer is returned in extra_rtrn.
 <function>XkbTranslateKeySym</function>
- returns the number of bytes that it placed into
+returns the number of bytes that it placed into
 <parameter>buf</parameter>.
 </para>
 
@@ -703,22 +703,22 @@ state, use
 
 <para>
 <function>XkbTranslateKeySym</function>
- applies the transformations specified in
+applies the transformations specified in
 <parameter>mods</parameter>
- to the symbol specified by
+to the symbol specified by
 <parameter>sym_inout</parameter>.
 It returns in
 <parameter>buf</parameter>
- the string, if any, associated with the keysym for the current locale. If the
+the string, if any, associated with the keysym for the current locale. If the
 transformations in
 <parameter>mods</parameter>
- changes the keysym,
+changes the keysym,
 <parameter>sym_inout</parameter>
- is updated accordingly. If the string returned is larger than
+is updated accordingly. If the string returned is larger than
 <parameter>nbytes</parameter>,
 a count of bytes that does not fit into the buffer is returned in extra_rtrn.
 <function>XkbTranslateKeySym</function>
- returns the number of bytes it placed into
+returns the number of bytes it placed into
 <parameter>buf</parameter>.
 </para>
 
@@ -754,27 +754,27 @@ To update the keyboard description that is internal to the X library, use
 
 <para>
 <function>XkbRefreshKeyboardMapping</function>
- is the Xkb equivalent of the core
+is the Xkb equivalent of the core
 <function>XRefreshKeyboardMapping</function>
- function. It requests that the X server send the current key mapping
+function. It requests that the X server send the current key mapping
 information to this client. A client usually invokes
 <function>XkbRefreshKeyboardMapping</function>
- after receiving an
+after receiving an
 <symbol>XkbMapNotify</symbol>
- event.
+event.
 <function>XkbRefreshKeyboardMapping</function>
- returns
+returns
 <symbol>Success</symbol>
- if it succeeds and
+if it succeeds and
 <errorname>BadMatch</errorname>
- if the event is not an Xkb event.
+if the event is not an Xkb event.
 </para>
 
 
 <para>
 The
 <symbol>XkbMapNotify</symbol>
- event can be generated when some client calls
+event can be generated when some client calls
 <function>XkbSetMap</function>,
 <function>XkbChangeMap</function>,
 <function>XkbGetKeyboardByName</function>,
@@ -858,9 +858,9 @@ To translate a keycode to a key symbol and modifiers, use
 
 <para>
 <parameter>mods_rtrn</parameter>
- is backfilled with the modifiers consumed by the translation process.
+is backfilled with the modifiers consumed by the translation process.
 <parameter>mods</parameter>
- is a bitwise inclusive OR of the legal modifier masks:
+is a bitwise inclusive OR of the legal modifier masks:
 <symbol>ShiftMask</symbol>,
 <symbol>LockMask</symbol>,
 <symbol>ControlMask</symbol>,
@@ -871,15 +871,15 @@ To translate a keycode to a key symbol and modifiers, use
 <symbol>Mod5Mask</symbol>.
 The
 <emphasis>AlwaysConsumeShiftAndLock</emphasis>
- library control (see <link linkend="AlwaysConsumeShiftAndLock">section 11.1.3</link>), if enabled, causes
+library control (see <link linkend="AlwaysConsumeShiftAndLock">section 11.1.3</link>), if enabled, causes
 <function>XkbTranslateKeyCode</function>
- to consume shift and lock.
+to consume shift and lock.
 <function>XkbTranslateKeyCode</function>
- returns
+returns
 <symbol>True</symbol>
- if the translation resulted in a keysym, and
+if the translation resulted in a keysym, and
 <symbol>False</symbol>
- if it resulted in
+if it resulted in
 <symbol>NoSymbol</symbol>.
 </para>
 </sect1>

@@ -59,7 +59,7 @@ Objects should be drawn in order from highest priority (0) to lowest (255).
 <primary><structname>XkbGeometryRec</structname></primary></indexterm>
 The keyboard geometry’s top-level description is stored in a
 <structname>XkbGeometryRec</structname>
- structure. This structure contains three types of information:
+structure. This structure contains three types of information:
 </para>
 
 <orderedlist>
@@ -99,11 +99,11 @@ as follows:
   <para>
 The top-level keyboard geometry description includes a list of up to
 <symbol>XkbGeomMaxColors</symbol>
- (32)
+(32)
 <firstterm>color names</firstterm>.
 A color name is a string whose interpretation is not specified by Xkb. The
 <structname>XkbColorRec</structname>
- structure provides a field for this name as well as a pixel field. The pixel
+structure provides a field for this name as well as a pixel field. The pixel
 field is a convenient place for an application to store a pixel value or color
 definition, if it needs to. All other geometry data structures refer to colors
 using their indices in this global list.
@@ -135,7 +135,7 @@ a top label.
   <para>
 The top-level keyboard geometry description includes a list of
 <firstterm>key aliases</firstterm>
- (see <xref linkend="Symbolic_Names" />). Key aliases allow the keyboard layout designer to assign
+(see <xref linkend="Symbolic_Names" />). Key aliases allow the keyboard layout designer to assign
 multiple key names to a single key.
   </para>
 <note><para>Key aliases defined in the geometry component of a keyboard mapping
@@ -144,14 +144,14 @@ are stored in the
 <structname>XkbNamesRec</structname>
 
 (<structfield>xkb-&gt;names</structfield>).
- Therefore, consider the key aliases defined by the geometry before
+Therefore, consider the key aliases defined by the geometry before
 considering key aliases supplied by the keycodes.</para></note>
 </listitem>
 <listitem>
   <para>
 The top-level keyboard geometry description includes a list of
 <structfield>shapes</structfield>;
- other keyboard components refer to shapes by their index in this list. A
+other keyboard components refer to shapes by their index in this list. A
 shape consists of an arbitrary name of type Atom and one or more closed-polygon
 <structfield>outlines</structfield>.
 All points in an outline are specified relative to the origin of its
@@ -159,13 +159,13 @@ enclosing shape, that is, whichever shape that contains this outline in its
 list of outlines. One outline is the primary outline. The primary outline is by
 default the first outline, or it can be optionally specified by the
 <structfield>primary</structfield>
- field in the
+field in the
 <structname>XkbShapeRec</structname>
- structure. A keyboard display application can generate a simpler but still
+structure. A keyboard display application can generate a simpler but still
 accurate keyboard image by displaying only the primary outlines for each shape.
 Nonrectangular keys must include a rectangular
 <firstterm>approximation</firstterm>
- as one of the outlines associated with the shape. The approximation is not
+as one of the outlines associated with the shape. The approximation is not
 normally displayed but can be used by very simple keyboard display applications
 to generate a recognizable but degraded image of the keyboard.
   </para>
@@ -175,7 +175,7 @@ to generate a recognizable but degraded image of the keyboard.
 <para>
 The
 <structname>XkbGeometryRec</structname>
- top-level geometry description contains the following information that
+top-level geometry description contains the following information that
 pertains to the keyboard as a whole:
 </para>
 
@@ -184,16 +184,16 @@ pertains to the keyboard as a whole:
   <para>
 A
 <firstterm>keyboard symbolic name</firstterm>
- of type Atom to help users identify the keyboard.
+of type Atom to help users identify the keyboard.
   </para>
 </listitem>
 <listitem>
   <para>
 The
 <structfield>width</structfield>
- and
+and
 <structfield>height</structfield>
- of the keyboard, in mm/10. For nonrectangular keyboards, the width and height
+of the keyboard, in mm/10. For nonrectangular keyboards, the width and height
 describe the smallest bounding box that encloses the outline of the keyboard.
   </para>
 </listitem>
@@ -201,7 +201,7 @@ describe the smallest bounding box that encloses the outline of the keyboard.
   <para>
 The
 <firstterm>base color</firstterm>
- of the keyboard is the predominant color on the keyboard and is used as the
+of the keyboard is the predominant color on the keyboard and is used as the
 default color for any components whose color is not explicitly specified.
   </para>
 </listitem>
@@ -209,14 +209,14 @@ default color for any components whose color is not explicitly specified.
   <para>
 The
 <firstterm>label color</firstterm>
- is the color used to draw the labels on most of the keyboard keys.
+is the color used to draw the labels on most of the keyboard keys.
   </para>
 </listitem>
 <listitem>
   <para>
 The
 <firstterm>label font</firstterm>
- is a string that describes the font used to draw labels on most keys; label
+is a string that describes the font used to draw labels on most keys; label
 fonts are arbitrary strings, because Xkb does not specify the format or name
 space for font names.
   </para>
@@ -226,14 +226,14 @@ space for font names.
 <para>
 The keyboard is subdivided into named
 <structfield>sections</structfield>
- of related keys and doodads. The sections and doodads on the keyboard are
+of related keys and doodads. The sections and doodads on the keyboard are
 listed in the
 <structname>XkbGeometryRec</structname>
- top-level keyboard geometry description. A section is composed of keys that
+top-level keyboard geometry description. A section is composed of keys that
 are physically together and logically related. <link linkend="figure13.2">Figure 13.2</link> shows a keyboard
 that is divided into four sections. A
 <structfield>doodad</structfield>
- describes some visible aspect of the keyboard that is not a key and is not a
+describes some visible aspect of the keyboard that is not a key and is not a
 section.
 </para>
 
@@ -258,7 +258,7 @@ A
 <structfield>shape</structfield>,
 used to draw keyboard components and stored in a
 <structname>XkbShapeRec</structname>
- structure, has:
+structure, has:
 </para>
 
 <itemizedlist>
@@ -294,7 +294,7 @@ An
 <firstterm>outline</firstterm>,
 stored in a
 <structname>XkbOutlineRec</structname>
- structure, is a list of one or more points that describes a single
+structure, is a list of one or more points that describes a single
 closed-polygon, as follows:
 </para>
 
@@ -323,7 +323,7 @@ with the first.
   <para>
 A nonzero value for the
 <structfield>corner_radius</structfield>
- field specifies that the corners of the polygon should be drawn as circles
+field specifies that the corners of the polygon should be drawn as circles
 with the specified radius.
   </para>
 </listitem>
@@ -341,13 +341,13 @@ a simple but still accurate keyboard image by displaying only the primary
 outlines for each shape. The default primary outline is the first in a
 shape’s list of outlines. If the
 <structfield>primary</structfield>
- field of the
+field of the
 <structname>XkbShapeRec</structname>
- structure is not
+structure is not
 <symbol>NULL</symbol>,
 it points to the primary outline. A rectangular
 <firstterm>approximation</firstterm>
- must be included for nonrectangular keys as one of the outlines associated
+must be included for nonrectangular keys as one of the outlines associated
 with the shape; the approximation is not normally displayed but can be used by
 very simple keyboard display applications to generate a recognizable but
 degraded image of the keyboard.
@@ -360,7 +360,7 @@ degraded image of the keyboard.
 <para>
 As previously noted, a keyboard is subdivided into
 <structfield>sections</structfield>
- of related keys. Each section has its own coordinate system — if a section
+of related keys. Each section has its own coordinate system — if a section
 is rotated, the coordinates of any components within the section are
 interpreted relative to the edges that were on the top and left before
 rotation. The components that make up a section, stored in a
@@ -423,7 +423,7 @@ Rows in a Section</H5>
   <para>
 An optional list of
 <structfield>doodads</structfield>;
- any type of doodad can be enclosed within a section. Position and angle of
+any type of doodad can be enclosed within a section. Position and angle of
 rotation are relative to the origin and angle of rotation of the sections that
 contain them. Priority for doodads in a section is relative to the other
 components of the section, not to the keyboard as a whole.
@@ -433,7 +433,7 @@ components of the section, not to the keyboard as a whole.
   <para>
 An optional
 <firstterm>overlay</firstterm>
- with a name of type Atom and a list of overlay rows (described below).
+with a name of type Atom and a list of overlay rows (described below).
   </para>
 </listitem>
 <listitem>
@@ -450,7 +450,7 @@ containing the entire section.
 <para>
 A row description
 (<structname>XkbRowRec</structname>)
- consists of the coordinates of its origin relative to its enclosing section,
+consists of the coordinates of its origin relative to its enclosing section,
 a flag indicating whether the row is horizontal or vertical, and a list of keys
 in the row.
 </para>
@@ -459,12 +459,12 @@ in the row.
 <para>
 A key description
 (<structname>XkbKeyRec</structname>)
- consists of a key name, a shape, a key color, and a gap. The key name should
+consists of a key name, a shape, a key color, and a gap. The key name should
 correspond to one of the keys named in the keyboard names description, the
 shape specifies the appearance of the key, and the key color specifies the
 color of the key (not the label on the key; the label color is stored in the
 <structname>XkbGeometryRec</structname>).
- Keys are normally drawn immediately adjacent to one another from left to
+Keys are normally drawn immediately adjacent to one another from left to
 right (or top to bottom) within a row. The gap field specifies the distance
 between a key and its predecessor.
 </para>
@@ -485,7 +485,7 @@ outline of the entire keyboard.
 <para>
 Each doodad’s origin is stored in fields named
 <structfield>left</structfield>
- and
+and
 <structfield>top</structfield>,
 which are the coordinates of the doodad’s origin relative to its enclosing
 object, whether it be a section or the top-level keyboard. The priority for
@@ -495,7 +495,7 @@ top-level geometry. The priority for doodads listed in a section are relative
 to the other components of the section. Each doodad is stored in a structure
 with a
 <structfield>type</structfield>
- field, which specifies the type of doodad.
+field, which specifies the type of doodad.
 </para>
 
 <para>
@@ -507,10 +507,10 @@ Xkb supports five types of doodads:
   <para>
 An
 <firstterm>indicator doodad</firstterm>
- describes one of the physical keyboard indicators. Indicator doodads specify
+describes one of the physical keyboard indicators. Indicator doodads specify
 the shape of the indicator, the indicator color when it is lit
 (<emphasis>on_color</emphasis>)
- and the indicator color when it is dark
+and the indicator color when it is dark
 (<emphasis>off_color</emphasis>).
 
   </para>
@@ -519,7 +519,7 @@ the shape of the indicator, the indicator color when it is lit
   <para>
 An
 <firstterm>outline doodad</firstterm>
- describes some aspect of the keyboard to be drawn as one or more hollow,
+describes some aspect of the keyboard to be drawn as one or more hollow,
 closed polygons. Outline doodads specify the shape, color, and angle of
 rotation about the doodad origin at which they should be drawn.
   </para>
@@ -528,7 +528,7 @@ rotation about the doodad origin at which they should be drawn.
   <para>
 A
 <firstterm>solid doodad</firstterm>
- describes some aspect of the keyboard to be drawn as one or more filled
+describes some aspect of the keyboard to be drawn as one or more filled
 polygons. Solid doodads specify the shape, color, and angle of rotation about
 the doodad origin at which they should be drawn.
   </para>
@@ -537,7 +537,7 @@ the doodad origin at which they should be drawn.
   <para>
 A
 <firstterm>text doodad</firstterm>
- describes a text label somewhere on the keyboard. Text doodads specify the
+describes a text label somewhere on the keyboard. Text doodads specify the
 label string, the font and color to use when drawing the label, and the angle
 of rotation of the doodad about its origin.
   </para>
@@ -561,7 +561,7 @@ specify the interpretation of logo names.
 <para>
 The structures these doodads are stored in and the values of the
 <structfield>type</structfield>
- fields are shown in <link linkend="table13.1">Table 13.1</link>.
+fields are shown in <link linkend="table13.1">Table 13.1</link>.
 </para>
 
 <table id='table13.1' frame='topbot'>
@@ -647,7 +647,7 @@ An
 <firstterm>overlay row</firstterm>
 
 (<structname>XkbOverlayRowRec</structname>)
- contains a pointer to the row it overlays and a list of
+contains a pointer to the row it overlays and a list of
 <firstterm>overlay keys</firstterm>.
 </para>
 
@@ -655,7 +655,7 @@ An
 <para>
 Each overlay key definition
 (<structname>XkbOverlayKeyRec</structname>)
- indicates a key that can yield multiple keycodes and consists of a field
+indicates a key that can yield multiple keycodes and consists of a field
 named
 <structfield>under</structfield>,
 which specifies the primary name of the key and a field named
@@ -663,7 +663,7 @@ which specifies the primary name of the key and a field named
 which specifies the name for the key when the overlay keycode is selected.
 The key specified in
 <structfield>under</structfield>
- must be a member of the section that contains the overlay key definition,
+must be a member of the section that contains the overlay key definition,
 while the key specified in over must not be.
 </para>
 
@@ -784,13 +784,13 @@ typedef struct _XkbGeometry {    /* top-level keyboard geometry structure */
 <para>
 The
 <structfield>doodads</structfield>
- array is only for doodads not contained in any of the
+array is only for doodads not contained in any of the
 <structfield>sections</structfield>
- that has its own
+that has its own
 <structfield>doodads</structfield>.
 The key aliases contained in the
 <structfield>key_aliases</structfield>
- array take precedence over any defined in the keycodes component of the
+array take precedence over any defined in the keycodes component of the
 keyboard description.
 </para>
 
@@ -858,9 +858,9 @@ typedef struct _XkbShape {
 <para>
 If
 <structfield>approx</structfield>
- and/or
+and/or
 <structfield>primary</structfield>
- is
+is
 <symbol>NULL</symbol>,
 the default value is used. The default primary outline is the first element
 in the outlines array, as is the default approximating outline.
@@ -892,9 +892,9 @@ typedef struct _XkbRow {           /* row in a section */
 
 <para>
 <structfield>top</structfield>
- and
+and
 <structfield>left</structfield>
- are in
+are in
 <emphasis>mm</emphasis>
 /
 <emphasis>10</emphasis>.
@@ -923,12 +923,12 @@ typedef struct _XkbOverlayRow {
 
 <para>
 <structfield>row_under</structfield>
- is an index into the array of
+is an index into the array of
 <structfield>rows</structfield>
- in the section under this overlay. The section under this overlay row is the
+in the section under this overlay. The section under this overlay row is the
 one pointed to by
 <structfield>section_under</structfield>
- in this overlay row’s
+in this overlay row’s
 <structname>XkbOverlayRec</structname>.
 </para>
 
@@ -965,18 +965,18 @@ typedef struct _XkbSection {
 
 <para>
 <structfield>top</structfield>
- and
+and
 <structfield>left</structfield>
- are the origin of the section, relative to the origin of the keyboard, in
+are the origin of the section, relative to the origin of the keyboard, in
 <emphasis>mm</emphasis>
 /
 <emphasis>10</emphasis>.
 <structfield>angle</structfield>
- is in
+is in
 <emphasis>1</emphasis>
 /
 <emphasis>10</emphasis>
- degrees.
+degrees.
 </para>
 
 <sect2 id='DoodadRec_Structures'>
@@ -985,9 +985,9 @@ typedef struct _XkbSection {
 <para>
 The doodad arrays in the
 <structname>XkbGeometryRec</structname>
- and the
+and the
 <structname>XkbSectionRec</structname>
- may contain any of the doodad structures and types shown in
+may contain any of the doodad structures and types shown in
 <link linkend="table13.1">Table 13.1</link>.
 </para>
 
@@ -1009,26 +1009,26 @@ typedef union _XkbDoodad {
 <para>
 The
 <structfield>top</structfield>
- and
+and
 <structfield>left</structfield>
- coordinates of each doodad are the coordinates of the origin of the doodad
+coordinates of each doodad are the coordinates of the origin of the doodad
 relative to the keyboard’s origin if the doodad is in the
 <structname>XkbGeometryRec</structname>
- doodad array, and with respect to the section’s origin if the doodad is in a
+doodad array, and with respect to the section’s origin if the doodad is in a
 <structname>XkbSectionRec</structname>
- doodad array. The
+doodad array. The
 <structfield>color_ndx</structfield>
- or
+or
 <structfield>on_color_ndx</structfield>
- and
+and
 <structfield>off_color_ndx</structfield>
- fields are color indices into the
+fields are color indices into the
 <structname>XkbGeometryRec</structname>’s
- color array and are the colors to draw the doodads with. Similarly, the
+color array and are the colors to draw the doodads with. Similarly, the
 <structfield>shape_ndx</structfield>
- fields are indices into the
+fields are indices into the
 <structname>XkbGeometryRec</structname>’s
- shape array.
+shape array.
 </para>
 
 <para><programlisting>
@@ -1155,16 +1155,16 @@ To load a keyboard geometry if you already have the keyboard description, use
 
 <para>
 <function>XkbGetGeometry</function>
- can return
+can return
 <errorname>BadValue</errorname>,
 <errorname>BadImplementation</errorname>,
 <errorname>BadName</errorname>,
 <errorname>BadAlloc</errorname>,
- or
+or
 <errorname>BadLength</errorname>
- errors or
+errors or
 <symbol>Success</symbol>
- if it succeeds.
+if it succeeds.
 </para>
 
 <para>
@@ -1224,11 +1224,11 @@ description from this database by name, use
 
 <para>
 <function>XkbGetNamedGeometry</function>
- can return
+can return
 <errorname>BadName</errorname>
- if the
+if the
 <parameter>name</parameter>
- cannot be found.
+cannot be found.
 </para>
 
 </sect1>
@@ -1304,31 +1304,31 @@ To determine the bounding box of the top surface of a shape, use
 
 <para>
 <function>XkbComputeShapeTop</function>
- returns a
+returns a
 <structname>BoundsRec</structname>
- that contains two x and y coordinates. These coordinates describe the corners
+that contains two x and y coordinates. These coordinates describe the corners
 of a rectangle that contains the outline that describes the top surface of the
 shape. The top surface is defined to be the approximating outline if the
 <structfield>approx</structfield>
- field of
+field of
 <parameter>shape</parameter>
- is not
+is not
 <symbol>NULL</symbol>.
 If
 <structfield>approx</structfield>
- is
+is
 <symbol>NULL</symbol>,
 the top surface is defined as the last outline in the
 <parameter>shape</parameter>’s
- array of outlines.
+array of outlines.
 <function>XkbComputeShapeTop</function>
- returns
+returns
 <symbol>False</symbol>
- if
+if
 <parameter>shape</parameter>
- is
+is
 <symbol>NULL</symbol>
- or if there are no outlines for the shape; otherwise, it returns
+or if there are no outlines for the shape; otherwise, it returns
 <symbol>True</symbol>.
 </para>
 
@@ -1336,9 +1336,9 @@ the top surface is defined as the last outline in the
 <para>
 A
 <structname>ShapeRec</structname>
- contains a
+contains a
 <structname>BoundsRec</structname>
- that describes the bounds of the shape. If you add or delete an outline to or
+that describes the bounds of the shape. If you add or delete an outline to or
 from a shape, the bounding box must be updated. To update the bounding box of a
 shape, use <function>XkbComputeShapeBounds</function>.
 </para>
@@ -1370,27 +1370,27 @@ shape, use <function>XkbComputeShapeBounds</function>.
 
 <para>
 <function>XkbComputeShapeBounds</function>
- updates the
+updates the
 <structname>BoundsRec</structname>
- contained in the
+contained in the
 <parameter>shape</parameter>
- by examining all the outlines of the shape and setting the
+by examining all the outlines of the shape and setting the
 <structname>BoundsRec</structname>
- to the minimum x and minimum y, and maximum x and maximum y values found in
+to the minimum x and minimum y, and maximum x and maximum y values found in
 those outlines.
 <function>XkbComputeShapeBounds</function>
- returns
+returns
 <symbol>False</symbol>
- if
+if
 <parameter>shape</parameter>
- is
+is
 <symbol>NULL</symbol>
- or if there are no outlines for the shape; otherwise, it returns
+or if there are no outlines for the shape; otherwise, it returns
 <symbol>True</symbol>.
 </para>
 
 <para>
- If you add or delete a key to or from a row, or if you update the shape of one
+If you add or delete a key to or from a row, or if you update the shape of one
 of the keys in that row, you may need to update the bounding box of that row.
 To update the bounding box of a row, use <function>XkbComputeRowBounds</function>.
 </para>
@@ -1445,20 +1445,20 @@ To update the bounding box of a row, use <function>XkbComputeRowBounds</function
 
 <para>
 <function>XkbComputeRowBounds</function>
- checks the bounds of all keys in the
+checks the bounds of all keys in the
 <parameter>row</parameter>
 and updates the bounding box of the row if necessary.
 <function>XkbComputeRowBounds</function>
- returns
+returns
 <symbol>False</symbol>
- if any of the arguments is
+if any of the arguments is
 <symbol>NULL</symbol>;
- otherwise, it returns
+otherwise, it returns
 <symbol>True</symbol>.
 </para>
 
 <para>
- If you add or delete a row to or from a section, or if you change the geometry
+If you add or delete a row to or from a section, or if you change the geometry
 of any of the rows in that section, you may need to update the bounding box for
 that section. To update the bounding box of a section, use
 <function>XkbComputeSectionBounds</function>.
@@ -1502,15 +1502,15 @@ that section. To update the bounding box of a section, use
 
 <para>
 <function>XkbComputeSectionBounds</function>
- examines all the rows of the
+examines all the rows of the
 <parameter>section</parameter>
- and updates the bounding box of that section so that it contains all rows.
+and updates the bounding box of that section so that it contains all rows.
 <function>XkbComputeSectionBounds</function>
- returns
+returns
 <symbol>False</symbol>
- if any of the arguments is
+if any of the arguments is
 <symbol>NULL</symbol>;
- otherwise, it returns
+otherwise, it returns
 <symbol>True</symbol>.
 </para>
 
@@ -1571,7 +1571,7 @@ by using the primary name for a key that is part of an overlay, use
 
 <para>
 <function>XkbFindOverlayForKey</function>
- uses the primary name of the key,
+uses the primary name of the key,
 <parameter>under</parameter>,
 to look up the alternate name, which it returns.
 </para>
@@ -1585,10 +1585,10 @@ to look up the alternate name, which it returns.
 Xkb provides functions to add a single new element to the top-level keyboard
 geometry. In each case the
 <structfield>num_<replaceable>*</replaceable></structfield>
- fields of the corresponding structure is incremented by 1. These functions do
+fields of the corresponding structure is incremented by 1. These functions do
 not change
 <structfield>sz_<replaceable>*</replaceable></structfield>
- unless there is no more room in the array. Some of these functions fill in the
+unless there is no more room in the array. Some of these functions fill in the
 values of the element’s structure from the arguments. For other functions,
 you must explicitly write code to fill the structure’s elements.
 </para>
@@ -1659,15 +1659,15 @@ To add one property to an existing keyboard geometry description, use
 
 <para>
 <function>XkbAddGeomProperty</function>
- adds one property with the specified
+adds one property with the specified
 <parameter>name</parameter>
- and
+and
 <parameter>value</parameter>
- to the keyboard geometry specified by geom.
+to the keyboard geometry specified by geom.
 <function>XkbAddGeomProperty</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the property. To allocate space for an arbitrary number of properties, use the
 XkbAllocGeomProps function.
 </para>
@@ -1728,12 +1728,12 @@ To add one key alias to an existing keyboard geometry description, use
 
 <para>
 <function>XkbAddGeomKeyAlias</function>
- adds one key alias with the value alias to the geometry geom, and associates
+adds one key alias with the value alias to the geometry geom, and associates
 it with the key whose real name is real.
 <function>XkbAddGeomKeyAlias</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the alias. To allocate space for an arbitrary number of aliases, use the
 XkbAllocGeomKeyAliases function.
 </para>
@@ -1795,30 +1795,30 @@ To add one color name to an existing keyboard geometry description, use
 
 <para>
 <function>XkbAddGeomColor</function>
- adds the specified color
+adds the specified color
 <structfield>name</structfield>
- and
+and
 <parameter>pixel</parameter>
- to the specified geometry
+to the specified geometry
 <parameter>geom</parameter>.
 The top-level geometry description includes a list of up to
 <emphasis>MaxColors</emphasis>
- (32)
+(32)
 <emphasis>color names</emphasis>.
 A color
 <structfield>name</structfield>
- is a string whose interpretation is not specified by Xkb and neither is the
+is a string whose interpretation is not specified by Xkb and neither is the
 <parameter>pixel</parameter>
- value’s interpretation. All other geometry data structures refer to colors
+value’s interpretation. All other geometry data structures refer to colors
 using their indices in this global list or pointers to colors in this list.
 <function>XkbAddGeomColor</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the color. To allocate space for an arbitrary number of colors to a geometry,
 use the
 <function>XkbAllocGeomColors</function>
- function.
+function.
 </para>
 
 <para>
@@ -1865,15 +1865,15 @@ To add one outline to an existing shape, use
 <para>
 An outline consists of an arbitrary number of points.
 <function>XkbAddGeomOutline</function>
- adds an outline to the specified
+adds an outline to the specified
 <parameter>shape</parameter>
- by reserving
+by reserving
 <parameter>sz_points</parameter>
- points for it. The new outline is allocated and zeroed.
+points for it. The new outline is allocated and zeroed.
 <function>XkbAddGeomOutline</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space. To
+if any of the parameters is empty or if it was not able to allocate space. To
 allocate space for an arbitrary number of outlines to a shape, use
 XkbAllocGeomOutlines.
 </para>
@@ -1937,17 +1937,17 @@ To add a shape to a keyboard geometry, use
 A geometry contains an arbitrary number of shapes, each of which is made up of
 an arbitrary number of outlines.
 <function>XkbAddGeomShape</function>
- adds a shape to a geometry
+adds a shape to a geometry
 <parameter>geom</parameter>
- by allocating space for
+by allocating space for
 <parameter>sz_outlines</parameter>
- outlines for it and giving it the name specified by name. If a shape with name
+outlines for it and giving it the name specified by name. If a shape with name
 <parameter>name</parameter>
- already exists in the geometry, a pointer to the existing shape is returned.
+already exists in the geometry, a pointer to the existing shape is returned.
 <function>XkbAddGeomShape</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space. To
+if any of the parameters is empty or if it was not able to allocate space. To
 allocate space for an arbitrary number of geometry shapes, use
 <function>XkbAllocGeomShapes</function>.
 </para>
@@ -1986,15 +1986,15 @@ To add one key at the end of an existing row of keys, use
 <para>
 Keys are grouped into rows.
 <function>XkbAddGeomKey</function>
- adds one key to the end of the specified
+adds one key to the end of the specified
 <parameter>row</parameter>.
 The key is allocated and zeroed.
 <function>XkbAddGeomKey</function>
- returns
+returns
 <symbol>NULL</symbol>
- if
+if
 <parameter>row</parameter>
- is empty or if it was not able to allocate space for the key. To allocate
+is empty or if it was not able to allocate space for the key. To allocate
 space for an arbitrary number of keys to a row, use XkbAllocGeomKeys.
 </para>
 
@@ -2080,7 +2080,7 @@ To add one section to an existing keyboard geometry, use
 <para>
 A keyboard geometry contains an arbitrary number of sections.
 <function>XkbAddGeomSection</function>
- adds one section to an existing keyboard geometry
+adds one section to an existing keyboard geometry
 <parameter>geom</parameter>.
 The new section contains space for the number of rows, doodads, and overlays
 specified by
@@ -2092,12 +2092,12 @@ The new section is allocated and zeroed and given the name specified by
 <parameter>name</parameter>.
 If a section with name
 <parameter>name</parameter>
- already exists in the geometry, a pointer to the existing section is
+already exists in the geometry, a pointer to the existing section is
 returned.
 <function>XkbAddGeomSection</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the section. To allocate space for an arbitrary number of sections to a
 geometry, use XkbAllocGeomSections.
 </para>
@@ -2149,15 +2149,15 @@ To add a row to a section, use
 One of the components of a keyboard geometry section is one or more rows of
 keys.
 <function>XkbAddGeomRow</function>
- adds one row to the specified
+adds one row to the specified
 <parameter>section</parameter>.
 The newly created row contains space for the number of keys specified in
 <parameter>sz_keys</parameter>.
 They are allocated and zeroed, but otherwise uninitialized.
 <function>XkbAddGeomRow</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the row. To allocate space for an arbitrary number of rows to a section, use
 the XkbAllocGeomRows function.
 </para>
@@ -2221,32 +2221,32 @@ geometry, use
 <para>
 A
 <structfield>doodad</structfield>
- describes some visible aspect of the keyboard that is not a key and is not a
+describes some visible aspect of the keyboard that is not a key and is not a
 section.
 <function>XkbAddGeomDoodad</function>
- adds a doodad with name specified by name to the geometry
+adds a doodad with name specified by name to the geometry
 <parameter>geom</parameter>
- if section is
+if section is
 <symbol>NULL</symbol>
- or to the section of the geometry specified by section if
+or to the section of the geometry specified by section if
 <parameter>section</parameter>
- is not
+is not
 <symbol>NULL</symbol>.
 <function>XkbAddGeomDoodad</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the doodad. If there is already a doodad with the name
 <parameter>name</parameter>
- in the doodad array for the geometry (if
+in the doodad array for the geometry (if
 <parameter>section</parameter>
- is
+is
 <symbol>NULL</symbol>)
- or the section (if
+or the section (if
 <parameter>section</parameter>
- is non-
+is non-
 <symbol>NULL</symbol>),
- a pointer to that doodad is returned. To allocate space for an arbitrary
+a pointer to that doodad is returned. To allocate space for an arbitrary
 number of doodads to a section, use the XkbAllocGeomSectionDoodads function. To
 allocate space for an arbitrary number of doodads to a keyboard geometry, use
 the XkbAllocGeomDoodads function.
@@ -2309,17 +2309,17 @@ To add one overlay to a section, use
 
 <para>
 <function>XkbAddGeomOverlay</function>
- adds an overlay with the specified name to the specified
+adds an overlay with the specified name to the specified
 <parameter>section</parameter>.
 The new overlay is created with space allocated for sz_rows rows. If an
 overlay with name
 <parameter>name</parameter>
- already exists in the section, a pointer to the existing overlay is
+already exists in the section, a pointer to the existing overlay is
 returned.
 <function>XkbAddGeomOverlay</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the overlay. To allocate space for an arbitrary number of overlays to a
 section, use the XkbAllocGeomOverlay function.
 </para>
@@ -2381,21 +2381,21 @@ To add a row to an existing overlay, use
 
 <para>
 <function>XkbAddGeomOverlayRow</function>
- adds one row to the
+adds one row to the
 <parameter>overlay</parameter>.
 The new row contains space for
 <parameter>sz_keys</parameter>
- keys. If
+keys. If
 <parameter>row_under</parameter>
- specifies a row that doesn’t exist on the underlying section,
+specifies a row that doesn’t exist on the underlying section,
 <function>XkbAddGeomOverlayRow</function>
- returns
+returns
 <symbol>NULL</symbol>
- and doesn’t change the overlay.
+and doesn’t change the overlay.
 <function>XkbAddGeomOverlayRow</function>
- returns
+returns
 <symbol>NULL</symbol>
- if any of the parameters is empty or if it was not able to allocate space for
+if any of the parameters is empty or if it was not able to allocate space for
 the overlay.
 </para>
 
@@ -2455,15 +2455,15 @@ To add a key to an existing overlay row, use
 
 <para>
 <function>XkbAddGeomOverlayKey</function>
- adds one key to the
+adds one key to the
 <parameter>row</parameter>
- in the
+in the
 <parameter>overlay</parameter>.
 If there is no key named
 <parameter>under</parameter>
- in the row of the underlying section,
+in the row of the underlying section,
 <function>XkbAddGeomOverlayKey</function>
- returns
+returns
 <symbol>NULL</symbol>.
 </para>
 
@@ -2479,19 +2479,19 @@ Note that these functions merely allocate space for the new element(s), and it
 is up to you to fill in the values explicitly in your code. These allocation
 functions increase
 <structfield>sz_<replaceable>*</replaceable></structfield>
- but never touch
+but never touch
 <structfield>num_<replaceable>*</replaceable></structfield>
- (unless there is an allocation failure, in which case they reset both
+(unless there is an allocation failure, in which case they reset both
 <structfield>sz_<replaceable>*</replaceable></structfield>
- and
+and
 <structfield>num_<replaceable>*</replaceable></structfield>
- to zero). These functions return
+to zero). These functions return
 <symbol>Success</symbol>
- if they succeed,
+if they succeed,
 <errorname>BadAlloc</errorname>
- if they are not able to allocate space, or
+if they are not able to allocate space, or
 <errorname>BadValue</errorname>
- if a parameter is not as expected.
+if a parameter is not as expected.
 </para>
 
 
@@ -2538,9 +2538,9 @@ XkbAllocGeomOutlines.
 
 <para>
 <function>XkbAllocGeomOutlines</function>
- allocates space for
+allocates space for
 <parameter>num_needed</parameter>
- outlines in the specified
+outlines in the specified
 <parameter>shape</parameter>.
 The outlines are not initialized.
 </para>
@@ -2664,7 +2664,7 @@ XkbAllocGeomKeys.
 
 <para>
 <function>XkbAllocGeomKeys</function>
- allocates num_needed keys and adds them to the row. No initialization of the
+allocates num_needed keys and adds them to the row. No initialization of the
 keys is done.
 </para>
 
@@ -2787,7 +2787,7 @@ To allocate geometry properties, use
 
 <para>
 <function>XkbAllocGeomProps</function>
- allocates space for num_needed properties and adds them to the specified
+allocates space for num_needed properties and adds them to the specified
 geometry
 <parameter>geom</parameter>.
 No initialization of the properties is done. A geometry property associates
@@ -2916,7 +2916,7 @@ To allocate geometry key aliases, use
 
 <para>
 <function>XkbAllocGeomKeyAliases</function>
- allocates space for num_needed key aliases and adds them to the specified
+allocates space for num_needed key aliases and adds them to the specified
 geometry
 <parameter>geom</parameter>.
 A key alias is a pair of strings that associates an alternate name for a key
@@ -2995,10 +2995,10 @@ If free_all is
 <symbol>True</symbol>,
 all aliases in the top level of the specified geometry
 <parameter>geom</parameter>
- are freed regardless of the value of first or count. Otherwise, count aliases
+are freed regardless of the value of first or count. Otherwise, count aliases
 in
 <parameter>geom</parameter>
- are freed beginning with the one specified by first.
+are freed beginning with the one specified by first.
 </para>
 
 
@@ -3046,7 +3046,7 @@ To allocate geometry colors, use
 
 <para>
 <function>XkbAllocGeomColors</function>
- allocates space for num_needed colors and adds them to the specified geometry
+allocates space for num_needed colors and adds them to the specified geometry
 <parameter>geom</parameter>.
 A color name is a string whose interpretation is not specified by Xkb. All
 other geometry data structures refer to colors using their indices in this
@@ -3172,9 +3172,9 @@ To allocate points in an outline, use
 
 <para>
 <function>XkbAllocGeomPoints</function>
- allocates space for
+allocates space for
 <parameter>num_needed</parameter>
- points in the specified
+points in the specified
 <parameter>outline</parameter>.
 The points are not initialized.
 </para>
@@ -3299,9 +3299,9 @@ To allocate space for an arbitrary number of geometry shapes, use
 
 <para>
 <function>XkbAllocGeomShapes</function>
- allocates space for
+allocates space for
 <parameter>num_needed</parameter>
- shapes in the specified geometry
+shapes in the specified geometry
 <parameter>geom</parameter>.
 The shapes are not initialized.
 </para>
@@ -3426,7 +3426,7 @@ To allocate geometry sections, use
 
 <para>
 <function>XkbAllocGeomSections</function>
- allocates num_needed sections and adds them to the geometry geom. No
+allocates num_needed sections and adds them to the geometry geom. No
 initialization of the sections is done.
 </para>
 
@@ -3550,7 +3550,7 @@ To allocate rows in a section, use
 
 <para>
 <function>XkbAllocGeomRows</function>
- allocates num_needed rows and adds them to the section. No initialization of
+allocates num_needed rows and adds them to the section. No initialization of
 the rows is done.
 </para>
 
@@ -3674,7 +3674,7 @@ To allocate overlays in a section, use
 
 <para>
 <function>XkbAllocGeomRows</function>
- allocates num_needed overlays and adds them to the section. No initialization
+allocates num_needed overlays and adds them to the section. No initialization
 of the overlays is done.
 </para>
 
@@ -3798,7 +3798,7 @@ To allocate rows in a overlay, use
 
 <para>
 <function>XkbAllocGeomOverlayRows</function>
- allocates num_needed rows and adds them to the overlay. No initialization of
+allocates num_needed rows and adds them to the overlay. No initialization of
 the rows is done.
 </para>
 
@@ -3922,7 +3922,7 @@ To allocate keys in an overlay row, use
 
 <para>
 <function>XkbAllocGeomOverlayKeys</function>
- allocates num_needed keys and adds them to the row. No initialization of the
+allocates num_needed keys and adds them to the row. No initialization of the
 keys is done.
 </para>
 
@@ -4046,7 +4046,7 @@ To allocate doodads that are global to a keyboard geometry, use
 
 <para>
 <function>XkbAllocGeomDoodads</function>
- allocates num_needed doodads and adds them to the specified geometry
+allocates num_needed doodads and adds them to the specified geometry
 <parameter>geom</parameter>.
 No initialization of the doodads is done.
 </para>
@@ -4096,7 +4096,7 @@ To allocate doodads that are specific to a section, use
 
 <para>
 <function>XkbAllocGeomSectionDoodads</function>
- allocates num_needed doodads and adds them to the specified
+allocates num_needed doodads and adds them to the specified
 <parameter>section</parameter>.
 No initialization of the doodads is done.
 </para>
@@ -4159,7 +4159,7 @@ To free geometry doodads, use
 <para>
 If
 <parameter>free_all</parameter>
- is
+is
 <symbol>True</symbol>,
 all doodads in the array are freed, regardless of the value of count.
 Otherwise, count doodads are freed.
@@ -4210,7 +4210,7 @@ To allocate an entire geometry, use
 
 <para>
 <function>XkbAllocGeometry</function>
- allocates a keyboard geometry and adds it to the keyboard description
+allocates a keyboard geometry and adds it to the keyboard description
 specified by xkb. The keyboard description should be obtained via the
 XkbGetKeyboard or XkbAllockeyboard functions. The sizes parameter specifies the
 number of elements to be reserved for the subcomponents of the keyboard

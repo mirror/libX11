@@ -747,8 +747,8 @@ Xkb Geometry Data Structures (Overlays)</H5>
 <para><programlisting>
 typedef struct _XkbGeometry {    /* top-level keyboard geometry structure */
     Atom              name;            /* keyboard name */
-    unsigned short    width_mm;        /* keyboard width in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
-    unsigned short    height_mm;       /* keyboard height in <emphasis>mm</emphasis> / <emphasis>10</emphasis> */
+    unsigned short    width_mm;        /* keyboard width in <superscript>mm</superscript>/<subscript>10</subscript> */
+    unsigned short    height_mm;       /* keyboard height in <superscript>mm</superscript>/<subscript>10</subscript> */
     char *            label_font;      /* font for key labels */
     XkbColorPtr       label_color;     /* color for key labels
                                           - pointer into colors array */
@@ -835,8 +835,8 @@ typedef struct _XkbOutline {
 
 <para><programlisting>
 typedef struct _XkbBounds {
-    short      x1, y1;       /* upper left corner of the bounds, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short      x2, y2;       /* lower right corner of the bounds, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short      x1, y1;       /* upper left corner of the bounds, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short      x2, y2;       /* lower right corner of the bounds, in <superscript>mm</superscript>/<subscript>10</subscript> */
 } <structname>XkbBoundsRec</structname>, *XkbBoundsPtr;
 </programlisting></para>
 
@@ -869,7 +869,7 @@ in the outlines array, as is the default approximating outline.
 <para><programlisting>
 typedef struct _XkbKey {           /* key in a row */
     XkbKeyNameRec    name;         /* key name */
-    short            gap;          /* gap in <emphasis>mm</emphasis>/<emphasis>10</emphasis> from previous key in row */
+    short            gap;          /* gap in <superscript>mm</superscript>/<subscript>10</subscript> from previous key in row */
     unsigned char    shape_ndx;    /* index of shape for key */
     unsigned char    color_ndx;    /* index of color for key body */
 } <structname>XkbKeyRec</structname>, *XkbKeyPtr;
@@ -895,9 +895,7 @@ typedef struct _XkbRow {           /* row in a section */
 and
 <structfield>left</structfield>
 are in
-<emphasis>mm</emphasis>
-/
-<emphasis>10</emphasis>.
+<superscript>mm</superscript>/<subscript>10</subscript>.
 </para>
 
 <para><programlisting>
@@ -945,8 +943,8 @@ typedef struct _XkbSection {
     unsigned char   priority;      /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
     short           top;           /* top coordinate of section origin */
     short           left;          /* left coordinate of row origin */
-    unsigned short  width;         /* section width, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    unsigned short  height;        /* section height, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    unsigned short  width;         /* section width, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    unsigned short  height;        /* section height, in <superscript>mm</superscript>/<subscript>10</subscript> */
     short           angle;         /* angle of section rotation,
                                       counterclockwise */
     unsigned short  num_rows;      /* number of rows in the rows array */
@@ -968,14 +966,10 @@ typedef struct _XkbSection {
 and
 <structfield>left</structfield>
 are the origin of the section, relative to the origin of the keyboard, in
-<emphasis>mm</emphasis>
-/
-<emphasis>10</emphasis>.
+<superscript>mm</superscript>/<subscript>10</subscript>.
 <structfield>angle</structfield>
 is in
-<emphasis>1</emphasis>
-/
-<emphasis>10</emphasis>
+<superscript>1</superscript>/<subscript>10</subscript>
 degrees.
 </para>
 
@@ -1038,10 +1032,10 @@ typedef struct _XkbShapeDoodad {
                                       or <symbol>XkbSolidDoodad</symbol> */
     unsigned char    priority;     /* drawing priority,
                                        0&rArr;highest, 255&rArr;lowest */
-    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            top;          /* top coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short            left;         /* left coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
     short            angle;        /* angle of rotation, clockwise,
-                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+                                      in <superscript>1</superscript>/<subscript>10</subscript> degrees */
     unsigned short   color_ndx;    /* doodad color */
     unsigned short   shape_ndx;    /* doodad shape */
 } <structname>XkbShapeDoodadRec</structname>, *XkbShapeDoodadPtr;
@@ -1053,12 +1047,12 @@ typedef struct _XkbTextDoodad {
     unsigned char    type;         /* <symbol>XkbTextDoodad</symbol> */
     unsigned char    priority;     /* drawing priority,
                                      0&rArr;highest, 255&rArr;lowest */
-    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            top;          /* top coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short            left;         /* left coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
     short            angle;        /* angle of rotation, clockwise,
-                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
-    short            width;        /* width in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short            height;       /* height in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+                                      in <superscript>1</superscript>/<subscript>10</subscript> degrees */
+    short            width;        /* width in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short            height;       /* height in <superscript>mm</superscript>/<subscript>10</subscript> */
     unsigned short   color_ndx;    /* doodad color */
     char *           text;         /* doodad text */
     char *           font;         /* arbitrary font name for doodad text */
@@ -1070,10 +1064,10 @@ typedef struct _XkbIndicatorDoodad {
     Atom             name;         /* doodad name */
     unsigned char    type;         /* <symbol>XkbIndicatorDoodad</symbol> */
     unsigned char    priority;     /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
-    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            top;          /* top coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short            left;         /* left coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
     short            angle;        /* angle of rotation, clockwise,
-                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+                                      in <superscript>1</superscript>/<subscript>10</subscript> degrees */
     unsigned short   shape_ndx;    /* doodad shape */
     unsigned short   on_color_ndx; /* color for doodad if indicator is on */
     unsigned short   off_color_ndx;/* color for doodad if indicator is off */
@@ -1085,10 +1079,10 @@ typedef struct _XkbLogoDoodad {
     Atom             name;         /* doodad name */
     unsigned char    type;         /* <symbol>XkbLogoDoodad</symbol> */
     unsigned char    priority;     /* drawing priority, 0&rArr;highest, 255&rArr;lowest */
-    short            top;          /* top coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
-    short            left;         /* left coordinate, in <emphasis>mm</emphasis>/<emphasis>10</emphasis> */
+    short            top;          /* top coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
+    short            left;         /* left coordinate, in <superscript>mm</superscript>/<subscript>10</subscript> */
     short            angle;        /* angle of rotation, clockwise,
-                                      in <emphasis>1</emphasis>/<emphasis>10</emphasis> degrees */
+                                      in <superscript>1</superscript>/<subscript>10</subscript> degrees */
     unsigned short   color_ndx;    /* doodad color */
     unsigned short   shape_ndx;    /* doodad shape */
     char *           logo_name;    /* text for logo */

@@ -145,7 +145,7 @@ clients.
 
 <para id='XKeycodeToKeysym'>
 The
-<function>XKeycodeToKeysym</function>
+<olink targetdoc='libX11' targetptr='XKeycodeToKeysym'><function>XKeycodeToKeysym</function></olink>
 <indexterm significance="preferred" zone="XKeycodeToKeysym"><primary><function>XKeycodeToKeysym</function></primary></indexterm>
  function reports the keysym associated with a particular index for a single
 key. The index specifies a column of symbols in the core keyboard mapping (that
@@ -159,7 +159,7 @@ the differences.
 
 <para id='XKeysymToKeycode'>
 The
-<function>XKeysymToKeycode</function>
+<olink targetdoc='libX11' targetptr='XKeysymToKeycode'><function>XKeysymToKeycode</function></olink>
 <indexterm significance="preferred" zone="XKeysymToKeycode"><primary><function>XKeysymToKeycode</function></primary></indexterm>
  function reports a keycode to which a particular keysym is bound. When Xkb is
 missing or disabled, this function looks in each column of the core keyboard
@@ -171,7 +171,7 @@ symbols instead.
 
 <para id='XLookupKeysym'>
 The
-<function>XLookupKeysym</function>
+<olink targetdoc='libX11' targetptr='XLookupKeysym'><function>XLookupKeysym</function></olink>
 <indexterm significance="preferred" zone="XLookupKeysym"><primary><function>XLookupKeysym</function></primary></indexterm>
  function reports the symbol in a specific column of the key associated with an
 event. Whether or not Xkb is present, the column specifies an index into the
@@ -181,7 +181,7 @@ core symbol mapping.
 
 <para id='XLookupString'>
 The
-<function>XLookupString</function>
+<olink targetdoc='libX11' targetptr='XLookupString'><function>XLookupString</function></olink>
 <indexterm significance="preferred" zone="XLookupString"><primary><function>XLookupString</function></primary></indexterm>
  function reports the symbol and string associated with a key event, taking
 into account the keycode and keyboard state as reported in the event. When Xkb
@@ -203,7 +203,7 @@ determine matching bindings.
 
 <para id='XRefreshKeyboardMapping'>
 The
-<function>XRefreshKeyboardMapping</function>
+<olink targetdoc='libX11' targetptr='XRefreshKeyboardMapping'><function>XRefreshKeyboardMapping</function></olink>
 <indexterm significance="preferred" zone="XRefreshKeyboardMapping"><primary><function>XRefreshKeyboardMapping</function></primary></indexterm>
  function updates the X library’s internal representation of the keyboard to
 reflect changes reported via
@@ -221,7 +221,7 @@ changed. If the implicit support has not noted any keyboard mapping changes,
 
 <para id='XRebindKeysym'>
 The
-<function>XRebindKeysym</function>
+<olink targetdoc='libX11' targetptr='XRebindKeysym'><function>XRebindKeysym</function></olink>
 <indexterm significance="preferred" zone="XRebindKeysym"><primary><function>XRebindKeysym</function></primary></indexterm>
  function associates a string with a keysym and a set of modifiers. Xkb does
 not directly change this function, but it does affect the way that the state

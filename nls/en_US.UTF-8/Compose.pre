@@ -200,7 +200,10 @@ XCOMM "₲" U20b2 GUARANI SIGN
 XCOMM "₳" U20b3 AUSTRAL SIGN
 XCOMM "₴" U20b4 HRYVNIA SIGN
 XCOMM "₵" U20b5 CEDI SIGN
-
+<Multi_key> <R> <equal>          	: "₹" U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <equal> <R>          	: "₹" U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <r> <equal>          	: "₹" U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <equal> <r>          	: "₹" U20b9 # INDIAN RUPEE SIGN
 
 <Multi_key> <bar> <C>            	: "¢"   cent # CENT SIGN
 <Multi_key> <bar> <c>            	: "¢"   cent # CENT SIGN

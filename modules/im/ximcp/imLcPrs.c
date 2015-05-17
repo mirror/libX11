@@ -501,7 +501,7 @@ parseline(
             if ((filename = TransFileName(im, tokenbuf)) == NULL)
                 goto error;
             infp = _XFopenFile(filename, "r");
-                Xfree(filename);
+            Xfree(filename);
             if (infp == NULL)
                 goto error;
             parsestringfile(infp, im, depth);

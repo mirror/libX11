@@ -38,6 +38,7 @@
 #include "Xlibint.h"
 #include "Xcmsint.h"
 #include "Cv.h"
+#include "reallocarray.h"
 
 
 /************************************************************************
@@ -85,7 +86,7 @@ XcmsStoreColors(
      * overwrite the contents.
      */
     if (nColors > 1) {
-	pColors_tmp = Xmalloc(nColors * sizeof(XcmsColor));
+	pColors_tmp = Xmallocarray(nColors, sizeof(XcmsColor));
     } else {
 	pColors_tmp = &Color1;
     }

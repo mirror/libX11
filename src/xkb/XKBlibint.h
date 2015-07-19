@@ -29,6 +29,7 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include <X11/Xutil.h>
 #include <X11/XKBlib.h>
+#include "reallocarray.h"
 
 #define XkbMapPending           (1<<0)
 #define XkbXlibNewKeyboard      (1<<1)
@@ -120,7 +121,7 @@ typedef struct _XkbReadBuffer {
 #define _XkbTypedAlloc(t)       ((t *)Xmalloc(sizeof(t)))
 #define _XkbTypedCalloc(n,t)    ((t *)Xcalloc((n),sizeof(t)))
 #define _XkbTypedRealloc(o,n,t) \
-        ((o) ? (t *)Xrealloc((o), (n)*sizeof(t)) : _XkbTypedCalloc(n,t))
+    ((o) ? (t *)Xreallocarray((o), (n), sizeof(t)) : _XkbTypedCalloc(n,t))
 #define _XkbClearElems(a,f,l,t) bzero(&(a)[f], ((l)-(f)+1) * sizeof(t))
 #define _XkbFree(p)             Xfree(p)
 

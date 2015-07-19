@@ -261,7 +261,7 @@ _XkbReadKeyActions(XkbReadBufferPtr buf, XkbDescPtr info, xkbGetMapReply *rep)
         if (nKeyActs < sizeof numDescBuf)
             numDesc = numDescBuf;
         else
-            numDesc = Xmalloc(nKeyActs * sizeof(CARD8));
+            numDesc = Xmallocarray(nKeyActs, sizeof(CARD8));
 
         if (!_XkbCopyFromReadBuffer(buf, (char *) numDesc, nKeyActs)) {
             ret = BadLength;

@@ -798,6 +798,8 @@ XcmsConvertColors(
      */
     if (nColors > 1) {
 	pColors_tmp = Xmallocarray(nColors, sizeof(XcmsColor));
+	if (pColors_tmp == NULL)
+	    return(XcmsFailure);
     } else {
 	pColors_tmp = &Color1;
     }

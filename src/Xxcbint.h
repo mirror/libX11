@@ -13,12 +13,12 @@
 #include <X11/Xlib-xcb.h>
 #include "locking.h"
 
-#define XLIB_SEQUENCE_COMPARE(a,op,b)	(((long) (a) - (long) (b)) op 0)
+#define XLIB_SEQUENCE_COMPARE(a,op,b)	(((int64_t) (a) - (int64_t) (b)) op 0)
 
 typedef struct PendingRequest PendingRequest;
 struct PendingRequest {
 	PendingRequest *next;
-	unsigned long sequence;
+	uint64_t sequence;
 	unsigned reply_waiter;
 };
 

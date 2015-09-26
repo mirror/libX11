@@ -45,10 +45,7 @@ char *_XGetAtomName(
 	table = dpy->atoms->table;
 	for (idx = TABLESIZE; --idx >= 0; ) {
 	    if ((e = *table++) && (e->atom == atom)) {
-		idx = strlen(EntryName(e)) + 1;
-		if ((name = Xmalloc(idx)))
-		    strcpy(name, EntryName(e));
-		return name;
+		return strdup(EntryName(e));
 	    }
 	}
     }

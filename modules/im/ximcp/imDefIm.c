@@ -330,9 +330,7 @@ _XimPreConnectionIM(
 	else
 	    goto Error;
     }
-    if( (locale_name[3] = Xmalloc(llen+1)) != NULL )
-	strcpy( locale_name[3], language );
-    else
+    if( (locale_name[3] = strdup(language)) == NULL )
 	goto Error;
     if((locales = XInternAtom(display, XIM_LOCALES, True)) == (Atom)None)
 	goto Error;

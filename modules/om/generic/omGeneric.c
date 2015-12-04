@@ -1877,13 +1877,13 @@ read_EncodingInfo(
 {
     FontData font_data,ret;
     char *buf, *bufptr,*scp;
-    int len;
+    int len, i;
     font_data = Xcalloc(count, sizeof(FontDataRec));
     if (font_data == NULL)
         return NULL;
 
     ret = font_data;
-    for ( ; count-- > 0; font_data++) {
+    for (i = 0; i < count; i++, font_data++) {
 /*
         strcpy(buf, *value++);
 */
@@ -1895,7 +1895,8 @@ read_EncodingInfo(
             len = strlen(buf);
         font_data->name = Xmalloc(len + 1);
         if (font_data->name == NULL) {
-            Xfree(font_data);
+            free_fontdataOM(ret, i + 1);
+            Xfree(ret);
             return NULL;
 	}
         strncpy(font_data->name, buf,len);

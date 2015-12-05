@@ -182,61 +182,6 @@ check_charset(
     return (FontData) NULL;
 }
 
-#if 0 /* Unused */
-static int
-check_fontname(
-    XOC oc,
-    char *name)
-{
-    Display *dpy = oc->core.om->core.display;
-    XOCGenericPart *gen = XOC_GENERIC(oc);
-    FontData data;
-    FontSet font_set;
-    XFontStruct *fs_list;
-    char **fn_list, *fname, *prop_fname = NULL;
-    int list_num, i;
-    int list2_num;
-    char **fn2_list = NULL;
-    int found_num = 0;
-
-    fn_list = XListFonts(dpy, name, MAXFONTS, &list_num);
-    if (fn_list == NULL)
-	return found_num;
-
-    for (i = 0; i < list_num; i++) {
-	fname = fn_list[i];
-
-	font_set = gen->font_set;
-
-	if ((data = check_charset(font_set, fname)) == NULL) {
-	    if ((fn2_list = XListFontsWithInfo(dpy, name, MAXFONTS,
-					       &list2_num, &fs_list))
-		&& (prop_fname = get_prop_name(dpy, fs_list))
-		&& (data = check_charset(font_set, prop_fname)))
-		fname = prop_fname;
-	}
-	if (data) {
-	    font_set->font_name = strdup(fname);
-	    if (font_set->font_name) {
-		found_num++;
-	    }
-	}
-	if (fn2_list) {
-	    XFreeFontInfo(fn2_list, fs_list, list2_num);
-	    fn2_list = NULL;
-	    if (prop_fname) {
-		Xfree(prop_fname);
-		prop_fname = NULL;
-	    }
-	}
-	if (found_num == 1)
-	    break;
-    }
-    XFreeFontNames(fn_list);
-    return found_num;
-}
-#endif
-
 static Bool
 load_font(
     XOC oc)
@@ -255,34 +200,6 @@ load_font(
     }
     return True;
 }
-
-#if 0
-static Bool
-load_font_info(
-    XOC oc)
-{
-    Display *dpy = oc->core.om->core.display;
-    XOCGenericPart *gen = XOC_GENERIC(oc);
-    FontSet font_set = gen->font_set;
-    char **fn_list;
-    int fn_num;
-
-    if (font_set->font_name == NULL)
-	return False;
-
-    if (font_set->info == NULL) {
-	fn_list = XListFontsWithInfo(dpy, font_set->font_name, 1, &fn_num,
-				     &font_set->info);
-	if (font_set->info == NULL)
-	    return False;
-	if (fn_num > 0)
-	    font_set->info->fid = XLoadFont(dpy, font_set->font_name);
-
-	if (fn_list) XFreeFontNames(fn_list);
-    }
-    return True;
-}
-#endif
 
 static void
 set_fontset_extents(

@@ -65,32 +65,6 @@
 #define	CHARSET_ENCODING_FIELD	14
 #define XLFD_MAX_LEN		255
 
-#if 0
-extern int _XmbDefaultTextEscapement(), _XwcDefaultTextEscapement(),
-	   _Xutf8DefaultTextEscapement();
-extern int _XmbDefaultTextExtents(), _XwcDefaultTextExtents(),
-	   _Xutf8DefaultTextExtents();
-extern Status _XmbDefaultTextPerCharExtents(), _XwcDefaultTextPerCharExtents(),
-	      _Xutf8DefaultTextPerCharExtents();
-extern int _XmbDefaultDrawString(), _XwcDefaultDrawString(),
-	   _Xutf8DefaultDrawString();
-extern void _XmbDefaultDrawImageString(), _XwcDefaultDrawImageString(),
-	    _Xutf8DefaultDrawImageString();
-
-extern int _XmbGenericTextEscapement(), _XwcGenericTextEscapement(),
-	   _Xutf8GenericTextEscapement();
-extern int _XmbGenericTextExtents(), _XwcGenericTextExtents(),
-	   _Xutf8GenericTextExtents();
-extern Status _XmbGenericTextPerCharExtents(), _XwcGenericTextPerCharExtents(),
-	      _Xutf8GenericTextPerCharExtents();
-extern int _XmbGenericDrawString(), _XwcGenericDrawString(),
-	   _Xutf8GenericDrawString();
-extern void _XmbGenericDrawImageString(), _XwcGenericDrawImageString(),
-	    _Xutf8GenericDrawImageString();
-
-extern void _XlcDbg_printValue (const char *str, char **value, int num);
-#endif
-
 /* For VW/UDC start */
 
 static FontData
@@ -634,34 +608,6 @@ is_match_charset(
 
     return False;
 }
-
-#if 0
-static char *
-get_font_name_from_list(
-    XOC oc,
-    char *pattern,
-    FontData    font_data)
-{
-    char **list, *name = (char *)NULL, *fname;
-    int count = 0, i;
-
-    list = XListFonts(oc->core.om->core.display, pattern, MAXFONTS, &count);
-    if (list == NULL)
-	return NULL;
-
-    for (i = 0; i < count; i++) {
-        fname = list[i];
-        if(is_match_charset(font_data, fname) == True) {
-            name = strdup(fname);
-            break;
-        }
-    }
-
-    XFreeFontNames(list);
-
-    return name;
-}
-#endif
 
 static int
 parse_all_name(

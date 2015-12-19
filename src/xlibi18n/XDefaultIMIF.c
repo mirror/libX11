@@ -202,9 +202,8 @@ _XDefaultOpenIM(
 	}
     }
 #undef MODIFIER
-    if ((im->core.im_name = Xmalloc(i+1)) == NULL)
+    if ((im->core.im_name = strdup(buf)) == NULL)
 	goto Error;
-    strcpy(im->core.im_name, buf);
 
     im->methods        = (XIMMethods)&local_im_methods;
     im->core.lcd       = lcd;

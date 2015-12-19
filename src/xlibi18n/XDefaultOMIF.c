@@ -237,13 +237,12 @@ init_core_part(
     FontSet font_set;
     XFontStruct **font_struct_list;
     char **font_name_list, *font_name_buf;
-    int	count, length;
+    int	count;
 
     font_set = gen->font_set;
-    count = length = 0;
+    count = 0;
 
     if (font_set->font_name != NULL) {
-	length += strlen(font_set->font_name) + 1;
 	count++;
     }
     if (count == 0)
@@ -257,7 +256,7 @@ init_core_part(
     if (font_name_list == NULL)
 	goto err;
 
-    font_name_buf = Xmalloc(length);
+    font_name_buf = strdup(font_set->font_name);
     if (font_name_buf == NULL)
 	goto err;
 
@@ -273,7 +272,6 @@ init_core_part(
 	    *font_struct_list++ = font_set->font;
 	else
 	    *font_struct_list++ = font_set->info;
-	strcpy(font_name_buf, font_set->font_name);
 	Xfree(font_set->font_name);
 	*font_name_list++ = font_set->font_name = font_name_buf;
 	font_name_buf += strlen(font_name_buf) + 1;
@@ -482,13 +480,12 @@ set_missing_list(
     XOCGenericPart *gen = XOC_GENERIC(oc);
     FontSet font_set;
     char **charset_list, *charset_buf;
-    int	count, length;
+    int	count;
 
     font_set = gen->font_set;
-    count = length = 0;
+    count = 0;
 
     if (!font_set->info && !font_set->font) {
-	length += strlen(font_set->font_data->name) + 1;
 	count++;
     }
 
@@ -499,7 +496,7 @@ set_missing_list(
     if (charset_list == NULL)
 	return False;
 
-    charset_buf = Xmalloc(length);
+    charset_buf = strdup(font_set->font_data->name);
     if (charset_buf == NULL) {
 	Xfree(charset_list);
 	return False;
@@ -510,7 +507,6 @@ set_missing_list(
     font_set = gen->font_set;
 
     if (!font_set->info && !font_set->font) {
-	strcpy(charset_buf, font_set->font_data->name);
 	*charset_list++ = charset_buf;
 	charset_buf += strlen(charset_buf) + 1;
     }
@@ -1058,7 +1054,7 @@ init_om(
     char **required_list;
     XOrientation *orientation;
     char *bufptr;
-    int i, count, length = 0;
+    int i, count;
 
     count = XlcNumber(supported_charset_list);
 
@@ -1078,14 +1074,12 @@ init_om(
 	    return False;
     }
 
-    length += strlen(data->font_data->name) + 1;
-
     /* required charset list */
     required_list = Xmalloc(sizeof(char *));
     if (required_list == NULL)
 	return False;
 
-    bufptr = Xmalloc(length);
+    bufptr = strdup(data->font_data->name);
     if (bufptr == NULL) {
 	Xfree(required_list);
 	return False;
@@ -1096,7 +1090,6 @@ init_om(
 
     data = gen->data;
 
-    strcpy(bufptr, data->font_data->name);
     *required_list++ = bufptr;
     bufptr += strlen(bufptr) + 1;
 

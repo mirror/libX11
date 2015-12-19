@@ -369,11 +369,7 @@ parse_fontname(
 	    found_num++;
 	    goto found;
 	}
-/*
-1266793
-Limit the length of the string copy to prevent stack corruption.
-	strcpy(buf, pattern);
-*/
+
 	strncpy(buf, pattern, BUFSIZ);
 	buf[BUFSIZ-1] = '\0';
 	length = strlen(buf);
@@ -425,11 +421,6 @@ Limit the length of the string copy to prevent stack corruption.
 	for ( ; font_data_count-- > 0; font_data++) {
 	    if (append_charset)
 		{
-/*
-1266793
-Limit the length of the string copy to prevent stack corruption.
-		strcpy(last, font_data->name);
-*/
 		strncpy(last, font_data->name, BUFSIZ - length);
 		buf[BUFSIZ-1] = '\0';
 		}
@@ -1015,11 +1006,7 @@ add_data(
 
 static _Xconst char *supported_charset_list[] = {
     "ISO8859-1",
-/* fix for bug4332979 */
     "adobe-fontspecific",
-/* fix for bug4237353: "JISX0201.1976-0" entry should be removed from
-   supported_charset_list because it is not a supported_charset for C locale
-    "JISX0201.1976-0", */
     "SUNOLCURSOR-1",
     "SUNOLGLYPH-1"
 };

@@ -237,15 +237,10 @@ init_core_part(
     FontSet font_set;
     XFontStruct **font_struct_list;
     char **font_name_list, *font_name_buf;
-    int	count;
 
     font_set = gen->font_set;
-    count = 0;
 
-    if (font_set->font_name != NULL) {
-	count++;
-    }
-    if (count == 0)
+    if (font_set->font_name == NULL)
         return False;
 
     font_struct_list = Xmalloc(sizeof(XFontStruct *));
@@ -264,18 +259,13 @@ init_core_part(
     oc->core.font_info.font_name_list = font_name_list;
     oc->core.font_info.font_struct_list = font_struct_list;
 
-    font_set = gen->font_set;
-
-    if (font_set->font_name != NULL) {
-	font_set->id = 1;
-	if (font_set->font)
-	    *font_struct_list++ = font_set->font;
-	else
-	    *font_struct_list++ = font_set->info;
-	Xfree(font_set->font_name);
-	*font_name_list++ = font_set->font_name = font_name_buf;
-	font_name_buf += strlen(font_name_buf) + 1;
-    }
+    font_set->id = 1;
+    if (font_set->font)
+        *font_struct_list = font_set->font;
+    else
+        *font_struct_list = font_set->info;
+    Xfree(font_set->font_name);
+    *font_name_list = font_set->font_name = font_name_buf;
 
     set_fontset_extents(oc);
 
@@ -480,16 +470,10 @@ set_missing_list(
     XOCGenericPart *gen = XOC_GENERIC(oc);
     FontSet font_set;
     char **charset_list, *charset_buf;
-    int	count;
 
     font_set = gen->font_set;
-    count = 0;
 
-    if (!font_set->info && !font_set->font) {
-	count++;
-    }
-
-    if (count == 0)
+    if (font_set->info == NULL || font_set->font == NULL)
 	return True;
 
     charset_list = Xmalloc(sizeof(char *));
@@ -504,12 +488,8 @@ set_missing_list(
 
     oc->core.missing_list.charset_list = charset_list;
 
-    font_set = gen->font_set;
+    *charset_list = charset_buf;
 
-    if (!font_set->info && !font_set->font) {
-	*charset_list++ = charset_buf;
-	charset_buf += strlen(charset_buf) + 1;
-    }
     return True;
 }
 
@@ -1090,8 +1070,7 @@ init_om(
 
     data = gen->data;
 
-    *required_list++ = bufptr;
-    bufptr += strlen(bufptr) + 1;
+    *required_list = bufptr;
 
     /* orientation list */
     orientation = Xmalloc(sizeof(XOrientation));

@@ -267,18 +267,20 @@ __lc_path(const char *dl_name, const char *lc_dir)
 	char *slash_p;
 	slash_p = strrchr(lc_dir, '/');
 	*slash_p = '\0';
-	strcpy(path, lc_dir); strcat(path, "/");
 #if defined POSTLOCALELIBDIR
-	strcat(path, POSTLOCALELIBDIR); strcat(path, "/");
+	snprintf(path, len + 1, "%s/%s/%s.so.2",
+		 lc_dir, POSTLOCALELIBDIR, dl_name);
+#else
+	snprintf(path, len + 1, "%s/%s.so.2", lc_dir, dl_name);
 #endif
-	strcat(path, dl_name); strcat(path, ".so.2");
 	*slash_p = '/';
     } else {
-	strcpy(path, lc_dir); strcat(path, "/");
 #if defined POSTLOCALELIBDIR
-	strcat(path, POSTLOCALELIBDIR); strcat(path, "/");
+	snprintf(path, len + 1, "%s/%s/%s.so.2",
+		 lc_dir, POSTLOCALELIBDIR, dl_name);
+#else
+	snprintf(path, len + 1, "%s/%s.so.2", lc_dir, dl_name);
 #endif
-	strcat(path, dl_name); strcat(path, ".so.2");
     }
     return path;
 }

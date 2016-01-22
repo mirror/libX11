@@ -87,9 +87,6 @@ m4_pattern_forbid([^XTRANS_CONNECTION_FLAGS$])
 # Transport selection macro from xtrans.m4
 XTRANS_CONNECTION_FLAGS
 
-# Secure RPC detection macro from xtrans.m4
-XTRANS_SECURE_RPC_FLAGS
-
 # Preferred order to try transports for local connections
 AC_MSG_CHECKING([what order to try transports in for local connections])
 DEFAULT_LOCAL_TRANS=""

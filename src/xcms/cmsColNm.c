@@ -198,7 +198,7 @@ _XcmsParseColorString(
     XcmsColorSpace	*pColorSpace;
     char		string_buf[64];
     char		*string_lowered;
-    int			len;
+    size_t		len;
     int			res;
 
     if (ccc == NULL) {

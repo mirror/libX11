@@ -126,13 +126,13 @@ _XcmsColorSpaceOfString(
  */
 {
     XcmsColorSpace	**papColorSpaces;
-    int n;
+    size_t n;
     char *pchar;
 
     if ((pchar = strchr(color_string, ':')) == NULL) {
 	return(XcmsFailure);
     }
-    n = (int)(pchar - color_string);
+    n = (size_t)(pchar - color_string);
 
     if (ccc == NULL) {
 	return(NULL);

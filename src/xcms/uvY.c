@@ -243,7 +243,7 @@ XcmsCIEuvYToCIEXYZ(
 {
     XcmsCIEXYZ XYZ_return;
     XcmsColor whitePt;
-    int i;
+    unsigned int i;
     XcmsColor *pColor = pColors_in_out;
     XcmsFloat div, x, y, z, Y;
 
@@ -358,7 +358,7 @@ XcmsCIEXYZToCIEuvY(
 {
     XcmsCIEuvY uvY_return;
     XcmsColor whitePt;
-    int i;
+    unsigned int i;
     XcmsColor *pColor = pColors_in_out;
     XcmsFloat div;
 

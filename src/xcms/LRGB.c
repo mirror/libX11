@@ -966,7 +966,7 @@ _XcmsGetTableType1(
  *
  */
 {
-    int count;
+    unsigned int count;
     unsigned int max_index;
     IntensityRec *pIRec;
 

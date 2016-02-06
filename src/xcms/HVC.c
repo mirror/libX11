@@ -349,7 +349,7 @@ XcmsTekHVCToCIEuvY(
     XcmsCIEuvY	uvY_return;
     XcmsFloat	tempHue, u, v;
     XcmsFloat	tmpVal;
-    register int i;
+    unsigned int i;
 
     /*
      * Check arguments
@@ -468,7 +468,7 @@ XcmsCIEuvYToTekHVC(
     XcmsColor	*pColor = pColors_in_out;
     XcmsColor	whitePt;
     XcmsTekHVC	HVC_return;
-    register int i;
+    unsigned int i;
 
     /*
      * Check arguments

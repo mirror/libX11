@@ -6017,3 +6017,105 @@ XCOMM Given that no extant APLs use ⍮ I will just leave the line in place.
 <Multi_key> <underscore> <U2373>                : "⍸"   U2378   # _ ⍳ APL FUNCTIONAL SYMBOL IOTA UNDERBAR
 <Multi_key> <U2375> <underscore>                : "⍹"   U2379   # ⍵ _ APL FUNCTIONAL SYMBOL OMEGA UNDERBAR
 <Multi_key> <underscore> <U2375>                : "⍹"   U2379   # _ ⍵ APL FUNCTIONAL SYMBOL OMEGA UNDERBAR
+
+XCOMM Diacritics used in African languages
+<dead_acute> <U025B>                 	: "ɛ́"   # LATIN SMALL LETTER EPSILON WITH ACUTE
+<dead_grave> <U025B>                 	: "ɛ̀"   # LATIN SMALL LETTER EPSILON WITH GRAVE
+<dead_circumflex> <U025B>               : "ɛ̂"   # LATIN SMALL LETTER EPSILON WITH CIRCUMFLEX
+<dead_caron> <U025B>                 	: "ɛ̌"   # LATIN SMALL LETTER EPSILON WITH CARON
+<dead_macron> <U025B>                 	: "ɛ̄"   # LATIN SMALL LETTER EPSILON WITH MACRON
+<dead_tilde> <U025B>                 	: "ɛ̃"   # LATIN SMALL LETTER EPSILON WITH TILDE
+<dead_acute> <dead_tilde> <U025B>       : "ɛ̃́"   # LATIN SMALL LETTER EPSILON WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U025B>       : "ɛ̃̀"   # LATIN SMALL LETTER EPSILON WITH TILDE AND GRAVE
+<dead_acute> <U0190>                 	: "Ɛ́"   # LATIN CAPITAL LETTER EPSILON WITH ACUTE
+<dead_grave> <U0190>                 	: "Ɛ̀"   # LATIN CAPITAL LETTER EPSILON WITH GRAVE
+<dead_circumflex> <U0190>               : "Ɛ̂"   # LATIN CAPITAL LETTER EPSILON WITH CIRCUMFLEX
+<dead_caron> <U0190>                 	: "Ɛ̌"   # LATIN CAPITAL LETTER EPSILON WITH CARON
+<dead_macron> <U0190>                 	: "Ɛ̄"   # LATIN CAPITAL LETTER EPSILON WITH MACRON
+<dead_tilde> <U0190>                 	: "Ɛ̃"   # LATIN CAPITAL LETTER EPSILON WITH TILDE
+<dead_acute> <dead_tilde> <U0190>       : "Ɛ̃́"   # LATIN CAPITAL LETTER EPSILON WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U0190>       : "Ɛ̃̀"   # LATIN CAPITAL LETTER EPSILON WITH TILDE AND GRAVE
+<dead_acute> <U0269>                 	: "ɩ́"   # LATIN SMALL LETTER IOTA WITH ACUTE
+<dead_grave> <U0269>                 	: "ɩ̀"   # LATIN SMALL LETTER IOTA WITH GRAVE
+<dead_circumflex> <U0269>               : "ɩ̂"   # LATIN SMALL LETTER IOTA WITH CIRCUMFLEX
+<dead_caron> <U0269>                 	: "ɩ̌"   # LATIN SMALL LETTER IOTA WITH CARON
+<dead_macron> <U0269>                 	: "ɩ̄"   # LATIN SMALL LETTER IOTA WITH MACRON
+<dead_acute> <U0196>                 	: "Ɩ́"   # LATIN CAPITAL LETTER IOTA WITH ACUTE
+<dead_grave> <U0196>                 	: "Ɩ̀"   # LATIN CAPITAL LETTER IOTA WITH GRAVE
+<dead_circumflex> <U0196>               : "Ɩ̂"   # LATIN CAPITAL LETTER IOTA WITH CIRCUMFLEX
+<dead_caron> <U0196>                 	: "Ɩ̌"   # LATIN CAPITAL LETTER IOTA WITH CARON
+<dead_macron> <U0196>                 	: "Ɩ̄"   # LATIN CAPITAL LETTER IOTA WITH MACRON
+<dead_acute> <U0254>                 	: "ɔ́"   # LATIN SMALL LETTER OPEN O WITH ACUTE
+<dead_grave> <U0254>                 	: "ɔ̀"   # LATIN SMALL LETTER OPEN O WITH GRAVE
+<dead_circumflex> <U0254>               : "ɔ̂"   # LATIN SMALL LETTER OPEN O WITH CIRCUMFLEX
+<dead_caron> <U0254>                 	: "ɔ̌"   # LATIN SMALL LETTER OPEN O WITH CARON
+<dead_macron> <U0254>                 	: "ɔ̄"   # LATIN SMALL LETTER OPEN O WITH MACRON
+<dead_tilde> <U0254>                 	: "ɔ̃"   # LATIN SMALL LETTER OPEN O WITH TILDE
+<dead_acute> <dead_tilde> <U0254>       : "ɔ̃́"   # LATIN SMALL LETTER OPEN O WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U0254>       : "ɔ̃̀"   # LATIN SMALL LETTER OPEN O WITH TILDE AND GRAVE
+<dead_acute> <U0186>                 	: "Ɔ́"   # LATIN CAPITAL LETTER OPEN O WITH ACUTE
+<dead_grave> <U0186>                 	: "Ɔ̀"   # LATIN CAPITAL LETTER OPEN O WITH GRAVE
+<dead_circumflex> <U0186>               : "Ɔ̂"   # LATIN CAPITAL LETTER OPEN O WITH CIRCUMFLEX
+<dead_caron> <U0186>                 	: "Ɔ̌"   # LATIN CAPITAL LETTER OPEN O WITH CARON
+<dead_macron> <U0186>                 	: "Ɔ̄"   # LATIN CAPITAL LETTER OPEN O WITH MACRON
+<dead_tilde> <U0186>                 	: "Ɔ̃"   # LATIN CAPITAL LETTER OPEN O WITH TILDE
+<dead_acute> <dead_tilde> <U0186>       : "Ɔ̃́"   # LATIN CAPITAL LETTER OPEN O WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U0186>       : "Ɔ̃̀"   # LATIN CAPITAL LETTER OPEN O WITH TILDE AND GRAVE
+<dead_acute> <U01DD>                 	: "ǝ́"   # LATIN SMALL LETTER TURNED E WITH ACUTE
+<dead_grave> <U01DD>                 	: "ǝ̀"   # LATIN SMALL LETTER TURNED E WITH GRAVE
+<dead_circumflex> <U01DD>               : "ǝ̂"   # LATIN SMALL LETTER TURNED E WITH CIRCUMFLEX
+<dead_caron> <U01DD>                 	: "ǝ̌"   # LATIN SMALL LETTER TURNED E WITH CARON
+<dead_macron> <U01DD>                 	: "ǝ̄"   # LATIN SMALL LETTER TURNED E WITH MACRON
+<dead_tilde> <U01DD>                 	: "ǝ̃"   # LATIN SMALL LETTER TURNED E WITH TILDE
+<dead_acute> <dead_tilde> <U01DD>       : "ǝ̃́"   # LATIN SMALL LETTER TURNED E WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U01DD>       : "ǝ̃̀"   # LATIN SMALL LETTER TURNED E WITH TILDE AND GRAVE
+<dead_acute> <U018E>                 	: "Ǝ́"   # LATIN CAPITAL LETTER TURNED E WITH ACUTE
+<dead_grave> <U018E>                 	: "Ǝ̀"   # LATIN CAPITAL LETTER TURNED E WITH GRAVE
+<dead_circumflex> <U018E>               : "Ǝ̂"   # LATIN CAPITAL LETTER TURNED E WITH CIRCUMFLEX
+<dead_caron> <U018E>                 	: "Ǝ̌"   # LATIN CAPITAL LETTER TURNED E WITH CARON
+<dead_macron> <U018E>                 	: "Ǝ̄"   # LATIN CAPITAL LETTER TURNED E WITH MACRON
+<dead_tilde> <U018E>                 	: "Ǝ̃"   # LATIN CAPITAL LETTER TURNED E WITH TILDE
+<dead_acute> <dead_tilde> <U018E>       : "Ǝ̃́"   # LATIN CAPITAL LETTER TURNED E WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <U018E>       : "Ǝ̃̀"   # LATIN CAPITAL LETTER TURNED E WITH TILDE AND GRAVE
+<dead_acute> <U028B>                 	: "ʋ́"   # LATIN SMALL LETTER V WITH HOOK WITH ACUTE
+<dead_grave> <U028B>                 	: "ʋ̀"   # LATIN SMALL LETTER V WITH HOOK WITH GRAVE
+<dead_circumflex> <U028B>               : "ʋ̂"   # LATIN SMALL LETTER V WITH HOOK WITH CIRCUMFLEX
+<dead_caron> <U028B>                 	: "ʋ̌"   # LATIN SMALL LETTER V WITH HOOK WITH CARON
+<dead_macron> <U028B>                 	: "ʋ̄"   # LATIN SMALL LETTER V WITH HOOK WITH MACRON
+<dead_acute> <U01B2>                 	: "Ʋ́"   # LATIN CAPITAL LETTER V WITH HOOK WITH ACUTE
+<dead_grave> <U01B2>                 	: "Ʋ̀"   # LATIN CAPITAL LETTER V WITH HOOK WITH GRAVE
+<dead_circumflex> <U01B2>               : "Ʋ̂"   # LATIN CAPITAL LETTER V WITH HOOK WITH CIRCUMFLEX
+<dead_caron> <U01B2>                 	: "Ʋ̌"   # LATIN CAPITAL LETTER V WITH HOOK WITH CARON
+<dead_macron> <U01B2>                 	: "Ʋ̄"   # LATIN CAPITAL LETTER V WITH HOOK WITH MACRON
+<dead_acute> <U028A>                 	: "ʊ́"   # LATIN SMALL LETTER UPSILON WITH ACUTE
+<dead_grave> <U028A>                 	: "ʊ̀"   # LATIN SMALL LETTER UPSILONK WITH GRAVE
+<dead_circumflex> <U028A>               : "ʊ̂"   # LATIN SMALL LETTER UPSILON WITH CIRCUMFLEX
+<dead_caron> <U028A>                 	: "ʊ̌"   # LATIN SMALL LETTER UPSILON WITH CARON
+<dead_macron> <U028A>                 	: "ʊ̄"   # LATIN SMALL LETTER UPSILON WITH MACRON
+<dead_acute> <U01B1>                 	: "Ʊ́"   # LATIN CAPITAL LETTER UPSILON WITH ACUTE
+<dead_grave> <U01B1>                 	: "Ʊ̀"   # LATIN CAPITAL LETTER UPSILONK WITH GRAVE
+<dead_circumflex> <U01B1>               : "Ʊ̂"   # LATIN CAPITAL LETTER UPSILON WITH CIRCUMFLEX
+<dead_caron> <U01B1>                 	: "Ʊ̌"   # LATIN CAPITAL LETTER UPSILON WITH CARON
+<dead_macron> <U01B1>                 	: "Ʊ̄"   # LATIN CAPITAL LETTER UPSILON WITH MACRON
+<dead_acute> <dead_tilde> <a>		: "ã́"   # LATIN SMALL LETTER A WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <a>		: "ã̀"   # LATIN SMALL LETTER A WITH TILDE AND GRAVE
+<dead_acute> <dead_tilde> <A>		: "Ã́"   # LATIN CAPITAL LETTER A WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <A>		: "Ã̀"   # LATIN CAPITAL LETTER A WITH TILDE AND GRAVE
+<dead_acute> <dead_tilde> <e>		: "ẽ́"   # LATIN SMALL LETTER E WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <e>		: "ẽ̀"   # LATIN SMALL LETTER E WITH TILDE AND GRAVE
+<dead_acute> <dead_tilde> <E>		: "Ẽ́"   # LATIN CAPITAL LETTER E WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <E>		: "Ẽ̀"   # LATIN CAPITAL LETTER E WITH TILDE AND GRAVE
+<dead_acute> <dead_tilde> <i>		: "ĩ́"   # LATIN SMALL LETTER I WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <i>		: "ĩ̀"   # LATIN SMALL LETTER I WITH TILDE AND GRAVE
+<dead_acute> <dead_tilde> <I>		: "Ĩ́"   # LATIN CAPITAL LETTER I WITH TILDE AND ACUTE
+<dead_grave> <dead_tilde> <I>		: "Ĩ̀"   # LATIN CAPITAL LETTER I WITH TILDE AND GRAVE
+<dead_grave> <dead_tilde> <o>		: "õ̀"   # LATIN SMALL LETTER O WITH TILDE AND GRAVE
+<dead_grave> <dead_tilde> <O>		: "Õ̀"   # LATIN CAPITAL LETTER O WITH TILDE AND GRAVE
+<dead_grave> <dead_tilde> <u>		: "ũ̀"   # LATIN SMALL LETTER U WITH TILDE AND GRAVE
+<dead_grave> <dead_tilde> <U>		: "Ũ̀"   # LATIN CAPITAL LETTER U WITH TILDE AND GRAVE
+<dead_grave> <m>                 	: "m̀"   # LATIN SMALL LETTER M WITH GRAVE
+<dead_grave> <M>                 	: "M̀"   # LATIN CAPITAL LETTER M WITH GRAVE
+<dead_acute> <eng>			: "ŋ́"   # LATIN SMALL LETTER ENG WITH ACUTE
+<dead_grave> <eng>			: "ŋ̀"   # LATIN SMALL LETTER ENG WITH GRAVE
+<dead_acute> <ENG> 			: "Ŋ́"   # LATIN CAPITAL LETTER ENG WITH ACUTE
+<dead_grave> <ENG>			: "Ŋ̀"   # LATIN CAPITAL LETTER ENG WITH GRAVE

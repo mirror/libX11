@@ -1029,12 +1029,9 @@ child process as well as for printing error messages.
 <!-- .sp -->
 <!-- .sM -->
 </para>
-<para>
-LastKnownRequestProcessed(<emphasis remap='I'>display</emphasis>)
-</para>
-<funcsynopsis id='XLastKnownRequestProcessed'>
+<funcsynopsis id='XExtendedMaxRequestSize'>
 <funcprototype>
-  <funcdef>unsigned long <function>XLastKnownRequestProcessed</function></funcdef>
+  <funcdef>long <function>XExtendedMaxRequestSize</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1086,12 +1083,9 @@ split the data across multiple smaller requests instead.
 <!-- .sp -->
 <!-- .sM -->
 </para>
-<para>
-LastKnownRequestProcessed(<emphasis remap='I'>display</emphasis>)
-</para>
 <funcsynopsis>
 <funcprototype>
-  <funcdef>unsigned long <function>XLastKnownRequestProcessed</function></funcdef>
+  <funcdef>long <function>XMaxRequestSize</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2296,11 +2290,11 @@ Both return the display of the specified screen.
 <indexterm significance="preferred"><primary>XScreenNumberOfScreen</primary></indexterm>
 </para>
 <para>
-EventMaskOfScreen(<emphasis remap='I'>screen</emphasis>)
+ScreenNumberOfScreen(<emphasis remap='I'>screen</emphasis>)
 </para>
-<funcsynopsis id='XEventMaskOfScreen'>
+<funcsynopsis id='XScreenNumberOfScreen'>
 <funcprototype>
-  <funcdef>long <function>XEventMaskOfScreen</function></funcdef>
+  <funcdef>long <function>XScreenNumberOfScreen</function></funcdef>
   <paramdef>Screen<parameter> *screen</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2711,7 +2705,7 @@ To free in-memory data that was created by an Xlib function, use
 </para>
 <funcsynopsis id='XFree'>
 <funcprototype>
-  <funcdef>XFree</funcdef>
+  <funcdef><function>XFree</function></funcdef>
   <paramdef>void<parameter> *data</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2791,7 +2785,7 @@ structure and destroys all windows, resource IDs
 and
 <type>GContext</type>),
 or other resources that the client has created
-on this display, unless the close-down mode of the resource has been changed
+on this display, unless the close-down mode of the client has been changed
 (see
 <xref linkend='XSetCloseDownMode' xrefstyle='select: title'/>).
 Therefore, these windows, resource IDs, and other resources should never be 
@@ -2825,7 +2819,7 @@ To change a client's close-down mode, use
 </para>
 <funcsynopsis id='XSetCloseDownMode'>
 <funcprototype>
-  <funcdef>XSetCloseDownMode</funcdef>
+  <funcdef><function>XSetCloseDownMode</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> close_mode</parameter></paramdef>
 </funcprototype>
@@ -2862,7 +2856,7 @@ or
 <!-- .LP -->
 <!-- .eM -->
 The
-<xref linkend='XSetCloseDownMode' xrefstyle='select: title'/>
+<xref linkend='XSetCloseDownMode' xrefstyle='select: title'/> function
 defines what will happen to the client's resources at connection close.
 A connection starts in
 <symbol>DestroyAll</symbol>
@@ -3156,7 +3150,7 @@ To unlock a display, use
 </para>
 <funcsynopsis id='XUnlockDisplay'>
 <funcprototype>
-  <funcdef>XUnlockDisplay</funcdef>
+  <funcdef><function>XUnlockDisplay</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3217,7 +3211,7 @@ To track internal connections for a display, use
 </para>
 <funcsynopsis id='xconnectionwatch'>
 <funcprototype>
-  <funcdef>type void XConnectionWatchProc</funcdef>
+  <funcdef>typedef void (*XConnectionWatchProc)</funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>XPointer<parameter> client_data</parameter></paramdef>
   <paramdef>int<parameter> fd</parameter></paramdef>
@@ -3228,9 +3222,9 @@ To track internal connections for a display, use
 
 <funcsynopsis id='XAddConnectionWatch'>
 <funcprototype>
-  <funcdef>Status XAddConnectionWatch</funcdef>
+  <funcdef>Status <function>XAddConnectionWatch</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>XWatchProc<parameter> procedure</parameter></paramdef>
+  <paramdef>XConnectionWatchProc<parameter> procedure</parameter></paramdef>
   <paramdef>XPointer<parameter> client_data</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3315,13 +3309,12 @@ To stop tracking internal connections for a display, use
 <!-- .sM -->
 </para>
 <para>
-()
 </para>
 <funcsynopsis id='xremoveconnectionwatch'>
 <funcprototype>
   <funcdef>Status <function>XRemoveConnectionWatch</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>XWatchProc<parameter> procedure</parameter></paramdef>
+  <paramdef>XConnectionWatchProc<parameter> procedure</parameter></paramdef>
   <paramdef>XPointer<parameter> client_data</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3377,7 +3370,6 @@ To process input on an internal connection, use
 <!-- .sM -->
 </para>
 <para>
-()
 </para>
 <funcsynopsis id='XProcessInternalConnection'>
 <funcprototype>
@@ -3432,7 +3424,6 @@ To obtain all of the current internal connections for a display, use
 <!-- .sM -->
 </para>
 <para>
-()
 </para>
 <funcsynopsis id='XInternalConnectionNumbers'>
 <funcprototype>

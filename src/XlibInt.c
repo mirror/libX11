@@ -1238,7 +1238,7 @@ _XWireToEvent(
  * _XDefaultIOError - Default fatal system error reporting routine.  Called
  * when an X internal system error is encountered.
  */
-int _XDefaultIOError(
+_X_NORETURN int _XDefaultIOError(
 	Display *dpy)
 {
 	if (ECHECK(EPIPE)) {

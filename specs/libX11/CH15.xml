@@ -1201,7 +1201,8 @@ To merge the contents of one database into another database, use
 <funcsynopsis id='XrmCombineDatabase'>
 <funcprototype>
   <funcdef>void <function>XrmCombineDatabase</function></funcdef>
-  <paramdef>XrmDatabasesource_db,<parameter> *target_db</parameter></paramdef>
+  <paramdef>XrmDatabase <parameter>source_db</parameter></paramdef>
+  <paramdef>XrmDatabase <parameter> *target_db</parameter></paramdef>
   <paramdef>Bool<parameter> override</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1271,7 +1272,8 @@ semantics, use
 <funcsynopsis id='XrmMergeDatabases'>
 <funcprototype>
   <funcdef>void <function>XrmMergeDatabases</function></funcdef>
-  <paramdef>XrmDatabasesource_db,<parameter> *target_db</parameter></paramdef>
+  <paramdef>XrmDatabase <parameter>source_db</parameter></paramdef>
+  <paramdef>XrmDatabase <parameter> *target_db</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

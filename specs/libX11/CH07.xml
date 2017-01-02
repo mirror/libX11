@@ -1058,7 +1058,8 @@ To copy components from a source GC to a destination GC, use
 <funcprototype>
   <funcdef><function>XCopyGC</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>GCsrc,<parameter> dest</parameter></paramdef>
+  <paramdef>GC <parameter>src</parameter></paramdef>
+  <paramdef>GC <parameter> dest</parameter></paramdef>
   <paramdef>unsigned long <parameter> valuemask</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1536,7 +1537,8 @@ for a given GC, use
   <funcdef><function>XSetState</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>unsigned long foreground,<parameter> background</parameter></paramdef>
+  <paramdef>unsigned long <parameter>foreground</parameter></paramdef>
+  <paramdef>unsigned long <parameter> background</parameter></paramdef>
   <paramdef>int<parameter> function</parameter></paramdef>
   <paramdef>unsigned long <parameter> plane_mask</parameter></paramdef>
 </funcprototype>
@@ -2753,7 +2755,8 @@ To set the tile or stipple origin of a given GC, use
   <funcdef><function>XSetTSOrigin</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intts_x_origin,<parameter> ts_y_origin</parameter></paramdef>
+  <paramdef>int <parameter>ts_x_origin</parameter></paramdef>
+  <paramdef>int <parameter> ts_y_origin</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2905,7 +2908,8 @@ To set the clip-origin of a given GC, use
   <funcdef><function>XSetClipOrigin</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intclip_x_origin,<parameter> clip_y_origin</parameter></paramdef>
+  <paramdef>int <parameter>clip_x_origin</parameter></paramdef>
+  <paramdef>int <parameter> clip_y_origin</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3048,7 +3052,8 @@ To set the clip-mask of a given GC to the specified list of rectangles, use
   <funcdef><function>XSetClipRectangles</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intclip_x_origin,<parameter> clip_y_origin</parameter></paramdef>
+  <paramdef>int <parameter>clip_x_origin</parameter></paramdef>
+  <paramdef>int <parameter> clip_y_origin</parameter></paramdef>
   <paramdef>XRectangle<parameter> rectangles[]</parameter></paramdef>
   <paramdef>int<parameter> n</parameter></paramdef>
   <paramdef>int<parameter> ordering</parameter></paramdef>

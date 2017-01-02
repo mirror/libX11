@@ -863,13 +863,17 @@ This function has been superseded by
   <funcdef>int <function>XGeometry</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>int<parameter> screen</parameter></paramdef>
-  <paramdef>char*position,<parameter> *default_position</parameter></paramdef>
+  <paramdef>char <parameter>*position</parameter></paramdef>
+  <paramdef>char <parameter> *default_position</parameter></paramdef>
   <paramdef>unsigned int <parameter> bwidth</parameter></paramdef>
   <paramdef>unsigned int <parameter>fwidth</parameter></paramdef>
   <paramdef>unsigned int <parameter>fheight</parameter></paramdef>
-  <paramdef>intxadder,<parameter> yadder</parameter></paramdef>
-  <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
-  <paramdef>int*width_return,<parameter> *height_return</parameter></paramdef>
+  <paramdef>int <parameter>xadder</parameter></paramdef>
+  <paramdef>int <parameter> yadder</parameter></paramdef>
+  <paramdef>int <parameter>*x_return</parameter></paramdef>
+  <paramdef>int <parameter> *y_return</parameter></paramdef>
+  <paramdef>int <parameter>*width_return</parameter></paramdef>
+  <paramdef>int <parameter> *height_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

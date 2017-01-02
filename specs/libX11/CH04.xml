@@ -377,7 +377,8 @@ To obtain the current geometry of a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>Window<parameter> *root_return</parameter></paramdef>
-  <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
+  <paramdef>int *<parameter>x_return</parameter></paramdef>
+  <paramdef>int *<parameter>y_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>unsigned int <parameter> *border_width_return</parameter></paramdef>
@@ -536,9 +537,12 @@ space of another window, use
 <funcprototype>
   <funcdef>Bool <function>XTranslateCoordinates</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Windowsrc_w,<parameter> dest_w</parameter></paramdef>
-  <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
-  <paramdef>int*dest_x_return,<parameter> *dest_y_return</parameter></paramdef>
+  <paramdef>Window <parameter>src_w</parameter></paramdef>
+  <paramdef>Window <parameter> dest_w</parameter></paramdef>
+  <paramdef>int <parameter>src_x</parameter></paramdef>
+  <paramdef>int <parameter> src_y</parameter></paramdef>
+  <paramdef>int <parameter>*dest_x_return</parameter></paramdef>
+  <paramdef>int <parameter> *dest_y_return</parameter></paramdef>
   <paramdef>Window<parameter> *child_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -671,9 +675,12 @@ or to determine the pointer coordinates relative to a specified window, use
   <funcdef>Bool <function>XQueryPointer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>Window*root_return,<parameter> *child_return</parameter></paramdef>
-  <paramdef>int*root_x_return,<parameter> *root_y_return</parameter></paramdef>
-  <paramdef>int*win_x_return,<parameter> *win_y_return</parameter></paramdef>
+  <paramdef>Window <parameter>*root_return</parameter></paramdef>
+  <paramdef>Window <parameter> *child_return</parameter></paramdef>
+  <paramdef>int <parameter>*root_x_return</parameter></paramdef>
+  <paramdef>int <parameter> *root_y_return</parameter></paramdef>
+  <paramdef>int <parameter>*win_x_return</parameter></paramdef>
+  <paramdef>int <parameter> *win_y_return</parameter></paramdef>
   <paramdef>unsigned int <parameter> *mask_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

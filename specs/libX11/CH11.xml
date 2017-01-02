@@ -1675,7 +1675,8 @@ To get the motion history for a specified window and time, use
   <funcdef>XTimeCoord *<function>XGetMotionEvents</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> w</parameter></paramdef>
-  <paramdef>Timestart,<parameter> stop</parameter></paramdef>
+  <paramdef>Time <parameter>start</parameter></paramdef>
+  <paramdef>Time <parameter> stop</parameter></paramdef>
   <paramdef>int<parameter> *nevents_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2292,7 +2293,8 @@ To obtain error messages from the error database, use
 <funcprototype>
   <funcdef><function>XGetErrorDatabaseText</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>char*name,<parameter> *message</parameter></paramdef>
+  <paramdef>char <parameter>*name</parameter></paramdef>
+  <paramdef>char <parameter> *message</parameter></paramdef>
   <paramdef>char<parameter> *default_string</parameter></paramdef>
   <paramdef>char<parameter> *buffer_return</parameter></paramdef>
   <paramdef>int<parameter> length</parameter></paramdef>

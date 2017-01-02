@@ -300,8 +300,10 @@ To create a cursor from font glyphs, use
 <funcprototype>
   <funcdef>Cursor <function>XCreateGlyphCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Fontsource_font,<parameter> mask_font</parameter></paramdef>
-  <paramdef>unsigned int source_char,<parameter> mask_char</parameter></paramdef>
+  <paramdef>Font <parameter>source_font</parameter></paramdef>
+  <paramdef>Font <parameter> mask_font</parameter></paramdef>
+  <paramdef>unsigned int <parameter>source_char</parameter></paramdef>
+  <paramdef>unsigned int <parameter> mask_char</parameter></paramdef>
   <paramdef>XColor<parameter> *foreground_color</parameter></paramdef>
   <paramdef>XColor<parameter> *background_color</parameter></paramdef>
 </funcprototype>
@@ -443,7 +445,8 @@ use
   <paramdef>Pixmap<parameter> mask</parameter></paramdef>
   <paramdef>XColor<parameter> *foreground_color</parameter></paramdef>
   <paramdef>XColor<parameter> *background_color</parameter></paramdef>
-  <paramdef>unsigned int x,<parameter> y</parameter></paramdef>
+  <paramdef>unsigned int <parameter>x</parameter></paramdef>
+  <paramdef>unsigned int <parameter> y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -693,7 +696,8 @@ To change the color of a given cursor, use
   <funcdef><function>XRecolorCursor</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
-  <paramdef>XColor*foreground_color,<parameter> *background_color</parameter></paramdef>
+  <paramdef>XColor <parameter>*foreground_color</parameter></paramdef>
+  <paramdef>XColor <parameter> *background_color</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

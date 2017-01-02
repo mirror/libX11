@@ -929,7 +929,8 @@ To parse standard window geometry strings, use
 <funcprototype>
   <funcdef>int <function>XParseGeometry</function></funcdef>
   <paramdef>char<parameter> *parsestring</parameter></paramdef>
-  <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
+  <paramdef>int <parameter>*x_return</parameter></paramdef>
+  <paramdef>int <parameter> *y_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
 </funcprototype>
@@ -1069,7 +1070,8 @@ To construct a window's geometry information, use
   <paramdef>char<parameter> *def_geom</parameter></paramdef>
   <paramdef>unsigned int <parameter> bwidth</parameter></paramdef>
   <paramdef>XSizeHints<parameter> *hints</parameter></paramdef>
-  <paramdef>int*x_return,<parameter> *y_return</parameter></paramdef>
+  <paramdef>int <parameter>*x_return</parameter></paramdef>
+  <paramdef>int <parameter> *y_return</parameter></paramdef>
   <paramdef>int<parameter> *width_return</parameter></paramdef>
   <paramdef>int<parameter> *height_return</parameter></paramdef>
   <paramdef>int<parameter> *gravity_return</parameter></paramdef>
@@ -1468,7 +1470,8 @@ To move a region by a specified amount, use
 <funcprototype>
   <funcdef><function>XOffsetRegion</function></funcdef>
   <paramdef>Region<parameter> r</parameter></paramdef>
-  <paramdef>intdx,<parameter> dy</parameter></paramdef>
+  <paramdef>int <parameter>dx</parameter></paramdef>
+  <paramdef>int <parameter> dy</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1519,7 +1522,8 @@ To reduce a region by a specified amount, use
 <funcprototype>
   <funcdef><function>XShrinkRegion</function></funcdef>
   <paramdef>Region<parameter> r</parameter></paramdef>
-  <paramdef>intdx,<parameter> dy</parameter></paramdef>
+  <paramdef>int <parameter>dx</parameter></paramdef>
+  <paramdef>int <parameter> dy</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1625,7 +1629,9 @@ To compute the intersection of two regions, use
 <funcsynopsis id='XIntersectRegion'>
 <funcprototype>
   <funcdef><function>XIntersectRegion</function></funcdef>
-  <paramdef>Regionsra,srb,<parameter> dr_return</parameter></paramdef>
+  <paramdef>Region <parameter> sra</parameter></paramdef>
+  <paramdef>Region <parameter> srb</parameter></paramdef>
+  <paramdef>Region <parameter> dr_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1674,7 +1680,9 @@ To compute the union of two regions, use
 <funcsynopsis id='XUnionRegion'>
 <funcprototype>
   <funcdef><function>XUnionRegion</function></funcdef>
-  <paramdef>Regionsra,srb,<parameter> dr_return</parameter></paramdef>
+  <paramdef>Region<parameter> sra</parameter></paramdef>
+  <paramdef>Region<parameter> srb</parameter></paramdef>
+  <paramdef>Region<parameter> dr_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1780,7 +1788,9 @@ To subtract two regions, use
 <funcsynopsis id='XSubtractRegion'>
 <funcprototype>
   <funcdef><function>XSubtractRegion</function></funcdef>
-  <paramdef>Regionsra,srb,<parameter> dr_return</parameter></paramdef>
+  <paramdef>Region <parameter> sra</parameter></paramdef>
+  <paramdef>Region <parameter> srb</parameter></paramdef>
+  <paramdef>Region <parameter> dr_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1836,7 +1846,9 @@ of two regions, use
 <funcsynopsis id='XXorRegion'>
 <funcprototype>
   <funcdef><function>XXorRegion</function></funcdef>
-  <paramdef>Regionsra,srb,<parameter> dr_return</parameter></paramdef>
+  <paramdef>Region <parameter> sra</parameter></paramdef>
+  <paramdef>Region <parameter> srb</parameter></paramdef>
+  <paramdef>Region <parameter> dr_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1929,7 +1941,8 @@ To determine if two regions have the same offset, size, and shape, use
 <funcsynopsis id='XEqualRegion'>
 <funcprototype>
   <funcdef>Bool <function>XEqualRegion</function></funcdef>
-  <paramdef>Regionr1,<parameter> r2</parameter></paramdef>
+  <paramdef>Region <parameter>r1</parameter></paramdef>
+  <paramdef>Region <parameter> r2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3292,7 +3305,8 @@ To read a bitmap from a file and store it in a pixmap, use
   <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>Pixmap<parameter> *bitmap_return</parameter></paramdef>
-  <paramdef>int*x_hot_return,<parameter> *y_hot_return</parameter></paramdef>
+  <paramdef>int <parameter>*x_hot_return</parameter></paramdef>
+  <paramdef>int <parameter> *y_hot_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3445,7 +3459,8 @@ To read a bitmap from a file and return it as data, use
   <paramdef>unsigned int <parameter>*width_return</parameter></paramdef>
   <paramdef>unsigned int <parameter>*height_return</parameter></paramdef>
   <paramdef>unsignedchar<parameter> *data_return</parameter></paramdef>
-  <paramdef>int*x_hot_return,<parameter> *y_hot_return</parameter></paramdef>
+  <paramdef>int <parameter>*x_hot_return</parameter></paramdef>
+  <paramdef>int <parameter> *y_hot_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3544,7 +3559,8 @@ To write out a bitmap from a pixmap to a file, use
   <paramdef>Pixmap<parameter> bitmap</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>intx_hot,<parameter> y_hot</parameter></paramdef>
+  <paramdef>int <parameter>x_hot</parameter></paramdef>
+  <paramdef>int <parameter> y_hot</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3672,7 +3688,8 @@ To create a pixmap and then store bitmap-format data into it, use
   <paramdef>char<parameter> *data</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>unsigned long fg,<parameter> bg</parameter></paramdef>
+  <paramdef>unsigned long <parameter>fg</parameter></paramdef>
+  <paramdef>unsigned long <parameter> bg</parameter></paramdef>
   <paramdef>unsigned int <parameter> depth</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>

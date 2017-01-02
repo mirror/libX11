@@ -167,7 +167,8 @@ To grab the pointer, use
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
   <paramdef>unsigned int <parameter> event_mask</parameter></paramdef>
-  <paramdef>intpointer_mode,<parameter> keyboard_mode</parameter></paramdef>
+  <paramdef>int <parameter>pointer_mode</parameter></paramdef>
+  <paramdef>int <parameter> keyboard_mode</parameter></paramdef>
   <paramdef>Window<parameter> confine_to</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
   <paramdef>Time<parameter> time</parameter></paramdef>
@@ -591,7 +592,8 @@ To grab a pointer button, use
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
   <paramdef>unsigned int <parameter> event_mask</parameter></paramdef>
-  <paramdef>intpointer_mode,<parameter> keyboard_mode</parameter></paramdef>
+  <paramdef>int <parameter>pointer_mode</parameter></paramdef>
+  <paramdef>int <parameter> keyboard_mode</parameter></paramdef>
   <paramdef>Window<parameter> confine_to</parameter></paramdef>
   <paramdef>Cursor<parameter> cursor</parameter></paramdef>
 </funcprototype>
@@ -951,7 +953,8 @@ To grab the keyboard, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
-  <paramdef>intpointer_mode,<parameter> keyboard_mode</parameter></paramdef>
+  <paramdef>int <parameter>pointer_mode</parameter></paramdef>
+  <paramdef>int <parameter> keyboard_mode</parameter></paramdef>
   <paramdef>Time<parameter> time</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1208,7 +1211,8 @@ To passively grab a single key of the keyboard, use
   <paramdef>unsigned int <parameter> modifiers</parameter></paramdef>
   <paramdef>Window<parameter> grab_window</parameter></paramdef>
   <paramdef>Bool<parameter> owner_events</parameter></paramdef>
-  <paramdef>intpointer_mode,<parameter> keyboard_mode</parameter></paramdef>
+  <paramdef>int <parameter>pointer_mode</parameter></paramdef>
+  <paramdef>int <parameter> keyboard_mode</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1765,11 +1769,14 @@ To move the pointer to an arbitrary point in a window, use
 <funcprototype>
   <funcdef><function>XWarpPointer</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Windowsrc_w,<parameter> dest_w</parameter></paramdef>
-  <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
+  <paramdef>Window <parameter>src_w</parameter></paramdef>
+  <paramdef>Window <parameter> dest_w</parameter></paramdef>
+  <paramdef>int <parameter>src_x</parameter></paramdef>
+  <paramdef>int <parameter> src_y</parameter></paramdef>
   <paramdef>unsigned int <parameter>src_width</parameter></paramdef>
   <paramdef>unsigned int <parameter>src_height</parameter></paramdef>
-  <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
+  <paramdef>int <parameter>dest_x</parameter></paramdef>
+  <paramdef>int <parameter> dest_y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2841,8 +2848,10 @@ To control the pointer's interactive feel, use
 <funcprototype>
   <funcdef><function>XChangePointerControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Booldo_accel,<parameter> do_threshold</parameter></paramdef>
-  <paramdef>intaccel_numerator,<parameter> accel_denominator</parameter></paramdef>
+  <paramdef>Bool <parameter>do_accel</parameter></paramdef>
+  <paramdef>Bool <parameter> do_threshold</parameter></paramdef>
+  <paramdef>int <parameter>accel_numerator</parameter></paramdef>
+  <paramdef>int <parameter> accel_denominator</parameter></paramdef>
   <paramdef>int<parameter> threshold</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -2954,7 +2963,8 @@ To get the current pointer parameters, use
 <funcprototype>
   <funcdef><function>XGetPointerControl</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>int*accel_numerator_return,<parameter> *accel_denominator_return</parameter></paramdef>
+  <paramdef>int <parameter>*accel_numerator_return</parameter></paramdef>
+  <paramdef>int <parameter> *accel_denominator_return</parameter></paramdef>
   <paramdef>int<parameter> *threshold_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3229,7 +3239,8 @@ To obtain the legal KeyCodes for a display, use
 <funcprototype>
   <funcdef><function>XDisplayKeycodes</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>int*min_keycodes_return,<parameter> *max_keycodes_return</parameter></paramdef>
+  <paramdef>int <parameter>*min_keycodes_return</parameter></paramdef>
+  <paramdef>int <parameter> *max_keycodes_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

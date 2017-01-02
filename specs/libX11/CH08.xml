@@ -274,12 +274,15 @@ root and depth, use
 <funcprototype>
   <funcdef><function>XCopyArea</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
+  <paramdef>Drawable <parameter>src</parameter></paramdef>
+  <paramdef>Drawable <parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
+  <paramdef>int <parameter>src_x</parameter></paramdef>
+  <paramdef>int <parameter> src_y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
+  <paramdef>int <parameter>dest_x</parameter></paramdef>
+  <paramdef>int <parameter> dest_y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -468,12 +471,15 @@ To copy a single bit plane of a given drawable, use
 <funcprototype>
   <funcdef><function>XCopyPlane</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>Drawablesrc,<parameter> dest</parameter></paramdef>
+  <paramdef>Drawable <parameter>src</parameter></paramdef>
+  <paramdef>Drawable <parameter> dest</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
+  <paramdef>int <parameter>src_x</parameter></paramdef>
+  <paramdef>int <parameter> src_y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
+  <paramdef>int <parameter>dest_x</parameter></paramdef>
+  <paramdef>int <parameter> dest_y</parameter></paramdef>
   <paramdef>unsigned long <parameter> plane</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -988,7 +994,10 @@ To draw a single line between two points in a given drawable, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
-  <paramdef>intx1,y1,x2,<parameter> y2</parameter></paramdef>
+  <paramdef>int<parameter> x1</parameter></paramdef>
+  <paramdef>int<parameter> y1</parameter></paramdef>
+  <paramdef>int<parameter> x2</parameter></paramdef>
+  <paramdef>int<parameter> y2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1577,7 +1586,8 @@ To draw a single arc in a given drawable, use
   <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
+  <paramdef>int <parameter>angle1</parameter></paramdef>
+  <paramdef>int <parameter> angle2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2368,7 +2378,8 @@ To fill a single arc in a given drawable, use
   <paramdef>int <parameter>y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
-  <paramdef>intangle1,<parameter> angle2</parameter></paramdef>
+  <paramdef>int <parameter>angle1</parameter></paramdef>
+  <paramdef>int <parameter> angle2</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -3863,7 +3874,8 @@ To compute the bounding box of an 8-bit character string in a given font, use
   <paramdef>char<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
   <paramdef>int<parameter> *direction_return</parameter></paramdef>
-  <paramdef>int*font_ascent_return,<parameter> *font_descent_return</parameter></paramdef>
+  <paramdef>int <parameter>*font_ascent_return</parameter></paramdef>
+  <paramdef>int <parameter> *font_descent_return</parameter></paramdef>
   <paramdef>XCharStruct<parameter> *overall_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -3963,7 +3975,8 @@ To compute the bounding box of a 2-byte character string in a given font, use
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
   <paramdef>int<parameter> *direction_return</parameter></paramdef>
-  <paramdef>int*font_ascent_return,<parameter> *font_descent_return</parameter></paramdef>
+  <paramdef>int <parameter>*font_ascent_return</parameter></paramdef>
+  <paramdef>int <parameter> *font_descent_return</parameter></paramdef>
   <paramdef>XCharStruct<parameter> *overall_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -4111,7 +4124,8 @@ given font, use
   <paramdef>char<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
   <paramdef>int<parameter> *direction_return</parameter></paramdef>
-  <paramdef>int*font_ascent_return,<parameter> *font_descent_return</parameter></paramdef>
+  <paramdef>int <parameter>*font_ascent_return</parameter></paramdef>
+  <paramdef>int <parameter> *font_descent_return</parameter></paramdef>
   <paramdef>XCharStruct<parameter> *overall_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -4223,7 +4237,8 @@ in a given font, use
   <paramdef>XChar2b<parameter> *string</parameter></paramdef>
   <paramdef>int<parameter> nchars</parameter></paramdef>
   <paramdef>int<parameter> *direction_return</parameter></paramdef>
-  <paramdef>int*font_ascent_return,<parameter> *font_descent_return</parameter></paramdef>
+  <paramdef>int <parameter>*font_ascent_return</parameter></paramdef>
+  <paramdef>int <parameter> *font_descent_return</parameter></paramdef>
   <paramdef>XCharStruct<parameter> *overall_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -5390,8 +5405,10 @@ use
   <paramdef>Drawable<parameter> d</parameter></paramdef>
   <paramdef>GC<parameter> gc</parameter></paramdef>
   <paramdef>XImage<parameter> *image</parameter></paramdef>
-  <paramdef>intsrc_x,<parameter> src_y</parameter></paramdef>
-  <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
+  <paramdef>int <parameter>src_x</parameter></paramdef>
+  <paramdef>int <parameter> src_y</parameter></paramdef>
+  <paramdef>int <parameter>dest_x</parameter></paramdef>
+  <paramdef>int <parameter> dest_y</parameter></paramdef>
   <paramdef>unsigned int <parameter>width</parameter></paramdef>
   <paramdef>unsigned int <parameter>height</parameter></paramdef>
 </funcprototype>
@@ -5772,7 +5789,8 @@ to a location within a preexisting image structure, use
   <paramdef>unsigned long <parameter> plane_mask</parameter></paramdef>
   <paramdef>int<parameter> format</parameter></paramdef>
   <paramdef>XImage<parameter> *dest_image</parameter></paramdef>
-  <paramdef>intdest_x,<parameter> dest_y</parameter></paramdef>
+  <paramdef>int <parameter>dest_x</parameter></paramdef>
+  <paramdef>int <parameter> dest_y</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

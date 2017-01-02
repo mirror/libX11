@@ -1029,7 +1029,8 @@ To set the screen saver mode, use
 <funcprototype>
   <funcdef><function>XSetScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>inttimeout,<parameter> interval</parameter></paramdef>
+  <paramdef>int <parameter>timeout</parameter></paramdef>
+  <paramdef>int <parameter> interval</parameter></paramdef>
   <paramdef>int<parameter> prefer_blanking</parameter></paramdef>
   <paramdef>int<parameter> allow_exposures</parameter></paramdef>
 </funcprototype>
@@ -1286,7 +1287,8 @@ To get the current screen saver values, use
 <funcprototype>
   <funcdef><function>XGetScreenSaver</function></funcdef>
   <paramdef>Display<parameter> *display</parameter></paramdef>
-  <paramdef>int*timeout_return,<parameter> *interval_return</parameter></paramdef>
+  <paramdef>int <parameter>*timeout_return</parameter></paramdef>
+  <paramdef>int <parameter> *interval_return</parameter></paramdef>
   <paramdef>int<parameter> *prefer_blanking_return</parameter></paramdef>
   <paramdef>int<parameter> *allow_exposures_return</parameter></paramdef>
 </funcprototype>

@@ -1123,7 +1123,8 @@ To map a color name to an <acronym>RGB</acronym> value, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
   <paramdef>char<parameter> *color_name</parameter></paramdef>
-  <paramdef>XColor*exact_def_return,<parameter> *screen_def_return</parameter></paramdef>
+  <paramdef>XColor <parameter>*exact_def_return</parameter></paramdef>
+  <paramdef>XColor <parameter> *screen_def_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -1310,7 +1311,8 @@ To map a color name to a value in an arbitrary color space, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
   <paramdef>char<parameter> *color_string</parameter></paramdef>
-  <paramdef>XcmsColor*color_exact_return,<parameter> *color_screen_return</parameter></paramdef>
+  <paramdef>XcmsColor <parameter>*color_exact_return</parameter></paramdef>
+  <paramdef>XcmsColor <parameter> *color_screen_return</parameter></paramdef>
   <paramdef>XcmsColorFormat<parameter> result_format</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
@@ -1661,7 +1663,8 @@ color supported by the hardware in <acronym>RGB</acronym> format, use
   <paramdef>Display<parameter> *display</parameter></paramdef>
   <paramdef>Colormap<parameter> colormap</parameter></paramdef>
   <paramdef>char<parameter> *color_name</parameter></paramdef>
-  <paramdef>XColor*screen_def_return,<parameter> *exact_def_return</parameter></paramdef>
+  <paramdef>XColor <parameter>*screen_def_return</parameter></paramdef>
+  <paramdef>XColor <parameter> *exact_def_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2071,8 +2074,12 @@ model, use
   <paramdef>Bool<parameter> contig</parameter></paramdef>
   <paramdef>unsigned long <parameter> pixels_return[]</parameter></paramdef>
   <paramdef>int<parameter> ncolors</parameter></paramdef>
-  <paramdef>intnreds,ngreens,<parameter> nblues</parameter></paramdef>
-  <paramdef>unsigned long *rmask_return,*gmask_return,<parameter> *bmask_return</parameter></paramdef>
+  <paramdef>int <parameter>nreds</parameter></paramdef>
+  <paramdef>int <parameter>ngreens</parameter></paramdef>
+  <paramdef>int <parameter>nblues</parameter></paramdef>
+  <paramdef>unsigned long<parameter> *rmask_return</parameter></paramdef>
+  <paramdef>unsigned long<parameter> *gmask_return</parameter></paramdef>
+  <paramdef>unsigned long<parameter> *bmask_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

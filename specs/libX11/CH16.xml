@@ -1287,7 +1287,13 @@ Locate a point or rectangle in a region
 To create a new empty region, use
 <function>XCreateRegion</function>.
 </para>
-<para>Region XCreateRegion()</para>
+
+<funcsynopsis id='XCreateRegion'>
+<funcprototype>
+  <funcdef>Region <function>XCreateRegion</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->
@@ -4147,7 +4153,13 @@ and
 use
 <function>XUniqueContext</function>.
 </para>
-<para>XContext XuniqueContext()</para>
+
+<funcsynopsis id='XUniqueContext'>
+<funcprototype>
+  <funcdef>XContext <function>XUniqueContext</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 </sect1>
 </chapter>

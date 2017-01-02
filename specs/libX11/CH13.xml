@@ -99,7 +99,12 @@ To determine if the current locale is supported by X, use
 <function>XSupportsLocale</function>.
 </para>
 
-<para>Bool XSupportsLocale()</para>
+<funcsynopsis id='XSupportsLocale'>
+<funcprototype>
+  <funcdef>Bool <function>XSupportsLocale</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->

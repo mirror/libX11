@@ -360,7 +360,12 @@ To allocate a new quark, use
 </para>
 <indexterm significance="preferred"><primary>XrmUniqueQuark</primary></indexterm>
 <!-- .sM -->
-<para>XrmQuark XrmUniqueQuark()</para>
+<funcsynopsis id='XrmUniqueQuark'>
+<funcprototype>
+  <funcdef>XrmQuark <function>XrmUniqueQuark</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 <!-- .FN -->
 <para>
 <!-- .LP -->

@@ -939,7 +939,12 @@ function frees memory allocated by
 To obtain the default string for text conversion in the current locale,
 use</para>
 
-<para>char *XDefaultString()</para>
+<funcsynopsis id='XDefaultString'>
+<funcprototype>
+  <funcdef>char *<function>XDefaultString</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->
@@ -1989,9 +1994,12 @@ structure, use
 <function>XAllocWMHints</function>.
 </para>
 
-<para>
-  XWMHints *XAllocWMHints()
-</para>
+<funcsynopsis id='XAllocWMHints'>
+<funcprototype>
+  <funcdef>XWMHints *<function>XAllocWMHints</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->
@@ -2291,9 +2299,12 @@ structure, use
 <function>XAllocSizeHints</function>.
 </para>
 
-<para>
-XSizeHints *XAllocSizeHints()
-</para>
+<funcsynopsis id='XAllocSizeHints'>
+<funcprototype>
+  <funcdef>XSizeHints *<function>XAllocSizeHints</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 <para>
 <!-- .LP -->
 <!-- .eM -->
@@ -2819,10 +2830,13 @@ structure, use
 <indexterm significance="preferred"><primary>XAllocClassHint</primary></indexterm>
 <!-- .sM -->
 </para>
-<para>
 
-  XClassHint *XAllocClassHint()
-</para>
+<funcsynopsis id='XAllocClassHint'>
+<funcprototype>
+  <funcdef>XClassHint *<function>XAllocClassHint</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->
@@ -3558,9 +3572,12 @@ structure, use
 <function>XAllocIconSize</function>.
 </para>
 
-<para>
-  XIconSize *XAllocIconSize()
-</para>
+<funcsynopsis id='XAllocIconSize'>
+<funcprototype>
+  <funcdef>XIconSize *<function>XAllocIconSize</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
 
 <para>
 <!-- .LP -->
@@ -4636,9 +4653,13 @@ structure, use
 <function>XAllocStandardColormap</function>.
 </para>
 
-<para>
-XStandardColormap *XAllocStandardColormap()
-</para>
+<funcsynopsis id='XAllocStandardColormap'>
+<funcprototype>
+  <funcdef>XStandardColormap *<function>XAllocStandardColormap</function></funcdef>
+  <void />
+</funcprototype>
+</funcsynopsis>
+
 <para>
 <!-- .LP -->
 <!-- .eM -->

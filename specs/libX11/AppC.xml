@@ -3213,9 +3213,8 @@ You must pass back the same pointer and size that were returned by
 <title>Portability Considerations</title>
 <para>
 <!-- .LP -->
-Many machine architectures, 
-including many of the more recent <acronym>RISC</acronym> architectures,
-do not correctly access data at unaligned locations; 
+Many machine architectures
+do not correctly or efficiently access data at unaligned locations;
 their compilers pad out structures to preserve this characteristic.
 Many other machines capable of unaligned references pad inside of structures
 as well to preserve alignment, because accessing aligned data is
@@ -3229,7 +3228,9 @@ All requests <emphasis remap='I'>must</emphasis> be a multiple of 32 bits in len
 the natural alignment in the data stream.
 You must pad structures out to 32-bit boundaries.
 Pad information does not have to be zeroed unless you want to
-preserve such fields for future use in your protocol requests.
+preserve such fields for future use in your protocol requests,
+but it is recommended to zero it to avoid inadvertant data leakage
+and improve compressability.
 Floating point varies radically between machines and should be
 avoided completely if at all possible.
 </para>
@@ -3266,7 +3267,7 @@ take on values larger than the maximum 16-bit
 </para>
 <para>
 <!-- .LP -->
-The library currently assumes that a
+The library has always assumed that a
 <type>char</type>
 is 8 bits, a
 <type>short</type>
@@ -3274,7 +3275,15 @@ is 16 bits, an
 <type>int</type>
 is 16 or 32 bits, and a
 <type>long</type>
-is 32 bits.  
+is 32 bits.
+Unfortunately, this assumption remains on machines where a <type>long</type>
+can hold 64-bits, and many functions and structures require unnecessarily
+large fields to avoid breaking compatibility with existing code.  Special
+care must be taken with arrays of values that are transmitted in the
+protocol as CARD32 or INT32 but have to be converted to arrays of 64-bit
+<type>long</type> when passed to or from client applications.
+</para>
+<para>
 The 
 <function>PackData</function>
 macro is a half-hearted attempt to deal with the possibility of 32 bit shorts. 

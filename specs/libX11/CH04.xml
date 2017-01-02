@@ -1415,18 +1415,18 @@ To obtain the type, format, and value of a property of a given window, use
 <funcsynopsis id='XGetWindowProperty'>
 <funcprototype>
   <funcdef>int <function>XGetWindowProperty</function></funcdef>
-  <paramdef><parameter> display</parameter></paramdef>
-  <paramdef><parameter> w</parameter></paramdef>
-  <paramdef><parameter> property</parameter></paramdef>
-  <paramdef><parameter> long_offset</parameter></paramdef>
-  <paramdef><parameter> long_length</parameter></paramdef>
-  <paramdef><parameter> delete</parameter></paramdef>
-  <paramdef><parameter> req_type</parameter></paramdef>
-  <paramdef><parameter> actual_type_return</parameter></paramdef>
-  <paramdef><parameter> actual_format_return</parameter></paramdef>
-  <paramdef><parameter> nitems_return</parameter></paramdef>
-  <paramdef><parameter> bytes_after_return</parameter></paramdef>
-  <paramdef><parameter> prop_return</parameter></paramdef>
+  <paramdef>Display *<parameter>display</parameter></paramdef>
+  <paramdef>Window  <parameter>w</parameter></paramdef>
+  <paramdef>Atom <parameter>property</parameter></paramdef>
+  <paramdef>long <parameter>long_offset</parameter></paramdef>
+  <paramdef>long <parameter>long_length</parameter></paramdef>
+  <paramdef>Bool <parameter>delete</parameter></paramdef>
+  <paramdef>Atom <parameter>req_type</parameter></paramdef>
+  <paramdef>Atom *<parameter>actual_type_return</parameter></paramdef>
+  <paramdef>int *<parameter>actual_format_return</parameter></paramdef>
+  <paramdef>unsigned long *<parameter>nitems_return</parameter></paramdef>
+  <paramdef>unsigned long *<parameter>bytes_after_return</parameter></paramdef>
+  <paramdef>unsigned char **<parameter>prop_return</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->

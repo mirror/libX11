@@ -2518,10 +2518,23 @@ the display, a pointer to the beginning of the data,
 and the number of bytes to be sent.
 <!-- .sM -->
 <funcsynopsis id='Data'>
-<funcprototype>
+<funcprototype role='macro'>
   <funcdef><function>Data</function></funcdef>
-  <paramdef><parameter> display</parameter></paramdef>
-  <paramdef>(char *<parameter></parameter></paramdef>
+  <paramdef><parameter>display</parameter></paramdef>
+  <paramdef>(char *) <parameter>data</parameter></paramdef>
+  <paramdef><parameter>nbytes</parameter></paramdef>
+</funcprototype>
+<funcprototype role='macro'>
+  <funcdef><function>Data16</function></funcdef>
+  <paramdef><parameter>display</parameter></paramdef>
+  <paramdef>(short *) <parameter>data</parameter></paramdef>
+  <paramdef><parameter>nbytes</parameter></paramdef>
+</funcprototype>
+<funcprototype role='macro'>
+  <funcdef><function>Data32</function></funcdef>
+  <paramdef><parameter>display</parameter></paramdef>
+  <paramdef>(long *) <parameter>data</parameter></paramdef>
+  <paramdef><parameter>nbytes</parameter></paramdef>
 </funcprototype>
 </funcsynopsis>
 <!-- .FN -->
@@ -2529,7 +2542,7 @@ and the number of bytes to be sent.
 <para>
 <!-- .LP -->
 <!-- .eM -->
-<xref linkend='Data' xrefstyle='select: title'/>,
+<function>Data</function>,
 <function>Data16</function>,
 and
 <function>Data32</function>

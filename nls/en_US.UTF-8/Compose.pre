@@ -190,14 +190,6 @@ XCOMM "₪" U20aa NEW SHEQEL SIGN
 <Multi_key> <equal> <Cyrillic_ES>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <Cyrillic_IE> <equal>	: "€"   EuroSign # EURO SIGN
 <Multi_key> <equal> <Cyrillic_IE>	: "€"   EuroSign # EURO SIGN
-<Multi_key> <P> <minus>          	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <p> <minus>          	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <minus> <P>          	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <minus> <p>          	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <Cyrillic_ZE> <minus>	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <Cyrillic_ze> <minus>	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <minus> <Cyrillic_ZE>	: "₽"   U20bd # ROUBLE SIGN
-<Multi_key> <minus> <Cyrillic_ze>	: "₽"   U20bd # ROUBLE SIGN
 XCOMM "₭" U20ad KIP SIGN
 XCOMM "₮" U20ae TUGRIK SIGN
 XCOMM "₯" U20af DRACHMA SIGN
@@ -211,8 +203,6 @@ XCOMM "₵" U20b5 CEDI SIGN
 <Multi_key> <equal> <R>          	: "₹" U20b9 # INDIAN RUPEE SIGN
 <Multi_key> <r> <equal>          	: "₹" U20b9 # INDIAN RUPEE SIGN
 <Multi_key> <equal> <r>          	: "₹" U20b9 # INDIAN RUPEE SIGN
-<Multi_key> <2> <equal>          	: "₴" U20b4 # HRYVNIA SIGN
-<Multi_key> <equal> <2>          	: "₴" U20b4 # HRYVNIA SIGN
 
 <Multi_key> <C> <bar>            	: "¢"   cent # CENT SIGN
 <Multi_key> <bar> <C>			: "¢"   cent # CENT SIGN
@@ -5325,16 +5315,6 @@ XCOMM
 <dead_currency> <w> 		      : "₩"   WonSign             # WON SIGN
 <dead_currency> <Y> 		      : "円"   U5186              # YEN
 <dead_currency> <y> 		      : "¥"   yen                 # YEN SIGN
-<dead_currency> <Cyrillic_ge>	      : "₴"   U20b4               # HRYVNIA SIGN
-<dead_currency> <Cyrillic_GE>	      : "₴"   U20b4               # HRYVNIA SIGN
-<dead_currency> <minus> <P>	      : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <minus> <p>	      : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <P> <minus>	      : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <p> <minus>	      : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <minus> <Cyrillic_ZE> : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <minus> <Cyrillic_ze> : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <Cyrillic_ZE> <minus> : "₽"   U20bd               # ROUBLE SIGN
-<dead_currency> <Cyrillic_ze> <minus> : "₽"   U20bd               # ROUBLE SIGN
 <dead_currency> <dead_currency>       : "¤"   currency            # CURRENCY SIGN
 <dead_currency> <nobreakspace> 	      : "¤"   currency            # CURRENCY SIGN
 <dead_currency> <space> 	      : "¤"   currency            # CURRENCY SIGN

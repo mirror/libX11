@@ -1696,14 +1696,16 @@ If
 <parameter>change_state</parameter>
 is
 <symbol>True</symbol>,
-and the optional parameter,
-<parameter>state</parameter>,
-is not
-<symbol>NULL</symbol>,
 <function>XkbSetNamedDeviceIndicator</function>
 tells the server to change the state of the named indicator to the value
 specified by
 <parameter>state</parameter>.
+If
+<parameter>change_state</parameter>
+is
+<symbol>False</symbol>,
+<parameter>state</parameter>
+is not used.
 </para>
 
 

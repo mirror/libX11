@@ -85,13 +85,16 @@ and returns True.
  
 If 
 .I change_state 
-is True, and the optional parameter, 
-.IR state ,
-is not NULL, 
+is True, 
 .I XkbSetNamedDeviceIndicator
 tells the server to change the state of the named indicator to the value 
 specified by 
 .IR state .
+If
+.I change_state
+is False, then
+.I state
+is not used.
 
 If an indicator with the name specified by 
 .I name 

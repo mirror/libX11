@@ -1243,24 +1243,24 @@ _X_NORETURN int _XDefaultIOError(
 	Display *dpy)
 {
 	if (ECHECK(EPIPE)) {
-	    (void) fprintf (stderr,
-	"X connection to %s broken (explicit kill or server shutdown).\r\n",
-			    DisplayString (dpy));
+	    fprintf (stderr,
+                     "X connection to %s broken (explicit kill or server shutdown).\r\n",
+                     DisplayString (dpy));
 	} else {
-	    (void) fprintf (stderr,
-			"XIO:  fatal IO error %d (%s) on X server \"%s\"\r\n",
+            fprintf (stderr,
+                     "XIO:  fatal IO error %d (%s) on X server \"%s\"\r\n",
 #ifdef WIN32
-			WSAGetLastError(), strerror(WSAGetLastError()),
+                      WSAGetLastError(), strerror(WSAGetLastError()),
 #else
-			errno, strerror (errno),
+                      errno, strerror (errno),
 #endif
-			DisplayString (dpy));
-	    (void) fprintf (stderr,
-	 "      after %lu requests (%lu known processed) with %d events remaining.\r\n",
-			NextRequest(dpy) - 1, LastKnownRequestProcessed(dpy),
-			QLength(dpy));
+                      DisplayString (dpy));
+	    fprintf (stderr,
+		     "      after %lu requests (%lu known processed) with %d events remaining.\r\n",
+		     NextRequest(dpy) - 1, LastKnownRequestProcessed(dpy),
+		     QLength(dpy));
+        }
 
-	}
 	exit(1);
 	/*NOTREACHED*/
 }

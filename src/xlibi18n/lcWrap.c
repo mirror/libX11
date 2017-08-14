@@ -349,17 +349,7 @@ _XCloseLC(
 XLCd
 _XlcCurrentLC(void)
 {
-    XLCd lcd;
-    static XLCd last_lcd = NULL;
-
-    lcd = _XOpenLC((char *) NULL);
-
-    if (last_lcd)
-	_XCloseLC(last_lcd);
-
-    last_lcd = lcd;
-
-    return lcd;
+    return _XOpenLC(NULL);
 }
 
 XrmMethods

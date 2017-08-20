@@ -701,7 +701,6 @@ Status _XReply(Display *dpy, xReply *rep, int extra, Bool discard)
 	 * error. */
 	if(!reply)
 		_XIOError(dpy);
-	
 
 	/* there's no error and we have a reply. */
 	dpy->xcb->reply_data = reply;

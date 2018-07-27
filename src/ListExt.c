@@ -83,6 +83,11 @@ char **XListExtensions(
 		    length = *(unsigned char *)ch;
 		    *ch = '\0'; /* and replace with null-termination */
 		    count++;
+		} else if (i == 0) {
+		    Xfree(list);
+		    Xfree(ch);
+		    list = NULL;
+		    break;
 		} else
 		    list[i] = NULL;
 	    }

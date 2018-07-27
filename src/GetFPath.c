@@ -78,6 +78,11 @@ char **XGetFontPath(
 		    length = *(unsigned char *)ch;
 		    *ch = '\0'; /* and replace with null-termination */
 		    count++;
+		} else if (i == 0) {
+		    Xfree(flist);
+		    Xfree(ch);
+		    flist = NULL;
+		    break;
 		} else
 		    flist[i] = NULL;
 	    }

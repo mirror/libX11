@@ -69,7 +69,7 @@ char **XGetFontPath(
 	    /*
 	     * unpack into null terminated strings.
 	     */
-	    chend = ch + (nbytes + 1);
+	    chend = ch + nbytes;
 	    length = *ch;
 	    for (i = 0; i < rep.nPaths; i++) {
 		if (ch + length < chend) {

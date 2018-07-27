@@ -75,12 +75,12 @@ char **XListExtensions(
 	     * unpack into null terminated strings.
 	     */
 	    chend = ch + rlen;
-	    length = *ch;
+	    length = *(unsigned char *)ch;
 	    for (i = 0; i < rep.nExtensions; i++) {
 		if (ch + length < chend) {
 		    list[i] = ch+1;  /* skip over length */
 		    ch += length + 1; /* find next length ... */
-		    length = *ch;
+		    length = *(unsigned char *)ch;
 		    *ch = '\0'; /* and replace with null-termination */
 		    count++;
 		} else

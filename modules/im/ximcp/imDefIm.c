@@ -1297,8 +1297,6 @@ _XimProtoSetIMValues(
 	if ((name = _XimEncodeIMATTRIBUTE(im, im->core.im_resources,
 		im->core.im_num_resources, arg, &arg_ret, data, data_len,
 		&ret_len, (XPointer)&im_values, XIM_SETIMVALUES))) {
-	    if (buf != tmp_buf)
-		Xfree(buf);
 	    break;
 	}
 

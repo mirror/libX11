@@ -36,7 +36,6 @@ char *_XGetAtomName(
     Atom atom)
 {
     xResourceReq *req;
-    char *name;
     register Entry *table;
     register int idx;
     register Entry e;

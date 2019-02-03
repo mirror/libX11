@@ -267,6 +267,7 @@ zh_TW/Compose:			zh_TW.eucTW
 iso8859-1/Compose:		zu_ZA.ISO8859-1
 XCOMM
 XCOMM
+en_US.UTF-8/Compose:		C.UTF-8
 en_US.UTF-8/Compose:		af_ZA.UTF-8
 am_ET.UTF-8/Compose:		am_ET.UTF-8
 en_US.UTF-8/Compose:		ar_AA.UTF-8

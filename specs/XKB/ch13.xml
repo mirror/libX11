@@ -3887,7 +3887,7 @@ To allocate keys in an overlay row, use
 <parameter>num_needed</parameter>
 ) -->
 
-    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>XkbOverlayRowPtr <parameter>row</parameter></paramdef>
     <paramdef>int <parameter>num_needed</parameter></paramdef>
   </funcprototype>
 </funcsynopsis>
@@ -3898,7 +3898,7 @@ To allocate keys in an overlay row, use
     </term>
     <listitem>
       <para>
-        section for which rows should be allocated
+        row for which keys should be allocated
       </para>
     </listitem>
   </varlistentry>

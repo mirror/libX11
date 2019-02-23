@@ -3763,7 +3763,7 @@ To allocate rows in a overlay, use
 <parameter>num_needed</parameter>
 ) -->
 
-    <paramdef>XkbSectionPtr <parameter>overlay</parameter></paramdef>
+    <paramdef>XkbOverlayPtr <parameter>overlay</parameter></paramdef>
     <paramdef>int <parameter>num_needed</parameter></paramdef>
   </funcprototype>
 </funcsynopsis>
@@ -3774,7 +3774,7 @@ To allocate rows in a overlay, use
     </term>
     <listitem>
       <para>
-        section for which rows should be allocated
+        overlay for which rows should be allocated
       </para>
     </listitem>
   </varlistentry>

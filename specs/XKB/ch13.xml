@@ -3938,7 +3938,7 @@ To free keys in an overlay row, use
 <parameter>free_all</parameter>
 ) -->
 
-    <paramdef>XkbRowPtr <parameter>row</parameter></paramdef>
+    <paramdef>XkbOverlayRowPtr <parameter>row</parameter></paramdef>
     <paramdef>int <parameter>first</parameter></paramdef>
     <paramdef>int <parameter>count</parameter></paramdef>
     <paramdef>Bool <parameter>free_all</parameter></paramdef>

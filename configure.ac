@@ -65,6 +65,14 @@ if test x"$LDFLAGS_FOR_BUILD" = x; then
 fi
 AC_SUBST(LDFLAGS_FOR_BUILD)
 
+if test x"$EXEEXT_FOR_BUILD" = x; then
+	if test x"$cross_compiling" = xno; then
+		EXEEXT_FOR_BUILD=${EXEEXT}
+	fi
+	# If cross-compiling and not provided, assume EXEEXT_FOR_BUILD is empty
+fi
+AC_SUBST([EXEEXT_FOR_BUILD])
+
 # Checks for pkg-config packages
 
 # Always required

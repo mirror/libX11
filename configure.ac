@@ -19,6 +19,8 @@ AM_INIT_AUTOMAKE([foreign dist-bzip2])
 # Initialize libtool
 AC_PROG_LIBTOOL
 
+AC_SYS_LARGEFILE
+
 # Require xorg-macros minimum of 1.15 for fop minimum version
 m4_ifndef([XORG_MACROS_VERSION],
           [m4_fatal([must install xorg-macros 1.15 or later before running autoconf/autogen])])

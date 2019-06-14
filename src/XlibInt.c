@@ -678,6 +678,7 @@ _XStoreEventCookie(Display *dpy, XEvent *event)
     if (!add) {
         ESET(ENOMEM);
         _XIOError(dpy);
+        return;
     }
     add->ev = *cookie;
     DL_APPEND(*head, add);
@@ -752,6 +753,7 @@ void _XEnq(
 		/* Malloc call failed! */
 		ESET(ENOMEM);
 		_XIOError(dpy);
+		return;
 	}
 	qelt->next = NULL;
 

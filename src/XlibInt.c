@@ -1273,6 +1273,14 @@ SocketBytesReadable(Display *dpy)
     return bytes;
 }
 
+_X_NORETURN void _XDefaultIOErrorExit(
+	Display *dpy,
+	void *user_data)
+{
+    exit(1);
+    /*NOTREACHED*/
+}
+
 /*
  * _XDefaultIOError - Default fatal system error reporting routine.  Called
  * when an X internal system error is encountered.
@@ -1509,6 +1517,9 @@ int
 _XIOError (
     Display *dpy)
 {
+    XIOErrorExitHandler exit_handler;
+    void *exit_handler_data;
+
     dpy->flags |= XlibDisplayIOError;
 #ifdef WIN32
     errno = WSAGetLastError();
@@ -1522,14 +1533,17 @@ _XIOError (
     if (dpy->lock)
 	(*dpy->lock->user_lock_display)(dpy);
 #endif
+    exit_handler = dpy->exit_handler;
+    exit_handler_data = dpy->exit_handler_data;
     UnlockDisplay(dpy);
 
     if (_XIOErrorFunction != NULL)
 	(*_XIOErrorFunction)(dpy);
     else
 	_XDefaultIOError(dpy);
-    exit (1);
-    /*NOTREACHED*/
+
+    exit_handler(dpy, exit_handler_data);
+    return 1;
 }
 
 

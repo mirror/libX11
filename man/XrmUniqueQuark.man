@@ -230,7 +230,7 @@ a period is assumed.
 For example, ``*a.b*c'' becomes:
 .LP
 .TS
-l l l.
+L l l l.
 quarks	a	b	c
 bindings	loose	tight	loose
 .TE

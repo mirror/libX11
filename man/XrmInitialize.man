@@ -80,7 +80,7 @@ It must be called before any other Xrm functions are used.
 The
 .B XrmParseCommand
 function parses an (argc, argv) pair according to the specified option table,
-loads recognized options into the specified database with type ``String,''
+loads recognized options into the specified database with type \*(lqString,\*(rq
 and modifies the (argc, argv) pair to remove all recognized options.
 If database contains NULL,
 .B XrmParseCommand
@@ -101,7 +101,7 @@ independent of any locale.
 The resource values given in the table are stored in the resource database
 without modification.
 All resource database entries are created
-using a ``String'' representation type.
+using a \*(lqString\*(rq representation type.
 The argc argument specifies the number of arguments in argv
 and is set on return to the remaining number of arguments that were not parsed.
 The name argument should be the name of your application

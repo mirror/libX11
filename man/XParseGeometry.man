@@ -117,7 +117,7 @@ Specifically, this function lets you parse strings of the form:
 .LP
 The fields map into the arguments associated with this function.
 (Items enclosed in <\^> are integers, items in [\^] are optional, and
-items enclosed in {\^} indicate ``choose one of.''
+items enclosed in {\^} indicate \*(lqchoose one of.\*(rq
 Note that the brackets should not appear in the actual string.)
 If the string is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
@@ -128,7 +128,7 @@ function returns a bitmask that indicates which of the four values (width,
 height, xoffset, and yoffset) were actually found in the string 
 and whether the x and y values are negative. 
 By convention, \-0 is not equal to +0, because the user needs to
-be able to say ``position the window relative to the right or bottom edge.''
+be able to say \*(lqposition the window relative to the right or bottom edge.\*(rq
 For each value found, the corresponding argument is updated.
 For each value not found, the argument is left unchanged.
 The bits are represented by

@@ -194,7 +194,7 @@ Component names in the list are separated by a period or
 an asterisk character.
 If the string does not start with period or asterisk,
 a period is assumed.
-For example, ``*a.b*c'' becomes:
+For example, \*(lq*a.b*c\*(rq becomes:
 .LP
 .TS
 L l l l.

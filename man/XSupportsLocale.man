@@ -69,14 +69,14 @@ Xlib locale-dependent functions for which the
 .B XLocaleNotSupported
 return status is defined will return 
 .BR XLocaleNotSupported .
-Other Xlib locale-dependent routines will operate in the ``C'' locale.
+Other Xlib locale-dependent routines will operate in the \*(lqC\*(rq locale.
 .LP
 The
 .B XSetLocaleModifiers
 function sets the X modifiers for the current locale setting.
 The modifier_list argument is a null-terminated string of the form
-``{@\^\fIcategory\fP\^=\^\fIvalue\fP\^}'', that is,
-having zero or more concatenated ``@\^\fIcategory\fP\^=\^\fIvalue\fP\^''
+\*(lq{@\^\fIcategory\fP\^=\^\fIvalue\fP\^}\*(rq, that is,
+having zero or more concatenated \*(lq@\^\fIcategory\fP\^=\^\fIvalue\fP\^\*(rq
 entries, where \fIcategory\fP is a category name 
 and \fIvalue\fP is the (possibly empty) setting for that category.
 The values are encoded in the current locale.
@@ -115,7 +115,7 @@ Clients should always call
 with a non-NULL modifier_list after setting the locale
 before they call any locale-dependent Xlib routine.
 .LP
-The only standard modifier category currently defined is ``im'',
+The only standard modifier category currently defined is \*(lqim\*(rq,
 which identifies the desired input method.
 The values for input method are not standardized.
 A single locale may use multiple input methods,

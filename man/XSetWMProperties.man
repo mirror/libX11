@@ -164,9 +164,9 @@ in the encoding of the current locale, for
 .B Xutf8SetWMProperties
 in UTF-8 encoding.
 If the arguments can be fully converted to the STRING encoding,
-the properties are created with type ``STRING''; 
+the properties are created with type \*(lqSTRING\*(rq; 
 otherwise, the arguments are converted to Compound Text, 
-and the properties are created with type ``COMPOUND_TEXT''.
+and the properties are created with type \*(lqCOMPOUND_TEXT\*(rq.
 .LP
 If the normal_hints argument is non-NULL,
 .B XmbSetWMProperties

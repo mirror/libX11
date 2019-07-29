@@ -129,11 +129,11 @@ If the style
 or 
 .B XCompoundTextStyle
 is specified,
-this encoding is ``STRING'' or ``COMPOUND_TEXT'', respectively.
+this encoding is \*(lqSTRING\*(rq or ``COMPOUND_TEXT'', respectively.
 If the style
 .B XUTF8StringStyle
 is specified,
-this encoding is ``UTF8_STRING''. 
+this encoding is \*(lqUTF8_STRING\*(rq. 
 (This is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
 release. Its presence is indicated by the macro
 .BR X_HAVE_UTF8_STRING .)
@@ -144,8 +144,8 @@ this encoding is the encoding of the current locale.
 If the style 
 .B XStdICCTextStyle
 is specified,
-this encoding is ``STRING'' if the text is fully convertible to STRING,
-else ``COMPOUND_TEXT''.
+this encoding is \*(lqSTRING\*(rq if the text is fully convertible to STRING,
+else \*(lqCOMPOUND_TEXT\*(rq.
 A final terminating null byte is stored at the end of the value field 
 of text_prop_return but is not included in the nitems member.
 .LP

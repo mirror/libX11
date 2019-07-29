@@ -117,7 +117,7 @@ is a convenience function that first calls
 .B XrmStringToBindingQuarkList
 on the specifier and then calls
 .BR XrmQPutResource ,
-using a ``String'' representation type.
+using a \*(lqString\*(rq representation type.
 If the specifier is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
 The value is stored in the database without modification.
@@ -133,7 +133,7 @@ for the value string (by calling
 to compute the size) and
 then calls
 .BR XrmQPutResource ,
-using a ``String'' representation type.
+using a \*(lqString\*(rq representation type.
 The value is stored in the database without modification.
 .LP
 If database contains NULL,

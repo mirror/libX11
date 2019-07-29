@@ -115,7 +115,7 @@ Entries containing resource names that are not in the Host Portable Character
 Encoding or containing values that are not in the encoding of the database
 locale, are written in an implementation-dependent manner.
 The order in which entries are written is implementation-dependent.
-Entries with representation types other than ``String'' are ignored.
+Entries with representation types other than \*(lqString\*(rq are ignored.
 .LP
 The
 .B XrmGetStringDatabase
@@ -187,15 +187,15 @@ Quotes ("\&.\&.\&.") are used around literal characters.
 .LP
 IncludeFile lines are interpreted by replacing the line with the
 contents of the specified file.
-The word ``include'' must be in lowercase.
+The word \*(lqinclude\*(rq must be in lowercase.
 The file name is interpreted relative to the directory of the file in
 which the line occurs (for example, if the file name contains no
 directory or contains a relative directory specification).
 .LP
 If a ResourceName contains a contiguous sequence of two or more Binding
-characters, the sequence will be replaced with single ``\&.'' character
-if the sequence contains only ``\&.'' characters;
-otherwise, the sequence will be replaced with a single ``*'' character.
+characters, the sequence will be replaced with single \*(lq\&.\*(rq character
+if the sequence contains only \*(lq\&.\*(rq characters;
+otherwise, the sequence will be replaced with a single \*(lq*\*(rq character.
 .LP
 A resource database never contains more than one entry for a given
 ResourceName.  If a resource file contains multiple lines with the
@@ -204,24 +204,24 @@ same ResourceName, the last line in the file is used.
 Any white space characters before or after the name or colon in a ResourceSpec
 are ignored.
 To allow a Value to begin with white space,
-the two-character sequence ``\^\\\^\fIspace\fP'' (backslash followed by space)
+the two-character sequence \*(lq\^\\\^\fIspace\fP\*(rq (backslash followed by space)
 is recognized and replaced by a space character,
-and the two-character sequence ``\^\\\^\fItab\fP''
+and the two-character sequence \*(lq\^\\\^\fItab\fP\*(rq
 (backslash followed by horizontal tab)
 is recognized and replaced by a horizontal tab character.
 To allow a Value to contain embedded newline characters,
-the two-character sequence ``\^\\\^n'' is recognized and replaced by a
+the two-character sequence \*(lq\^\\\^n\*(rq is recognized and replaced by a
 newline character.
 To allow a Value to be broken across multiple lines in a text file,
-the two-character sequence ``\^\\\^\fInewline\fP''
+the two-character sequence \*(lq\^\\\^\fInewline\fP\*(rq
 (backslash followed by newline) is
 recognized and removed from the value.
 To allow a Value to contain arbitrary character codes,
-the four-character sequence ``\^\\\^\fInnn\fP'',
-where each \fIn\fP is a digit character in the range of ``0''\^\-``7'',
+the four-character sequence \*(lq\^\\\^\fInnn\fP\*(rq,
+where each \fIn\fP is a digit character in the range of \*(lq0\*(rq\^\-``7'',
 is recognized and replaced with a single byte that contains
 the octal value specified by the sequence.
-Finally, the two-character sequence ``\^\\\\'' is recognized
+Finally, the two-character sequence \*(lq\^\\\\\*(rq is recognized
 and replaced with a single backslash.
 .SH "SEE ALSO"
 XrmGetResource(__libmansuffix__),

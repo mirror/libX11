@@ -157,7 +157,7 @@ The name argument should generally be the name of your application.
 The message argument should indicate which type of error message you want.
 If the name and message are not in the Host Portable Character Encoding,
 the result is implementation-dependent.
-Xlib uses three predefined ``application names'' to report errors.
+Xlib uses three predefined \*(lqapplication names\*(rq to report errors.
 In these names,
 uppercase and lowercase matter.
 .IP XProtoError 1i

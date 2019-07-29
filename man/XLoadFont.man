@@ -100,11 +100,11 @@ function loads the specified font and returns its associated font ID.
 If the font name is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
 Use of uppercase or lowercase does not matter.
-When the characters ``?'' and ``*'' are used in a font name, a
+When the characters \*(lq?\*(rq and ``*'' are used in a font name, a
 pattern match is performed and any matching font is used.
 In the pattern, 
-the ``?'' character will match any single character, 
-and the ``*'' character will match any number of characters.
+the \*(lq?\*(rq character will match any single character, 
+and the \*(lq*\*(rq character will match any number of characters.
 A structured format for font names is specified in the X Consortium standard 
 \fIX Logical Font Description Conventions\fP.
 If 

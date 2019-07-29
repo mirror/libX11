@@ -187,7 +187,7 @@ with the fully qualified name and class.
 The algorithm for determining which resource database entry
 matches a given query is the heart of the resource manager.
 All queries must fully specify the name and class of the desired resource
-(use of the characters ``*'' and ``?'' are not permitted).
+(use of the characters \*(lq*\*(rq and ``?'' are not permitted).
 The library supports up to 100 components in a full name or class.
 Resources are stored in the database with only partially specified
 names and classes, using pattern matching constructs.
@@ -197,7 +197,7 @@ A period (.) is a tight binding and is used to separate immediately
 adjacent components.
 A question mark (?) is used to match any single component name or class.
 A database entry cannot end in a loose binding;
-the final component (which cannot be the character ``?'') must be specified.
+the final component (which cannot be the character \*(lq?\*(rq) must be specified.
 The lookup algorithm searches the database for the entry that most
 closely matches (is most specific for) the full name and class being queried.
 When more than one database entry matches the full name and class,
@@ -213,14 +213,14 @@ until a rule selects a single entry over all others.
 The rules, in order of precedence, are:
 .IP 1. 5
 An entry that contains a matching component (whether name, class,
-or the character ``?'')
+or the character \*(lq?\*(rq)
 takes precedence over entries that elide the level (that is, entries
 that match the level in a loose binding).
 .IP 2. 5
 An entry with a matching name takes precedence over both
-entries with a matching class and entries that match using the character ``?''.
+entries with a matching class and entries that match using the character \*(lq?\*(rq.
 An entry with a matching class takes precedence over
-entries that match using the character ``?''.
+entries that match using the character \*(lq?\*(rq.
 .IP 3. 5
 An entry preceded by a tight binding takes precedence over entries
 preceded by a loose binding.

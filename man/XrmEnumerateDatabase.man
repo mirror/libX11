@@ -145,7 +145,7 @@ all matching resources are enumerated and the function returns
 The procedure is called with the following arguments:
 .LP
 .\" Start marker code here
-.Ds 0
+.EX
 (*\fIproc\fP\^)(\^\fIdatabase\fP, \fIbindings\fP, \fIquarks\fP, \fItype\fP, \fIvalue\fP, \fIarg\fP\^)
         XrmDatabase *\fIdatabase\fP\^;
         XrmBindingList \fIbindings\fP\^;
@@ -153,7 +153,7 @@ The procedure is called with the following arguments:
         XrmRepresentation *\fItype\fP\^;
         XrmValue *\fIvalue\fP\^;
         XPointer \fIarg\fP\^;
-.De
+.EE
 .\" End marker code here
 .LP
 The bindings and quarks lists are terminated by

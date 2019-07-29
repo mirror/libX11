@@ -88,7 +88,7 @@ and
 .B NoExpose
 events contain:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* GraphicsExpose */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -101,9 +101,9 @@ typedef struct {
         int major_code; /\&* core is CopyArea or CopyPlane */
         int minor_code; /\&* not defined in the core */
 } XGraphicsExposeEvent;
-.De
+.EE
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* NoExpose */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -113,7 +113,7 @@ typedef struct {
         int major_code; /\&* core is CopyArea or CopyPlane */
         int minor_code; /\&* not defined in the core */
 } XNoExposeEvent;
-.De
+.EE
 .LP
 When you receive these events,
 their structure members are set as follows.
@@ -191,7 +191,7 @@ XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCopyArea(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

@@ -85,7 +85,7 @@ XAnyEvent, XEvent \- generic X event structures
 All the event structures declared in 
 .Pn < X11/Xlib.h >
 have the following common members:
-.Ds 0
+.EX
 typedef struct {
         int type;
         unsigned long serial;   /\&* # of last request processed by server */
@@ -93,7 +93,7 @@ typedef struct {
         Display *display;       /\&* Display the event was read from */
         Window window;
 } XAnyEvent;
-.De
+.EE
 .LP
 The type member is set to the event type constant name that uniquely identifies
 it.
@@ -117,7 +117,7 @@ dispatchers.
 The
 .B XEvent
 structure is a union of the individual structures declared for each event type:
-.Ds 0
+.EX
 typedef union _XEvent {
         int type;       /\&* must not be changed */
         XAnyEvent xany;
@@ -153,7 +153,7 @@ typedef union _XEvent {
         XKeymapEvent xkeymap;
         long pad[24];
 } XEvent;
-.De
+.EE
 .LP
 An
 .B XEvent
@@ -185,7 +185,7 @@ XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

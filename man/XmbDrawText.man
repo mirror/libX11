@@ -160,25 +160,25 @@ indicated by the macro
 The
 .B XmbTextItem
 structure contains:
-.Ds 0
+.EX
 typedef struct {
         char *chars;    /\&* pointer to string */
         int nchars;     /\&* number of bytes */
         int delta;      /\&* pixel delta between strings */
         XFontSet font_set;      /\&* fonts, None means don't change */
 } XmbTextItem;
-.De
+.EE
 The
 .B XwcTextItem
 structure contains:
-.Ds 0
+.EX
 typedef struct {
         wchar_t *chars; /\&* pointer to wide char string */
         int nchars;     /\&* number of wide characters */
         int delta;      /\&* pixel delta between strings */
         XFontSet font_set;      /\&* fonts, None means don't change */
 } XwcTextItem;
-.De
+.EE
 .SH "SEE ALSO"
 XDrawImageString(__libmansuffix__),
 XDrawString(__libmansuffix__),

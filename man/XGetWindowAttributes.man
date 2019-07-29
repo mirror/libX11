@@ -154,7 +154,7 @@ The
 .B XWindowAttributes
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int x, y;       /\&* location of window */
         int width, height;      /\&* width and height of window */
@@ -178,7 +178,7 @@ typedef struct {
         Bool override_redirect; /\&* boolean value for override-redirect */
         Screen *screen; /\&* back pointer to correct screen */
 } XWindowAttributes;
-.De
+.EE
 .LP
 The x and y members are set to the upper-left outer
 corner relative to the parent window's origin.

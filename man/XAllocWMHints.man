@@ -226,7 +226,7 @@ IconMaskHint|WindowGroupHint)
 T}
 .TE
 .IN "XWMHints" "" "@DEF@"
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -241,7 +241,7 @@ typedef struct {
         XID window_group;       /\&* id of related window group */
         /\&* this structure may be extended in the future */
 } XWMHints;
-.De
+.EE
 .LP
 The input member is used to communicate to the window manager the input focus
 model used by the application.

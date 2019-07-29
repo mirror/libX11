@@ -180,44 +180,44 @@ manner to one or more fonts that support imaging text in the charset.
 .LP
 For example, assume that a locale required the charsets:
 .LP
-.Ds 0
+.EX
 ISO8859-1
 JISX0208.1983
 JISX0201.1976
 GB2312-1980.0
-.De
+.EE
 .LP
 The user could supply a base_font_name_list that explicitly specifies the
 charsets, ensuring that specific fonts are used if they exist.
 For example:
 .LP
-.Ds 0
+.EX
 "-JIS-Fixed-Medium-R-Normal--26-180-100-100-C-240-JISX0208.1983-0,\\
 -JIS-Fixed-Medium-R-Normal--26-180-100-100-C-120-JISX0201.1976-0,\\
 -GB-Fixed-Medium-R-Normal--26-180-100-100-C-240-GB2312-1980.0,\\
 -Adobe-Courier-Bold-R-Normal--25-180-75-75-M-150-ISO8859-1"
-.De
+.EE
 .LP
 Alternatively, the user could supply a base_font_name_list
 that omits the charsets,
 letting Xlib select font charsets required for the locale.
 For example:
 .LP
-.Ds 0
+.EX
 "-JIS-Fixed-Medium-R-Normal--26-180-100-100-C-240,\\
 -JIS-Fixed-Medium-R-Normal--26-180-100-100-C-120,\\
 -GB-Fixed-Medium-R-Normal--26-180-100-100-C-240,\\
 -Adobe-Courier-Bold-R-Normal--25-180-100-100-M-150"
-.De
+.EE
 .LP
 Alternatively, the user could simply supply a single base font name
 that allows Xlib to select from all available fonts
 that meet certain minimum XLFD property requirements.
 For example:
 .LP
-.Ds 0
+.EX
 "-*-*-*-R-Normal--*-180-100-100-*-*"
-.De
+.EE
 .LP
 If 
 .B XCreateFontSet

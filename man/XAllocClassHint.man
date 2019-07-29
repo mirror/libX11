@@ -159,7 +159,7 @@ The
 structure contains:
 .LP
 .IN "XClassHint" "" "@DEF@"
-.Ds 0
+.EX
 typedef struct {
         char *res_name;
         char *res_class;

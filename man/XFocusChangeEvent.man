@@ -88,7 +88,7 @@ and
 .B FocusOut
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* FocusIn or FocusOut */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -105,7 +105,7 @@ typedef struct {
 } XFocusChangeEvent;
 typedef XFocusChangeEvent XFocusInEvent;
 typedef XFocusChangeEvent XFocusOutEvent;
-.De
+.EE
 .LP
 When you receive these events,
 the structure members are set as follows.
@@ -183,7 +183,7 @@ XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XGraphicsExposeEvent(__libmansuffix__),

@@ -159,14 +159,14 @@ and
 .B XrmOptionDescRec
 structures contain:
 .LP
-.Ds 0
+.EX
 typedef struct {
         unsigned int size;
         XPointer addr;
 } XrmValue, *XrmValuePtr;
-.De
+.EE
 .LP
-.Ds 0
+.EX
 typedef enum {
         XrmoptionNoArg, /\&* Value is specified in XrmOptionDescRec.value */
         XrmoptionIsArg, /\&* Value is the option string itself */
@@ -178,9 +178,9 @@ typedef enum {
         XrmoptionSkipNArgs      /\&* Ignore this option and the next
                 \ \ \ XrmOptionDescRec.value arguments in argv */
 } XrmOptionKind;
-.De
+.EE
 .LP
-.Ds 0
+.EX
 typedef struct {
         char *option;   /\&* Option specification string in argv                    */
         char *specifier;        /\&* Binding and resource name (sans application name)    */
@@ -188,7 +188,7 @@ typedef struct {
         XPointer value; /\&* Value to provide if XrmoptionNoArg or 
                 \ \ \ XrmoptionSkipNArgs   */
 } XrmOptionDescRec, *XrmOptionDescList;
-.De
+.EE
 .SH "SEE ALSO"
 XrmGetResource(__libmansuffix__),
 XrmMergeDatabases(__libmansuffix__),

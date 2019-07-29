@@ -204,11 +204,11 @@ The
 .B XSegment
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         short x1, y1, x2, y2;
 } XSegment;
-.De
+.EE
 .LP
 All x and y members are signed integers.
 The width and height members are 16-bit unsigned integers.

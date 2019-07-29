@@ -80,13 +80,13 @@
 .ny0
 .TH XDestroyWindowEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XDestroyWindowEvent \- DestroyNotify event structure
+.EEstroyWindowEvent \- DestroyNotify event structure
 .SH STRUCTURES
 The structure for
 .B DestroyNotify
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* DestroyNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -95,7 +95,7 @@ typedef struct {
         Window event;
         Window window;
 } XDestroyWindowEvent;
-.De
+.EE
 .LP
 When you receive this event,
 the structure members are set as follows.

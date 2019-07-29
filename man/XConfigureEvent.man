@@ -86,7 +86,7 @@ The structure for
 .B ConfigureNotify
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* ConfigureNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -100,7 +100,7 @@ typedef struct {
         Window above;
         Bool override_redirect;
 } XConfigureEvent;
-.De
+.EE
 .LP
 When you receive this event,
 the structure members are set as follows.
@@ -165,7 +165,7 @@ XCirculateRequestEvent(__libmansuffix__),
 XColormapEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

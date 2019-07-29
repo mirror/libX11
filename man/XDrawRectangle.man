@@ -151,12 +151,12 @@ The
 .B XRectangle
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         short x, y;
         unsigned short width, height;
 } XRectangle;
-.De
+.EE
 .LP
 All x and y members are signed integers.
 The width and height members are 16-bit unsigned integers.

@@ -256,13 +256,13 @@ The
 .B XHostAddress
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int family;     /\&* for example FamilyInternet */
         int length;     /\&* length of address, in bytes */
         char *address;  /\&* pointer to where to find the address */
 } XHostAddress;
-.De
+.EE
 .LP
 The family member specifies which protocol address family to use 
 (for example, TCP/IP or DECnet) and can be
@@ -280,14 +280,14 @@ member is a pointer to a
 .B XServerInterpretedAddress
 structure which contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int typelength;         /\&* length of type string, in bytes */
         int valuelength;        /\&* length of value string, in bytes */
         char *type;             /\&* pointer to where to find the type string */
         char *value;            /\&* pointer to where to find the address */
 } XServerInterpretedAddress;
-.De
+.EE
 .LP
 The type and value members point to strings representing the type and value of
 the server interpreted entry.  These strings may not be NULL-terminated so care

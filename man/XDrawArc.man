@@ -176,10 +176,10 @@ relationship between these angles and angles expressed in the normal
 coordinate system of the screen (as measured with a protractor) is as
 follows:
 .LP
-.Ds
+.EX
 % roman "skewed-angle" ~ = ~ atan left ( tan ( roman "normal-angle" )
  * width over height right ) +^ adjust%
-.De
+.EE
 .LP
 The skewed-angle and normal-angle are expressed in radians (rather
 than in degrees scaled by 64) in the range % [ 0 , ~2 pi  ]% and where atan

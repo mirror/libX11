@@ -365,7 +365,7 @@ T}	T{
 T}
 .TE
 .IN "XSetWindowAttributes" "" "@DEF@"
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -385,7 +385,7 @@ typedef struct {
         Colormap colormap;      /\&* color map to be associated with window */
         Cursor cursor;          /\&* cursor to be displayed (or None) */
 } XSetWindowAttributes;
-.De
+.EE
 .LP
 For a detailed explanation of the members of this structure,
 see \fI\*(xL\fP\^.
@@ -423,8 +423,8 @@ A value for a Window argument does not name a defined Window.
 .SH "SEE ALSO"
 XChangeWindowAttributes(__libmansuffix__),
 XConfigureWindow(__libmansuffix__), 
-XDefineCursor(__libmansuffix__),
-XDestroyWindow(__libmansuffix__), 
+.EEfineCursor(__libmansuffix__),
+.EEstroyWindow(__libmansuffix__), 
 XMapWindow(__libmansuffix__), 
 XRaiseWindow(__libmansuffix__),
 XUnmapWindow(__libmansuffix__)

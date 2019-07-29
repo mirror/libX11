@@ -392,19 +392,19 @@ component over all elements of this array
 The bounding box of the font (the smallest
 rectangle enclosing the shape obtained by superimposing all of the
 characters at the same origin [x,y]) has its upper-left coordinate at:
-.Ds
+.EX
 	[x + min_bounds.lbearing, y \- max_bounds.ascent]
-.De
+.EE
 .IP
 Its width is:
-.Ds
+.EX
 	max_bounds.rbearing \- min_bounds.lbearing
-.De
+.EE
 .IP
 Its height is:
-.Ds
+.EX
 	max_bounds.ascent + max_bounds.descent
-.De
+.EE
 .IP \(bu 5
 The ascent member is the logical extent of the font above the baseline that is
 used for determining line spacing.
@@ -429,27 +429,27 @@ described in terms of
 .B XCharStruct
 components is a rectangle with its upper-left corner at:
 .LP
-.Ds
+.EX
 [x + lbearing, y \- ascent]
-.De
+.EE
 .LP
 Its width is:
 .LP
-.Ds
+.EX
 rbearing \- lbearing
-.De
+.EE
 .LP
 Its height is:
 .LP
-.Ds
+.EX
 ascent + descent
-.De
+.EE
 .LP
 The origin for the next character is defined to be:
 .LP
-.Ds
+.EX
 [x + width, y]
-.De
+.EE
 .LP
 The lbearing member defines the extent of the left edge of the character ink
 from the origin.

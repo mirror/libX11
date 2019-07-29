@@ -249,7 +249,7 @@ T}	T{
 T}
 .TE
 .IN "XKeyboardControl" "" "@DEF@"
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -263,7 +263,7 @@ typedef struct {
         int auto_repeat_mode;   /\&* AutoRepeatModeOff, AutoRepeatModeOn, 
                                 AutoRepeatModeDefault */
 } XKeyboardControl;
-.De
+.EE
 .LP
 The key_click_percent member sets the volume for key clicks between 0 (off) 
 and 100 (loud) inclusive, if possible.  
@@ -341,7 +341,7 @@ The
 .B XKeyboardState
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int key_click_percent;
         int bell_percent;
@@ -350,7 +350,7 @@ typedef struct {
         int global_auto_repeat;
         char auto_repeats[32];
 } XKeyboardState;
-.De
+.EE
 .LP
 For the LEDs, 
 the least significant bit of led_mask corresponds to LED one,

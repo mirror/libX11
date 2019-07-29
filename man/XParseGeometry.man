@@ -143,9 +143,9 @@ to parse the standard window geometry.
 Specifically, this function lets you parse strings of the form:
 .LP
 .\" Start marker code here
-.Ds
+.EX
 [=][<\fIwidth\fP>{xX}<\fIheight\fP>][{+-}<\fIxoffset\fP>{+-}<\fIyoffset\fP>] 
-.De
+.EE
 .\" End marker code here
 .LP
 The fields map into the arguments associated with this function.

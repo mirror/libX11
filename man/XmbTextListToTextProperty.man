@@ -340,14 +340,14 @@ The
 .B XTextProperty
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         unsigned char *value;   /\&* property data */
         Atom encoding;  /\&* type of property */
         int format;     /\&* 8, 16, or 32 */
         unsigned long nitems;   /\&* number of items in value */
 } XTextProperty;
-.De
+.EE
 .LP
 The
 .B XICCEncodingStyle
@@ -377,7 +377,7 @@ T}	T{
 \-3
 T}
 .TE
-.Ds 0
+.EX
 typedef enum {
         XStringStyle,           /\&* STRING */
         XCompoundTextStyle,     /\&* COMPOUND_TEXT */
@@ -385,7 +385,7 @@ typedef enum {
         XStdICCTextStyle,       /\&* STRING, else COMPOUND_TEXT */
         XUTF8StringStyle        /\&* UTF8_STRING */
 } XICCEncodingStyle;
-.De
+.EE
 .SH "SEE ALSO"
 XSetTextProperty(__libmansuffix__),
 XStringListToTextProperty(__libmansuffix__)

@@ -91,7 +91,7 @@ and
 .B MotionNotify
 events contain:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* ButtonPress or ButtonRelease */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -109,9 +109,9 @@ typedef struct {
 } XButtonEvent;
 typedef XButtonEvent XButtonPressedEvent;
 typedef XButtonEvent XButtonReleasedEvent;
-.De
+.EE
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* KeyPress or KeyRelease */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -129,9 +129,9 @@ typedef struct {
 } XKeyEvent;
 typedef XKeyEvent XKeyPressedEvent;
 typedef XKeyEvent XKeyReleasedEvent;
-.De
+.EE
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* MotionNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -148,7 +148,7 @@ typedef struct {
         Bool same_screen;       /\&* same screen flag */
 } XMotionEvent;
 typedef XMotionEvent XPointerMovedEvent;
-.De
+.EE
 .LP
 When you receive these events,
 their structure members are set as follows.
@@ -267,7 +267,7 @@ XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

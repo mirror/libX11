@@ -124,9 +124,9 @@ is a convenience function that calls
 .B XrmStringToBindingQuarkList
 followed by:
 .LP
-.Ds
+.EX
 XrmQPutResource(database, bindings, quarks, XrmStringToQuark(type), value)
-.De
+.EE
 .LP
 If the specifier and type are not in the Host Portable Character Encoding,
 the result is implementation-dependent.

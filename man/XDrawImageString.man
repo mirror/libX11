@@ -122,21 +122,21 @@ destination rectangle with the background pixel defined in the GC and then
 to paint the text with the foreground pixel.
 The upper-left corner of the filled rectangle is at:
 .LP
-.Ds
+.EX
 [x, y \- font-ascent]
-.De
+.EE
 .LP
 The width is:
 .LP
-.Ds
+.EX
 overall-width
-.De
+.EE
 .LP
 The height is:
 .LP
-.Ds
+.EX
 font-ascent + font-descent
-.De
+.EE
 .LP
 The overall-width, font-ascent, and font-descent
 are as would be returned by 

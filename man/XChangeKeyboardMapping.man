@@ -145,9 +145,9 @@ starting with first_keycode.
 The symbols for KeyCodes outside this range remain unchanged.  
 The number of elements in keysyms must be:
 .LP
-.Ds
+.EX
 num_codes * keysyms_per_keycode
-.De
+.EE
 .LP
 The specified first_keycode must be greater than or equal to min_keycode 
 returned by
@@ -162,16 +162,16 @@ or a
 .B BadValue
 error results:
 .LP
-.Ds
+.EX
 first_keycode + num_codes \- 1
-.De
+.EE
 .LP
 KeySym number N, counting from zero, for KeyCode K has the following index
 in keysyms, counting from zero: 
 .LP
-.Ds 
+.EX 
 (K \- first_keycode) * keysyms_per_keycode + N
-.De
+.EE
 .LP
 The specified keysyms_per_keycode can be chosen arbitrarily by the client
 to be large enough to hold all desired symbols. 
@@ -212,24 +212,24 @@ In addition, the following expression must be less than or equal
 to max_keycode as returned by
 .BR XDisplayKeycodes :
 .LP
-.Ds 
+.EX 
 first_keycode + keycode_count \- 1
-.De
+.EE
 .LP
 If this is not the case, a 
 .B BadValue
 error results. 
 The number of elements in the KeySyms list is:
 .LP
-.Ds 
+.EX 
 keycode_count * keysyms_per_keycode_return
-.De
+.EE
 .LP
 KeySym number N, counting from zero, for KeyCode K has the following index
 in the list, counting from zero: 
-.Ds
+.EX
 (K \- first_code) * keysyms_per_code_return + N
-.De
+.EE
 .LP
 The X server arbitrarily chooses the keysyms_per_keycode_return value 
 to be large enough to report all requested symbols. 
@@ -360,12 +360,12 @@ The
 .B XModifierKeymap
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int max_keypermod;      /\&* This server's max number of keys per modifier */
         KeyCode *modifiermap;   /\&* An 8 by max_keypermod array of the modifiers */
 } XModifierKeymap;
-.De
+.EE
 .SH DIAGNOSTICS
 .TP 1i
 .B BadAlloc

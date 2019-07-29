@@ -244,14 +244,14 @@ The
 .B XColor
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         unsigned long pixel;    /\&* pixel value */
         unsigned short red, green, blue;        /\&* rgb values */
         char flags;     /\&* DoRed, DoGreen, DoBlue */  
         char pad;
 } XColor;
-.De
+.EE
 .LP
 The red, green, and blue values are always in the range 0 to 65535
 inclusive, independent of the number of bits actually used in the

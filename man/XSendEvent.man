@@ -220,12 +220,12 @@ The
 .B XTimeCoord
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         Time time;
         short x, y;
 } XTimeCoord;
-.De
+.EE
 .LP
 The time member is set to the time, in milliseconds. 
 The x and y members are set to the coordinates of the pointer and

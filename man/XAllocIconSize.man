@@ -162,13 +162,13 @@ The
 structure contains:
 .LP
 .IN "XIconSize" "" "@DEF@"
-.Ds 0
+.EX
 typedef struct {
         int min_width, min_height;
         int max_width, max_height;
         int width_inc, height_inc;
 } XIconSize;
-.De
+.EE
 .LP
 The width_inc and height_inc members define an arithmetic progression of
 sizes (minimum to maximum) that represent the supported icon sizes.

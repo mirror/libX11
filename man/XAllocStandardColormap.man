@@ -232,7 +232,7 @@ T}
 .TE
 /\&* Values */
 .IN "XStandardColormap" "" "@DEF@"
-.Ds 0
+.EX
 typedef struct {
         Colormap colormap;
         unsigned long red_max;
@@ -245,7 +245,7 @@ typedef struct {
         VisualID visualid;
         XID killid;
 } XStandardColormap;
-.De
+.EE
 .LP
 The colormap member is the colormap created by the
 .B XCreateColormap
@@ -278,9 +278,9 @@ Given integer red, green, and blue coefficients in their appropriate
 ranges, one then can compute a corresponding pixel value by
 using the following expression:
 .LP
-.Ds
+.EX
 (r * red_mult + g * green_mult + b * blue_mult + base_pixel) & 0xFFFFFFFF
-.De
+.EE
 .LP
 For 
 .B GrayScale
@@ -292,9 +292,9 @@ To compute a
 .B GrayScale
 pixel value, use the following expression:
 .LP
-.Ds
+.EX
 (gray * red_mult + base_pixel) & 0xFFFFFFFF
-.De
+.EE
 .LP
 Negative multipliers can be represented by converting the 2's
 complement representation of the multiplier into an unsigned long and

@@ -161,14 +161,14 @@ The
 .B XTextProperty
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         unsigned char *value;   /\&* property data */
         Atom encoding;  /\&* type of property */
         int format;     /\&* 8, 16, or 32 */
         unsigned long nitems;   /\&* number of items in value */
 } XTextProperty;
-.De
+.EE
 .SH "SEE ALSO"
 XAllocClassHint(__libmansuffix__),
 XAllocIconSize(__libmansuffix__),

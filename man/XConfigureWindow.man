@@ -322,7 +322,7 @@ T}	T{
 T}
 .TE
 .IN "XWindowChanges" "" "@DEF@"
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -332,7 +332,7 @@ typedef struct {
         Window sibling;
         int stack_mode;
 } XWindowChanges;
-.De
+.EE
 .LP
 The x and y members are used to set the window's x and y coordinates,
 which are relative to the parent's origin
@@ -383,7 +383,7 @@ A value for a Window argument does not name a defined Window.
 .SH "SEE ALSO"
 XChangeWindowAttributes(__libmansuffix__),
 XCreateWindow(__libmansuffix__),
-XDestroyWindow(__libmansuffix__),
+.EEstroyWindow(__libmansuffix__),
 XMapWindow(__libmansuffix__),
 XRaiseWindow(__libmansuffix__),
 XUnmapWindow(__libmansuffix__)

@@ -86,12 +86,12 @@ The
 .B XFontSetExtents
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         XRectangle max_ink_extent;      /\&* over all drawable characters */
         XRectangle max_logical_extent;  /\&* over all drawable characters */
 } XFontSetExtents;
-.De
+.EE
 .LP
 The 
 .B XRectangle

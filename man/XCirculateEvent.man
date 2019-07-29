@@ -86,7 +86,7 @@ The structure for
 .B CirculateNotify
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* CirculateNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -96,7 +96,7 @@ typedef struct {
         Window window;
         int place;      /\&* PlaceOnTop, PlaceOnBottom */
 } XCirculateEvent;
-.De
+.EE
 .LP
 When you receive this event,
 the structure members are set as follows.
@@ -147,7 +147,7 @@ XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

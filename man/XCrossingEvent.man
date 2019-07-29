@@ -88,7 +88,7 @@ and
 .B LeaveNotify
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* EnterNotify or LeaveNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -112,7 +112,7 @@ typedef struct {
 } XCrossingEvent;
 typedef XCrossingEvent XEnterWindowEvent;
 typedef XCrossingEvent XLeaveWindowEvent;
-.De
+.EE
 .LP
 When you receive these events,
 the structure members are set as follows.
@@ -242,7 +242,7 @@ XCirculateRequestEvent(__libmansuffix__),
 XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

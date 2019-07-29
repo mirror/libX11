@@ -161,9 +161,9 @@ as if a four-point
 .B FillPolygon
 protocol request were specified for each rectangle:
 .LP
-.Ds
+.EX
 [x,y] [x+width,y] [x+width,y+height] [x,y+height]
-.De
+.EE
 .LP
 Each function uses the x and y coordinates,
 width and height dimensions, and GC you specify.

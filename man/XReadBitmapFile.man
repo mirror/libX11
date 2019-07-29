@@ -255,12 +255,12 @@ a bitmap file that was written out by
 (X version 11 format only) without reading in the bitmap file.
 The following example creates a gray bitmap:
 .LP
-.Ds 0
+.EX
 \&#include "gray.bitmap"
 .sp 6p
 Pixmap bitmap;
 bitmap = XCreateBitmapFromData(display, window, gray_bits, gray_width, gray_height);
-.De
+.EE
 .LP
 If insufficient working storage was allocated,
 .B XCreateBitmapFromData

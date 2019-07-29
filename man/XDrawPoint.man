@@ -148,11 +148,11 @@ The
 .B XPoint
 structure contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         short x, y;
 } XPoint;
-.De
+.EE
 .LP
 All x and y members are signed integers.
 The width and height members are 16-bit unsigned integers.

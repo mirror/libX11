@@ -166,18 +166,18 @@ If
 returns successfully and a pre-ICCCM size hints property is read, 
 the supplied_return argument will contain the following bits:
 .LP
-.Ds
+.EX
 (USPosition|USSize|PPosition|PSize|PMinSize|
  PMaxSize|PResizeInc|PAspect)
-.De
+.EE
 .LP
 If the property is large enough to contain the base size 
 and window gravity fields as well, 
 the supplied_return argument will also contain the following bits:
 .LP
-.Ds
+.EX
 PBaseSize|PWinGravity
-.De
+.EE
 .LP
 .B XGetWMNormalHints
 can generate a
@@ -231,18 +231,18 @@ If
 returns successfully and a pre-ICCCM size hints property is read, 
 the supplied_return argument will contain the following bits:
 .LP
-.Ds
+.EX
 (USPosition|USSize|PPosition|PSize|PMinSize|
  PMaxSize|PResizeInc|PAspect)
-.De
+.EE
 .LP
 If the property is large enough to contain the base size 
 and window gravity fields as well, 
 the supplied_return argument will also contain the following bits:
 .LP
-.Ds
+.EX
 PBaseSize|PWinGravity
-.De
+.EE
 .LP
 .B XGetWMSizeHints
 can generate
@@ -364,7 +364,7 @@ T}	T{
 T}
 .TE
 .IN "XSizeHints" "" "@DEF@"
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -382,7 +382,7 @@ typedef struct {
         int win_gravity;
         /\&* this structure may be extended in the future */
 } XSizeHints;
-.De
+.EE
 .LP
 The x, y, width, and height members are now obsolete
 and are left solely for compatibility reasons.

@@ -197,12 +197,12 @@ An RGB Device specification is identified by
 the prefix ``rgb:'' and conforms to the following syntax:
 .LP
 .\" Start marker code here
-.Ds 0
+.EX
 rgb:\fI<red>/<green>/<blue>\fP
 
     \fI<red>\fP, \fI<green>\fP, \fI<blue>\fP := \fIh\fP | \fIhh\fP | \fIhhh\fP | \fIhhhh\fP
     \fIh\fP := single hexadecimal digits (case insignificant)
-.De
+.EE
 .\" End marker code here
 .LP
 Note that \fIh\fP indicates the value scaled in 4 bits, 
@@ -233,9 +233,9 @@ An RGB intensity specification is identified
 by the prefix ``rgbi:'' and conforms to the following syntax:
 .LP
 .\" Start marker code here
-.Ds 0
+.EX
 rgbi:\fI<red>/<green>/<blue>\fP
-.De
+.EE
 .\" End marker code here
 .LP
 Note that red, green, and blue are floating-point values
@@ -249,14 +249,14 @@ The standard device-independent string specifications have
 the following syntax:
 .LP
 .\" Start marker code here
-.Ds 0
+.EX
 CIEXYZ:\fI<X>/<Y>/<Z>\fP
 CIEuvY:\fI<u>/<v>/<Y>\fP
 CIExyY:\fI<x>/<y>/<Y>\fP
 CIELab:\fI<L>/<a>/<b>\fP
 CIELuv:\fI<L>/<u>/<v>\fP
 TekHVC:\fI<H>/<V>/<C>\fP
-.De
+.EE
 .\" End marker code here
 .LP
 All of the values (C, H, V, X, Y, Z, a, b, u, v, y, x) are

@@ -86,7 +86,7 @@ The structure for
 .B MapNotify
 events contains:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* MapNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -96,7 +96,7 @@ typedef struct {
         Window window;
         Bool override_redirect; /\&* boolean, is override set... */
 } XMapEvent;
-.De
+.EE
 .LP
 When you receive this event,
 the structure members are set as follows.
@@ -139,7 +139,7 @@ The structure for
 .B MappingNotify
 events is:
 .LP
-.Ds 0
+.EX
 typedef struct {
         int type;       /\&* MappingNotify */
         unsigned long serial;   /\&* # of last request processed by server */
@@ -151,7 +151,7 @@ typedef struct {
         int first_keycode;      /\&* first keycode */
         int count;      /\&* defines range of change w. first_keycode*/
 } XMappingEvent;
-.De
+.EE
 .LP
 When you receive this event,
 the structure members are set as follows.
@@ -205,7 +205,7 @@ XColormapEvent(__libmansuffix__),
 XConfigureEvent(__libmansuffix__),
 XConfigureRequestEvent(__libmansuffix__),
 XCrossingEvent(__libmansuffix__),
-XDestroyWindowEvent(__libmansuffix__),
+.EEstroyWindowEvent(__libmansuffix__),
 XErrorEvent(__libmansuffix__),
 XExposeEvent(__libmansuffix__),
 XFocusChangeEvent(__libmansuffix__),

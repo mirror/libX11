@@ -367,7 +367,7 @@ T}
 .TE
 .IN "XGCValues" "" "@DEF@"
 .LP
-.Ds 0
+.EX
 /\&* Values */
 
 typedef struct {
@@ -395,7 +395,7 @@ typedef struct {
         int dash_offset;        /\&* patterned/dashed line information */
         char dashes;
 } XGCValues;
-.De
+.EE
 .LP
 The function attributes of a GC are used when you update a section of
 a drawable (the destination) with bits from somewhere else (the source).  
@@ -557,9 +557,9 @@ A macro constant
 can be used to refer to all planes of the screen simultaneously.
 The result is computed by the following:
 .LP
-.Ds 
+.EX 
 ((src FUNC dst) AND plane-mask) OR (dst AND (NOT plane-mask))
-.De
+.EE
 .LP
 Range checking is not performed on the values for foreground,
 background, or plane_mask.
@@ -573,10 +573,10 @@ Unless otherwise specified by the join-style or cap-style,
 the bounding box of a wide line with endpoints [x1, y1], [x2, y2] and
 width w is a rectangle with vertices at the following real coordinates:
 .LP
-.Ds
+.EX
 [x1-(w*sn/2), y1+(w*cs/2)], [x1+(w*sn/2), y1-(w*cs/2)],
 [x2-(w*sn/2), y2+(w*cs/2)], [x2+(w*sn/2), y2-(w*cs/2)]
-.De
+.EE
 .LP
 Here sn is the sine of the angle of the line,
 and cs is the cosine of the angle of the line.

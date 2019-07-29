@@ -165,13 +165,13 @@ The
 structure provides an interface to the pixmap format information
 that is returned at the time of a connection setup.
 It contains:
-.Ds 0
+.EX
 typedef struct {
         int depth;
         int bits_per_pixel;
         int scanline_pad;
 } XPixmapFormatValues;
-.De
+.EE
 .SH "SEE ALSO"
 AllPlanes(__libmansuffix__),
 BlackPixelOfScreen(__libmansuffix__),

@@ -123,7 +123,7 @@ structure contains:
 .LP
 /\&* Window manager hints mask bits */
 .TS
-lw(.5i) lw(2.5i) lw(2.5i).
+lw(.4i) lw(1.8i) lw(2.5i).
 T{
 \&#define
 T}	T{
@@ -185,11 +185,19 @@ T{
 T}	T{
 .B AllHints
 T}	T{
-(InputHint|StateHint|IconPixmapHint|
+(InputHint|
 .br
-IconWindowHint|IconPositionHint|
+ StateHint|
 .br
-IconMaskHint|WindowGroupHint)
+ IconPixmapHint|
+.br
+ IconWindowHint|
+.br
+ IconPositionHint|
+.br
+ IconMaskHint|
+.br
+ WindowGroupHint)
 T}
 .TE
 .IN "XWMHints" "" "@DEF@"
@@ -244,7 +252,7 @@ sets input focus to one of its subwindows).
 .LP
 The definitions for the initial_state flag are:
 .TS
-lw(.5i) lw(2i) lw(.2i) lw(2.8i).
+lw(.3i) lw(1.5i) lw(.1i) lw(3.9i).
 T{
 \&#define
 T}	T{

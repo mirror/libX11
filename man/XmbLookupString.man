@@ -138,7 +138,7 @@ These three functions each return a value to status_return
 that indicates what has been returned in the other arguments.
 The possible values returned are:
 .TS
-lw(1.5i) lw(4.3i).
+lw(1.3i) lw(4.3i).
 T{
 .B XBufferOverflow
 T}	T{

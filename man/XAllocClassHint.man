@@ -150,6 +150,7 @@ The server failed to allocate the requested resource or server memory.
 .B BadWindow
 A value for a Window argument does not name a defined Window.
 .SH "SEE ALSO"
+.na
 XAllocIconSize(__libmansuffix__),
 XAllocSizeHints(__libmansuffix__),
 XAllocWMHints(__libmansuffix__),

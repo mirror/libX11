@@ -228,9 +228,10 @@ The
 .B XSizeHints
 structure contains:
 .LP
+.na
 /\&* Size hints mask bits */
 .TS
-lw(.5i) lw(1.1i) lw(1.5i) lw(3.1i).
+lw(.4i) lw(1.0i) lw(1.1i) lw(2.8i).
 T{
 \&#define
 T}	T{
@@ -322,14 +323,21 @@ T{
 T}	T{
 .B PAllHints
 T}	T{
-(PPosition|PSize|
+(PPosition|
 .br
-PMinSize|PMaxSize|
+ PSize|
 .br
-PResizeInc|PAspect)
+ PMinSize|
+.br
+ PMaxSize|
+.br
+ PResizeInc|
+.br
+ PAspect)
 T}	T{
 T}
 .TE
+.ad
 .IN "XSizeHints" "" "@DEF@"
 .EX
 /\&* Values */

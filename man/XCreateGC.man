@@ -592,7 +592,7 @@ a client should always use a line-width of one rather than a line-width of zero.
 .LP
 The line-style defines which sections of a line are drawn:
 .TS
-lw(1.3i) lw(4.5i).
+lw(1.0i) lw(4.5i).
 T{
 .B LineSolid
 T}	T{
@@ -625,7 +625,7 @@ T}
 The cap-style defines how the endpoints of a path are drawn:
 .IN "Graphics context" "path"
 .TS
-lw(1.3i) lw(4.5i).
+lw(1.0i) lw(4.5i).
 T{
 .B CapNotLast
 T}	T{
@@ -664,7 +664,7 @@ T}
 .LP
 The join-style defines how corners are drawn for wide lines:
 .TS
-lw(1.3i) lw(4.5i).
+lw(1.0i) lw(4.5i).
 T{
 .B JoinMiter
 T}	T{
@@ -695,7 +695,7 @@ For a line with coincident endpoints (x1=x2, y1=y2),
 when the cap-style is applied to both endpoints,
 the semantics depends on the line-width and the cap-style:
 .TS
-lw(1.3i) lw(.5i) lw(4i).
+lw(1.0i) lw(.5i) lw(4i).
 T{
 .B CapNotLast
 T}	T{
@@ -815,7 +815,7 @@ or
 .BR LineDoubleDash ,
 the following apply:
 .TS
-lw(1.8i) lw(4i).
+lw(1.5i) lw(4i).
 T{
 .B FillSolid
 T}	T{
@@ -847,7 +847,7 @@ When drawing lines with line-style
 .BR LineDoubleDash ,
 the odd dashes are controlled by the fill-style in the following manner:
 .TS
-lw(1.8i) lw(4i).
+lw(1.5i) lw(4i).
 T{
 .B FillSolid
 T}	T{

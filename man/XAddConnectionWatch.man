@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,18 +52,18 @@ XAddConnectionWatch, XRemoveConnectionWatch, XProcessInternalConnection, XIntern
 .HP
 typedef void (*XConnectionWatchProc)\^(\^Display *\fIdisplay\fP\^, XPointer
 \fIclient_data\fP\^, int \fIfd\fP\^, Bool \fIopening\fP\^, XPointer
-*\fIwatch_data\fP\^); 
+*\fIwatch_data\fP\^);
 .HP
 Status XAddConnectionWatch\^(\^Display *\fIdisplay\fP\^, XWatchProc
-\fIprocedure\fP\^, XPointer \fIclient_data\fP\^); 
+\fIprocedure\fP\^, XPointer \fIclient_data\fP\^);
 .HP
 Status XRemoveConnectionWatch\^(\^Display *\fIdisplay\fP\^, XWatchProc
-\fIprocedure\fP\^, XPointer \fIclient_data\fP\^); 
+\fIprocedure\fP\^, XPointer \fIclient_data\fP\^);
 .HP
 void XProcessInternalConnection\^(\^Display *\fIdisplay\fP\^, int \fIfd\fP\^);
 .HP
 Status XInternalConnectionNumbers\^(\^Display *\fIdisplay\fP\^, int
-**\fIfd_return\fP\^, int *\fIcount_return\fP\^); 
+**\fIfd_return\fP\^, int *\fIcount_return\fP\^);
 .SH ARGUMENTS
 .IP \fIclient_data\fP 1i
 Specifies the additional client data.

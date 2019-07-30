@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,17 +52,17 @@ XSetScreenSaver, XForceScreenSaver, XActivateScreenSaver, XResetScreenSaver, XGe
 .HP
 int XSetScreenSaver\^(\^Display *\fIdisplay\fP\^, int \fItimeout\fP\^,
 int \fIinterval\fP\^, int \fIprefer_blanking\fP\^, int
-\fIallow_exposures\fP\^); 
+\fIallow_exposures\fP\^);
 .HP
-int XForceScreenSaver\^(\^Display *\fIdisplay\fP\^, int \fImode\fP\^); 
+int XForceScreenSaver\^(\^Display *\fIdisplay\fP\^, int \fImode\fP\^);
 .HP
-int XActivateScreenSaver\^(\^Display *\fIdisplay\fP\^); 
+int XActivateScreenSaver\^(\^Display *\fIdisplay\fP\^);
 .HP
-int XResetScreenSaver\^(\^Display *\fIdisplay\fP\^); 
+int XResetScreenSaver\^(\^Display *\fIdisplay\fP\^);
 .HP
 int XGetScreenSaver\^(\^Display *\fIdisplay\fP\^, int *\fItimeout_return\fP\^,
 int *\fIinterval_return\fP\^, int *\fIprefer_blanking_return\fP\^, int
-*\fIallow_exposures_return\fP\^); 
+*\fIallow_exposures_return\fP\^);
 .SH ARGUMENTS
 .IP \fIallow_exposures\fP 1i
 Specifies the screen save control values.
@@ -107,12 +107,12 @@ Specifies the timeout, in seconds, until the screen saver turns on.
 .IP \fItimeout_return\fP 1i
 Returns the timeout, in seconds, until the screen saver turns on.
 .SH DESCRIPTION
-Timeout and interval are specified in seconds. 
-A timeout of 0 disables the screen saver 
+Timeout and interval are specified in seconds.
+A timeout of 0 disables the screen saver
 (but an activated screen saver is not deactivated),
 and a timeout of \-1 restores the default.
 Other negative values generate a
 .B BadValue
 error.
-If the timeout value is nonzero, 
+If the timeout value is nonzero,
 .B XSetScreenSaver

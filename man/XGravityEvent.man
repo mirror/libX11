@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -94,9 +94,9 @@ or
 .B SubstructureNotify
 was selected.
 The window member is set to the child window that was moved.
-The x and y members are set to the coordinates relative to the 
+The x and y members are set to the coordinates relative to the
 new parent window's origin
-and indicate the position of the upper-left outside corner of the 
+and indicate the position of the upper-left outside corner of the
 window.
 .SH "SEE ALSO"
 XAnyEvent(__libmansuffix__),

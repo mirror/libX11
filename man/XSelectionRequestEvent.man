@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -99,9 +99,9 @@ The selection member is set to the atom that names the selection.
 For example, PRIMARY is used to indicate the primary selection.
 The target member is set to the atom that indicates the type
 the selection is desired in.
-The property member can be a property name or 
+The property member can be a property name or
 .BR None .
-The time member is set to the timestamp or 
+The time member is set to the timestamp or
 .B CurrentTime
 value from the
 .B ConvertSelection

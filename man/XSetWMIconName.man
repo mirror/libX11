@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,16 +51,16 @@ XSetWMIconName, XGetWMIconName, XSetIconName, XGetIconName \- set or read a wind
 .SH SYNTAX
 .HP
 void XSetWMIconName\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop\fP\^); 
+XTextProperty *\fItext_prop\fP\^);
 .HP
 Status XGetWMIconName\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop_return\fP\^); 
+XTextProperty *\fItext_prop_return\fP\^);
 .HP
 int XSetIconName\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
-*\fIicon_name\fP\^); 
+*\fIicon_name\fP\^);
 .HP
 Status XGetIconName\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, char
-**\fIicon_name_return\fP\^); 
+**\fIicon_name_return\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -87,7 +87,7 @@ convenience function calls
 .B XSetTextProperty
 to set the WM_ICON_NAME property.
 .LP
-The 
+The
 .B XGetWMIconName
 convenience function calls
 .B XGetTextProperty
@@ -109,7 +109,7 @@ errors.
 The
 .B XGetIconName
 function returns the name to be displayed in the specified window's icon.
-If it succeeds, it returns a nonzero status; otherwise, 
+If it succeeds, it returns a nonzero status; otherwise,
 if no icon name has been set for the window,
 it returns zero.
 If you never assigned a name to the window,

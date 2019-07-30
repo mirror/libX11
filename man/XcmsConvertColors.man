@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,7 +52,7 @@ XcmsConvertColors \- convert CCC color specifications
 .HP
 Status XcmsConvertColors\^(\^XcmsCCC \fIccc\fP\^, XcmsColor
 \fIcolors_in_out\fP\^[\^]\^, unsigned int \fIncolors\fP\^, XcmsColorFormat
-\fItarget_format\fP\^, Bool \fIcompression_flags_return\fP\^[\^]\^); 
+\fItarget_format\fP\^, Bool \fIcompression_flags_return\fP\^[\^]\^);
 .SH ARGUMENTS
 .IP \fIccc\fP 1i
 Specifies the CCC.
@@ -72,7 +72,7 @@ if the corresponding color was compressed and
 otherwise.
 Pass NULL if the compression status is not useful.
 .IP \fIncolors\fP 1i
-Specifies the number of 
+Specifies the number of
 .B XcmsColor
 structures in the color-specification array.
 .IP \fItarget_format\fP 1i

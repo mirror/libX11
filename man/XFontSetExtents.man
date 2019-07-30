@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -60,33 +60,33 @@ typedef struct {
 } XFontSetExtents;
 .EE
 .LP
-The 
+The
 .B XRectangle
-structures used to return font set metrics are the usual Xlib screen-oriented 
+structures used to return font set metrics are the usual Xlib screen-oriented
 rectangles
 with x, y giving the upper left corner, and width and height always positive.
 .LP
 The max_ink_extent member gives the maximum extent, over all drawable characters, of
 the rectangles that bound the character glyph image drawn in the
 foreground color, relative to a constant origin.
-See 
+See
 .B XmbTextExtents
 and
 .B XwcTextExtents
 for detailed semantics.
 .LP
 The max_logical_extent member gives the maximum extent,
-over all drawable characters, of the rectangles 
+over all drawable characters, of the rectangles
 that specify minimum spacing to other graphical features,
 relative to a constant origin.
 Other graphical features drawn by the client, for example,
 a border surrounding the text, should not intersect this rectangle.
-The max_logical_extent member should be used to compute minimum 
+The max_logical_extent member should be used to compute minimum
 interline spacing and the minimum area that must be allowed
 in a text field to draw a given number of arbitrary characters.
 .LP
 Due to context-dependent rendering,
-appending a given character to a string may change 
+appending a given character to a string may change
 the string's extent by an amount other than that character's
 individual extent.
 .SH "SEE ALSO"

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,23 +51,23 @@ XIntersectRegion, XUnionRegion, XUnionRectWithRegion, XSubtractRegion, XXorRegio
 .SH SYNTAX
 .HP
 int XIntersectRegion\^(\^Region \fIsra\fP\^, Region \fIsrb\fP\^, Region
-\fIdr_return\fP\^); 
+\fIdr_return\fP\^);
 .HP
 int XUnionRegion\^(\^Region \fIsra\fP\^, Region \fIsrb\fP\^, Region
-\fIdr_return\fP\^); 
+\fIdr_return\fP\^);
 .HP
 int XUnionRectWithRegion\^(\^XRectangle *\fIrectangle\fP\^, Region
-\fIsrc_region\fP\^, Region \fIdest_region_return\fP\^); 
+\fIsrc_region\fP\^, Region \fIdest_region_return\fP\^);
 .HP
 int XSubtractRegion\^(\^Region \fIsra\fP\^, Region \fIsrb\fP\^, Region
-\fIdr_return\fP\^); 
+\fIdr_return\fP\^);
 .HP
 int XXorRegion\^(\^Region \fIsra\fP\^, Region \fIsrb\fP\^, Region
-\fIdr_return\fP\^); 
+\fIdr_return\fP\^);
 .HP
-int XOffsetRegion\^(\^Region \fIr\fP\^, int \fIdx\fP\^, int \fIdy\fP\^); 
+int XOffsetRegion\^(\^Region \fIr\fP\^, int \fIdx\fP\^, int \fIdy\fP\^);
 .HP
-int XShrinkRegion\^(\^Region \fIr\fP\^, int \fIdx\fP\^, int \fIdy\fP\^); 
+int XShrinkRegion\^(\^Region \fIr\fP\^, int \fIdx\fP\^, int \fIdy\fP\^);
 .SH ARGUMENTS
 .IP \fIdest_region_return\fP 1i
 Returns the destination region.

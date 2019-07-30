@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,13 +50,13 @@
 XSetCloseDownMode, XKillClient \- control clients
 .SH SYNTAX
 .HP
-int XSetCloseDownMode\^(\^Display *\fIdisplay\fP\^, int \fIclose_mode\fP\^); 
+int XSetCloseDownMode\^(\^Display *\fIdisplay\fP\^, int \fIclose_mode\fP\^);
 .HP
-int XKillClient\^(\^Display *\fIdisplay\fP\^, XID \fIresource\fP\^); 
+int XKillClient\^(\^Display *\fIdisplay\fP\^, XID \fIresource\fP\^);
 .SH ARGUMENTS
 .IP \fIclose_mode\fP 1i
 Specifies the client close-down mode.
-You can pass 
+You can pass
 .BR DestroyAll ,
 .BR RetainPermanent ,
 or
@@ -92,13 +92,13 @@ forces a close down of the client
 that created the resource
 if a valid resource is specified.
 If the client has already terminated in
-either 
+either
 .B RetainPermanent
-or 
+or
 .B RetainTemporary
 mode, all of the client's
 resources are destroyed.
-If 
+If
 .B AllTemporary
 is specified, the resources of all clients that have terminated in
 .B RetainTemporary
@@ -107,8 +107,8 @@ This permits implementation of window manager facilities that aid debugging.
 A client can set its close-down mode to
 .BR RetainTemporary .
 If the client then crashes,
-its windows would not be destroyed. 
-The programmer can then inspect the application's window tree 
+its windows would not be destroyed.
+The programmer can then inspect the application's window tree
 and use the window manager to destroy the zombie windows.
 .LP
 .B XKillClient

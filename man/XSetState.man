@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,19 +52,19 @@ XSetState, XSetFunction, XSetPlaneMask, XSetForeground, XSetBackground \- GC con
 .HP
 int XSetState\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, unsigned long
 \fIforeground\fP\^, unsigned int \fIbackground\fP\^, int \fIfunction\fP\^,
-unsigned long \fIplane_mask\fP\^); 
+unsigned long \fIplane_mask\fP\^);
 .HP
 int XSetFunction\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, int
-\fIfunction\fP\^); 
+\fIfunction\fP\^);
 .HP
 int XSetPlaneMask\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, unsigned long
-\fIplane_mask\fP\^); 
+\fIplane_mask\fP\^);
 .HP
 int XSetForeground\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, unsigned long
-\fIforeground\fP\^); 
+\fIforeground\fP\^);
 .HP
 int XSetBackground\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, unsigned long
-\fIbackground\fP\^); 
+\fIbackground\fP\^);
 .SH ARGUMENTS
 .IP \fIbackground\fP 1i
 Specifies the background you want to set for the specified GC.

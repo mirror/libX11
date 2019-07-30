@@ -26,7 +26,7 @@ XGetXCBConnection \- get the XCB connection for an Xlib Display
 .HP
  #include <X11/Xlib-xcb.h>
 .HP
-xcb_connection_t *XGetXCBConnection(Display *\fIdpy\fP); 
+xcb_connection_t *XGetXCBConnection(Display *\fIdpy\fP);
 .SH ARGUMENTS
 .IP \fIdpy\fP 1i
 Specifies the connection to the X server.

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,24 +50,24 @@
 XRaiseWindow, XLowerWindow, XCirculateSubwindows, XCirculateSubwindowsUp, XCirculateSubwindowsDown, XRestackWindows \- change window stacking order
 .SH SYNTAX
 .HP
-int XRaiseWindow\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+int XRaiseWindow\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^);
 .HP
-int XLowerWindow\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+int XLowerWindow\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^);
 .HP
 int XCirculateSubwindows\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, int
-\fIdirection\fP\^); 
+\fIdirection\fP\^);
 .HP
-int XCirculateSubwindowsUp\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+int XCirculateSubwindowsUp\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^);
 .HP
-int XCirculateSubwindowsDown\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^); 
+int XCirculateSubwindowsDown\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^);
 .HP
 int XRestackWindows\^(\^Display *\fIdisplay\fP\^, Window \fIwindows\fP\^[], int
-\fInwindows\fP\^); 
+\fInwindows\fP\^);
 .SH ARGUMENTS
 .IP \fIdirection\fP 1i
 Specifies the direction (up or down) that you want to circulate
-the window. 
-You can pass 
+the window.
+You can pass
 .B RaiseLowest
 or
 .BR LowerHighest .
@@ -85,18 +85,18 @@ The
 function
 raises the specified window to the top of the stack so that no sibling window
 obscures it.
-If the windows are regarded as overlapping sheets of paper stacked 
+If the windows are regarded as overlapping sheets of paper stacked
 on a desk,
 then raising a window is analogous to moving the sheet to the top of
 the stack but leaving its x and y location on the desk constant.
-Raising a mapped window may generate 
+Raising a mapped window may generate
 .B Expose
-events for the window and any mapped subwindows that were formerly obscured.  
+events for the window and any mapped subwindows that were formerly obscured.
 .LP
-If the override-redirect attribute of the window is 
+If the override-redirect attribute of the window is
 .B False
 and some
-other client has selected 
+other client has selected
 .B SubstructureRedirectMask
 on the parent, the X server generates a
 .B ConfigureRequest
@@ -117,18 +117,18 @@ If the windows are regarded as overlapping sheets of paper
 stacked on a desk, then lowering a window is analogous to moving the
 sheet to the bottom of the stack but leaving its x and y location on
 the desk constant.
-Lowering a mapped window will generate 
+Lowering a mapped window will generate
 .B Expose
 events on any windows it formerly obscured.
 .LP
-If the override-redirect attribute of the window is 
+If the override-redirect attribute of the window is
 .B False
 and some
-other client has selected 
+other client has selected
 .B SubstructureRedirectMask
 on the parent, the X server generates a
 .B ConfigureRequest
-event, and no processing is performed.  
+event, and no processing is performed.
 Otherwise, the window is lowered to the bottom of the
 stack.
 .LP
@@ -139,12 +139,12 @@ error.
 .LP
 The
 .B XCirculateSubwindows
-function circulates children of the specified window in the specified 
+function circulates children of the specified window in the specified
 direction.
 If you specify
 .BR RaiseLowest ,
 .B XCirculateSubwindows
-raises the lowest mapped child (if any) that is occluded 
+raises the lowest mapped child (if any) that is occluded
 by another child to the top of the stack.
 If you specify
 .BR LowerHighest ,
@@ -152,15 +152,15 @@ If you specify
 lowers the highest mapped child (if any) that occludes another child
 to the bottom of the stack.
 Exposure processing is then performed on formerly obscured windows.
-If some other client has selected 
+If some other client has selected
 .B SubstructureRedirectMask
-on the window, the X server generates a 
+on the window, the X server generates a
 .B CirculateRequest
 event, and no further processing is performed.
 If a child is actually restacked,
 the X server generates a
 .B CirculateNotify
-event. 
+event.
 .LP
 .B XCirculateSubwindows
 can generate
@@ -216,14 +216,14 @@ a
 .B BadMatch
 error results.
 .LP
-If the override-redirect attribute of a window is 
+If the override-redirect attribute of a window is
 .B False
 and some
-other client has selected 
+other client has selected
 .B SubstructureRedirectMask
-on the parent, the X server generates 
+on the parent, the X server generates
 .B ConfigureRequest
-events for each window whose override-redirect flag is not set, 
+events for each window whose override-redirect flag is not set,
 and no further processing is performed.
 Otherwise, the windows will be restacked in top-to-bottom order.
 .LP

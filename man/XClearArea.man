@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -69,12 +69,12 @@ Specifies the window.
 .ns
 .IP \fIheight\fP 1i
 Specify the width and height, which are the dimensions of the rectangle.
-.ds Xy 
+.ds Xy
 .IP \fIx\fP 1i
 .br
 .ns
 .IP \fIy\fP 1i
-Specify the x and y coordinates, which are relative to the origin of the window 
+Specify the x and y coordinates, which are relative to the origin of the window
 and specify the upper-left corner of the rectangle.
 .SH DESCRIPTION
 The
@@ -87,16 +87,16 @@ If width is zero, it
 is replaced with the current width of the window minus x.
 If height is
 zero, it is replaced with the current height of the window minus y.
-If the window has a defined background tile, 
+If the window has a defined background tile,
 the rectangle clipped by any children is filled with this tile.
 If the window has
-background 
+background
 .BR None ,
-the contents of the window are not changed.  
+the contents of the window are not changed.
 In either
-case, if exposures is 
+case, if exposures is
 .BR True ,
-one or more 
+one or more
 .B Expose
 events are generated for regions of the rectangle that are either visible or are
 being retained in a backing store.
@@ -119,21 +119,21 @@ The
 function clears the entire area in the specified window and is
 equivalent to
 .B XClearArea
-(display, w, 0, 0, 0, 0, 
+(display, w, 0, 0, 0, 0,
 .BR False ).
 If the window has a defined background tile, the rectangle is tiled with a
-plane-mask of all ones and 
+plane-mask of all ones and
 .B GXcopy
 function.
 If the window has
-background 
+background
 .BR None ,
-the contents of the window are not changed.  
+the contents of the window are not changed.
 If you specify a window whose class is
 .BR InputOnly ,
 a
 .B BadMatch
-error results. 
+error results.
 .LP
 .B XClearWindow
 can generate

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,7 +50,7 @@
 XGrabServer, XUngrabServer \- grab the server
 .SH SYNTAX
 .HP
-int XGrabServer\^(\^Display *\fIdisplay\fP\^); 
+int XGrabServer\^(\^Display *\fIdisplay\fP\^);
 .HP
 int XUngrabServer\^(\^Display *\fIdisplay\fP\^);
 .SH ARGUMENTS
@@ -59,7 +59,7 @@ Specifies the connection to the X server.
 .SH DESCRIPTION
 The
 .B XGrabServer
-function disables processing of requests and close downs on all other 
+function disables processing of requests and close downs on all other
 connections than the one this request arrived on.
 You should not grab the X server any more than is absolutely necessary.
 .LP

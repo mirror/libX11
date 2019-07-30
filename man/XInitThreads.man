@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,9 +52,9 @@ XInitThreads, XLockDisplay, XUnlockDisplay \- multi-threading support
 .HP
 Status XInitThreads\^(void);
 .HP
-void XLockDisplay\^(\^Display *\fIdisplay\fP\^); 
+void XLockDisplay\^(\^Display *\fIdisplay\fP\^);
 .HP
-void XUnlockDisplay\^(\^Display *\fIdisplay\fP\^); 
+void XUnlockDisplay\^(\^Display *\fIdisplay\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.

@@ -26,7 +26,7 @@ XSetEventQueueOwner \- set event queue owner on a shared Xlib/XCB connection
 .HP
  #include <X11/Xlib-xcb.h>
 .HP
-void XSetEventQueueOwner(Display *\fIdpy\fP, enum XEventQueueOwner \fIowner\fP); 
+void XSetEventQueueOwner(Display *\fIdpy\fP, enum XEventQueueOwner \fIowner\fP);
 .SH ARGUMENTS
 .IP \fIdpy\fP 1i
 Specifies the connection to the X server.

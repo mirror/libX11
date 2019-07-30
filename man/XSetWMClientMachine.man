@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,10 +51,10 @@ XSetWMClientMachine, XGetWMClientMachine \- set or read a window's WM_CLIENT_MAC
 .SH SYNTAX
 .HP
 void XSetWMClientMachine\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop\fP\^); 
+XTextProperty *\fItext_prop\fP\^);
 .HP
 Status XGetWMClientMachine\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop_return\fP\^); 
+XTextProperty *\fItext_prop_return\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -77,7 +77,7 @@ to set the WM_CLIENT_MACHINE property.
 .LP
 The
 .B XGetWMClientMachine
-convenience function performs an 
+convenience function performs an
 .B XGetTextProperty
 on the WM_CLIENT_MACHINE property.
 It returns a nonzero status on success;

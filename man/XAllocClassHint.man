@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -63,7 +63,7 @@ Specifies the
 .B XClassHint
 structure that is to be used.
 .IP \fIclass_hints_return\fP 1i
-Returns the 
+Returns the
 .B XClassHint
 structure.
 .IP \fIw\fP 1i
@@ -77,7 +77,7 @@ structure.
 Note that the pointer fields in the
 .B XClassHint
 structure are initially set to NULL.
-If insufficient memory is available, 
+If insufficient memory is available,
 .B XAllocClassHint
 returns NULL.
 To free the memory allocated to this structure,
@@ -132,15 +132,15 @@ typedef struct {
         char *res_class;
 } XClassHint;
 .LP
-The res_name member contains the application name, 
-and the res_class member contains the application class. 
+The res_name member contains the application name,
+and the res_class member contains the application class.
 Note that the name set in this property may differ from the name set as WM_NAME.
 That is, WM_NAME specifies what should be displayed in the title bar and,
 therefore, can contain temporal information (for example, the name of
 a file currently in an editor's buffer).
-On the other hand, 
+On the other hand,
 the name specified as part of WM_CLASS is the formal name of the application
-that should be used when retrieving the application's resources from the 
+that should be used when retrieving the application's resources from the
 resource database.
 .SH DIAGNOSTICS
 .TP 1i

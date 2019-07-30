@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,20 +51,20 @@ XStoreBytes, XStoreBuffer, XFetchBytes, XFetchBuffer, XRotateBuffers \- manipula
 .SH SYNTAX
 .HP
 int XStoreBytes\^(\^Display *\fIdisplay\fP\^, char *\fIbytes\fP\^, int
-\^\fInbytes\fP\^); 
+\^\fInbytes\fP\^);
 .HP
 int XStoreBuffer\^(\^Display *\fIdisplay\fP\^, char *\fIbytes\fP\^, int
-\^\fInbytes\fP\^, int \fIbuffer\fP\^); 
+\^\fInbytes\fP\^, int \fIbuffer\fP\^);
 .HP
-char *XFetchBytes\^(\^Display *\fIdisplay\fP\^, int *\fInbytes_return\fP\^); 
+char *XFetchBytes\^(\^Display *\fIdisplay\fP\^, int *\fInbytes_return\fP\^);
 .HP
 char *XFetchBuffer\^(\^Display *\fIdisplay\fP\^, int *\fInbytes_return\fP\^,
-int \fIbuffer\fP\^); 
+int \fIbuffer\fP\^);
 .HP
-int XRotateBuffers\^(\^Display *\fIdisplay\fP\^, int \fIrotate\fP\^); 
+int XRotateBuffers\^(\^Display *\fIdisplay\fP\^, int \fIrotate\fP\^);
 .SH ARGUMENTS
 .IP \fIbuffer\fP 1i
-Specifies the buffer in which you want to store the bytes 
+Specifies the buffer in which you want to store the bytes
 or from which you want the stored data returned.
 .IP \fIbytes\fP 1i
 Specifies the bytes, which are not necessarily ASCII or null-terminated.
@@ -110,7 +110,7 @@ The client must free this storage when finished with it by calling
 .LP
 The
 .B XFetchBuffer
-function returns zero to the nbytes_return argument 
+function returns zero to the nbytes_return argument
 if there is no data in the buffer or if an invalid
 buffer is specified.
 .LP
@@ -122,7 +122,7 @@ error.
 The
 .B XRotateBuffers
 function rotates the cut
-buffers, such that buffer 0 becomes buffer n, 
+buffers, such that buffer 0 becomes buffer n,
 buffer 1 becomes n + 1 mod 8, and so on.
 This cut buffer numbering is global to the display.
 Note that

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,10 +51,10 @@ XSetTextProperty, XGetTextProperty \- set and read text properties
 .SH SYNTAX
 .HP
 void XSetTextProperty\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop\fP\^, Atom \fIproperty\fP\^); 
+XTextProperty *\fItext_prop\fP\^, Atom \fIproperty\fP\^);
 .HP
 Status XGetTextProperty\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-XTextProperty *\fItext_prop_return\fP\^, Atom \fIproperty\fP\^); 
+XTextProperty *\fItext_prop_return\fP\^, Atom \fIproperty\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -71,9 +71,9 @@ structure.
 .SH DESCRIPTION
 The
 .B XSetTextProperty
-function replaces the existing specified property for the named window 
-with the data, type, format, and number of items determined 
-by the value field, the encoding field, the format field, 
+function replaces the existing specified property for the named window
+with the data, type, format, and number of items determined
+by the value field, the encoding field, the format field,
 and the nitems field, respectively, of the specified
 .B XTextProperty
 structure.
@@ -98,25 +98,25 @@ and stores the data in the returned
 structure.
 It stores the data in the value field,
 the type of the data in the encoding field,
-the format of the data in the format field, 
+the format of the data in the format field,
 and the number of items of data in the nitems field.
-An extra byte containing null (which is not included in the nitems member) 
+An extra byte containing null (which is not included in the nitems member)
 is stored at the end of the value field of text_prop_return.
-The particular interpretation of the property's encoding 
+The particular interpretation of the property's encoding
 and data as text is left to the calling application.
 If the specified property does not exist on the window,
 .B XGetTextProperty
-sets the value field to NULL, 
+sets the value field to NULL,
 the encoding field to
 .BR None ,
-the format field to zero, 
+the format field to zero,
 and the nitems field to zero.
 .LP
 If it was able to read and store the data in the
 .B XTextProperty
 structure,
 .B XGetTextProperty
-returns a nonzero status; 
+returns a nonzero status;
 otherwise, it returns a zero status.
 .LP
 .B XGetTextProperty

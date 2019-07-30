@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,15 +51,15 @@ XInternAtom, XInternAtoms, XGetAtomName, XGetAtomNames \- create or return atom 
 .SH SYNTAX
 .HP
 Atom XInternAtom\^(\^Display *\fIdisplay\fP\^, char *\fIatom_name\fP\^, Bool
-\fIonly_if_exists\fP\^); 
+\fIonly_if_exists\fP\^);
 .HP
 Status XInternAtoms\^(\^Display *\fIdisplay\fP\^, char **\fInames\fP\^, int
-\fIcount\fP\^, Bool \fIonly_if_exists\fP\^, Atom *\fIatoms_return\fP\^); 
+\fIcount\fP\^, Bool \fIonly_if_exists\fP\^, Atom *\fIatoms_return\fP\^);
 .HP
-char *XGetAtomName\^(\^Display *\fIdisplay\fP\^, Atom \fIatom\fP\^); 
+char *XGetAtomName\^(\^Display *\fIdisplay\fP\^, Atom \fIatom\fP\^);
 .HP
 Status XGetAtomNames\^(\^Display *\fIdisplay\fP\^, Atom *\fIatoms\fP\^, int
-\fIcount\fP\^, char **\fInames_return\fP\^); 
+\fIcount\fP\^, char **\fInames_return\fP\^);
 .SH ARGUMENTS
 .IP \fIatom\fP 1i
 Specifies the atom for the property name you want returned.
@@ -84,18 +84,18 @@ The
 .B XInternAtom
 function returns the atom identifier associated with the specified atom_name
 string.
-If only_if_exists is 
+If only_if_exists is
 .BR False ,
 the atom is created if it does not exist.
 Therefore,
 .B XInternAtom
 can return
 .BR None .
-If the atom name is not in the Host Portable Character Encoding, 
+If the atom name is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
 Uppercase and lowercase matter;
-the strings \*(lqthing\*(rq, \*(lqThing\*(rq, and \*(lqthinG\*(rq 
-all designate different atoms.  
+the strings \*(lqthing\*(rq, \*(lqThing\*(rq, and \*(lqthinG\*(rq
+all designate different atoms.
 The atom will remain defined even after the client's connection closes.
 It will become undefined only when the last connection to
 the X server closes.

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -96,7 +96,7 @@ was selected.
 The window member is set to the window that was mapped.
 The override_redirect member is set to the override-redirect attribute
 of the window.
-Window manager clients normally should ignore this window 
+Window manager clients normally should ignore this window
 if the override-redirect attribute is
 .BR True ,
 because these events usually are generated from pop-ups,
@@ -155,12 +155,12 @@ If it is
 the keyboard mapping was changed.
 If it is
 .BR MappingPointer ,
-the pointer button mapping was changed. 
-The first_keycode and count members are set only 
+the pointer button mapping was changed.
+The first_keycode and count members are set only
 if the request member was set to
 .BR MappingKeyboard .
-The number in first_keycode represents the first number in the range 
-of the altered mapping, 
+The number in first_keycode represents the first number in the range
+of the altered mapping,
 and count represents the number of keycodes altered.
 .SH "SEE ALSO"
 XAnyEvent(__libmansuffix__),

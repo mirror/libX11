@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,17 +50,17 @@
 XStringToKeysym, XKeysymToString, XKeycodeToKeysym, XKeysymToKeycode, XConvertCase \- convert keysyms
 .SH SYNTAX
 .HP
-KeySym XStringToKeysym\^(\^char *\fIstring\fP\^); 
+KeySym XStringToKeysym\^(\^char *\fIstring\fP\^);
 .HP
-char *XKeysymToString\^(\^KeySym \fIkeysym\fP\^); 
+char *XKeysymToString\^(\^KeySym \fIkeysym\fP\^);
 .HP
 KeySym XKeycodeToKeysym\^(\^Display *\fIdisplay\fP\^, KeyCode \fIkeycode\fP\^,
-int \fIindex\fP\^); 
+int \fIindex\fP\^);
 .HP
 KeyCode XKeysymToKeycode\^(\^Display *\fIdisplay\fP\^, KeySym \fIkeysym\fP\^);
 .HP
 void XConvertCase(\^KeySym \fIkeysym\fP\^, KeySym *\fIlower_return\fP\^,
-KeySym *\fIupper_return\fP\^); 
+KeySym *\fIupper_return\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -82,7 +82,7 @@ Standard KeySym names are obtained from
 by removing the XK_ prefix from each name.
 KeySyms that are not part of the Xlib standard also may be obtained
 with this function.
-The set of KeySyms that are available in this manner 
+The set of KeySyms that are available in this manner
 and the mechanisms by which Xlib obtains them is implementation-dependent.
 .LP
 If the KeySym name is not in the Host Portable Character Encoding,

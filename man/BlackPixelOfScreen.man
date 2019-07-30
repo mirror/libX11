@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -91,7 +91,7 @@ int WidthOfScreen\^(\^Screen *\fIscreen\fP\^);
 int WidthMMOfScreen\^(\^Screen *\fIscreen\fP\^);
 .SH ARGUMENTS
 .IP \fIscreen\fP 1i
-Specifies the appropriate 
+Specifies the appropriate
 .B Screen
 structure.
 .SH DESCRIPTION
@@ -127,7 +127,7 @@ macro returns the default visual of the specified screen.
 .LP
 The
 .B DoesBackingStore
-macro returns 
+macro returns
 .BR WhenMapped ,
 .BR NotUseful ,
 or
@@ -162,12 +162,12 @@ macro returns the height of the specified screen in millimeters.
 .LP
 The
 .B MaxCmapsOfScreen
-macro returns the maximum number of installed colormaps supported 
+macro returns the maximum number of installed colormaps supported
 by the specified screen.
 .LP
 The
 .B MinCmapsOfScreen
-macro returns the minimum number of installed colormaps supported 
+macro returns the minimum number of installed colormaps supported
 by the specified screen.
 .LP
 The

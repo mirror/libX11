@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,13 +51,13 @@ XIfEvent, XCheckIfEvent, XPeekIfEvent \- check the event queue with a predicate 
 .SH SYNTAX
 .HP
 int XIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^, Bool
-(\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
+(\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^);
 .HP
 Bool XCheckIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^,
-Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
+Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^);
 .HP
 int XPeekIfEvent\^(\^Display *\fIdisplay\fP\^, XEvent *\fIevent_return\fP\^,
-Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^); 
+Bool (\^*\fIpredicate\fP\^)\^(\^)\^, XPointer \fIarg\fP\^);
 .SH ARGUMENTS
 .IP \fIarg\fP 1i
 Specifies the user-supplied argument that will be passed to the predicate procedure.
@@ -72,14 +72,14 @@ if the next event in the queue matches what you want.
 The
 .B XIfEvent
 function completes only when the specified predicate
-procedure returns 
+procedure returns
 .B True
-for an event, 
+for an event,
 which indicates an event in the queue matches.
 .B XIfEvent
 flushes the output buffer if it blocks waiting for additional events.
 .B XIfEvent
-removes the matching event from the queue 
+removes the matching event from the queue
 and copies the structure into the client-supplied
 .B XEvent
 structure.
@@ -88,7 +88,7 @@ When the predicate procedure finds a match,
 .B XCheckIfEvent
 copies the matched event into the client-supplied
 .B XEvent
-structure and returns 
+structure and returns
 .BR True .
 (This event is removed from the queue.)
 If the predicate procedure finds no match,
@@ -101,7 +101,7 @@ All earlier events stored in the queue are not discarded.
 The
 .B XPeekIfEvent
 function returns only when the specified predicate
-procedure returns 
+procedure returns
 .B True
 for an event.
 After the predicate procedure finds a match,
@@ -112,7 +112,7 @@ structure without removing the event from the queue.
 .B XPeekIfEvent
 flushes the output buffer if it blocks waiting for additional events.
 .LP
-Each of these functions requires you to pass a predicate procedure that 
+Each of these functions requires you to pass a predicate procedure that
 determines if an event matches what you want.
 Your predicate procedure must decide if the event is useful
 without calling any Xlib functions.
@@ -134,7 +134,7 @@ Specifies the
 .B XEvent
 structure.
 .IP \fIarg\fP 1i
-Specifies the argument passed in from the 
+Specifies the argument passed in from the
 .BR XIfEvent ,
 .BR XCheckIfEvent ,
 or
@@ -142,8 +142,8 @@ or
 function.
 .LP
 The predicate procedure is called once for each
-event in the queue until it finds a match. 
-After finding a match, the predicate procedure must return 
+event in the queue until it finds a match.
+After finding a match, the predicate procedure must return
 .BR True .
 If it did not find a match, it must return
 .BR False .

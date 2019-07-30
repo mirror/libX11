@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,14 +51,14 @@ XDrawText, XDrawText16, XTextItem, XTextItem16 \- draw polytext text and text dr
 .SH SYNTAX
 .HP
 int XDrawText\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC \fIgc\fP\^,
-int \fIx\fP\^, int \fIy\fP\^, XTextItem *\fIitems\fP\^, int \fInitems\fP\^); 
+int \fIx\fP\^, int \fIy\fP\^, XTextItem *\fIitems\fP\^, int \fInitems\fP\^);
 .HP
 int XDrawText16\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
 \fIgc\fP\^, int \fIx\fP\^, int \fIy\fP\^, XTextItem16 *\fIitems\fP\^, int
-\fInitems\fP\^); 
+\fInitems\fP\^);
 .SH ARGUMENTS
 .IP \fId\fP 1i
-Specifies the drawable. 
+Specifies the drawable.
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIgc\fP 1i
@@ -71,8 +71,8 @@ Specifies the number of text items in the array.
 .br
 .ns
 .IP \fIy\fP 1i
-Specify the x and y coordinates, which are relative to the origin 
-of the specified drawable 
+Specify the x and y coordinates, which are relative to the origin
+of the specified drawable
 and define the origin of the first character.
 .SH DESCRIPTION
 The
@@ -83,12 +83,12 @@ except that it uses 2-byte or 16-bit characters.
 Both functions allow complex spacing and font shifts between counted strings.
 .LP
 Each text item is processed in turn.
-A font member other than 
+A font member other than
 .B None
 in an item causes the font to be stored in the GC
-and used for subsequent text.  
+and used for subsequent text.
 A text element delta specifies an additional change
-in the position along the x axis before the string is drawn. 
+in the position along the x axis before the string is drawn.
 The delta is always added to the character origin
 and is not dependent on any characteristics of the font.
 Each character image, as defined by the font in the GC, is treated as an
@@ -99,16 +99,16 @@ If a text item generates a
 error, the previous text items may have been drawn.
 .LP
 For fonts defined with linear indexing rather than 2-byte matrix indexing,
-each 
+each
 .B XChar2b
-structure is interpreted as a 16-bit number with byte1 as the 
+structure is interpreted as a 16-bit number with byte1 as the
 most significant byte.
 .LP
 Both functions use these GC components:
-function, plane-mask, fill-style, font, subwindow-mode, 
+function, plane-mask, fill-style, font, subwindow-mode,
 clip-x-origin, clip-y-origin, and clip-mask.
-They also use these GC mode-dependent components: 
-foreground, background, tile, stipple, tile-stipple-x-origin, 
+They also use these GC mode-dependent components:
+foreground, background, tile, stipple, tile-stipple-x-origin,
 and tile-stipple-y-origin.
 .LP
 .B XDrawText

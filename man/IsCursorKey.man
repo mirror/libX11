@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -68,13 +68,13 @@ Specifies the KeySym that is to be tested.
 .SH DESCRIPTION
 The
 .B IsCursorKey
-macro returns 
+macro returns
 .B True
 if the specified KeySym is a cursor key.
 .LP
 The
 .B IsFunctionKey
-macro returns 
+macro returns
 .B True
 if the KeySym is a function key.
 .LP

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -56,7 +56,7 @@ void XrmInitialize\^(void\^);
 .HP
 void XrmParseCommand\^(\^XrmDatabase *\fIdatabase\fP\^, XrmOptionDescList
 \fItable\fP\^, int \fItable_count\fP\^, char *\fIname\fP\^, int
-*\fIargc_in_out\fP\^, char **\fIargv_in_out\fP\^); 
+*\fIargc_in_out\fP\^, char **\fIargv_in_out\fP\^);
 .SH ARGUMENTS
 .IP \fIargc_in_out\fP 1i
 Specifies the number of arguments and returns the number of remaining arguments.
@@ -93,8 +93,8 @@ Recognized options in the table are removed from argv,
 and entries are added to the specified resource database
 in the order they occur in argv.
 The table entries contain information on the option string,
-the option name, the style of option, 
-and a value to provide if the option kind is 
+the option name, the style of option,
+and a value to provide if the option kind is
 .BR XrmoptionNoArg .
 The option names are compared byte-for-byte to arguments in argv,
 independent of any locale.
@@ -152,7 +152,7 @@ typedef struct {
         char *option;   /\&* Option specification string in argv                    */
         char *specifier;        /\&* Binding and resource name (sans application name)    */
         XrmOptionKind argKind;  /\&* Which style of option it is            */
-        XPointer value; /\&* Value to provide if XrmoptionNoArg or 
+        XPointer value; /\&* Value to provide if XrmoptionNoArg or
                 \ \ \ XrmoptionSkipNArgs   */
 } XrmOptionDescRec, *XrmOptionDescList;
 .EE

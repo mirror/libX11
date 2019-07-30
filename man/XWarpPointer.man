@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -53,7 +53,7 @@ XWarpPointer \- move pointer
 int XWarpPointer\^(\^Display *\fIdisplay\fP\^, Window \fIsrc_w\fP\^, Window
 \fIdest_w\fP\^, int \fIsrc_x\fP\^, int \fIsrc_y\fP\^, unsigned int
 \fIsrc_width\fP\^, unsigned int \fIsrc_height\fP\^, int \fIdest_x\fP\^, int
-\fIdest_y\fP\^); 
+\fIdest_y\fP\^);
 .SH ARGUMENTS
 .IP \fIdest_w\fP 1i
 Specifies the destination window or
@@ -90,7 +90,7 @@ If dest_w is a window,
 moves the pointer to the offsets (dest_x, dest_y) relative to the origin of
 dest_w.
 However, if src_w is a window,
-the move only takes place if the window src_w contains the pointer 
+the move only takes place if the window src_w contains the pointer
 and if the specified rectangle of src_w contains the pointer.
 .LP
 The src_x and src_y coordinates are relative to the origin of src_w.
@@ -99,7 +99,7 @@ it is replaced with the current height of src_w minus src_y.
 If src_width is zero,
 it is replaced with the current width of src_w minus src_x.
 .LP
-There is seldom any reason for calling this function. 
+There is seldom any reason for calling this function.
 The pointer should normally be left to the user.
 If you do use this function, however, it generates events just as if the user
 had instantaneously moved the pointer from one position to another.
@@ -107,7 +107,7 @@ Note that you cannot use
 .B XWarpPointer
 to move the pointer outside the confine_to window of an active pointer grab.
 An attempt to do so will only move the pointer as far as the closest edge of the
-confine_to window. 
+confine_to window.
 .LP
 .B XWarpPointer
 can generate a

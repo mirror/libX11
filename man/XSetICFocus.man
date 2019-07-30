@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,9 +50,9 @@
 XSetICFocus, XUnsetICFocus \- set and unset input context focus
 .SH SYNTAX
 .HP
-void XSetICFocus\^(\^XIC \fIic\fP\^); 
+void XSetICFocus\^(\^XIC \fIic\fP\^);
 .HP
-void XUnsetICFocus\^(\^XIC \fIic\fP\^); 
+void XUnsetICFocus\^(\^XIC \fIic\fP\^);
 .SH ARGUMENTS
 .IP \fIic\fP 1i
 Specifies the input context.
@@ -79,7 +79,7 @@ Complete feedback specification is a matter of user interface policy.
 Calling
 .B XUnsetICFocus
 does not affect the focus window value;
-the client may still receive 
+the client may still receive
 events from the input method that are directed to the focus window.
 .SH "SEE ALSO"
 XCreateIC(__libmansuffix__),

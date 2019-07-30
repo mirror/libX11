@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,12 +52,12 @@ XCreatePixmap, XFreePixmap \- create or destroy pixmaps
 .HP
 Pixmap XCreatePixmap\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^,
 unsigned int \fIwidth\fP\^, unsigned int \fIheight\fP\^, unsigned int
-\fIdepth\fP\^); 
+\fIdepth\fP\^);
 .HP
-int XFreePixmap\^(\^Display *\fIdisplay\fP\^, Pixmap \fIpixmap\fP\^); 
+int XFreePixmap\^(\^Display *\fIdisplay\fP\^, Pixmap \fIpixmap\fP\^);
 .SH ARGUMENTS
 .IP \fId\fP 1i
-Specifies which screen the pixmap is created on. 
+Specifies which screen the pixmap is created on.
 .IP \fIdepth\fP 1i
 Specifies the depth of the pixmap.
 .IP \fIdisplay\fP 1i
@@ -74,11 +74,11 @@ The
 .B XCreatePixmap
 function creates a pixmap of the width, height, and depth you specified
 and returns a pixmap ID that identifies it.
-It is valid to pass an 
+It is valid to pass an
 .B InputOnly
 window to the drawable argument.
 The width and height arguments must be nonzero,
-or a 
+or a
 .B BadValue
 error results.
 The depth argument must be one of the depths supported by the screen

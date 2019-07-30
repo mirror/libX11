@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,13 +51,13 @@ XSetTile, XSetStipple, XSetTSOrigin \- GC convenience routines
 .SH SYNTAX
 .HP
 int XSetTile\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, Pixmap
-\fItile\fP\^); 
+\fItile\fP\^);
 .HP
 int XSetStipple\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, Pixmap
-\fIstipple\fP\^); 
+\fIstipple\fP\^);
 .HP
 int XSetTSOrigin\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, int
-\fIts_x_origin\fP\^, int \fIts_y_origin\fP\^); 
+\fIts_x_origin\fP\^, int \fIts_y_origin\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -66,7 +66,7 @@ Specifies the GC.
 .IP \fIstipple\fP 1i
 Specifies the stipple you want to set for the specified GC.
 .IP \fItile\fP 1i
-Specifies the fill tile you want to set for the specified GC. 
+Specifies the fill tile you want to set for the specified GC.
 .IP \fIts_x_origin\fP 1i
 .br
 .ns

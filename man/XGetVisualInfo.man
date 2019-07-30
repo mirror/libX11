@@ -40,7 +40,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -54,12 +54,12 @@ XGetVisualInfo, XMatchVisualInfo, XVisualIDFromVisual, XVisualInfo \- obtain vis
 .HP
 XVisualInfo *XGetVisualInfo\^(\^Display *\fIdisplay\fP\^, long
 \fIvinfo_mask\fP\^, XVisualInfo *\fIvinfo_template\fP\^, int
-*\fInitems_return\fP\^); 
+*\fInitems_return\fP\^);
 .HP
 Status XMatchVisualInfo\^(\^Display *\fIdisplay\fP\^, int \fIscreen\fP\^, int
-\fIdepth\fP\^, int \fIclass\fP\^, XVisualInfo *\fIvinfo_return\fP\^); 
+\fIdepth\fP\^, int \fIclass\fP\^, XVisualInfo *\fIvinfo_return\fP\^);
 .HP
-VisualID XVisualIDFromVisual\^(\^Visual *\^\fIvisual\fP\^); 
+VisualID XVisualIDFromVisual\^(\^Visual *\^\fIvisual\fP\^);
 .SH ARGUMENTS
 .IP \fIclass\fP 1i
 Specifies the class of the screen.
@@ -83,7 +83,7 @@ structures.
 .SH DESCRIPTION
 The
 .B XGetVisualInfo
-function returns a list of visual structures that have attributes 
+function returns a list of visual structures that have attributes
 equal to the attributes specified by vinfo_template.
 If no visual structures match the template using the specified vinfo_mask,
 .B XGetVisualInfo

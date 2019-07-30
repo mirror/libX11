@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -97,7 +97,7 @@ The target member is set to the atom that indicates the converted type.
 For example, PIXMAP is used for a pixmap.
 The property member is set to the atom that indicates which
 property the result was stored on.
-If the conversion failed, 
+If the conversion failed,
 the property member is set to
 .BR None .
 The time member is set to the time the conversion took place and

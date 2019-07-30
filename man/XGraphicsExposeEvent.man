@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -105,7 +105,7 @@ The window member is set to the window that is most useful to toolkit
 dispatchers.
 .LP
 Both structures have these common members: drawable, major_code, and minor_code.
-The drawable member is set to the drawable of the destination region on 
+The drawable member is set to the drawable of the destination region on
 which the graphics request was to be performed.
 The major_code member is set to the graphics request initiated by the client
 and can be either
@@ -122,19 +122,19 @@ If it is
 a call to
 .B XCopyPlane
 initiated the request.
-These constants are defined in 
+These constants are defined in
 .hN X11/Xproto.h .
 The minor_code member,
-like the major_code member, 
+like the major_code member,
 indicates which graphics request was initiated by
-the client. 
+the client.
 However, the minor_code member is not defined by the core
-X protocol and will be zero in these cases, 
+X protocol and will be zero in these cases,
 although it may be used by an extension.
 .LP
-The 
+The
 .B XGraphicsExposeEvent
-structure has these additional members: x, y, width, height, and count. 
+structure has these additional members: x, y, width, height, and count.
 The x and y members are set to the coordinates relative to the drawable's origin
 and indicate the upper-left corner of the rectangle.
 The width and height members are set to the size (extent) of the rectangle.

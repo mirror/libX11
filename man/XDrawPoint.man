@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,19 +51,19 @@ XDrawPoint, XDrawPoints, XPoint \- draw points and points structure
 .SH SYNTAX
 .HP
 int XDrawPoint\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
-\fIgc\fP\^, int \fIx\fP\^, int \fIy\fP\^); 
+\fIgc\fP\^, int \fIx\fP\^, int \fIy\fP\^);
 .HP
 int XDrawPoints\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
-\fIgc\fP\^, XPoint *\fIpoints\fP\^, int \fInpoints\fP\^, int \fImode\fP\^); 
+\fIgc\fP\^, XPoint *\fIpoints\fP\^, int \fInpoints\fP\^, int \fImode\fP\^);
 .SH ARGUMENTS
 .IP \fId\fP 1i
-Specifies the drawable. 
+Specifies the drawable.
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIgc\fP 1i
 Specifies the GC.
 .IP \fImode\fP 1i
-Specifies the coordinate mode. 
+Specifies the coordinate mode.
 You can pass
 .B CoordModeOrigin
 or
@@ -81,7 +81,7 @@ Specify the x and y coordinates where you want the point drawn.
 The
 .B XDrawPoint
 function uses the foreground pixel and function components of the
-GC to draw a single point into the specified drawable; 
+GC to draw a single point into the specified drawable;
 .B XDrawPoints
 draws multiple points this way.
 .B CoordModeOrigin
@@ -99,7 +99,7 @@ foreground, subwindow-mode, clip-x-origin, clip-y-origin, and clip-mask.
 can generate
 .BR BadDrawable ,
 .BR BadGC ,
-and 
+and
 .B BadMatch
 errors.
 .B XDrawPoints

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,13 +51,13 @@ XAllowEvents \- release queued events
 .SH SYNTAX
 .HP
 int XAllowEvents\^(\^Display *\fIdisplay\fP, int \fIevent_mode\fP\^,
-Time \fItime\fP\^); 
+Time \fItime\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIevent_mode\fP 1i
 Specifies the event mode.
-You can pass 
+You can pass
 .BR AsyncPointer ,
 .BR SyncPointer ,
 .BR AsyncKeyboard ,
@@ -74,7 +74,7 @@ You can pass either a timestamp or
 .SH DESCRIPTION
 The
 .B XAllowEvents
-function releases some queued events if the client has caused a device 
+function releases some queued events if the client has caused a device
 to freeze.
 It has no effect if the specified time is earlier than the last-grab
 time of the most recent active grab for the client or if the specified time

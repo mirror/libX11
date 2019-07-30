@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -47,27 +47,27 @@
 .ds xC Inter-Client Communication Conventions Manual
 .TH XSynchronize __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XSynchronize, XSetAfterFunction \- enable or disable synchronization 
+XSynchronize, XSetAfterFunction \- enable or disable synchronization
 .SH SYNTAX
 .HP
-int (*XSynchronize\^(\^Display *\fIdisplay\fP\^, Bool \fIonoff\fP\^))(); 
+int (*XSynchronize\^(\^Display *\fIdisplay\fP\^, Bool \fIonoff\fP\^))();
 .HP
 int (*XSetAfterFunction\^(\^Display *\fIdisplay\fP\^, int
-(\^*\^\fIprocedure\fP\^)\^()))(); 
+(\^*\^\fIprocedure\fP\^)\^()))();
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIprocedure\fP 1i
 Specifies the procedure to be called.
 .IP \fIonoff\fP 1i
-Specifies a Boolean value that indicates whether to enable 
+Specifies a Boolean value that indicates whether to enable
 or disable synchronization.
 .SH DESCRIPTION
 The
 .B XSynchronize
-function returns 
+function returns
 the previous after function.
-If onoff is 
+If onoff is
 .BR True ,
 .B XSynchronize
 turns on synchronous behavior.

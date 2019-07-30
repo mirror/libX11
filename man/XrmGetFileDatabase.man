@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -62,21 +62,21 @@ XrmGetFileDatabase, XrmPutFileDatabase, XrmGetStringDatabase, XrmLocaleOfDatabas
 .HP
 #include <X11/Xresource.h>
 .HP
-XrmDatabase XrmGetFileDatabase\^(\^char *\fIfilename\fP\^); 
+XrmDatabase XrmGetFileDatabase\^(\^char *\fIfilename\fP\^);
 .HP
 void XrmPutFileDatabase\^(\^XrmDatabase \fIdatabase\fP\^, char
-*\fIstored_db\fP\^); 
+*\fIstored_db\fP\^);
 .HP
 XrmDatabase XrmGetStringDatabase\^(\^char *\fIdata\fP\^);
 .HP
-char *XrmLocaleOfDatabase\^(\^XrmDatabase \fIdatabase\fP\^); 
+char *XrmLocaleOfDatabase\^(\^XrmDatabase \fIdatabase\fP\^);
 .HP
-XrmDatabase XrmGetDatabase\^(\^Display *\fIdisplay\fP\^); 
+XrmDatabase XrmGetDatabase\^(\^Display *\fIdisplay\fP\^);
 .HP
 void XrmSetDatabase\^(\^Display *\fIdisplay\fP\^, XrmDatabase
-\fIdatabase\fP\^); 
+\fIdatabase\fP\^);
 .HP
-void XrmDestroyDatabase\^(\^XrmDatabase \fIdatabase\fP\^); 
+void XrmDestroyDatabase\^(\^XrmDatabase \fIdatabase\fP\^);
 .SH ARGUMENTS
 .IP \fIfilename\fP 1i
 Specifies the resource database file name.
@@ -99,7 +99,7 @@ read in from the specified file.
 The specified file should contain a sequence of entries in valid ResourceLine
 format (see section 15.1); the database that results from reading a file
 with incorrect syntax is implementation-dependent.
-The file is parsed in the current locale, 
+The file is parsed in the current locale,
 and the database is created in the current locale.
 If it cannot open the specified file,
 .B XrmGetFileDatabase
@@ -129,7 +129,7 @@ The string should contain a sequence of entries in valid ResourceLine
 format (see section 15.1) terminated by a null character;
 the database that results from using a string
 with incorrect syntax is implementation-dependent.
-The string is parsed in the current locale, 
+The string is parsed in the current locale,
 and the database is created in the current locale.
 .LP
 If database is NULL,

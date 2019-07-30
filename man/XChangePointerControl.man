@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -47,7 +47,7 @@
 .ds xC Inter-Client Communication Conventions Manual
 .TH XChangePointerControl __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-XChangePointerControl, XGetPointerControl \- control pointer 
+XChangePointerControl, XGetPointerControl \- control pointer
 .SH SYNTAX
 .HP
 int XChangePointerControl\^(\^Display *\fIdisplay\fP\^, Bool \fIdo_accel\fP\^,
@@ -69,10 +69,10 @@ Returns the numerator for the acceleration multiplier.
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIdo_accel\fP 1i
-Specifies a Boolean value that controls whether the values for 
+Specifies a Boolean value that controls whether the values for
 the accel_numerator or accel_denominator are used.
 .IP \fIdo_threshold\fP 1i
-Specifies a Boolean value that controls whether the value for the 
+Specifies a Boolean value that controls whether the value for the
 threshold is used.
 .IP \fIthreshold\fP 1i
 Specifies the acceleration threshold.
@@ -83,15 +83,15 @@ The
 .B XChangePointerControl
 function defines how the pointing device moves.
 The acceleration, expressed as a fraction, is a
-multiplier for movement. 
+multiplier for movement.
 For example,
 specifying 3/1 means the pointer moves three times as fast as normal.
-The fraction may be rounded arbitrarily by the X server.  
+The fraction may be rounded arbitrarily by the X server.
 Acceleration
 only takes effect if the pointer moves more than threshold pixels at
 once and only applies to the amount beyond the value in the threshold argument.
 Setting a value to \-1 restores the default.
-The values of the do_accel and do_threshold arguments must be 
+The values of the do_accel and do_threshold arguments must be
 .B True
 for the pointer values to be set,
 or the parameters are unchanged.

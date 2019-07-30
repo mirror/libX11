@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -50,17 +50,17 @@
 XLookupKeysym, XRefreshKeyboardMapping, XLookupString, XRebindKeysym \- handle keyboard input events in Latin-1
 .SH SYNTAX
 .HP
-KeySym XLookupKeysym(\^XKeyEvent *\fIkey_event\fP\^, int \fIindex\fP\^); 
+KeySym XLookupKeysym(\^XKeyEvent *\fIkey_event\fP\^, int \fIindex\fP\^);
 .HP
-int XRefreshKeyboardMapping(\^XMappingEvent *\fIevent_map\fP\^); 
+int XRefreshKeyboardMapping(\^XMappingEvent *\fIevent_map\fP\^);
 .HP
 int XLookupString(\^XKeyEvent *\fIevent_struct\fP\^, char
 *\fIbuffer_return\fP\^, int \fIbytes_buffer\fP\^, KeySym
-*\fIkeysym_return\fP\^, XComposeStatus *\fIstatus_in_out\fP\^); 
+*\fIkeysym_return\fP\^, XComposeStatus *\fIstatus_in_out\fP\^);
 .HP
 int XRebindKeysym(\^Display *\fIdisplay\fP\^, KeySym \fIkeysym\fP\^, KeySym
 \fIlist\fP\^[\^]\^, int \fImod_count\fP\^, unsigned char *\fIstring\fP\^, int
-\fInum_bytes\fP\^); 
+\fInum_bytes\fP\^);
 .SH ARGUMENTS
 .IP \fIbuffer_return\fP 1i
 Returns the translated characters.
@@ -82,7 +82,7 @@ or
 .IP \fIindex\fP 1i
 Specifies the index into the KeySyms list for the event's KeyCode.
 .IP \fIkey_event\fP 1i
-Specifies the 
+Specifies the
 .B KeyPress
 or
 .B KeyRelease
@@ -96,11 +96,11 @@ Specifies the KeySyms to be used as modifiers.
 .IP \fImod_count\fP 1i
 Specifies the number of modifiers in the modifier list.
 .IP \fIstatus_in_out\fP 1i
-Specifies or returns the 
+Specifies or returns the
 .B XComposeStatus
 structure or NULL.
 .IP \fIstring\fP 1i
-Specifies the string that is copied and will be returned by 
+Specifies the string that is copied and will be returned by
 .BR XLookupString .
 .SH DESCRIPTION
 The

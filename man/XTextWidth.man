@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,10 +51,10 @@ XTextWidth, XTextWidth16 \- compute text width
 .SH SYNTAX
 .HP
 int XTextWidth\^(\^XFontStruct *\fIfont_struct\fP\^, char *\fIstring\fP\^,
-int \fIcount\fP\^); 
+int \fIcount\fP\^);
 .HP
 int XTextWidth16\^(\^XFontStruct *\fIfont_struct\fP\^, XChar2b
-*\fIstring\fP\^, int \fIcount\fP\^); 
+*\fIstring\fP\^, int \fIcount\fP\^);
 .SH ARGUMENTS
 .IP \fIcount\fP 1i
 Specifies the character count in the specified string.

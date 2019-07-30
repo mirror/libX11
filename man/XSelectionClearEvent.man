@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -88,7 +88,7 @@ The window member is set to the window that is most useful to toolkit
 dispatchers.
 .LP
 The selection member is set to the selection atom.
-The time member is set to the last change time recorded for the 
+The time member is set to the last change time recorded for the
 selection.
 The window member is the window that was specified by the current owner
 (the owner losing the selection) in its

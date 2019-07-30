@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -65,9 +65,9 @@ typedef struct {
         int mode;       /\&* NotifyNormal, NotifyGrab, NotifyUngrab */
         int detail;
                 /\&*
-                * NotifyAncestor, NotifyVirtual, NotifyInferior, 
+                * NotifyAncestor, NotifyVirtual, NotifyInferior,
                 * NotifyNonlinear,NotifyNonlinearVirtual, NotifyPointer,
-                * NotifyPointerRoot, NotifyDetailNone 
+                * NotifyPointerRoot, NotifyDetailNone
                 */
 } XFocusChangeEvent;
 typedef XFocusChangeEvent XFocusInEvent;
@@ -101,27 +101,27 @@ The window member is set to the window on which the
 or
 .B FocusOut
 event was generated.
-This is the window used by the X server to report the event. 
-The mode member is set to indicate whether the focus events 
-are normal focus events, 
+This is the window used by the X server to report the event.
+The mode member is set to indicate whether the focus events
+are normal focus events,
 focus events while grabbed,
 focus events
 when a grab activates, or focus events when a grab deactivates.
-The X server can set the mode member to 
+The X server can set the mode member to
 .BR NotifyNormal ,
 .BR NotifyWhileGrabbed ,
 .BR NotifyGrab ,
 or
 .BR NotifyUngrab .
 .LP
-All 
+All
 .B FocusOut
 events caused by a window unmap are generated after any
 .B UnmapNotify
-event; however, the X protocol does not constrain the ordering of 
+event; however, the X protocol does not constrain the ordering of
 .B FocusOut
 events with respect to
-generated 
+generated
 .BR EnterNotify ,
 .BR LeaveNotify ,
 .BR VisibilityNotify ,

@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -49,7 +49,7 @@
 .SH NAME
 XErrorEvent \- X error event structure
 .SH STRUCTURES
-The 
+The
 .B XErrorEvent
 structure contains:
 .LP
@@ -68,13 +68,13 @@ typedef struct {
 When you receive this event,
 the structure members are set as follows.
 .LP
-The serial member is the number of requests, starting from one, 
-sent over the network connection since it was opened. 
-It is the number that was the value of 
+The serial member is the number of requests, starting from one,
+sent over the network connection since it was opened.
+It is the number that was the value of
 .B NextRequest
-immediately before the failing call was made.  
+immediately before the failing call was made.
 The request_code member is a protocol request
-of the procedure that failed, as defined in 
+of the procedure that failed, as defined in
 .hN X11/Xproto.h .
 .SH "SEE ALSO"
 AllPlanes(__libmansuffix__),

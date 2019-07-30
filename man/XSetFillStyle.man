@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,16 +51,16 @@ XSetFillStyle, XSetFillRule \- GC convenience routines
 .SH SYNTAX
 .HP
 int XSetFillStyle\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, int
-\fIfill_style\fP\^); 
+\fIfill_style\fP\^);
 .HP
 int XSetFillRule\^(\^Display *\fIdisplay\fP\^, GC \fIgc\fP\^, int
-\fIfill_rule\fP\^); 
+\fIfill_rule\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIfill_rule\fP 1i
 Specifies the fill-rule you want to set for the specified GC.
-You can pass 
+You can pass
 .B EvenOddRule
 or
 .BR WindingRule .

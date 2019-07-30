@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -92,12 +92,12 @@ but expanded from the 16-bit least-significant bits to a full 32-bit value.
 The window member is set to the window that is most useful to toolkit
 dispatchers.
 .LP
-The message_type member is set to an atom that indicates how the data 
+The message_type member is set to an atom that indicates how the data
 should be interpreted by the receiving client.
 The format member is set to 8, 16, or 32 and specifies whether the data
 should be viewed as a list of bytes, shorts, or longs.
 The data member is a union that contains the members b, s, and l.
-The b, s, and l members represent data of twenty 8-bit values, 
+The b, s, and l members represent data of twenty 8-bit values,
 ten 16-bit values, and five 32-bit values.
 Particular message types might not make use of all these values.
 The X server places no interpretation on the values in the window,

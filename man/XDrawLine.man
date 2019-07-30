@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,22 +51,22 @@ XDrawLine, XDrawLines, XDrawSegments, XSegment \- draw lines, polygons, and line
 .SH SYNTAX
 .HP
 int XDrawLine\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC \fIgc\fP\^,
-int \fIx1\fP\^, int \fIy1\fP\^, int \fIx2\fP\^, int \fIy2\fP\^); 
-.HP 
+int \fIx1\fP\^, int \fIy1\fP\^, int \fIx2\fP\^, int \fIy2\fP\^);
+.HP
 int XDrawLines\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
-\fIgc\fP\^, XPoint *\fIpoints\fP\^, int \fInpoints\fP\^, int \fImode\fP\^); 
-.HP 
+\fIgc\fP\^, XPoint *\fIpoints\fP\^, int \fInpoints\fP\^, int \fImode\fP\^);
+.HP
 int XDrawSegments\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
-\fIgc\fP\^, XSegment *\fIsegments\fP\^, int \fInsegments\fP\^); 
+\fIgc\fP\^, XSegment *\fIsegments\fP\^, int \fInsegments\fP\^);
 .SH ARGUMENTS
 .IP \fId\fP 1i
-Specifies the drawable. 
+Specifies the drawable.
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIgc\fP 1i
 Specifies the GC.
 .IP \fImode\fP 1i
-Specifies the coordinate mode. 
+Specifies the coordinate mode.
 You can pass
 .B CoordModeOrigin
 or
@@ -96,28 +96,28 @@ The
 function uses the components of the specified GC to
 draw a line between the specified set of points (x1, y1) and (x2, y2).
 It does not perform joining at coincident endpoints.
-For any given line, 
+For any given line,
 .B XDrawLine
 does not draw a pixel more than once.
-If lines intersect, the intersecting pixels are drawn multiple times.  
+If lines intersect, the intersecting pixels are drawn multiple times.
 .LP
 The
 .B XDrawLines
-function uses the components of the specified GC to draw 
-npoints\-1 lines between each pair of points (point[i], point[i+1]) 
+function uses the components of the specified GC to draw
+npoints\-1 lines between each pair of points (point[i], point[i+1])
 in the array of
 .B XPoint
 structures.
 It draws the lines in the order listed in the array.
 The lines join correctly at all intermediate points, and if the first and last
 points coincide, the first and last lines also join correctly.
-For any given line, 
+For any given line,
 .B XDrawLines
 does not draw a pixel more than once.
-If thin (zero line-width) lines intersect, 
+If thin (zero line-width) lines intersect,
 the intersecting pixels are drawn multiple times.
 If wide lines intersect, the intersecting pixels are drawn only once, as though
-the entire 
+the entire
 .B PolyLine
 protocol request were a single, filled shape.
 .B CoordModeOrigin
@@ -128,18 +128,18 @@ treats all coordinates after the first as relative to the previous point.
 .LP
 The
 .B XDrawSegments
-function draws multiple, unconnected lines. 
-For each segment, 
+function draws multiple, unconnected lines.
+For each segment,
 .B XDrawSegments
 draws a
 line between (x1, y1) and (x2, y2).
 It draws the lines in the order listed in the array of
 .B XSegment
 structures and does not perform joining at coincident endpoints.
-For any given line, 
+For any given line,
 .B XDrawSegments
-does not draw a pixel more than once.  
-If lines intersect, the intersecting pixels are drawn multiple times.  
+does not draw a pixel more than once.
+If lines intersect, the intersecting pixels are drawn multiple times.
 .LP
 All three functions use these GC components:
 function, plane-mask, line-width,
@@ -149,7 +149,7 @@ The
 .B XDrawLines
 function also uses the join-style GC component.
 All three functions also use these GC mode-dependent components:
-foreground, background, tile, stipple, tile-stipple-x-origin, 
+foreground, background, tile, stipple, tile-stipple-x-origin,
 tile-stipple-y-origin, dash-offset, and dash-list.
 .LP
 .BR XDrawLine ,

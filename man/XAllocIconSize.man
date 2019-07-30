@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -78,7 +78,7 @@ structure.
 Note that all fields in the
 .B XIconSize
 structure are initially set to zero.
-If insufficient memory is available, 
+If insufficient memory is available,
 .B XAllocIconSize
 returns NULL.
 To free the memory allocated to this structure,
@@ -121,7 +121,7 @@ error.
 \s-1WM_ICON_SIZES\s+1
 The window manager may set this property on the root window to
 specify the icon sizes it supports.
-The C type of this property is 
+The C type of this property is
 .BR XIconSize .
 .SH STRUCTURES
 The

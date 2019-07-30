@@ -40,11 +40,11 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
-.ds xL Xlib \- C Language X Interface, \fRO'Reilly and Associates, Sebastopol, 1991. 
+.ds xL Xlib \- C Language X Interface, \fRO'Reilly and Associates, Sebastopol, 1991.
 .ds xC Inter-Client Communication Conventions Manual
 '\" t
 .TH XAllocWMHints __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
@@ -52,7 +52,7 @@
 XAllocWMHints, XSetWMHints, XGetWMHints, XWMHints \- allocate window manager hints structure and set or read a window's WM_HINTS property
 .SH SYNTAX
 .HP
-XWMHints *XAllocWMHints\^(void\^); 
+XWMHints *XAllocWMHints\^(void\^);
 .HP
 int XSetWMHints\^(\^Display *\fIdisplay\fP, Window \fIw\fP, XWMHints *\fIwmhints\fP\^);
 .HP
@@ -63,7 +63,7 @@ Specifies the connection to the X server.
 .IP \fIw\fP 1i
 Specifies the window.
 .IP \fIwmhints\fP 1i
-Specifies the 
+Specifies the
 .B XWMHints
 structure to be used.
 .SH DESCRIPTION
@@ -75,7 +75,7 @@ structure.
 Note that all fields in the
 .B XWMHints
 structure are initially set to zero.
-If insufficient memory is available, 
+If insufficient memory is available,
 .B XAllocWMHints
 returns NULL.
 To free the memory allocated to this structure,
@@ -97,9 +97,9 @@ errors.
 .LP
 The
 .B XGetWMHints
-function reads the window manager hints and 
-returns NULL if no WM_HINTS property was set on the window 
-or returns a pointer to a 
+function reads the window manager hints and
+returns NULL if no WM_HINTS property was set on the window
+or returns a pointer to a
 .B XWMHints
 structure if it succeeds.
 When finished with the data,
@@ -114,7 +114,7 @@ error.
 .TP 1i
 \s-1WM_HINTS\s+1
 Additional hints set by the client for use by the window manager.
-The C type of this property is 
+The C type of this property is
 .BR XWMHints .
 .SH STRUCTURES
 The
@@ -212,33 +212,33 @@ typedef struct {
 .LP
 The input member is used to communicate to the window manager the input focus
 model used by the application.
-Applications that expect input but never explicitly set focus to any 
-of their subwindows (that is, use the push model of focus management), 
+Applications that expect input but never explicitly set focus to any
+of their subwindows (that is, use the push model of focus management),
 such as X Version 10 style applications that use real-estate
-driven focus, should set this member to 
+driven focus, should set this member to
 .BR True .
 Similarly, applications
 that set input focus to their subwindows only when it is given to their
-top-level window by a window manager should also set this member to 
+top-level window by a window manager should also set this member to
 .BR True .
 Applications that manage their own input focus by explicitly setting
-focus to one of their subwindows whenever they want keyboard input 
-(that is, use the pull model of focus management) should set this member to 
+focus to one of their subwindows whenever they want keyboard input
+(that is, use the pull model of focus management) should set this member to
 .BR False .
 Applications that never expect any keyboard input also should set this member
-to 
+to
 .BR False .
 .LP
 Pull model window managers should make it possible for push model
 applications to get input by setting input focus to the top-level windows of
-applications whose input member is 
+applications whose input member is
 .BR True .
 Push model window managers should
-make sure that pull model applications do not break them 
-by resetting input focus to 
+make sure that pull model applications do not break them
+by resetting input focus to
 .B PointerRoot
 when it is appropriate (for example, whenever an application whose
-input member is 
+input member is
 .B False
 sets input focus to one of its subwindows).
 .LP
@@ -273,14 +273,14 @@ T}	T{
 T}
 .TE
 The icon_mask specifies which pixels of the icon_pixmap should be used as the
-icon.  
+icon.
 This allows for nonrectangular icons.
 Both icon_pixmap and icon_mask must be bitmaps.
 The icon_window lets an application provide a window for use as an icon
 for window managers that support such use.
 The window_group lets you specify that this window belongs to a group
 of other windows.
-For example, if a single application manipulates multiple 
+For example, if a single application manipulates multiple
 top-level windows, this allows you to provide enough
 information that a window manager can iconify all of the windows
 rather than just the one window.

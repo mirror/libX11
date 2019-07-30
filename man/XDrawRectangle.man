@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -52,13 +52,13 @@ XDrawRectangle, XDrawRectangles, XRectangle \- draw rectangles and rectangles st
 .HP
 int XDrawRectangle\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
 \fIgc\fP\^, int \fIx\fP\^, int \fIy\fP\^, unsigned int \fIwidth\fP\^, unsigned
-int \fIheight\fP\^); 
+int \fIheight\fP\^);
 .HP
 int XDrawRectangles\^(\^Display *\fIdisplay\fP\^, Drawable \fId\fP\^, GC
-\fIgc\fP\^, XRectangle \fIrectangles\fP\^[\^]\^, int \fInrectangles\fP\^); 
+\fIgc\fP\^, XRectangle \fIrectangles\fP\^[\^]\^, int \fInrectangles\fP\^);
 .SH ARGUMENTS
 .IP \fId\fP 1i
-Specifies the drawable. 
+Specifies the drawable.
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
 .IP \fIgc\fP 1i
@@ -83,25 +83,25 @@ The
 and
 .B XDrawRectangles
 functions draw the outlines of the specified rectangle or rectangles as
-if a five-point 
+if a five-point
 .B PolyLine
 protocol request were specified for each rectangle:
 .IP
 [x,y] [x+width,y] [x+width,y+height] [x,y+height] [x,y]
-.LP 
-For the specified rectangle or rectangles, 
+.LP
+For the specified rectangle or rectangles,
 these functions do not draw a pixel more than once.
 .B XDrawRectangles
 draws the rectangles in the order listed in the array.
 If rectangles intersect,
 the intersecting pixels are drawn multiple times.
 .LP
-Both functions use these GC components: 
+Both functions use these GC components:
 function, plane-mask, line-width,
-line-style, cap-style, join-style, fill-style, 
+line-style, cap-style, join-style, fill-style,
 subwindow-mode, clip-x-origin, clip-y-origin, and clip-mask.
-They also use these GC mode-dependent components: 
-foreground, background, tile, stipple, tile-stipple-x-origin, 
+They also use these GC mode-dependent components:
+foreground, background, tile, stipple, tile-stipple-x-origin,
 tile-stipple-y-origin, dash-offset, and dash-list.
 .LP
 .B XDrawRectangle

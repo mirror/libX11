@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,7 +51,7 @@ XSelectInput \- select input events
 .SH SYNTAX
 .HP
 int XSelectInput\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^, long
-\fIevent_mask\fP\^); 
+\fIevent_mask\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -62,7 +62,7 @@ Specifies the window whose events you are interested in.
 .SH DESCRIPTION
 The
 .B XSelectInput
-function requests that the X server report the events associated with the 
+function requests that the X server report the events associated with the
 specified event mask.
 Initially, X will not report any of these events.
 Events are reported relative to a window.
@@ -97,7 +97,7 @@ event, which is associated with
 the event mask
 .BR ResizeRedirectMask .
 .IP \(bu 5
-Only one client at a time can select a 
+Only one client at a time can select a
 .B ButtonPress
 event, which is associated with
 the event mask

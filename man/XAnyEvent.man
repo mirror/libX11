@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -49,7 +49,7 @@
 .SH NAME
 XAnyEvent, XEvent \- generic X event structures
 .SH STRUCTURES
-All the event structures declared in 
+All the event structures declared in
 .Pn < X11/Xlib.h >
 have the following common members:
 .EX

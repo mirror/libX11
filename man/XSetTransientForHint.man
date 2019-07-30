@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -51,10 +51,10 @@ XSetTransientForHint, XGetTransientForHint \- set or read a window's WM_TRANSIEN
 .SH SYNTAX
 .HP
 int XSetTransientForHint\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-Window \fIprop_window\fP\^); 
+Window \fIprop_window\fP\^);
 .HP
 Status XGetTransientForHint\^(\^Display *\fIdisplay\fP\^, Window \fIw\fP\^,
-Window *\fIprop_window_return\fP\^); 
+Window *\fIprop_window_return\fP\^);
 .SH ARGUMENTS
 .IP \fIdisplay\fP 1i
 Specifies the connection to the X server.
@@ -67,7 +67,7 @@ Returns the WM_TRANSIENT_FOR property of the specified window.
 .SH DESCRIPTION
 The
 .B XSetTransientForHint
-function sets the WM_TRANSIENT_FOR property of the specified window to the 
+function sets the WM_TRANSIENT_FOR property of the specified window to the
 specified prop_window.
 .LP
 .B XSetTransientForHint

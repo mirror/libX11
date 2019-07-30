@@ -39,7 +39,7 @@
 .\" Digital and Tektronix makes no representations about the suitability
 .\" of this documentation for any purpose.
 .\" It is provided "as is" without express or implied warranty.
-.\" 
+.\"
 .\"
 .ds xT X Toolkit Intrinsics \- C Language Interface
 .ds xW Athena X Widgets \- C Language X Toolkit Interface
@@ -88,12 +88,12 @@ but expanded from the 16-bit least-significant bits to a full 32-bit value.
 The window member is set to the window that is most useful to toolkit
 dispatchers.
 .LP
-The window member is set to the window whose associated 
+The window member is set to the window whose associated
 property was changed.
 The atom member is set to the property's atom and indicates which
 property was changed or desired.
 The time member is set to the server time when the property was changed.
-The state member is set to indicate whether the property was changed 
+The state member is set to indicate whether the property was changed
 to a new value or deleted and can be
 .B PropertyNewValue
 or
@@ -108,13 +108,13 @@ or
 .BR XChangeProperty )
 and when replacing all or part of a property with identical data using
 .B XChangeProperty
-or 
+or
 .BR XRotateWindowProperties .
 The state member is set to
 .B PropertyDelete
 when a property of the window is deleted using
 .B XDeleteProperty
-or, if the delete argument is 
+or, if the delete argument is
 .BR True ,
 .BR XGetWindowProperty .
 .SH "SEE ALSO"

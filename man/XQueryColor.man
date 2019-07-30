@@ -230,7 +230,7 @@ All of the values (C, H, V, X, Y, Z, a, b, u, v, y, x) are
 floating-point values.
 The syntax for these values is an optional plus or minus sign,
 a string of digits possibly containing a decimal point,
-and an optional exponent field consisting of an \*(lqE\*(rq or ``e''
+and an optional exponent field consisting of an \*(lqE\*(rq or \*(lqe\*(rq
 followed by an optional plus or minus followed by a string of digits.
 .SH DIAGNOSTICS
 .TP 1i

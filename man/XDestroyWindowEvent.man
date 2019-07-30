@@ -47,7 +47,7 @@
 .ds xC Inter-Client Communication Conventions Manual
 .TH XDestroyWindowEvent __libmansuffix__ __xorgversion__ "XLIB FUNCTIONS"
 .SH NAME
-.EEstroyWindowEvent \- DestroyNotify event structure
+XDestroyWindowEvent \- DestroyNotify event structure
 .SH STRUCTURES
 The structure for
 .B DestroyNotify

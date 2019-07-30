@@ -351,7 +351,7 @@ A value for a Window argument does not name a defined Window.
 .SH "SEE ALSO"
 XChangeWindowAttributes(__libmansuffix__),
 XCreateWindow(__libmansuffix__),
-.EEstroyWindow(__libmansuffix__),
+XDestroyWindow(__libmansuffix__),
 XMapWindow(__libmansuffix__),
 XRaiseWindow(__libmansuffix__),
 XUnmapWindow(__libmansuffix__)

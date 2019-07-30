@@ -198,7 +198,8 @@ if the sequence contains only \*(lq\&.\*(rq characters;
 otherwise, the sequence will be replaced with a single \*(lq*\*(rq character.
 .LP
 A resource database never contains more than one entry for a given
-ResourceName.  If a resource file contains multiple lines with the
+ResourceName.
+If a resource file contains multiple lines with the
 same ResourceName, the last line in the file is used.
 .LP
 Any white space characters before or after the name or colon in a ResourceSpec

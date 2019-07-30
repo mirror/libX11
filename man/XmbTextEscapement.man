@@ -86,8 +86,9 @@ the escapement is always positive.
 .LP
 The function
 .B Xutf8TextEscapement
-is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
-release. Its presence is
+is an extension introduced by The XFree86 Project, Inc., in their 4.0.2
+release.
+Its presence is
 indicated by the macro
 .BR X_HAVE_UTF8_STRING .
 .SH "SEE ALSO"

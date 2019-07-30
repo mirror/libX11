@@ -96,7 +96,8 @@ The order in which resources are found is implementation-dependent.
 If mode is
 .BR XrmEnumOneLevel ,
 a resource must match the given name/class prefix with
-just a single name and class appended.  If mode is
+just a single name and class appended.
+If mode is
 .BR XrmEnumAllLevels ,
 the resource must match the given name/class prefix with one or more names and
 classes appended.

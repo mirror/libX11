@@ -110,7 +110,8 @@ and
 functions set the specified
 .B XTextProperty
 value to a set of null-separated elements representing the concatenation
-of the specified list of null-terminated text strings. The input text
+of the specified list of null-terminated text strings.
+The input text
 strings must be given in the current locale encoding (for
 .B XmbTextListToTextProperty
 and
@@ -134,8 +135,9 @@ If the style
 .B XUTF8StringStyle
 is specified,
 this encoding is \*(lqUTF8_STRING\*(rq.
-(This is an extension introduced by The XFree86 Project, Inc. in their 4.0.2
-release. Its presence is indicated by the macro
+(This is an extension introduced by The XFree86 Project, Inc., in their 4.0.2
+release.
+Its presence is indicated by the macro
 .BR X_HAVE_UTF8_STRING .)
 If the style
 .B XTextStyle
@@ -184,7 +186,8 @@ and
 functions return a list of text strings representing the
 null-separated elements of the specified
 .B XTextProperty
-structure. The returned strings are encoded using the current locale encoding
+structure.
+The returned strings are encoded using the current locale encoding
 (for
 .B XmbTextPropertyToTextList
 and
@@ -298,8 +301,9 @@ The functions
 .B Xutf8TextListToTextProperty
 and
 .B Xutf8TextPropertyToTextList
-are extensions introduced by The XFree86 Project, Inc. in their 4.0.2
-release. Their presence is
+are extensions introduced by The XFree86 Project, Inc., in their 4.0.2
+release.
+Their presence is
 indicated by the macro
 .BR X_HAVE_UTF8_STRING .
 .SH STRUCTURES

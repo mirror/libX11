@@ -288,9 +288,11 @@ rather than just the one window.
 The
 .B UrgencyHint
 flag, if set in the flags field, indicates that the client deems the window
-contents to be urgent, requiring the timely response of the user.  The
+contents to be urgent, requiring the timely response of the user.
+The
 window manager will make some effort to draw the user's attention to this
-window while this flag is set.  The client must provide some means by which the
+window while this flag is set.
+The client must provide some means by which the
 user can cause the urgency flag to be cleared (either mitigating
 the condition that made the window urgent or merely shutting off the alarm)
 or the window to be withdrawn.

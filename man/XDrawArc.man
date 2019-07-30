@@ -138,7 +138,8 @@ corresponding to the tangent of the circle/ellipse at the endpoint.
 For an arc specified as % [ ~x, ~y, ~width, ~height, ~angle1, ~angle2  ]%,
 the angles must be specified
 in the effectively skewed coordinate system of the ellipse (for a
-circle, the angles and coordinate systems are identical).  The
+circle, the angles and coordinate systems are identical).
+The
 relationship between these angles and angles expressed in the normal
 coordinate system of the screen (as measured with a protractor) is as
 follows:

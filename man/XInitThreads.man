@@ -70,7 +70,8 @@ successful; otherwise, it returns zero.
 On systems that do not support threads, this function always returns zero.
 .LP
 It is only necessary to call this function if multiple threads
-might use Xlib concurrently.  If all calls to Xlib functions
+might use Xlib concurrently.
+If all calls to Xlib functions
 are protected by some other access mechanism (for example,
 a mutual exclusion lock in a toolkit or through explicit client
 programming), Xlib thread initialization is not required.

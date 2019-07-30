@@ -81,10 +81,12 @@ Specifies the procedure to be called.
 The
 .B XAddConnectionWatch
 function registers a procedure to be called each time Xlib opens or closes an
-internal connection for the specified display.  The procedure is passed the
+internal connection for the specified display.
+The procedure is passed the
 display, the specified client_data, the file descriptor for the connection,
 a Boolean indicating whether the connection is being opened or closed, and a
-pointer to a location for private watch data.  If opening is
+pointer to a location for private watch data.
+If opening is
 .BR True ,
 the procedure can store a pointer to private data in the location pointed
 to by watch_data;

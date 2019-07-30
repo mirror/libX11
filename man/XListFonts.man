@@ -161,7 +161,8 @@ to close the font.
 .LP
 Note that
 .B XListFontsWithInfo
-is not thread-safe. If other threads make X requests on the same
+is not thread-safe.
+If other threads make X requests on the same
 .BR Display ,
 then this function's behavior is undefined.
 .SH "SEE ALSO"

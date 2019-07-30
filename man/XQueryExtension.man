@@ -43,25 +43,35 @@ Specifies the list of extension names.
 .SH DESCRIPTION
 .LP
 The \fIXQueryExtension\fP function determines if the named extension is
-present.  If the extension is not present, \fIXQueryExtension\fP returns
+present.
+If the extension is not present, \fIXQueryExtension\fP returns
 \fIFalse\fP; otherwise, it returns \fITrue\fP.  If the extension is present,
 \fIXQueryExtension\fP returns the major opcode for the extension to
-major_opcode_return; otherwise, it returns zero.  Any minor opcode and the
-request formats are specific to the extension.  If the extension involves
+major_opcode_return; otherwise, it returns zero.
+Any minor opcode and the
+request formats are specific to the extension.
+If the extension involves
 additional event types, \fIXQueryExtension\fP returns the base event type code
-to first_event_return; otherwise, it returns zero. The format of the events is
-specific to the extension.  If the extension involves additional error codes,
+to first_event_return; otherwise, it returns zero.
+The format of the events is
+specific to the extension.
+If the extension involves additional error codes,
 \fIXQueryExtension\fP returns the base error code to first_error_return;
-otherwise, it returns zero.  The format of additional data in the errors is
-specific to the extension.  If the extension name is not in the Host Portable
-Character Encoding the result is implementation-dependent.  Uppercase and
+otherwise, it returns zero.
+The format of additional data in the errors is
+specific to the extension.
+If the extension name is not in the Host Portable
+Character Encoding the result is implementation-dependent.
+Uppercase and
 lowercase matter; the strings \*(lqthing\*(rq, \*(lqThing\*(rq, and \*(lqthinG\*(rq are all
 considered different names.
 .LP
 The \fIXListExtensions\fP function returns a list of all extensions supported
-by the server. If the data returned by the server is in the Latin Portable
+by the server.
+If the data returned by the server is in the Latin Portable
 Character Encoding, then the returned strings are in the Host Portable
-Character Encoding. Otherwise, the result is implementation-dependent.
+Character Encoding.
+Otherwise, the result is implementation-dependent.
 .LP
 The \fIXFreeExtensionList\fP function frees the memory allocated by
 \fIXListExtensions\fP.

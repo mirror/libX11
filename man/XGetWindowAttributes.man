@@ -96,7 +96,8 @@ The
 .B XGetWindowAttributes
 function returns the current attributes for the specified window to an
 .B XWindowAttributes
-structure.  It returns a nonzero status on success; otherwise, it returns a
+structure.
+It returns a nonzero status on success; otherwise, it returns a
 zero status.
 .LP
 .B XGetWindowAttributes

@@ -116,7 +116,7 @@ typedef struct {
         int request;    /\&* one of MappingModifier, MappingKeyboard,
                    MappingPointer */
         int first_keycode;      /\&* first keycode */
-        int count;      /\&* defines range of change w. first_keycode*/
+        int count;      /\&* defines range of change with first_keycode*/
 } XMappingEvent;
 .EE
 .LP

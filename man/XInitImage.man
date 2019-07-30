@@ -136,7 +136,8 @@ Image structures created or returned by Xlib do not need to be
 initialized in this fashion.
 .LP
 This function returns a nonzero status if initialization of the
-structure is successful.  It returns zero if it detected some error
+structure is successful.
+It returns zero if it detected some error
 or inconsistency in the structure, in which case the image is not changed.
 .LP
 The

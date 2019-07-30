@@ -32,7 +32,8 @@ xcb_connection_t *XGetXCBConnection(Display *\fIdpy\fP);
 Specifies the connection to the X server.
 .SH DESCRIPTION
 The \fIXGetXCBConnection\fP function returns the XCB connection associated with
-an Xlib Display.  Clients can use this XCB connection with functions from the
+an Xlib Display.
+Clients can use this XCB connection with functions from the
 XCB library, just as they would with an XCB connection created with XCB.
 Callers of this function must link to libX11-xcb and a version of Xlib built
 with XCB support.

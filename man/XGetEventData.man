@@ -58,7 +58,8 @@ Some extension
 require additional memory to store information.
 For these events, the library returns a
 .B XGenericEventCookie
-with a token ('cookie') unique to this event. The
+with a token ('cookie') unique to this event.
+The
 .BR XGenericEventCookie 's
 data pointer is undefined until
 .B XGetEventData
@@ -66,16 +67,20 @@ is called.
 
 The
 .B XGetEventData
-function retrieves this extra data for the given cookie. No round-trip to
-the server is required. If the cookie is invalid or the
+function retrieves this extra data for the given cookie.
+No round-trip to
+the server is required.
+If the cookie is invalid or the
 event is not an event handled by cookie handlers,
 .B False
-is returned. If
+is returned.
+If
 .B XGetEventData
 returns
 .BR True ,
 the cookie's data pointer points to the memory containing the event
-information. A client must call
+information.
+A client must call
 .B XFreeEventData
 to free this memory.
 .B XGetEventData
@@ -85,7 +90,8 @@ for multiple calls for the same event cookie.
 
 The
 .B XFreeEventData
-function frees the data associated with a cookie. A client must call
+function frees the data associated with a cookie.
+A client must call
 .B XFreeEventData
 for each cookie claimed with
 .BR XGetEventData .

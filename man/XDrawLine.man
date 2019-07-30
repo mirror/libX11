@@ -202,7 +202,8 @@ to match in some other way required by the request.
 .B BadValue
 Some numeric value falls outside the range of values accepted by the request.
 Unless a specific range is specified for an argument, the full range defined
-by the argument's type is accepted.  Any argument defined as a set of
+by the argument's type is accepted.
+Any argument defined as a set of
 alternatives can generate this error.
 .SH "SEE ALSO"
 XDrawArc(__libmansuffix__),

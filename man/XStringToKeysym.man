@@ -108,7 +108,8 @@ If no symbol is defined,
 returns
 .BR NoSymbol .
 .B XKeycodeToKeysym
-predates the XKB extension. If you want to lookup a KeySym while
+predates the XKB extension.
+If you want to lookup a KeySym while
 using XKB you have to use
 .BR XkbKeycodeToKeysym .
 .LP

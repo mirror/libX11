@@ -107,7 +107,8 @@ current modifiers are changed.
 .LP
 At program startup,
 the modifiers that are in effect are unspecified until
-the first successful call to set them.  Whenever the locale is changed, the
+the first successful call to set them.
+Whenever the locale is changed, the
 modifiers that are in effect become unspecified until the next successful call
 to set them.
 Clients should always call

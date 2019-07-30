@@ -55,7 +55,7 @@ specific to the extension.  If the extension involves additional error codes,
 otherwise, it returns zero.  The format of additional data in the errors is
 specific to the extension.  If the extension name is not in the Host Portable
 Character Encoding the result is implementation-dependent.  Uppercase and
-lowercase matter; the strings \*(lqthing\*(rq, ``Thing'', and ``thinG'' are all
+lowercase matter; the strings \*(lqthing\*(rq, \*(lqThing\*(rq, and \*(lqthinG\*(rq are all
 considered different names.
 .LP
 The \fIXListExtensions\fP function returns a list of all extensions supported

@@ -218,7 +218,7 @@ the two-character sequence \*(lq\^\\\^\fInewline\fP\*(rq
 recognized and removed from the value.
 To allow a Value to contain arbitrary character codes,
 the four-character sequence \*(lq\^\\\^\fInnn\fP\*(rq,
-where each \fIn\fP is a digit character in the range of \*(lq0\*(rq\^\-``7'',
+where each \fIn\fP is a digit character in the range of \*(lq0\*(rq\^\-\*(lq7\*(rq,
 is recognized and replaced with a single byte that contains
 the octal value specified by the sequence.
 Finally, the two-character sequence \*(lq\^\\\\\*(rq is recognized

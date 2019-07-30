@@ -187,7 +187,7 @@ with the fully qualified name and class.
 The algorithm for determining which resource database entry
 matches a given query is the heart of the resource manager.
 All queries must fully specify the name and class of the desired resource
-(use of the characters \*(lq*\*(rq and ``?'' are not permitted).
+(use of the characters \*(lq*\*(rq and \*(lq?\*(rq are not permitted).
 The library supports up to 100 components in a full name or class.
 Resources are stored in the database with only partially specified
 names and classes, using pattern matching constructs.

@@ -129,7 +129,7 @@ If the style
 or 
 .B XCompoundTextStyle
 is specified,
-this encoding is \*(lqSTRING\*(rq or ``COMPOUND_TEXT'', respectively.
+this encoding is \*(lqSTRING\*(rq or \*(lqCOMPOUND_TEXT\*(rq, respectively.
 If the style
 .B XUTF8StringStyle
 is specified,

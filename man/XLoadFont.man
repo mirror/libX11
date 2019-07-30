@@ -100,7 +100,7 @@ function loads the specified font and returns its associated font ID.
 If the font name is not in the Host Portable Character Encoding,
 the result is implementation-dependent.
 Use of uppercase or lowercase does not matter.
-When the characters \*(lq?\*(rq and ``*'' are used in a font name, a
+When the characters \*(lq?\*(rq and \*(lq\*(rq are used in a font name, a
 pattern match is performed and any matching font is used.
 In the pattern, 
 the \*(lq?\*(rq character will match any single character, 

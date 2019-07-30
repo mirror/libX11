@@ -94,7 +94,7 @@ can return
 If the atom name is not in the Host Portable Character Encoding, 
 the result is implementation-dependent.
 Uppercase and lowercase matter;
-the strings \*(lqthing\*(rq, ``Thing'', and ``thinG'' 
+the strings \*(lqthing\*(rq, \*(lqThing\*(rq, and \*(lqthinG\*(rq 
 all designate different atoms.  
 The atom will remain defined even after the client's connection closes.
 It will become undefined only when the last connection to

@@ -194,7 +194,7 @@ The R, G, and B represent single hexadecimal digits.
 When fewer than 16 bits each are specified, 
 they represent the most significant bits of the value
 (unlike the \*(lqrgb:\*(rq syntax, in which values are scaled).
-For example, the string \*(lq#3a7\*(rq is the same as ``#3000a0007000''.
+For example, the string \*(lq#3a7\*(rq is the same as \*(lq#3000a0007000\*(rq.
 .LP
 An RGB intensity specification is identified
 by the prefix \*(lqrgbi:\*(rq and conforms to the following syntax:

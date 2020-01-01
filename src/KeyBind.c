@@ -741,8 +741,9 @@ XConvertCase(
 	    *upper -= (XK_Greek_alphaaccent - XK_Greek_ALPHAaccent);
 	else if (sym >= XK_Greek_ALPHA && sym <= XK_Greek_OMEGA)
 	    *lower += (XK_Greek_alpha - XK_Greek_ALPHA);
-	else if (sym >= XK_Greek_alpha && sym <= XK_Greek_omega &&
-		 sym != XK_Greek_finalsmallsigma)
+	else if (sym == XK_Greek_finalsmallsigma)
+	    *upper = XK_Greek_SIGMA;
+	else if (sym >= XK_Greek_alpha && sym <= XK_Greek_omega)
 	    *upper -= (XK_Greek_alpha - XK_Greek_ALPHA);
         break;
     case 0x13: /* Latin 9 */

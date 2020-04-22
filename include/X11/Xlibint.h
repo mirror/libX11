@@ -639,7 +639,7 @@ extern void _XFlushGCCache(Display *dpy, GC gc);
 #ifndef DataRoutineIsProcedure
 #define Data(dpy, data, len) {\
 	if (dpy->bufptr + (len) <= dpy->bufmax) {\
-		memcpy(dpy->bufptr, data, (int)len);\
+		memcpy(dpy->bufptr, data, (int)(len));\
 		dpy->bufptr += ((len) + 3) & ~3;\
 	} else\
 		_XSend(dpy, data, len);\

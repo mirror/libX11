@@ -837,7 +837,7 @@ _XTranslateKeySym(
 	if (((modifiers & AllMods) == p->state) && (symbol == p->key)) {
 	    length = p->len;
 	    if (length > nbytes) length = nbytes;
-	    memcpy (buffer, p->string, length);
+	    memcpy (buffer, p->string, (size_t) length);
 	    return length;
 	}
     }
@@ -946,9 +946,9 @@ XRebindKeysym (
     dpy->key_bindings = p;
     dpy->free_funcs->key_bindings = _XFreeKeyBindings;
     p->next = tmp;	/* chain onto list */
-    memcpy (p->string, str, nbytes);
+    memcpy (p->string, str, (size_t) nbytes);
     p->len = nbytes;
-    memcpy ((char *) p->modifiers, (char *) mlist, nb);
+    memcpy ((char *) p->modifiers, (char *) mlist, (size_t) nb);
     p->key = keysym;
     p->mlen = nm;
     ComputeMaskFromKeytrans(dpy, p);

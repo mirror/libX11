@@ -1233,7 +1233,7 @@ _XlcGetLocaleDataBase(
 /*	_XlcDestroyLocaleDataBase(lcd)					*/
 /*----------------------------------------------------------------------*/
 /*	This function destroy the XLocale Database that bound to the 	*/
-/*	specified lcd.  If the XLocale Database is refered from some 	*/
+/*	specified lcd.  If the XLocale Database is referred from some 	*/
 /*	other lcd, this function just decreases reference count of 	*/
 /*	the database.  If no locale refers the database, this function	*/
 /*	remove it from the cache list and free work area.		*/

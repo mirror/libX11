@@ -869,7 +869,7 @@ _XimOpen(
     _XimSetIMMode(im->private.proto.im_inner_resources,
 				im->private.proto.im_num_inner_resources);
 
-    /* Transport Callbak */
+    /* Transport Callback */
     _XimRegProtoIntrCallback(im, XIM_SET_EVENT_MASK, 0,
 				 _XimSetEventMaskCallback, (XPointer)im);
     _XimRegProtoIntrCallback(im, XIM_FORWARD_EVENT, 0,

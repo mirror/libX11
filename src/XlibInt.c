@@ -188,7 +188,7 @@ void _XPollfdCacheDel(
 static int sync_hazard(Display *dpy)
 {
     /*
-     * "span" and "hazard" need to be signed such that the ">=" comparision
+     * "span" and "hazard" need to be signed such that the ">=" comparison
      * works correctly in the case that hazard is greater than 65525
      */
     int64_t span = X_DPY_GET_REQUEST(dpy) - X_DPY_GET_LAST_REQUEST_READ(dpy);

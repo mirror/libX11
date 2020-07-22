@@ -1178,7 +1178,7 @@ _XcmsTableSearch(
 
 /*
  *	DESCRIPTION
- *		A binary search through the specificied table.
+ *		A binary search through the specified table.
  *
  *	RETURNS
  *		Returns 0 if failed; otherwise non-zero.

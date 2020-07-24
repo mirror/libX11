@@ -216,7 +216,7 @@ _XimAttributeToValue(
     Xic			  ic,
     XIMResourceList	  res,
     CARD16		 *data,
-    INT16		  data_len,
+    CARD16		  data_len,
     XPointer		  value,
     BITMASK32		  mode)
 {

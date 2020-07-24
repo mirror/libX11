@@ -321,7 +321,7 @@ _XimAttributeToValue(
 
     case XimType_XFontSet:
 	{
-	    INT16	 len = data[0];
+	    CARD16	 len = data[0];
 	    char	*base_name;
 	    XFontSet	 rep = (XFontSet)NULL;
 	    char	**missing_list = NULL;
@@ -332,11 +332,12 @@ _XimAttributeToValue(
 		return False;
 	    if (!ic)
 		return False;
-
+	    if (len > data_len)
+		return False;
 	    if (!(base_name = Xmalloc(len + 1)))
 		return False;
 
-	    (void)strncpy(base_name, (char *)&data[1], (int)len);
+	    (void)strncpy(base_name, (char *)&data[1], (size_t)len);
 	    base_name[len] = '\0';
 
 	    if (mode & XIM_PREEDIT_ATTR) {

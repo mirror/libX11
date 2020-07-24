@@ -29,6 +29,8 @@ PERFORMANCE OF THIS SOFTWARE.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <limits.h>
+
 #include "Xlibint.h"
 #include "Xlcint.h"
 #include "Ximint.h"
@@ -250,18 +252,24 @@ _XimAttributeToValue(
 
     case XimType_XIMStyles:
 	{
-	    INT16		 num = data[0];
+	    CARD16		 num = data[0];
 	    register CARD32	*style_list = (CARD32 *)&data[2];
 	    XIMStyle		*style;
 	    XIMStyles		*rep;
 	    register int	 i;
 	    char		*p;
-	    int			 alloc_len;
+	    unsigned int         alloc_len;
 
 	    if (!(value))
 		return False;
 
+	    if (num > (USHRT_MAX / sizeof(XIMStyle)))
+		return False;
+	    if ((sizeof(num) + (num * sizeof(XIMStyle))) > data_len)
+		return False;
 	    alloc_len = sizeof(XIMStyles) + sizeof(XIMStyle) * num;
+	    if (alloc_len < sizeof(XIMStyles))
+		return False;
 	    if (!(p = Xmalloc(alloc_len)))
 		return False;
 
@@ -357,19 +365,25 @@ _XimAttributeToValue(
 
     case XimType_XIMHotKeyTriggers:
 	{
-	    INT32			 num = *((CARD32 *)data);
+	    CARD32			 num = *((CARD32 *)data);
 	    register CARD32		*key_list = (CARD32 *)&data[2];
 	    XIMHotKeyTrigger		*key;
 	    XIMHotKeyTriggers		*rep;
 	    register int		 i;
 	    char			*p;
-	    int				 alloc_len;
+	    unsigned int		 alloc_len;
 
 	    if (!(value))
 		return False;
 
+	    if (num > (UINT_MAX / sizeof(XIMHotKeyTrigger)))
+		return False;
+	    if ((sizeof(num) + (num * sizeof(XIMHotKeyTrigger))) > data_len)
+		return False;
 	    alloc_len = sizeof(XIMHotKeyTriggers)
 		      + sizeof(XIMHotKeyTrigger) * num;
+	    if (alloc_len < sizeof(XIMHotKeyTriggers))
+		return False;
 	    if (!(p = Xmalloc(alloc_len)))
 		return False;
 

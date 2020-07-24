@@ -1378,13 +1378,13 @@ _XimEncodeSavedICATTRIBUTE(
 
 static unsigned int
 _XimCountNumberOfAttr(
-    INT16	 total,
-    CARD16	*attr,
-    int		*names_len)
+    CARD16	  total,
+    CARD16	 *attr,
+    unsigned int *names_len)
 {
     unsigned int n;
-    INT16	 len;
-    INT16	 min_len = sizeof(CARD16)	/* sizeof attribute ID */
+    CARD16	 len;
+    CARD16	 min_len = sizeof(CARD16)	/* sizeof attribute ID */
 			 + sizeof(CARD16)	/* sizeof type of value */
 			 + sizeof(INT16);	/* sizeof length of attribute */
 
@@ -1392,6 +1392,9 @@ _XimCountNumberOfAttr(
     *names_len = 0;
     while (total > min_len) {
 	len = attr[2];
+	if (len >= (total - min_len)) {
+	    return 0;
+	}
 	*names_len += (len + 1);
 	len += (min_len + XIM_PAD(len + 2));
 	total -= len;
@@ -1406,17 +1409,15 @@ _XimGetAttributeID(
     Xim			  im,
     CARD16		 *buf)
 {
-    unsigned int	  n;
+    unsigned int	  n, names_len, values_len;
     XIMResourceList	  res;
     char		 *names;
-    int			  names_len;
     XPointer		  tmp;
     XIMValuesList	 *values_list;
     char		**values;
-    int			  values_len;
     register int	  i;
-    INT16		  len;
-    INT16		  min_len = sizeof(CARD16) /* sizeof attribute ID */
+    CARD16		  len;
+    CARD16		  min_len = sizeof(CARD16) /* sizeof attribute ID */
 				  + sizeof(CARD16) /* sizeof type of value */
 				  + sizeof(INT16); /* sizeof length of attr */
     /*

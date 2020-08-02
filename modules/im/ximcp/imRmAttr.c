@@ -265,7 +265,7 @@ _XimAttributeToValue(
 
 	    if (num > (USHRT_MAX / sizeof(XIMStyle)))
 		return False;
-	    if ((sizeof(num) + (num * sizeof(XIMStyle))) > data_len)
+	    if ((2 * sizeof(CARD16) + (num * sizeof(CARD32))) > data_len)
 		return False;
 	    alloc_len = sizeof(XIMStyles) + sizeof(XIMStyle) * num;
 	    if (alloc_len < sizeof(XIMStyles))
@@ -379,7 +379,7 @@ _XimAttributeToValue(
 
 	    if (num > (UINT_MAX / sizeof(XIMHotKeyTrigger)))
 		return False;
-	    if ((sizeof(num) + (num * sizeof(XIMHotKeyTrigger))) > data_len)
+	    if ((2 * sizeof(CARD16) + (num * 3 * sizeof(CARD32))) > data_len)
 		return False;
 	    alloc_len = sizeof(XIMHotKeyTriggers)
 		      + sizeof(XIMHotKeyTrigger) * num;

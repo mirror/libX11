@@ -1407,7 +1407,7 @@ _XimCountNumberOfAttr(
     *names_len = 0;
     while (total > min_len) {
 	len = attr[2];
-	if (len >= (total - min_len)) {
+	if (len > (total - min_len)) {
 	    return 0;
 	}
 	*names_len += (len + 1);

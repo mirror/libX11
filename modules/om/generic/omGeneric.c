@@ -1908,7 +1908,8 @@ init_om(
     char **required_list;
     XOrientation *orientation;
     char **value, buf[BUFSIZ], *bufptr;
-    int count = 0, num = 0, length = 0;
+    int count = 0, num = 0;
+    unsigned int length = 0;
 
     _XlcGetResource(lcd, "XLC_FONTSET", "on_demand_loading", &value, &count);
     if (count > 0 && _XlcCompareISOLatin1(*value, "True") == 0)

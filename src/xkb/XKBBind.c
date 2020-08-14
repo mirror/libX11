@@ -587,8 +587,8 @@ _XkbReloadDpy(Display *dpy)
 }
 
 int
-XkbTranslateKeySym(register Display *dpy,
-                   register KeySym *sym_rtrn,
+XkbTranslateKeySym(Display *dpy,
+                   KeySym *sym_rtrn,
                    unsigned int mods,
                    char *buffer,
                    int nbytes,

@@ -78,7 +78,7 @@ AC_SUBST([EXEEXT_FOR_BUILD])
 # Checks for pkg-config packages
 
 # Always required
-X11_REQUIRES='xproto >= 7.0.17 xextproto xtrans xcb >= 1.11.1'
+X11_REQUIRES='xproto >= 7.0.25 xextproto xtrans xcb >= 1.11.1'
 X11_EXTRA_DEPS="xcb >= 1.11.1"
 
 PKG_PROG_PKG_CONFIG()

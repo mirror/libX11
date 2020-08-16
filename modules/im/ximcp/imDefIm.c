@@ -1565,10 +1565,10 @@ _XimSetEncodingByName(
     *buf = (char *)ret;
 
     ret[0] = (BYTE)encoding_len;
-    (void)strncpy((char *)&ret[1], encoding, encoding_len);
+    memcpy(&ret[1], encoding, encoding_len);
     ret += (encoding_len + sizeof(BYTE));
     ret[0] = (BYTE)compound_len;
-    (void)strncpy((char *)&ret[1], "COMPOUND_TEXT", compound_len);
+    memcpy(&ret[1], "COMPOUND_TEXT", compound_len);
     return True;
 }
 

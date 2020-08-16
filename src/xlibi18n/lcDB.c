@@ -341,7 +341,7 @@ read_line(
 	    }
 	    str = line->str;
 	}
-	strncpy(str + cur, p, (size_t) len);
+	memcpy(str + cur, p, (size_t) len);
 
 	cur += len;
 	str[cur] = '\0';

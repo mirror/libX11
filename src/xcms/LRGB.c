@@ -795,7 +795,7 @@ LINEAR_RGB_InitSCCData(
 
     return(XcmsSuccess);
 
-FreeBlueTblElements:
+FreeBlueTblElements: _X_UNUSED
     Xfree(pScreenData->pBlueTbl->pBase);
 
 FreeBlueTbl:

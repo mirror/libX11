@@ -269,7 +269,7 @@ void _XSetSeqSyncFunction(Display *dpy)
 #ifdef LONG64
 void _XRead32(
     Display *dpy,
-    register long *data,
+    long *data,
     long len)
 {
     register int *buf;
@@ -1648,7 +1648,7 @@ void Data(
 int
 _XData32(
     Display *dpy,
-    register _Xconst long *data,
+    _Xconst long *data,
     unsigned len)
 {
     register int *buf;

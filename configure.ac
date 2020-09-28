@@ -152,6 +152,7 @@ AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
 AC_CHECK_HEADERS([sys/filio.h sys/select.h sys/ioctl.h sys/socket.h])
 
 # Checks for typedefs, structures, and compiler characteristics.
+AX_GCC_BUILTIN([__builtin_popcountl])
 
 # Checks for library functions.
 AC_CHECK_FUNCS([strtol seteuid])

@@ -133,6 +133,7 @@ static void _XFreeMutex(
 {
     xmutex_clear(lip->lock);
     xmutex_free(lip->lock);
+    lip->lock = NULL;
 }
 
 #ifdef XTHREADS_WARN

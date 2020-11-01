@@ -198,11 +198,6 @@ cs_CS.iso8859-2:                                cs_CZ.ISO8859-2
 cs_CZ.ISO-8859-2:				cs_CZ.ISO8859-2
 cs_CZ.ISO_8859-2:				cs_CZ.ISO8859-2
 cs_CZ.utf8:					cs_CZ.UTF-8
-XCOMM cz is an old name for Czech (now cs), and should be deleted in the future.
-cz:						cs_CZ.ISO8859-2
-cz_CZ:						cs_CZ.ISO8859-2
-cz_CZ.utf8:					cs_CZ.UTF-8
-cz_CZ.UTF-8:					cs_CZ.UTF-8
 cy:						cy_GB.ISO8859-1
 cy_GB:						cy_GB.ISO8859-1
 cy_GB.iso88591:					cy_GB.ISO8859-1
@@ -668,10 +663,6 @@ ia:						ia.UTF-8
 ia.utf8:					ia.UTF-8
 ie:						ie.UTF-8
 ie.utf8:					ie.UTF-8
-XCOMM in was the old ISO code for Indonesian (now id).  These lines should be
-XCOMM deleted in the future.
-in:						id_ID.ISO8859-1
-in_ID:						id_ID.ISO8859-1
 is:						is_IS.ISO8859-1
 is_IS:						is_IS.ISO8859-1
 is_IS.iso88591:					is_IS.ISO8859-1
@@ -706,13 +697,6 @@ XCOMM we have little else on this encoding.
 iu:						iu_CA.NUNACOM-8
 iu_CA:						iu_CA.NUNACOM-8
 iu_CA.nunacom8:					iu_CA.NUNACOM-8
-XCOMM iw was the old ISO code for Hebrew (now he).  These lines should be
-XCOMM deleted in the future.
-iw:						he_IL.ISO8859-8
-iw_IL:						he_IL.ISO8859-8
-Iw_IL:						he_IL.ISO8859-8
-iw_IL.iso88598:					he_IL.ISO8859-8
-iw_IL.ISO-8859-8:				he_IL.ISO8859-8
 ja_JP:						ja_JP.eucJP
 ja:						ja_JP.eucJP
 ja.JIS:						ja_JP.JIS7
@@ -997,15 +981,6 @@ sd_IN@devanagari:				sd_IN.UTF-8@devanagari
 sd_IN.utf8@devanagari:				sd_IN.UTF-8@devanagari
 se_NO:						se_NO.UTF-8
 se_NO.utf8:					se_NO.UTF-8
-XCOMM sh was the old ISO code for Serbo-Croatian (now individual sr and hr).
-XCOMM YU was the old ISO code for Yugoslavia (later CS for Serbia&Montenegro).
-XCOMM CS was the old ISO code for Serbia&Montenegro (now separate RS and ME).
-XCOMM These lines should be deleted in the future.
-sh:						sr_RS.UTF-8@latin
-sh_BA.ISO8859-2@bosnia:				sr_CS.ISO8859-2
-sh_HR.iso88592:					hr_HR.ISO8859-2
-sh_YU:						sr_RS.UTF-8@latin
-sh_YU.utf8:					sr_RS.UTF-8@latin
 si:						si_LK.UTF-8
 si_LK:						si_LK.UTF-8
 sk:						sk_SK.ISO8859-2
@@ -1023,22 +998,11 @@ sq_AL:						sq_AL.ISO8859-2
 sq_AL.iso88592:					sq_AL.ISO8859-2
 sq_AL.ISO-8859-2:				sq_AL.ISO8859-2
 sq_AL.utf8:					sq_AL.UTF-8
-XCOMM YU was the old ISO code for Yugoslavia (later CS for Serbia&Montenegro).
-XCOMM CS was the old ISO code for Serbia&Montenegro (now separate RS and ME).
-XCOMM Some of these lines should be deleted in the future.
 sr:						sr_RS.UTF-8
-sr_YU:						sr_RS.UTF-8@latin
 sr@cyrillic:					sr_RS.UTF-8
-sr_YU@cyrillic:					sr_RS.UTF-8
-sr_YU.utf8:					sr_RS.UTF-8
-sr_YU.UTF-8@cyrillic:				sr_RS.UTF-8
-sr_CS:						sr_CS.UTF-8
-sr@Latn:					sr_CS.UTF-8@latin
-sr_CS@Latn:					sr_CS.UTF-8@latin
-sr_CS.utf8:					sr_CS.UTF-8
-sr_CS.UTF-8@Latn:				sr_CS.UTF-8@latin
-sr_RS:						sr_RS.UTF-8
 sr@latin:					sr_RS.UTF-8@latin
+sr@Latn:					sr_CS.UTF-8@latin
+sr_RS:						sr_RS.UTF-8
 sr_RS@latin:				sr_RS.UTF-8@latin
 sr_RS@Latn:				sr_RS.UTF-8@latin
 sr_RS.UTF-8@Latn:				sr_RS.UTF-8@latin

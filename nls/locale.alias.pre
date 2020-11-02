@@ -1001,7 +1001,7 @@ sq_AL.utf8:					sq_AL.UTF-8
 sr:						sr_RS.UTF-8
 sr@cyrillic:					sr_RS.UTF-8
 sr@latin:					sr_RS.UTF-8@latin
-sr@Latn:					sr_CS.UTF-8@latin
+sr@Latn:					sr_RS.UTF-8@latin
 sr_RS:						sr_RS.UTF-8
 sr_RS@latin:					sr_RS.UTF-8@latin
 sr_RS@Latn:					sr_RS.UTF-8@latin

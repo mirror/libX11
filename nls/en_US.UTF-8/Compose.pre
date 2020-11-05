@@ -88,6 +88,12 @@ XCOMM on some keyboards.
 <Multi_key> <minus> <space>      	: "~"   asciitilde # TILDE
 <Multi_key> <space> <minus>      	: "~"   asciitilde # TILDE
 
+<Multi_key> <L> <T>                 : "<"   less # LESS-THAN
+<Multi_key> <l> <t>                 : "<"   less # LESS-THAN
+
+<Multi_key> <G> <T>                 : ">"   greater # GREATER-THAN
+<Multi_key> <g> <t>                 : ">"   greater # GREATER-THAN
+
 XCOMM Spaces
 <Multi_key> <space> <space>      	: " "   nobreakspace # NO-BREAK SPACE
 <Multi_key> <space> <period>     	: " "   U2008 # PUNCTUATION SPACE

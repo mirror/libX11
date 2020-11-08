@@ -456,6 +456,9 @@ static void _XLockDisplay(
     XTHREADS_FILE_LINE_ARGS
     )
 {
+#ifdef XTHREADS
+    struct _XErrorThreadInfo *ti;
+#endif
 #ifdef XTHREADS_WARN
     _XLockDisplayWarn(dpy, file, line);
 #else
@@ -463,6 +466,15 @@ static void _XLockDisplay(
 #endif
     if (dpy->lock->locking_level > 0)
 	_XDisplayLockWait(dpy);
+#ifdef XTHREADS
+    /*
+     * Skip the two function calls below which may generate requests
+     * when LockDisplay is called from within _XError.
+     */
+    for (ti = dpy->error_threads; ti; ti = ti->next)
+	    if (ti->error_thread == xthread_self())
+		    return;
+#endif
     _XIDHandler(dpy);
     _XSeqSyncFunction(dpy);
 }

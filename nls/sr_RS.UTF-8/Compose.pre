@@ -1,17 +1,19 @@
 include "X11_LOCALEDATADIR/en_US.UTF-8/Compose"
 
-XCOMM Serbian accented Cyrillic
+XCOMM Serbian accentable Cyrillic letters:
 XCOMM а А - U+0430, U+0410 Cyrillic_a, Cyrillic_A
 XCOMM е Е - U+0435, U+0415 Cyrillic_e, Cyrillic_E
 XCOMM о О - U+043E, U+041E Cyrillic_o, Cyrillic_O
 XCOMM у У - U+0443, U+0423 Cyrillic_u, Cyrillic_U
 XCOMM и И - U+0438, U+0418 Cyrillic_i, Cyrillic_I
 XCOMM
-XCOMM ̀ - U+0300 <dead_grave>, <combining_grave>, <Multi_key> <grave>
-XCOMM ́ - U+0301   <dead_acute>, <Multi_key> <acute>, <Multi_key> <apostrophe>, <combining_acute>
-XCOMM ̂ - U+0302 <dead_circumflex>, <Multi_key> <asciicircum>
-XCOMM ̏ - U+030F  <dead_diaeresis>, <dead_doubleacute>
-XCOMM ̀ - kratkouzlazni, U+0300 <dead_grave>, <combining_grave>, <Multi_key> <grave>
+XCOMM Possible accents:
+XCOMM  ̀ - U+0300 combining grave
+XCOMM  ́ - U+0301 combining acute
+XCOMM  ̂ - U+0302 combining circumflex
+XCOMM  ̏ - U+030F combining doublegrave
+XCOMM
+XCOMM  ̀ - kratkouzlazni, U+0300 combining grave
 <dead_grave> <Cyrillic_a>         : "а̀"
 <Multi_key> <grave> <Cyrillic_a>  : "а̀"
 <dead_grave> <Cyrillic_A>         : "А̀"
@@ -32,7 +34,8 @@ XCOMM ̀ - kratkouzlazni, U+0300 <dead_grave>, <combining_grave>, <Multi_key> <g
 <Multi_key> <grave> <Cyrillic_u>  : "у̀"
 <dead_grave> <Cyrillic_U>         : "У̀"
 <Multi_key> <grave> <Cyrillic_U>  : "У̀"
-XCOMM ́ - dugouzlazni, U+0301   <dead_acute>, <Multi_key> <acute>, <Multi_key> <apostrophe>, <combining_acute>
+XCOMM
+XCOMM  ́ - dugouzlazni, U+0301 combining acute
 <dead_acute> <Cyrillic_a>              : "а́"
 <Multi_key> <acute> <Cyrillic_a>       : "а́"
 <Multi_key> <apostrophe> <Cyrillic_a>  : "а́"
@@ -63,7 +66,8 @@ XCOMM ́ - dugouzlazni, U+0301   <dead_acute>, <Multi_key> <acute>, <Multi_key> 
 <dead_acute>             <Cyrillic_U>  : "У́"
 <Multi_key> <acute>      <Cyrillic_U>  : "У́"
 <Multi_key> <apostrophe> <Cyrillic_U>  : "У́"
-XCOMM ̂ - dugosilazni, U+0302 <dead_circumflex>, <Multi_key> <asciicircum>
+XCOMM
+XCOMM  ̂ - dugosilazni, U+0302 combining circumflex
 <dead_circumflex> <Cyrillic_a>          : "а̂"
 <Multi_key> <asciicircum> <Cyrillic_a>  : "а̂"
 <dead_circumflex> <Cyrillic_A>          : "А̂"
@@ -84,8 +88,9 @@ XCOMM ̂ - dugosilazni, U+0302 <dead_circumflex>, <Multi_key> <asciicircum>
 <Multi_key> <asciicircum> <Cyrillic_u>  : "у̂"
 <dead_circumflex> <Cyrillic_U>          : "У̂"
 <Multi_key> <asciicircum> <Cyrillic_U>  : "У̂"
-XCOMM ̏ - kratkosilazni, U+030F  <dead_diaeresis>, <dead_doubleacute>
-XCOMM there's no appropriate dead_doublegrave, so we use these two dead keys
+XCOMM
+XCOMM  ̏ - kratkosilazni, U+030F combining doublegrave
+XCOMM there's no dead_doublegrave, so we use two vaguely similar dead keys
 <dead_diaeresis>   <Cyrillic_a>  : "а̏"
 <dead_doubleacute> <Cyrillic_a>  : "а̏"
 <dead_diaeresis>   <Cyrillic_A>  : "А̏"

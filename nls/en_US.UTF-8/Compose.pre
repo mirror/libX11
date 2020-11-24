@@ -6029,8 +6029,7 @@ XCOMM Characters from "Miscellaneous Technical"
 <Multi_key> <minus> <U2191>                     : "⍏"   U234f   # - ↑ APL FUNCTIONAL SYMBOL UPWARDS VANE
 <Multi_key> <U2191> <U2395>                     : "⍐"   U2350   # ↑ ⎕ APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW
 <Multi_key> <U2395> <U2191>                     : "⍐"   U2350   # ⎕ ↑ APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW
-XCOMM I cannot get anything to work with <macron>. Given that no extant APLs use ⍑ I will just leave the lines
-XCOMM in place.
+XCOMM The next two somehow don't work.  However, no extant APL uses "⍑".
 <Multi_key> <macron> <U22a4>                    : "⍑"   U2351   # ¯ ⊤ APL FUNCTIONAL SYMBOL UP TACK OVERBAR
 <Multi_key> <U22a4> <macron>                    : "⍑"   U2351   # ⊤ ¯ APL FUNCTIONAL SYMBOL UP TACK OVERBAR
 <Multi_key> <U2207> <bar>                       : "⍒"   U2352   # ∇ | APL FUNCTIONAL SYMBOL DEL STILE
@@ -6045,10 +6044,7 @@ XCOMM in place.
 <Multi_key> <minus> <U2193>                     : "⍖"   U2356   # - ↓ APL FUNCTIONAL SYMBOL DOWNWARDS VANE
 <Multi_key> <U2193> <U2395>                     : "⍗"   U2357   # ↓ ⎕ APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW
 <Multi_key> <U2395> <U2193>                     : "⍗"   U2357   # ⎕ ↓ APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW
-XCOMM This line clashes with the <apostrophe> <underscore> <E> (and similar) that appear to be there to provide
-XCOMM a work around for the problems with <macron>. Or to cope with keyboards that do not have <macron> (more likely).
-XCOMM All APL keyboards have <macron>, it is used as the -ve sign for numbers.
-XCOMM I do not know of an extant APL using ⍘
+XCOMM The <apostrophe> <underscore> is used elsewhere.  However, no extant APL uses "⍘".
 <Multi_key> <underscore> <apostrophe>           : "⍘"   U2358   # _ ' APL FUNCTIONAL SYMBOL QUOTE UNDERBAR
 <Multi_key> <U2206> <underscore>                : "⍙"   U2359   # ∆ _ APL FUNCTIONAL SYMBOL DELTA UNDERBAR
 <Multi_key> <underscore> <U2206>                : "⍙"   U2359   # _ ∆ APL FUNCTIONAL SYMBOL DELTA UNDERBAR
@@ -6089,10 +6085,7 @@ XCOMM I do not know of an extant APL using ⍘
 <Multi_key> <asciitilde> <0>                    : "⍬"   U236c   # ~ 0 APL FUNCTIONAL SYMBOL ZILDE
 <Multi_key> <bar> <asciitilde>                  : "⍭"   U236d   # | ~ APL FUNCTIONAL SYMBOL STILE TILDE
 <Multi_key> <asciitilde> <bar>                  : "⍭"   U236d   # ~ | APL FUNCTIONAL SYMBOL STILE TILDE
-XCOMM This line does not work. It clashes with
-XCOMM <underscore> <semicolon> <O> for Ǭ and
-XCOMM <underscore> <semicolon> <o> for ǭ.
-XCOMM Given that no extant APLs use ⍮ I will just leave the line in place.
+XCOMM The <underscore> <semicolon> is used elsewhere.  However, no extant APL uses "⍮".
 <Multi_key> <semicolon> <underscore>            : "⍮"   U236e   # ; _ APL FUNCTIONAL SYMBOL SEMICOLON UNDERBAR
 <Multi_key> <U2260> <U2395>                     : "⍯"   U236f   # ≠ ⎕ APL FUNCTIONAL SYMBOL QUAD NOT EQUAL
 <Multi_key> <U2395> <U2260>                     : "⍯"   U236f   # ⎕ ≠ APL FUNCTIONAL SYMBOL QUAD NOT EQUAL

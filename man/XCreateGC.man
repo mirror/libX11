@@ -160,7 +160,7 @@ The
 .B XGetGCValues
 function returns the components specified by valuemask for the specified GC.
 If the valuemask contains a valid set of GC mask bits
-.Pn ( GCFunction ,
+.RB ( GCFunction ,
 .BR GCPlaneMask ,
 .BR GCForeground ,
 .BR GCBackground ,

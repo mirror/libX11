@@ -305,9 +305,9 @@ It is just a hint as to whether most
 .B XCharStruct
 elements
 have a positive
-.Pn ( FontLeftToRight )
+.RB ( FontLeftToRight )
 or a negative
-.Pn ( FontRightToLeft )
+.RB ( FontRightToLeft )
 character width
 metric.
 The core protocol defines no support for vertical text.

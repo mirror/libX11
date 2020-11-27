@@ -127,7 +127,7 @@ The
 function closes the connection to the X server for the display specified in the
 .B Display
 structure and destroys all windows, resource IDs
-.Pn ( Window ,
+.RB ( Window ,
 .BR Font ,
 .BR Pixmap ,
 .BR Colormap ,

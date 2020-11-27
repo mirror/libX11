@@ -373,7 +373,7 @@ is typically the most useful because it will work on a color display,
 but special applications may use other functions,
 particularly in concert with particular planes of a color display.
 The 16 GC functions, defined in
-.hN X11/X.h ,
+.BR X11/X.h ,
 are:
 .\" are listed in Table 5-1 along with the
 .\"the associated hexadecimal code

@@ -140,7 +140,7 @@ The bits are represented by
 or
 .B YNegative
 and are defined in
-.hN X11/Xutil.h .
+.BR X11/Xutil.h .
 They will be set whenever one of the values is defined
 or one of the signs is set.
 .LP

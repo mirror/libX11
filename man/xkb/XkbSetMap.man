@@ -34,45 +34,40 @@ server.
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- dpy
+.I dpy
 connection to X server
 .TP
-.I \- which
+.I which
 mask selecting subcomponents to update
 .TP
-.I \- xkb
+.I xkb
 description from which new values are taken
 .SH DESCRIPTION
 .LP
 There are two ways to make changes to map components: either change a local copy 
-of the keyboard map and 
-call 
+of the keyboard map and call 
 .I XkbSetMap 
 to send the modified map to the server, or, to reduce network traffic, use an 
-XkbMapChangesRec structure 
-and call 
+XkbMapChangesRec structure and call 
 .I XkbChangeMap.
 
 Use 
 .I XkbSetMap 
 to send a complete new set of values for entire components (for example, all 
-symbols, all actions, and so 
-on) to the server. The 
+symbols, all actions, and so on) to the server. The 
 .I which 
 parameter specifies the components to be sent to the server, and is a bitwise 
-inclusive OR of the masks 
-listed in Table 1. The 
+inclusive OR of the masks listed in Table 1. The 
 .I xkb 
 parameter is a pointer to an XkbDescRec structure and contains the information 
-to be copied to the server. 
-For each bit set in the 
+to be copied to the server. For each bit set in the 
 .I which 
 parameter, 
 .I XkbSetMap 
 takes the corresponding structure values from the 
 .I xkb 
 parameter and sends it to the server specified by 
-.I dpy. 
+.IR dpy . 
 
 If any components specified by 
 .I which 
@@ -86,9 +81,8 @@ True.
 can generate BadAlloc, BadLength, and BadValue protocol errors.
 
 Key types, symbol maps, and actions are all interrelated; changes in one require 
-changes in the others. Xkb 
-provides functions to make it easier to edit these components and handle the 
-interdependencies. Table 1 
+changes in the others. Xkb provides functions to make it easier to edit these 
+components and handle the interdependencies. Table 1 
 lists these helper functions and provides a pointer to where they are defined.
 
 .TS
@@ -262,8 +256,6 @@ is not present in the
 .I xkb 
 parameter.
 .SH STRUCTURES
-.LP
-
 Use the XkbMapChangesRec structure to identify and track partial modifications 
 to the mapping components 
 and to reduce the amount of traffic between the server and clients.
@@ -330,12 +322,9 @@ fields specify the least and greatest keycode that can be returned by the
 keyboard. 
 
 Each structure component has a corresponding mask bit that is used in function 
-calls to 
-indicate that the structure should be manipulated in some manner, such as 
-allocating it 
-or freeing it. These masks and their relationships to the fields in the 
-XkbDescRec are 
-shown in Table 3.
+calls to indicate that the structure should be manipulated in some manner, such as 
+allocating it or freeing it. These masks and their relationships to the fields in the 
+XkbDescRec are shown in Table 3.
 .bp
 .TS
 c s s

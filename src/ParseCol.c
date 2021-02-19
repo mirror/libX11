@@ -27,6 +27,7 @@ in this Software without prior written authorization from The Open Group.
 #ifdef HAVE_CONFIG_H
 #include <config.h>
 #endif
+#include <limits.h>
 #include <stdio.h>
 #include "Xlibint.h"
 #include "Xcmsint.h"
@@ -47,6 +48,8 @@ XParseColor (
 
         if (!spec) return(0);
 	n = (int) strlen (spec);
+	if (n >= USHRT_MAX)
+            return(0);
 	if (*spec == '#') {
 	    /*
 	     * RGB

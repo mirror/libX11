@@ -102,6 +102,8 @@ XFontStruct *XLoadQueryFont(
     XF86BigfontCodes *extcodes = _XF86BigfontCodes(dpy);
 #endif
 
+    if (strlen(name) >= USHRT_MAX)
+        return NULL;
     if (_XF86LoadQueryLocaleFont(dpy, name, &font_result, (Font *)0))
       return font_result;
     LockDisplay(dpy);
@@ -663,7 +665,7 @@ int _XF86LoadQueryLocaleFont(
     if (!name)
 	return 0;
     l = (int) strlen(name);
-    if (l < 2 || name[l - 1] != '*' || name[l - 2] != '-')
+    if (l < 2 || name[l - 1] != '*' || name[l - 2] != '-' || l >= USHRT_MAX)
 	return 0;
     charset = NULL;
     /* next three lines stolen from _XkbGetCharset() */

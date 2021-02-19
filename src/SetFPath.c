@@ -26,6 +26,7 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
+#include <limits.h>
 #endif
 #include "Xlibint.h"
 
@@ -49,6 +50,11 @@ XSetFontPath (
 	req->nFonts = ndirs;
 	for (i = 0; i < ndirs; i++) {
 		n = (int) ((size_t) n + (safestrlen (directories[i]) + 1));
+		if (n >= USHRT_MAX) {
+			UnlockDisplay(dpy);
+			SyncHandle();
+			return 0;
+		}
 	}
 	nbytes = (n + 3) & ~3;
 	req->length += nbytes >> 2;

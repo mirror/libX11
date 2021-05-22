@@ -26,8 +26,8 @@ in this Software without prior written authorization from The Open Group.
 
 #ifdef HAVE_CONFIG_H
 #include <config.h>
-#include <limits.h>
 #endif
+#include <limits.h>
 #include "Xlibint.h"
 
 #define safestrlen(s) ((s) ? strlen(s) : 0)

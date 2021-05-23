@@ -38,7 +38,7 @@ XSetFontPath (
     char **directories,
     int ndirs)
 {
-	register int n = 0;
+	register size_t n = 0;
 	register int i;
 	register int nbytes;
 	char *p;
@@ -49,7 +49,7 @@ XSetFontPath (
 	GetReq (SetFontPath, req);
 	req->nFonts = ndirs;
 	for (i = 0; i < ndirs; i++) {
-		n = (int) ((size_t) n + (safestrlen (directories[i]) + 1));
+		n = n + (safestrlen (directories[i]) + 1);
 		if (n >= USHRT_MAX) {
 			UnlockDisplay(dpy);
 			SyncHandle();
@@ -65,9 +65,9 @@ XSetFontPath (
 		char	*tmp = p;
 
 		for (i = 0; i < ndirs; i++) {
-			register int length = (int) safestrlen (directories[i]);
+			size_t length = safestrlen (directories[i]);
 			*p = length;
-			memcpy (p + 1, directories[i], (size_t)length);
+			memcpy (p + 1, directories[i], length);
 			p += length + 1;
 		}
 		Data (dpy, tmp, nbytes);

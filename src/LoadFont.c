@@ -39,7 +39,7 @@ XLoadFont (
     Font fid;
     register xOpenFontReq *req;
 
-    if (strlen(name) >= USHRT_MAX)
+    if (name != NULL && strlen(name) >= USHRT_MAX)
         return (0);
 
     if (_XF86LoadQueryLocaleFont(dpy, name, (XFontStruct **)0, &fid))

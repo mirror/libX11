@@ -47,7 +47,7 @@ int flags)  /* DoRed, DoGreen, DoBlue */
     XcmsColor cmsColor_exact;
     XColor scr_def;
 
-    if (strlen(name) >= USHRT_MAX)
+    if (name != NULL && strlen(name) >= USHRT_MAX)
         return 0;
 #ifdef XCMS
     /*

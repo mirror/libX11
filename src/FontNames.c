@@ -51,7 +51,7 @@ int *actualCount)	/* RETURN */
     register xListFontsReq *req;
     unsigned long rlen = 0;
 
-    if (strlen(pattern) >= USHRT_MAX)
+    if (pattern != NULL && strlen(pattern) >= USHRT_MAX)
         return NULL;
 
     LockDisplay(dpy);

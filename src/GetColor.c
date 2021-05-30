@@ -49,7 +49,7 @@ XColor *exact_def) /* RETURN */
     XcmsColor cmsColor_exact;
     Status ret;
 
-    if (strlen(colorname) >= USHRT_MAX)
+    if (colorname != NULL && strlen(colorname) >= USHRT_MAX)
         return (0);
 
 #ifdef XCMS

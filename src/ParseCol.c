@@ -46,7 +46,7 @@ XParseColor (
 	XcmsCCC ccc;
 	XcmsColor cmsColor;
 
-        if (!spec) return(0);
+	if (!spec) return(0);
 	n = (int) strlen (spec);
 	if (n >= USHRT_MAX)
             return(0);

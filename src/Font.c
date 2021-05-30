@@ -102,7 +102,7 @@ XFontStruct *XLoadQueryFont(
     XF86BigfontCodes *extcodes = _XF86BigfontCodes(dpy);
 #endif
 
-    if (strlen(name) >= USHRT_MAX)
+    if (name != NULL && strlen(name) >= USHRT_MAX)
         return NULL;
     if (_XF86LoadQueryLocaleFont(dpy, name, &font_result, (Font *)0))
       return font_result;

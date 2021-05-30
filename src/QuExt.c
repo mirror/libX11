@@ -42,7 +42,7 @@ XQueryExtension(
     xQueryExtensionReply rep;
     register xQueryExtensionReq *req;
 
-    if (strlen(name) >= USHRT_MAX)
+    if (name != NULL && strlen(name) >= USHRT_MAX)
         return false;
 
     LockDisplay(dpy);

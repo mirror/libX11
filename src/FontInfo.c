@@ -58,7 +58,7 @@ XFontStruct **info)	/* RETURN */
     register xListFontsReq *req;
     int j;
 
-    if (strlen(pattern) >= USHRT_MAX)
+    if (pattern != NULL && strlen(pattern) >= USHRT_MAX)
         return NULL;
 
     LockDisplay(dpy);

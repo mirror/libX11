@@ -47,6 +47,8 @@ XLookupColor (
 	XcmsCCC ccc;
 	XcmsColor cmsColor_exact;
 
+	if (spec == NULL)
+		return 0;
 	n = (int) strlen (spec);
 	if (n >= USHRT_MAX)
             return 0;

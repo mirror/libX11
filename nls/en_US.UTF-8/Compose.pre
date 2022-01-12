@@ -4597,6 +4597,8 @@ XCOMM Part 3
 <Multi_key> <slash> <U2194>  	: "↮"   U21AE # LEFT RIGHT ARROW WITH STROKE
 <Multi_key> <KP_Divide> <U2194> 	: "↮"   U21AE # LEFT RIGHT ARROW WITH STROKE
 <Multi_key> <less> <minus> 	: "←" U2190 # LEFTWARDS ARROW
+<Multi_key> <bar> <dead_circumflex> : "↑" U2191 # UPWARDS ARROW
+<Multi_key> <dead_circumflex> <bar> : "↑" U2191 # UPWARDS ARROW
 <Multi_key> <bar> <asciicircum> : "↑" U2191 # UPWARDS ARROW
 <Multi_key> <asciicircum> <bar> : "↑" U2191 # UPWARDS ARROW
 <Multi_key> <minus> <greater> 	: "→" U2192 # RIGHTWARDS ARROW

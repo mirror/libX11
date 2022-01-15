@@ -118,6 +118,7 @@ XCOMM Spaces
 <Multi_key> <period> <minus>    	: "·"   periodcentered # MIDDLE DOT
 <Multi_key> <period> <asciicircum> 	: "·"   periodcentered # MIDDLE DOT
 <Multi_key> <asciicircum> <period> 	: "·"   periodcentered # MIDDLE DOT
+<dead_circumflex> <period>       	: "·"   periodcentered # MIDDLE DOT
 <Multi_key> <period> <equal>    	: "•"   enfilledcircbullet # BULLET
 <Multi_key> <exclam> <asciicircum> 	: "¦"   brokenbar # BROKEN BAR
 <Multi_key> <exclam> <exclam>    	: "¡"   exclamdown # INVERTED EXCLAMATION MARK

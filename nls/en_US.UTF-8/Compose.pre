@@ -5092,17 +5092,12 @@ XCOMM
 <Multi_key> <U05B8> <hebrew_aleph> 	: "אָ"   UFB2F # HEBREW LETTER ALEF WITH QAMATS
 <Multi_key> <U05BC> <hebrew_aleph> 	: "אּ"   UFB30 # HEBREW LETTER ALEF WITH MAPIQ
 <Multi_key> <U05BC> <hebrew_bet> 	: "בּ"   UFB31 # HEBREW LETTER BET WITH DAGESH
-<Multi_key> <U05BC> <hebrew_beth> 	: "בּ"   UFB31 # HEBREW LETTER BET WITH DAGESH
 <Multi_key> <U05BC> <hebrew_gimel> 	: "גּ"   UFB32 # HEBREW LETTER GIMEL WITH DAGESH
-<Multi_key> <U05BC> <hebrew_gimmel> 	: "גּ"   UFB32 # HEBREW LETTER GIMEL WITH DAGESH
 <Multi_key> <U05BC> <hebrew_dalet> 	: "דּ"   UFB33 # HEBREW LETTER DALET WITH DAGESH
-<Multi_key> <U05BC> <hebrew_daleth> 	: "דּ"   UFB33 # HEBREW LETTER DALET WITH DAGESH
 <Multi_key> <U05BC> <hebrew_he> 	: "הּ"   UFB34 # HEBREW LETTER HE WITH MAPIQ
 <Multi_key> <U05BC> <hebrew_waw> 	: "וּ"   UFB35 # HEBREW LETTER VAV WITH DAGESH
 <Multi_key> <U05BC> <hebrew_zain> 	: "זּ"   UFB36 # HEBREW LETTER ZAYIN WITH DAGESH
-<Multi_key> <U05BC> <hebrew_zayin> 	: "זּ"   UFB36 # HEBREW LETTER ZAYIN WITH DAGESH
 <Multi_key> <U05BC> <hebrew_tet> 	: "טּ"   UFB38 # HEBREW LETTER TET WITH DAGESH
-<Multi_key> <U05BC> <hebrew_teth> 	: "טּ"   UFB38 # HEBREW LETTER TET WITH DAGESH
 <Multi_key> <U05BC> <hebrew_yod> 	: "יּ"   UFB39 # HEBREW LETTER YOD WITH DAGESH
 <Multi_key> <U05BC> <hebrew_finalkaph> 	: "ךּ"   UFB3A # HEBREW LETTER FINAL KAF WITH DAGESH
 <Multi_key> <U05BC> <hebrew_kaph> 	: "כּ"   UFB3B # HEBREW LETTER KAF WITH DAGESH
@@ -5110,20 +5105,15 @@ XCOMM
 <Multi_key> <U05BC> <hebrew_mem> 	: "מּ"   UFB3E # HEBREW LETTER MEM WITH DAGESH
 <Multi_key> <U05BC> <hebrew_nun> 	: "נּ"   UFB40 # HEBREW LETTER NUN WITH DAGESH
 <Multi_key> <U05BC> <hebrew_samech> 	: "סּ"   UFB41 # HEBREW LETTER SAMEKH WITH DAGESH
-<Multi_key> <U05BC> <hebrew_samekh> 	: "סּ"   UFB41 # HEBREW LETTER SAMEKH WITH DAGESH
 <Multi_key> <U05BC> <hebrew_finalpe> 	: "ףּ"   UFB43 # HEBREW LETTER FINAL PE WITH DAGESH
 <Multi_key> <U05BC> <hebrew_pe> 	: "פּ"   UFB44 # HEBREW LETTER PE WITH DAGESH
 <Multi_key> <U05BC> <hebrew_zade> 	: "צּ"   UFB46 # HEBREW LETTER TSADI WITH DAGESH
-<Multi_key> <U05BC> <hebrew_zadi> 	: "צּ"   UFB46 # HEBREW LETTER TSADI WITH DAGESH
-<Multi_key> <U05BC> <hebrew_kuf> 	: "קּ"   UFB47 # HEBREW LETTER QOF WITH DAGESH
 <Multi_key> <U05BC> <hebrew_qoph> 	: "קּ"   UFB47 # HEBREW LETTER QOF WITH DAGESH
 <Multi_key> <U05BC> <hebrew_resh> 	: "רּ"   UFB48 # HEBREW LETTER RESH WITH DAGESH
 <Multi_key> <U05BC> <hebrew_shin> 	: "שּ"   UFB49 # HEBREW LETTER SHIN WITH DAGESH
-<Multi_key> <U05BC> <hebrew_taf> 	: "תּ"   UFB4A # HEBREW LETTER TAV WITH DAGESH
 <Multi_key> <U05BC> <hebrew_taw> 	: "תּ"   UFB4A # HEBREW LETTER TAV WITH DAGESH
 <Multi_key> <U05B9> <hebrew_waw> 	: "וֹ"   UFB4B # HEBREW LETTER VAV WITH HOLAM
 <Multi_key> <U05BF> <hebrew_bet> 	: "בֿ"   UFB4C # HEBREW LETTER BET WITH RAFE
-<Multi_key> <U05BF> <hebrew_beth> 	: "בֿ"   UFB4C # HEBREW LETTER BET WITH RAFE
 <Multi_key> <U05BF> <hebrew_kaph> 	: "כֿ"   UFB4D # HEBREW LETTER KAF WITH RAFE
 <Multi_key> <U05BF> <hebrew_pe> 	: "פֿ"   UFB4E # HEBREW LETTER PE WITH RAFE
 <Multi_key> <U1D157> <U1D165> 	: "𝅗𝅥"   U1D15E # MUSICAL SYMBOL HALF NOTE

@@ -1,8 +1,6 @@
-XCOMM UTF-8 (Unicode) compose sequence
-XCOMM David.Monniaux@ens.fr
+XCOMM UTF-8 (Unicode) Compose sequences
 XCOMM
-
-XCOMM Part 1 - Manual definitions
+/* Originally by <David.Monniaux@ens.fr>. */
 
 XCOMM Spacing versions of dead accents
 <dead_tilde> <space>             	: "~"   asciitilde # TILDE
@@ -30,7 +28,7 @@ XCOMM Spacing versions of dead accents
 <dead_abovedot> <dead_abovedot>  	: "˙"   abovedot # DOT ABOVE
 <dead_diaeresis> <dead_diaeresis> 	: "¨"   diaeresis # DIAERESIS
 <Multi_key> <quotedbl> <quotedbl> 	: "¨"   diaeresis # DIAERESIS
-<dead_diaeresis> <space>         	: "\""   quotedbl # REVERSE SOLIDUS
+<dead_diaeresis> <space>         	: "\""  quotedbl # REVERSE SOLIDUS
 <dead_doubleacute> <space>       	: "˝"   U2dd # DOUBLE ACUTE ACCENT
 <dead_doubleacute> <dead_doubleacute> 	: "˝"   U2dd # DOUBLE ACUTE ACCENT
 <dead_caron> <space>             	: "ˇ"   caron # CARON
@@ -45,17 +43,15 @@ XCOMM Spacing versions of dead accents
 <dead_iota> <dead_iota>          	: "ͺ"   U37a # GREEK YPOGEGRAMMENI
 <Multi_key> <minus> <minus> <space>	: "­"   U00ad # SOFT HYPHEN
 
-
-XCOMM ASCII characters that may be difficult to access
-XCOMM on some keyboards.
+XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <plus> <plus>        	: "#"   numbersign # NUMBER SIGN
 <Multi_key> <apostrophe> <space> 	: "'"   apostrophe # APOSTROPHE
 <Multi_key> <space> <apostrophe> 	: "'"   apostrophe # APOSTROPHE
 <Multi_key> <A> <T>              	: "@"   at # COMMERCIAL AT
 <Multi_key> <parenleft> <parenleft> 	: "["   bracketleft # LEFT SQUARE BRACKET
-<Multi_key> <slash> <slash>      	: "\\"   backslash # REVERSE SOLIDUS
-<Multi_key> <slash> <less>       	: "\\"   backslash # REVERSE SOLIDUS
-<Multi_key> <less> <slash>       	: "\\"   backslash # REVERSE SOLIDUS
+<Multi_key> <slash> <slash>      	: "\\"  backslash # REVERSE SOLIDUS
+<Multi_key> <slash> <less>       	: "\\"  backslash # REVERSE SOLIDUS
+<Multi_key> <less> <slash>       	: "\\"  backslash # REVERSE SOLIDUS
 <Multi_key> <parenright> <parenright> 	: "]"   bracketright # RIGHT SQUARE BRACKET
 
 <Multi_key> <asciicircum> <space> 	: "^"   asciicircum # CIRCUMFLEX ACCENT
@@ -88,13 +84,12 @@ XCOMM on some keyboards.
 <Multi_key> <minus> <space>      	: "~"   asciitilde # TILDE
 <Multi_key> <space> <minus>      	: "~"   asciitilde # TILDE
 
-<Multi_key> <L> <T>                 : "<"   less # LESS-THAN
-<Multi_key> <l> <t>                 : "<"   less # LESS-THAN
+<Multi_key> <L> <T>			: "<"   less # LESS-THAN
+<Multi_key> <l> <t>			: "<"   less # LESS-THAN
+<Multi_key> <G> <T>			: ">"   greater # GREATER-THAN
+<Multi_key> <g> <t>			: ">"   greater # GREATER-THAN
 
-<Multi_key> <G> <T>                 : ">"   greater # GREATER-THAN
-<Multi_key> <g> <t>                 : ">"   greater # GREATER-THAN
-
-XCOMM Spaces
+XCOMM Two special spaces
 <Multi_key> <space> <space>      	: " "   nobreakspace # NO-BREAK SPACE
 <Multi_key> <space> <period>     	: " "   U2008 # PUNCTUATION SPACE
 
@@ -114,8 +109,6 @@ XCOMM Spaces
 
 <Multi_key> <parenleft> <parenright> <parenright>: "🄯"   U1F12F # COPYLEFT SYMBOL
 
-<Multi_key> <period> <greater>   	: "›"   U203a # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
-<Multi_key> <period> <less>      	: "‹"   U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
 <Multi_key> <period> <period>    	: "…"   ellipsis # HORIZONTAL ELLIPSIS
 <Multi_key> <period> <minus>    	: "·"   periodcentered # MIDDLE DOT
 <Multi_key> <period> <asciicircum> 	: "·"   periodcentered # MIDDLE DOT
@@ -124,26 +117,25 @@ XCOMM Spaces
 <Multi_key> <period> <equal>    	: "•"   enfilledcircbullet # BULLET
 <Multi_key> <exclam> <asciicircum> 	: "¦"   brokenbar # BROKEN BAR
 <Multi_key> <exclam> <exclam>    	: "¡"   exclamdown # INVERTED EXCLAMATION MARK
-<Multi_key> <p> <exclam>         	: "¶"   paragraph # PILCROW SIGN
-<Multi_key> <P> <exclam>         	: "¶"   paragraph # PILCROW SIGN
 <Multi_key> <plus> <minus>       	: "±"   plusminus # PLUS-MINUS SIGN
 <Multi_key> <minus> <plus> 		: "±"   plusminus # PLUS-MINUS SIGN
 <Multi_key> <question> <question> 	: "¿"   questiondown # INVERTED QUESTION MARK
-<Multi_key> <s> <s>              	: "ß"   ssharp # LATIN SMALL LETTER SHARP S
-<Multi_key> <S> <S>              	: "ẞ"   U1e9e # LATIN CAPITAL LETTER SHARP S
 
-<Multi_key> <o> <e>              	: "œ"   oe # LATIN SMALL LIGATURE OE
-<Multi_key> <O> <E>              	: "Œ"   OE # LATIN CAPITAL LIGATURE OE
+XCOMM Some ligatures
 <Multi_key> <a> <e>              	: "æ"   ae # LATIN SMALL LETTER AE
 <Multi_key> <A> <E>              	: "Æ"   AE # LATIN CAPITAL LETTER AE
+<Multi_key> <o> <e>              	: "œ"   oe # LATIN SMALL LIGATURE OE
+<Multi_key> <O> <E>              	: "Œ"   OE # LATIN CAPITAL LIGATURE OE
+<Multi_key> <s> <s>              	: "ß"   ssharp # LATIN SMALL LETTER SHARP S
+<Multi_key> <S> <S>              	: "ẞ"   U1e9e # LATIN CAPITAL LETTER SHARP S
 <Multi_key> <f> <f>              	: "ﬀ"   Ufb00 # LATIN SMALL LIGATURE FF
 <Multi_key> <f> <i>              	: "ﬁ"   Ufb01 # LATIN SMALL LIGATURE FI
 <Multi_key> <f> <l>              	: "ﬂ"   Ufb02 # LATIN SMALL LIGATURE FL
 <Multi_key> <F> <i>              	: "ﬃ"   Ufb03 # LATIN SMALL LIGATURE FFI
 <Multi_key> <F> <l>              	: "ﬄ"   Ufb04 # LATIN SMALL LIGATURE FFL
-<Multi_key> <I> <J>              	: "Ĳ"   U0132 # LATIN CAPITAL LIGATURE IJ
-<Multi_key> <I> <j>              	: "Ĳ"   U0132 # LATIN CAPITAL LIGATURE IJ
 <Multi_key> <i> <j>              	: "ĳ"   U0133 # LATIN SMALL LIGATURE IJ
+<Multi_key> <I> <j>              	: "Ĳ"   U0132 # LATIN CAPITAL LIGATURE IJ
+<Multi_key> <I> <J>              	: "Ĳ"   U0132 # LATIN CAPITAL LIGATURE IJ
 
 <Multi_key> <o> <o>              	: "°"   degree # DEGREE SIGN
 <Multi_key> <asterisk> <0> 		: "°"   degree # DEGREE SIGN
@@ -152,6 +144,8 @@ XCOMM Spaces
 XCOMM Quotation marks
 <Multi_key> <less> <less>        	: "«"   guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
 <Multi_key> <greater> <greater>  	: "»"   guillemotright # RIGHT-POINTING DOUBLE ANGLE QUOTATION MARK
+<Multi_key> <period> <greater>   	: "›"   U203a # SINGLE RIGHT-POINTING ANGLE QUOTATION MARK
+<Multi_key> <period> <less>      	: "‹"   U2039 # SINGLE LEFT-POINTING ANGLE QUOTATION MARK
 <Multi_key> <less> <apostrophe>  	: "‘"   U2018 # LEFT SINGLE QUOTATION MARK
 <Multi_key> <apostrophe> <less>  	: "‘"   U2018 # LEFT SINGLE QUOTATION MARK
 <Multi_key> <greater> <apostrophe> 	: "’"   U2019 # RIGHT SINGLE QUOTATION MARK
@@ -165,7 +159,6 @@ XCOMM Quotation marks
 <Multi_key> <comma> <quotedbl>   	: "„"   U201e # DOUBLE LOW-9 QUOTATION MARK
 <Multi_key> <quotedbl> <comma>   	: "„"   U201e # DOUBLE LOW-9 QUOTATION MARK
 
-XCOMM Per xxx
 <Multi_key> <percent> <o>        	: "‰"   U2030 # PER MILLE SIGN
 
 XCOMM Currencies
@@ -216,10 +209,10 @@ XCOMM "₲" U20b2 GUARANI SIGN
 XCOMM "₳" U20b3 AUSTRAL SIGN
 XCOMM "₴" U20b4 HRYVNIA SIGN
 XCOMM "₵" U20b5 CEDI SIGN
-<Multi_key> <R> <equal>          	: "₹" U20b9 # INDIAN RUPEE SIGN
-<Multi_key> <equal> <R>          	: "₹" U20b9 # INDIAN RUPEE SIGN
-<Multi_key> <r> <equal>          	: "₹" U20b9 # INDIAN RUPEE SIGN
-<Multi_key> <equal> <r>          	: "₹" U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <R> <equal>			: "₹"   U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <equal> <R>			: "₹"   U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <r> <equal>			: "₹"   U20b9 # INDIAN RUPEE SIGN
+<Multi_key> <equal> <r>			: "₹"   U20b9 # INDIAN RUPEE SIGN
 
 <Multi_key> <C> <bar>            	: "¢"   cent # CENT SIGN
 <Multi_key> <bar> <C>			: "¢"   cent # CENT SIGN
@@ -268,6 +261,10 @@ XCOMM Other symbols
 <Multi_key> <S> <exclam> 		: "§"   section # SECTION SIGN
 <Multi_key> <Cyrillic_pe> <Cyrillic_a>	: "§"   section # SECTION SIGN
 
+<Multi_key> <p> <exclam>		: "¶"   paragraph # PILCROW SIGN
+<Multi_key> <P> <exclam>		: "¶"   paragraph # PILCROW SIGN
+<Multi_key> <P> <P>			: "¶"   paragraph # PILCROW SIGN
+
 <Multi_key> <o> <x>              	: "¤"   currency # CURRENCY SIGN
 <Multi_key> <x> <o>              	: "¤"   currency # CURRENCY SIGN
 <Multi_key> <o> <X> 			: "¤"   currency # CURRENCY SIGN
@@ -277,12 +274,10 @@ XCOMM Other symbols
 <Multi_key> <O> <x> 			: "¤"   currency # CURRENCY SIGN
 <Multi_key> <x> <O> 			: "¤"   currency # CURRENCY SIGN
 
-<Multi_key> <P> <P>              	: "¶"   paragraph # PILCROW SIGN
-
-<Multi_key> <N> <o>			: "№" numerosign # NUMERO SIGN
-<Multi_key> <N> <O>			: "№" numerosign # NUMERO SIGN
-<Multi_key> <Cyrillic_EN> <Cyrillic_o>	: "№" numerosign # NUMERO SIGN
-<Multi_key> <Cyrillic_EN> <Cyrillic_O>	: "№" numerosign # NUMERO SIGN
+<Multi_key> <N> <o>			: "№"   numerosign # NUMERO SIGN
+<Multi_key> <N> <O>			: "№"   numerosign # NUMERO SIGN
+<Multi_key> <Cyrillic_EN> <Cyrillic_o>	: "№"   numerosign # NUMERO SIGN
+<Multi_key> <Cyrillic_EN> <Cyrillic_O>	: "№"   numerosign # NUMERO SIGN
 
 <Multi_key> <question> <exclam>         : "⸘"   U2E18 # INVERTED INTERROBANG
 <Multi_key> <exclam> <question>         : "‽"   U203D # INTERROBANG
@@ -293,23 +288,16 @@ XCOMM Other symbols
 
 <Multi_key> <colon> <parenright>        : "☺"   U263A # WHITE SMILING FACE
 <Multi_key> <colon> <parenleft>         : "☹"   U2639 # WHITE FROWNING FACE
-<Multi_key> <backslash> <o> <slash>		: "🙌"		# PERSON RAISING BOTH HANDS IN CELEBRATION
+<Multi_key> <backslash> <o> <slash>	: "🙌"  U1F64C # PERSON RAISING BOTH HANDS IN CELEBRATION
 
 <Multi_key> <p> <o> <o>                 : "💩"  U1F4A9 # PILE OF POO
 
 <Multi_key> <F> <U>                     : "🖕"  U1F595 # REVERSED HAND WITH MIDDLE FINGER EXTENDED
 <Multi_key> <L> <L> <A> <P>             : "🖖"  U1F596 # RAISED HAND WITH PART BETWEEN MIDDLE AND RING FINGERS
 
-XCOMM Part 2
-
-XCOMM Compose map for Korean Hangul(Choseongul) Conjoining Jamos  automatically
-XCOMM generated  from UnicodeData-2.0.14.txt at
-XCOMM    ftp://ftp.unicode.org/Public/2.0-Update/UnicodeData-2.0.14.txt
-XCOMM   by Jungshik Shin <jshin@jshin.net>  2002-10-17
-XCOMM There are some conflicts among sequences, but I left them alone.
-XCOMM
-XCOMM group 1: cluster jamos made of three basic jamos
-
+XCOMM Conjoining Jamos for Korean Hangul
+/* Originally generated by Jungshik Shin <jshin@jshin.net>, 2002-10-17,
+ * from https://www.unicode.org/Public/2.0-Update/UnicodeData-2.0.14.txt. */
 /* The following block gets overridden by later shorter compositions
  * <Multi_key> <U1107> <U1109> <U1100> 	: "ᄢ"   U1122 # HANGUL CHOSEONG PIEUP-SIOS-KIYEOK
  * <Multi_key> <U1107> <U1109> <U1103> 	: "ᄣ"   U1123 # HANGUL CHOSEONG PIEUP-SIOS-TIKEUT
@@ -543,7 +531,7 @@ XCOMM group 1: cluster jamos made of three basic jamos
 <Multi_key> <U11B7> <U11BB> 	: "ᇞ"   U11de # HANGUL JONGSEONG MIEUM-SSANGSIOS
 <Multi_key> <U11BC> <U11A9> 	: "ᇭ"   U11ed # HANGUL JONGSEONG IEUNG-SSANGKIYEOK
 
-XCOMM Part 3
+XCOMM Latin-1 Supplement
 <Multi_key> <comma> <minus>      	: "¬"   notsign # NOT SIGN
 <Multi_key> <minus> <comma>      	: "¬"   notsign # NOT SIGN
 <dead_circumflex> <Multi_key> <underscore> <a> 	: "ª"   ordfeminine # FEMININE ORDINAL INDICATOR
@@ -829,6 +817,8 @@ XCOMM Part 3
 <Multi_key> <y> <quotedbl> 		: "ÿ"   ydiaeresis # LATIN SMALL LETTER Y WITH DIAERESIS
 <Multi_key> <diaeresis> <y> 		: "ÿ"   ydiaeresis # LATIN SMALL LETTER Y WITH DIAERESIS
 <Multi_key> <y> <diaeresis> 		: "ÿ"   ydiaeresis # LATIN SMALL LETTER Y WITH DIAERESIS
+
+XCOMM Latin Extended-A
 <dead_macron> <A>                	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <Multi_key> <macron> <A>         	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
 <Multi_key> <underscore> <A>     	: "Ā"   U0100 # LATIN CAPITAL LETTER A WITH MACRON
@@ -1314,6 +1304,8 @@ XCOMM Part 3
 <Multi_key> <v> <z> 			: "ž"   U017E # LATIN SMALL LETTER Z WITH CARON
 <Multi_key> <less> <z> 			: "ž"   U017E # LATIN SMALL LETTER Z WITH CARON
 <Multi_key> <z> <less> 			: "ž"   U017E # LATIN SMALL LETTER Z WITH CARON
+
+XCOMM Latin Extended-B
 <dead_stroke> <b>               	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
 <Multi_key> <slash> <b>          	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
 <Multi_key> <KP_Divide> <b>      	: "ƀ"   U0180 # LATIN SMALL LETTER B WITH STROKE
@@ -1672,9 +1664,12 @@ XCOMM Part 3
 <Multi_key> <macron> <y>         	: "ȳ"   U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <underscore> <y>     	: "ȳ"   U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <e> <e>              	: "ə"   U0259 # LATIN SMALL LETTER SCHWA
+
 <dead_stroke> <i>               	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <slash> <i>          	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <KP_Divide> <i>      	: "ɨ"   U0268 # LATIN SMALL LETTER I WITH STROKE
+
+XCOMM Spacing Modifier Letters
 <Multi_key> <slash> <U0294>  	: "ʡ"   U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <Multi_key> <KP_Divide> <U0294> 	: "ʡ"   U02A1 # LATIN LETTER GLOTTAL STOP WITH STROKE
 <dead_circumflex> <Multi_key> <underscore> <h> 	: "ʰ"   U02B0 # MODIFIER LETTER SMALL H
@@ -1705,6 +1700,8 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <underscore> <x> 	: "ˣ"   U02E3 # MODIFIER LETTER SMALL X
 <dead_circumflex> <Multi_key> <underscore> <U0295> 	: "ˤ"   U02E4 # MODIFIER LETTER SMALL REVERSED GLOTTAL STOP
 <Multi_key> <asciicircum> <underscore> <U0295> 	: "ˤ"   U02E4 # MODIFIER LETTER SMALL REVERSED GLOTTAL STOP
+
+XCOMM Greek
 <dead_diaeresis> <acute>         	: "̈́"   U0344 # COMBINING GREEK DIALYTIKA TONOS
 <dead_diaeresis> <apostrophe>    	: "̈́"   U0344 # COMBINING GREEK DIALYTIKA TONOS
 <Multi_key> <quotedbl> <dead_acute> 	: "̈́"   U0344 # COMBINING GREEK DIALYTIKA TONOS
@@ -1806,6 +1803,8 @@ XCOMM Part 3
 <Multi_key> <apostrophe> <Greek_omega> 	: "ώ"   U03CE # GREEK SMALL LETTER OMEGA WITH TONOS
 <Multi_key> <Greek_omega> <apostrophe> 	: "ώ"   U03CE # GREEK SMALL LETTER OMEGA WITH TONOS
 <Multi_key> <quotedbl> <U03D2> 	: "ϔ"   U03D4 # GREEK UPSILON WITH DIAERESIS AND HOOK SYMBOL
+
+XCOMM Cyrillic
 <dead_grave> <Cyrillic_IE>       	: "Ѐ"   U0400 # CYRILLIC CAPITAL LETTER IE WITH GRAVE
 <Multi_key> <grave> <Cyrillic_IE> 	: "Ѐ"   U0400 # CYRILLIC CAPITAL LETTER IE WITH GRAVE
 <dead_diaeresis> <Cyrillic_IE>   	: "Ё"   U0401 # CYRILLIC CAPITAL LETTER IO
@@ -1938,6 +1937,8 @@ XCOMM Part 3
 <Multi_key> <quotedbl> <Cyrillic_YERU> 	: "Ӹ"   U04F8 # CYRILLIC CAPITAL LETTER YERU WITH DIAERESIS
 <dead_diaeresis> <Cyrillic_yeru> 	: "ӹ"   U04F9 # CYRILLIC SMALL LETTER YERU WITH DIAERESIS
 <Multi_key> <quotedbl> <Cyrillic_yeru> 	: "ӹ"   U04F9 # CYRILLIC SMALL LETTER YERU WITH DIAERESIS
+
+XCOMM Several other scripts
 <Multi_key> <U0653> <Arabic_alef> 	: "آ"   U0622 # ARABIC LETTER ALEF WITH MADDA ABOVE
 <Multi_key> <U0654> <Arabic_alef> 	: "أ"   U0623 # ARABIC LETTER ALEF WITH HAMZA ABOVE
 <Multi_key> <U0654> <Arabic_waw> 	: "ؤ"   U0624 # ARABIC LETTER WAW WITH HAMZA ABOVE
@@ -2010,6 +2011,8 @@ XCOMM Part 3
 <Multi_key> <U0FAB> <U0FB7> 	: "ྫྷ"   U0FAC # TIBETAN SUBJOINED LETTER DZHA
 <Multi_key> <U0F90> <U0FB5> 	: "ྐྵ"   U0FB9 # TIBETAN SUBJOINED LETTER KSSA
 <Multi_key> <U102E> <U1025> 	: "ဦ"   U1026 # MYANMAR LETTER UU
+
+XCOMM Latin Extended Additional
 <dead_belowring> <A>                  	: "Ḁ"   U1E00 # LATIN CAPITAL LETTER A WITH RING BELOW
 <dead_belowring> <a>                  	: "ḁ"   U1E01 # LATIN SMALL LETTER A WITH RING BELOW
 <dead_abovedot> <B>              	: "Ḃ"   U1E02 # LATIN CAPITAL LETTER B WITH DOT ABOVE
@@ -3007,6 +3010,8 @@ XCOMM Part 3
 <Multi_key> <asciitilde> <Y>     	: "Ỹ"   U1EF8 # LATIN CAPITAL LETTER Y WITH TILDE
 <dead_tilde> <y>                 	: "ỹ"   U1EF9 # LATIN SMALL LETTER Y WITH TILDE
 <Multi_key> <asciitilde> <y>     	: "ỹ"   U1EF9 # LATIN SMALL LETTER Y WITH TILDE
+
+XCOMM Greek Extended
 <dead_psili> <Greek_alpha>        	: "ἀ"   U1F00 # GREEK SMALL LETTER ALPHA WITH PSILI
 <Multi_key> <parenright> <Greek_alpha> 	: "ἀ"   U1F00 # GREEK SMALL LETTER ALPHA WITH PSILI
 <dead_dasia> <Greek_alpha>        	: "ἁ"   U1F01 # GREEK SMALL LETTER ALPHA WITH DASIA
@@ -4422,6 +4427,8 @@ XCOMM Part 3
 <Multi_key> <grave> <Greek_OMEGA> 	: "Ὼ"   U1FFA # GREEK CAPITAL LETTER OMEGA WITH VARIA
 <dead_iota> <Greek_OMEGA>        	: "ῼ"   U1FFC # GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI
 <Multi_key> <Greek_iota> <Greek_OMEGA> 	: "ῼ"   U1FFC # GREEK CAPITAL LETTER OMEGA WITH PROSGEGRAMMENI
+
+XCOMM Superscripts and Subscripts
 <dead_circumflex> <0>            	: "⁰"   U2070 # SUPERSCRIPT ZERO
 <Multi_key> <asciicircum> <0>    	: "⁰"   U2070 # SUPERSCRIPT ZERO
 <dead_circumflex> <KP_0>         	: "⁰"   U2070 # SUPERSCRIPT ZERO
@@ -4497,6 +4504,8 @@ XCOMM Part 3
 <Multi_key> <underscore> <KP_Equal> 	: "₌"   U208C # SUBSCRIPT EQUALS SIGN
 <Multi_key> <underscore> <parenleft> 	: "₍"   U208D # SUBSCRIPT LEFT PARENTHESIS
 <Multi_key> <underscore> <parenright> 	: "₎"   U208E # SUBSCRIPT RIGHT PARENTHESIS
+
+XCOMM Letterlike Symbols
 <dead_circumflex> <Multi_key> <S> <M> 	: "℠"   U2120 # SERVICE MARK
 <Multi_key> <S> <M>		 	: "℠"   U2120 # SERVICE MARK
 <dead_circumflex> <Multi_key> <s> <M> 	: "℠"   U2120 # SERVICE MARK
@@ -4513,6 +4522,8 @@ XCOMM Part 3
 <Multi_key> <T> <m>		 	: "™"   U2122 # TRADE MARK SIGN
 <dead_circumflex> <Multi_key> <t> <m> 	: "™"   U2122 # TRADE MARK SIGN
 <Multi_key> <t> <m>		 	: "™"   U2122 # TRADE MARK SIGN
+
+XCOMM Number Forms
 <Multi_key> <1> <7>			: "⅐"	U2150 # VULGAR FRACTION ONE SEVENTH
 <Multi_key> <1> <9>			: "⅑"	U2151 # VULGAR FRACTION ONE NINTH
 <Multi_key> <1> <1> <0>			: "⅒"	U2152 # VULGAR FRACTION ONE TENTH
@@ -4529,6 +4540,8 @@ XCOMM Part 3
 <Multi_key> <5> <8>			: "⅝"	U215D # VULGAR FRACTION FIVE EIGHTHS
 <Multi_key> <7> <8>			: "⅞"	U215E # VULGAR FRACTION SEVEN EIGHTHS
 <Multi_key> <0> <3>			: "↉"	U2189 # VULGAR FRACTION ZERO THIRDS
+
+XCOMM Arrows
 <Multi_key> <slash> <leftarrow>  	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <KP_Divide> <leftarrow> 	: "↚"   U219A # LEFTWARDS ARROW WITH STROKE
 <Multi_key> <slash> <rightarrow> 	: "↛"   U219B # RIGHTWARDS ARROW WITH STROKE
@@ -4544,6 +4557,8 @@ XCOMM Part 3
 <Multi_key> <bar> <v>           : "↓" U2193 # DOWNWARDS ARROW
 <Multi_key> <v> <bar>           : "↓" U2193 # DOWNWARDS ARROW
 <Multi_key> <equal> <greater> 	: "⇒" U21D2 # RIGHTWARDS DOUBLE ARROW
+
+XCOMM Mathematical Operators
 <Multi_key> <U2203> <U0338> 	: "∄"   U2204 # THERE DOES NOT EXIST
 <Multi_key> <braceleft> <braceright>	: "∅"   U2205 # EMPTY SET
 <Multi_key> <U2208> <U0338> 	: "∉"   U2209 # NOT AN ELEMENT OF
@@ -4592,7 +4607,10 @@ XCOMM Part 3
 <Multi_key> <U22B3> <U0338> 	: "⋫"   U22EB # DOES NOT CONTAIN AS NORMAL SUBGROUP
 <Multi_key> <U22B4> <U0338> 	: "⋬"   U22EC # NOT NORMAL SUBGROUP OF OR EQUAL TO
 <Multi_key> <U22B5> <U0338> 	: "⋭"   U22ED # DOES NOT CONTAIN AS NORMAL SUBGROUP OR EQUAL
+
 <Multi_key> <d> <i>		: "⌀"   U2300 # DIAMETER SIGN
+
+XCOMM Enclosed Alphanumerics
 <Multi_key> <parenleft> <1> <parenright> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <parenleft> <KP_1> <parenright> 	: "①"   U2460 # CIRCLED DIGIT ONE
 <Multi_key> <parenleft> <2> <parenright> 	: "②"   U2461 # CIRCLED DIGIT TWO
@@ -4714,6 +4732,8 @@ XCOMM Part 3
 <Multi_key> <parenleft> <z> <parenright> 	: "ⓩ"   U24E9 # CIRCLED LATIN SMALL LETTER Z
 <Multi_key> <parenleft> <0> <parenright> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
 <Multi_key> <parenleft> <KP_0> <parenright> 	: "⓪"   U24EA # CIRCLED DIGIT ZERO
+
+XCOMM Supplemental Mathematical Operators
 <dead_belowdot> <plus>                  : "⨥"   U2A25 # PLUS SIGN WITH DOT BELOW
 <dead_belowtilde> <plus>                : "⨦"   U2A26 # PLUS SIGN WITH TILDE BELOW
 <dead_belowdot> <minus>                 : "⨪"   U2A2A # MINUS SIGN WITH DOT BELOW
@@ -4722,6 +4742,8 @@ XCOMM Part 3
 <dead_belowdiaeresis> <dead_diaeresis> <equal> : "⩷"   U2A77 # EQUALS SIGN WITH TWO DOTS ABOVE AND TWO DOTS BELOW
 <Multi_key> <U2ADD> <U0338> 	: "⫝̸"   U2ADC # FORKING
 <dead_belowring> <bar>                  : "⫰"   U2AF0 # VERTICAL LINE WITH CIRCLE BELOW
+
+XCOMM Hiragana
 <dead_voiced_sound> <U304B>  	: "が"   U304C # HIRAGANA LETTER GA
 <dead_voiced_sound> <U304D>  	: "ぎ"   U304E # HIRAGANA LETTER GI
 <dead_voiced_sound> <U304F>  	: "ぐ"   U3050 # HIRAGANA LETTER GU
@@ -4749,6 +4771,8 @@ XCOMM Part 3
 <dead_semivoiced_sound> <U307B> 	: "ぽ"   U307D # HIRAGANA LETTER PO
 <dead_voiced_sound> <U3046>  	: "ゔ"   U3094 # HIRAGANA LETTER VU
 <dead_voiced_sound> <U309D>  	: "ゞ"   U309E # HIRAGANA VOICED ITERATION MARK
+
+XCOMM Katakana
 <dead_voiced_sound> <kana_KA>    	: "ガ"   U30AC # KATAKANA LETTER GA
 <dead_voiced_sound> <kana_KI>    	: "ギ"   U30AE # KATAKANA LETTER GI
 <dead_voiced_sound> <kana_KU>    	: "グ"   U30B0 # KATAKANA LETTER GU
@@ -4780,6 +4804,8 @@ XCOMM Part 3
 <dead_voiced_sound> <U30F1>  	: "ヹ"   U30F9 # KATAKANA LETTER VE
 <dead_voiced_sound> <kana_WO>    	: "ヺ"   U30FA # KATAKANA LETTER VO
 <dead_voiced_sound> <U30FD>  	: "ヾ"   U30FE # KATAKANA VOICED ITERATION MARK
+
+XCOMM Kanbun
 <dead_circumflex> <U4E00>    	: "㆒"   U3192 # IDEOGRAPHIC ANNOTATION ONE MARK
 <Multi_key> <asciicircum> <U4E00> 	: "㆒"   U3192 # IDEOGRAPHIC ANNOTATION ONE MARK
 <dead_circumflex> <U4E8C>    	: "㆓"   U3193 # IDEOGRAPHIC ANNOTATION TWO MARK
@@ -4808,6 +4834,8 @@ XCOMM Part 3
 <Multi_key> <asciicircum> <U5730> 	: "㆞"   U319E # IDEOGRAPHIC ANNOTATION EARTH MARK
 <dead_circumflex> <U4EBA>    	: "㆟"   U319F # IDEOGRAPHIC ANNOTATION MAN MARK
 <Multi_key> <asciicircum> <U4EBA> 	: "㆟"   U319F # IDEOGRAPHIC ANNOTATION MAN MARK
+
+XCOMM Enclosed CJK Letters and Months
 <Multi_key> <parenleft> <2> <1> <parenright> 	: "㉑"   U3251 # CIRCLED NUMBER TWENTY ONE
 <Multi_key> <parenleft> <2> <KP_1> <parenright> 	: "㉑"   U3251 # CIRCLED NUMBER TWENTY ONE
 <Multi_key> <parenleft> <KP_Space> <1> <parenright> 	: "㉑"   U3251 # CIRCLED NUMBER TWENTY ONE
@@ -5078,10 +5106,7 @@ XCOMM Part 3
 <Multi_key> <parenleft> <U30F1> <parenright> 	: "㋽"   U32FD # CIRCLED KATAKANA WE
 <Multi_key> <parenleft> <kana_WO> <parenright> 	: "㋾"   U32FE # CIRCLED KATAKANA WO
 
-XCOMM
 XCOMM Hebrew letters with accents
-XCOMM
-
 <Multi_key> <U05B4> <hebrew_yod> 	: "יִ"   UFB1D # HEBREW LETTER YOD WITH HIRIQ
 <Multi_key> <U05B7> <U05F2> 		: "ײַ"   UFB1F # HEBREW LIGATURE YIDDISH YOD YOD PATAH
 <Multi_key> <U05C1> <hebrew_shin> 	: "שׁ"   UFB2A # HEBREW LETTER SHIN WITH SHIN DOT
@@ -5118,6 +5143,8 @@ XCOMM
 <Multi_key> <U05BF> <hebrew_bet> 	: "בֿ"   UFB4C # HEBREW LETTER BET WITH RAFE
 <Multi_key> <U05BF> <hebrew_kaph> 	: "כֿ"   UFB4D # HEBREW LETTER KAF WITH RAFE
 <Multi_key> <U05BF> <hebrew_pe> 	: "פֿ"   UFB4E # HEBREW LETTER PE WITH RAFE
+
+XCOMM Musical notes
 <Multi_key> <U1D157> <U1D165> 	: "𝅗𝅥"   U1D15E # MUSICAL SYMBOL HALF NOTE
 <Multi_key> <U1D158> <U1D165> 	: "𝅘𝅥"   U1D15F # MUSICAL SYMBOL QUARTER NOTE
 <Multi_key> <U1D15F> <U1D16E> 	: "𝅘𝅥𝅮"   U1D160 # MUSICAL SYMBOL EIGHTH NOTE
@@ -5141,29 +5168,20 @@ XCOMM
 <Multi_key> <U1D1BC> <U1D16F> 	: "𝆺𝅥𝅯"   U1D1C0 # MUSICAL SYMBOL FUSA BLACK
 /* <Multi_key> <U1D1BA> <U1D165> <U1D16F> 	: "𝆺𝅥𝅯"   U1D1C0 # MUSICAL SYMBOL FUSA BLACK */
 
-XCOMM
 XCOMM Khmer digraphs
-XCOMM
-
 <U17ff> :   "ាំ"
 <U17fe> :   "ោះ"
 <U17fd> :   "េះ"
 <U17fc> :   "ុំ"
 <U17fb> :   "ុះ"
 
-XCOMM
 XCOMM Arabic Lam-Alef ligatures
-XCOMM
-
 <UFEFB>	:   "لا" # ARABIC LIGATURE LAM WITH ALEF
 <UFEF7>	:   "لأ" # ARABIC LIGATURE LAM WITH ALEF WITH HAMZA ABOVE
 <UFEF9>	:   "لإ" # ARABIC LIGATURE LAM WITH ALEF WITH HAMZA BELOW
 <UFEF5>	:   "لآ" # ARABIC LIGATURE LAM WITH ALEF WITH MADDA ABOVE
 
-XCOMM
 XCOMM French-Dvorak Bépo compositions
-XCOMM
-
 <dead_abovedot> <Amacron>             : "Ǡ"   U01E0               # LATIN CAPITAL LETTER A WITH DOT ABOVE AND MACRON
 <dead_abovedot> <amacron>             : "ǡ"   U01E1               # LATIN SMALL LETTER A WITH DOT ABOVE AND MACRON
 <dead_abovedot> <j> 		      : "ȷ"   U0237               # LATIN SMALL LETTER DOTLESS J
@@ -5629,10 +5647,7 @@ XCOMM
 <dead_greek>  <dead_stroke> <r> : "ϼ"    U03FC    # GREEK RHO WITH STROKE SYMBOL
 <dead_stroke> <dead_greek>  <r> : "ϼ"    U03FC    # GREEK RHO WITH STROKE SYMBOL
 
-XCOMM
-XCOMM Cyrillic NFDs
-XCOMM
-
+XCOMM Cyrillic (NFDs -- Normalized Form Canonical Decomposition)
 <dead_doublegrave> <Cyrillic_a>			: "а̏"		# CYRILLIC SMALL LETTER A WITH COMBINING DOUBLE GRAVE ACCENT
 <Multi_key> <grave> <grave> <Cyrillic_a>	: "а̏"		# CYRILLIC SMALL LETTER A WITH COMBINING DOUBLE GRAVE ACCENT
 
@@ -5865,19 +5880,19 @@ XCOMM
 <Multi_key> <acute> <Cyrillic_YA>		: "Я́"		# CYRILLIC CAPITAL LETTER YA WITH COMBINING ACUTE ACCENT
 <Multi_key> <apostrophe> <Cyrillic_YA>		: "Я́"		# CYRILLIC CAPITAL LETTER YA WITH COMBINING ACUTE ACCENT
 
-
-XCOMM APL support Geoff Streeter 2012-01-04
-
-XCOMM APL was initially an overstruck language. The original APL terminal was an IBM golfball
-XCOMM with a specially designed golfball. This meant that characters could be overstruck to
-XCOMM produce other characters. This gave APL a richness of primitives which is still powerful
-XCOMM today. Overstrikes were always independent of order.
-
-XCOMM APLs have extended this into a number of dialects. Let us try to support lots of them.
-XCOMM Together with some that have not been used yet. Some traditional ones are not included.
+/*
+ * APL support, by Geoff Streeter, 2012-01-04
+ *
+ * APL was initially an overstruck language. The original APL terminal was an IBM golfball
+ * with a specially designed golfball. This meant that characters could be overstruck to
+ * produce other characters. This gave APL a richness of primitives which is still powerful
+ * today. Overstrikes were always independent of order.
+ *
+ * APLs have extended this into a number of dialects. Let us try to support lots of them.
+ * Together with some that have not been used yet. Some traditional ones are not included.
+ */
 
 XCOMM Characters from "Mathematical Operators"
-
 <Multi_key> <v> <slash>                         : "√"   U221a   # v / SQUARE ROOT
 <Multi_key> <slash> <v>                         : "√"   U221a   # / v SQUARE ROOT
 <Multi_key> <8> <8>                             : "∞"   U221e   # 8 8 INFINITY
@@ -5905,7 +5920,6 @@ XCOMM Characters from "Mathematical Operators"
 <Multi_key> <period> <colon>                    : "∵"   because     # . : BECAUSE
 
 XCOMM Characters from "Miscellaneous Technical"
-
 <Multi_key> <U22a5> <U22a4>                     : "⌶"   U2336   # ⊥ ⊤ APL FUNCTIONAL SYMBOL I-BEAM
 <Multi_key> <U22a4> <U22a5>                     : "⌶"   U2336   # ⊥ ⊤ APL FUNCTIONAL SYMBOL I-BEAM
 <Multi_key> <bracketleft> <bracketright>        : "⌷"   U2337   # [ ] APL FUNCTIONAL SYMBOL SQUISH QUAD
@@ -5960,7 +5974,7 @@ XCOMM Characters from "Miscellaneous Technical"
 <Multi_key> <minus> <U2191>                     : "⍏"   U234f   # - ↑ APL FUNCTIONAL SYMBOL UPWARDS VANE
 <Multi_key> <U2191> <U2395>                     : "⍐"   U2350   # ↑ ⎕ APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW
 <Multi_key> <U2395> <U2191>                     : "⍐"   U2350   # ⎕ ↑ APL FUNCTIONAL SYMBOL QUAD UPWARDS ARROW
-XCOMM The next two somehow don't work.  However, no extant APL uses "⍑".
+/* The next two somehow don't work.  However, no extant APL uses "⍑". */
 <Multi_key> <macron> <U22a4>                    : "⍑"   U2351   # ¯ ⊤ APL FUNCTIONAL SYMBOL UP TACK OVERBAR
 <Multi_key> <U22a4> <macron>                    : "⍑"   U2351   # ⊤ ¯ APL FUNCTIONAL SYMBOL UP TACK OVERBAR
 <Multi_key> <U2207> <bar>                       : "⍒"   U2352   # ∇ | APL FUNCTIONAL SYMBOL DEL STILE
@@ -5975,7 +5989,7 @@ XCOMM The next two somehow don't work.  However, no extant APL uses "⍑".
 <Multi_key> <minus> <U2193>                     : "⍖"   U2356   # - ↓ APL FUNCTIONAL SYMBOL DOWNWARDS VANE
 <Multi_key> <U2193> <U2395>                     : "⍗"   U2357   # ↓ ⎕ APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW
 <Multi_key> <U2395> <U2193>                     : "⍗"   U2357   # ⎕ ↓ APL FUNCTIONAL SYMBOL QUAD DOWNWARDS ARROW
-XCOMM The <apostrophe> <underscore> is used elsewhere.  However, no extant APL uses "⍘".
+/* The <apostrophe> <underscore> is used elsewhere.  However, no extant APL uses "⍘". */
 <Multi_key> <underscore> <apostrophe>           : "⍘"   U2358   # _ ' APL FUNCTIONAL SYMBOL QUOTE UNDERBAR
 <Multi_key> <U2206> <underscore>                : "⍙"   U2359   # ∆ _ APL FUNCTIONAL SYMBOL DELTA UNDERBAR
 <Multi_key> <underscore> <U2206>                : "⍙"   U2359   # _ ∆ APL FUNCTIONAL SYMBOL DELTA UNDERBAR
@@ -6016,7 +6030,7 @@ XCOMM The <apostrophe> <underscore> is used elsewhere.  However, no extant APL u
 <Multi_key> <asciitilde> <0>                    : "⍬"   U236c   # ~ 0 APL FUNCTIONAL SYMBOL ZILDE
 <Multi_key> <bar> <asciitilde>                  : "⍭"   U236d   # | ~ APL FUNCTIONAL SYMBOL STILE TILDE
 <Multi_key> <asciitilde> <bar>                  : "⍭"   U236d   # ~ | APL FUNCTIONAL SYMBOL STILE TILDE
-XCOMM The <underscore> <semicolon> is used elsewhere.  However, no extant APL uses "⍮".
+/* The <underscore> <semicolon> is used elsewhere.  However, no extant APL uses "⍮". */
 <Multi_key> <semicolon> <underscore>            : "⍮"   U236e   # ; _ APL FUNCTIONAL SYMBOL SEMICOLON UNDERBAR
 <Multi_key> <U2260> <U2395>                     : "⍯"   U236f   # ≠ ⎕ APL FUNCTIONAL SYMBOL QUAD NOT EQUAL
 <Multi_key> <U2395> <U2260>                     : "⍯"   U236f   # ⎕ ≠ APL FUNCTIONAL SYMBOL QUAD NOT EQUAL

@@ -132,7 +132,7 @@ bg_BG.MICROSOFT-CP1251:				bg_BG.CP1251
 bg_BG.iso88595:					bg_BG.ISO8859-5
 bg_BG.ISO-8859-5:				bg_BG.ISO8859-5
 bg_BG.koi8r:					bg_BG.KOI8-R
-be_BG.utf8:					bg_BG.UTF-8
+bg_BG.utf8:					bg_BG.UTF-8
 bn_IN:						bn_IN.UTF-8
 bn_IN.utf8:					bn_IN.UTF-8
 bo_IN:						bo_IN.UTF-8

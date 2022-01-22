@@ -103,13 +103,13 @@ ar_TN:						ar_TN.ISO8859-6
 ar_TN.iso88596:					ar_TN.ISO8859-6
 ar_TN.ISO-8859-6:				ar_TN.ISO8859-6
 ar_TN.utf8:					ar_TN.UTF-8
-as:						as_IN.UTF-8
-as_IN:						as_IN.UTF-8
-as_IN.utf8:					as_IN.UTF-8
 ar_YE:						ar_YE.ISO8859-6
 ar_YE.iso88596:					ar_YE.ISO8859-6
 ar_YE.ISO-8859-6:				ar_YE.ISO8859-6
 ar_YE.utf8:					ar_YE.UTF-8
+as:						as_IN.UTF-8
+as_IN:						as_IN.UTF-8
+as_IN.utf8:					as_IN.UTF-8
 az:						az_AZ.ISO8859-9E
 az_AZ:						az_AZ.ISO8859-9E
 az_AZ.iso88599e:				az_AZ.ISO8859-9E
@@ -345,8 +345,8 @@ en_IE.UTF-8@euro:				en_IE.UTF-8
 en_IE.utf8:					en_IE.UTF-8
 en_IL:						en_IL.ISO8859-1
 en_IL.utf8:					en_IL.UTF-8
-en_IN.utf8:					en_IN.UTF-8
 en_IN:						en_IN.ISO8859-1
+en_IN.utf8:					en_IN.UTF-8
 en_NZ:						en_NZ.ISO8859-1
 en_NZ.iso88591:					en_NZ.ISO8859-1
 en_NZ.ISO-8859-1:				en_NZ.ISO8859-1
@@ -1183,6 +1183,7 @@ french_france.8859:				fr_FR.ISO8859-1
 german_germany.8859:				de_DE.ISO8859-1
 portuguese_brazil.8859:				pt_BR.ISO8859-1
 spanish_spain.8859:				es_ES.ISO8859-1
+
 XCOMM The following locale names are used in HPUX 9.x
 american.iso88591:				en_US.ISO8859-1
 arabic.iso88596:				ar_AA.ISO8859-6
@@ -1219,8 +1220,8 @@ hebrew:						he_IL.ISO8859-8
 hebrew.iso88598:				he_IL.ISO8859-8
 hrvatski:					hr_HR.ISO8859-2
 hungarian:					hu_HU.ISO8859-2
-icelandic.iso88591:				is_IS.ISO8859-1
 icelandic:					is_IS.ISO8859-1
+icelandic.iso88591:				is_IS.ISO8859-1
 italian:					it_IT.ISO8859-1
 italian.iso88591:				it_IT.ISO8859-1
 japanese:					ja_JP.eucJP
@@ -1256,6 +1257,7 @@ XCOMM Solaris and SunOS have iso_8859_1 and iso_8859_15 LC_CTYPES
 XCOMM to augment LANG=C
 iso_8859_1:					en_US.ISO8859-1
 iso_8859_15:					en_US.ISO8859-15
+
 #ifdef WIN32
 XCOMM Microsoft Windows/NT 4.0 SP3
 XCOMM parser doesn't grok embedded spaces in locale name
@@ -1360,6 +1362,7 @@ Chinese(PRC)_Hong Kong.950:			zh_HK.EUC
 Chinese(Singapore)_Signapore.936:		zh_SG.EUC
 Chinese(Taiwan)_Taiwan.950:			zh_TW.EUC
 #endif
+
 XCOMM Other miscellaneous locale names
 ISO8859-1:					en_US.ISO8859-1
 ISO-8859-1:					en_US.ISO8859-1

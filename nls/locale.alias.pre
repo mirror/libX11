@@ -862,17 +862,6 @@ nn_NO.ISO_8859-1:				nn_NO.ISO8859-1
 nn_NO.iso885915:				nn_NO.ISO8859-15
 nn_NO.ISO-8859-15:				nn_NO.ISO8859-15
 nn_NO.utf8:					nn_NO.UTF-8
-no:						no_NO.ISO8859-1
-no_NO:						no_NO.ISO8859-1
-no_NO.88591:					no_NO.ISO8859-1
-no_NO.88591.en:					no_NO.ISO8859-1
-no_NO.iso88591:					no_NO.ISO8859-1
-no_NO.ISO-8859-1:				no_NO.ISO8859-1
-no_NO.ISO8859-1@bokmal:				no_NO.ISO8859-1
-no_NO.ISO8859-1@nynorsk:			no_NO.ISO8859-1
-no_NO.iso885915:				no_NO.ISO8859-15
-no_NO.ISO-8859-15:				no_NO.ISO8859-15
-no_NO.utf8:					no_NO.UTF-8
 nr:						nr_ZA.ISO8859-1
 nr_ZA:						nr_ZA.ISO8859-1
 nr_ZA.iso88591:					nr_ZA.ISO8859-1
@@ -881,12 +870,6 @@ nso:						nso_ZA.ISO8859-15
 nso_ZA:						nso_ZA.ISO8859-15
 nso_ZA.iso885915:				nso_ZA.ISO8859-15
 nso_ZA.utf8:					nso_ZA.UTF-8
-ny:						ny_NO.ISO8859-1
-ny_NO:						ny_NO.ISO8859-1
-ny_NO.88591:					ny_NO.ISO8859-1
-ny_NO.ISO_8859-1:				ny_NO.ISO8859-1
-ny_NO.iso885915:				ny_NO.ISO8859-15
-no@nynorsk:					ny_NO.ISO8859-1
 nynorsk:					nn_NO.ISO8859-1
 oc:						oc_FR.ISO8859-1
 oc_FR:						oc_FR.ISO8859-1
@@ -1230,8 +1213,6 @@ japanese.sjis:					ja_JP.SJIS
 korean:						ko_KR.eucKR
 korean.euc:					ko_KR.eucKR
 lithuanian:					lt_LT.ISO8859-13
-norwegian:					no_NO.ISO8859-1
-norwegian.iso88591:				no_NO.ISO8859-1
 polish:						pl_PL.ISO8859-2
 portuguese:					pt_PT.ISO8859-1
 portuguese.iso88591:				pt_PT.ISO8859-1
@@ -1342,8 +1323,8 @@ Lithuanian_Lithuania.1257:			lt_LT.ISO8859-13
 Latvian_Latvia.1257:				lv_LV.ISO8859-13
 Dutch_Belgium.1252:				nl_BE.ISO8859-1
 Dutch_Netherlands.1252:				nl_NL.ISO8859-1
-Norwegian (Nynorsk)_Norway.1252:		no_NO.ISO8859-1
-Norwegian (Bokmål)_Norway.1252:			no_NO.ISO8859-1
+Norwegian (Nynorsk)_Norway.1252:		nn_NO.ISO8859-1
+Norwegian (Bokmål)_Norway.1252:			nb_NO.ISO8859-1
 Polish_Poland.1250:				pl_PL.ISO8859-2
 Portuguese_Brazil.1252:				pt_BR.ISO8859-1
 Portuguese_Portugal.1252:			pt_PT.ISO8859-1

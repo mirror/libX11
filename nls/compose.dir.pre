@@ -97,6 +97,7 @@ iso8859-1/Compose:		es_BO.ISO8859-1
 iso8859-1/Compose:		es_CL.ISO8859-1
 iso8859-1/Compose:		es_CO.ISO8859-1
 iso8859-1/Compose:		es_CR.ISO8859-1
+iso8859-1/Compose:		es_CU.ISO8859-1
 iso8859-1/Compose:		es_DO.ISO8859-1
 iso8859-1/Compose:		es_EC.ISO8859-1
 iso8859-1/Compose:		es_ES.ISO8859-1
@@ -335,6 +336,7 @@ en_US.UTF-8/Compose:		es_BO.UTF-8
 en_US.UTF-8/Compose:		es_CL.UTF-8
 en_US.UTF-8/Compose:		es_CO.UTF-8
 en_US.UTF-8/Compose:		es_CR.UTF-8
+en_US.UTF-8/Compose:		es_CU.UTF-8
 en_US.UTF-8/Compose:		es_DO.UTF-8
 en_US.UTF-8/Compose:		es_EC.UTF-8
 en_US.UTF-8/Compose:		es_ES.UTF-8

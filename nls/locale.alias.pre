@@ -410,6 +410,10 @@ es_CR:						es_CR.ISO8859-1
 es_CR.iso88591:					es_CR.ISO8859-1
 es_CR.ISO-8859-1:				es_CR.ISO8859-1
 es_CR.utf8:					es_CR.UTF-8
+es_CU:						es_CU.ISO8859-1
+es_CU.iso88591:					es_CU.ISO8859-1
+es_CU.ISO-8859-1:				es_CU.ISO8859-1
+es_CU.utf8:					es_CU.UTF-8
 es_DO:						es_DO.ISO8859-1
 es_DO.iso88591:					es_DO.ISO8859-1
 es_DO.ISO-8859-1:				es_DO.ISO8859-1
@@ -1286,6 +1290,7 @@ Spanish_Bolivia.1252:				es_BO.ISO8859-1
 Spanish_Chile.1252:				es_CL.ISO8859-1
 Spanish_Colombia.1252:				es_CO.ISO8859-1
 Spanish_Costa Rica.1252:			es_CR.ISO8859-1
+Spanish_Cuba.1252:				es_CU.ISO8859-1
 Spanish_Dominican Republic.1252:		es_DO.ISO8859-1
 Spanish_Ecuador.1252:				es_EC.ISO8859-1
 Spanish - Modern Sort_Spain.1252:		es_ES.ISO8859-1

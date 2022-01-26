@@ -57,7 +57,6 @@ from The Open Group.
 static int
 _XkbHandleSpecialSym(KeySym keysym, char *buffer, int nbytes, int *extra_rtrn)
 {
-
     /* try to convert to Latin-1, handling ctrl */
     if (!(((keysym >= XK_BackSpace) && (keysym <= XK_Clear)) ||
           (keysym == XK_Return) || (keysym == XK_Escape) ||

@@ -472,7 +472,7 @@ UCSConvertCase( register unsigned code,
     }
 
     /* Latin Extended-A, U+0100 to U+017F */
-    if (code >= 0x0100 && code <= 0x017f) {
+    if (code <= 0x017f) {
         if ( (code >= 0x0100 && code <= 0x012f) ||
              (code >= 0x0132 && code <= 0x0137) ||
              (code >= 0x014a && code <= 0x0177) ) {
@@ -498,7 +498,7 @@ UCSConvertCase( register unsigned code,
     }
 
     /* Latin Extended-B, U+0180 to U+024F */
-    if (code >= 0x0180 && code <= 0x024f) {
+    if (code <= 0x024f) {
         if (code >= 0x01cd && code <= 0x01dc) {
 	    if (code & 1)
 	       *lower += 1;
@@ -536,11 +536,13 @@ UCSConvertCase( register unsigned code,
     /* IPA Extensions, U+0250 to U+02AF */
     if (code >= 0x0253 && code <= 0x0292) {
         *upper = IPAExt_upper_mapping[code - 0x0253];
+        return;
     }
 
     /* Combining Diacritical Marks, U+0300 to U+036F */
     if (code == 0x0345) {
         *upper = 0x0399;
+        return;
     }
 
     /* Greek and Coptic, U+0370 to U+03FF */
@@ -551,11 +553,11 @@ UCSConvertCase( register unsigned code,
             *upper = code;
         if (*lower == 0)
             *lower = code;
+        return;
     }
 
     /* Cyrillic and Cyrillic Supplementary, U+0400 to U+052F */
-    if ( (code >= 0x0400 && code <= 0x04ff) ||
-         (code >= 0x0500 && code <= 0x052f) ) {
+    if ( (code >= 0x0400 && code <= 0x052f) ) {
         if (code >= 0x0400 && code <= 0x040f)
             *lower += 0x50;
         else if (code >= 0x0410 && code <= 0x042f)
@@ -578,6 +580,7 @@ UCSConvertCase( register unsigned code,
 	    else
 	        *upper -= 1;
         }
+        return;
     }
 
     /* Armenian, U+0530 to U+058F */
@@ -586,6 +589,7 @@ UCSConvertCase( register unsigned code,
             *lower += 0x30;
         else if (code >=0x0561 && code <= 0x0586)
             *upper -= 0x30;
+        return;
     }
 
     /* Latin Extended Additional, U+1E00 to U+1EFF */
@@ -599,6 +603,7 @@ UCSConvertCase( register unsigned code,
             *upper = 0x1e60;
         else if (code == 0x1e9e)
             *lower = 0x00df;    /* ssharp */
+        return;
     }
 
     /* Greek Extended, U+1F00 to U+1FFF */
@@ -609,6 +614,7 @@ UCSConvertCase( register unsigned code,
             *upper = code;
         if (*lower == 0)
             *lower = code;
+        return;
     }
 
     /* Letterlike Symbols, U+2100 to U+214F */

@@ -499,12 +499,18 @@ UCSConvertCase( register unsigned code,
 
     /* Latin Extended-B, U+0180 to U+024F */
     if (code <= 0x024f) {
-        if (code >= 0x01cd && code <= 0x01dc) {
+        if (code >= 0x0180 && code <= 0x01cc) {
+            *lower = LatinExtB_lower_mapping[code - 0x0180];
+            *upper = LatinExtB_upper_mapping[code - 0x0180];
+        }
+        else if (code >= 0x01cd && code <= 0x01dc) {
 	    if (code & 1)
 	       *lower += 1;
 	    else
 	       *upper -= 1;
         }
+        else if (code == 0x01dd)
+            *upper = 0x018e;
         else if ( (code >= 0x01de && code <= 0x01ef) ||
                   (code >= 0x01f4 && code <= 0x01f5) ||
                   (code >= 0x01f8 && code <= 0x021f) ||
@@ -512,12 +518,6 @@ UCSConvertCase( register unsigned code,
             *lower |= 1;
             *upper &= ~1;
         }
-        else if (code >= 0x0180 && code <= 0x01cc) {
-            *lower = LatinExtB_lower_mapping[code - 0x0180];
-            *upper = LatinExtB_upper_mapping[code - 0x0180];
-        }
-        else if (code == 0x01dd)
-            *upper = 0x018e;
         else if (code == 0x01f1 || code == 0x01f2) {
             *lower = 0x01f3;
             *upper = 0x01f1;

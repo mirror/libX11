@@ -959,6 +959,7 @@ ru_UA.cp1251:					ru_UA.CP1251
 ru_UA.microsoftcp1251:				ru_UA.CP1251
 ru_UA.microsoft-cp1251:				ru_UA.CP1251
 ru_UA.MICROSOFT-CP1251:				ru_UA.CP1251
+ru_UA.utf8:					ru_UA.UTF-8
 rw:						rw_RW.ISO8859-1
 rw_RW:						rw_RW.ISO8859-1
 rw_RW.iso8859-1:				rw_RW.ISO8859-1

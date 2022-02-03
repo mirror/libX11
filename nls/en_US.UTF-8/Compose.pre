@@ -5,6 +5,8 @@ XCOMM
 XCOMM Spacing versions of dead accents
 <dead_tilde> <space>			: "~"	asciitilde # TILDE
 <dead_tilde> <dead_tilde>		: "~"	asciitilde # TILDE
+<Multi_key> <minus> <space>		: "~"	asciitilde # TILDE
+<Multi_key> <space> <minus>		: "~"	asciitilde # TILDE
 <dead_acute> <space>			: "'"	apostrophe # APOSTROPHE
 <dead_acute> <dead_acute>		: "´"	acute # ACUTE ACCENT
 <Multi_key> <apostrophe> <apostrophe>	: "´"	acute # ACUTE ACCENT
@@ -14,6 +16,9 @@ XCOMM Spacing versions of dead accents
 <dead_circumflex> <dead_circumflex>	: "^"	asciicircum # CIRCUMFLEX ACCENT
 <dead_abovering> <space>		: "°"	degree # DEGREE SIGN
 <dead_abovering> <dead_abovering>	: "°"	degree # DEGREE SIGN
+<Multi_key> <o> <o>			: "°"	degree # DEGREE SIGN
+<Multi_key> <asterisk> <0>		: "°"	degree # DEGREE SIGN
+<Multi_key> <0> <asterisk>		: "°"	degree # DEGREE SIGN
 <dead_macron> <space>			: "¯"	macron # MACRON
 <dead_macron> <dead_macron>		: "¯"	macron # MACRON
 <Multi_key> <minus> <asciicircum>	: "¯"	macron # MACRON
@@ -28,7 +33,7 @@ XCOMM Spacing versions of dead accents
 <dead_abovedot> <dead_abovedot>		: "˙"	abovedot # DOT ABOVE
 <dead_diaeresis> <dead_diaeresis>	: "¨"	diaeresis # DIAERESIS
 <Multi_key> <quotedbl> <quotedbl>	: "¨"	diaeresis # DIAERESIS
-<dead_diaeresis> <space>		: "\""	quotedbl # REVERSE SOLIDUS
+<dead_diaeresis> <space>		: "\""	quotedbl # QUOTATION MARK
 <dead_doubleacute> <space>		: "˝"	U2dd # DOUBLE ACUTE ACCENT
 <dead_doubleacute> <dead_doubleacute>	: "˝"	U2dd # DOUBLE ACUTE ACCENT
 <dead_caron> <space>			: "ˇ"	caron # CARON
@@ -37,11 +42,13 @@ XCOMM Spacing versions of dead accents
 <Multi_key> <less> <space>		: "ˇ"	caron # CARON
 <dead_cedilla> <space>			: "¸"	cedilla # CEDILLA
 <dead_cedilla> <dead_cedilla>		: "¸"	cedilla # CEDILLA
+<Multi_key> <comma> <space>		: "¸"	cedilla # CEDILLA
+<Multi_key> <space> <comma>		: "¸"	cedilla # CEDILLA
+<Multi_key> <comma> <comma>		: "¸"	cedilla # CEDILLA
 <dead_ogonek> <space>			: "˛"	ogonek # OGONEK
 <dead_ogonek> <dead_ogonek>		: "˛"	ogonek # OGONEK
 <dead_iota> <space>			: "ͺ"	U37a # GREEK YPOGEGRAMMENI
 <dead_iota> <dead_iota>			: "ͺ"	U37a # GREEK YPOGEGRAMMENI
-<Multi_key> <minus> <minus> <space>	: "­"	U00ad # SOFT HYPHEN
 
 XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <plus> <plus>		: "#"	numbersign # NUMBER SIGN
@@ -62,10 +69,6 @@ XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <grave> <space>		: "`"	grave # GRAVE ACCENT
 <Multi_key> <space> <grave>		: "`"	grave # GRAVE ACCENT
 
-<Multi_key> <comma> <space>		: "¸"	cedilla # CEDILLA
-<Multi_key> <space> <comma>		: "¸"	cedilla # CEDILLA
-<Multi_key> <comma> <comma>		: "¸"	cedilla # CEDILLA
-
 <Multi_key> <parenleft> <minus>		: "{"	braceleft # LEFT CURLY BRACKET
 <Multi_key> <minus> <parenleft>		: "{"	braceleft # LEFT CURLY BRACKET
 
@@ -81,8 +84,6 @@ XCOMM ASCII characters that may be difficult to access on some keyboards.
 
 <Multi_key> <asciitilde> <space>	: "~"	asciitilde # TILDE
 <Multi_key> <space> <asciitilde>	: "~"	asciitilde # TILDE
-<Multi_key> <minus> <space>		: "~"	asciitilde # TILDE
-<Multi_key> <space> <minus>		: "~"	asciitilde # TILDE
 
 <Multi_key> <L> <T>			: "<"	less # LESS-THAN
 <Multi_key> <l> <t>			: "<"	less # LESS-THAN
@@ -109,6 +110,7 @@ XCOMM Two special spaces
 
 <Multi_key> <parenleft> <parenright> <parenright>: "🄯"	U1F12F # COPYLEFT SYMBOL
 
+XCOMM Special punctuation
 <Multi_key> <period> <period>		: "…"	ellipsis # HORIZONTAL ELLIPSIS
 <Multi_key> <period> <minus>		: "·"	periodcentered # MIDDLE DOT
 <Multi_key> <period> <asciicircum>	: "·"	periodcentered # MIDDLE DOT
@@ -120,6 +122,10 @@ XCOMM Two special spaces
 <Multi_key> <plus> <minus>		: "±"	plusminus # PLUS-MINUS SIGN
 <Multi_key> <minus> <plus>		: "±"	plusminus # PLUS-MINUS SIGN
 <Multi_key> <question> <question>	: "¿"	questiondown # INVERTED QUESTION MARK
+<Multi_key> <exclam> <question>		: "‽"	U203D # INTERROBANG
+<Multi_key> <question> <exclam>		: "⸘"	U2E18 # INVERTED INTERROBANG
+<Multi_key> <minus> <minus> <space>	: "­"	U00ad # SOFT HYPHEN
+<Multi_key> <percent> <o>		: "‰"	U2030 # PER MILLE SIGN
 
 XCOMM Some ligatures
 <Multi_key> <a> <e>			: "æ"	ae # LATIN SMALL LETTER AE
@@ -136,10 +142,6 @@ XCOMM Some ligatures
 <Multi_key> <i> <j>			: "ĳ"	U0133 # LATIN SMALL LIGATURE IJ
 <Multi_key> <I> <j>			: "Ĳ"	U0132 # LATIN CAPITAL LIGATURE IJ
 <Multi_key> <I> <J>			: "Ĳ"	U0132 # LATIN CAPITAL LIGATURE IJ
-
-<Multi_key> <o> <o>			: "°"	degree # DEGREE SIGN
-<Multi_key> <asterisk> <0>		: "°"	degree # DEGREE SIGN
-<Multi_key> <0> <asterisk>		: "°"	degree # DEGREE SIGN
 
 XCOMM Quotation marks
 <Multi_key> <less> <less>		: "«"	guillemotleft # LEFT-POINTING DOUBLE ANGLE QUOTATION MARK
@@ -158,8 +160,6 @@ XCOMM Quotation marks
 <Multi_key> <quotedbl> <greater>	: "”"	U201d # RIGHT DOUBLE QUOTATION MARK
 <Multi_key> <comma> <quotedbl>		: "„"	U201e # DOUBLE LOW-9 QUOTATION MARK
 <Multi_key> <quotedbl> <comma>		: "„"	U201e # DOUBLE LOW-9 QUOTATION MARK
-
-<Multi_key> <percent> <o>		: "‰"	U2030 # PER MILLE SIGN
 
 XCOMM Currencies
 <Multi_key> <C> <E>			: "₠"	U20a0 # EURO-CURRENCY SIGN
@@ -278,9 +278,6 @@ XCOMM Other symbols
 <Multi_key> <N> <O>			: "№"	numerosign # NUMERO SIGN
 <Multi_key> <Cyrillic_EN> <Cyrillic_o>	: "№"	numerosign # NUMERO SIGN
 <Multi_key> <Cyrillic_EN> <Cyrillic_O>	: "№"	numerosign # NUMERO SIGN
-
-<Multi_key> <question> <exclam>		: "⸘"	U2E18 # INVERTED INTERROBANG
-<Multi_key> <exclam> <question>		: "‽"	U203D # INTERROBANG
 
 <Multi_key> <question> <backslash>	: "☭"	U262D # HAMMER AND SICKLE
 <Multi_key> <backslash> <question>	: "☭"	U262D # HAMMER AND SICKLE

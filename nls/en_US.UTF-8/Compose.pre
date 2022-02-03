@@ -282,7 +282,8 @@ XCOMM Other symbols
 <Multi_key> <question> <exclam>		: "⸘"	U2E18 # INVERTED INTERROBANG
 <Multi_key> <exclam> <question>		: "‽"	U203D # INTERROBANG
 
-<Multi_key> <C> <C> <C> <P>		: "☭"	U262D # HAMMER AND SICKLE
+<Multi_key> <question> <backslash>	: "☭"	U262D # HAMMER AND SICKLE
+<Multi_key> <backslash> <question>	: "☭"	U262D # HAMMER AND SICKLE
 <Multi_key> <O> <A>			: "Ⓐ"	U24B6 # CIRCLED LATIN CAPITAL LETTER A
 <Multi_key> <less> <3>			: "♥"	U2665 # BLACK HEART SUIT
 

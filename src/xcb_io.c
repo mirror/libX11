@@ -214,7 +214,12 @@ static int handle_error(Display *dpy, xError *err, Bool in_XReply)
 static void widen(uint64_t *wide, unsigned int narrow)
 {
 	uint64_t new = (*wide & ~((uint64_t)0xFFFFFFFFUL)) | narrow;
-	*wide = new + (((uint64_t)(new < *wide)) << 32);
+	/* If just copying the upper dword of *wide makes the number
+	 * go down by more than 2^31, then it means that the lower
+	 * dword has wrapped (or we have skipped 2^31 requests, which
+	 * is hopefully improbable), so we add a carry. */
+	uint64_t wraps = new + (1UL << 31) < *wide;
+	*wide = new + (wraps << 32);
 }
 
 /* Thread-safety rules:

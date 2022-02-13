@@ -189,7 +189,7 @@ typedef struct {
 				   CapRound, CapProjecting */
 	int join_style;	 	/* JoinMiter, JoinRound, JoinBevel */
 	int fill_style;	 	/* FillSolid, FillTiled,
-				   FillStippled, FillOpaeueStippled */
+				   FillStippled, FillOpaqueStippled */
 	int fill_rule;	  	/* EvenOddRule, WindingRule */
 	int arc_mode;		/* ArcChord, ArcPieSlice */
 	Pixmap tile;		/* tile pixmap for tiling operations */

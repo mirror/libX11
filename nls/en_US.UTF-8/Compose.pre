@@ -4527,7 +4527,10 @@ XCOMM Arrows
 <Multi_key> <minus> <greater>		: "→"	U2192 # RIGHTWARDS ARROW
 <Multi_key> <bar> <v>			: "↓"	U2193 # DOWNWARDS ARROW
 <Multi_key> <v> <bar>			: "↓"	U2193 # DOWNWARDS ARROW
+<Multi_key> <equal> <less>		: "⇐"	U21D0 # LEFTWARDS DOUBLE ARROW
+<Multi_key> <equal> <asciicircum>	: "⇑"	U21D1 # UPWARDS DOUBLE ARROW
 <Multi_key> <equal> <greater>		: "⇒"	U21D2 # RIGHTWARDS DOUBLE ARROW
+<Multi_key> <equal> <v>			: "⇓"	U21D3 # DOWNWARDS DOUBLE ARROW
 
 XCOMM Mathematical Operators
 <Multi_key> <U2203> <U0338>		: "∄"	U2204 # THERE DOES NOT EXIST

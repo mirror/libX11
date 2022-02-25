@@ -1,7 +1,6 @@
-XCOMM 
-XCOMM UTF-8 (Unicode) compose sequence
-XCOMM for Ethiopean layout.
-XCOMM Designed as a part of OLPC project
+XCOMM
+XCOMM UTF-8 (Unicode) compose sequences for the Ethiopian layout.
+XCOMM Designed as part of the OLPC project.
 XCOMM
 XCOMM 2007 Sergey Udaltsov <svu@gnome.org>
 XCOMM
@@ -198,6 +197,7 @@ XCOMM Modifier: /O/
 XCOMM
 XCOMM Group II
 XCOMM
+
 XCOMM Modifier: /u/
 <u> <U1210> : "ሑ" U1211 # key h (base character ሐ)
 <u> <U1220> : "ሡ" U1221 # key s (base character ሠ)
@@ -333,28 +333,9 @@ XCOMM Modifier: /O/
 
 XCOMM
 XCOMM Group III
-XCOMM 
+XCOMM
 <backslash> <quotedbl> : "፥" U1365 # key "
-<backslash> <apostrophe> : "፦" U1366 # key "
+<backslash> <apostrophe> : "፦" U1366 # key '
 <backslash> <minus> : "|" U007C # key -
 <backslash> <underscore> : "¥" U00A5 # key _
 <backslash> <question> : "፧" U1367 # key ?
-
-XCOMM 
-XCOMM Khmer digraphs
-XCOMM 
-
-<U17ff> :   "ាំ"
-<U17fe> :   "ោះ"
-<U17fd> :   "េះ"
-<U17fc> :   "ុំ"
-<U17fb> :   "ុះ"
-
-XCOMM
-XCOMM Arabic Lam-Alef ligatures
-XCOMM
-
-<UFEFB>	:   "لا" # ARABIC LIGATURE LAM WITH ALEF
-<UFEF7>	:   "لأ" # ARABIC LIGATURE LAM WITH ALEF WITH HAMZA ABOVE
-<UFEF9>	:   "لإ" # ARABIC LIGATURE LAM WITH ALEF WITH HAMZA BELOW
-<UFEF5>	:   "لآ" # ARABIC LIGATURE LAM WITH ALEF WITH MADDA ABOVE

@@ -281,6 +281,7 @@ XCOMM Other symbols
 
 <Multi_key> <question> <backslash>	: "☭"	U262D # HAMMER AND SICKLE
 <Multi_key> <backslash> <question>	: "☭"	U262D # HAMMER AND SICKLE
+<Multi_key> <O> <Y>			: "☮"	U262E # PEACE SYMBOL
 <Multi_key> <O> <A>			: "Ⓐ"	U24B6 # CIRCLED LATIN CAPITAL LETTER A
 <Multi_key> <less> <3>			: "♥"	U2665 # BLACK HEART SUIT
 

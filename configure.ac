@@ -148,6 +148,15 @@ if test x$XLIB_LOADABLE_XCURSOR = xyes; then
 fi
 AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
 
+AC_ARG_ENABLE(thread-safety-constructor,
+              AS_HELP_STRING([--disable-thread-safety-constructor]),
+              [Controls mandatory thread safety support],
+              [USE_THREAD_SAFETY_CONSTRUCTOR=$enableval],
+              [USE_THREAD_SAFETY_CONSTRUCTOR="yes"])
+if test "x$USE_THREAD_SAFETY_CONSTRUCTOR" = "xyes"; then
+        AC_DEFINE(USE_THREAD_SAFETY_CONSTRUCTOR,1,[Call XInitThreads() from the library constructor])
+fi
+
 # Checks for header files.
 AC_CHECK_HEADERS([sys/filio.h sys/select.h sys/ioctl.h sys/socket.h])
 

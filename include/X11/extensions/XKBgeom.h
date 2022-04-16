@@ -29,50 +29,6 @@ THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include <X11/extensions/XKBstr.h>
 
-#ifdef XKB_IN_SERVER
-#define XkbAddGeomKeyAlias 		SrvXkbAddGeomKeyAlias
-#define XkbAddGeomColor 		SrvXkbAddGeomColor
-#define XkbAddGeomDoodad		SrvXkbAddGeomDoodad
-#define XkbAddGeomKey			SrvXkbAddGeomKey
-#define XkbAddGeomOutline		SrvXkbAddGeomOutline
-#define XkbAddGeomOverlay		SrvXkbAddGeomOverlay
-#define XkbAddGeomOverlayRow		SrvXkbAddGeomOverlayRow
-#define	XkbAddGeomOverlayKey		SrvXkbAddGeomOverlayKey
-#define XkbAddGeomProperty		SrvXkbAddGeomProperty
-#define XkbAddGeomRow			SrvXkbAddGeomRow
-#define XkbAddGeomSection		SrvXkbAddGeomSection
-#define XkbAddGeomShape			SrvXkbAddGeomShape
-#define XkbAllocGeomKeyAliases		SrvXkbAllocGeomKeyAliases
-#define XkbAllocGeomColors		SrvXkbAllocGeomColors
-#define XkbAllocGeomDoodads		SrvXkbAllocGeomDoodads
-#define XkbAllocGeomKeys		SrvXkbAllocGeomKeys
-#define XkbAllocGeomOutlines		SrvXkbAllocGeomOutlines
-#define XkbAllocGeomPoints		SrvXkbAllocGeomPoints
-#define XkbAllocGeomProps		SrvXkbAllocGeomProps
-#define XkbAllocGeomRows		SrvXkbAllocGeomRows
-#define XkbAllocGeomSectionDoodads	SrvXkbAllocGeomSectionDoodads
-#define XkbAllocGeomSections		SrvXkbAllocGeomSections
-#define	XkbAllocGeomOverlays		SrvXkbAllocGeomOverlays
-#define	XkbAllocGeomOverlayRows		SrvXkbAllocGeomOverlayRows
-#define	XkbAllocGeomOverlayKeys		SrvXkbAllocGeomOverlayKeys
-#define XkbAllocGeomShapes		SrvXkbAllocGeomShapes
-#define XkbAllocGeometry		SrvXkbAllocGeometry
-#define XkbFreeGeomKeyAliases		SrvXkbFreeGeomKeyAliases
-#define XkbFreeGeomColors		SrvXkbFreeGeomColors
-#define XkbFreeGeomDoodads		SrvXkbFreeGeomDoodads
-#define XkbFreeGeomProperties		SrvXkbFreeGeomProperties
-#define	XkbFreeGeomOverlayKeys		SrvXkbFreeGeomOverlayKeys
-#define	XkbFreeGeomOverlayRows		SrvXkbFreeGeomOverlayRows
-#define	XkbFreeGeomOverlays		SrvXkbFreeGeomOverlays
-#define	XkbFreeGeomKeys			SrvXkbFreeGeomKeys
-#define	XkbFreeGeomRows			SrvXkbFreeGeomRows
-#define XkbFreeGeomSections		SrvXkbFreeGeomSections
-#define	XkbFreeGeomPoints		SrvXkbFreeGeomPoints
-#define	XkbFreeGeomOutlines		SrvXkbFreeGeomOutlines
-#define XkbFreeGeomShapes		SrvXkbFreeGeomShapes
-#define XkbFreeGeometry			SrvXkbFreeGeometry
-#endif
-
 typedef	struct _XkbProperty {
 	char	*name;
 	char	*value;

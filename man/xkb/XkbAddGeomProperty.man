@@ -27,8 +27,8 @@ description
 .HP
 .B XkbPropertyPtr XkbAddGeomProperty
 .BI "(\^XkbGeometryPtr " "geom" "\^,"
-.BI "char *" "name" "\^,"
-.BI "char *" "value" "\^);"
+.BI "_Xconst char *" "name" "\^,"
+.BI "_Xconst char *" "value" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

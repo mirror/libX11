@@ -279,21 +279,21 @@ _XFUNCPROTOBEGIN
 extern	XkbPropertyPtr
 XkbAddGeomProperty(
     XkbGeometryPtr	/* geom */,
-    char *		/* name */,
-    char *		/* value */
+    _Xconst char *	/* name */,
+    _Xconst char *	/* value */
 );
 
 extern	XkbKeyAliasPtr
 XkbAddGeomKeyAlias(
     XkbGeometryPtr	/* geom */,
-    char *		/* alias */,
-    char *		/* real */
+    _Xconst char *	/* alias */,
+    _Xconst char *	/* real */
 );
 
 extern	XkbColorPtr
 XkbAddGeomColor(
     XkbGeometryPtr	/* geom */,
-    char *		/* spec */,
+    _Xconst char *	/* spec */,
     unsigned int	/* pixel */
 );
 
@@ -348,8 +348,8 @@ extern XkbOverlayKeyPtr
 XkbAddGeomOverlayKey(
     XkbOverlayPtr	/* overlay */,
     XkbOverlayRowPtr	/* row */,
-    char *		/* over */,
-    char *		/* under */
+    _Xconst char *	/* over */,
+    _Xconst char *	/* under */
 );
 
 extern XkbDoodadPtr
@@ -597,7 +597,7 @@ extern	char *
 XkbFindOverlayForKey(
 	XkbGeometryPtr		/* geom */,
 	XkbSectionPtr		/* wanted */,
-	char *			/* under */
+	_Xconst char *		/* under */
 );
 
 extern	Status

@@ -28,7 +28,7 @@ key that is part of an overlay
 .B char * XkbFindOverlayForKey
 .BI "(\^XkbGeometryPtr " "geom" "\^,"
 .BI "XkbSectionPtr " "section" "\^,"
-.BI "char *" "under" "\^);"
+.BI "_Xconst char *" "under" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

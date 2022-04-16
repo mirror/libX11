@@ -27,8 +27,8 @@ description
 .HP
 .B XkbKeyAliasPtr XkbAddGeomKeyAlias
 .BI "(\^XkbGeometryPtr " "geom" "\^,"
-.BI "char *" "alias" "\^,"
-.BI "char *" "real" "\^);"
+.BI "_Xconst char *" "alias" "\^,"
+.BI "_Xconst char *" "real" "\^);"
 .if n .ti +5n
 .if t .ti +.5i
 .SH ARGUMENTS

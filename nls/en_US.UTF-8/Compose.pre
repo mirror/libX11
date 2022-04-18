@@ -52,8 +52,6 @@ XCOMM Spacing versions of dead accents
 
 XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <plus> <plus>		: "#"	numbersign # NUMBER SIGN
-<Multi_key> <apostrophe> <space>	: "'"	apostrophe # APOSTROPHE
-<Multi_key> <space> <apostrophe>	: "'"	apostrophe # APOSTROPHE
 <Multi_key> <A> <T>			: "@"	at # COMMERCIAL AT
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft # LEFT SQUARE BRACKET
 <Multi_key> <slash> <slash>		: "\\"	backslash # REVERSE SOLIDUS
@@ -61,13 +59,8 @@ XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <less> <slash>		: "\\"	backslash # REVERSE SOLIDUS
 <Multi_key> <parenright> <parenright>	: "]"	bracketright # RIGHT SQUARE BRACKET
 
-<Multi_key> <asciicircum> <space>	: "^"	asciicircum # CIRCUMFLEX ACCENT
-<Multi_key> <space> <asciicircum>	: "^"	asciicircum # CIRCUMFLEX ACCENT
 <Multi_key> <greater> <space>		: "^"	asciicircum # CIRCUMFLEX ACCENT
 <Multi_key> <space> <greater>		: "^"	asciicircum # CIRCUMFLEX ACCENT
-
-<Multi_key> <grave> <space>		: "`"	grave # GRAVE ACCENT
-<Multi_key> <space> <grave>		: "`"	grave # GRAVE ACCENT
 
 <Multi_key> <parenleft> <minus>		: "{"	braceleft # LEFT CURLY BRACKET
 <Multi_key> <minus> <parenleft>		: "{"	braceleft # LEFT CURLY BRACKET
@@ -81,9 +74,6 @@ XCOMM ASCII characters that may be difficult to access on some keyboards.
 
 <Multi_key> <parenright> <minus>	: "}"	braceright # RIGHT CURLY BRACKET
 <Multi_key> <minus> <parenright>	: "}"	braceright # RIGHT CURLY BRACKET
-
-<Multi_key> <asciitilde> <space>	: "~"	asciitilde # TILDE
-<Multi_key> <space> <asciitilde>	: "~"	asciitilde # TILDE
 
 <Multi_key> <L> <T>			: "<"	less # LESS-THAN
 <Multi_key> <l> <t>			: "<"	less # LESS-THAN

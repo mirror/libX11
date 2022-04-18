@@ -2,7 +2,7 @@ XCOMM UTF-8 (Unicode) Compose sequences
 XCOMM
 /* Originally by <David.Monniaux@ens.fr>. */
 
-XCOMM Spacing versions of dead accents
+XCOMM Spacing versions of accents (mostly)
 <dead_tilde> <space>			: "~"	asciitilde # TILDE
 <dead_tilde> <dead_tilde>		: "~"	asciitilde # TILDE
 <Multi_key> <minus> <space>		: "~"	asciitilde # TILDE
@@ -31,7 +31,9 @@ XCOMM Spacing versions of dead accents
 <Multi_key> <parenleft> <space>		: "˘"	breve # BREVE
 <dead_abovedot> <space>			: "˙"	abovedot # DOT ABOVE
 <dead_abovedot> <dead_abovedot>		: "˙"	abovedot # DOT ABOVE
+<Multi_key> <period> <space>		: "˙"	abovedot # DOT ABOVE
 <dead_diaeresis> <dead_diaeresis>	: "¨"	diaeresis # DIAERESIS
+<Multi_key> <quotedbl> <space>		: "¨"	diaeresis # DIAERESIS
 <Multi_key> <quotedbl> <quotedbl>	: "¨"	diaeresis # DIAERESIS
 <dead_diaeresis> <space>		: "\""	quotedbl # QUOTATION MARK
 <dead_doubleacute> <space>		: "˝"	U2dd # DOUBLE ACUTE ACCENT
@@ -47,6 +49,7 @@ XCOMM Spacing versions of dead accents
 <Multi_key> <comma> <comma>		: "¸"	cedilla # CEDILLA
 <dead_ogonek> <space>			: "˛"	ogonek # OGONEK
 <dead_ogonek> <dead_ogonek>		: "˛"	ogonek # OGONEK
+<Multi_key> <semicolon> <space>		: "˛"	ogonek # OGONEK
 <dead_iota> <space>			: "ͺ"	U37a # GREEK YPOGEGRAMMENI
 <dead_iota> <dead_iota>			: "ͺ"	U37a # GREEK YPOGEGRAMMENI
 

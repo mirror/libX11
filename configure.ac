@@ -149,8 +149,8 @@ fi
 AC_MSG_RESULT($XLIB_LOADABLE_XCURSOR)
 
 AC_ARG_ENABLE(thread-safety-constructor,
-              AS_HELP_STRING([--disable-thread-safety-constructor]),
-              [Controls mandatory thread safety support],
+              AS_HELP_STRING([--disable-thread-safety-constructor],
+                             [Controls mandatory thread safety support]),
               [USE_THREAD_SAFETY_CONSTRUCTOR=$enableval],
               [USE_THREAD_SAFETY_CONSTRUCTOR="yes"])
 if test "x$USE_THREAD_SAFETY_CONSTRUCTOR" = "xyes"; then

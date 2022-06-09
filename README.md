@@ -31,6 +31,21 @@ For patch submission instructions, see:
 
   https://www.x.org/wiki/Development/Documentation/SubmittingPatches
 
+## Release 1.8.1
+
+ * Fix --enable-thread-safety-constructor configure option
+
+## Release 1.8
+
+ * Add --enable-thread-safety-constructor configure option (default: enabled)
+   to call XInitThreads() from the library's constructor, thus enabling
+   thread-safety and locking by default.  This may expose bugs in clients
+   which did not follow documented rules for calling libX11 functions.
+ * Fix Ethopian (am_ET.UTF-8) compose sequences.
+ * Remove 8 compose sequences that generated the input symbols.
+ * Add compose seuences for abovedot (\<period\> \<space\>),
+   diaeresis (\<quotedbl\> \<space\>), and ogonek (\<semicolon\> \<space\>).
+
 ## Release 1.7.5
 
  * Avoids a segfault when an invalid name is used for opening a display.

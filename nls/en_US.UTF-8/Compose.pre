@@ -89,17 +89,11 @@ XCOMM Two special spaces
 <Multi_key> <space> <period>		: " "	U2008 # PUNCTUATION SPACE
 
 <Multi_key> <o> <c>			: "©"	copyright # COPYRIGHT SIGN
-<Multi_key> <o> <C>			: "©"	copyright # COPYRIGHT SIGN
-<Multi_key> <O> <c>			: "©"	copyright # COPYRIGHT SIGN
 <Multi_key> <O> <C>			: "©"	copyright # COPYRIGHT SIGN
-<Multi_key> <C> <o>			: "©"	copyright # COPYRIGHT SIGN
 <Multi_key> <C> <O>			: "©"	copyright # COPYRIGHT SIGN
 
 <Multi_key> <o> <r>			: "®"	registered # REGISTERED SIGN
-<Multi_key> <o> <R>			: "®"	registered # REGISTERED SIGN
-<Multi_key> <O> <r>			: "®"	registered # REGISTERED SIGN
 <Multi_key> <O> <R>			: "®"	registered # REGISTERED SIGN
-<Multi_key> <R> <o>			: "®"	registered # REGISTERED SIGN
 <Multi_key> <R> <O>			: "®"	registered # REGISTERED SIGN
 
 <Multi_key> <parenleft> <parenright> <parenright>: "🄯"	U1F12F # COPYLEFT SYMBOL
@@ -255,12 +249,8 @@ XCOMM Other symbols
 
 <Multi_key> <o> <x>			: "¤"	currency # CURRENCY SIGN
 <Multi_key> <x> <o>			: "¤"	currency # CURRENCY SIGN
-<Multi_key> <o> <X>			: "¤"	currency # CURRENCY SIGN
-<Multi_key> <X> <o>			: "¤"	currency # CURRENCY SIGN
 <Multi_key> <O> <X>			: "¤"	currency # CURRENCY SIGN
 <Multi_key> <X> <O>			: "¤"	currency # CURRENCY SIGN
-<Multi_key> <O> <x>			: "¤"	currency # CURRENCY SIGN
-<Multi_key> <x> <O>			: "¤"	currency # CURRENCY SIGN
 
 <Multi_key> <N> <o>			: "№"	numerosign # NUMERO SIGN
 <Multi_key> <N> <O>			: "№"	numerosign # NUMERO SIGN

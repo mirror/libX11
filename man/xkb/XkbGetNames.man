@@ -33,13 +33,13 @@ XkbGetNames \- Obtain symbolic names from the server
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- dpy
+.I dpy
 connection to the X server
 .TP
-.I \- which
+.I which
 mask of names or map components to be updated
 .TP
-.I \- Xkb
+.I Xkb
 keyboard description to be updated
 .SH DESCRIPTION
 .LP

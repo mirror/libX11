@@ -33,13 +33,13 @@ description
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- geom
+.I geom
 geometry to be updated
 .TP
-.I \- spec
+.I spec
 color to be added
 .TP
-.I \- pixel
+.I pixel
 color to be added
 .SH DESCRIPTION
 .LP

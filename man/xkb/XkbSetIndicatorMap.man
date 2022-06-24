@@ -35,13 +35,13 @@ or more indicators
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- dpy
+.I dpy
 connection to the X server
 .TP
-.I \- which
+.I which
 mask of indicators to change
 .TP
-.I \- desc
+.I desc
 keyboard description from which the maps are taken
 .SH DESCRIPTION
 .LP

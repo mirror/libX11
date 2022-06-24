@@ -33,13 +33,13 @@ XkbAddGeomOverlayKey \- Add a key to an existing overlay row
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- overlay
+.I overlay
 overlay to be updated
 .TP
-.I \- row
+.I row
 row in overlay to be updated
 .TP
-.I \- under
+.I under
 primary name of the key to be considered 
 .SH DESCRIPTION
 .LP

@@ -31,10 +31,10 @@ XkbAllocGeomProps \- Allocate geometry properties
 .if t .ti +.5i
 .SH ARGUMENTS
 .TP
-.I \- geom
+.I geom
 _summary_
 .TP
-.I \- num_needed
+.I num_needed
 _summary_
 .SH DESCRIPTION
 .LP

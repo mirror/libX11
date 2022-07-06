@@ -4476,18 +4476,10 @@ XCOMM Letterlike Symbols
 <Multi_key> <Z> <Z>			: "ℤ"	U2124 # DOUBLE-STRUCK CAPITAL Z
 <dead_circumflex> <Multi_key> <S> <M>	: "℠"	U2120 # SERVICE MARK
 <Multi_key> <S> <M>			: "℠"	U2120 # SERVICE MARK
-<dead_circumflex> <Multi_key> <s> <M>	: "℠"	U2120 # SERVICE MARK
-<Multi_key> <s> <M>			: "℠"	U2120 # SERVICE MARK
-<dead_circumflex> <Multi_key> <S> <m>	: "℠"	U2120 # SERVICE MARK
-<Multi_key> <S> <m>			: "℠"	U2120 # SERVICE MARK
 <dead_circumflex> <Multi_key> <s> <m>	: "℠"	U2120 # SERVICE MARK
 <Multi_key> <s> <m>			: "℠"	U2120 # SERVICE MARK
 <dead_circumflex> <Multi_key> <T> <M>	: "™"	U2122 # TRADE MARK SIGN
 <Multi_key> <T> <M>			: "™"	U2122 # TRADE MARK SIGN
-<dead_circumflex> <Multi_key> <t> <M>	: "™"	U2122 # TRADE MARK SIGN
-<Multi_key> <t> <M>			: "™"	U2122 # TRADE MARK SIGN
-<dead_circumflex> <Multi_key> <T> <m>	: "™"	U2122 # TRADE MARK SIGN
-<Multi_key> <T> <m>			: "™"	U2122 # TRADE MARK SIGN
 <dead_circumflex> <Multi_key> <t> <m>	: "™"	U2122 # TRADE MARK SIGN
 <Multi_key> <t> <m>			: "™"	U2122 # TRADE MARK SIGN
 

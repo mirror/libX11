@@ -4469,6 +4469,11 @@ XCOMM Superscripts and Subscripts
 <Multi_key> <underscore> <parenright>		: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
 
 XCOMM Letterlike Symbols
+<Multi_key> <C> <C>			: "ℂ"	U2102 # DOUBLE-STRUCK CAPITAL C
+<Multi_key> <N> <N>			: "ℕ"	U2115 # DOUBLE-STRUCK CAPITAL N
+<Multi_key> <Q> <Q>			: "ℚ"	U211A # DOUBLE-STRUCK CAPITAL Q
+<Multi_key> <R> <R>			: "ℝ"	U211D # DOUBLE-STRUCK CAPITAL R
+<Multi_key> <Z> <Z>			: "ℤ"	U2124 # DOUBLE-STRUCK CAPITAL Z
 <dead_circumflex> <Multi_key> <S> <M>	: "℠"	U2120 # SERVICE MARK
 <Multi_key> <S> <M>			: "℠"	U2120 # SERVICE MARK
 <dead_circumflex> <Multi_key> <s> <M>	: "℠"	U2120 # SERVICE MARK

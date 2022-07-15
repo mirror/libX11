@@ -1417,8 +1417,14 @@ XCOMM Latin Extended-B
 <dead_macron> <y>				: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <macron> <y>			: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <underscore> <y>			: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
-<Multi_key> <e> <e>				: "ə"	U0259 # LATIN SMALL LETTER SCHWA
+/* Four sequences for Samogitian. */
+<Multi_key> <minus> <period> <E>		: "Ė̄"	# LATIN CAPITAL LETTER E WITH DOT ABOVE plus combining macron
+<Multi_key> <underscore> <period> <E>		: "Ė̄"	# LATIN CAPITAL LETTER E WITH DOT ABOVE plus combining macron
+<Multi_key> <minus> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
+<Multi_key> <underscore> <period> <e>		: "ė̄"	# LATIN SMALL LETTER E WITH DOT ABOVE plus combining macron
 
+XCOMM IPA Extensions
+<Multi_key> <e> <e>				: "ə"	U0259 # LATIN SMALL LETTER SCHWA
 <dead_stroke> <i>				: "ɨ"	U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <slash> <i>				: "ɨ"	U0268 # LATIN SMALL LETTER I WITH STROKE
 <Multi_key> <KP_Divide> <i>			: "ɨ"	U0268 # LATIN SMALL LETTER I WITH STROKE

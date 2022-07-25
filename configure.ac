@@ -437,6 +437,7 @@ echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
 echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
 echo " Threading support:                       "$xthreads
 echo " Use Threads safe API:                    "$mtsafeapi
+echo " Use thread safety constructor:           "$USE_THREAD_SAFETY_CONSTRUCTOR
 echo " Threads stubs in libX11:                 "$thrstubs
 echo " XCMS:                                    "$XCMS
 echo " Internationalization support:            "$XLOCALE

@@ -207,6 +207,7 @@ struct _XDisplay
 
 	XIOErrorExitHandler exit_handler;
 	void *exit_handler_data;
+        Bool in_ifevent;
 };
 
 #define XAllocIDs(dpy,ids,n) (*(dpy)->idlist_alloc)(dpy,ids,n)

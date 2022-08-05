@@ -455,6 +455,32 @@ static void _XDisplayLockWait(
 static void _XLockDisplay(
     Display *dpy
     XTHREADS_FILE_LINE_ARGS
+    );
+
+static void _XIfEventLockDisplay(
+    Display *dpy
+    XTHREADS_FILE_LINE_ARGS
+    )
+{
+    /* assert(dpy->in_ifevent); */
+}
+
+static void _XIfEventUnlockDisplay(
+    Display *dpy
+    XTHREADS_FILE_LINE_ARGS
+    )
+{
+    if (dpy->in_ifevent)
+        return;
+
+    dpy->lock_fns->lock_display = _XLockDisplay;
+    dpy->lock_fns->unlock_display = _XUnlockDisplay;
+    UnlockDisplay(dpy);
+}
+
+static void _XLockDisplay(
+    Display *dpy
+    XTHREADS_FILE_LINE_ARGS
     )
 {
 #ifdef XTHREADS
@@ -478,6 +504,10 @@ static void _XLockDisplay(
 #endif
     _XIDHandler(dpy);
     _XSeqSyncFunction(dpy);
+    if (dpy->in_ifevent) {
+        dpy->lock_fns->lock_display = _XIfEventLockDisplay;
+        dpy->lock_fns->unlock_display = _XIfEventUnlockDisplay;
+    }
 }
 
 /*

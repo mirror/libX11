@@ -50,6 +50,7 @@ XPeekIfEvent (
 	unsigned long qe_serial = 0;
 
 	LockDisplay(dpy);
+        dpy->in_ifevent = True;
 	prev = NULL;
 	while (1) {
 	    for (qelt = prev ? prev->next : dpy->head;
@@ -63,6 +64,7 @@ XPeekIfEvent (
 			_XStoreEventCookie(dpy, &copy);
 			*event = copy;
 		    }
+                    dpy->in_ifevent = False;
 		    UnlockDisplay(dpy);
 		    return 0;
 		}

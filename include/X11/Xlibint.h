@@ -581,11 +581,11 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 #define MakeBigReq(req,n) \
     { \
     CARD64 _BRdat; \
-    CARD32 _BRlen = req->length - 1; \
+    CARD32 _BRlen = (CARD32) (req->length - 1); \
     req->length = 0; \
     _BRdat = ((CARD32 *)req)[_BRlen]; \
     memmove(((char *)req) + 8, ((char *)req) + 4, (_BRlen - 1) << 2); \
-    ((CARD32 *)req)[1] = _BRlen + n + 2; \
+    ((CARD32 *)req)[1] = _BRlen + (CARD32) (n) + 2; \
     Data32(dpy, &_BRdat, 4); \
     }
 #else
@@ -596,7 +596,7 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
     req->length = 0; \
     _BRdat = ((CARD32 *)req)[_BRlen]; \
     memmove(((char *)req) + 8, ((char *)req) + 4, (_BRlen - 1) << 2); \
-    ((CARD32 *)req)[1] = _BRlen + n + 2; \
+    ((CARD32 *)req)[1] = _BRlen + (CARD32) (n) + 2; \
     Data32(dpy, &_BRdat, 4); \
     }
 #endif
@@ -615,10 +615,10 @@ extern void *_XGetRequest(Display *dpy, CARD8 type, size_t len);
 	    MakeBigReq(req,n) \
 	} else { \
 	    n = badlen; \
-	    req->length += n; \
+	    req->length = (CARD16) (req->length + n); \
 	} \
     } else \
-	req->length += n
+	req->length = (CARD16) (req->length + n)
 #else
 #define SetReqLen(req,n,badlen) \
     req->length += n

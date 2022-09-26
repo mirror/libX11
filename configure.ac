@@ -222,9 +222,6 @@ xyes)
 	;;
 esac
 
-AC_CHECK_LIB(c, pthread_self, [thrstubs="no"], [thrstubs="yes"])
-AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
-
 # XXX incomplete, please fill this in
 if test x$xthreads = xyes ; then
     case $host_os in
@@ -244,6 +241,14 @@ if test x$xthreads = xyes ; then
 fi
 AC_SUBST(XTHREADLIB)
 AC_SUBST(XTHREAD_CFLAGS)
+
+if test "x$USE_THREAD_SAFETY_CONSTRUCTOR" = "xyes"; then
+   USE_THREAD_LIBS="$XTHREADLIB"
+fi
+AC_SUBST(USE_THREAD_LIBS)
+
+AC_CHECK_LIB(c, pthread_self, [thrstubs="no"], [thrstubs="yes"], [$USE_THREAD_LIBS])
+AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
 
 AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 

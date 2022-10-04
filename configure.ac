@@ -243,12 +243,15 @@ AC_SUBST(XTHREADLIB)
 AC_SUBST(XTHREAD_CFLAGS)
 
 if test "x$USE_THREAD_SAFETY_CONSTRUCTOR" = "xyes"; then
-   USE_THREAD_LIBS="$XTHREADLIB"
+    USE_THREAD_LIBS="$XTHREADLIB"
+else
+    # This should be kept in sync with libxcb
+    case $host_os in
+    linux*|darwin*|solaris*) ;;
+         *) X11_REQUIRES="$X11_REQUIRES pthread-stubs" ;;
+    esac
 fi
 AC_SUBST(USE_THREAD_LIBS)
-
-AC_CHECK_LIB(c, pthread_self, [thrstubs="no"], [thrstubs="yes"], [$USE_THREAD_LIBS])
-AM_CONDITIONAL(THRSTUBS, test x$thrstubs = xyes)
 
 AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 
@@ -443,7 +446,6 @@ echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
 echo " Threading support:                       "$xthreads
 echo " Use Threads safe API:                    "$mtsafeapi
 echo " Use thread safety constructor:           "$USE_THREAD_SAFETY_CONSTRUCTOR
-echo " Threads stubs in libX11:                 "$thrstubs
 echo " XCMS:                                    "$XCMS
 echo " Internationalization support:            "$XLOCALE
 echo " XF86BigFont support:                     "$XF86BIGFONT

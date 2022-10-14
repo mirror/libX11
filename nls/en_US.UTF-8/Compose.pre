@@ -706,20 +706,18 @@ XCOMM Latin Extended-A
 <dead_breve> <G>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <U> <G>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <u> <G>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
-<Multi_key> <G> <U>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
-<Multi_key> <G> <u>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <b> <G>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <breve> <G>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <G> <breve>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
+<Multi_key> <G> <U>			: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <Multi_key> <G> <parenleft>		: "Ğ"	U011E # LATIN CAPITAL LETTER G WITH BREVE
 <dead_breve> <g>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <U> <g>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <u> <g>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
-<Multi_key> <g> <U>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
-<Multi_key> <g> <u>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <b> <g>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <breve> <g>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <g> <breve>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
+<Multi_key> <g> <U>			: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <Multi_key> <g> <parenleft>		: "ğ"	U011F # LATIN SMALL LETTER G WITH BREVE
 <dead_abovedot> <G>			: "Ġ"	U0120 # LATIN CAPITAL LETTER G WITH DOT ABOVE
 <Multi_key> <period> <G>		: "Ġ"	U0120 # LATIN CAPITAL LETTER G WITH DOT ABOVE

@@ -22,7 +22,8 @@ XCOMM Spacing versions of accents (mostly)
 <dead_macron> <space>			: "¯"	macron # MACRON
 <dead_macron> <dead_macron>		: "¯"	macron # MACRON
 <Multi_key> <minus> <asciicircum>	: "¯"	macron # MACRON
-<Multi_key> <asciicircum> <minus>	: "¯"	macron # MACRON
+<Multi_key> <underscore> <space>	: "¯"	macron # MACRON
+<Multi_key> <space> <underscore>	: "¯"	macron # MACRON
 <Multi_key> <underscore> <underscore>	: "¯"	macron # MACRON
 <Multi_key> <underscore> <asciicircum>	: "¯"	macron # MACRON
 <dead_breve> <space>			: "˘"	breve # BREVE
@@ -4432,6 +4433,7 @@ XCOMM Superscripts and Subscripts
 <dead_circumflex> <KP_Add>			: "⁺"	U207A # SUPERSCRIPT PLUS SIGN
 <Multi_key> <asciicircum> <KP_Add>		: "⁺"	U207A # SUPERSCRIPT PLUS SIGN
 <dead_circumflex> <minus>			: "⁻"	U207B # SUPERSCRIPT MINUS
+<Multi_key> <asciicircum> <minus>		: "⁻"	U207B # SUPERSCRIPT MINUS
 <dead_circumflex> <U2212>			: "⁻"	U207B # SUPERSCRIPT MINUS
 <Multi_key> <asciicircum> <U2212>		: "⁻"	U207B # SUPERSCRIPT MINUS
 <dead_circumflex> <equal>			: "⁼"	U207C # SUPERSCRIPT EQUALS SIGN
@@ -4466,6 +4468,7 @@ XCOMM Superscripts and Subscripts
 <Multi_key> <underscore> <KP_9>			: "₉"	U2089 # SUBSCRIPT NINE
 <Multi_key> <underscore> <plus>			: "₊"	U208A # SUBSCRIPT PLUS SIGN
 <Multi_key> <underscore> <KP_Add>		: "₊"	U208A # SUBSCRIPT PLUS SIGN
+<Multi_key> <underscore> <minus>		: "₋"	U208B # SUBSCRIPT MINUS
 <Multi_key> <underscore> <U2212>		: "₋"	U208B # SUBSCRIPT MINUS
 <Multi_key> <underscore> <equal>		: "₌"	U208C # SUBSCRIPT EQUALS SIGN
 <Multi_key> <underscore> <KP_Equal>		: "₌"	U208C # SUBSCRIPT EQUALS SIGN

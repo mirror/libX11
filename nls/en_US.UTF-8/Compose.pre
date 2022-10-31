@@ -4549,9 +4549,7 @@ XCOMM Mathematical Operators
 <Multi_key> <greater> <equal>		: "≥"	U2265 # GREATER-THAN OR EQUAL TO
 <Multi_key> <U224D> <U0338>		: "≭"	U226D # NOT EQUIVALENT TO
 <Multi_key> <less> <U0338>		: "≮"	U226E # NOT LESS-THAN
-<Multi_key> <leftcaret> <U0338>		: "≮"	U226E # NOT LESS-THAN
 <Multi_key> <greater> <U0338>		: "≯"	U226F # NOT GREATER-THAN
-<Multi_key> <rightcaret> <U0338>	: "≯"	U226F # NOT GREATER-THAN
 <Multi_key> <lessthanequal> <U0338>	: "≰"	U2270 # NEITHER LESS-THAN NOR EQUAL TO
 <Multi_key> <greaterthanequal> <U0338>	: "≱"	U2271 # NEITHER GREATER-THAN NOR EQUAL TO
 <Multi_key> <U2272> <U0338>		: "≴"	U2274 # NEITHER LESS-THAN NOR EQUIVALENT TO

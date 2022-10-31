@@ -14,6 +14,8 @@ XCOMM Spacing versions of accents (mostly)
 <dead_grave> <dead_grave>		: "`"	grave # GRAVE ACCENT
 <dead_circumflex> <space>		: "^"	asciicircum # CIRCUMFLEX ACCENT
 <dead_circumflex> <dead_circumflex>	: "^"	asciicircum # CIRCUMFLEX ACCENT
+<Multi_key> <greater> <space>		: "^"	asciicircum # CIRCUMFLEX ACCENT
+<Multi_key> <space> <greater>		: "^"	asciicircum # CIRCUMFLEX ACCENT
 <dead_abovering> <space>		: "°"	degree # DEGREE SIGN
 <dead_abovering> <dead_abovering>	: "°"	degree # DEGREE SIGN
 <Multi_key> <o> <o>			: "°"	degree # DEGREE SIGN
@@ -28,8 +30,8 @@ XCOMM Spacing versions of accents (mostly)
 <Multi_key> <underscore> <asciicircum>	: "¯"	macron # MACRON
 <dead_breve> <space>			: "˘"	breve # BREVE
 <dead_breve> <dead_breve>		: "˘"	breve # BREVE
-<Multi_key> <space> <parenleft>		: "˘"	breve # BREVE
 <Multi_key> <parenleft> <space>		: "˘"	breve # BREVE
+<Multi_key> <space> <parenleft>		: "˘"	breve # BREVE
 <dead_abovedot> <space>			: "˙"	abovedot # DOT ABOVE
 <dead_abovedot> <dead_abovedot>		: "˙"	abovedot # DOT ABOVE
 <Multi_key> <period> <space>		: "˙"	abovedot # DOT ABOVE
@@ -41,8 +43,8 @@ XCOMM Spacing versions of accents (mostly)
 <dead_doubleacute> <dead_doubleacute>	: "˝"	U2dd # DOUBLE ACUTE ACCENT
 <dead_caron> <space>			: "ˇ"	caron # CARON
 <dead_caron> <dead_caron>		: "ˇ"	caron # CARON
-<Multi_key> <space> <less>		: "ˇ"	caron # CARON
 <Multi_key> <less> <space>		: "ˇ"	caron # CARON
+<Multi_key> <space> <less>		: "ˇ"	caron # CARON
 <dead_cedilla> <space>			: "¸"	cedilla # CEDILLA
 <dead_cedilla> <dead_cedilla>		: "¸"	cedilla # CEDILLA
 <Multi_key> <comma> <space>		: "¸"	cedilla # CEDILLA
@@ -57,17 +59,18 @@ XCOMM Spacing versions of accents (mostly)
 XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <plus> <plus>		: "#"	numbersign # NUMBER SIGN
 <Multi_key> <A> <T>			: "@"	at # COMMERCIAL AT
+
 <Multi_key> <parenleft> <parenleft>	: "["	bracketleft # LEFT SQUARE BRACKET
+<Multi_key> <parenright> <parenright>	: "]"	bracketright # RIGHT SQUARE BRACKET
+
 <Multi_key> <slash> <slash>		: "\\"	backslash # REVERSE SOLIDUS
 <Multi_key> <slash> <less>		: "\\"	backslash # REVERSE SOLIDUS
 <Multi_key> <less> <slash>		: "\\"	backslash # REVERSE SOLIDUS
-<Multi_key> <parenright> <parenright>	: "]"	bracketright # RIGHT SQUARE BRACKET
-
-<Multi_key> <greater> <space>		: "^"	asciicircum # CIRCUMFLEX ACCENT
-<Multi_key> <space> <greater>		: "^"	asciicircum # CIRCUMFLEX ACCENT
 
 <Multi_key> <parenleft> <minus>		: "{"	braceleft # LEFT CURLY BRACKET
 <Multi_key> <minus> <parenleft>		: "{"	braceleft # LEFT CURLY BRACKET
+<Multi_key> <parenright> <minus>	: "}"	braceright # RIGHT CURLY BRACKET
+<Multi_key> <minus> <parenright>	: "}"	braceright # RIGHT CURLY BRACKET
 
 <Multi_key> <slash> <asciicircum>	: "|"	bar # VERTICAL LINE
 <Multi_key> <asciicircum> <slash>	: "|"	bar # VERTICAL LINE
@@ -75,9 +78,6 @@ XCOMM ASCII characters that may be difficult to access on some keyboards.
 <Multi_key> <L> <V>			: "|"	bar # VERTICAL LINE
 <Multi_key> <v> <l>			: "|"	bar # VERTICAL LINE
 <Multi_key> <l> <v>			: "|"	bar # VERTICAL LINE
-
-<Multi_key> <parenright> <minus>	: "}"	braceright # RIGHT CURLY BRACKET
-<Multi_key> <minus> <parenright>	: "}"	braceright # RIGHT CURLY BRACKET
 
 <Multi_key> <L> <T>			: "<"	less # LESS-THAN
 <Multi_key> <l> <t>			: "<"	less # LESS-THAN
@@ -295,6 +295,11 @@ XCOMM Latin-1 Supplement
 <Multi_key> <asciicircum> <underscore> <a>	: "ª"	ordfeminine # FEMININE ORDINAL INDICATOR
 <dead_circumflex> <Multi_key> <underscore> <o>	: "º"	masculine # MASCULINE ORDINAL INDICATOR
 <Multi_key> <asciicircum> <underscore> <o>	: "º"	masculine # MASCULINE ORDINAL INDICATOR
+<dead_circumflex> <1>			: "¹"	onesuperior # SUPERSCRIPT ONE
+<Multi_key> <asciicircum> <1>		: "¹"	onesuperior # SUPERSCRIPT ONE
+<Multi_key> <1> <asciicircum>		: "¹"	onesuperior # SUPERSCRIPT ONE
+<dead_circumflex> <KP_1>		: "¹"	onesuperior # SUPERSCRIPT ONE
+<Multi_key> <asciicircum> <KP_1>	: "¹"	onesuperior # SUPERSCRIPT ONE
 <dead_circumflex> <2>			: "²"	twosuperior # SUPERSCRIPT TWO
 <Multi_key> <asciicircum> <2>		: "²"	twosuperior # SUPERSCRIPT TWO
 <Multi_key> <2> <asciicircum>		: "²"	twosuperior # SUPERSCRIPT TWO
@@ -308,11 +313,6 @@ XCOMM Latin-1 Supplement
 <Multi_key> <m> <u>			: "µ"	mu # MICRO SIGN
 <Multi_key> <slash> <u>			: "µ"	mu # MICRO SIGN
 <Multi_key> <u> <slash>			: "µ"	mu # MICRO SIGN
-<dead_circumflex> <1>			: "¹"	onesuperior # SUPERSCRIPT ONE
-<Multi_key> <asciicircum> <1>		: "¹"	onesuperior # SUPERSCRIPT ONE
-<Multi_key> <1> <asciicircum>		: "¹"	onesuperior # SUPERSCRIPT ONE
-<dead_circumflex> <KP_1>		: "¹"	onesuperior # SUPERSCRIPT ONE
-<Multi_key> <asciicircum> <KP_1>	: "¹"	onesuperior # SUPERSCRIPT ONE
 <Multi_key> <1> <4>			: "¼"	onequarter # VULGAR FRACTION ONE QUARTER
 <Multi_key> <1> <2>			: "½"	onehalf # VULGAR FRACTION ONE HALF
 <Multi_key> <3> <4>			: "¾"	threequarters # VULGAR FRACTION THREE QUARTERS

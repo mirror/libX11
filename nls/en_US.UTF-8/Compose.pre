@@ -4533,6 +4533,7 @@ XCOMM Mathematical Operators
 <Multi_key> <braceleft> <braceright>	: "∅"	U2205 # EMPTY SET
 <Multi_key> <U2208> <U0338>		: "∉"	U2209 # NOT AN ELEMENT OF
 <Multi_key> <U220B> <U0338>		: "∌"	U220C # DOES NOT CONTAIN AS MEMBER
+<Multi_key> <minus> <underscore>	: "−"	U2212 # MINUS SIGN
 <Multi_key> <U2223> <U0338>		: "∤"	U2224 # DOES NOT DIVIDE
 <Multi_key> <U2225> <U0338>		: "∦"	U2226 # NOT PARALLEL TO
 <Multi_key> <U223C> <U0338>		: "≁"	U2241 # NOT TILDE

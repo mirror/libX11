@@ -1428,6 +1428,9 @@ XCOMM Latin Extended-B
 <dead_macron> <y>				: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <macron> <y>			: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
 <Multi_key> <underscore> <y>			: "ȳ"	U0233 # LATIN SMALL LETTER Y WITH MACRON
+<dead_stroke> <B>				: "Ƀ"	U0243 # LATIN CAPITAL LETTER B WITH STROKE
+<Multi_key> <slash> <B>				: "Ƀ"	U0243 # LATIN CAPITAL LETTER B WITH STROKE
+<Multi_key> <KP_Divide> <B>			: "Ƀ"	U0243 # LATIN CAPITAL LETTER B WITH STROKE
 /* Four sequences for Samogitian. */
 <Multi_key> <minus> <period> <E>		: "Ė̄"	# LATIN CAPITAL LETTER E WITH DOT ABOVE plus combining macron
 <Multi_key> <underscore> <period> <E>		: "Ė̄"	# LATIN CAPITAL LETTER E WITH DOT ABOVE plus combining macron
@@ -5287,7 +5290,6 @@ XCOMM French-Dvorak Bépo compositions
 <dead_stroke> <equal>			: "≠"	notequal # NOT EQUAL TO
 <dead_stroke> <A>			: "Ⱥ"	U023A # LATIN CAPITAL LETTER A WITH STROKE
 <dead_stroke> <a>			: "ⱥ"	U2C65 # LATIN SMALL LETTER A WITH STROKE
-<dead_stroke> <B>			: "Ƀ"	U0243 # LATIN CAPITAL LETTER B WITH STROKE
 <dead_stroke> <C>			: "Ȼ"	U023B # LATIN CAPITAL LETTER C WITH STROKE
 <dead_stroke> <c>			: "ȼ"	U023C # LATIN SMALL LETTER C WITH STROKE
 <dead_stroke> <E>			: "Ɇ"	U0246 # LATIN CAPITAL LETTER E WITH STROKE

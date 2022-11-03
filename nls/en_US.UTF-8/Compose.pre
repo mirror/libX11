@@ -5225,13 +5225,11 @@ XCOMM French-Dvorak Bépo compositions
 <dead_hook> <c>				: "ƈ"	U0188 # LATIN SMALL LETTER C WITH HOOK
 <dead_hook> <D>				: "Ɗ"	U018A # LATIN CAPITAL LETTER D WITH HOOK
 <dead_hook> <d>				: "ɗ"	U0257 # LATIN SMALL LETTER D WITH HOOK
-<dead_hook> <U0256>			: "ᶑ"	U1D91 # LATIN SMALL LETTER D WITH HOOK AND TAIL
 <dead_hook> <F>				: "Ƒ"	U0191 # LATIN CAPITAL LETTER F WITH HOOK
 <dead_hook> <f>				: "ƒ"	function # LATIN SMALL LETTER F WITH HOOK
 <dead_hook> <G>				: "Ɠ"	U0193 # LATIN CAPITAL LETTER G WITH HOOK
 <dead_hook> <g>				: "ɠ"	U0260 # LATIN SMALL LETTER G WITH HOOK
 <dead_hook> <h>				: "ɦ"	U0266 # LATIN SMALL LETTER H WITH HOOK
-<dead_hook> <U025F>			: "ʄ"	U0284 # LATIN SMALL LETTER DOTLESS J WITH STROKE AND HOOK
 <dead_hook> <K>				: "Ƙ"	U0198 # LATIN CAPITAL LETTER K WITH HOOK
 <dead_hook> <k>				: "ƙ"	U0199 # LATIN SMALL LETTER K WITH HOOK
 <dead_hook> <M>				: "Ɱ"	U2C6E # LATIN CAPITAL LETTER M WITH HOOK
@@ -5241,13 +5239,11 @@ XCOMM French-Dvorak Bépo compositions
 <dead_hook> <P>				: "Ƥ"	U01A4 # LATIN CAPITAL LETTER P WITH HOOK
 <dead_hook> <p>				: "ƥ"	U01A5 # LATIN SMALL LETTER P WITH HOOK
 <dead_hook> <q>				: "ʠ"	U02A0 # LATIN SMALL LETTER Q WITH HOOK
-<dead_hook> <U025C>			: "ɝ"	U025D # LATIN SMALL LETTER REVERSED OPEN E WITH HOOK
 <dead_hook> <r>				: "ɼ"	U027C # LATIN SMALL LETTER R WITH LONG LEG
 <dead_hook> <s>				: "ʂ"	U0282 # LATIN SMALL LETTER S WITH HOOK
 <dead_hook> <schwa>			: "ɚ"	U025A # LATIN SMALL LETTER SCHWA WITH HOOK
 <dead_hook> <T>				: "Ƭ"	U01AC # LATIN CAPITAL LETTER T WITH HOOK
 <dead_hook> <t>				: "ƭ"	U01AD # LATIN SMALL LETTER T WITH HOOK
-<dead_hook> <U0279>			: "ɻ"	U027B # LATIN SMALL LETTER TURNED R WITH HOOK
 <dead_hook> <V>				: "Ʋ"	U01B2 # LATIN CAPITAL LETTER V WITH HOOK
 <dead_hook> <v>				: "ʋ"	U028B # LATIN SMALL LETTER V WITH HOOK
 <dead_hook> <W>				: "Ⱳ"	U2C72 # LATIN CAPITAL LETTER W WITH HOOK
@@ -5258,25 +5254,17 @@ XCOMM French-Dvorak Bépo compositions
 <dead_hook> <nobreakspace>		: "̉"	U0309 # COMBINING HOOK ABOVE
 <dead_hook> <space>			: "̉"	U0309 # COMBINING HOOK ABOVE
 <dead_horn> <Oacute>			: "Ớ"	Ohornacute # LATIN CAPITAL LETTER O WITH HORN AND ACUTE
-<dead_horn> <Obelowdot>			: "Ợ"	Ohornbelowdot # LATIN CAPITAL LETTER O WITH HORN AND DOT BELOW
 <dead_horn> <Ograve>			: "Ờ"	Ohorngrave # LATIN CAPITAL LETTER O WITH HORN AND GRAVE
 <dead_horn> <Ohook>			: "Ở"	Ohornhook # LATIN CAPITAL LETTER O WITH HORN AND HOOK ABOVE
-<dead_horn> <Otilde>			: "Ỡ"	Ohorntilde # LATIN CAPITAL LETTER O WITH HORN AND TILDE
 <dead_horn> <oacute>			: "ớ"	ohornacute # LATIN SMALL LETTER O WITH HORN AND ACUTE
-<dead_horn> <obelowdot>			: "ợ"	ohornbelowdot # LATIN SMALL LETTER O WITH HORN AND DOT BELOW
 <dead_horn> <ograve>			: "ờ"	ohorngrave # LATIN SMALL LETTER O WITH HORN AND GRAVE
 <dead_horn> <ohook>			: "ở"	ohornhook # LATIN SMALL LETTER O WITH HORN AND HOOK ABOVE
-<dead_horn> <otilde>			: "ỡ"	ohorntilde # LATIN SMALL LETTER O WITH HORN AND TILDE
 <dead_horn> <Uacute>			: "Ứ"	Uhornacute # LATIN CAPITAL LETTER U WITH HORN AND ACUTE
-<dead_horn> <Ubelowdot>			: "Ự"	Uhornbelowdot # LATIN CAPITAL LETTER U WITH HORN AND DOT BELOW
 <dead_horn> <Ugrave>			: "Ừ"	Uhorngrave # LATIN CAPITAL LETTER U WITH HORN AND GRAVE
 <dead_horn> <Uhook>			: "Ử"	Uhornhook # LATIN CAPITAL LETTER U WITH HORN AND HOOK ABOVE
-<dead_horn> <Utilde>			: "Ữ"	Uhorntilde # LATIN CAPITAL LETTER U WITH HORN AND TILDE
 <dead_horn> <uacute>			: "ứ"	uhornacute # LATIN SMALL LETTER U WITH HORN AND ACUTE
-<dead_horn> <ubelowdot>			: "ự"	uhornbelowdot # LATIN SMALL LETTER U WITH HORN AND DOT BELOW
 <dead_horn> <ugrave>			: "ừ"	uhorngrave # LATIN SMALL LETTER U WITH HORN AND GRAVE
 <dead_horn> <uhook>			: "ử"	uhornhook # LATIN SMALL LETTER U WITH HORN AND HOOK ABOVE
-<dead_horn> <utilde>			: "ữ"	uhorntilde # LATIN SMALL LETTER U WITH HORN AND TILDE
 <dead_horn> <dead_horn>			: "̛"	U031B # COMBINING HORN
 <dead_horn> <nobreakspace>		: "̛"	U031B # COMBINING HORN
 <dead_horn> <space>			: "̛"	U031B # COMBINING HORN

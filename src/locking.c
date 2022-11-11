@@ -673,8 +673,31 @@ Status XInitThreads(void)
     return 1;
 }
 
+Status XFreeThreads(void)
+{
+    if (global_lock.lock != NULL) {
+	xmutex_free(global_lock.lock);
+	global_lock.lock = NULL;
+    }
+    if (i18n_lock.lock != NULL) {
+	xmutex_free(i18n_lock.lock);
+	i18n_lock.lock = NULL;
+    }
+    if (conv_lock.lock != NULL) {
+	xmutex_free(conv_lock.lock);
+	conv_lock.lock = NULL;
+    }
+
+    return 1;
+}
+
 #else /* XTHREADS */
 Status XInitThreads(void)
+{
+    return 0;
+}
+
+Status XFreeThreads(void)
 {
     return 0;
 }

@@ -189,7 +189,7 @@ XOpenDisplay (
 	dpy->xcmisc_opcode	= 0;
 	dpy->xkb_info		= NULL;
 	dpy->exit_handler_data	= NULL;
-        dpy->in_ifevent         = 0;
+	dpy->in_ifevent         = 0;
 
 /*
  * Setup other information in this display structure.

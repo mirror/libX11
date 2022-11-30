@@ -486,12 +486,12 @@ static void _XIfEventUnlockDisplay(
     )
 {
     if (dpy->in_ifevent == 0) {
-        dpy->lock_fns->lock_display = _XLockDisplay;
-        dpy->lock_fns->unlock_display = _XUnlockDisplay;
-        dpy->lock->internal_lock_display = _XInternalLockDisplay;
-        UnlockDisplay(dpy);
+	dpy->lock_fns->lock_display = _XLockDisplay;
+	dpy->lock_fns->unlock_display = _XUnlockDisplay;
+	dpy->lock->internal_lock_display = _XInternalLockDisplay;
+	UnlockDisplay(dpy);
     } else
-        return;
+	return;
 }
 
 static void _XLockDisplay(
@@ -521,9 +521,9 @@ static void _XLockDisplay(
     _XIDHandler(dpy);
     _XSeqSyncFunction(dpy);
     if (dpy->in_ifevent) {
-        dpy->lock_fns->lock_display = _XIfEventLockDisplay;
-        dpy->lock_fns->unlock_display = _XIfEventUnlockDisplay;
-        dpy->lock->internal_lock_display = _XIfEventInternalLockDisplay;
+	dpy->lock_fns->lock_display = _XIfEventLockDisplay;
+	dpy->lock_fns->unlock_display = _XIfEventUnlockDisplay;
+	dpy->lock->internal_lock_display = _XIfEventInternalLockDisplay;
     }
 }
 

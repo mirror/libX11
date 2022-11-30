@@ -48,8 +48,8 @@ XIfEvent (
 	register _XQEvent *qelt, *prev;
 	unsigned long qe_serial = 0;
 
-        dpy->in_ifevent++;
-        LockDisplay(dpy);
+	dpy->in_ifevent++;
+	LockDisplay(dpy);
 	prev = NULL;
 	while (1) {
 	    for (qelt = prev ? prev->next : dpy->head;
@@ -60,7 +60,7 @@ XIfEvent (
 		    *event = qelt->event;
 		    _XDeq(dpy, prev, qelt);
 		    _XStoreEventCookie(dpy, event);
-                    dpy->in_ifevent--;
+		    dpy->in_ifevent--;
 		    UnlockDisplay(dpy);
 		    return 0;
 		}

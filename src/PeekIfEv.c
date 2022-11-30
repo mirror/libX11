@@ -49,7 +49,7 @@ XPeekIfEvent (
 	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;
 
-        dpy->in_ifevent++;
+	dpy->in_ifevent++;
 	LockDisplay(dpy);
 	prev = NULL;
 	while (1) {
@@ -64,7 +64,7 @@ XPeekIfEvent (
 			_XStoreEventCookie(dpy, &copy);
 			*event = copy;
 		    }
-                    dpy->in_ifevent--;
+		    dpy->in_ifevent--;
 		    UnlockDisplay(dpy);
 		    return 0;
 		}

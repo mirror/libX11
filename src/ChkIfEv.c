@@ -49,8 +49,8 @@ Bool XCheckIfEvent (
 	unsigned long qe_serial = 0;
 	int n;			/* time through count */
 
-        dpy->in_ifevent++;
-        LockDisplay(dpy);
+	dpy->in_ifevent++;
+	LockDisplay(dpy);
 	prev = NULL;
 	for (n = 3; --n >= 0;) {
 	    for (qelt = prev ? prev->next : dpy->head;
@@ -80,7 +80,7 @@ Bool XCheckIfEvent (
 		/* another thread has snatched this event */
 		prev = NULL;
 	}
-        dpy->in_ifevent--;
+	dpy->in_ifevent--;
 	UnlockDisplay(dpy);
 	return False;
 }

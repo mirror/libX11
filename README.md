@@ -31,6 +31,15 @@ For patch submission instructions, see:
 
   https://www.x.org/wiki/Development/Documentation/SubmittingPatches
 
+## Release 1.8.3
+
+ * Improved handling of reentering libX11 via X*IfEvent() calls (!171, !173)
+ * Fix loading of en_US.UTF-8/XLC_LOCALE (#167, !174)
+ * Add XFreeThreads() and automatic call from a destructor function when
+   thread-safety-constructor is enabled (!167).
+ * Address issues found by UBSan and AddressSanitizer
+ * Fix build with older gcc versions (!169)
+
 ## Release 1.8.2
 
  * Allow X*IfEvent() to reenter libX11 to avoid deadlock from unsafe

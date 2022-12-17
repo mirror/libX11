@@ -49,8 +49,11 @@ XPeekIfEvent (
 	register _XQEvent *prev, *qelt;
 	unsigned long qe_serial = 0;
 
-	dpy->in_ifevent++;
 	LockDisplay(dpy);
+#ifdef XTHREADS
+	dpy->ifevent_thread = xthread_self();
+#endif
+	dpy->in_ifevent++;
 	prev = NULL;
 	while (1) {
 	    for (qelt = prev ? prev->next : dpy->head;

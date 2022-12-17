@@ -49,8 +49,11 @@ Bool XCheckIfEvent (
 	unsigned long qe_serial = 0;
 	int n;			/* time through count */
 
-	dpy->in_ifevent++;
 	LockDisplay(dpy);
+#ifdef XTHREADS
+	dpy->ifevent_thread = xthread_self();
+#endif
+	dpy->in_ifevent++;
 	prev = NULL;
 	for (n = 3; --n >= 0;) {
 	    for (qelt = prev ? prev->next : dpy->head;

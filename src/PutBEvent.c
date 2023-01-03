@@ -79,22 +79,9 @@ XPutBackEvent (
     register XEvent *event)
 	{
 	int ret;
-	xEvent wire = {0};
-	XEvent lib = {0};
-	Status (*fp)(Display *, XEvent *, xEvent *);
-	int type = event->type & 0177;
 
 	LockDisplay(dpy);
-	fp = dpy->wire_vec[type];
-	if (fp == NULL)
-		fp = _XEventToWire;
-	ret = (*fp)(dpy, event, &wire);
-	if (ret)
-	{
-		ret = (*dpy->event_vec[type])(dpy, &lib, &wire);
-		if (ret)
-			ret = _XPutBackEvent(dpy, &lib);
-	}
+	ret = _XPutBackEvent(dpy, event);
 	UnlockDisplay(dpy);
 	return ret;
 	}

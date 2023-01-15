@@ -440,7 +440,7 @@ AC_CONFIG_FILES([Makefile
 AC_OUTPUT
 
 echo ""
-echo "X11 will be built with the following settings:"
+echo "$PACKAGE_STRING will be built with the following settings:"
 echo " Loadable i18n module support:            "$XLIB_LOADABLE_I18N
 echo " Loadable xcursor library support:        "$XLIB_LOADABLE_XCURSOR
 echo " Threading support:                       "$xthreads

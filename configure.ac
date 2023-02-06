@@ -260,7 +260,7 @@ AC_CHECK_FUNC(poll, [AC_DEFINE(USE_POLL, 1, [poll() function is available])], )
 #
 AC_MSG_CHECKING([keysym definitions])
 AC_ARG_WITH([keysymdefdir],
-        [AC_HELP_STRING([--with-keysymdefdir=DIR], [The location of keysymdef.h (defaults to xproto include dir)])],
+        [AS_HELP_STRING([--with-keysymdefdir=DIR], [The location of keysymdef.h (defaults to xproto include dir)])],
         [KEYSYMDEFDIR=$withval],
         [KEYSYMDEFDIR=`$PKG_CONFIG --variable=includedir xproto`/X11])
 

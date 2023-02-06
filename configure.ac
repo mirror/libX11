@@ -1,6 +1,6 @@
 
 # Initialize Autoconf
-AC_PREREQ([2.60])
+AC_PREREQ([2.70])
 AC_INIT([libX11], [1.8.4],
         [https://gitlab.freedesktop.org/xorg/lib/libx11/-/issues], [libX11])
 AC_CONFIG_SRCDIR([Makefile.am])

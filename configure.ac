@@ -9,7 +9,7 @@ AC_CONFIG_MACRO_DIR([m4])
 AC_CANONICAL_BUILD
 AC_CANONICAL_HOST
 # Set common system defines for POSIX extensions, such as _GNU_SOURCE
-# Must be called before any macros that run the compiler (like AC_PROG_LIBTOOL)
+# Must be called before any macros that run the compiler (like LT_INIT)
 # to avoid autoconf errors.
 AC_USE_SYSTEM_EXTENSIONS
 
@@ -17,7 +17,7 @@ AC_USE_SYSTEM_EXTENSIONS
 AM_INIT_AUTOMAKE([foreign dist-xz])
 
 # Initialize libtool
-AC_PROG_LIBTOOL
+LT_INIT
 
 AC_SYS_LARGEFILE
 

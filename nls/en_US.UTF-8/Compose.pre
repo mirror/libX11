@@ -227,12 +227,6 @@ XCOMM "₵" U20b5 CEDI SIGN
 <Multi_key> <y> <minus>			: "¥"	yen # YEN SIGN
 <Multi_key> <minus> <y>			: "¥"	yen # YEN SIGN
 
-XCOMM Long S
-<Multi_key> <f> <s>			: "ſ"	U017f # LATIN SMALL LETTER LONG S
-<Multi_key> <f> <S>			: "ſ"	U017f # LATIN SMALL LETTER LONG S
-<dead_abovedot> <Multi_key> <f> <s>	: "ẛ"	U1e9b # LATIN SMALL LETTER LONG S WITH DOT ABOVE
-<Multi_key> <dead_abovedot> <f> <s>	: "ẛ"	U1e9b # LATIN SMALL LETTER LONG S WITH DOT ABOVE
-
 XCOMM Dashes
 <Multi_key> <minus> <minus> <period>	: "–"	U2013 # EN DASH
 <Multi_key> <minus> <minus> <minus>	: "—"	U2014 # EM DASH
@@ -1057,6 +1051,8 @@ XCOMM Latin Extended-A
 <Multi_key> <v> <z>			: "ž"	U017E # LATIN SMALL LETTER Z WITH CARON
 <Multi_key> <less> <z>			: "ž"	U017E # LATIN SMALL LETTER Z WITH CARON
 <Multi_key> <z> <less>			: "ž"	U017E # LATIN SMALL LETTER Z WITH CARON
+<Multi_key> <f> <s>			: "ſ"	U017F # LATIN SMALL LETTER LONG S
+<Multi_key> <f> <S>			: "ſ"	U017F # LATIN SMALL LETTER LONG S
 
 XCOMM Latin Extended-B
 <dead_stroke> <b>				: "ƀ"	U0180 # LATIN SMALL LETTER B WITH STROKE
@@ -2516,6 +2512,8 @@ XCOMM Latin Extended Additional
 <Multi_key> <o> <y>				: "ẙ"	U1E99 # LATIN SMALL LETTER Y WITH RING ABOVE
 <dead_abovedot> <U017F>				: "ẛ"	U1E9B # LATIN SMALL LETTER LONG S WITH DOT ABOVE
 <Multi_key> <period> <U017F>			: "ẛ"	U1E9B # LATIN SMALL LETTER LONG S WITH DOT ABOVE
+<dead_abovedot> <Multi_key> <f> <s>		: "ẛ"	U1E9B # LATIN SMALL LETTER LONG S WITH DOT ABOVE
+<Multi_key> <dead_abovedot> <f> <s>		: "ẛ"	U1E9B # LATIN SMALL LETTER LONG S WITH DOT ABOVE
 <dead_belowdot> <A>				: "Ạ"	U1EA0 # LATIN CAPITAL LETTER A WITH DOT BELOW
 <Multi_key> <exclam> <A>			: "Ạ"	U1EA0 # LATIN CAPITAL LETTER A WITH DOT BELOW
 <dead_belowdot> <a>				: "ạ"	U1EA1 # LATIN SMALL LETTER A WITH DOT BELOW

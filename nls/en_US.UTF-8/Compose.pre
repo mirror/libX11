@@ -4459,33 +4459,48 @@ XCOMM Superscripts and Subscripts
 <Multi_key> <asciicircum> <parenright>		: "⁾"	U207E # SUPERSCRIPT RIGHT PARENTHESIS
 <dead_circumflex> <Multi_key> <underscore> <n>	: "ⁿ"	U207F # SUPERSCRIPT LATIN SMALL LETTER N
 <Multi_key> <asciicircum> <underscore> <n>	: "ⁿ"	U207F # SUPERSCRIPT LATIN SMALL LETTER N
+<dead_caron> <0>				: "₀"	U2080 # SUBSCRIPT ZERO
 <Multi_key> <underscore> <0>			: "₀"	U2080 # SUBSCRIPT ZERO
 <Multi_key> <underscore> <KP_0>			: "₀"	U2080 # SUBSCRIPT ZERO
+<dead_caron> <1>				: "₁"	U2081 # SUBSCRIPT ONE
 <Multi_key> <underscore> <1>			: "₁"	U2081 # SUBSCRIPT ONE
 <Multi_key> <underscore> <KP_1>			: "₁"	U2081 # SUBSCRIPT ONE
+<dead_caron> <2>				: "₂"	U2082 # SUBSCRIPT TWO
 <Multi_key> <underscore> <2>			: "₂"	U2082 # SUBSCRIPT TWO
 <Multi_key> <underscore> <KP_2>			: "₂"	U2082 # SUBSCRIPT TWO
+<dead_caron> <3>				: "₃"	U2083 # SUBSCRIPT THREE
 <Multi_key> <underscore> <3>			: "₃"	U2083 # SUBSCRIPT THREE
 <Multi_key> <underscore> <KP_3>			: "₃"	U2083 # SUBSCRIPT THREE
+<dead_caron> <4>				: "₄"	U2084 # SUBSCRIPT FOUR
 <Multi_key> <underscore> <4>			: "₄"	U2084 # SUBSCRIPT FOUR
 <Multi_key> <underscore> <KP_4>			: "₄"	U2084 # SUBSCRIPT FOUR
+<dead_caron> <5>				: "₅"	U2085 # SUBSCRIPT FIVE
 <Multi_key> <underscore> <5>			: "₅"	U2085 # SUBSCRIPT FIVE
 <Multi_key> <underscore> <KP_5>			: "₅"	U2085 # SUBSCRIPT FIVE
+<dead_caron> <6>				: "₆"	U2086 # SUBSCRIPT SIX
 <Multi_key> <underscore> <6>			: "₆"	U2086 # SUBSCRIPT SIX
 <Multi_key> <underscore> <KP_6>			: "₆"	U2086 # SUBSCRIPT SIX
+<dead_caron> <7>				: "₇"	U2087 # SUBSCRIPT SEVEN
 <Multi_key> <underscore> <7>			: "₇"	U2087 # SUBSCRIPT SEVEN
 <Multi_key> <underscore> <KP_7>			: "₇"	U2087 # SUBSCRIPT SEVEN
+<dead_caron> <8>				: "₈"	U2088 # SUBSCRIPT EIGHT
 <Multi_key> <underscore> <8>			: "₈"	U2088 # SUBSCRIPT EIGHT
 <Multi_key> <underscore> <KP_8>			: "₈"	U2088 # SUBSCRIPT EIGHT
+<dead_caron> <9>				: "₉"	U2089 # SUBSCRIPT NINE
 <Multi_key> <underscore> <9>			: "₉"	U2089 # SUBSCRIPT NINE
 <Multi_key> <underscore> <KP_9>			: "₉"	U2089 # SUBSCRIPT NINE
+<dead_caron> <plus>				: "₊"	U208A # SUBSCRIPT PLUS SIGN
 <Multi_key> <underscore> <plus>			: "₊"	U208A # SUBSCRIPT PLUS SIGN
 <Multi_key> <underscore> <KP_Add>		: "₊"	U208A # SUBSCRIPT PLUS SIGN
+<dead_caron> <minus>				: "₋"	U208B # SUBSCRIPT MINUS
 <Multi_key> <underscore> <minus>		: "₋"	U208B # SUBSCRIPT MINUS
 <Multi_key> <underscore> <U2212>		: "₋"	U208B # SUBSCRIPT MINUS
+<dead_caron> <equal>				: "₌"	U208C # SUBSCRIPT EQUALS SIGN
 <Multi_key> <underscore> <equal>		: "₌"	U208C # SUBSCRIPT EQUALS SIGN
 <Multi_key> <underscore> <KP_Equal>		: "₌"	U208C # SUBSCRIPT EQUALS SIGN
+<dead_caron> <parenleft>			: "₍"	U208D # SUBSCRIPT LEFT PARENTHESIS
 <Multi_key> <underscore> <parenleft>		: "₍"	U208D # SUBSCRIPT LEFT PARENTHESIS
+<dead_caron> <parenright>			: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
 <Multi_key> <underscore> <parenright>		: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
 
 XCOMM Letterlike Symbols
@@ -5068,21 +5083,6 @@ XCOMM French-Dvorak Bépo compositions
 <dead_breve> <agrave>			: "ằ"	abrevegrave # LATIN SMALL LETTER A WITH BREVE AND GRAVE
 <dead_breve> <atilde>			: "ẵ"	abrevetilde # LATIN SMALL LETTER A WITH BREVE AND TILDE
 <dead_breve> <nobreakspace>		: "̆"	U0306 # COMBINING BREVE
-<dead_caron> <parenleft>		: "₍"	U208D # SUBSCRIPT LEFT PARENTHESIS
-<dead_caron> <parenright>		: "₎"	U208E # SUBSCRIPT RIGHT PARENTHESIS
-<dead_caron> <plus>			: "₊"	U208A # SUBSCRIPT PLUS SIGN
-<dead_caron> <minus>			: "₋"	U208B # SUBSCRIPT MINUS
-<dead_caron> <0>			: "₀"	zerosubscript # SUBSCRIPT ZERO
-<dead_caron> <1>			: "₁"	onesubscript # SUBSCRIPT ONE
-<dead_caron> <2>			: "₂"	twosubscript # SUBSCRIPT TWO
-<dead_caron> <3>			: "₃"	threesubscript # SUBSCRIPT THREE
-<dead_caron> <4>			: "₄"	foursubscript # SUBSCRIPT FOUR
-<dead_caron> <5>			: "₅"	fivesubscript # SUBSCRIPT FIVE
-<dead_caron> <6>			: "₆"	sixsubscript # SUBSCRIPT SIX
-<dead_caron> <7>			: "₇"	sevensubscript # SUBSCRIPT SEVEN
-<dead_caron> <8>			: "₈"	eightsubscript # SUBSCRIPT EIGHT
-<dead_caron> <9>			: "₉"	ninesubscript # SUBSCRIPT NINE
-<dead_caron> <equal>			: "₌"	U208C # SUBSCRIPT EQUALS SIGN
 <dead_caron> <U01F2>			: "ǅ"	U01C5 # LATIN CAPITAL LETTER D WITH SMALL LETTER Z WITH CARON
 <dead_caron> <V>			: "Ǚ"	U01D9 # LATIN CAPITAL LETTER U WITH DIAERESIS AND CARON
 <dead_caron> <v>			: "ǚ"	U01DA # LATIN SMALL LETTER U WITH DIAERESIS AND CARON
